@@ -432,7 +432,7 @@
     },
     {
      "ko": "닿다",
-     "en": "attach; touch (verb)"
+     "en": "touch; reach (verb)"
     },
     {
      "ko": "간",
@@ -440,7 +440,7 @@
     },
     {
      "ko": "편",
-     "en": "party; side (bound noun)"
+     "en": "side; team; party (bound noun)"
     },
     {
      "ko": "한쪽",
@@ -472,7 +472,7 @@
     },
     {
      "ko": "면적",
-     "en": "area; size (noun)"
+     "en": "surface area; size (noun)"
     },
     {
      "ko": "형태",
@@ -1224,7 +1224,7 @@
     },
     {
      "ko": "감동",
-     "en": "impression; deep emotion (noun)"
+     "en": "deep emotion; being moved (noun)"
     },
     {
      "ko": "감정",
@@ -1248,7 +1248,7 @@
     },
     {
      "ko": "담다",
-     "en": "dish up (verb)"
+     "en": "put in; contain (verb)"
     },
     {
      "ko": "채우다",
@@ -1270,7 +1270,7 @@
       "spirit",
       "to be dazzling",
       "emotion",
-      "dish up"
+      "put in"
      ],
      "a": 1,
      "why": "눈부시다 means to be dazzling; to be brilliant. 한국은 지난 반세기 동안 눈부신 경제 성장을 이루었다. (Korea achieved brilliant economic growth over the past half century.)"
@@ -1576,7 +1576,7 @@
    "cards": [
     {
      "ko": "치우다",
-     "en": "move (verb)"
+     "en": "clear away; tidy up (verb)"
     },
     {
      "ko": "나르다",
@@ -1660,12 +1660,12 @@
      "q": "What does 치우다 mean?",
      "opts": [
       "air conditioning",
-      "move",
+      "clear away",
       "danji",
       "kitchen"
      ],
      "a": 1,
-     "why": "치우다 means move. 안전사고 방지를 위해 복도에 어지럽게 쌓인 물건들을 신속히 치웠다. (Things messily piled in the hallway were promptly cleared to prevent accidents.)"
+     "why": "치우다 means clear away; tidy up. 안전사고 방지를 위해 복도에 어지럽게 쌓인 물건들을 신속히 치웠다. (Things messily piled in the hallway were promptly cleared to prevent accidents.)"
     },
     {
      "q": "Which Korean word means \"be involved in\"?",
@@ -1746,8 +1746,8 @@
      ]
     },
     {
-     "q": "\"move\" in Korean: ___",
-     "en": "move",
+     "q": "\"clear away\" in Korean: ___",
+     "en": "clear away; tidy up",
      "a": [
       "치우다"
      ]
@@ -2000,7 +2000,7 @@
     },
     {
      "ko": "풀",
-     "en": "starch; adhesive (noun)"
+     "en": "glue; paste (noun)"
     },
     {
      "ko": "낙엽",
@@ -2408,7 +2408,7 @@
     },
     {
      "ko": "발전",
-     "en": "development; generation (noun)"
+     "en": "development; progress (noun)"
     },
     {
      "ko": "산업",
@@ -2493,7 +2493,7 @@
       "industry"
      ],
      "a": 1,
-     "why": "발전 means development; generation. 정부는 국가 경제 발전을 위한 새로운 성장 동력을 모색한다. (The government seeks new growth engines for national economic development.)"
+     "why": "발전 means development; progress. 정부는 국가 경제 발전을 위한 새로운 성장 동력을 모색한다. (The government seeks new growth engines for national economic development.)"
     },
     {
      "q": "Which Korean word means \"quality\"?",
@@ -2792,7 +2792,7 @@
     },
     {
      "ko": "수다",
-     "en": "prattle; chatter (noun)"
+     "en": "chatter; small talk (noun)"
     },
     {
      "ko": "의견",
@@ -2800,7 +2800,7 @@
     },
     {
      "ko": "전망",
-     "en": "view (noun)"
+     "en": "prospect; outlook; view (noun)"
     },
     {
      "ko": "해결",
@@ -2880,12 +2880,12 @@
      "q": "What does 전망 mean?",
      "opts": [
       "counterpart",
-      "view",
+      "prospect",
       "light up",
       "solution"
      ],
      "a": 1,
-     "why": "전망 means view. 전문가들은 올 하반기 경제 전망을 밝게 내다보았다. (Experts brightly viewed the economic prospects for the second half of this year.)"
+     "why": "전망 means prospect; outlook; view. 전문가들은 올 하반기 경제 전망을 밝게 내다보았다. (Experts brightly viewed the economic prospects for the second half of this year.)"
     },
     {
      "q": "Which Korean word means \"appear\"?",
@@ -3004,7 +3004,7 @@
     },
     {
      "ko": "지역",
-     "en": "area; region (noun)"
+     "en": "region; local area (noun)"
     },
     {
      "ko": "전용",
@@ -3020,7 +3020,7 @@
     },
     {
      "ko": "동",
-     "en": "dong; neighborhood administrative unit (noun)"
+     "en": "neighborhood (dong); administrative unit (noun)"
     },
     {
      "ko": "끊기다",
@@ -3053,7 +3053,7 @@
     {
      "q": "What does 음성 mean?",
      "opts": [
-      "area",
+      "region",
       "snap",
       "battery",
       "voice"
@@ -3764,7 +3764,7 @@
     },
     {
      "ko": "한결",
-     "en": "better; more (adverb)"
+     "en": "much more; noticeably (adverb)"
     },
     {
      "ko": "급격히",
@@ -4124,7 +4124,7 @@
    "cards": [
     {
      "ko": "나란히",
-     "en": "in order; in a line (adverb)"
+     "en": "side by side; in a row (adverb)"
     },
     {
      "ko": "너머",
@@ -4208,12 +4208,12 @@
      "q": "What does 나란히 mean?",
      "opts": [
       "trace",
-      "in order",
+      "side by side",
       "to wrap",
       "profit"
      ],
      "a": 1,
-     "why": "나란히 means in order; in a line. 교실 앞줄에 의자들이 가지런히 나란히 놓여 있었다. (Chairs were neatly placed side by side in the classroom front row.)"
+     "why": "나란히 means side by side; in a row. 교실 앞줄에 의자들이 가지런히 나란히 놓여 있었다. (Chairs were neatly placed side by side in the classroom front row.)"
     },
     {
      "q": "Which Korean word means \"to be rough\"?",
@@ -4294,8 +4294,8 @@
      ]
     },
     {
-     "q": "\"in order\" in Korean: ___",
-     "en": "in order; in a line",
+     "q": "\"side by side\" in Korean: ___",
+     "en": "side by side; in a row",
      "a": [
       "나란히"
      ]
@@ -4384,7 +4384,7 @@
     },
     {
      "ko": "돌아서다",
-     "en": "turn (verb)"
+     "en": "turn around; turn away (verb)"
     },
     {
      "ko": "매달리다",
@@ -4406,7 +4406,7 @@
       "addition",
       "budget",
       "to hand over",
-      "turn"
+      "turn around"
      ],
      "a": 1,
      "why": "예산 means budget. 정부는 복지 분야 예산을 대폭 확대하기로 했다. (The government decided to expand the welfare budget significantly.)"
@@ -4580,7 +4580,7 @@
     },
     {
      "ko": "비로소",
-     "en": "not till then (adverb)"
+     "en": "only then; for the first time (adverb)"
     },
     {
      "ko": "빗물",
@@ -4602,7 +4602,7 @@
       "to have ahead",
       "high quality",
       "day and night",
-      "not till then"
+      "only then"
      ],
      "a": 1,
      "why": "고급 means high quality; high grade. 이 호텔은 고급 인테리어로 투숙객의 호평을 받는다. (This hotel receives praise from guests for its luxury interior.)"
@@ -4908,7 +4908,7 @@
    "cards": [
     {
      "ko": "생생하다",
-     "en": "fresh (adjective)"
+     "en": "vivid; lively (adjective)"
     },
     {
      "ko": "억울하다",
@@ -4992,12 +4992,12 @@
      "q": "What does 생생하다 mean?",
      "opts": [
       "impact",
-      "fresh",
+      "vivid",
       "to mold",
       "besides"
      ],
      "a": 1,
-     "why": "생생하다 means fresh. 새벽 수산시장에 가면 갓 잡은 싱싱하고 생생한 생선들이 가득하다. (Going to the dawn fish market, freshly caught vivid fish are abundant.)"
+     "why": "생생하다 means vivid; lively. 새벽 수산시장에 가면 갓 잡은 싱싱하고 생생한 생선들이 가득하다. (Going to the dawn fish market, freshly caught vivid fish are abundant.)"
     },
     {
      "q": "Which Korean word means \"to be proud of\"?",
@@ -5078,8 +5078,8 @@
      ]
     },
     {
-     "q": "\"fresh\" in Korean: ___",
-     "en": "fresh",
+     "q": "\"vivid\" in Korean: ___",
+     "en": "vivid; lively",
      "a": [
       "생생하다"
      ]
@@ -5356,7 +5356,7 @@
     },
     {
      "ko": "비닐",
-     "en": "plastic; vinyl (noun)"
+     "en": "vinyl; plastic bag (noun)"
     },
     {
      "ko": "악취",
@@ -5405,7 +5405,7 @@
     {
      "q": "What does 환경 mean?",
      "opts": [
-      "plastic",
+      "vinyl",
       "land",
       "whale",
       "environment"
@@ -5692,7 +5692,7 @@
    "cards": [
     {
      "ko": "현대인",
-     "en": "modern people; today&apos (noun)"
+     "en": "modern people (noun)"
     },
     {
      "ko": "자연스럽다",
@@ -5781,7 +5781,7 @@
       "supply"
      ],
      "a": 1,
-     "why": "현대인 means modern people; today&apos. 복잡한 도시 생활 속에서 현대인은 정신적 휴식을 원한다. (In complex urban life, modern people want mental relaxation.)"
+     "why": "현대인 means modern people. 복잡한 도시 생활 속에서 현대인은 정신적 휴식을 원한다. (In complex urban life, modern people want mental relaxation.)"
     },
     {
      "q": "Which Korean word means \"look in eyes\"?",
@@ -5863,7 +5863,7 @@
     },
     {
      "q": "\"modern people\" in Korean: ___",
-     "en": "modern people; today&apos",
+     "en": "modern people",
      "a": [
       "현대인"
      ]
@@ -5904,7 +5904,7 @@
     },
     {
      "ko": "대체",
-     "en": "alternation; substitution (noun)"
+     "en": "replacement; substitution (noun)"
     },
     {
      "ko": "가치",
@@ -5995,7 +5995,7 @@
      "opts": [
       "humanity",
       "countermeasure",
-      "alternation",
+      "replacement",
       "benefit"
      ],
      "a": 3,
@@ -6352,7 +6352,7 @@
     },
     {
      "ko": "기울이다",
-     "en": "lean; tilt (verb)"
+     "en": "tilt; devote (attention) (verb)"
     },
     {
      "ko": "대처",
@@ -6508,7 +6508,7 @@
     },
     {
      "ko": "진동",
-     "en": "vibration; armhole (noun)"
+     "en": "vibration (noun)"
     },
     {
      "ko": "작동",
@@ -6696,7 +6696,7 @@
     },
     {
      "ko": "오가다",
-     "en": "exchange (verb)"
+     "en": "come and go (verb)"
     },
     {
      "ko": "뚫리다",
@@ -6704,7 +6704,7 @@
     },
     {
      "ko": "대로",
-     "en": "-n daero (noun)"
+     "en": "broad avenue; main street (noun)"
     },
     {
      "ko": "발길",
@@ -6755,7 +6755,7 @@
     {
      "q": "What does 압력 mean?",
      "opts": [
-      "exchange",
+      "come and go",
       "pressure",
       "passage",
       "part"
@@ -6780,10 +6780,10 @@
       "to collide with",
       "farmer",
       "streetlight",
-      "exchange"
+      "come and go"
      ],
      "a": 3,
-     "why": "오가다 means exchange. 역 앞 광장에는 수많은 사람들이 바쁘게 오갔다. (Numerous people came and went busily in the plaza in front of the station.)"
+     "why": "오가다 means come and go. 역 앞 광장에는 수많은 사람들이 바쁘게 오갔다. (Numerous people came and went busily in the plaza in front of the station.)"
     },
     {
      "q": "Which Korean word means \"footsteps\"?",
@@ -7104,7 +7104,7 @@
     },
     {
      "ko": "핑",
-     "en": "round; around (adverb)"
+     "en": "spinning (dizzily); welling up (tears) (adverb)"
     },
     {
      "ko": "순환",
@@ -7112,7 +7112,7 @@
     },
     {
      "ko": "누다",
-     "en": "evacuate; defecate (verb)"
+     "en": "relieve oneself (urinate or defecate) (verb)"
     },
     {
      "ko": "끌어올리다",
@@ -7192,12 +7192,12 @@
      "q": "What does 누다 mean?",
      "opts": [
       "perfectly",
-      "evacuate",
+      "relieve oneself (urinate or defecate)",
       "medical checkup",
       "to pull up"
      ],
      "a": 1,
-     "why": "누다 means evacuate; defecate. 의사는 환자에게 소변을 하루 몇 번 누는지 물었다. (The doctor asked the patient how many times a day they urinate.)"
+     "why": "누다 means relieve oneself (urinate or defecate). 의사는 환자에게 소변을 하루 몇 번 누는지 물었다. (The doctor asked the patient how many times a day they urinate.)"
     },
     {
      "q": "Which Korean word means \"continuous\"?",
@@ -8116,7 +8116,7 @@
     },
     {
      "ko": "구청",
-     "en": "gu office (noun)"
+     "en": "district office (noun)"
     },
     {
      "ko": "복지",
@@ -8508,7 +8508,7 @@
     },
     {
      "ko": "건",
-     "en": "case; matter (noun)"
+     "en": "matter; case (counter) (noun)"
     },
     {
      "ko": "본",

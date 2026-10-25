@@ -63,6 +63,7 @@ function bonusFor(ws, id, usedInBook) {
 const NOTES_F = path.join(ROOT, `docs/vocab-book/${CFG.id}.notes.json`);
 const NOTES = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
 const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림', antonym: 'Opposites · 반대말' };
+const AVOID = new Set(['누다']);
 const inline = {};
 const unitsOf = [];
 for (let u = 0; u < N_WORDS / PER; u++) {
@@ -90,7 +91,8 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   const uniq = (i) => firsts.filter((x) => x === firsts[i]).length === 1;
   secs.push({ type: 'practice', title: { en: 'Write the meaning', ko: '뜻 쓰기' }, hint: 'Cover the word list first, then write the English meaning.', items: pick(ws, (i) => i % 4 === 0).map((w) => ({ q: `${w.head} →`, a: w.en })) });
   secs.push({ type: 'practice', title: { en: 'Write the Korean', ko: '한국어 쓰기' }, hint: 'Cover the word list first, then write the Korean word.', items: ws.map((w, i) => ({ w, i })).filter(({ i }) => i % 4 === 2).map(({ w, i }) => ({ q: `${uniq(i) ? firsts[i] : w.en} →`, a: w.head })) });
-  const mine = [ws[3], ws[12]].filter(Boolean);
+  const OK = ws.filter((w) => !AVOID.has(w.head));   // 「내 문장 쓰기」에 어울리지 않는 낱말은 건너뛴다
+  const mine = [OK[3], OK[12]].filter(Boolean);
   secs.push({ type: 'practice', title: { en: 'Your turn', ko: '내 문장 쓰기' }, hint: 'Use each word in a true sentence about your own life. Say it aloud.', items: mine.map((w) => ({ q: `Write a sentence with ${w.head}. →`, a: '(Your own sentence · 내 문장)' })) });
   inline[id] = {
     id, title: { en: `Words ${no} · ${lvEn}`, ko: `낱말 ${no} · ${lvKo}` },

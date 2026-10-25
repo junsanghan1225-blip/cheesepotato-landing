@@ -679,7 +679,7 @@
             "en": "Watch out",
             "ko": "조심할 것"
           },
-          "text": "“공사해요” ✗ → “공사가 진행됩니다” ✓. “이해해 주세요” ✗ → “양해해 주시기 바랍니다” ✓.\nA notice speaks for an office: keep it formal and impersonal.\n공지는 기관이 말하는 글입니다, 격식체로, 개인적인 말투를 피하세요."
+          "text": "“공사해요” ✗ → “공사가 진행됩니다” ✓. “이해해 주세요” ✗ → “양해해 주시기 바랍니다” ✓.\nA notice speaks for an office: keep it formal and impersonal.\n공지는 기관이 말하는 글입니다. 격식체로 쓰고, 개인적인 말투는 피하세요."
         },
         {
           "type": "practice",
@@ -896,7 +896,7 @@
             "en": "How to read this type",
             "ko": "이 유형 읽는 법"
           },
-          "text": "The text explains why something happens. A blank often needs a reason ending in -기 때문이다, or a result that follows. Close in the plain style (-ㄴ다\n-는다\n-이다).\n왜 그런지 설명하는 글입니다. 빈칸에는 -기 때문이다로 끝나는 이유나, 그 결과가 들어갑니다. -(느)ㄴ다체(-ㄴ다\n-는다\n-이다)로 닫으세요."
+          "text": "The text explains why something happens. A blank often needs a reason ending in -기 때문이다, or a result that follows. Close in the plain style (-ㄴ다 / -는다 / -이다).\n왜 그런지 설명하는 글입니다. 빈칸에는 -기 때문이다로 끝나는 이유나, 그 결과가 들어갑니다. -(느)ㄴ다체(-ㄴ다 · -는다 · -이다)로 닫으세요."
         },
         {
           "type": "table",
@@ -1160,7 +1160,7 @@
             "en": "How to read this type",
             "ko": "이 유형 읽는 법"
           },
-          "text": "These texts turn with 그러나\n하지만, or warn that too much is harmful. The blank after the link word must point the opposite way; the final blank often states the balance (-는 것이 중요하다).\n‘그러나 · 하지만’으로 방향이 바뀌거나 지나침을 경계하는 글입니다. 연결어 뒤 빈칸은 앞과 반대 방향이고, 마지막 빈칸은 균형(-는 것이 중요하다)을 말하는 경우가 많습니다."
+          "text": "These texts turn with 그러나 · 하지만, or warn that too much is harmful. The blank after the link word must point the opposite way; the final blank often states the balance (-는 것이 중요하다).\n‘그러나 · 하지만’으로 방향이 바뀌거나 지나침을 경계하는 글입니다. 연결어 뒤 빈칸은 앞과 반대 방향이고, 마지막 빈칸은 균형(-는 것이 중요하다)을 말하는 경우가 많습니다."
         },
         {
           "type": "table",

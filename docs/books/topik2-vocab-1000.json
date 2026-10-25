@@ -1166,7 +1166,7 @@
       {
        "ko": "닿다",
        "pos": "verb",
-       "en": "attach; touch",
+       "en": "touch; reach",
        "ex": {
         "ko": "까치발을 드니 높은 선반 끝에 겨우 손이 닿아요.",
         "en": "Standing on tiptoe, my hand barely reaches the edge of the high shelf."
@@ -1188,7 +1188,7 @@
       {
        "ko": "편",
        "pos": "bound noun",
-       "en": "party; side",
+       "en": "side; team; party",
        "ex": {
         "ko": "저녁에 집에서 마음이 따뜻해지는 가족 영화 한 편을 봐요.",
         "en": "I watch a heartwarming family movie at home in the evening."
@@ -1276,7 +1276,7 @@
       {
        "ko": "면적",
        "pos": "noun",
-       "en": "area; size",
+       "en": "surface area; size",
        "ex": {
         "ko": "새로 이사한 아파트는 거실과 방의 면적이 꽤 넓어요.",
         "en": "The newly moved apartment has quite wide areas for the living room and rooms."
@@ -1316,8 +1316,8 @@
        "to add",
        "increase",
        "place",
-       "attach",
-       "party"
+       "touch",
+       "side"
       ],
       "answer": [
        "b",
@@ -1410,7 +1410,7 @@
       },
       {
        "q": "닿다 →",
-       "a": "attach; touch"
+       "a": "touch; reach"
       },
       {
        "q": "가리다 →",
@@ -1439,7 +1439,7 @@
        "a": "데"
       },
       {
-       "q": "party →",
+       "q": "side →",
        "a": "편"
       },
       {
@@ -1447,7 +1447,7 @@
        "a": "대다"
       },
       {
-       "q": "area →",
+       "q": "surface area →",
        "a": "면적"
       }
      ]
@@ -2852,7 +2852,7 @@
       {
        "ko": "감동",
        "pos": "noun",
-       "en": "impression; deep emotion",
+       "en": "deep emotion; being moved",
        "ex": {
         "ko": "어려운 이웃을 돕는 따뜻한 사연을 듣고 깊은 감동을 받아요.",
         "en": "Hearing a warm story helping neighbors in need, I receive deep impressions."
@@ -2918,7 +2918,7 @@
       {
        "ko": "담다",
        "pos": "verb",
-       "en": "dish up",
+       "en": "put in; contain",
        "ex": {
         "ko": "엄마가 정성껏 만드신 음식을 예쁜 그릇에 담아요.",
         "en": "I put the food mom lovingly made into pretty dishes."
@@ -3082,7 +3082,7 @@
       },
       {
        "q": "담다 →",
-       "a": "dish up"
+       "a": "put in; contain"
       }
      ]
     },
@@ -3103,7 +3103,7 @@
        "a": "정신"
       },
       {
-       "q": "impression →",
+       "q": "deep emotion →",
        "a": "감동"
       },
       {
@@ -3574,7 +3574,7 @@
       {
        "ko": "치우다",
        "pos": "verb",
-       "en": "move",
+       "en": "clear away; tidy up",
        "ex": {
         "ko": "식사를 마친 후 식탁 위에 놓인 그릇들을 싱크대로 깨끗이 치워요.",
         "en": "After finishing eating, I cleanly clear dishes on the table to the sink."
@@ -3809,7 +3809,7 @@
       ],
       "options": [
        "heating",
-       "move",
+       "clear away",
        "to carry",
        "sweep",
        "be involved in",
@@ -3898,7 +3898,7 @@
      "items": [
       {
        "q": "치우다 →",
-       "a": "move"
+       "a": "clear away; tidy up"
       },
       {
        "q": "낡다 →",
@@ -4494,7 +4494,7 @@
       {
        "ko": "풀",
        "pos": "noun",
-       "en": "starch; adhesive",
+       "en": "glue; paste",
        "ex": {
         "ko": "벽보를 붙이려고 종이 뒤에 풀을 발랐어요.",
         "en": "I applied glue to the back of the paper to put up a poster."
@@ -4738,7 +4738,7 @@
       },
       {
        "q": "풀 →",
-       "a": "starch; adhesive"
+       "a": "glue; paste"
       },
       {
        "q": "당신 →",
@@ -5370,7 +5370,7 @@
       {
        "ko": "발전",
        "pos": "noun",
-       "en": "development; generation",
+       "en": "development; progress",
        "ex": {
         "ko": "기술이 빠르게 발전하면서 사람들의 일상이 편리해져요.",
         "en": "As technology develops rapidly, people's daily lives become convenient."
@@ -5574,7 +5574,7 @@
       },
       {
        "q": "발전 →",
-       "a": "development; generation"
+       "a": "development; progress"
       },
       {
        "q": "경제 →",
@@ -6180,7 +6180,7 @@
       {
        "ko": "수다",
        "pos": "noun",
-       "en": "prattle; chatter",
+       "en": "chatter; small talk",
        "ex": {
         "ko": "오랜만에 친구들과 카페에서 즐겁게 수다를 떨었어요.",
         "en": "I chatter pleasantly with friends at a cafe after a long time."
@@ -6202,7 +6202,7 @@
       {
        "ko": "전망",
        "pos": "noun",
-       "en": "view",
+       "en": "prospect; outlook; view",
        "ex": {
         "ko": "창밖으로 탁 트인 바다 전망이 아름다워요.",
         "en": "The open sea view outside the window is beautiful."
@@ -6406,7 +6406,7 @@
       },
       {
        "q": "전망 →",
-       "a": "view"
+       "a": "prospect; outlook; view"
       },
       {
        "q": "목표 →",
@@ -6431,7 +6431,7 @@
        "a": "통"
       },
       {
-       "q": "prattle →",
+       "q": "chatter →",
        "a": "수다"
       },
       {
@@ -6640,7 +6640,7 @@
       {
        "ko": "지역",
        "pos": "noun",
-       "en": "area; region",
+       "en": "region; local area",
        "ex": {
         "ko": "우리 지역의 아름다운 명소를 친구에게 소개해요.",
         "en": "I introduce our region's beautiful spots to a friend."
@@ -6684,7 +6684,7 @@
       {
        "ko": "동",
        "pos": "noun",
-       "en": "dong; neighborhood administrative unit",
+       "en": "neighborhood (dong); administrative unit",
        "ex": {
         "ko": "제가 새로 이사한 아파트는 지하철역과 가까운 백일 동이에요.",
         "en": "The apartment I newly moved to is Building 101, close to the subway station."
@@ -6851,11 +6851,11 @@
        "a": "로봇"
       },
       {
-       "q": "area →",
+       "q": "region →",
        "a": "지역"
       },
       {
-       "q": "dong →",
+       "q": "neighborhood (dong) →",
        "a": "동"
       }
      ]
@@ -8238,7 +8238,7 @@
       {
        "ko": "한결",
        "pos": "adverb",
-       "en": "better; more",
+       "en": "much more; noticeably",
        "ex": {
         "ko": "따뜻한 차를 마셨더니 감기 기운이 한결 나아졌어요.",
         "en": "Having drunk warm tea, my cold symptom became noticeably better."
@@ -8482,7 +8482,7 @@
       },
       {
        "q": "한결 →",
-       "a": "better; more"
+       "a": "much more; noticeably"
       },
       {
        "q": "특정 →",
@@ -8982,7 +8982,7 @@
       {
        "ko": "나란히",
        "pos": "adverb",
-       "en": "in order; in a line",
+       "en": "side by side; in a row",
        "ex": {
         "ko": "친구와 나란히 어깨를 맞대고 공원을 걸었어요.",
         "en": "I walked in the park side by side with my friend, shoulder to shoulder."
@@ -9306,7 +9306,7 @@
      "items": [
       {
        "q": "나란히 →",
-       "a": "in order; in a line"
+       "a": "side by side; in a row"
       },
       {
        "q": "소형 →",
@@ -9574,7 +9574,7 @@
       {
        "ko": "돌아서다",
        "pos": "verb",
-       "en": "turn",
+       "en": "turn around; turn away",
        "ex": {
         "ko": "작별 인사를 나누고 아쉬운 발걸음으로 돌아섰어요.",
         "en": "Sharing farewell greetings, I turned around with regretful steps."
@@ -9738,7 +9738,7 @@
       },
       {
        "q": "돌아서다 →",
-       "a": "turn"
+       "a": "turn around; turn away"
       }
      ]
     },
@@ -9990,7 +9990,7 @@
       {
        "ko": "비로소",
        "pos": "adverb",
-       "en": "not till then",
+       "en": "only then; for the first time",
        "ex": {
         "ko": "부모가 되고 나서야 비로소 부모님의 마음을 알겠어요.",
         "en": "Only after becoming a parent do I finally understand parents’ hearts."
@@ -10154,7 +10154,7 @@
       },
       {
        "q": "비로소 →",
-       "a": "not till then"
+       "a": "only then; for the first time"
       }
      ]
     },
@@ -10646,7 +10646,7 @@
       {
        "ko": "생생하다",
        "pos": "adjective",
-       "en": "fresh",
+       "en": "vivid; lively",
        "ex": {
         "ko": "어릴 때 할머니 댁에서 놀던 추억이 아직도 눈앞에 생생해요.",
         "en": "Memories of playing at grandma's house in childhood are still vivid before eyes."
@@ -10883,7 +10883,7 @@
        "to be proud of",
        "frown",
        "to be reassuring",
-       "fresh",
+       "vivid",
        "to feel mistreated",
        "psychological"
       ],
@@ -10970,7 +10970,7 @@
      "items": [
       {
        "q": "생생하다 →",
-       "a": "fresh"
+       "a": "vivid; lively"
       },
       {
        "q": "우려 →",
@@ -11632,7 +11632,7 @@
       {
        "ko": "비닐",
        "pos": "noun",
-       "en": "plastic; vinyl",
+       "en": "vinyl; plastic bag",
        "ex": {
         "ko": "마트에서 물건을 살 때 일회용 비닐봉지 대신 장바구니를 써요.",
         "en": "When shopping at the mart, I use a shopping bag instead of plastic bags."
@@ -11843,7 +11843,7 @@
        "a": "흙"
       },
       {
-       "q": "plastic →",
+       "q": "vinyl →",
        "a": "비닐"
       },
       {
@@ -12310,7 +12310,7 @@
       {
        "ko": "현대인",
        "pos": "noun",
-       "en": "modern people; today&apos",
+       "en": "modern people",
        "ex": {
         "ko": "바쁜 현대인들은 운동 부족을 겪기 쉬워요.",
         "en": "Busy modern people easily suffer from lack of exercise."
@@ -12634,7 +12634,7 @@
      "items": [
       {
        "q": "현대인 →",
-       "a": "modern people; today&apos"
+       "a": "modern people"
       },
       {
        "q": "펼치다 →",
@@ -12770,7 +12770,7 @@
       {
        "ko": "대체",
        "pos": "noun",
-       "en": "alternation; substitution",
+       "en": "replacement; substitution",
        "ex": {
         "ko": "석유를 대신할 친환경 대체 에너지 개발이 활발해요.",
         "en": "Development of eco-friendly alternative energy to replace petroleum is brisk."
@@ -12965,7 +12965,7 @@
        "occurrence",
        "crisis",
        "convenience",
-       "alternation"
+       "replacement"
       ],
       "answer": [
        "f",
@@ -13054,7 +13054,7 @@
       },
       {
        "q": "대체 →",
-       "a": "alternation; substitution"
+       "a": "replacement; substitution"
       },
       {
        "q": "위기 →",
@@ -13756,7 +13756,7 @@
       {
        "ko": "기울이다",
        "pos": "verb",
-       "en": "lean; tilt",
+       "en": "tilt; devote (attention)",
        "ex": {
         "ko": "발표자의 말에 온 신경을 집중해 귀를 기울였어요.",
         "en": "I concentrated all attention and paid ear to the presenter’s words."
@@ -13927,7 +13927,7 @@
        "a": "사례"
       },
       {
-       "q": "lean →",
+       "q": "tilt →",
        "a": "기울이다"
       }
      ]
@@ -14062,7 +14062,7 @@
       {
        "ko": "진동",
        "pos": "noun",
-       "en": "vibration; armhole",
+       "en": "vibration",
        "ex": {
         "ko": "수업 중에는 휴대전화를 진동 모드로 바꾸세요.",
         "en": "Please switch your mobile phone to vibration mode during class."
@@ -14306,7 +14306,7 @@
       },
       {
        "q": "진동 →",
-       "a": "vibration; armhole"
+       "a": "vibration"
       },
       {
        "q": "개발 →",
@@ -14456,7 +14456,7 @@
       {
        "ko": "오가다",
        "pos": "verb",
-       "en": "exchange",
+       "en": "come and go",
        "ex": {
         "ko": "고향과 서울을 자주 오가며 살고 있어요.",
         "en": "I live while frequently coming and going between hometown and Seoul."
@@ -14478,7 +14478,7 @@
       {
        "ko": "대로",
        "pos": "noun",
-       "en": "-n daero",
+       "en": "broad avenue; main street",
        "ex": {
         "ko": "차들이 시원하게 달리는 넓은 대로를 따라 걸었어요.",
         "en": "I walked along a wide boulevard where cars run smoothly."
@@ -14628,7 +14628,7 @@
        "to collide with",
        "collision",
        "scientific",
-       "exchange",
+       "come and go",
        "to be pierced"
       ],
       "answer": [
@@ -14722,7 +14722,7 @@
       },
       {
        "q": "대로 →",
-       "a": "-n daero"
+       "a": "broad avenue; main street"
       },
       {
        "q": "머물다 →",
@@ -14747,7 +14747,7 @@
        "a": "과학적"
       },
       {
-       "q": "exchange →",
+       "q": "come and go →",
        "a": "오가다"
       },
       {
@@ -15332,7 +15332,7 @@
       {
        "ko": "핑",
        "pos": "adverb",
-       "en": "round; around",
+       "en": "spinning (dizzily); welling up (tears)",
        "ex": {
         "ko": "갑자기 일어났더니 어지러워서 머리가 핑 돌고 비틀거려요.",
         "en": "Standing up suddenly, I feel dizzy and my head spins around, staggering."
@@ -15354,7 +15354,7 @@
       {
        "ko": "누다",
        "pos": "verb",
-       "en": "evacuate; defecate",
+       "en": "relieve oneself (urinate or defecate)",
        "ex": {
         "ko": "배탈이 나서 화장실에서 설사를 누었어요.",
         "en": "Because I had an upset stomach, I had diarrhea in the restroom."
@@ -15456,12 +15456,12 @@
        "의하다"
       ],
       "options": [
-       "evacuate",
+       "relieve oneself (urinate or defecate)",
        "to pull up",
        "continuous",
        "to be based on",
        "medical treatment",
-       "round"
+       "spinning (dizzily)"
       ],
       "answer": [
        "f",
@@ -15558,7 +15558,7 @@
       },
       {
        "q": "누다 →",
-       "a": "evacuate; defecate"
+       "a": "relieve oneself (urinate or defecate)"
       },
       {
        "q": "지속 →",
@@ -15583,7 +15583,7 @@
        "a": "위생"
       },
       {
-       "q": "round →",
+       "q": "spinning (dizzily) →",
        "a": "핑"
       },
       {
@@ -15609,7 +15609,7 @@
        "a": "(Your own sentence · 내 문장)"
       },
       {
-       "q": "Write a sentence with 누다. →",
+       "q": "Write a sentence with 끌어올리다. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]
@@ -17500,7 +17500,7 @@
       {
        "ko": "구청",
        "pos": "noun",
-       "en": "gu office",
+       "en": "district office",
        "ex": {
         "ko": "서류를 떼러 근처 구청에 다녀왔어요.",
         "en": "I went to the nearby district office to get documents."
@@ -17671,7 +17671,7 @@
        "a": "마케팅"
       },
       {
-       "q": "gu office →",
+       "q": "district office →",
        "a": "구청"
       }
      ]
@@ -18332,7 +18332,7 @@
       {
        "ko": "건",
        "pos": "noun",
-       "en": "case; matter",
+       "en": "matter; case (counter)",
        "ex": {
         "ko": "오늘 회의에서 논의해야 할 중요한 안건이 서너 건 있어요.",
         "en": "There are three or four important matters to discuss in today's meeting."
@@ -18503,7 +18503,7 @@
        "a": "비료"
       },
       {
-       "q": "case →",
+       "q": "matter →",
        "a": "건"
       }
      ]
