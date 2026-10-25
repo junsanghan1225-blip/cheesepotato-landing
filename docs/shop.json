@@ -1,5 +1,5 @@
 {
- "_note": "상점(/shop/) 상품 목록: 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러로 통일(운영자 2026-10-17). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다, Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
+ "_note": "상점(/shop/) 상품 목록: 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러(운영자 2026-10-17), 단어장 시리즈는 6.90 달러(2026-10-25). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다, Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
  "currency": "USD",
  "singlePrice": "1.99",
  "singles": {},
@@ -82,7 +82,76 @@
    "pages": "140쪽 (PDF · 속지 기준)",
    "status": "on",
    "price": "9.90",
-  "polar": "https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2"
+   "polar": "https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2"
+  },
+  {
+   "id": "particles-workbook",
+   "series": "workbook",
+   "color": "#2F8F6B",
+   "level": "A1–A2",
+   "title": {
+    "en": "Korean Particles Workbook",
+    "ko": "한국어 조사 워크북"
+   },
+   "sub": {
+    "en": "20 particles, how to choose between them, and sentences to learn from.",
+    "ko": "조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기"
+   },
+   "about": {
+    "en": "Particles are the small words that glue Korean together. Each unit takes one particle: its meaning, its form, examples, the trap to avoid, and practice. A \"Choose the right particle\" part sets look-alikes side by side (은/는 vs 이/가, 에 vs 에서 and more), and review tests mix everything. Answer key at the back and a QR code in each unit to free online practice.",
+    "ko": "조사는 한국어를 이어 붙이는 작은 말입니다. 조사 하나하나의 뜻과 모양, 예문, 피할 함정, 연습을 한 단원씩 익히고, 은/는과 이/가, 에와 에서처럼 헷갈리는 조사는 나란히 놓고 가려 냅니다. 복습 시험과 뒤쪽 정답, 단원마다 QR 로 무료 연습."
+   },
+   "for": {
+    "en": [
+     "Learners at A1–A2 who mix up particles",
+     "Intermediate learners who want the rules behind them",
+     "Teachers who run grammar classes"
+    ],
+    "ko": [
+     "조사가 헷갈리는 A1~A2 학습자",
+     "규칙을 정리하고 싶은 중급 학습자",
+     "문법 수업을 하는 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Start here",
+     "ko": "시작하기"
+    },
+    {
+     "en": "Core markers",
+     "ko": "기본 조사"
+    },
+    {
+     "en": "Place, time & direction",
+     "ko": "장소 · 시간 · 방향"
+    },
+    {
+     "en": "Together, also & only",
+     "ko": "함께 · 도 · 만"
+    },
+    {
+     "en": "Ways, amounts & comparing",
+     "ko": "수단 · 어림 · 견주기"
+    },
+    {
+     "en": "Choose the right particle",
+     "ko": "헷갈리는 조사 가르기"
+    },
+    {
+     "en": "Review tests",
+     "ko": "종합 연습"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "186쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "9.90",
+   "coverImg": "/assets/books/particles-workbook/cover.jpg"
   },
   {
    "id": "elementary-grammar-workbook",
@@ -214,7 +283,7 @@
    "pages": "92쪽 (PDF · 속지 기준)",
    "status": "on",
    "price": "9.90",
-  "polar": "https://buy.polar.sh/polar_cl_bi6QFC16s44llPfzyF8HQrnCi90g8AgVpfSNt4gBZKJ",
+   "polar": "https://buy.polar.sh/polar_cl_bi6QFC16s44llPfzyF8HQrnCi90g8AgVpfSNt4gBZKJ",
    "coverImg": "/assets/books/topik2-writing-51-52/cover.jpg",
    "page": {
     "headline": {
@@ -504,6 +573,177 @@
      ]
     ]
    }
+  },
+  {
+   "id": "topik2-vocab-1000",
+   "series": "topik",
+   "color": "#6B3FA0",
+   "level": "TOPIK II",
+   "title": {
+    "en": "TOPIK II Vocabulary Workbook 1",
+    "ko": "TOPIK II 단어장 워크북 1"
+   },
+   "sub": {
+    "en": "Words 1-1,000 by how often they appear in TOPIK II, with example sentences and writing practice.",
+    "ko": "TOPIK II 에 자주 나오는 순 1~1,000번째 낱말 · 예문과 쓰기 연습"
+   },
+   "about": {
+    "en": "The 1,000 words that come up most often in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
+    "ko": "우리 TOPIK II 연습 자료에서 가장 자주 나온 낱말 1,000개를 3급부터 6급까지 20개씩 50단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+   },
+   "for": {
+    "en": [
+     "TOPIK II (levels 3–6) test takers",
+     "Learners who want the most useful words first",
+     "Teachers who need word lists with practice"
+    ],
+    "ko": [
+     "TOPIK II (3~6급) 응시생",
+     "자주 나오는 낱말부터 익히고 싶은 학습자",
+     "연습이 붙은 낱말장이 필요한 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Level 3 words (units 1–18)",
+     "ko": "3급 낱말 (1~18단원)"
+    },
+    {
+     "en": "Level 4 words (units 19–37)",
+     "ko": "4급 낱말 (19~37단원)"
+    },
+    {
+     "en": "Level 5 words (units 38–45)",
+     "ko": "5급 낱말 (38~45단원)"
+    },
+    {
+     "en": "Level 6 words (units 46–50)",
+     "ko": "6급 낱말 (46~50단원)"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "280쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "6.90",
+   "coverImg": "/assets/books/topik2-vocab-1000/cover.jpg"
+  },
+  {
+   "id": "topik2-vocab-2000",
+   "series": "topik",
+   "color": "#6B3FA0",
+   "level": "TOPIK II",
+   "title": {
+    "en": "TOPIK II Vocabulary Workbook 2",
+    "ko": "TOPIK II 단어장 워크북 2"
+   },
+   "sub": {
+    "en": "Words 1,001-2,000 by how often they appear in TOPIK II, with example sentences and writing practice.",
+    "ko": "TOPIK II 에 자주 나오는 순 1,001~2,000번째 낱말 · 예문과 쓰기 연습"
+   },
+   "about": {
+    "en": "Book 2 of the series: the next 1,000 words, ranked 1,001 to 2,000 by how often they come up in our TOPIK II practice material, 20 per unit in 50 units. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
+    "ko": "시리즈 2권: 우리 TOPIK II 연습 자료에서 자주 나온 순 1,001~2,000번째 낱말을 20개씩 50단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+   },
+   "for": {
+    "en": [
+     "TOPIK II (levels 3–6) test takers who finished Book 1",
+     "Learners who want to widen their word range",
+     "Teachers who need word lists with practice"
+    ],
+    "ko": [
+     "1권을 마친 TOPIK II (3~6급) 응시생",
+     "낱말 범위를 넓히고 싶은 학습자",
+     "연습이 붙은 낱말장이 필요한 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Level 3 words (units 1–12)",
+     "ko": "3급 낱말 (1~12단원)"
+    },
+    {
+     "en": "Level 4 words (units 13–29)",
+     "ko": "4급 낱말 (13~29단원)"
+    },
+    {
+     "en": "Level 5 words (units 30–40)",
+     "ko": "5급 낱말 (30~40단원)"
+    },
+    {
+     "en": "Level 6 words (units 41–50)",
+     "ko": "6급 낱말 (41~50단원)"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "282쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "6.90",
+   "coverImg": "/assets/books/topik2-vocab-2000/cover.jpg"
+  },
+  {
+   "id": "topik2-vocab-lv3",
+   "series": "topik",
+   "color": "#6B3FA0",
+   "level": "TOPIK II",
+   "title": {
+    "en": "TOPIK II Vocabulary Workbook 3",
+    "ko": "TOPIK II 단어장 워크북 3"
+   },
+   "sub": {
+    "en": "940 level-3 words that are not in Books 1 and 2, with example sentences and writing practice.",
+    "ko": "1 · 2권에 없는 TOPIK II 3급 낱말 940개 · 예문과 쓰기 연습"
+   },
+   "about": {
+    "en": "Book 3 of the series: 940 level-3 words that are not in Books 1 and 2, 20 per unit in 47 units. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
+    "ko": "시리즈 3권: 1 · 2권에 없는 3급 낱말 940개를 20개씩 47단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+   },
+   "for": {
+    "en": [
+     "Learners aiming at TOPIK II level 3 and beyond",
+     "Learners who finished Books 1 and 2 and want the rest of level 3",
+     "Teachers who need word lists with practice"
+    ],
+    "ko": [
+     "TOPIK II 3급 이상을 준비하는 학습자",
+     "1 · 2권을 마치고 남은 3급 낱말을 채우려는 학습자",
+     "연습이 붙은 낱말장이 필요한 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Words 1–240 (units 1–12)",
+     "ko": "낱말 1~240 (1~12단원)"
+    },
+    {
+     "en": "Words 241–480 (units 13–24)",
+     "ko": "낱말 241~480 (13~24단원)"
+    },
+    {
+     "en": "Words 481–720 (units 25–36)",
+     "ko": "낱말 481~720 (25~36단원)"
+    },
+    {
+     "en": "Words 721–940 (units 37–47)",
+     "ko": "낱말 721~940 (37~47단원)"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "266쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "6.90",
+   "coverImg": "/assets/books/topik2-vocab-lv3/cover.jpg"
   },
   {
    "id": "topik2-writing-53-54",
