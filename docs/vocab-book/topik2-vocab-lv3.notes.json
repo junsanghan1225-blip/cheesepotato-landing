@@ -258,5 +258,265 @@
       "kind": "homonym",
       "note": "매 ① hawk or falcon bird of prey (하늘을 나는 매) vs native 매 ② disciplinary rod or cane used for physical punishment (사랑의 매 cane of discipline). Unrelated origins sharing exact spelling."
     }
+  ],
+  "tx-11": [
+    {
+      "words": [
+        "설",
+        "설"
+      ],
+      "kind": "homonym",
+      "note": "설 Lunar New Year Day (설날 holiday) vs 說 academic theory or rumored explanation (새로운 학설 a new academic theory). Completely different origins."
+    },
+    {
+      "words": [
+        "용",
+        "용"
+      ],
+      "kind": "homonym",
+      "note": "龍 legendary dragon creature (하늘로 승천하는 용 dragon ascending to sky) vs suffix 用 meaning intended for use by a group (수출용 for export, 여성용 for women)."
+    },
+    {
+      "words": [
+        "예식장",
+        "장례식"
+      ],
+      "kind": "contrast",
+      "note": "Contrasting life ceremonies in Korean culture. 예식장 is a wedding hall celebrating marriage (결혼 예식장), whereas 장례식 is a solemn funeral service mourning a death (장례식을 치르다)."
+    }
+  ],
+  "tx-12": [
+    {
+      "words": [
+        "양산",
+        "우산"
+      ],
+      "kind": "contrast",
+      "note": "Distinct protective canopies. 陽傘 양산 shields from sunlight and heat on clear summer days (양산을 쓰다), whereas 雨傘 우산 protects from precipitation on rainy days (우산을 쓰다)."
+    },
+    {
+      "words": [
+        "긴팔",
+        "반팔"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for sleeve length. 긴팔 is worn in autumn and winter to retain warmth (긴팔 셔츠 long-sleeved shirt), whereas 반팔 is worn in summer to stay cool (반팔 티셔츠 short-sleeved T-shirt)."
+    },
+    {
+      "words": [
+        "소매",
+        "소매"
+      ],
+      "kind": "homonym",
+      "note": "Native 소매 meaning garment sleeve (소매를 걷어붙이다 to roll up sleeves) vs Sino-Korean 小賣 retail trade (소매점 retail store, opposite of 도매 wholesale). Unrelated origins."
+    }
+  ],
+  "tx-13": [
+    {
+      "words": [
+        "거스름돈",
+        "잔돈"
+      ],
+      "kind": "synonym",
+      "note": "Both translate to change, but 거스름돈 is strictly the money returned after a transaction (거스름돈 500원). 잔돈 refers generally to small-denomination coins or loose cash in your pocket (잔돈이 필요하다)."
+    },
+    {
+      "words": [
+        "수표",
+        "현금"
+      ],
+      "kind": "contrast",
+      "note": "Payment formats. 수표 is a bank-issued promissory paper check used for large payments (십만 원권 수표 bank check), whereas 현금 is liquid currency cash (현금 결제 cash payment)."
+    },
+    {
+      "words": [
+        "생활비",
+        "용돈"
+      ],
+      "kind": "synonym",
+      "note": "생활비 covers essential everyday survival costs like rent, groceries, and bills (한 달 생활비). 용돈 is discretionary spending money or personal pocket allowance (아이에게 용돈을 주다)."
+    }
+  ],
+  "tx-14": [
+    {
+      "words": [
+        "식후",
+        "식전"
+      ],
+      "kind": "contrast",
+      "note": "Crucial medical and dining antonyms. 식후 indicates taking medication or resting after eating (식후 30분에 드세요), whereas 식전 indicates before eating on an empty stomach (식전에 복용하다)."
+    },
+    {
+      "words": [
+        "매진",
+        "품절"
+      ],
+      "kind": "synonym",
+      "note": "Both mean sold out, but 매진 is commonly used for tickets, shows, and transit seats (기차표 매진 ticket sell-out). 품절 is standard for manufactured retail merchandise running out of stock (인기 상품 품절)."
+    },
+    {
+      "words": [
+        "저축",
+        "소비"
+      ],
+      "kind": "contrast",
+      "note": "Direct economic antonyms. 저축 is setting money aside in savings for future security (매달 저축하다), while 소비 is spending money to purchase goods or services (과소비 overspending)."
+    }
+  ],
+  "tx-15": [
+    {
+      "words": [
+        "그제",
+        "모레"
+      ],
+      "kind": "contrast",
+      "note": "Symmetrical chronological antonyms from today. 그제 is two days in the past (그제 만났어요 met two days ago), while 모레 (or 낼모레) is two days into the future (모레 시험이에요 exam is day after tomorrow)."
+    },
+    {
+      "words": [
+        "보름",
+        "그믐"
+      ],
+      "kind": "contrast",
+      "note": "Traditional lunar calendar benchmarks. 보름 is the 15th day with a round full moon (정월 대보름, 보름달), while 그믐 is the dark moonless end of the lunar month (그믐달 crescent/last moon)."
+    },
+    {
+      "words": [
+        "막",
+        "막"
+      ],
+      "kind": "homonym",
+      "note": "Native adverb 막 meaning just right now or blindly (막 출발하려던 참 just about to leave) vs Sino-Korean 幕 theatrical act or protective membrane (연극 1막 act one of a play, 각막 cornea)."
+    }
+  ],
+  "tx-16": [
+    {
+      "words": [
+        "양력",
+        "음력"
+      ],
+      "kind": "contrast",
+      "note": "The two official calendar systems in Korea. 양력 tracks the solar year for official dates (양력 생일 solar birthday), whereas 음력 tracks lunar cycles for traditional holidays (음력 설날 Lunar New Year)."
+    },
+    {
+      "words": [
+        "정오",
+        "자정"
+      ],
+      "kind": "contrast",
+      "note": "Exact 12-hour opposites. 정오 is midday when the sun peaks at 12:00 PM (정오에 점심을 먹다), whereas 자정 is deep midnight at 12:00 AM (자정이 넘은 시각 past midnight)."
+    },
+    {
+      "words": [
+        "앞날",
+        "지난날"
+      ],
+      "kind": "contrast",
+      "note": "Temporal orientation antonyms. 앞날 looks ahead to future prospects and destiny (앞날을 응원하다 to support one future), while 지난날 reflects back on bygone past days (지난날의 추억 past memories)."
+    }
+  ],
+  "tx-17": [
+    {
+      "words": [
+        "일출",
+        "일몰"
+      ],
+      "kind": "contrast",
+      "note": "Astronomical solar antonyms. 日出 일출 is the sun rising at dawn (동해 일출 East Sea sunrise), whereas 日沒 일몰 is the sun descending below the horizon at dusk (일몰 명소 sunset attraction)."
+    },
+    {
+      "words": [
+        "천둥",
+        "번개"
+      ],
+      "kind": "synonym",
+      "note": "천둥 is the auditory crashing roar of atmospheric shockwaves (천둥이 치다 thunder rumbles). 번개 is the visual electrical light flash streak across clouds (번개가 번쩍이다 lightning flashes)."
+    },
+    {
+      "words": [
+        "빌다",
+        "빌리다"
+      ],
+      "kind": "contrast",
+      "note": "Frequently confused native verbs. 빌다 means wishing or pleading earnestly (달을 보며 소원을 빌다 to wish upon the moon). 빌리다 means temporarily borrowing an item (도서관에서 책을 빌리다)."
+    }
+  ],
+  "tx-18": [
+    {
+      "words": [
+        "만족",
+        "불만족"
+      ],
+      "kind": "contrast",
+      "note": "Direct emotional antonyms. 滿足 만족 is contentment with a result or service (고객 만족 customer satisfaction), while 不滿足 불만족 is dissatisfaction when expectations are unmet (서비스에 대한 불만족)."
+    },
+    {
+      "words": [
+        "한숨",
+        "한숨"
+      ],
+      "kind": "homonym",
+      "note": "Two native expressions: 한숨 ① deep exhalation or sigh of worry (안도의 한숨 sigh of relief, 한숨을 쉬다) vs 한숨 ② brief restorative nap or short rest (한숨 푹 자고 나다 to take a good nap)."
+    },
+    {
+      "words": [
+        "최선",
+        "차선"
+      ],
+      "kind": "contrast",
+      "note": "Choice priority antonyms. 최선 is the ideal top option or giving one utmost best (최선을 다하다 to do one best), while 차선 is the secondary fallback when the best is unavailable (차선책 second-best plan)."
+    }
+  ],
+  "tx-19": [
+    {
+      "words": [
+        "밉다",
+        "곱다"
+      ],
+      "kind": "contrast",
+      "note": "Emotional and visual antonyms. 밉다 expresses dislike or irritation at bad behavior (미운 행동 hateful behavior), whereas 곱다 describes lovely elegance or warm attitude (고운 마음 lovely heart)."
+    },
+    {
+      "words": [
+        "실망",
+        "기대"
+      ],
+      "kind": "contrast",
+      "note": "Emotional progression opposites. 기대 is hopeful anticipation beforehand (큰 기대를 걸다 have high hopes), while 실망 is the sadness felt when reality falls short (기대가 실망으로 바뀌다)."
+    },
+    {
+      "words": [
+        "소원",
+        "소망"
+      ],
+      "kind": "synonym",
+      "note": "Both mean wish or hope, but 소원 often carries a strong longing or dramatic wish (소원을 빌다 to make a wish), while 소망 expresses warm, modest personal hopes (행복한 가정이라는 소망)."
+    }
+  ],
+  "tx-20": [
+    {
+      "words": [
+        "삶다",
+        "데치다"
+      ],
+      "kind": "synonym",
+      "note": "Culinary techniques with boiling water. 삶다 boils foods thoroughly until cooked deep to the core (달걀을 삶다). 데치다 briefly blanches vegetables in boiling water for seconds to keep crunch (시금치를 살짝 데치다)."
+    },
+    {
+      "words": [
+        "식히다",
+        "시키다"
+      ],
+      "kind": "contrast",
+      "note": "Frequently confused homophones. 식히다 [시키다] means lowering temperature or cooling hot food (뜨거운 국을 식히다). 시키다 means placing a food order or ordering a task (피자를 시키다 to order pizza)."
+    },
+    {
+      "words": [
+        "편식",
+        "골고루"
+      ],
+      "kind": "contrast",
+      "note": "Dietary habits opposites. 偏食 편식 is unbalanced eating of only favorite items (아이의 편식 습관 picky eating), whereas 골고루 먹다 is eating a well-balanced spread of all nutrients."
+    }
   ]
 }
