@@ -1,0 +1,262 @@
+{
+  "tx-01": [
+    {
+      "words": [
+        "금연",
+        "흡연"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for tobacco habits. 禁煙 금연 is refraining from smoking or designated smoke-free rules (금연 구역 non-smoking zone), whereas 吸煙 흡연 is the act of smoking (흡연실 smoking room)."
+    },
+    {
+      "words": [
+        "문병",
+        "병문안"
+      ],
+      "kind": "synonym",
+      "note": "Both mean visiting a sick person in the hospital, but 문병 (問病) is a concise Sino-Korean noun (문병을 가다), while 병문안 (病問安) is more conversational and expressive (친구 병문안을 다녀오다)."
+    },
+    {
+      "words": [
+        "진찰",
+        "치료"
+      ],
+      "kind": "contrast",
+      "note": "Sequential medical steps. 진찰 is the doctor examining and assessing symptoms (의사의 진찰 medical exam), whereas 치료 is administering medicine or surgery to heal the disease (치료를 받다 to receive treatment)."
+    }
+  ],
+  "tx-02": [
+    {
+      "words": [
+        "대변",
+        "대변"
+      ],
+      "kind": "homonym",
+      "note": "大便 feces or bodily waste (대변 검사 stool test) vs 代辯 speaking on behalf of a group or person (입장을 대변하다 to represent a stance, 대변인 spokesperson). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "소변",
+        "대변"
+      ],
+      "kind": "contrast",
+      "note": "Paired clinical medical terms for bodily excretions. 소변 is liquid waste or urination (소변 검사 urine test), while 대변 is solid bowel movement (대변 검사 stool analysis)."
+    },
+    {
+      "words": [
+        "독감",
+        "감기"
+      ],
+      "kind": "contrast",
+      "note": "Distinct medical conditions. 감기 is the mild common cold with runny nose and cough (감기에 걸리다). 독감 is severe influenza caused specifically by influenza viruses, requiring vaccination (독감 예방주사 flu shot)."
+    }
+  ],
+  "tx-03": [
+    {
+      "words": [
+        "붓다",
+        "붓다"
+      ],
+      "kind": "homonym",
+      "note": "Two native Korean verbs: 붓다 ① for body tissue to swell up puffy (눈이 붓다 swollen eyes) vs 붓다 ② to pour liquid (물을 컵에 붓다 to pour water) vs 붓다 ③ to deposit savings installments (적금을 붓다)."
+    },
+    {
+      "words": [
+        "암",
+        "암"
+      ],
+      "kind": "homonym",
+      "note": "癌 malignant cancer tumor (암 예방 cancer prevention) vs native prefix 암 meaning female of animals (암컷 female animal, 암사자 lioness). Unrelated origins sharing exact spelling."
+    },
+    {
+      "words": [
+        "연고",
+        "연고"
+      ],
+      "kind": "homonym",
+      "note": "軟膏 medical healing ointment or salve (피부 연고 skin ointment) vs 緣故 social or familial connections (연고가 없는 도시 a city with no personal ties). Distinct hanja roots."
+    }
+  ],
+  "tx-04": [
+    {
+      "words": [
+        "나아지다",
+        "나빠지다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for health and conditions. 나아지다 describes symptoms or circumstances improving (건강이 나아지다), whereas 나빠지다 describes them deteriorating (시력이 나빠지다)."
+    },
+    {
+      "words": [
+        "중단",
+        "지속"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for process continuity. 中斷 중단 is halting an ongoing project midway (공사 중단 construction halt), whereas 持續 지속 is maintaining progress without stopping (연구 지속 continuing research)."
+    },
+    {
+      "words": [
+        "깨지다",
+        "부서지다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean breaking, but 깨지다 specifically describes brittle materials like glass, mirrors, or porcelain cracking into sharp pieces (거울이 깨지다). 부서지다 describes solid objects crumbling under impact."
+    }
+  ],
+  "tx-05": [
+    {
+      "words": [
+        "따라가다",
+        "따라오다"
+      ],
+      "kind": "contrast",
+      "note": "Paired directional motion verbs. 따라가다 moves toward a destination away from the speaker (앞사람을 따라가다 to follow someone ahead), whereas 따라오다 moves in the direction toward the speaker (강아지가 나를 따라오다)."
+    },
+    {
+      "words": [
+        "완성",
+        "미완성"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for project completion. 완성 describes a work brought to full fruition (작품 완성 artwork completion), while 미완성 describes unfinished pieces (미완성 교향곡 unfinished symphony)."
+    },
+    {
+      "words": [
+        "뺏다",
+        "주다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for ownership transfer. 뺏다 (빼앗다) is forcibly snatching or depriving someone of an item (물건을 뺏다), whereas 주다 is willingly offering or handing something over (선물을 주다)."
+    }
+  ],
+  "tx-06": [
+    {
+      "words": [
+        "공통점",
+        "차이점"
+      ],
+      "kind": "contrast",
+      "note": "Core analytical pair in TOPIK essays. 공통점 highlights shared qualities between two subjects (두 문화의 공통점), whereas 차이점 highlights their distinctive differences (세대의 차이점)."
+    },
+    {
+      "words": [
+        "관계있다",
+        "관계없다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for relevance. 관계있다 links an event to an outcome (건강과 관계있다), whereas 관계없다 disclaims any connection (결과와 관계없다 has nothing to do with the result)."
+    },
+    {
+      "words": [
+        "불규칙",
+        "규칙"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for order. 규칙 denotes standard laws and regular rhythms (규칙적인 생활 regular lifestyle), whereas 불규칙 denotes erratic deviations (불규칙한 식습관 irregular eating habits)."
+    }
+  ],
+  "tx-07": [
+    {
+      "words": [
+        "서투르다",
+        "능숙하다"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for proficiency. 서투르다 describes unpracticed clumsiness in a skill (한국어가 서투르다 Korean is clumsy), whereas 능숙하다 describes polished proficiency (능숙한 솜씨 skillful hand)."
+    },
+    {
+      "words": [
+        "최저",
+        "최고"
+      ],
+      "kind": "contrast",
+      "note": "Direct antonyms for statistical peaks and valleys. 최저 marks the absolute bottom floor (최저 임금 minimum wage), whereas 최고 marks the absolute top ceiling (역대 최고 기록 all-time high record)."
+    },
+    {
+      "words": [
+        "미만",
+        "이상"
+      ],
+      "kind": "contrast",
+      "note": "Precise numerical boundary terms. 미만 means strictly below a number without including it (10세 미만 under 10, aged 9 and below), whereas 이상 includes the baseline number (10세 이상 aged 10 and above)."
+    }
+  ],
+  "tx-08": [
+    {
+      "words": [
+        "우측",
+        "좌측"
+      ],
+      "kind": "contrast",
+      "note": "Direct navigational and directional antonyms in signage. 우측 indicates the right flank (우측 통행 keep right), whereas 좌측 indicates the left flank (좌측 출구 left-hand exit)."
+    },
+    {
+      "words": [
+        "양쪽",
+        "한쪽"
+      ],
+      "kind": "contrast",
+      "note": "Direct opposites for bilateral vs unilateral scope. 양쪽 refers to both flanks or mutual parties (양쪽 귀 both ears, 양쪽 입장 both stances), while 한쪽 isolates only one flank (한쪽 눈 one eye)."
+    },
+    {
+      "words": [
+        "송이",
+        "송이"
+      ],
+      "kind": "homonym",
+      "note": "Two native noun uses: 송이 ① counting unit for flower blooms or grape bunches (꽃 한 송이 a single flower) vs 송이 ② abbreviation for the prized wild pine mushroom (송이버섯 matsutake mushroom)."
+    }
+  ],
+  "tx-09": [
+    {
+      "words": [
+        "가로",
+        "세로"
+      ],
+      "kind": "contrast",
+      "note": "Direct geometric coordinate antonyms. 가로 measures horizontal width from left to right (가로 길이 width), while 세로 measures vertical height from top to bottom (세로 줄 vertical line)."
+    },
+    {
+      "words": [
+        "희다",
+        "검다"
+      ],
+      "kind": "contrast",
+      "note": "Direct chromatic antonyms for native Korean color adjectives. 희다 describes pure white or pale surfaces (흰 눈 white snow), whereas 검다 describes deep black or darkness (검은 머리 black hair)."
+    },
+    {
+      "words": [
+        "단단하다",
+        "부드럽다"
+      ],
+      "kind": "contrast",
+      "note": "Direct sensory antonyms for physical texture. 단단하다 resists pressure and holds stiffly (단단한 돌 hard rock), whereas 부드럽다 yields easily and feels gentle (부드러운 빵 soft bread)."
+    }
+  ],
+  "tx-10": [
+    {
+      "words": [
+        "예의",
+        "예절"
+      ],
+      "kind": "synonym",
+      "note": "Both mean manners, but 예의 is personal courtesy and respectful demeanor (예의 바른 태도 polite attitude), while 예절 refers to codified social rules and etiquette protocols (공공장소 예절 public etiquette)."
+    },
+    {
+      "words": [
+        "기도",
+        "기도"
+      ],
+      "kind": "homonym",
+      "note": "祈禱 religious prayer or earnest wish (간절한 기도 earnest prayer) vs 氣道 anatomical respiratory airway (기도를 확보하다 to secure the airway in first aid). Distinct hanja roots."
+    },
+    {
+      "words": [
+        "매",
+        "매"
+      ],
+      "kind": "homonym",
+      "note": "매 ① hawk or falcon bird of prey (하늘을 나는 매) vs native 매 ② disciplinary rod or cane used for physical punishment (사랑의 매 cane of discipline). Unrelated origins sharing exact spelling."
+    }
+  ]
+}
