@@ -1334,5 +1334,345 @@
    "kind": "contrast",
    "note": "촉촉하다 conveys pleasing, fresh, well-hydrated moisture (촉촉한 눈망울 moist glistening eyes). 축축하다 conveys uncomfortable, clammy, and unpleasantly soggy wetness (비에 젖어 축축한 양말 soggy wet socks)."
   }
+ ],
+ "tw-41": [
+  {
+   "words": [
+    "정적",
+    "정적"
+   ],
+   "kind": "homonym",
+   "note": "靜寂 deep silence, stillness, or tranquility (정적이 흐르다 stillness falls) vs 政敵 political opponent or rival (정적과의 대립 conflict with political rivals). Different Hanja roots."
+  },
+  {
+   "words": [
+    "치유",
+    "치료"
+   ],
+   "kind": "synonym",
+   "note": "치료 (治療) refers to clinical medical procedures, operations, or drugs to cure disease (병원 치료 hospital treatment). 치유 (治癒) focuses on natural or holistic emotional healing and recovery (자연 치유 natural healing)."
+  },
+  {
+   "words": [
+    "완화",
+    "강화"
+   ],
+   "kind": "contrast",
+   "note": "Opposite policy and physical directions: 완화 (緩和) is easing tensions, regulations, or pain (긴장 완화 easing tension), while 강화 (强化) is tightening controls or bolstering strength (체벌 규제 강화)."
+  },
+  {
+   "words": [
+    "뒤섞이다",
+    "뒤엉키다"
+   ],
+   "kind": "synonym",
+   "note": "뒤섞이다 is random mingling or blending of different substances or facts (모래와 흙이 뒤섞이다). 뒤엉키다 is physical or emotional entanglement into knotted knots (복잡하게 뒤엉킨 실 tangled threads)."
+  }
+ ],
+ "tw-42": [
+  {
+   "words": [
+    "이면",
+    "이면"
+   ],
+   "kind": "homonym",
+   "note": "裏面 reverse side of paper or hidden dark side of reality (이면지 scrap paper, 성공의 이면 the other side of success) vs 異面 a different plane or aspect. Different Hanja."
+  },
+  {
+   "words": [
+    "결핍",
+    "과잉"
+   ],
+   "kind": "contrast",
+   "note": "Opposite nutritional and psychological conditions: 결핍 (缺乏) is severe insufficiency or deprivation (영양 결핍 malnutrition), whereas 과잉 (過剩) is excessive surplus beyond healthy limits (과잉 소비 excess consumption)."
+  },
+  {
+   "words": [
+    "희미하다",
+    "선명하다"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting clarity: 희미하다 is hazy, faint, and dimly perceived (희미한 안개속 faint in mist), while 선명하다 (鮮明) is crystal-clear, sharp, and vividly defined (선명한 무지개 vivid rainbow)."
+  },
+  {
+   "words": [
+    "투박하다",
+    "섬세하다"
+   ],
+   "kind": "contrast",
+   "note": "투박하다 describes rustic, chunky, rough-hewn simplicity or blunt speech (투박한 뚝배기 rustic earthen pot). 섬세하다 (纖細) describes intricate delicacy, fine craftsmanship, and gentle polish (섬세한 조각 delicate sculpture)."
+  }
+ ],
+ "tw-43": [
+  {
+   "words": [
+    "전파",
+    "전파"
+   ],
+   "kind": "homonym",
+   "note": "電波 physical electromagnetic radio wave signals (전파 수신 radio signal reception) vs 傳播 viral, cultural, or informational diffusion (신문명 전파 spread of civilization). Distinct Hanja terms."
+  },
+  {
+   "words": [
+    "개관",
+    "개장"
+   ],
+   "kind": "synonym",
+   "note": "개관 (開館) applies specifically to opening buildings, museums, and libraries (-관/館) (박물관 개관). 개장 (開場) applies to opening outdoor venues, arenas, parks, or markets (-장/場) (스키장 개장 opening of ski slopes)."
+  },
+  {
+   "words": [
+    "자산",
+    "재산"
+   ],
+   "kind": "synonym",
+   "note": "자산 (資産) is financial accounting terminology including both equity and liabilities (유동 자산 liquid assets). 재산 (財産) refers to personal accumulated wealth, real estate, and possessions (개인 재산 personal property)."
+  },
+  {
+   "words": [
+    "폭염",
+    "한파"
+   ],
+   "kind": "contrast",
+   "note": "Opposite seasonal meteorological extremes: 폭염 (暴炎) is a scorching, dangerous summer heat wave (폭염 특보), while 한파 (寒波) is a bitter winter cold wave dropping temperatures drastically (기습 한파 sudden cold snap)."
+  }
+ ],
+ "tw-44": [
+  {
+   "words": [
+    "거르다",
+    "거르다"
+   ],
+   "kind": "homonym",
+   "note": "거르다 skip a meal, date, or step in a sequence (아침 식사를 거르다 skip breakfast) vs 거르다 filter, sieve, or strain liquid impurities (찌꺼기를 체에 거르다 strain residue through a sieve). Distinct senses."
+  },
+  {
+   "words": [
+    "들뜨다",
+    "가라앉다"
+   ],
+   "kind": "contrast",
+   "note": "Opposite emotional trajectories: 들뜨다 is surging excitement or restlessness anticipating a festival (소풍 전날 들뜨다), while 가라앉다 is soothing or subsiding back to quiet tranquility (마음이 차분히 가라앉다)."
+  },
+  {
+   "words": [
+    "물끄러미",
+    "멍하니"
+   ],
+   "kind": "synonym",
+   "note": "물끄러미 is gazing quietly, patiently, and attentively at someone with gentle observation (물끄러미 쳐다보다). 멍하니 is staring into space with a totally vacant, zoned-out mind (넋을 놓고 멍하니 앉다 sit blankly)."
+  },
+  {
+   "words": [
+    "되새기다",
+    "곱씹다"
+   ],
+   "kind": "synonym",
+   "note": "되새기다 is reflecting on advice, pledges, or history to appreciate their deep significance (역사의 교훈을 되새기다). 곱씹다 is obsessively replaying words or past regrets in one's head (후회되는 말을 곱씹다 brood over regrettable words)."
+  }
+ ],
+ "tw-45": [
+  {
+   "words": [
+    "무공해",
+    "공해"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting environmental purity: 무공해 (無公害) is completely clean and pollution-free (무공해 청정 지역 pollution-free clean area), while 공해 (公害) causes public environmental contamination and hazard (대기 공해 atmospheric pollution)."
+  },
+  {
+   "words": [
+    "내륙",
+    "해안"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting geographical zones: 내륙 (內陸) lies deep inside a continent far from water (내륙 분지 inland basin), while 해안 (海岸) directly borders the sea or ocean (해안 도로 coastal road)."
+  },
+  {
+   "words": [
+    "치열하다",
+    "격렬하다"
+   ],
+   "kind": "synonym",
+   "note": "치열하다 (熾烈) highlights relentless, razor-thin competition among rivals for a scarce prize (치열한 생존 경쟁). 격렬하다 (激烈) emphasizes explosive physical violence, fiery debate, or bodily exertion (격렬한 몸싸움 fierce scuffle)."
+  },
+  {
+   "words": [
+    "차곡차곡",
+    "가지런히"
+   ],
+   "kind": "synonym",
+   "note": "차곡차곡 describes orderly stacking upward or cumulative saving layer upon layer (책을 차곡차곡 쌓다). 가지런히 describes straightening edges side by side in neat, parallel alignment (가지런한 치아 straight, even teeth)."
+  }
+ ],
+ "tw-46": [
+  {
+   "words": [
+    "선조",
+    "후손"
+   ],
+   "kind": "contrast",
+   "note": "Generational lineage opposites: 선조 (先祖) refers to ancestral predecessors from centuries past (선조의 묘소 ancestral graves), while 후손 (後孫) refers to future descendants (자랑스러운 후손 proud descendants)."
+  },
+  {
+   "words": [
+    "자율",
+    "타율"
+   ],
+   "kind": "contrast",
+   "note": "Contrasting agency: 자율 (自律) is self-determined voluntary discipline from within (자율 규제 self-regulation), while 타율 (他律) is passive obedience compelled by outside enforcement (타율에 의한 행동)."
+  },
+  {
+   "words": [
+    "조급하다",
+    "느긋하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposite temperaments: 조급하다 (躁急) is fretful and rashly impatient to rush outcomes (조급하게 서두르다 rush impatiently), while 느긋하다 is composed, leisurely, and patient (느긋한 주말 leisurely weekend)."
+  },
+  {
+   "words": [
+    "양성",
+    "육성"
+   ],
+   "kind": "synonym",
+   "note": "양성 (養成) focuses specifically on educating and qualifying individual specialists (전문 인력 양성). 육성 (育成) focuses on systematically promoting, subsidizing, and growing entire industries or sectors (벤처 기업 육성)."
+  }
+ ],
+ "tw-47": [
+  {
+   "words": [
+    "고가",
+    "고가"
+   ],
+   "kind": "homonym",
+   "note": "高價 costly, high-priced merchandise (고가 브랜드 high-end luxury brand) vs 高架 elevated road or flyover bridge built on pillars (고가도로 elevated highway). Different Hanja roots."
+  },
+  {
+   "words": [
+    "실정",
+    "실정"
+   ],
+   "kind": "homonym",
+   "note": "實情 real-life state of affairs or ground conditions (지역 실정에 맞추다 fit local conditions) vs 失政 governmental misadministration or political blunder (경제적 실정을 비판하다 criticize misrule). Different Hanja."
+  },
+  {
+   "words": [
+    "흑자",
+    "적자"
+   ],
+   "kind": "contrast",
+   "note": "Foundational fiscal ledger opposites: 흑자 (黑字) means receipts exceed expenses yielding profit (경상수지 흑자), whereas 적자 (赤字) means spending exceeds revenues causing net loss (당기순손실 적자)."
+  },
+  {
+   "words": [
+    "투기",
+    "투자"
+   ],
+   "kind": "contrast",
+   "note": "투자 (投資) commits capital toward productive economic ventures for long-term growth (기술 개발 투자). 투기 (投機) is risky speculative gambling chasing rapid unearned profits (부동산 투기 광풍)."
+  }
+ ],
+ "tw-48": [
+  {
+   "words": [
+    "공약",
+    "공약"
+   ],
+   "kind": "homonym",
+   "note": "公約 official public platform pledge by political candidates (선거 공약 election pledge) vs 空約 unfulfilled empty promise with zero follow-through (공약(空約)으로 끝나다 end as empty words). Two distinct Hanja."
+  },
+  {
+   "words": [
+    "기피",
+    "회피"
+   ],
+   "kind": "synonym",
+   "note": "기피 (忌避) stems from visceral dislike or dread toward undesirable obligations (혐오 시설 기피). 회피 (回避) is tactical dodging or evasion of blame, encounters, or confrontation (책임 회피 dodging liability)."
+  },
+  {
+   "words": [
+    "누출",
+    "유출"
+   ],
+   "kind": "synonym",
+   "note": "누출 (漏出) typically refers to physical leaking of volatile gases or fluids from pipes (유독가스 누출 toxic gas leak). 유출 (流出) refers to draining of confidential data, secrets, or financial capital (기밀 유출 leak of secrets)."
+  },
+  {
+   "words": [
+    "정당하다",
+    "부당하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites of justice: 정당하다 (正當) is ethically fair and legally justifiable (정당한 요구 rightful demand), while 부당하다 (不當) is abusive, unfair, and ungrounded (부당한 처벌 unjust punishment)."
+  }
+ ],
+ "tw-49": [
+  {
+   "words": [
+    "비단",
+    "비단"
+   ],
+   "kind": "homonym",
+   "note": "緋緞 luxurious soft woven silk textile (비단 이불 silk quilt) vs 非但 adverb meaning 'not solely' or 'not merely', paired with -만이 아니다 (비단 이번뿐만이 아니다 not just this once). Distinct roots."
+  },
+  {
+   "words": [
+    "가상",
+    "가상"
+   ],
+   "kind": "homonym",
+   "note": "假想 virtual, simulated, or hypothetical reality (가상 화폐 virtual currency, 가상 공간) vs 嘉賞 praiseworthy and commendable (어린아이의 갸륵하고 가상한 효심 commendable filial devotion). Different Hanja."
+  },
+  {
+   "words": [
+    "개정",
+    "수정"
+   ],
+   "kind": "synonym",
+   "note": "개정 (改正) is formal enactment of revised laws, treaties, or curriculum (교과서 개정). 수정 (修正) is localized editing or fixing errors in drafts or code (계획안의 부분 수정 minor edit of plan)."
+  },
+  {
+   "words": [
+    "원격",
+    "대면"
+   ],
+   "kind": "contrast",
+   "note": "Opposite modes of interaction: 원격 (遠隔) connects across distances via digital networks (원격 진료 telemedicine), while 대면 (對面) requires being physically present face-to-face (대면 수업 in-person class)."
+  }
+ ],
+ "tw-50": [
+  {
+   "words": [
+    "경유",
+    "경유"
+   ],
+   "kind": "homonym",
+   "note": "經由 transit or travelling via an intermediate waypoint (홍콩 경유 항공편 flight via Hong Kong) vs 輕油 diesel petroleum fuel (경유 주유 diesel fueling). Different Hanja terms."
+  },
+  {
+   "words": [
+    "조립",
+    "해체"
+   ],
+   "kind": "contrast",
+   "note": "Opposite mechanical operations: 조립 (組立) combines parts into a finished structure (부품 조립 parts assembly), while 해체 (解體) breaks a whole unit down into components (조직 해체 disbanding group)."
+  },
+  {
+   "words": [
+    "가파르다",
+    "완만하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposite gradients: 가파르다 describes an abruptly steep, sharp incline (가파른 등산로 steep climbing trail), while 완만하다 (緩慢) describes a gentle, mild slope (완만한 오르막 gentle rise)."
+  },
+  {
+   "words": [
+    "권한",
+    "책임"
+   ],
+   "kind": "contrast",
+   "note": "Paired organizational concepts: 권한 (權限) is legitimate power granted to decide or command (결재 권한 approval authority), while 책임 (責任) is accountability for outcomes (결과에 대한 책임 accountability for results)."
+  }
  ]
 }
