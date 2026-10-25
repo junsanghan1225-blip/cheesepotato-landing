@@ -26,6 +26,8 @@ const REVIEW = args.includes('--review');
 const DIGITAL = args.includes('--digital');
 /* --epub : 같은 내용으로 ePub 3(글자가 화면에 맞게 흐르는 판)도 한 부 — 예스24 · 아마존 같은 전자책 판매처용. 찾아보기 · 메모(쪽 번호 · 인쇄 줄)는 빼고 구매자 혜택 쪽은 넣는다. */
 const EPUB = args.includes('--epub');
+/* --fxl : 쪽 그대로 보이는 고정형 ePub(쪽마다 그림 한 장) — PDF 와 같은 디자인이 필요한 전자책 판매처용. 글이 흐르는 ePub 와 달리 글자 크기 · 검색이 안 된다. */
+const FXL = args.includes('--fxl');
 const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--out') + 1] : 'books-out');
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
@@ -1004,6 +1006,50 @@ svg{width:1.2em;height:1.2em;max-width:100%}svg[height]{width:auto}svg.ic{width:
   const { execFileSync } = await import('node:child_process');
   execFileSync('zip', ['-X0', out, 'mimetype'], { cwd: ex }); execFileSync('zip', ['-Xr9D', out, 'META-INF', 'OEBPS'], { cwd: ex });
   console.log(`ePub ${bookId}: ${chap.length}개 장 → ${path.relative(ROOT, out)}`);
+}
+/* ── 고정형 ePub(쪽 그림) ── */
+if (FXL) {
+  const { execFileSync } = await import('node:child_process');
+  const W = 900, H = Math.round(W * 257 / 182);
+  const fx = path.join(dir, 'fxl-src'); fs.rmSync(fx, { recursive: true, force: true });
+  fs.mkdirSync(path.join(fx, 'META-INF'), { recursive: true }); fs.mkdirSync(path.join(fx, 'OEBPS', 'img'), { recursive: true });
+  const FO = (f) => path.join(fx, 'OEBPS', f);
+  const tmp = path.join(dir, 'fxl-tmp'); fs.rmSync(tmp, { recursive: true, force: true }); fs.mkdirSync(tmp, { recursive: true });
+  execFileSync('pdftoppm', ['-jpeg', '-jpegopt', 'quality=72', '-scale-to-x', String(W), '-scale-to-y', '-1', path.join(dir, 'interior.pdf'), path.join(tmp, 'p')]);
+  const shots = fs.readdirSync(tmp).filter((f) => f.endsWith('.jpg')).sort();
+  execFileSync('convert', [path.join(dir, 'front-cover-hires.jpg'), '-resize', `${W}x${H}!`, '-quality', '80', FO('img/p0001.jpg')]);
+  shots.forEach((f, i) => fs.copyFileSync(path.join(tmp, f), FO(`img/p${String(i + 2).padStart(4, '0')}.jpg`)));
+  const nPages = shots.length + 1;
+  const xe = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const pid = (n) => `p${String(n).padStart(4, '0')}`;
+  for (let n = 1; n <= nPages; n++) {
+    fs.writeFileSync(FO(`${pid(n)}.xhtml`), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta charset="utf-8"/><title>Page ${n}</title><meta name="viewport" content="width=${W}, height=${H}"/><style>html,body{margin:0;padding:0;width:${W}px;height:${H}px;background:#fff}img{display:block;width:${W}px;height:${H}px}</style></head><body><img src="img/${pid(n)}.jpg" width="${W}" height="${H}" alt="${n === 1 ? xe(B.title.en) + ' cover' : 'Page ' + (n - 1)}"/></body></html>`);
+  }
+  /* 차례: 블록 시작 쪽(표지가 1쪽이라 +1) */
+  const NAME = { copyright: 'Copyright · 판권', preface: 'Preface · 머리말', note: "Author's note · 저자의 말", author: 'About the author · 저자 소개', how: 'How to use this book · 이 책 쓰는 법', guide: 'How this book is organized · 이 책의 구성', toc: 'Contents · 목차', answers: 'Answer Key · 정답', index: 'Index · 찾아보기', memo: 'Notes · 메모', studymap: 'Study map · 공부 지도' };
+  const toc = [{ t: `${B.title.en} · cover`, n: 1, lvl: 0 }];
+  for (const [k] of blocks) {
+    const n = start[k] + 1; let m;
+    if ((m = /^part(\d+)$/.exec(k))) { const pt = parts[+m[1] - 1]; toc.push({ t: `${pt.title.ko} · ${pt.title.en}`, n, lvl: 0 }); }
+    else if ((m = /^unit(\d+)$/.exec(k))) { const u = units.find((x) => x.no === +m[1]); toc.push({ t: `${String(u.no).padStart(2, '0')} ${u.title.ko} · ${u.title.en}`, n, lvl: 1 }); }
+    else if (NAME[k]) toc.push({ t: NAME[k], n, lvl: 0 });
+  }
+  let nv = '', depth = 0;
+  for (const e of toc) {
+    if (e.lvl > depth) { nv += '<ol>'; depth = 1; } else if (e.lvl < depth) { nv += '</li></ol></li>'; depth = 0; } else if (nv) nv += '</li>';
+    nv += `<li><a href="${pid(e.n)}.xhtml">${xe(e.t)}</a>`;
+  }
+  nv += depth ? '</li></ol></li>' : '</li>';
+  fs.writeFileSync(FO('nav.xhtml'), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>Contents</title><meta name="viewport" content="width=${W}, height=${H}"/></head><body><nav epub:type="toc" id="toc"><h1>Contents · 목차</h1><ol>${nv}</ol></nav></body></html>`);
+  const mani = Array.from({ length: nPages }, (_, i) => i + 1).map((n) => `<item id="${pid(n)}" href="${pid(n)}.xhtml" media-type="application/xhtml+xml"/><item id="i${pid(n)}" href="img/${pid(n)}.jpg" media-type="image/jpeg"${n === 1 ? ' properties="cover-image"' : ''}/>`).join('');
+  const spineX = Array.from({ length: nPages }, (_, i) => `<itemref idref="${pid(i + 1)}"/>`).join('');
+  fs.writeFileSync(FO('content.opf'), `<?xml version="1.0" encoding="utf-8"?>\n<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bid" xml:lang="en"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">\n<dc:identifier id="bid">urn:everykoreans:${bookId}:fxl</dc:identifier><dc:title>${xe(B.title.en)} · ${xe(B.title.ko)}</dc:title><dc:language>en</dc:language><dc:creator>${xe(B.author.en)}</dc:creator><dc:publisher>${xe(B.publisher.en)}</dc:publisher><meta property="dcterms:modified">${new Date().toISOString().replace(/\.\d+Z$/, 'Z')}</meta>\n<meta property="rendition:layout">pre-paginated</meta><meta property="rendition:orientation">portrait</meta><meta property="rendition:spread">none</meta><meta name="fixed-layout" content="true"/><meta name="original-resolution" content="${W}x${H}"/><meta name="orientation-lock" content="portrait"/><meta name="cover" content="i${pid(1)}"/></metadata>\n<manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>${mani}</manifest>\n<spine>${spineX}</spine></package>`);
+  fs.writeFileSync(path.join(fx, 'META-INF', 'container.xml'), `<?xml version="1.0"?>\n<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>`);
+  fs.writeFileSync(path.join(fx, 'mimetype'), 'application/epub+zip');
+  const fout = path.join(dir, `${bookId}-fxl.epub`); fs.rmSync(fout, { force: true });
+  execFileSync('zip', ['-X0', fout, 'mimetype'], { cwd: fx }); execFileSync('zip', ['-Xr9D', fout, 'META-INF', 'OEBPS'], { cwd: fx });
+  fs.rmSync(tmp, { recursive: true, force: true });
+  console.log(`고정형 ePub ${bookId}: ${nPages}쪽 ${(fs.statSync(fout).size / 1048576).toFixed(1)}MB → ${path.relative(ROOT, fout)}`);
 }
 await browser.close(); server.close();
 
