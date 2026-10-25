@@ -28,7 +28,8 @@ export function validateBonus(f) {
     const wsf = path.join(ROOT, 'docs/worksheets', `${u}.json`);
     const corpus = ko((fs.existsSync(wsf) ? fs.readFileSync(wsf, 'utf8') : '') + JSON.stringify(book?.inline?.[u] || {}) + JSON.stringify(book?.groups?.[u] || {}));
     const n = (a) => (Array.isArray(a) ? a.length : 0);
-    if (n(c.cards) < 6 || n(c.cards) > 12) err.push(`${at}: 낱말 카드는 6~12개(지금 ${n(c.cards)})`);
+    const maxCards = d.maxCards || 12;
+    if (n(c.cards) < 6 || n(c.cards) > maxCards) err.push(`${at}: 낱말 카드는 6~${maxCards}개(지금 ${n(c.cards)})`);
     if (n(c.quiz) < 4 || n(c.quiz) > 8) err.push(`${at}: 퀴즈는 4~8개(지금 ${n(c.quiz)})`);
     if (n(c.fill) < 4 || n(c.fill) > 8) err.push(`${at}: 빈칸은 4~8개(지금 ${n(c.fill)})`);
     const seen = new Set();

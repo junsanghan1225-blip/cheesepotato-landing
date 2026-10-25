@@ -240,7 +240,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', text: '참고', practice: '연습', writing: '문제', example: '예시' };
+const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', text: '참고', practice: '연습', writing: '문제', example: '예시' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -253,6 +253,9 @@ const patHtml = (rows) => `<div class="bx pattern">${legend('pattern')}<div clas
 const blockHtml = (u, si, s, text) => { const k = kindOf(u, si, s); const pat = (B.patterns || {})[`${u.id}:${si + 1}`]; return k === 'pattern' && pat ? patHtml(pat) : boxHtml(k === 'pattern' ? 'tip' : k, text); };
 const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${esc(text)}</div></div>`;
 let secNo = '';
+/* 치즈(난이도) · 감자(빈출도) 아이콘 — 채운 것 · 빈 것 */
+const cheeseIc = (on) => `<svg class="ic" viewBox="0 0 16 16"><path d="M1.5 12.5H14.5V6L1.5 3.5Z" fill="${on ? '#F2B632' : '#fff'}" stroke="${on ? '#B8841B' : '#cfc7b8'}" stroke-width="1" stroke-linejoin="round"/>${on ? '<circle cx="5" cy="9.4" r="1.3" fill="#D99A1E"/><circle cx="10" cy="8.2" r="1" fill="#D99A1E"/><circle cx="12" cy="11" r=".8" fill="#D99A1E"/>' : ''}</svg>`;
+const potatoIc = (on) => `<svg class="ic" viewBox="0 0 16 16"><ellipse cx="8" cy="8.6" rx="6.6" ry="5.1" transform="rotate(-12 8 8.6)" fill="${on ? '#C99A5B' : '#fff'}" stroke="${on ? '#8A6330' : '#cfc7b8'}" stroke-width="1"/>${on ? '<circle cx="6" cy="7.6" r=".7" fill="#4a3318"/><circle cx="10" cy="7" r=".7" fill="#4a3318"/><path d="M6.6 10q1.4 1 2.8 0" fill="none" stroke="#4a3318" stroke-width=".7" stroke-linecap="round"/>' : ''}</svg>`;
 const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 /* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
@@ -494,10 +497,11 @@ ${qrBox()}</div>`;
 const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ['fm5', 'Self-check', '자가 점검표', fmCheck]] : [];
 
 function partPage(p) {
-  const list = p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(s.title.en)}`; }).join('<br>');
-  if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>KOREAN WORKBOOK SERIES</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
+  const many = p.sheets.length > 10;   // 단어장처럼 단원이 많으면 짧게 쓰고 두 줄로 나눠 부 표지 밖으로 넘치지 않게
+  const list = p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(many ? s.title.en.split(' · ')[0] : s.title.en)}`; }).join('<br>');
+  if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>KOREAN WORKBOOK SERIES</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list${many ? ' mc' : ''}">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
-<div class="list">${list}</div></div>`;
+<div class="list${many ? ' mc' : ''}">${list}</div></div>`;
 }
 /* 한 장 요약 · 풀이 쪽의 「예시」 — 우리 창작 문항(topik-writing.js)의 지문 + 모범답안 */
 function exampleHtml(s) {
@@ -534,6 +538,20 @@ function unitBlock(u) {
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
+    /* 낱말 목록(운영자 2026-10-25 「단어장 형식 · 난이도는 치즈로 빈출도는 감자로」): 낱말마다 번호 · 큰 낱말 · 뜻 · 예문 · 치즈(급) · 감자(자주 나오는 정도) */
+    if (s.type === 'vocab') {
+      const ic = (kind, n, max) => Array.from({ length: max }, (_, i) => (kind === 'c' ? cheeseIc(i < n) : potatoIc(i < n))).join('');
+      const bold = (ko, w) => { const h = esc(ko); const stem = w.endsWith('다') ? w.slice(0, -1) : w; const k = ko.includes(w) ? w : stem.length >= 1 && ko.includes(stem) ? stem : ''; return k ? h.replace(esc(k), `<b>${esc(k)}</b>`) : h; };
+      const legend = `<div class="vlg"><span>${ic('c', 1, 1)} <b>Difficulty · 난이도</b> = TOPIK level: more cheese, harder</span><span>${ic('p', 1, 1)} <b>Frequency · 빈출도</b>: more potato, more common (1–5)</span></div>`;
+      return `<div class="sec vsec">${sr(si)}${secLabel(s)}${legend}${s.entries.map((e, k) => `<div class="vw"><div class="vn">${(s.from || 0) + k + 1}</div><div class="vb"><div class="vh"><b>${esc(e.ko)}</b><span class="vp">${esc(e.pos)}</span><span class="vi">${ic('c', e.lv - 2, 4)}<em></em>${ic('p', e.fq, 5)}</span></div><div class="ve">${esc(e.en)}</div><div class="vx">${bold(e.ex.ko, e.ko)}<small>${esc(e.ex.en)}</small></div></div></div>`).join('')}</div>`;
+    }
+    /* 단원 점검(운영자 2026-10-25 「체크업도 이런 느낌」): 뜻 짝짓기 + 낱말 상자 빈칸. 정답은 뒤쪽 정답 쪽에 */
+    if (s.type === 'checkup') {
+      const L = 'abcdef';
+      const m = s.match, c = s.cloze, n0 = m.words.length;
+      return `<div class="sec cku">${sr(si)}${secLabel(s)}<p class="cki">Match each word with its meaning. Write the letter on the line. <small>낱말과 뜻을 짝지어 알맞은 글자를 쓰세요.</small></p><div class="ckm"><ol>${m.words.map((w, i) => `<li><b>${String(i + 1).padStart(2, '0')}</b><span>${esc(w)}</span><i class="ckl"></i></li>`).join('')}</ol><ul>${m.options.map((o, i) => `<li><span class="lt">${L[i]}</span>${esc(o)}</li>`).join('')}</ul></div>
+<p class="cki">Choose the word that fits each sentence. <small>문장에 맞는 낱말을 상자에서 골라 쓰세요.</small></p><ol class="ckc" start="${n0 + 1}">${c.items.map((x, i) => `<li><b>${String(n0 + i + 1).padStart(2, '0')}</b><span>${esc(x.q).replace('___', '<u></u>')}<small>${esc(x.en)}</small></span></li>`).join('')}</ol><div class="ckb">${c.bank.map((w, i) => `<span><span class="lt">${L[i]}</span>${esc(w)}</span>`).join('')}</div></div>`;
+    }
     /* 「내 계획」 칸(운영자 2026-10-25 시안 A) — 쓰는 줄 2열 · 요일 동그라미 · 목표 상자. 표 대신 쓴다 */
     if (s.type === 'plan') {
       const lab = (f) => `<div class="plk"><b>${esc(f.en)}</b><small>${esc(f.ko)}</small></div>`;
@@ -562,6 +580,9 @@ function answersBlock() {
       if (x.q <= 52) h += `<div class="set a wa"><b>${esc(s.title.en)}</b> ${x.blanks.map((b) => `${esc(b.mark)} ${b.answers.map(esc).join(' / ')}`).join(' &nbsp;·&nbsp; ')}<small>${x.blanks.map((b) => esc(b.point)).join(' ')}</small><small class="dd">감점 · ${x.deduct.map(esc).join(' · ')}</small></div>`;
       else h += `<div class="set a wa"><b>${esc(s.title.en)}</b><p class="mdl">${esc(x.model).replace(/\n+/g, ' ¶ ')}</p><small>채점 · ${Object.entries(x.points).map(([k, v]) => `${{ content: '내용', structure: '구성', language: '언어' }[k] || k}: ${esc(v)}`).join(' / ')}</small>${(x.samples || []).map((m) => `<small class="sm"><i>${esc(m.level)} ${m.total}점</i> ${esc(m.text).replace(/\n+/g, ' ¶ ')} — ${esc(m.why)}</small>`).join('')}<small class="dd">감점 · ${(x.deduct || []).map(esc).join(' · ')}</small></div>`;
     }
+    for (const s of u.sections.filter((x) => x.type === 'checkup')) {
+      h += `<div class="set a"><b>Checkup</b> ${s.match.answer.map((a, i) => `${i + 1}) ${a}`).join(' &nbsp;·&nbsp; ')} &nbsp;|&nbsp; ${s.cloze.items.map((x, i) => `${s.match.words.length + i + 1}) ${esc(x.a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
+    }
     for (const s of u.sections.filter((x) => x.type === 'practice')) {
       h += `<div class="set a"><b>${esc(s.title.en.split(/\s[—–-]\s/)[0])}</b> ${s.items.map((x, i) => `${i + 1}) ${esc(x.a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
     }
@@ -585,6 +606,11 @@ function indexEntries() {
       if (!e.gloss && gloss) e.gloss = gloss;
       e.units.add(u.no); map.set(w, e);
     });
+  }
+  for (const u of units) for (const s of u.sections.filter((x) => x.type === 'vocab')) for (const e of s.entries) {
+    const x = map.get(e.ko) || { w: e.ko, gloss: '', units: new Set() };
+    if (!x.gloss) x.gloss = e.en.length <= 38 ? e.en : e.en.split(';')[0];
+    x.units.add(u.no); map.set(e.ko, x);
   }
   return [...map.values()].sort((a, b) => a.w.localeCompare(b.w, 'ko'));
 }
@@ -632,6 +658,9 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx.warn{--c:#B3322D}.bx.more{--c:#5B6B86;border-style:dashed}.bx.pattern{--c:${ACC}}.bx.tip{--c:#2F5DA8}
 .bx .lg{position:absolute;left:3mm;top:-2.1mm;background:#fff;padding:0 1.8mm;display:flex;align-items:center;gap:1.2mm;font-size:6.8pt;font-weight:800;letter-spacing:.12em;color:var(--c);line-height:1.2}
 .bx .lg svg{width:3.3mm;height:3.3mm;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.bx .lg small{font-weight:600;letter-spacing:0;color:#6b7a92;font-size:6.8pt}
+.pd .list.mc{columns:2;column-gap:6mm;font-size:7.6pt;line-height:1.55;margin-top:9mm}
+.vsec{margin-bottom:0}.vlg{display:flex;gap:6mm;flex-wrap:wrap;font-size:7.4pt;color:#5a5348;margin:0 0 1.6mm;padding:1.1mm 2.4mm;background:${TINT};border-radius:1.6mm}.vlg .ic{vertical-align:-1.1mm}.vw{display:grid;grid-template-columns:6.5mm 1fr;gap:1.6mm;padding:1.4mm 0;height:23mm;box-sizing:border-box;align-content:start;border-top:.25mm solid #e1dbe9;break-inside:avoid}.vw:first-of-type{border-top:0}.vn{font-size:7.4pt;font-weight:800;color:${ACC};padding-top:.8mm}.vh{display:flex;align-items:baseline;gap:2.4mm}.vh>b{font-size:12pt;color:#1d1a17}.vp{font-size:7pt;color:#6b6458;border:.25mm solid #cfc7d9;border-radius:1mm;padding:0 1.2mm}.vi{margin-left:auto;white-space:nowrap}.vi em{display:inline-block;width:2.4mm}.ic{width:3.3mm;height:3.3mm;margin-left:.3mm}.ve{font-size:8.4pt;color:${ACC};font-weight:700;margin-top:0}.vx{font-size:8.2pt;line-height:1.38;margin-top:.4mm;color:#2a2620}.vx b{color:${ACC};font-weight:800}.vx small{display:block;font-size:7pt;color:#6b6458}
+.cku{break-inside:avoid}.cku .cki{font-size:8.6pt;font-weight:700;color:${ACC};margin:2.2mm 0 1.6mm}.cku .cki small{font-weight:500;color:#6b6458;margin-left:1.6mm}.cku .lt{display:inline-flex;align-items:center;justify-content:center;width:4.4mm;height:4.4mm;border:.3mm solid ${ACC};border-radius:50%;font-size:7pt;font-weight:800;color:${ACC};margin-right:1.8mm}.cku .ckm{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}.cku ol,.cku ul{list-style:none;margin:0;padding:0}.cku .ckm li{display:flex;align-items:baseline;gap:2.4mm;padding:1.1mm 0;font-size:10pt;height:7.4mm;box-sizing:border-box}.cku .ckm ol li b{font-size:8pt;color:${ACC};width:5mm}.cku .ckm ol li span{min-width:22mm;font-weight:700}.cku .ckl{flex:1;border-bottom:.3mm solid ${ACC}99;height:4.4mm;max-width:14mm}.cku .ckm ul li{font-size:9pt}.cku .ckc li{display:flex;gap:2.4mm;padding:1.2mm 0;min-height:11mm;font-size:9.6pt;line-height:1.5}.cku .ckc li b{font-size:8pt;color:${ACC};width:5mm;padding-top:.6mm}.cku .ckc u{display:inline-block;width:22mm;border-bottom:.3mm solid #1d1a17;text-decoration:none;margin:0 .6mm}.cku .ckc small{display:block;font-size:7.4pt;color:#6b6458}.cku .ckb{margin-top:2mm;border:.35mm solid ${ACC};border-radius:1.6mm;padding:2.2mm 3mm;display:flex;gap:6mm;flex-wrap:wrap;font-size:10pt;font-weight:700;background:${TINT}}
 .plan{break-inside:avoid}.plan .plg{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm 7mm;margin-top:1mm}.plan .plk b{font-size:8.6pt;color:${ACC}}.plan .plk small{font-size:7.6pt;color:#6b6458;margin-left:1.6mm}.plan .pll{border-bottom:.3mm solid ${ACC}99;height:7.2mm}.plan .pld{margin-top:3.6mm}.plan .pldc{display:flex;gap:2.2mm;margin-top:1.8mm}.plan .pldc i{width:12.5mm;height:12.5mm;border:.35mm solid ${ACC};border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:normal;line-height:1.1}.plan .pldc i b{font-size:9.4pt;color:${ACC}}.plan .pldc i small{font-size:6.2pt;color:#6b6458}.plan .plgl{margin-top:4mm;background:${TINT};border-radius:2mm;padding:2.6mm 3.4mm}
 .flow{display:flex;align-items:stretch;gap:1.2mm;margin-top:2mm}.flow .fs{flex:1;border:.3mm solid ${ACC};border-radius:1.6mm;padding:2.4mm 1.8mm;text-align:center;background:#fff;display:flex;flex-direction:column;gap:.8mm;justify-content:center}.flow .fs b{font-size:8.8pt;color:${ACC}}.flow .fs span{font-size:7pt;color:#5a6780;line-height:1.3}.flow .fs.bl{background:${TINT};border-style:dashed}.flow .ar{align-self:center;color:${ACC};font-style:normal;font-weight:800;font-size:10pt}
 .gd .chips{display:flex;gap:2mm;margin:1mm 0 3mm}.gd .chip{display:inline-flex;align-items:baseline;gap:1.6mm;border:.3mm solid ${ACC};border-radius:5mm;padding:.9mm 3.2mm;font-size:7.6pt;color:#5a6780}.gd .chip b{font-size:9.4pt;color:${ACC}}
