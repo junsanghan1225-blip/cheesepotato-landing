@@ -297,8 +297,8 @@
        "pos": "verb",
        "en": "feel sleepy; be drowsy",
        "ex": {
-        "ko": "점심을 배부르게 먹고 따뜻한 방에 앉아 있으니 자꾸 눈꺼풀이 졸리네요.",
-        "en": "Sitting in warm rooms after eating full lunches, my eyelids feel sleepy."
+        "ko": "점심을 배부르게 먹고 따뜻한 방에 앉아 있으니 자꾸 졸리네요.",
+        "en": "After a full lunch, sitting in a warm room, I keep feeling sleepy."
        },
        "lv": 3,
        "fq": 0
@@ -521,6 +521,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "금연",
+        "흡연"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for tobacco habits. 禁煙 금연 is refraining from smoking or designated smoke-free rules (금연 구역 non-smoking zone), whereas 吸煙 흡연 is the act of smoking (흡연실 smoking room)."
+      },
+      {
+       "words": [
+        "문병",
+        "병문안"
+       ],
+       "kind": "synonym",
+       "note": "Both mean visiting a sick person in the hospital, but 문병 (問病) is a concise Sino-Korean noun (문병을 가다), while 병문안 (病問安) is more conversational and expressive (친구 병문안을 다녀오다)."
+      },
+      {
+       "words": [
+        "진찰",
+        "치료"
+       ],
+       "kind": "contrast",
+       "note": "Sequential medical steps. 진찰 is the doctor examining and assessing symptoms (의사의 진찰 medical exam), whereas 치료 is administering medicine or surgery to heal the disease (치료를 받다 to receive treatment)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -701,7 +735,7 @@
        "pos": "noun",
        "en": "hands and feet",
        "ex": {
-        "ko": "겨울철에 혈액순환이 잘 안되면 손발이 쉽게 차가워져요.",
+        "ko": "겨울철에 혈액순환이 잘 안 되면 손발이 쉽게 차가워져요.",
         "en": "In winter, poor circulation easily makes hands and feet cold."
        },
        "lv": 3,
@@ -809,10 +843,10 @@
       {
        "ko": "대변",
        "pos": "noun",
-       "en": "feces; representation",
+       "en": "feces; stool",
        "ex": {
-        "ko": "국민들의 다양한 의견을 국회에서 충실히 대변해야 해요.",
-        "en": "Citizens' diverse opinions must be faithfully represented in assembly."
+        "ko": "건강검진을 받을 때 소변과 대변 검사를 함께 진행했어요.",
+        "en": "During the health checkup, urine and stool tests were done together."
        },
        "lv": 3,
        "fq": 0
@@ -901,6 +935,40 @@
        "눈가"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "대변",
+        "대변"
+       ],
+       "kind": "homonym",
+       "note": "大便 feces or bodily waste (대변 검사 stool test) vs 代辯 speaking on behalf of a group or person (입장을 대변하다 to represent a stance, 대변인 spokesperson). Distinct hanja roots."
+      },
+      {
+       "words": [
+        "소변",
+        "대변"
+       ],
+       "kind": "contrast",
+       "note": "Paired clinical medical terms for bodily excretions. 소변 is liquid waste or urination (소변 검사 urine test), while 대변 is solid bowel movement (대변 검사 stool analysis)."
+      },
+      {
+       "words": [
+        "독감",
+        "감기"
+       ],
+       "kind": "contrast",
+       "note": "Distinct medical conditions. 감기 is the mild common cold with runny nose and cough (감기에 걸리다). 독감 is severe influenza caused specifically by influenza viruses, requiring vaccination (독감 예방주사 flu shot)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -1103,7 +1171,7 @@
       {
        "ko": "설사",
        "pos": "noun",
-       "en": "diarrhea; even if",
+       "en": "diarrhea",
        "ex": {
         "ko": "배탈이 났는지 아침부터 잦은 설사 증세로 기운이 없어요.",
         "en": "Perhaps having stomach trouble, I have no energy from frequent diarrhea."
@@ -1169,7 +1237,7 @@
       {
        "ko": "암",
        "pos": "noun",
-       "en": "female; she",
+       "en": "cancer",
        "ex": {
         "ko": "정기적인 국가 건강검진을 받아 암을 조기에 발견하는 것이 중요해요.",
         "en": "Taking regular national health checkups to detect cancer early is crucial."
@@ -1285,6 +1353,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "붓다",
+        "붓다"
+       ],
+       "kind": "homonym",
+       "note": "Three native verbs share this spelling: 붓다 ① for body tissue to swell up (눈이 붓다 swollen eyes), 붓다 ② to pour liquid (물을 컵에 붓다 to pour water) and 붓다 ③ to pay savings in instalments (적금을 붓다)."
+      },
+      {
+       "words": [
+        "암",
+        "암"
+       ],
+       "kind": "homonym",
+       "note": "癌 malignant cancer tumor (암 예방 cancer prevention) vs native prefix 암 meaning female of animals (암컷 female animal, 암사자 lioness). Unrelated origins sharing exact spelling."
+      },
+      {
+       "words": [
+        "연고",
+        "연고"
+       ],
+       "kind": "homonym",
+       "note": "軟膏 medical healing ointment or salve (피부 연고 skin ointment) vs 緣故 social or familial connections (연고가 없는 도시 a city with no personal ties). Distinct hanja roots."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -1388,7 +1490,7 @@
        "pos": "noun",
        "en": "compress; poultice; pack",
        "ex": {
-        "ko": "삔 발목의 붓기를 가라앉히려고 얼음주머니를 대고 시원하게 냉찜질을 했어요.",
+        "ko": "삔 발목의 부기를 가라앉히려고 얼음주머니를 대고 시원하게 냉찜질을 했어요.",
         "en": "To relieve sprained ankle swelling, I applied ice packs doing cold compress."
        },
        "lv": 3,
@@ -1665,6 +1767,40 @@
        "종합"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "나아지다",
+        "나빠지다"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for health and conditions. 나아지다 describes symptoms or circumstances improving (건강이 나아지다), whereas 나빠지다 describes them deteriorating (시력이 나빠지다)."
+      },
+      {
+       "words": [
+        "중단",
+        "지속"
+       ],
+       "kind": "contrast",
+       "note": "Direct opposites for process continuity. 中斷 중단 is halting an ongoing project midway (공사 중단 construction halt), whereas 持續 지속 is maintaining progress without stopping (연구 지속 continuing research)."
+      },
+      {
+       "words": [
+        "깨지다",
+        "부서지다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean breaking, but 깨지다 specifically describes brittle materials like glass, mirrors, or porcelain cracking into sharp pieces (거울이 깨지다). 부서지다 describes solid objects crumbling under impact."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -2049,6 +2185,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "따라가다",
+        "따라오다"
+       ],
+       "kind": "contrast",
+       "note": "Paired directional motion verbs. 따라가다 moves toward a destination away from the speaker (앞사람을 따라가다 to follow someone ahead), whereas 따라오다 moves in the direction toward the speaker (강아지가 나를 따라오다)."
+      },
+      {
+       "words": [
+        "완성",
+        "미완성"
+       ],
+       "kind": "contrast",
+       "note": "Direct opposites for project completion. 완성 describes a work brought to full fruition (작품 완성 artwork completion), while 미완성 describes unfinished pieces (미완성 교향곡 unfinished symphony)."
+      },
+      {
+       "words": [
+        "뺏다",
+        "주다"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for ownership transfer. 뺏다 (빼앗다) is forcibly snatching or depriving someone of an item (물건을 뺏다), whereas 주다 is willingly offering or handing something over (선물을 주다)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -2260,7 +2430,7 @@
       {
        "ko": "당연히",
        "pos": "adverb",
-       "en": "naturally; fairly",
+       "en": "naturally; of course",
        "ex": {
         "ko": "약속 시간은 당연히 지켜야 할 기본적인 예의이지요.",
         "en": "Keeping promised time is of course a fundamental etiquette."
@@ -2315,7 +2485,7 @@
       {
        "ko": "딱",
        "pos": "adverb",
-       "en": "with a snap",
+       "en": "exactly; tightly; firmly",
        "ex": {
         "ko": "이 신발을 신어 보니 발에 딱 맞고 아주 편해요.",
         "en": "Trying these shoes on, they fit my feet exactly and are very comfortable."
@@ -2429,6 +2599,40 @@
        "공통"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "공통점",
+        "차이점"
+       ],
+       "kind": "contrast",
+       "note": "Core analytical pair in TOPIK essays. 공통점 highlights shared qualities between two subjects (두 문화의 공통점), whereas 차이점 highlights their distinctive differences (세대의 차이점)."
+      },
+      {
+       "words": [
+        "관계있다",
+        "관계없다"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for relevance. 관계있다 links an event to an outcome (건강과 관계있다), whereas 관계없다 disclaims any connection (결과와 관계없다 has nothing to do with the result)."
+      },
+      {
+       "words": [
+        "불규칙",
+        "규칙"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for order. 규칙 denotes standard laws and regular rhythms (규칙적인 생활 regular lifestyle), whereas 불규칙 denotes erratic deviations (불규칙한 식습관 irregular eating habits)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -2741,7 +2945,7 @@
       {
        "ko": "소요",
        "pos": "noun",
-       "en": "taking time; requirement; disturbance",
+       "en": "taking time; requirement",
        "ex": {
         "ko": "서울에서 부산까지 고속철도를 타면 두 시간 반 정도 소요돼요.",
         "en": "Taking high-speed rail from Seoul to Busan takes about two and half hours."
@@ -2811,6 +3015,40 @@
        "없이"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "서투르다",
+        "능숙하다"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for proficiency. 서투르다 describes unpracticed clumsiness in a skill (한국어가 서투르다 Korean is clumsy), whereas 능숙하다 describes polished proficiency (능숙한 솜씨 skillful hand)."
+      },
+      {
+       "words": [
+        "최저",
+        "최고"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for statistical peaks and valleys. 최저 marks the absolute bottom floor (최저 임금 minimum wage), whereas 최고 marks the absolute top ceiling (역대 최고 기록 all-time high record)."
+      },
+      {
+       "words": [
+        "미만",
+        "이상"
+       ],
+       "kind": "contrast",
+       "note": "Precise numerical boundary terms. 미만 means strictly below a number without including it (10세 미만 under 10, aged 9 and below), whereas 이상 includes the baseline number (10세 이상 aged 10 and above)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -3166,8 +3404,8 @@
      "cloze": {
       "items": [
        {
-        "q": "밤사이 하늘에서 탐스러운 함박눈 ___가 소복하게 쏟아져 내렸다.",
-        "en": "Plump heavy snow clusters poured down softly from skies overnight.",
+        "q": "정원에 탐스러운 장미꽃 수십 ___가 활짝 피어났다.",
+        "en": "Dozens of plump roses bloomed fully in the garden.",
         "a": "송이"
        },
        {
@@ -3193,6 +3431,40 @@
        "앞뒤"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "우측",
+        "좌측"
+       ],
+       "kind": "contrast",
+       "note": "Direct navigational and directional antonyms in signage. 우측 indicates the right flank (우측 통행 keep right), whereas 좌측 indicates the left flank (좌측 출구 left-hand exit)."
+      },
+      {
+       "words": [
+        "양쪽",
+        "한쪽"
+       ],
+       "kind": "contrast",
+       "note": "Direct opposites for bilateral vs unilateral scope. 양쪽 refers to both flanks or mutual parties (양쪽 귀 both ears, 양쪽 입장 both stances), while 한쪽 isolates only one flank (한쪽 눈 one eye)."
+      },
+      {
+       "words": [
+        "송이",
+        "송이"
+       ],
+       "kind": "homonym",
+       "note": "Two native noun uses: 송이 ① counting unit for flower blooms or grape bunches (꽃 한 송이 a single flower) vs 송이 ② abbreviation for the prized wild pine mushroom (송이버섯 matsutake mushroom)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -3496,8 +3768,8 @@
        "pos": "noun",
        "en": "light green; yellow-green",
        "ex": {
-        "ko": "봄날 나무에 돋아난 싱그러운 연두색 새싹들이 참 싱그러워 보여요.",
-        "en": "Fresh light green sprouts growing on spring trees look very fresh."
+        "ko": "봄날 나뭇가지에 돋아난 파릇한 연두색 새싹들이 참 싱그러워 보여요.",
+        "en": "The fresh light green sprouts on the spring branches look very lively."
        },
        "lv": 3,
        "fq": 0
@@ -3575,6 +3847,40 @@
        "초록"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "가로",
+        "세로"
+       ],
+       "kind": "contrast",
+       "note": "Direct geometric coordinate antonyms. 가로 measures horizontal width from left to right (가로 길이 width), while 세로 measures vertical height from top to bottom (세로 줄 vertical line)."
+      },
+      {
+       "words": [
+        "희다",
+        "검다"
+       ],
+       "kind": "contrast",
+       "note": "Direct chromatic antonyms for native Korean color adjectives. 희다 describes pure white or pale surfaces (흰 눈 white snow), whereas 검다 describes deep black or darkness (검은 머리 black hair)."
+      },
+      {
+       "words": [
+        "단단하다",
+        "부드럽다"
+       ],
+       "kind": "contrast",
+       "note": "Direct sensory antonyms for physical texture. 단단하다 resists pressure and holds stiffly (단단한 돌 hard rock), whereas 부드럽다 yields easily and feels gentle (부드러운 빵 soft bread)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -3746,8 +4052,8 @@
        "pos": "noun",
        "en": "whip; rod",
        "ex": {
-        "ko": "매 순간 최선을 다하며 보람 있게 살고 싶어요.",
-        "en": "I wish to live fruitfully doing my best every single moment."
+        "ko": "옛날에는 잘못을 하면 서당 훈장님께 종아리에 매를 맞았어요.",
+        "en": "In the old days, a pupil who did wrong was hit on the calves with a rod by the village-school teacher."
        },
        "lv": 3,
        "fq": 1
@@ -3959,6 +4265,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "예의",
+        "예절"
+       ],
+       "kind": "synonym",
+       "note": "Both mean manners, but 예의 is personal courtesy and respectful demeanor (예의 바른 태도 polite attitude), while 예절 refers to codified social rules and etiquette protocols (공공장소 예절 public etiquette)."
+      },
+      {
+       "words": [
+        "기도",
+        "기도"
+       ],
+       "kind": "homonym",
+       "note": "祈禱 religious prayer or earnest wish (간절한 기도 earnest prayer) vs 氣道 anatomical respiratory airway (기도를 확보하다 to secure the airway in first aid). Distinct hanja roots."
+      },
+      {
+       "words": [
+        "매",
+        "매"
+       ],
+       "kind": "homonym",
+       "note": "매 ① hawk or falcon bird of prey (하늘을 나는 매) vs native 매 ② disciplinary rod or cane used for physical punishment (사랑의 매 cane of discipline). Unrelated origins sharing exact spelling."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -4093,7 +4433,7 @@
       {
        "ko": "설",
        "pos": "noun",
-       "en": "Seollal; New Year; theory",
+       "en": "Seollal; Lunar New Year",
        "ex": {
         "ko": "설 명절 아침에 온 가족이 모여 떡국을 맛있게 먹었어요.",
         "en": "On Seollal holiday morning, the family gathered eating rice cake soup."
@@ -4339,6 +4679,40 @@
        "성당"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "설",
+        "설"
+       ],
+       "kind": "homonym",
+       "note": "설 Lunar New Year Day (설날 holiday) vs 說 academic theory or rumored explanation (새로운 학설 a new academic theory). Completely different origins."
+      },
+      {
+       "words": [
+        "용",
+        "용"
+       ],
+       "kind": "homonym",
+       "note": "龍 legendary dragon creature (하늘로 승천하는 용 dragon ascending to sky) vs suffix 用 meaning intended for use by a group (수출용 for export, 여성용 for women)."
+      },
+      {
+       "words": [
+        "예식장",
+        "장례식"
+       ],
+       "kind": "contrast",
+       "note": "Contrasting life ceremonies in Korean culture. 예식장 is a wedding hall celebrating marriage (결혼 예식장), whereas 장례식 is a solemn funeral service mourning a death (장례식을 치르다)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -4629,7 +5003,7 @@
       {
        "ko": "소매",
        "pos": "noun",
-       "en": "sleeve; retail",
+       "en": "sleeve",
        "ex": {
         "ko": "날씨가 더워서 셔츠 소매를 팔꿈치까지 걷어 올렸어요.",
         "en": "The weather was hot, so I rolled up shirt sleeves to elbows."
@@ -4721,6 +5095,40 @@
        "줄무늬"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "양산",
+        "우산"
+       ],
+       "kind": "contrast",
+       "note": "Distinct protective canopies. 陽傘 양산 shields from sunlight and heat on clear summer days (양산을 쓰다), whereas 雨傘 우산 protects from precipitation on rainy days (우산을 쓰다)."
+      },
+      {
+       "words": [
+        "긴팔",
+        "반팔"
+       ],
+       "kind": "contrast",
+       "note": "Direct antonyms for sleeve length. 긴팔 is worn in autumn and winter to retain warmth (긴팔 셔츠 long-sleeved shirt), whereas 반팔 is worn in summer to stay cool (반팔 티셔츠 short-sleeved T-shirt)."
+      },
+      {
+       "words": [
+        "소매",
+        "소매"
+       ],
+       "kind": "homonym",
+       "note": "Native 소매 meaning garment sleeve (소매를 걷어붙이다 to roll up sleeves) vs Sino-Korean 小賣 retail trade (소매점 retail store, opposite of 도매 wholesale). Unrelated origins."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -4947,7 +5355,7 @@
        "pos": "noun",
        "en": "change (money)",
        "ex": {
-        "ko": "만원을 내고 거스름돈으로 삼천 원을 돌려받았어요.",
+        "ko": "만 원을 내고 거스름돈으로 삼천 원을 돌려받았어요.",
         "en": "I gave 10,000 won and received 3,000 won back as change."
        },
        "lv": 3,
@@ -5103,6 +5511,40 @@
        "스타킹"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "거스름돈",
+        "잔돈"
+       ],
+       "kind": "synonym",
+       "note": "Both translate to change, but 거스름돈 is strictly the money returned after a transaction (거스름돈 500원). 잔돈 refers generally to small-denomination coins or loose cash in your pocket (잔돈이 필요하다)."
+      },
+      {
+       "words": [
+        "수표",
+        "현금"
+       ],
+       "kind": "contrast",
+       "note": "수표 is a bank check, a paper payment order used for large sums (십만 원권 수표 a 100,000-won check), whereas 현금 is cash on hand (현금 결제 cash payment)."
+      },
+      {
+       "words": [
+        "생활비",
+        "용돈"
+       ],
+       "kind": "contrast",
+       "note": "생활비 covers essential everyday survival costs like rent, groceries, and bills (한 달 생활비). 용돈 is discretionary spending money or personal pocket allowance (아이에게 용돈을 주다)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -5463,8 +5905,8 @@
         "a": "드라이어"
        },
        {
-        "q": "지하철 ___물 센터에는 주인을 기다리는 물건들이 가득하다.",
-        "en": "The subway lost-and-found center is filled with items awaiting owners.",
+        "q": "신분증을 잃어버렸을 때는 즉시 관공서에 ___ 신고를 해야 한다.",
+        "en": "If you lose your ID, you must report the loss to a government office right away.",
         "a": "분실"
        },
        {
@@ -5485,6 +5927,40 @@
        "분실"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "식후",
+        "식전"
+       ],
+       "kind": "contrast",
+       "note": "Crucial medical and dining antonyms. 식후 indicates taking medication or resting after eating (식후 30분에 드세요), whereas 식전 indicates before eating on an empty stomach (식전에 복용하다)."
+      },
+      {
+       "words": [
+        "매진",
+        "품절"
+       ],
+       "kind": "synonym",
+       "note": "Both mean sold out, but 매진 is commonly used for tickets, shows, and transit seats (기차표 매진 ticket sell-out). 품절 is standard for manufactured retail merchandise running out of stock (인기 상품 품절)."
+      },
+      {
+       "words": [
+        "저축",
+        "소비"
+       ],
+       "kind": "contrast",
+       "note": "Direct economic antonyms. 저축 is setting money aside in savings for future security (매달 저축하다), while 소비 is spending money to purchase goods or services (과소비 overspending)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -5869,6 +6345,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "그제",
+        "모레"
+       ],
+       "kind": "contrast",
+       "note": "Symmetrical chronological antonyms from today. 그제 is two days in the past (그제 만났어요 met two days ago), while 모레 (or 낼모레) is two days into the future (모레 시험이에요 exam is day after tomorrow)."
+      },
+      {
+       "words": [
+        "보름",
+        "그믐"
+       ],
+       "kind": "contrast",
+       "note": "Traditional lunar calendar benchmarks. 보름 is the 15th day with a round full moon (정월 대보름, 보름달), while 그믐 is the dark moonless end of the lunar month (그믐달 crescent/last moon)."
+      },
+      {
+       "words": [
+        "막",
+        "막"
+       ],
+       "kind": "homonym",
+       "note": "Native adverb 막 means just now or roughly, carelessly (막 출발하려던 참 just about to leave) vs Sino-Korean 幕 a theatrical act or curtain (연극 1막 act one of a play) vs 膜 a membrane (각막 cornea). Unrelated origins sharing one spelling."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -6237,8 +6747,8 @@
         "a": "어느새"
        },
        {
-        "q": "정부는 ___ 국무회의를 열고 민생 안정 대책을 최종 확정했다.",
-        "en": "The government held cabinet meetings yesterday, finalizing measures.",
+        "q": "___ 도서관에서 빌린 소설책을 오늘 벌써 다 읽었다.",
+        "en": "I already finished the novel I borrowed from the library yesterday.",
         "a": "어저께"
        }
       ],
@@ -6249,6 +6759,40 @@
        "어저께"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "양력",
+        "음력"
+       ],
+       "kind": "contrast",
+       "note": "The two official calendar systems in Korea. 양력 tracks the solar year for official dates (양력 생일 solar birthday), whereas 음력 tracks lunar cycles for traditional holidays (음력 설날 Lunar New Year)."
+      },
+      {
+       "words": [
+        "정오",
+        "자정"
+       ],
+       "kind": "contrast",
+       "note": "Exact 12-hour opposites. 정오 is midday when the sun peaks at 12:00 PM (정오에 점심을 먹다), whereas 자정 is deep midnight at 12:00 AM (자정이 넘은 시각 past midnight)."
+      },
+      {
+       "words": [
+        "앞날",
+        "지난날"
+       ],
+       "kind": "contrast",
+       "note": "Temporal orientation antonyms. 앞날 looks ahead to the future and what is to come (앞날을 응원하다 to support someone's future), while 지난날 looks back on days gone by (지난날의 추억 memories of past days)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -6517,7 +7061,7 @@
       {
        "ko": "부리다",
        "pos": "verb",
-       "en": "manage; show; display; throw",
+       "en": "show; display; throw (a tantrum); manage (people)",
        "ex": {
         "ko": "사소한 일로 어린아이처럼 투정이나 짜증을 부리지 마세요.",
         "en": "Don't throw tantrums or irritability like a child over trivial things."
@@ -6586,7 +7130,7 @@
        "빌다"
       ],
       "options": [
-       "manage",
+       "show",
        "pray",
        "forecast",
        "humid",
@@ -6631,6 +7175,40 @@
        "반달"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "일출",
+        "일몰"
+       ],
+       "kind": "contrast",
+       "note": "Astronomical solar antonyms. 日出 일출 is the sun rising at dawn (동해 일출 East Sea sunrise), whereas 日沒 일몰 is the sun descending below the horizon at dusk (일몰 명소 sunset attraction)."
+      },
+      {
+       "words": [
+        "천둥",
+        "번개"
+       ],
+       "kind": "contrast",
+       "note": "천둥 is the auditory crashing roar of atmospheric shockwaves (천둥이 치다 thunder rumbles). 번개 is the visual electrical light flash streak across clouds (번개가 번쩍이다 lightning flashes)."
+      },
+      {
+       "words": [
+        "빌다",
+        "빌리다"
+       ],
+       "kind": "contrast",
+       "note": "Frequently confused native verbs. 빌다 means wishing or pleading earnestly (달을 보며 소원을 빌다 to wish upon the moon). 빌리다 means temporarily borrowing an item (도서관에서 책을 빌리다)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -6747,7 +7325,7 @@
        "pos": "determiner",
        "en": "impressive; memorable",
        "ex": {
-        "ko": "그 영화의 마지막 결말 장면은 오랜 시간 잊히지 않을 만큼 인상적 연출이었어요.",
+        "ko": "그 영화의 마지막 결말 장면은 오랜 시간 잊히지 않을 만큼 인상적인 연출이었어요.",
         "en": "That movie's final ending scene was an impressive direction not forgotten."
        },
        "lv": 3,
@@ -7015,6 +7593,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "만족",
+        "불만족"
+       ],
+       "kind": "contrast",
+       "note": "Direct emotional antonyms. 滿足 만족 is contentment with a result or service (고객 만족 customer satisfaction), while 不滿足 불만족 is dissatisfaction when expectations are unmet (서비스에 대한 불만족)."
+      },
+      {
+       "words": [
+        "한숨",
+        "한숨"
+       ],
+       "kind": "homonym",
+       "note": "Two native expressions: 한숨 ① deep exhalation or sigh of worry (안도의 한숨 sigh of relief, 한숨을 쉬다) vs 한숨 ② brief restorative nap or short rest (한숨 푹 자고 나다 to take a good nap)."
+      },
+      {
+       "words": [
+        "최선",
+        "차선"
+       ],
+       "kind": "contrast",
+       "note": "Choice priority antonyms. 최선 is the best option or giving one's utmost (최선을 다하다 to do one's best), while 차선 (次善) is the second-best fallback when the best is unavailable (차선책 second-best plan). 차선 (車線) also means a traffic lane."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -7127,7 +7739,7 @@
       {
        "ko": "반하다",
        "pos": "verb",
-       "en": "fall in love; be against",
+       "en": "fall for; be charmed by",
        "ex": {
         "ko": "다정하고 배려심 깊은 그의 모습에 첫눈에 반해 버렸어요.",
         "en": "I fell in love at first sight with his affectionate, considerate look."
@@ -7294,8 +7906,8 @@
        "pos": "noun",
        "en": "depression; melancholy",
        "ex": {
-        "ko": "비가 계속 내리는 궂은 날씨에는 왠지 마음이 차분해지며 우울이 찾아와요.",
-        "en": "On gloomy days with constant rain, calmness settles and gloom sets in."
+        "ko": "비가 계속 내리는 궂은 날씨에는 마음이 차분해지면서도 왠지 우울한 기분이 들어요.",
+        "en": "On gloomy days with constant rain, I feel calm yet somehow depressed."
        },
        "lv": 3,
        "fq": 0
@@ -7350,7 +7962,7 @@
        "속상하다"
       ],
       "options": [
-       "fall in love",
+       "fall for",
        "envy",
        "unsatisfactory",
        "upset",
@@ -7395,6 +8007,40 @@
        "소원"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "밉다",
+        "곱다"
+       ],
+       "kind": "contrast",
+       "note": "Emotional and visual antonyms. 밉다 expresses dislike or irritation at bad behavior (미운 행동 hateful behavior), whereas 곱다 describes lovely elegance or warm attitude (고운 마음 lovely heart)."
+      },
+      {
+       "words": [
+        "실망",
+        "기대"
+       ],
+       "kind": "contrast",
+       "note": "Emotional progression opposites. 기대 is hopeful anticipation beforehand (큰 기대를 걸다 have high hopes), while 실망 is the sadness felt when reality falls short (기대가 실망으로 바뀌다)."
+      },
+      {
+       "words": [
+        "소원",
+        "소망"
+       ],
+       "kind": "synonym",
+       "note": "Both mean wish or hope. 소원 is a wish you want granted, often made to someone or something (소원을 빌다 to make a wish, 소원을 들어주다 to grant a wish), while 소망 is a hope held for the future (소망을 품다, 행복한 가정이라는 소망)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -7555,7 +8201,7 @@
        "pos": "determiner",
        "en": "fantastic; magical",
        "ex": {
-        "ko": "밤하늘을 수놓은 오색 불꽃놀이는 모두를 감탄하게 만든 환상적 광경이었어요.",
+        "ko": "밤하늘을 수놓은 오색 불꽃놀이는 모두를 감탄하게 만든 환상적인 광경이었어요.",
         "en": "Five-color fireworks embroidering night skies were a fantastic sight."
        },
        "lv": 3,
@@ -7779,6 +8425,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "삶다",
+        "데치다"
+       ],
+       "kind": "synonym",
+       "note": "Culinary techniques with boiling water. 삶다 boils foods thoroughly until cooked deep to the core (달걀을 삶다). 데치다 briefly blanches vegetables in boiling water for seconds to keep crunch (시금치를 살짝 데치다)."
+      },
+      {
+       "words": [
+        "식히다",
+        "시키다"
+       ],
+       "kind": "contrast",
+       "note": "Frequently confused homophones. 식히다 [시키다] means lowering temperature or cooling hot food (뜨거운 국을 식히다). 시키다 means placing a food order or ordering a task (피자를 시키다 to order pizza)."
+      },
+      {
+       "words": [
+        "편식",
+        "골고루"
+       ],
+       "kind": "contrast",
+       "note": "Dietary habits opposites. 偏食 편식 is unbalanced eating of only favorite items (아이의 편식 습관 picky eating), whereas 골고루 먹다 is eating a well-balanced spread of all nutrients."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -7901,7 +8581,7 @@
       },
       {
        "ko": "끼",
-       "pos": "noun",
+       "pos": "bound noun",
        "en": "meal",
        "ex": {
         "ko": "바쁘더라도 하루 세 끼 식사를 규칙적으로 챙겨 드세요.",
@@ -8107,17 +8787,17 @@
      },
      "match": {
       "words": [
+       "끼",
        "따다",
        "싱싱하다",
-       "끼",
        "인스턴트",
        "술잔"
       ],
       "options": [
        "yogurt",
+       "meal",
        "pick",
        "to be fresh",
-       "meal",
        "instant food",
        "liquor glass"
       ],
@@ -8159,6 +8839,40 @@
        "식사량"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "와인",
+        "포도주"
+       ],
+       "kind": "synonym",
+       "note": "Both mean wine. 와인 is the standard modern loanword common on menus and in daily speech (화이트 와인), whereas 포도주 (葡萄酒) is formal or literary (포도주 한 병)."
+      },
+      {
+       "words": [
+        "싱싱하다",
+        "신선하다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean fresh. 싱싱하다 describes raw seafood, vegetables, or fruit full of life (싱싱한 생선), while 신선하다 extends to air, ideas, or sensations (신선한 공기, 신선한 충격)."
+      },
+      {
+       "words": [
+        "음주",
+        "금주"
+       ],
+       "kind": "contrast",
+       "note": "음주 (飮酒) means drinking alcohol, while 금주 (禁酒) means abstaining from alcohol. (음주 운전 drunken driving vs 금주 구역 non-drinking zone)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -8543,6 +9257,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "조미료",
+        "양념"
+       ],
+       "kind": "synonym",
+       "note": "조미료 (調味料) refers to seasonings or flavor enhancers, often manufactured (화학 조미료), while 양념 refers to prepared seasonings, rubs, or marinades (양념 치킨, 양념장)."
+      },
+      {
+       "words": [
+        "양배추",
+        "배추"
+       ],
+       "kind": "contrast",
+       "note": "양배추 (洋배추) is round Western cabbage used for salads or stir-fries (양배추 샐러드), whereas 배추 is napa cabbage mainly used for making kimchi (배추김치)."
+      },
+      {
+       "words": [
+        "참기름",
+        "들기름"
+       ],
+       "kind": "contrast",
+       "note": "참기름 is toasted sesame oil with a fragrant aroma (참기름 한 방울), while 들기름 is perilla oil made from perilla seeds with an earthy herbal flavor (들기름 막국수)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -8778,7 +9526,7 @@
        "pos": "noun",
        "en": "overeating",
        "ex": {
-        "ko": "뷔페에서 과식했더니 소화가 잘 안되고 배가 더부룩해요.",
+        "ko": "뷔페에서 과식했더니 소화가 잘 안 되고 배가 더부룩해요.",
         "en": "I overate at the buffet, so digestion isn't good and my stomach feels bloated."
        },
        "lv": 3,
@@ -8923,6 +9671,40 @@
        "호두"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "해물",
+        "해산물"
+       ],
+       "kind": "synonym",
+       "note": "Both mean seafood. 해물 (海物) is commonly used for culinary ingredients and cooked dishes (해물탕, 해물파전), whereas 해산물 (海産物) broadly covers all marine products and marine life (해산물 시장)."
+      },
+      {
+       "words": [
+        "메뉴판",
+        "차림표"
+       ],
+       "kind": "synonym",
+       "note": "Both mean menu. 메뉴판 is the standard modern word used in most restaurants (메뉴판을 보다), whereas 차림표 is a native Korean term seen in traditional Korean eateries (식당 차림표)."
+      },
+      {
+       "words": [
+        "연하다",
+        "질기다"
+       ],
+       "kind": "contrast",
+       "note": "연하다 means tender or soft (고기가 연하다), while 질기다 means tough or chewy (고기가 질기다). 연하다 can also mean light in color or flavor (연한 차)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -9224,7 +10006,7 @@
       {
        "ko": "실",
        "pos": "noun",
-       "en": "thread; yarn; room",
+       "en": "thread; yarn",
        "ex": {
         "ko": "단추가 떨어져서 바늘에 굵은 실을 꿰어 튼튼히 달았어요.",
         "en": "Buttons fell off, so I threaded needles with thick thread to sew."
@@ -9305,6 +10087,40 @@
        "숙박비"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "수선",
+        "수리"
+       ],
+       "kind": "synonym",
+       "note": "Both mean repair or alteration. 수선 (修繕) is specifically for mending clothes, shoes, or bags (옷 수선, 구두 수선), while 수리 (修理) is for machines, devices, or buildings (시계 수리, 건물 수리)."
+      },
+      {
+       "words": [
+        "세탁물",
+        "빨랫감"
+       ],
+       "kind": "synonym",
+       "note": "Both mean laundry. 세탁물 (洗濯物) is formal or written (세탁물 보관소), while 빨랫감 is everyday native Korean for clothes waiting to be washed (빨랫감이 쌓이다)."
+      },
+      {
+       "words": [
+        "실",
+        "실"
+       ],
+       "kind": "homonym",
+       "note": "실 (thread or yarn: 바늘과 실) vs 室 (room or office: 수술실, 사무실). Completely different roots and meanings."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -9689,6 +10505,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "꽂다",
+        "꼽다"
+       ],
+       "kind": "contrast",
+       "note": "꽂다 means to stick, plug in, or insert into something (플러그를 꽂다, 꽃을 꽂다), while 꼽다 means to count on fingers or single out as notable (손가락을 꼽다, 장점으로 꼽다)."
+      },
+      {
+       "words": [
+        "도장",
+        "도장"
+       ],
+       "kind": "homonym",
+       "note": "圖章 (personal seal or stamp: 계약서에 도장을 찍다) vs 道場 (martial arts training hall or dojo: 태권도 도장). Distinct Hanja and meanings."
+      },
+      {
+       "words": [
+        "부채",
+        "부채"
+       ],
+       "kind": "homonym",
+       "note": "부채 (handheld fan: 부채를 부치다) vs 負債 (debt or liabilities: 부채를 갚다). Same pronunciation, distinct origins."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -10071,6 +10921,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "계약금",
+        "보증금"
+       ],
+       "kind": "contrast",
+       "note": "계약금 (契約金) is the initial down payment paid upon signing a contract (계약금을 걸다), while 보증금 (保證金) is a security deposit held during a lease and refunded upon move-out (임대 보증금)."
+      },
+      {
+       "words": [
+        "월세",
+        "전세"
+       ],
+       "kind": "contrast",
+       "note": "월세 (月貰) is a monthly rent payment (월세를 내다), while 전세 (傳貰) is a lump-sum key money lease unique to Korea where the large deposit is returned when moving out (전세 계약)."
+      },
+      {
+       "words": [
+        "대문",
+        "현관문"
+       ],
+       "kind": "contrast",
+       "note": "대문 (大門) is the outer main gate of a house or courtyard (대문을 열다), whereas 현관문 (玄關門) is the front entrance door directly leading into the indoor living space (현관문을 잠그다)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -10227,7 +11111,7 @@
       {
        "ko": "벽지",
        "pos": "noun",
-       "en": "wallpaper; remote area",
+       "en": "wallpaper",
        "ex": {
         "ko": "방 분위기를 화사하게 바꾸려고 새 벽지를 발랐어요.",
         "en": "To brighten the room atmosphere, I put up new wallpaper."
@@ -10451,6 +11335,40 @@
        "집세"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "벽지",
+        "벽지"
+       ],
+       "kind": "homonym",
+       "note": "벽지 (wallpaper: 벽지를 바르다) vs 僻地 (remote, isolated rural area: 벽지 학교, 벽지 근무). Completely distinct Hanja."
+      },
+      {
+       "words": [
+        "잠그다",
+        "닫다"
+       ],
+       "kind": "synonym",
+       "note": "닫다 means to shut or close without locking (문을 닫다), whereas 잠그다 means to securely lock or fasten, or turn off a valve (열쇠로 잠그다, 가스 밸브를 잠그다)."
+      },
+      {
+       "words": [
+        "수집",
+        "채집"
+       ],
+       "kind": "synonym",
+       "note": "수집 (收集) means collecting items as a hobby or gathering data (우표 수집, 정보 수집), while 채집 (採集) specifically refers to gathering natural specimens like insects or plants (곤충 채집)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -10835,6 +11753,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "전시회",
+        "박람회"
+       ],
+       "kind": "synonym",
+       "note": "전시회 (展示會) is an exhibition displaying artworks or artifacts for viewing (미술 전시회), whereas 박람회 (博覽會) is a large-scale expo or trade fair showcasing industries and innovations (세계 박람회)."
+      },
+      {
+       "words": [
+        "경기장",
+        "체육관"
+       ],
+       "kind": "contrast",
+       "note": "경기장 (競技場) refers broadly to sports arenas or outdoor stadiums (축구 경기장), while 체육관 (體育館) specifically denotes an indoor gym or sports arena (실내 체육관)."
+      },
+      {
+       "words": [
+        "장면",
+        "광경"
+       ],
+       "kind": "synonym",
+       "note": "장면 (場面) refers to a scene in a film, play, or story (영화의 명장면), while 광경 (光景) refers to an impressive sight or spectacle witnessed in reality (놀라운 광경)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -11217,6 +12169,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "사자",
+        "사자"
+       ],
+       "kind": "homonym",
+       "note": "사자 (lion: 동물의 왕 사자) vs 使者 (envoy or messenger: 평화의 사자) vs 死者 (the dead or deceased: 사자의 넋). Different Hanja and origins."
+      },
+      {
+       "words": [
+        "애완동물",
+        "반려동물"
+       ],
+       "kind": "synonym",
+       "note": "Both mean pet. 애완동물 (愛玩動物) is the traditional term for kept animals (애완동물을 키우다), while 반려동물 (伴侶動物) is modern, emphasizing animals as life companions and family members."
+      },
+      {
+       "words": [
+        "산꼭대기",
+        "정상"
+       ],
+       "kind": "synonym",
+       "note": "Both mean mountain summit. 산꼭대기 is everyday native Korean (산꼭대기에 오르다), while 정상 (頂上) is Sino-Korean, also used metaphorically for top status or diplomatic summits (정상 회담)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -11342,7 +12328,7 @@
        "pos": "determiner",
        "en": "exotic",
        "ex": {
-        "ko": "지중해풍 건물과 야자수가 어우러져 무척 이국적 풍경을 자아내네요.",
+        "ko": "지중해풍 건물과 야자수가 어우러져 무척 이국적인 풍경을 자아내네요.",
         "en": "Mediterranean buildings and palm trees blend creating very exotic scenery."
        },
        "lv": 3,
@@ -11463,7 +12449,7 @@
        "pos": "determiner",
        "en": "being introverted",
        "ex": {
-        "ko": "그는 내성적 성격이라 처음 만나는 사람 앞에서는 말수가 적어요.",
+        "ko": "그는 내성적인 성격이라 처음 만나는 사람 앞에서는 말수가 적어요.",
         "en": "He has an introverted personality, so he speaks little before strangers."
        },
        "lv": 3,
@@ -11597,6 +12583,40 @@
        "언덕"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "성명",
+        "성명"
+       ],
+       "kind": "homonym",
+       "note": "姓名 (full name: 성명과 주민등록번호) vs 聲明 (public statement or declaration: 성명을 발표하다). Distinct Hanja and meanings."
+      },
+      {
+       "words": [
+        "해변",
+        "바닷가"
+       ],
+       "kind": "synonym",
+       "note": "Both mean beach or seashore. 해변 (海邊) is Sino-Korean and common in written or travel contexts (해변 휴양지), while 바닷가 is everyday native Korean (바닷가에서 놀다)."
+      },
+      {
+       "words": [
+        "내성적",
+        "사교적"
+       ],
+       "kind": "contrast",
+       "note": "내성적 (內省的) describes an introverted or reserved personality (내성적인 성격), whereas 사교적 (社交的) describes an outgoing, sociable demeanor (사교적인 사람)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -11898,7 +12918,7 @@
       {
        "ko": "데리다",
        "pos": "verb",
-       "en": "take; bring (a person)",
+       "en": "take along (a person); bring (a person)",
        "ex": {
         "ko": "어린 동생을 데리고 근처 공원으로 산책을 다녀왔어요.",
         "en": "I took my little sibling and went for a walk to a nearby park."
@@ -11934,7 +12954,7 @@
        "우정"
       ],
       "options": [
-       "take",
+       "take along (a person)",
        "female",
        "woman",
        "friendship",
@@ -11979,6 +12999,40 @@
        "성실"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "신사",
+        "신사"
+       ],
+       "kind": "homonym",
+       "note": "紳士 (gentleman of fine manners: 신사 숙녀 여러분) vs 神社 (Shinto shrine: 신사 참배). Distinct Hanja and meanings."
+      },
+      {
+       "words": [
+        "특기",
+        "취미"
+       ],
+       "kind": "contrast",
+       "note": "특기 (特技) is a special skill or talent one does exceptionally well (특기가 태권도이다), while 취미 (趣味) is a leisure activity one enjoys doing in free time (취미는 독서이다)."
+      },
+      {
+       "words": [
+        "영리하다",
+        "똑똑하다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean smart or clever. 영리하다 (伶俐하다) describes quick-witted sharpness, often said of children or animals (영리한 아이), while 똑똑하다 refers broadly to being bright and capable (똑똑한 학생)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -12035,7 +13089,7 @@
        "a": "특기"
       },
       {
-       "q": "take →",
+       "q": "take along (a person) →",
        "a": "데리다"
       }
      ]
@@ -12361,6 +13415,40 @@
        "새엄마"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "웃어른",
+        "윗사람"
+       ],
+       "kind": "synonym",
+       "note": "Both refer to seniors. 웃어른 emphasizes family or societal elders deserving moral respect (웃어른을 공경하다), while 윗사람 refers to a superior in rank or workplace hierarchy (직장 윗사람)."
+      },
+      {
+       "words": [
+        "연인",
+        "애인"
+       ],
+       "kind": "synonym",
+       "note": "Both mean romantic partner. 연인 (戀人) is often used in romantic or media contexts describing a couple (연인들의 데이트 코스), whereas 애인 (愛人) is the everyday term for a partner (애인이 생기다)."
+      },
+      {
+       "words": [
+        "부친",
+        "모친"
+       ],
+       "kind": "contrast",
+       "note": "Formal titles for parents in polite discourse. 부친 (父親) refers to someone else's or one's father formally (부친의 뜻), while 모친 (母親) refers to mother (모친을 모시다)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -12745,6 +13833,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "저자",
+        "작가"
+       ],
+       "kind": "synonym",
+       "note": "Both relate to writers. 저자 (著者) refers to the specific author or creator of a written book or paper (책의 저자), whereas 작가 (作家) denotes the profession of creative writing or art (소설 작가, 방송 작가)."
+      },
+      {
+       "words": [
+        "사회자",
+        "진행자"
+       ],
+       "kind": "synonym",
+       "note": "사회자 (司會者) is an MC or presider who moderates formal meetings, ceremonies, or debates (결혼식 사회자), while 진행자 (進行者) leads and hosts continuous broadcasts or shows (라디오 진행자)."
+      },
+      {
+       "words": [
+        "큰아버지",
+        "작은아버지"
+       ],
+       "kind": "contrast",
+       "note": "In Korean kinship, 큰아버지 is father's elder brother (큰아버지 댁), while 작은아버지 is father's married younger brother (작은아버지의 배려)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -13127,6 +14249,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "단정하다",
+        "깔끔하다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean neat. 단정하다 (端正하다) implies proper decorum and tidiness according to etiquette or dress codes (단정한 옷차림), while 깔끔하다 means clean, fresh, and sharp in style (깔끔한 방, 깔끔한 성격)."
+      },
+      {
+       "words": [
+        "미장원",
+        "미용실"
+       ],
+       "kind": "synonym",
+       "note": "Both mean hair salon. 미장원 (美粧院) is an older traditional term still used by neighborhood shops (동네 미장원), while 미용실 (美容室) is the standard modern term in daily life (미용실 예약)."
+      },
+      {
+       "words": [
+        "미인",
+        "미남"
+       ],
+       "kind": "contrast",
+       "note": "미인 (美人) refers to a beautiful woman (절세미인), while 미남 (美男) refers to a handsome man (미남 배우)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -13415,7 +14571,7 @@
       {
        "ko": "말하기",
        "pos": "noun",
-       "en": "speaking class",
+       "en": "speaking; speech",
        "ex": {
         "ko": "한국어 말하기 실력을 키우기 위해 매일 연습해요.",
         "en": "I practice every day to improve Korean speaking skills."
@@ -13437,7 +14593,7 @@
       {
        "ko": "조사",
        "pos": "noun",
-       "en": "postpositional particle; survey; investigation",
+       "en": "survey; investigation",
        "ex": {
         "ko": "소비자 만족도 조사를 위해 설문지를 작성했어요.",
         "en": "I drafted a questionnaire for a consumer satisfaction survey."
@@ -13486,7 +14642,7 @@
        },
        {
         "q": "디자이너는 전통 한복의 선을 현대적인 감각의 ___에 접목했다.",
-        "en": "Designers grafted traditional Hanok lines into modern sensibility styles.",
+        "en": "Designers grafted traditional Hanbok lines into modern sensibility styles.",
         "a": "스타일"
        },
        {
@@ -13507,6 +14663,40 @@
        "앞머리"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "화장",
+        "화장"
+       ],
+       "kind": "homonym",
+       "note": "化粧 (applying cosmetics or makeup: 아침에 화장을 하다) vs 火葬 (cremation of a deceased body: 매장 대신 화장을 선택하다). Distinct Hanja."
+      },
+      {
+       "words": [
+        "조사",
+        "조사"
+       ],
+       "kind": "homonym",
+       "note": "調査 (survey or factual investigation: 여론 조사, 사건 조사) vs 助詞 (grammar postpositional particle: 주격 조사). Completely distinct concepts."
+      },
+      {
+       "words": [
+        "빗다",
+        "빚다"
+       ],
+       "kind": "contrast",
+       "note": "빗다 means to comb hair with a comb (머리를 빗다), while 빚다 means to knead dough or shape dumplings (만두를 빚다), or figuratively cause a misunderstanding (오해를 빚다)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -13891,6 +15081,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "번역",
+        "통역"
+       ],
+       "kind": "contrast",
+       "note": "번역 (飜譯) is translating written text from one language to another (외국 서적을 번역하다), while 통역 (通譯) is real-time oral interpreting of spoken language (동시통역)."
+      },
+      {
+       "words": [
+        "참고",
+        "참조"
+       ],
+       "kind": "synonym",
+       "note": "참고 (參考) is consulting materials to gain helpful information (참고 서적, 참고 자료), while 참조 (參照) is pointing the reader to a specific place or document to look at (첨부 자료 참조 see the attached material)."
+      },
+      {
+       "words": [
+        "합격",
+        "불합격"
+       ],
+       "kind": "contrast",
+       "note": "합격 (合格) means passing a test or screening (합격 통지서), while 불합격 (不合格) means failing to meet the passing standard (불합격 처리)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -14273,6 +15497,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "한문",
+        "한자"
+       ],
+       "kind": "contrast",
+       "note": "한자 (漢字) refers to individual Chinese logographic characters (한자 쓰기), whereas 한문 (漢文) refers to classical Chinese prose, literature, or grammar texts written in Hanja (한문 고전)."
+      },
+      {
+       "words": [
+        "박사",
+        "석사"
+       ],
+       "kind": "contrast",
+       "note": "Academic degrees. 박사 (博士) is a doctoral degree / Ph.D. holder (박사 학위 논문), while 석사 (碩士) is a master's degree holder (석사 과정)."
+      },
+      {
+       "words": [
+        "가난",
+        "빈곤"
+       ],
+       "kind": "synonym",
+       "note": "Both mean poverty. 가난 is the everyday native Korean word (가난을 이겨내다), whereas 빈곤 (貧困) is formal Sino-Korean used in academic or socio-economic contexts (빈곤 문제, 빈곤층)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -14398,7 +15656,7 @@
        "pos": "determiner",
        "en": "personal; individual",
        "ex": {
-        "ko": "이것은 어디까지나 제 개인적 의견이니 참고만 해 주세요.",
+        "ko": "이것은 어디까지나 제 개인적인 의견이니 참고만 해 주세요.",
         "en": "This is strictly my personal opinion, so please take it only as reference."
        },
        "lv": 3,
@@ -14653,6 +15911,40 @@
        "참석"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "사건",
+        "사고"
+       ],
+       "kind": "contrast",
+       "note": "사건 (事件) is an incident or criminal event caused by human conflict or intent (살인 사건, 범죄 사건), while 사고 (事故) is an unexpected accidental disaster or mishap (교통사고, 안전사고)."
+      },
+      {
+       "words": [
+        "개인적",
+        "사적"
+       ],
+       "kind": "synonym",
+       "note": "개인적 (個人的) refers to an individual rather than a collective group (개인적인 견해), while 사적 (私的) is private and unofficial, the direct opposite of public or official (사적인 질문 vs 공적 업무)."
+      },
+      {
+       "words": [
+        "국기",
+        "국기"
+       ],
+       "kind": "homonym",
+       "note": "國旗 (national flag: 국기를 게양하다) vs 國技 (national sport or martial art: 태권도는 한국의 국기이다). Distinct Hanja and concepts."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -15037,6 +16329,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "총",
+        "총"
+       ],
+       "kind": "homonym",
+       "note": "銃 (gun or firearm: 총을 겨누다) vs 總 (total or gross sum: 총 금액, 총 5명). Distinct Hanja and usages."
+      },
+      {
+       "words": [
+        "피해자",
+        "가해자"
+       ],
+       "kind": "contrast",
+       "note": "피해자 (被害者) is the victim who suffered loss, injury, or harm (피해자 구제), while 가해자 (加害者) is the perpetrator who caused the harm (가해자 처벌)."
+      },
+      {
+       "words": [
+        "어기다",
+        "위반하다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean to break a rule. 어기다 is native Korean used for promises, rules, or agreements (약속을 어기다), while 위반하다 (違反하다) is formal Sino-Korean used for legal regulations or statutes (법률을 위반하다)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -15419,6 +16745,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "어떡하다",
+        "어떻게"
+       ],
+       "kind": "contrast",
+       "note": "어떡하다 is a contracted verb predicate meaning what to do (이제 어떡하지?), whereas 어떻게 is an interrogative adverb modifying a verb (어떻게 풀어요?). Writing 어떻게 해 as 어떡해 is correct."
+      },
+      {
+       "words": [
+        "토론",
+        "토의"
+       ],
+       "kind": "contrast",
+       "note": "토론 (討論) is a debate where opposing pros and cons argue to persuade (찬반 토론), while 토의 (討議) is a collaborative discussion to deliberate and solve a problem together (문제 해결을 위한 토의)."
+      },
+      {
+       "words": [
+        "송별회",
+        "환영회"
+       ],
+       "kind": "contrast",
+       "note": "송별회 (送別會) is a farewell party to say goodbye to departing people (송별회를 열다), while 환영회 (歡迎會) is a welcome reception to greet newcomers (신입사원 환영회)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -15651,7 +17011,7 @@
       },
       {
        "ko": "사인",
-       "pos": "verb",
+       "pos": "noun",
        "en": "signature; autograph",
        "ex": {
         "ko": "서류 내용을 꼼꼼히 확인한 뒤에 맨 아래 칸에 사인하세요.",
@@ -15687,7 +17047,7 @@
        "pos": "interjection",
        "en": "no; nope",
        "ex": {
-        "ko": "아냐, 그건 네 잘못이 아니에요.",
+        "ko": "아냐, 그건 네 잘못이 아니야.",
         "en": "No, that is not your fault."
        },
        "lv": 3,
@@ -15772,8 +17132,8 @@
      "cloze": {
       "items": [
        {
-        "q": "이야기가 다른 길로 샜는데 ___ 본론으로 돌아갈 필요가 있다.",
-        "en": "The story drifted off, but there is a need to return to main points.",
+        "q": "오늘 날씨가 참 좋네요. ___ 오후에 시간 있으세요?",
+        "en": "The weather is lovely today. By the way, are you free this afternoon?",
         "a": "근데"
        },
        {
@@ -15799,6 +17159,40 @@
        "근데"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "높임말",
+        "반말"
+       ],
+       "kind": "contrast",
+       "note": "높임말 is honorific or polite speech used toward elders, seniors, or unfamiliar adults (높임말을 쓰다), while 반말 is informal or casual speech used with close peers or younger individuals (반말을 쓰다)."
+      },
+      {
+       "words": [
+        "사인",
+        "서명"
+       ],
+       "kind": "synonym",
+       "note": "Both mean signature. 사인 is the everyday loanword used on receipts or for celebrity autographs (카드 영수증에 사인하다), while 서명 (署名) is formal Sino-Korean used on contracts or petitions (계약서에 서명하다)."
+      },
+      {
+       "words": [
+        "속담",
+        "격언"
+       ],
+       "kind": "synonym",
+       "note": "속담 (俗談) is a traditional folk proverb passed down through cultural wisdom (한국 속담), whereas 격언 (格言) is a formal moral maxim, adage, or wise precept (인생의 격언)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -16183,6 +17577,32 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "이성",
+        "이성"
+       ],
+       "kind": "homonym",
+       "note": "理性 (reason or intellect: 이성을 되찾다) vs 異性 (the opposite sex: 이성 친구). Distinct Hanja and concepts."
+      },
+      {
+       "words": [
+        "여쭈다",
+        "묻다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean to ask. 여쭈다 (or 여쭙다) is the humble honorific form used when asking a question to a teacher, elder, or superior (선생님께 여쭈다), whereas 묻다 is standard (친구에게 묻다)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -16563,6 +17983,40 @@
        "녹음"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "입국",
+        "출국"
+       ],
+       "kind": "contrast",
+       "note": "입국 (入國) is entry into a country (입국 심사를 받다), whereas 출국 (出國) is departure from a country (출국 수속을 밟다)."
+      },
+      {
+       "words": [
+        "발명",
+        "발견"
+       ],
+       "kind": "contrast",
+       "note": "발명 (發明) is creating or inventing an entirely new device or technique (신기술 발명), while 발견 (發見) is discovering something that already existed but was hidden or unknown (유적 발견)."
+      },
+      {
+       "words": [
+        "다운로드",
+        "업로드"
+       ],
+       "kind": "contrast",
+       "note": "다운로드 is downloading files from the internet onto a local device (자료 다운로드), while 업로드 is uploading files from a local device up to the internet or server (과제물 업로드)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -16947,6 +18401,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "인도",
+        "인도"
+       ],
+       "kind": "homonym",
+       "note": "人道 (pedestrian sidewalk or walkway: 인도로 안전하게 걷다) vs 印度 (India, the South Asian country: 인도 여행). Completely distinct Hanja."
+      },
+      {
+       "words": [
+        "맞은편",
+        "건너편"
+       ],
+       "kind": "synonym",
+       "note": "Both mean the opposite side across a road, street, or river. 맞은편 and 건너편 are interchangeable in daily directions (길 맞은편 편의점, 도로 건너편 건물)."
+      },
+      {
+       "words": [
+        "붐비다",
+        "한산하다"
+       ],
+       "kind": "contrast",
+       "note": "붐비다 means crowded and bustling with crowds or traffic (주말에 명동이 붐비다), while 한산하다 (閑散하다) means quiet, empty, or uncrowded (평일 오전에는 한산하다)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -17081,7 +18569,7 @@
       {
        "ko": "박",
        "pos": "bound noun",
-       "en": "gourd",
+       "en": "night(s) (counter for overnight stays)",
        "ex": {
         "ko": "제주도로 2박 3일 동안 여행을 다녀왔어요.",
         "en": "I went on a 2-night 3-day trip to Jeju Island."
@@ -17103,7 +18591,7 @@
       {
        "ko": "묵다",
        "pos": "verb",
-       "en": "get old; get stale",
+       "en": "stay (overnight); lodge; get old",
        "ex": {
         "ko": "부산 여행 중에 바다가 훤히 내려다보이는 호텔에 묵었어요.",
         "en": "During the Busan trip, I stayed at a hotel overlooking the ocean."
@@ -17283,8 +18771,8 @@
       ],
       "options": [
        "inn",
-       "gourd",
-       "get old",
+       "night(s) (counter for overnight stays)",
+       "stay (overnight)",
        "backpack",
        "backpacking trip",
        "guidebook"
@@ -17327,6 +18815,40 @@
        "좌회전"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "묵다",
+        "묶다"
+       ],
+       "kind": "contrast",
+       "note": "묵다 means to lodge or stay overnight (호텔에 묵다), or to get old and aged (오래 묵은 장류). 묶다 means to tie, knot, or bind with string (신발 끈을 묶다). Pronounced identically as [묵따]."
+      },
+      {
+       "words": [
+        "좌회전",
+        "우회전"
+       ],
+       "kind": "contrast",
+       "note": "좌회전 (左回轉) is a left turn (사거리에서 좌회전), while 우회전 (右回轉) is a right turn (골목에서 우회전)."
+      },
+      {
+       "words": [
+        "승차",
+        "하차"
+       ],
+       "kind": "contrast",
+       "note": "승차 (乘車) is boarding or getting into a bus, train, or car (버스 승차), while 하차 (下車) is getting off or disembarking (지하철 하차)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -17711,6 +19233,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "왕복",
+        "편도"
+       ],
+       "kind": "contrast",
+       "note": "왕복 (往復) is a round-trip ticket or journey (왕복 승차권), whereas 편도 (片道) is a one-way trip (편도 티켓)."
+      },
+      {
+       "words": [
+        "배웅",
+        "마중"
+       ],
+       "kind": "contrast",
+       "note": "배웅 is seeing someone off upon their departure (공항에서 친구를 배웅하다), while 마중 is going out to welcome or greet someone arriving (역으로 마중을 나가다)."
+      },
+      {
+       "words": [
+        "국내선",
+        "국제선"
+       ],
+       "kind": "contrast",
+       "note": "국내선 (國內線) refers to domestic airline flights operating within a single country (국내선 터미널), whereas 국제선 (國際線) refers to international flights between countries (국제선 탑승구)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -18091,6 +19647,40 @@
        "하차"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "수정",
+        "수정"
+       ],
+       "kind": "homonym",
+       "note": "修正 (revision or editorial correction: 오타를 수정하다) vs 水晶 (quartz or clear crystal: 수정 구슬). Distinct Hanja and concepts."
+      },
+      {
+       "words": [
+        "작성",
+        "제출"
+       ],
+       "kind": "contrast",
+       "note": "작성 (作成) is filling out, composing, or drawing up a document (신청서 작성), while 제출 (提出) is handing in or submitting the completed paperwork to an office (서류 제출)."
+      },
+      {
+       "words": [
+        "승진",
+        "진급"
+       ],
+       "kind": "synonym",
+       "note": "Both mean career promotion. 승진 (昇進) is standard for corporate and office rank elevations (부장으로 승진하다), while 진급 (晉級) often denotes advancement in military rank or grade systems (대위로 진급하다)."
+      }
+     ]
     },
     {
      "type": "practice",

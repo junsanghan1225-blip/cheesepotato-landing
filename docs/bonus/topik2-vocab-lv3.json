@@ -272,7 +272,7 @@
     },
     {
      "ko": "대변",
-     "en": "feces; representation (noun)"
+     "en": "feces; stool (noun)"
     },
     {
      "ko": "독감",
@@ -436,7 +436,7 @@
     },
     {
      "ko": "설사",
-     "en": "diarrhea; even if (noun)"
+     "en": "diarrhea (noun)"
     },
     {
      "ko": "소독약",
@@ -460,7 +460,7 @@
     },
     {
      "ko": "암",
-     "en": "female; she (noun)"
+     "en": "cancer (noun)"
     },
     {
      "ko": "어지럽다",
@@ -522,7 +522,7 @@
       "삐다"
      ],
      "a": 0,
-     "why": "설사 means diarrhea; even if. 설사 증상이 지속될 때는 탈수를 예방하기 위해 수분을 섭취해야 한다. (When diarrhea continues, intake fluids to prevent dehydration.)"
+     "why": "설사 means diarrhea. 설사 증상이 지속될 때는 탈수를 예방하기 위해 수분을 섭취해야 한다. (When diarrhea continues, intake fluids to prevent dehydration.)"
     },
     {
      "q": "What does 수면제 mean?",
@@ -536,7 +536,7 @@
      "why": "수면제 means sleeping pill; sleeping drug. 수면제 오남용은 심각한 약물 의존성과 부작용을 초래할 수 있다. (Misuse of sleeping pills can cause serious drug dependence and side effects.)"
     },
     {
-     "q": "Which Korean word means \"female\"?",
+     "q": "Which Korean word means \"cancer\"?",
      "opts": [
       "복통",
       "소화",
@@ -544,7 +544,7 @@
       "여드름"
      ],
      "a": 2,
-     "why": "암 means female; she. 의학의 발전으로 말기 암 환자의 생존율이 비약적으로 향상되었다. (With medical advances, terminal cancer survival rates improved leapingly.)"
+     "why": "암 means cancer. 의학의 발전으로 말기 암 환자의 생존율이 비약적으로 향상되었다. (With medical advances, terminal cancer survival rates improved leapingly.)"
     }
    ],
    "fill": [
@@ -1028,7 +1028,7 @@
     },
     {
      "ko": "당연히",
-     "en": "naturally; fairly (adverb)"
+     "en": "naturally; of course (adverb)"
     },
     {
      "ko": "대단하다",
@@ -1048,7 +1048,7 @@
     },
     {
      "ko": "딱",
-     "en": "with a snap (adverb)"
+     "en": "exactly; tightly; firmly (adverb)"
     },
     {
      "ko": "똑똑히",
@@ -1124,7 +1124,7 @@
      "why": "대체로 means generally; mostly. 전문가들은 올해 경제성장률 전망치에 대체로 동의했다. (Experts generally agreed on this year's economic growth forecasts.)"
     },
     {
-     "q": "Which Korean word means \"with a snap\"?",
+     "q": "Which Korean word means \"exactly\"?",
      "opts": [
       "굉장히",
       "대단하다",
@@ -1132,7 +1132,7 @@
       "바탕"
      ],
      "a": 2,
-     "why": "딱 means with a snap. 의사의 권고에 따라 그는 술과 담배를 딱 끊고 운동을 시작했다. (Following doctor's advice, he stopped drinking and smoking firmly.)"
+     "why": "딱 means exactly; tightly; firmly. 의사의 권고에 따라 그는 술과 담배를 딱 끊고 운동을 시작했다. (Following doctor's advice, he stopped drinking and smoking firmly.)"
     }
    ],
    "fill": [
@@ -1260,7 +1260,7 @@
     },
     {
      "ko": "소요",
-     "en": "taking time; requirement; disturbance (noun)"
+     "en": "taking time; requirement (noun)"
     }
    ],
    "quiz": [
@@ -1469,7 +1469,7 @@
       "right side"
      ],
      "a": 1,
-     "why": "송이 means cluster; bunch; piece (flowers). 밤사이 하늘에서 탐스러운 함박눈 송이가 소복하게 쏟아져 내렸다. (Plump heavy snow clusters poured down softly from skies overnight.)"
+     "why": "송이 means cluster; bunch; piece (flowers). 정원에 탐스러운 장미꽃 수십 송이가 활짝 피어났다. (Dozens of plump roses bloomed fully in the garden.)"
     },
     {
      "q": "Which Korean word means \"ninth\"?",
@@ -1980,7 +1980,7 @@
     },
     {
      "ko": "설",
-     "en": "Seollal; New Year; theory (noun)"
+     "en": "Seollal; Lunar New Year (noun)"
     },
     {
      "ko": "성당",
@@ -2068,7 +2068,7 @@
       "민속놀이"
      ],
      "a": 2,
-     "why": "설 means Seollal; New Year; theory. 민족 대명절 설을 맞아 귀성객들의 차량 행렬이 고속도로를 메웠다. (Welcoming major holiday Seollal, lines of homecoming cars packed highways.)"
+     "why": "설 means Seollal; Lunar New Year. 민족 대명절 설을 맞아 귀성객들의 차량 행렬이 고속도로를 메웠다. (Welcoming major holiday Seollal, lines of homecoming cars packed highways.)"
     },
     {
      "q": "What does 소설책 mean?",
@@ -2232,7 +2232,7 @@
     },
     {
      "ko": "소매",
-     "en": "sleeve; retail (noun)"
+     "en": "sleeve (noun)"
     },
     {
      "ko": "손가방",
@@ -3048,7 +3048,7 @@
       "앞날"
      ],
      "a": 2,
-     "why": "어저께 means yesterday. 정부는 어저께 국무회의를 열고 민생 안정 대책을 최종 확정했다. (The government held cabinet meetings yesterday, finalizing measures.)"
+     "why": "어저께 means yesterday. 어저께 도서관에서 빌린 소설책을 오늘 벌써 다 읽었다. (I already finished the novel I borrowed from the library yesterday.)"
     },
     {
      "q": "What does 오래오래 mean?",
@@ -3204,7 +3204,7 @@
     },
     {
      "ko": "부리다",
-     "en": "manage; show; display; throw (verb)"
+     "en": "show; display; throw (a tantrum); manage (people) (verb)"
     },
     {
      "ko": "빌다",
@@ -3280,7 +3280,7 @@
      "why": "여유 means having more than enough of time, space, money, etc.. 경제적 여유가 생기자 그는 문화생활을 즐기기 시작했다. (As financial leeway emerged, he began enjoying cultural life.)"
     },
     {
-     "q": "Which Korean word means \"manage\"?",
+     "q": "Which Korean word means \"show\"?",
      "opts": [
       "올여름",
       "모범",
@@ -3288,7 +3288,7 @@
       "운"
      ],
      "a": 2,
-     "why": "부리다 means manage; show; display; throw. 욕심을 부리다가는 어렵게 쌓아 올린 모든 것을 한순간에 잃을 수 있다. (Acting greedy, one can lose everything built up hard in an instant.)"
+     "why": "부리다 means show; display; throw (a tantrum); manage (people). 욕심을 부리다가는 어렵게 쌓아 올린 모든 것을 한순간에 잃을 수 있다. (Acting greedy, one can lose everything built up hard in an instant.)"
     }
    ],
    "fill": [
@@ -3540,7 +3540,7 @@
     },
     {
      "ko": "반하다",
-     "en": "fall in love; be against (verb)"
+     "en": "fall for; be charmed by (verb)"
     },
     {
      "ko": "보람",
@@ -3713,8 +3713,8 @@
      ]
     },
     {
-     "q": "\"fall in love\" in Korean: ___",
-     "en": "fall in love; be against",
+     "q": "\"fall for\" in Korean: ___",
+     "en": "fall for; be charmed by",
      "a": [
       "반하다"
      ]
@@ -3936,7 +3936,7 @@
     },
     {
      "ko": "끼",
-     "en": "meal (noun)"
+     "en": "meal (bound noun)"
     },
     {
      "ko": "매운탕",
@@ -4588,7 +4588,7 @@
     },
     {
      "ko": "실",
-     "en": "thread; yarn; room (noun)"
+     "en": "thread; yarn (noun)"
     },
     {
      "ko": "얼룩",
@@ -5124,7 +5124,7 @@
     },
     {
      "ko": "벽지",
-     "en": "wallpaper; remote area (noun)"
+     "en": "wallpaper (noun)"
     },
     {
      "ko": "잠그다",
@@ -5960,7 +5960,7 @@
     },
     {
      "ko": "데리다",
-     "en": "take; bring (a person) (verb)"
+     "en": "take along (a person); bring (a person) (verb)"
     },
     {
      "ko": "막내",
@@ -6740,7 +6740,7 @@
     },
     {
      "ko": "말하기",
-     "en": "speaking class (noun)"
+     "en": "speaking; speech (noun)"
     },
     {
      "ko": "우수",
@@ -6748,7 +6748,7 @@
     },
     {
      "ko": "조사",
-     "en": "postpositional particle; survey; investigation (noun)"
+     "en": "survey; investigation (noun)"
     }
    ],
    "quiz": [
@@ -6778,7 +6778,7 @@
      "q": "What does 촌스럽다 mean?",
      "opts": [
       "chalk",
-      "postpositional particle",
+      "survey",
       "appearance",
       "unfashionable"
      ],
@@ -7896,7 +7896,7 @@
     },
     {
      "ko": "사인",
-     "en": "signature; autograph (verb)"
+     "en": "signature; autograph (noun)"
     },
     {
      "ko": "서명",
@@ -7937,7 +7937,7 @@
       "understand"
      ],
      "a": 1,
-     "why": "근데 means by the way. 이야기가 다른 길로 샜는데 근데 본론으로 돌아갈 필요가 있다. (The story drifted off, but there is a need to return to main points.)"
+     "why": "근데 means by the way. 오늘 날씨가 참 좋네요. 근데 오후에 시간 있으세요? (The weather is lovely today. By the way, are you free this afternoon?)"
     },
     {
      "q": "Which Korean word means \"therefore\"?",
@@ -8644,7 +8644,7 @@
     },
     {
      "ko": "박",
-     "en": "gourd (bound noun)"
+     "en": "night(s) (counter for overnight stays) (bound noun)"
     },
     {
      "ko": "숙박",
@@ -8652,7 +8652,7 @@
     },
     {
      "ko": "묵다",
-     "en": "get old; get stale (verb)"
+     "en": "stay (overnight); lodge; get old (verb)"
     },
     {
      "ko": "배낭",
@@ -8724,7 +8724,7 @@
      "why": "좌회전 means left turn. 직진 신호와 좌회전 신호가 동시에 켜지자 대기 차량들이 서서히 움직였다. (As straight and left-turn signals lit simultaneously, waiting cars moved.)"
     },
     {
-     "q": "Which Korean word means \"gourd\"?",
+     "q": "Which Korean word means \"night(s) (counter for overnight stays)\"?",
      "opts": [
       "여관",
       "승차",
@@ -8732,7 +8732,7 @@
       "좌회전"
      ],
      "a": 2,
-     "why": "박 means gourd. 휴가철 호텔 예약은 최소 일주일 전 1박 기준으로 접수한다. (Hotel reservations during vacation seasons are accepted on a minimum 1-night basis at least a week prior.)"
+     "why": "박 means night(s) (counter for overnight stays). 휴가철 호텔 예약은 최소 일주일 전 1박 기준으로 접수한다. (Hotel reservations during vacation seasons are accepted on a minimum 1-night basis at least a week prior.)"
     },
     {
      "q": "What does 배낭 mean?",
