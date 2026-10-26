@@ -39,6 +39,8 @@ const CLASSIC = THEME === 'classic';
 /* 레벨별 시리즈 색 · 마스코트(표지 · 부 속표지 · 대화 표지가 같이 쓴다) */
 const { potatoLevel, cheeseLevel } = await import(path.join(ROOT, 'levels.js'));
 const LV = B.coverLevel;
+/* 속지 색만 표지와 다르게 하고 싶은 책(운영자 2026-10-26 「표지색만」): 책 틀의 innerLevel {bg, bg2} 가 있으면 속지 강조색은 그 값, 표지 · 책등은 coverLevel */
+const LVI = LV && B.innerLevel ? { ...LV, ...B.innerLevel } : LV;
 const lvMascot = LV ? (LV.mascot[0] === 'cheese' ? cheeseLevel(LV.mascot[1]) : potatoLevel(LV.mascot[1])).icon : '';
 const LVG = ['#EFE6CB', '#D2BC86', '#A8915C'];
 /* 문제은행 단원 「w51:2」 = TOPIK II 쓰기 51번의 2번째 10문항(topik-writing.js). 학습지 JSON 대신 이 자리에서 단원 모양으로 만든다. */
@@ -96,11 +98,11 @@ const mixHex = (a, b, t) => { const f = (h) => [16, 8, 0].map((sh) => (parseInt(
 const COOL = ['#5a6780', '#2a3550', '#7a8aa6', '#6b7a92', '#8e9ab0', '#44506a', '#9aa7bf', '#cfd6e2', '#d6dce8', '#c5d1e6', '#b9c3d6', '#e8ecf3', '#fafbfd', '#f6f8fc', '#f4f6fa', '#f3f5fa', '#f1f4fa', '#f1f4fa', '#2f5da8'];
 const recolor = (str) => {
   if (!CLASSIC || !B.coverLevel) return str;
-  const hue = hex2hsl(B.coverLevel.bg)[0];
+  const hue = hex2hsl(LVI.bg)[0];
   for (const c of COOL) { const [, ss, ll] = hex2hsl(c); str = str.replace(new RegExp(c, 'gi'), hsl2hex(hue, Math.min(ss, 0.3), ll)); }
-  return str.replace(/#1f3a68/gi, B.coverLevel.bg).replace(/#14264a/gi, B.coverLevel.bg2).replace(/#eef2f8/gi, mixHex(B.coverLevel.bg, '#ffffff', 0.93));
+  return str.replace(/#1f3a68/gi, LVI.bg).replace(/#14264a/gi, LVI.bg2).replace(/#eef2f8/gi, mixHex(LVI.bg, '#ffffff', 0.93));
 };
-const ACC = CLASSIC ? (B.coverLevel?.bg || '#1F3A68') : B.color, TINT = CLASSIC ? (B.coverLevel ? mixHex(B.coverLevel.bg, '#ffffff', 0.93) : '#EEF2F8') : B.tint;
+const ACC = CLASSIC ? (LVI?.bg || '#1F3A68') : B.color, TINT = CLASSIC ? (LVI ? mixHex(LVI.bg, '#ffffff', 0.93) : '#EEF2F8') : B.tint;
 
 /* ── 단원 끝 QR(운영자 2026-10-22 「책과 앱이 연결되게」) ──
    단원마다 그 주제의 사이트 쪽(있으면 <id>-worksheet/, 쓰기 책은 /topik-writing/)으로 가는 QR + PDF 안 눌러지는 링크.
@@ -784,7 +786,7 @@ table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nt
 /* ㉠ ㉡ ㉢ — 글꼴에 없는 글자라 동그라미 + 자음을 선으로 직접 그린다(글꼴 자음은 칸 안에서 위 · 아래로 쏠려 보였다 — 운영자 2026-10-18 「위치가 이상하다」) */
 const CMP = { '㉠': 'M6.6 6.4H13.6V13.6', '㉡': 'M6.6 6.4V13.6H13.6', '㉢': 'M13.6 6.4H6.6V13.6H13.6' };
 const CM = Object.fromEntries(Object.entries(CMP).map(([k, d]) => [k, `<svg class="cm" viewBox="0 0 20 20" aria-label="${k}"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="miter"/></svg>`]));
-const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72% 78%,${LV.bg} 0%,${LV.bg2} 80%) !important;color:#fff !important;padding:0 !important;overflow:hidden}
+const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72% 78%,${LVI.bg} 0%,${LVI.bg2} 80%) !important;color:#fff !important;padding:0 !important;overflow:hidden}
 .pd.lv:before,.pd.lv:after{display:none !important}
 .pd.lv .fr,.dop.lv .fr{position:absolute;left:9mm;top:9mm;right:9mm;bottom:9mm;border:.5mm solid ${LVG[1]}}
 .pd.lv .ptp{position:absolute;left:18mm;right:18mm;top:17mm;display:flex;justify-content:space-between;font-size:7.4pt;font-weight:700;letter-spacing:.18em;color:${LVG[0]}}
@@ -794,8 +796,8 @@ const lvPageCss = LV ? `.pd.lv,.dop.lv{background:radial-gradient(ellipse at 72%
 .pd.lv h2{position:absolute;left:18mm;right:18mm;top:127mm;font-size:26pt;line-height:1.25;color:#fff;border:0 !important;padding:0 !important;margin:0}.pd.lv h3{position:absolute;left:18mm;right:18mm;top:147mm;margin:0;font-size:12.5pt;font-weight:500;color:${LVG[0]};opacity:.95}
 .pd.lv .list{position:absolute;left:18mm;right:18mm;top:162mm;margin:0;font-size:8.4pt;line-height:1.62;color:#fff;opacity:.92}
 .pd.lv .ft,.dop.lv .ft{position:absolute;left:18mm;right:18mm;bottom:17mm;display:flex;align-items:center;justify-content:space-between}
-.pd.lv .mini,.dop.lv .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LV.bg},${LV.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.pd.lv .mini svg,.dop.lv .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
-.dop.lv .rb b{color:${LV.bg}}.dop.lv .rb i{color:${LV.bg}}.dop.lv .tx h2{color:#fff}.dop.lv .tx p{color:${LVG[0]}}.dop.lv .dbx:before,.dop.lv .dbx:after,.dop.lv .dbx span:before,.dop.lv .dbx span:after{border-color:${LVG[1]}}
+.pd.lv .mini,.dop.lv .mini{position:relative;width:16mm;height:16mm;border-radius:50%;background:radial-gradient(circle at 50% 38%,${LVI.bg},${LVI.bg2});box-shadow:0 0 0 .5mm ${LVG[1]},0 0 0 1.1mm #fff,0 0 0 1.5mm ${LVG[1]}aa}.pd.lv .mini svg,.dop.lv .mini svg{position:absolute;left:1.4mm;top:.9mm;width:13.2mm;height:13.2mm}
+.dop.lv .rb b{color:${LVI.bg}}.dop.lv .rb i{color:${LVI.bg}}.dop.lv .tx h2{color:#fff}.dop.lv .tx p{color:${LVG[0]}}.dop.lv .dbx:before,.dop.lv .dbx:after,.dop.lv .dbx span:before,.dop.lv .dbx span:after{border-color:${LVG[1]}}
 .dop.lv .dt{background:${LVG[1]}}.dop.lv .pl{color:${LVG[0]}}.dop.lv .pl small{color:${LVG[1]}}` : '';
 const shell = (body) => recolor(`<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${CSS}${CLASSIC ? CLASSIC_CSS : ''}${LV ? lvPageCss : ''}${reviewTop}</style></head><body>${body.replace(/[㉠㉡㉢]/g, (c) => CM[c])}</body></html>`);
 let pages = new Map();
