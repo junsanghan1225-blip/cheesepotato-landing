@@ -30,6 +30,7 @@ for (const sec of secs) {
   if (au !== wantAu) bad.push(`${B.id}: 신청서 저자명 「${au}」 ≠ 표지 「${wantAu}」`);
   const pk = (sec.match(/지은이\s+(.+)/) || [])[1]?.trim(), pd = (sec.match(/\n발행\s+(\S+)/) || [])[1];
   if (pk !== `${B.author.ko} (${B.author.en})`) bad.push(`${B.id}: 판권지 지은이 「${pk}」 ≠ 「${B.author.ko} (${B.author.en})」`);
+  if (want && B.published !== want) bad.push(`${B.id}: 책 틀 published 「${B.published}」 ≠ 신청서 발행일 「${want}」 (판권쪽에 찍히는 발행일)`);
   if (want && pd !== want) bad.push(`${B.id}: 판권지 발행 「${pd}」 ≠ 신청서 발행일 「${want}」`);
 }
 if (bad.length) { console.error('ISBN 신청서 · 표지 · 판권지 검사 — 어긋남:\n  - ' + bad.join('\n  - ')); process.exit(1); }

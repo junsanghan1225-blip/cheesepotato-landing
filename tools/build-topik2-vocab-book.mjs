@@ -61,7 +61,24 @@ function bonusFor(ws, id, usedInBook) {
 }
 /* 헷갈리는 낱말(유의어 · 동음이의어 · 비슷한 말) — 안티가 쓴 docs/vocab-book/topik2-vocab-1000.notes.json 이 있으면 단원 끝에 표로 붙인다(지시 docs/antigravity/antigravity-vocab-notes-task.md) */
 const NOTES_F = path.join(ROOT, `docs/vocab-book/${CFG.id}.notes.json`);
-const NOTES = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
+const NOTES_RAW = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
+/* 메모가 적힌 단원에 그 낱말이 하나도 없으면(4권처럼 단원이 어긋난 경우) 낱말이 모인 단원으로 옮긴다. 짝 낱말만 다른 단원에 있는 메모는 그대로 둔다 */
+const NOTE_UNIT = {};
+for (let u = 0; u < N_WORDS / PER; u++) for (const w of picked.slice(u * PER, u * PER + PER)) (NOTE_UNIT[w.head] ||= new Set()).add(`${CFG.prefix}-${String(u + 1).padStart(2, '0')}`);
+const NOTES = {};
+let notesDropped = 0, notesMoved = 0;
+for (const [key, arr] of Object.entries(NOTES_RAW)) for (const n of arr || []) {
+  const sets = [...new Set(n.words)].map((x) => NOTE_UNIT[x] || new Set());
+  let to = sets.some((st) => st.has(key)) ? key : null;
+  if (!to) {
+    const all = [...(sets[0] || [])].find((id) => sets.every((st) => st.has(id)));
+    to = all || [...(sets[0] || [])][0] || null;
+    if (to) notesMoved++;
+  }
+  if (to) (NOTES[to] ||= []).push(n); else notesDropped++;
+}
+if (notesMoved) console.log(`헷갈리는 낱말 메모 ${notesMoved}개를 낱말이 있는 단원으로 옮겼다`);
+if (notesDropped) console.log(`⚠ 헷갈리는 낱말 메모 ${notesDropped}개는 책에 없는 낱말이라 뺐다`);
 const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림', antonym: 'Opposites · 반대말' };
 const AVOID = new Set(['누다', '살인']);
 const inline = {};
@@ -134,6 +151,7 @@ const book = {
   coverLevel: { code: 'TOPIK II', name: CFG.lv3 ? '3급' : '3~6급', bg: '#4B2A85', bg2: '#32195E', mascot: CFG.mascot, title: ['TOPIK II', '단어장', `워크북 ${VOL}`], sub: CFG.lv3 ? `1 · 2권에 없는 3급 낱말 ${N_WORDS}개` : `자주 나오는 낱말 ${CFG.range}` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
+book.published = '2026.11.10';   // ISBN 신청서 발행일 = 판권지 발행(tools/check-isbn.mjs)
 book.sub.ko = book.coverLevel.sub;   // 표지의 한국어 부제목 = 책의 부제목 = ISBN 신청서 부제목(어긋나면 ISBN 보완 요청이 온다 — tools/check-isbn.mjs)
 fs.writeFileSync(path.join(ROOT, `docs/books/${CFG.id}.json`), JSON.stringify(book, null, 1) + '\n');
 fs.writeFileSync(path.join(ROOT, `docs/bonus/${CFG.id}.json`), JSON.stringify({ _note: '책 QR 보너스 연습(게임) — tools/build-topik2-vocab-book.mjs 가 단어장 자료에서 만든다(손으로 고치지 않는다)', book: CFG.id, game: true, maxCards: 20, units: bonusUnits }, null, 1) + '\n');

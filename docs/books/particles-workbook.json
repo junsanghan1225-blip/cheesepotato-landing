@@ -1,6 +1,7 @@
 {
  "_note": "책 한 권의 틀: tools/build-particles-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs particles-workbook. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
  "id": "particles-workbook",
+ "published": "2026.11.10",
  "edition": "Draft proof · 시안",
  "theme": "classic",
  "color": "#2F8F6B",

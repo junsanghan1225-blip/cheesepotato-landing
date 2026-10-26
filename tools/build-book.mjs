@@ -295,7 +295,7 @@ ${B.reviewer ? `<dt>Reviewed by · 검수</dt><dd>${esc(B.reviewer.ko)} (${esc(B
 <dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
 ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
-<dt>Published · 발행</dt><dd>${new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
+<dt>Published · 발행</dt><dd>${B.published || new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
 <dt>Edition · 판</dt><dd>${esc(B.edition)}</dd>
 <dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>`}
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>

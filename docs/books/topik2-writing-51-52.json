@@ -1,6 +1,7 @@
 {
   "_note": "책 한 권의 틀: node tools/build-book.mjs topik2-writing-51-52. 단원 「wQQ:N」 = TOPIK II 쓰기 QQ번의 N번째 10문항(topik-writing.js, 전부 창작, 기출 아님). 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
   "id": "topik2-writing-51-52",
+  "published": "2026.11.10",
   "edition": "Draft proof · 시안",
   "theme": "classic",
   "color": "#6B3FA0",
