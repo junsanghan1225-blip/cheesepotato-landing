@@ -509,6 +509,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "눈",
+        "눈"
+       ],
+       "kind": "homonym",
+       "note": "눈 means eye on your face (눈이 커요) and also snow falling from the sky (눈이 와요). Context tells the meaning."
+      },
+      {
+       "words": [
+        "배",
+        "배"
+       ],
+       "kind": "homonym",
+       "note": "배 means stomach (배가 아파요), the pear fruit (달콤한 배), or a ship on water (배를 타요)."
+      },
+      {
+       "words": [
+        "다리",
+        "다리"
+       ],
+       "kind": "homonym",
+       "note": "다리 means a leg on your body (다리가 길어요) and also a bridge across water (다리를 건너요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -889,6 +923,40 @@
        "피곤"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "작다",
+        "적다"
+       ],
+       "kind": "contrast",
+       "note": "작다 means small in physical size (가방이 작아요), while 적다 means small in quantity or number (학생 수가 적어요). Do not mix them up."
+      },
+      {
+       "words": [
+        "빠르다",
+        "빨리"
+       ],
+       "kind": "contrast",
+       "note": "빠르다 is an adjective meaning to be fast (비행기가 빨라요), while 빨리 is an adverb meaning quickly (빨리 오세요)."
+      },
+      {
+       "words": [
+        "시작하다",
+        "끝나다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 시작하다 means to begin an action (수업을 시작해요), while 끝나다 means to finish or end (영화가 끝나요)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -1273,6 +1341,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "다",
+        "모두"
+       ],
+       "kind": "synonym",
+       "note": "Both mean all or everyone. 다 is an everyday adverb (숙제를 다 했어요), while 모두 can be used as a noun or adverb (친구가 모두 왔어요)."
+      },
+      {
+       "words": [
+        "많이",
+        "조금"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 많이 means a lot or much (밥을 많이 먹어요), while 조금 (or 좀) means a little (조금 기다리세요)."
+      },
+      {
+       "words": [
+        "가장",
+        "가장"
+       ],
+       "kind": "homonym",
+       "note": "가장 means the most or best before adjectives (가장 좋아요), and also means the head of a family (우리 집의 가장)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -1655,6 +1757,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "제일",
+        "가장"
+       ],
+       "kind": "synonym",
+       "note": "Both mean the most or best. 가장 is native Korean (가장 커요), while 제일 is Sino-Korean and very common in conversation (제일 좋아요)."
+      },
+      {
+       "words": [
+        "높다",
+        "낮다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 높다 means high or tall (산이 높아요), while 낮다 means low (책상이 낮아요)."
+      },
+      {
+       "words": [
+        "만",
+        "만"
+       ],
+       "kind": "homonym",
+       "note": "만 is the number ten thousand (만 원), and also a particle meaning only attached to nouns (물만 마셔요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -1976,6 +2112,40 @@
      ]
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "약",
+        "약"
+       ],
+       "kind": "homonym",
+       "note": "약 means medicine (약을 먹어요), and also means approximately or about before numbers (약 10분 걸려요)."
+      },
+      {
+       "words": [
+        "반",
+        "반"
+       ],
+       "kind": "homonym",
+       "note": "반 means half (한 시 반, 반 개), and also means a class group at school (우리 반 친구)."
+      },
+      {
+       "words": [
+        "셋",
+        "삼"
+       ],
+       "kind": "contrast",
+       "note": "셋 is the native number three used with counters (사과 세 개), while 삼 is the Sino-Korean number used for dates and minutes (3월, 삼십 분)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -2293,6 +2463,40 @@
        },
        "lv": 1,
        "fq": 5
+      }
+     ]
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "열",
+        "열"
+       ],
+       "kind": "homonym",
+       "note": "열 is the native Korean number ten (열 명), and also means a fever or body heat (열이 나요)."
+      },
+      {
+       "words": [
+        "안",
+        "안"
+       ],
+       "kind": "homonym",
+       "note": "안 means inside (가방 안), and also the negative word not placed before verbs (안 가요, 안 먹어요)."
+      },
+      {
+       "words": [
+        "세",
+        "셋"
+       ],
+       "kind": "contrast",
+       "note": "셋 changes to 세 before a counter or noun (세 살, 세 개). Use 셋 when counting numbers by themselves (하나, 둘, 셋)."
       }
      ]
     },
@@ -2679,6 +2883,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "생일",
+        "생신"
+       ],
+       "kind": "synonym",
+       "note": "Both mean birthday. 생일 is the standard everyday word (친구 생일), while 생신 is the honorific word used for elders (할머니 생신)."
+      },
+      {
+       "words": [
+        "앞",
+        "뒤"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 앞 means front (학교 앞), while 뒤 means behind or back (집 뒤)."
+      },
+      {
+       "words": [
+        "가깝다",
+        "멀다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 가깝다 means near or close (역에서 가까워요), while 멀다 means far away (회사가 멀어요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -3061,6 +3299,32 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "입다",
+        "신다"
+       ],
+       "kind": "contrast",
+       "note": "Korean uses different verbs for clothes. 입다 is for body garments like shirts and pants (옷을 입어요), while 신다 is for footwear on feet (신발을 신어요)."
+      },
+      {
+       "words": [
+        "구두",
+        "운동화"
+       ],
+       "kind": "contrast",
+       "note": "Both are shoes. 구두 refers to dress shoes or formal leather shoes (구두를 신어요), while 운동화 refers to sneakers or sports shoes (운동화를 신어요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -3378,6 +3642,32 @@
        },
        "lv": 1,
        "fq": 5
+      }
+     ]
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "자다",
+        "주무시다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean to sleep. 자다 is the standard verb (동생이 자요), while 주무시다 is the respectful honorific verb for elders (부모님이 주무세요)."
+      },
+      {
+       "words": [
+        "빌리다",
+        "빌려주다"
+       ],
+       "kind": "contrast",
+       "note": "빌리다 means to borrow from someone (도서관에서 책을 빌려요), while 빌려주다 means to lend to someone (친구에게 우산을 빌려줘요)."
       }
      ]
     },
@@ -3764,6 +4054,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "다녀오다",
+        "돌아오다"
+       ],
+       "kind": "contrast",
+       "note": "다녀오다 means to go somewhere and come back (학교에 다녀왔어요), while 돌아오다 emphasizes returning back to the starting place (집으로 돌아와요)."
+      },
+      {
+       "words": [
+        "걷다",
+        "걷다"
+       ],
+       "kind": "homonym",
+       "note": "걷다 means to walk on foot (공원을 걸어요), and also to roll up sleeves or collect laundry (빨래를 걷어요)."
+      },
+      {
+       "words": [
+        "식사",
+        "밥"
+       ],
+       "kind": "synonym",
+       "note": "Both mean a meal. 밥 is the everyday Korean word (밥을 먹어요), while 식사 is the formal Sino-Korean word (맛있게 식사하세요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -4144,6 +4468,40 @@
        "계속"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "사다",
+        "팔다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 사다 means to buy (가방을 사요), while 팔다 means to sell (가게에서 옷을 팔아요)."
+      },
+      {
+       "words": [
+        "비싸다",
+        "싸다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 비싸다 means expensive (옷이 비싸요), while 싸다 means cheap or inexpensive (사과가 싸요)."
+      },
+      {
+       "words": [
+        "시장",
+        "시장"
+       ],
+       "kind": "homonym",
+       "note": "시장 means a public market to shop (전통 시장에 가요), and also means the mayor of a city (서울 시장)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -4528,6 +4886,32 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "싸다",
+        "싸다"
+       ],
+       "kind": "homonym",
+       "note": "싸다 means to be cheap in price (과일이 싸요), and also means to pack or wrap items (가방에 짐을 싸요)."
+      },
+      {
+       "words": [
+        "가격",
+        "값"
+       ],
+       "kind": "synonym",
+       "note": "Both mean price. 값 is everyday native Korean (옷값이 비싸요), while 가격 is more formal (가격을 확인해요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -4908,6 +5292,40 @@
        "내일"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "시",
+        "시간"
+       ],
+       "kind": "contrast",
+       "note": "시 tells the clock hour (두 시예요 = it is 2 o'clock), while 시간 tells duration of time (두 시간 공부해요 = study for 2 hours)."
+      },
+      {
+       "words": [
+        "전",
+        "후"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 전 means before or ago (한 시간 전에), while 후 means after or later (식사 후에)."
+      },
+      {
+       "words": [
+        "때",
+        "때"
+       ],
+       "kind": "homonym",
+       "note": "때 means time or occasion (점심때, 방학 때), and also means dirt or grime on the skin (때를 밀어요)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -5292,6 +5710,32 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "밤",
+        "밤"
+       ],
+       "kind": "homonym",
+       "note": "밤 means nighttime (밤에 자요) and also a chestnut nut (맛있는 밤을 먹어요). Same pronunciation and spelling."
+      },
+      {
+       "words": [
+        "먼저",
+        "나중"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 먼저 means first or ahead (먼저 가세요), while 나중 means later or afterward (나중에 봐요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -5672,6 +6116,40 @@
        "아직"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "낮",
+        "밤"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 낮 means daytime (낮에는 따뜻해요), while 밤 means nighttime (밤에는 추워요)."
+      },
+      {
+       "words": [
+        "아직",
+        "벌써"
+       ],
+       "kind": "contrast",
+       "note": "아직 means still or not yet (아직 안 왔어요), while 벌써 means already (벌써 열두 시예요)."
+      },
+      {
+       "words": [
+        "시작",
+        "끝"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 시작 means beginning or start (시작이 중요해요), while 끝 means end or finish (끝까지 들어요)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -6056,6 +6534,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "작년",
+        "내년"
+       ],
+       "kind": "contrast",
+       "note": "작년 means last year (작년에 한국에 왔어요), while 내년 means next year (내년에 졸업해요)."
+      },
+      {
+       "words": [
+        "잠깐",
+        "잠시"
+       ],
+       "kind": "synonym",
+       "note": "Both mean a moment or short while. 잠깐 is everyday and common (잠깐만 기다려요), while 잠시 is more formal (잠시 후 만나요)."
+      },
+      {
+       "words": [
+        "중",
+        "중"
+       ],
+       "kind": "homonym",
+       "note": "중 means in the middle of an action or among a group (수업 중, 세 명 중 한 명). The same sound is also a Buddhist monk, but 중 is not polite, so say 스님 for a monk."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -6438,6 +6950,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "덥다",
+        "춥다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 덥다 means hot weather (여름에는 더워요), while 춥다 means cold weather (겨울에는 추워요)."
+      },
+      {
+       "words": [
+        "비",
+        "비"
+       ],
+       "kind": "homonym",
+       "note": "비 means rain falling from the sky (비가 와요), and also a broom for sweeping (비로 바닥을 쓸어요)."
+      },
+      {
+       "words": [
+        "바람",
+        "바람"
+       ],
+       "kind": "homonym",
+       "note": "바람 means wind or breeze (바람이 불어요), and also a hope or wish (건강이 저의 바람이에요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -6812,6 +7358,40 @@
        "기분"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "좋다",
+        "좋아하다"
+       ],
+       "kind": "contrast",
+       "note": "좋다 is an adjective taking 이/가 (음악이 좋아요), while 좋아하다 is an active verb taking 을/를 (음악을 좋아해요)."
+      },
+      {
+       "words": [
+        "웃다",
+        "울다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 웃다 means to smile or laugh (환하게 웃어요), while 울다 means to weep or cry (슬퍼서 울어요)."
+      },
+      {
+       "words": [
+        "재미있다",
+        "재미없다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 재미있다 means fun or interesting (영화가 재미있어요), while 재미없다 means boring (책이 재미없어요)."
+      }
+     ]
     },
     {
      "type": "practice",
@@ -7196,6 +7776,40 @@
      }
     },
     {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "기쁘다",
+        "슬프다"
+       ],
+       "kind": "contrast",
+       "note": "Opposites. 기쁘다 means glad or happy (선물을 받아서 기뻐요), while 슬프다 means sad (친구가 떠나서 슬퍼요)."
+      },
+      {
+       "words": [
+        "싫다",
+        "싫어하다"
+       ],
+       "kind": "contrast",
+       "note": "싫다 is an adjective taking 이/가 (추위가 싫어요), while 싫어하다 is an active verb taking 을/를 (추위를 싫어해요)."
+      },
+      {
+       "words": [
+        "요리하다",
+        "만들다"
+       ],
+       "kind": "synonym",
+       "note": "만들다 means to make anything (옷을 만들어요), while 요리하다 specifically means to prepare and cook food (저녁을 요리해요)."
+      }
+     ]
+    },
+    {
      "type": "practice",
      "title": {
       "en": "Write the meaning",
@@ -7576,6 +8190,40 @@
        "비빔밥"
       ]
      }
+    },
+    {
+     "type": "compare",
+     "noIndex": true,
+     "title": {
+      "en": "Look-alike words",
+      "ko": "헷갈리는 낱말"
+     },
+     "items": [
+      {
+       "words": [
+        "먹다",
+        "드시다"
+       ],
+       "kind": "synonym",
+       "note": "Both mean to eat. 먹다 is standard (사과를 먹어요), while 드시다 is the polite honorific verb for elders (할머니께서 진지를 드세요)."
+      },
+      {
+       "words": [
+        "감",
+        "감"
+       ],
+       "kind": "homonym",
+       "note": "감 means the sweet persimmon fruit (맛있는 감을 먹어요), and also a feeling or sense (감이 좋아요)."
+      },
+      {
+       "words": [
+        "밥",
+        "진지"
+       ],
+       "kind": "synonym",
+       "note": "Both mean a meal or cooked rice. 밥 is standard (밥을 먹어요), while 진지 is the respectful honorific word for elders (진지 드셨어요?)."
+      }
+     ]
     },
     {
      "type": "practice",
