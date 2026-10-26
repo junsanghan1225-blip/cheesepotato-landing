@@ -10,6 +10,8 @@
 |---|---|---|---|---|---|---|
 | 책 6권 최종 검수(검수 글 `--review` 로 만든 표) | `antigravity-book-review-task.md` | (표만 받음) | 6 | 5 | 5 | 2026-10-25 조사 · 쓰기 · 단어장 1·2·3 검수표 반영 끝. **첫걸음 검수표는 아직** — 오면 반영. |
 | TOPIK I 읽기 모의고사 검수(문항 400 · 유형별 풀이 방법 · 근거 · 선지 이유) | `antigravity-book-review-task.md`(모의고사 절) | (표만 받음) | 1 | 0 | 0 | 2026-10-26 1차 검수표 반영(17곳) → 같은 날 2차 전수 검수: **전 회 · 유형 안내 8종 이상 없음, 기출 복제 없음, 출판 가능**(운영자가 결과 표를 붙여 줌). 더 줄 일 없음. |
+| TOPIK I 필수 단어장 1권 · 2권 유의어 · 동음이의어 | `antigravity-vocab-notes-task.md`(TOPIK I 절) | `ag/vocab-notes-t1a-N` · `ag/vocab-notes-t1b-N` | 10 | 0 | 0 | 2026-10-26 지시서 보탬(1권 ta-01~48 · 2권 tb-01~49, 묶음 5+5). 첫 줄: 「AGENTS.md 를 먼저 읽고, 이 지시문대로만 해. 이번 묶음은 TOPIK I 1권 ta-01~ta-10 이야.」 |
+| 책 QR 보너스 연습(TOPIK II 쓰기 53~54번 6단원) | `antigravity-bonus2-task.md`(53~54 절) | `ag/bonus2-N` | 1 | 0 | 0 | 2026-10-26 지시서 보탬. 결과 파일 `docs/bonus/topik2-writing-53-54.json`(없으면 만든다). TOPIK I 단어장 보너스는 단어장 자료에서 Claude 가 자동으로 만들어 안티 몫 없음. |
 | TOPIK II 단어장 3권 유의어 · 동음이의어 | `antigravity-vocab-notes-task.md`(3권 절) | `ag/vocab-notes3-N` | 5 | 5 | 5 | **끝 — 47단원 141항목 올림(2026-10-25), 검토해 140항목 넣음**. 고친 것: 붓다 뜻 셋, 막(幕·膜) 갈래, 수표 설명, 생활비 · 천둥 · 연하다 갈래, 소원 · 소망, 영리하다, 참조, 중복(tx-42 차이점/공통점) 뺌. |
 | TOPIK II 단어장 2권 유의어 · 동음이의어 | `antigravity-vocab-notes-task.md`(2권 절) | `ag/vocab-notes2-N` | 5 | 0 | 0 | 2026-10-25 지시서 보탬. 첫 줄: 「AGENTS.md 를 먼저 읽고, 이 지시문대로만 해. 이번 묶음은 2권 tw-01~tw-10 이야.」 |
 | TOPIK II 단어장 유의어 · 동음이의어(헷갈리는 낱말) | `antigravity-vocab-notes-task.md` | `ag/vocab-notes-N` | 5 | 5 | 5 | **끝 — 50단원 150항목 넣음(2026-10-25)**. 검토에서 고친 것: 「떠오르다 · 생각나다」 설명이 틀림 · 「정비(正妃)」 · 「재정 · 제정」(동음이의어가 아니라 철자 헷갈림) · 반말 예문 · 영어 「one own」 → 「one's own」 · 반대말은 「Opposites · 반대말」로 따로 표시(헷갈림 아님). 책 284쪽. |

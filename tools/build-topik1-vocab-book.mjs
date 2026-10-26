@@ -133,7 +133,7 @@ const book = {
   series: { en: 'TOPIK SERIES', ko: 'TOPIK 시리즈' },
   title: { en: `TOPIK I Essential Vocabulary ${VOL}`, ko: `TOPIK I 필수 단어장 ${VOL}` },
   sub: { en: `Words ${CFG.rangeEn} of the TOPIK I word list, ${UNITS} units with example sentences, checkups and writing practice.`, ko: `TOPIK I 필수 낱말 ${CFG.range}` },
-  levelTag: 'VOCAB', level: 'TOPIK I', trim: base.trim, cheeseBase: 0,
+  levelTag: 'VOCAB', level: 'TOPIK I', trim: base.trim, cheeseBase: 0, cheeseMax: 2,
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
   preface: {
     en: [VOL === 1 ? 'This is the first of two books with the essential words of TOPIK I, taken from the TOPIK I word list on everykoreans.com: all 858 level-1 words and the most frequent level-2 words, 960 in all. Each unit has up to 20 words with part of speech, an English meaning and an example sentence. The cheese marks the level and the potato marks how often the word shows up in our TOPIK texts.' : 'This is the second of two books with the essential words of TOPIK I: the rest of the level-2 words of the TOPIK I word list on everykoreans.com, 971 words in 49 units. Each unit has up to 20 words with part of speech, an English meaning and an example sentence. The cheese marks the level and the potato marks how often the word shows up in our TOPIK texts.',
