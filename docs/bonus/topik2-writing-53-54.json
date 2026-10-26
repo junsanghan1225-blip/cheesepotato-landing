@@ -1,0 +1,819 @@
+{
+ "_note": "책 QR 보너스 연습 — 안티 작성 · Claude 검토",
+ "book": "topik2-writing-53-54",
+ "units": {
+  "g53-trend": {
+   "cards": [
+    {
+     "ko": "~에 대해 조사한 결과에 따르면",
+     "en": "According to the survey results regarding [topic]. (opening formula for Q53 data introduction)"
+    },
+    {
+     "ko": "~년 ~%에서 ~년 ~%로 크게 증가하였다",
+     "en": "Greatly increased from [%] in [year] to [%] in [year]. (describing significant upward trend)"
+    },
+    {
+     "ko": "~%포인트(p) 상승한 것으로 나타났다",
+     "en": "Is shown to have risen by [N] percentage points. (describing the size of the change between two percentages)"
+    },
+    {
+     "ko": "이러한 변화의 가장 큰 원인은 ~",
+     "en": "The biggest cause of this change is [cause]. (introducing the top-ranking factor)"
+    },
+    {
+     "ko": "~이/가 그 뒤를 이었다",
+     "en": "[Factor] followed next in rank. (introducing the secondary cause or second rank)"
+    },
+    {
+     "ko": "완만한 감소세를 보였다",
+     "en": "Showed a gentle downward trend. (describing gradual decrease over time)"
+    },
+    {
+     "ko": "~배 가까이 급증하였다",
+     "en": "Rose sharply, to nearly [N] times as much. (describing rapid growth)"
+    },
+    {
+     "ko": "이러한 추세는 앞으로도 지속될 것으로 전망된다",
+     "en": "This trend is projected to continue in the future. (standard Q53 concluding projection formula)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "In TOPIK Q53, which unit must be used when expressing the difference between 30% and 45%?",
+     "opts": [
+      "15%",
+      "15%포인트",
+      "15배",
+      "15단위"
+     ],
+     "a": 1,
+     "why": "When comparing the numerical difference between two percentage figures, %포인트 (%p) must be used rather than simply % or 배."
+    },
+    {
+     "q": "Which predicate is appropriate for written data description (plain form -다체) in Q53?",
+     "opts": [
+      "감소했습니다.",
+      "감소했어요.",
+      "감소한 것으로 나타났다.",
+      "감소했더라고요."
+     ],
+     "a": 2,
+     "why": "TOPIK Q53 is written in the plain written form (-(느)ㄴ다체) such as 나타났다; polite or spoken forms like -했습니다 and -했어요 are not used."
+    },
+    {
+     "q": "In the sentence '청년 창업자 수는 2018년 1만 명에서 2024년 3만 명으로 3배 ___', which verb correctly completes the rapid increase?",
+     "opts": [
+      "감소하였다",
+      "급증하였다",
+      "유지되었다",
+      "하락하였다"
+     ],
+     "a": 1,
+     "why": "Rising from 10,000 to 30,000 is a threefold increase, which is described as 급증하였다 (soared/surged)."
+    },
+    {
+     "q": "Which connector is standard when presenting the second and third causes following the primary factor?",
+     "opts": [
+      "그 뒤를 이어",
+      "그럼에도 불구하고",
+      "왜냐하면",
+      "비록"
+     ],
+     "a": 0,
+     "why": "'그 뒤를 이어' (following closely behind) or '그 뒤를 이었다' is the standard transition formula for secondary factors in Q53."
+    },
+    {
+     "q": "Which sentence ending is NOT acceptable in TOPIK Q53?",
+     "opts": [
+      "크게 증가할 것으로 전망된다.",
+      "비율이 다소 낮아졌다.",
+      "수치가 꾸준히 상승했어요.",
+      "원인으로 조사되었다."
+     ],
+     "a": 2,
+     "why": "Spoken 해요체 (상승했어요) is not used in Q53 reports; use the plain form (상승했다)."
+    }
+   ],
+   "fill": [
+    {
+     "q": "한빛 사회연구소에서 실시한 조사 결과에 ___ 1인 가구 비율은 꾸준히 증가하였다.",
+     "en": "According to the survey results conducted by Hanbit Social Research Institute, the proportion of single-person households increased steadily.",
+     "a": [
+      "따르면"
+     ]
+    },
+    {
+     "q": "자전거 이용률은 2015년 18%에서 2023년 32%로 14%포인트 ___.",
+     "en": "The bicycle usage rate rose by 14 percentage points from 18% in 2015 to 32% in 2023.",
+     "a": [
+      "상승하였다",
+      "증가하였다",
+      "늘어났다"
+     ]
+    },
+    {
+     "q": "변화의 원인으로는 건강에 대한 관심이 48%로 가장 높았고, 교통 체증 해소가 그 뒤를 ___.",
+     "en": "As for the causes of the change, interest in health was the highest at 48%, followed next by traffic congestion relief.",
+     "a": [
+      "이었다",
+      "잇는 것으로 나타났다"
+     ]
+    },
+    {
+     "q": "친환경 제품 소비는 지난 5년간 약 2배 가까이 급격히 ___.",
+     "en": "Consumption of eco-friendly products increased sharply by nearly two times over the past five years.",
+     "a": [
+      "증가하였다",
+      "늘어났다"
+     ]
+    },
+    {
+     "q": "전문가들은 이와 같은 증가세가 당분간 지속될 것으로 ___.",
+     "en": "Experts forecast that such growth trend will continue for the time being.",
+     "a": [
+      "전망했다",
+      "전망하고 있다",
+      "내다보았다"
+     ]
+    }
+   ]
+  },
+  "g53-status": {
+   "cards": [
+    {
+     "ko": "~을/를 대상으로 설문 조사를 실시하였다",
+     "en": "Conducted a survey targeted at [group]. (standard introductory survey specification)"
+    },
+    {
+     "ko": "절반 이상을 차지하였다",
+     "en": "Accounted for more than half. (describing a majority exceeding 50%)"
+    },
+    {
+     "ko": "~에 그친 것으로 나타났다",
+     "en": "Stayed at only [%]. (a low figure, with 그치다)"
+    },
+    {
+     "ko": "그 주된 이유는 ~기 때문이다",
+     "en": "The main reason is because [cause]. (stating the primary reason in plain form)"
+    },
+    {
+     "ko": "순으로 높게 나타났다",
+     "en": "Ranked high in the order of [A, B, C]. (listing items in rank order)"
+    },
+    {
+     "ko": "응답자의 과반수가 ~",
+     "en": "A majority of the respondents [action/opinion]. (describing an over-50% proportion)"
+    },
+    {
+     "ko": "~에 불과한 것으로 조사되었다",
+     "en": "Was found to be only [%]. (stressing a small share, with 불과하다)"
+    },
+    {
+     "ko": "각각 ~%와 ~%를 기록하였다",
+     "en": "Recorded [%] and [%] respectively. (reporting multiple corresponding figures with 각각)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "When 62% of respondents answer affirmatively in Q53, which descriptive phrase is appropriate?",
+     "opts": [
+      "과반수를 차지하였다.",
+      "절반에 미치지 못하였다.",
+      "소수에 불과하였다.",
+      "거의 나타나지 않았다."
+     ],
+     "a": 0,
+     "why": "Over 50% constitutes a majority (과반수), so '과반수를 차지하였다' (accounted for a majority) is the correct expression."
+    },
+    {
+     "q": "In Q53, which particle/expression means 'merely' or 'stopping short at' when describing a lower-than-expected figure like 7%?",
+     "opts": [
+      "~에 달하였다",
+      "~에 그쳤다",
+      "~를 초과하였다",
+      "~를 능가하였다"
+     ],
+     "a": 1,
+     "why": "'~에 그쳤다' indicates that a figure stopped at a modest or disappointing level, unlike ~에 달하였다 (reached as much as)."
+    },
+    {
+     "q": "When presenting two reasons with their figures (52% and 28%), which word shows that each figure belongs to its own item?",
+     "opts": [
+      "각각",
+      "도리어",
+      "차마",
+      "설마"
+     ],
+     "a": 0,
+     "why": "각각 (respectively) is used when attributing specific numerical values to their corresponding listed items."
+    },
+    {
+     "q": "Fill in the blank for explaining a cause in Q53: '그 이유로는 비용 절감이 45%로 가장 많았고, 편의성이 그 뒤를 ___.'",
+     "opts": [
+      "이었다",
+      "이었습니다",
+      "이었어요",
+      "이었겠지요"
+     ],
+     "a": 0,
+     "why": "Written data reports in Q53 require plain form (이었다), not polite forms (-습니다, -어요)."
+    },
+    {
+     "q": "Which sentence correctly orders reasons from highest to lowest in Q53?",
+     "opts": [
+      "품질, 가격, 디자인 순으로 높게 나타났다.",
+      "품질, 가격, 디자인 순서로 감소했다.",
+      "품질과 가격이 디자인보다 동일했다.",
+      "품질은 가격과 순서가 거꾸로였다."
+     ],
+     "a": 0,
+     "why": "'~ 순으로 높게 나타났다' (appeared high in the order of ...) is the standard formula for ranking items."
+    }
+   ],
+   "fill": [
+    {
+     "q": "직장인 500명을 대상으로 유연근무제 이용 실태를 조사한 ___ 다음과 같다.",
+     "en": "The survey results investigating the status of flexible work hour system usage targeted at 500 office workers are as follows.",
+     "a": [
+      "결과는",
+      "결과"
+     ]
+    },
+    {
+     "q": "전체 응답자 가운데 58%가 현재 유연근무제를 활용하고 있다고 ___.",
+     "en": "Among all respondents, 58% answered that they are currently utilizing flexible work hours.",
+     "a": [
+      "답하였다",
+      "응답하였다",
+      "밝혔다"
+     ]
+    },
+    {
+     "q": "반면 이용 경험이 없다는 응답은 12%에 ___.",
+     "en": "On the other hand, the share of respondents with no experience of using it stayed at only 12%.",
+     "a": [
+      "그쳤다",
+      "불과하였다",
+      "머물렀다"
+     ]
+    },
+    {
+     "q": "유연근무제를 선호하는 가장 큰 이유로는 출퇴근 시간 단축이 46%로 1위를 ___.",
+     "en": "As for the biggest reason for preferring flexible work hours, commuting time reduction took 1st place at 46%.",
+     "a": [
+      "차지하였다",
+      "기록하였다"
+     ]
+    },
+    {
+     "q": "업무 자율성 확보와 가족 돌봄이 각각 28%와 16%로 그 뒤를 ___.",
+     "en": "Securing work autonomy and family caregiving followed next at 28% and 16% respectively.",
+     "a": [
+      "이었다",
+      "잇는 것으로 나타났다"
+     ]
+    }
+   ]
+  },
+  "g53-opinion": {
+   "cards": [
+    {
+     "ko": "~에 대한 인식을 조사한 결과",
+     "en": "Results of surveying perceptions regarding [issue]. (opening formula for opinion data)"
+    },
+    {
+     "ko": "긍정적인 평가가 부정적인 평가보다 우세하였다",
+     "en": "Positive evaluations were dominant over negative evaluations. (describing favorable balance of opinion)"
+    },
+    {
+     "ko": "~다는 점을 긍정적으로 평가하였다",
+     "en": "Positively evaluated the point that [clause]. (specifying favorable reasons)"
+    },
+    {
+     "ko": "한편 ~에 대한 우려의 목소리도 적지 않았다",
+     "en": "Meanwhile, there were also many voices of concern about [issue]. (turning to worries or criticism)"
+    },
+    {
+     "ko": "~다는 응답이 주를 이루었다",
+     "en": "Responses stating that [clause] formed the mainstream. (stating prevailing consensus with 주를 이루다)"
+    },
+    {
+     "ko": "찬성과 반대 의견이 팽팽하게 맞섰다",
+     "en": "Opinions for and against were closely split. (a debate with no clear majority)"
+    },
+    {
+     "ko": "향후 도입에 대해 높은 기대감을 드러냈다",
+     "en": "Revealed high expectations regarding future adoption. (conveying optimistic outlook)"
+    },
+    {
+     "ko": "신중한 접근이 필요하다는 지적이 제기되었다",
+     "en": "The point that a cautious approach is necessary was raised. (reporting critical concluding advice)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "When 70% of respondents evaluate a new policy favorably, which expression summarizes this in Q53?",
+     "opts": [
+      "긍정적인 반응이 지배적이었다.",
+      "부정적인 시각이 압도적이었다.",
+      "찬반이 팽팽하게 갈렸다.",
+      "아무런 의견도 나오지 않았다."
+     ],
+     "a": 0,
+     "why": "70% favorable feedback indicates dominant positive reception (긍정적인 반응이 지배적이었다)."
+    },
+    {
+     "q": "Which connector is standard when switching from reporting positive views to reporting worries in Q53?",
+     "opts": [
+      "한편",
+      "그러므로",
+      "따라서",
+      "왜냐하면"
+     ],
+     "a": 0,
+     "why": "'한편' (meanwhile / on the other hand) is the standard transition word to introduce concurrent counterpoints or worries."
+    },
+    {
+     "q": "In an opinion report, which predicate means 'voices of concern were raised'?",
+     "opts": [
+      "우려의 목소리가 제기되었다.",
+      "우려를 축하하였다.",
+      "우려가 사라졌다.",
+      "우려를 칭찬하였다."
+     ],
+     "a": 0,
+     "why": "'우려의 목소리가 제기되다' (voices of concern were raised) is standard written Korean for expressing worries."
+    },
+    {
+     "q": "Which sentence ending violates the impersonal objective reporting tone required in Q53?",
+     "opts": [
+      "기대된다고 답하였다.",
+      "바람직하다고 보았다.",
+      "정말 대단하다고 느껴요.",
+      "필요하다고 평가하였다."
+     ],
+     "a": 2,
+     "why": "'느껴요' is subjective spoken form; Q53 requires objective, plain written phrasing (평가하였다, 보았다)."
+    },
+    {
+     "q": "In the sentence '응답자의 대다수는 새로운 기술 도입에 대해 긍정적으로 ___', which verb fits the survey report?",
+     "opts": [
+      "평가하였다",
+      "의심하였다",
+      "포기하였다",
+      "반대하였다"
+     ],
+     "a": 0,
+     "why": "'긍정적으로 평가하였다' (evaluated positively) is the natural collocation indicating favorable appraisal."
+    }
+   ],
+   "fill": [
+    {
+     "q": "인공지능 서비스 도입에 대한 시민들의 인식을 조사한 ___ 긍정적 반응이 높게 나타났다.",
+     "en": "Surveying citizens' perceptions regarding the introduction of AI services, positive reactions appeared high.",
+     "a": [
+      "결과",
+      "바에 따르면"
+     ]
+    },
+    {
+     "q": "전체 응답자의 65%가 업무 효율성 향상을 기대하며 찬성 입장을 ___.",
+     "en": "65% of all respondents revealed an in-favor stance, anticipating improvements in work efficiency.",
+     "a": [
+      "밝혔다",
+      "표명하였다",
+      "나타냈다"
+     ]
+    },
+    {
+     "q": "한편 정보 유출과 오작동에 대한 우려의 목소리도 적지 않게 ___.",
+     "en": "Meanwhile, voices of concern regarding data leaks and malfunctions were also raised in no small measure.",
+     "a": [
+      "제기되었다",
+      "나타났다"
+     ]
+    },
+    {
+     "q": "구체적인 부작용을 방지하기 위해 제도적 보완이 시급하다는 지적이 ___.",
+     "en": "The point was raised that institutional remedies are urgent in order to prevent specific side effects.",
+     "a": [
+      "나왔다",
+      "제기되었다",
+      "있었다"
+     ]
+    },
+    {
+     "q": "이러한 우려에도 불구하고 전반적인 기술 활용 전망은 밝을 것으로 ___.",
+     "en": "Despite such concerns, the overall prospect of technology utilization was evaluated to be bright.",
+     "a": [
+      "조사되었다",
+      "평가되었다",
+      "나타났다"
+     ]
+    }
+   ]
+  },
+  "g54-matter": {
+   "cards": [
+    {
+     "ko": "현대 사회에서 ~은/는 매우 중요한 가치를 지닌다",
+     "en": "In modern society, [topic] possesses very important value. (opening statement of topic significance)"
+    },
+    {
+     "ko": "~은/는 개인의 성장뿐만 아니라 사회 발전에도 기여한다",
+     "en": "[Topic] contributes not only to individual growth but also to social progress. (dual-benefit thesis)"
+    },
+    {
+     "ko": "하지만 바쁜 일상 속에서 이를 실천하기란 쉽지 않다",
+     "en": "However, putting this into practice amidst busy daily life is not easy. (introducing real-world obstacle)"
+    },
+    {
+     "ko": "가장 큰 걸림돌은 ~에 대한 인식 부족이다",
+     "en": "The biggest obstacle is the lack of awareness regarding [issue]. (identifying root hindrance)"
+    },
+    {
+     "ko": "이를 실천하기 위해서는 무엇보다도 ~아/어야 한다",
+     "en": "In order to practice this, above all, one must [action]. (introducing primary practical method)"
+    },
+    {
+     "ko": "작은 일부터 꾸준히 실천해 나가는 자세가 필요하다",
+     "en": "An attitude of steadily practicing starting from small things is necessary. (practical actionable attitude)"
+    },
+    {
+     "ko": "사회적 차원에서도 제도적 뒷받침이 병행되어야 한다",
+     "en": "On the societal level as well, institutional backing must be accompanied. (macro-level institutional measure)"
+    },
+    {
+     "ko": "결과적으로 건강한 사회를 만드는 밑거름이 될 것이다",
+     "en": "Consequently, it will become the foundation for making a healthy society. (visionary essay conclusion)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "In TOPIK Q54 essay writing, which sentence ending form is mandatory?",
+     "opts": [
+      "-ㅂ니다/습니다",
+      "-아/어요",
+      "-(느)ㄴ다/-다",
+      "-지요"
+     ],
+     "a": 2,
+     "why": "TOPIK Q54 is a formal argumentative essay written strictly in plain form (해라체: -(느)ㄴ다 for action verbs, -다 for adjectives)."
+    },
+    {
+     "q": "Which connector appropriately introduces a solution to an obstacle in an essay?",
+     "opts": [
+      "이를 극복하기 위해서는",
+      "그럼에도 불구하고",
+      "왜냐하면",
+      "비록"
+     ],
+     "a": 0,
+     "why": "'이를 극복하기 위해서는' (In order to overcome this) is the standard transition to introduce practical solutions."
+    },
+    {
+     "q": "Which expression is most suitable for stating the importance of reading in the introduction of Q54?",
+     "opts": [
+      "독서는 마음의 양식을 쌓는 데 중요한 역할을 한다.",
+      "독서는 내가 매일 재미있게 하는 거예요.",
+      "독서는 심심할 때 하면 좋더라고요.",
+      "독서를 많이 해야 하겠지요."
+     ],
+     "a": 0,
+     "why": "Q54 essays require formal, objective, and elevated vocabulary such as '중요한 역할을 한다' (plays an important role)."
+    },
+    {
+     "q": "Which phrase represents a balanced call for action at both personal and societal levels?",
+     "opts": [
+      "개인의 노력과 사회적 제도가 함께 어우러져야 한다.",
+      "오직 국가만 법을 만들어야 한다.",
+      "나 혼자만 조심하면 그만이다.",
+      "누구도 아무것도 하지 말아야 한다."
+     ],
+     "a": 0,
+     "why": "A high-scoring Q54 essay synthesizes both individual efforts and societal institutional mechanisms together."
+    },
+    {
+     "q": "Which ending is grammatically incorrect for the adjective 중요하다 in plain form in Q54?",
+     "opts": [
+      "중요하다",
+      "중요하다는 것이다",
+      "중요한다",
+      "중요하다고 볼 수 있다"
+     ],
+     "a": 2,
+     "why": "중요하다 is an adjective; adjectives take -다 (중요하다), NOT the action verb suffix -ㄴ다 (중요한다 is ungrammatical)."
+    }
+   ],
+   "fill": [
+    {
+     "q": "타인과의 원활한 소통은 개인의 행복뿐만 아니라 공동체 유지에도 필수적인 요소___.",
+     "en": "Smooth communication with others is an essential element not only for personal happiness but also for maintaining community.",
+     "a": [
+      "이다"
+     ]
+    },
+    {
+     "q": "그러나 지나친 경쟁으로 인해 진솔한 대화를 나눌 기회가 점점 줄어들고 ___.",
+     "en": "However, due to excessive competition, opportunities to have sincere conversations are gradually decreasing.",
+     "a": [
+      "있다",
+      "있는 실정이다"
+     ]
+    },
+    {
+     "q": "이러한 문제를 해결하기 위해서는 먼저 상대방의 입장을 경청하는 태도를 가져야 ___.",
+     "en": "In order to solve this problem, one must first possess an attitude of listening attentively to the other party's position.",
+     "a": [
+      "한다"
+     ]
+    },
+    {
+     "q": "이와 더불어 학교와 가정에서도 공감 능력을 키울 수 있는 교육적 배려가 ___.",
+     "en": "Along with this, educational consideration that can foster empathy in schools and homes is required.",
+     "a": [
+      "요구된다",
+      "필요하다"
+     ]
+    },
+    {
+     "q": "각자의 작은 배려가 모일 때 비로소 따뜻한 사회를 구현할 수 있을 ___.",
+     "en": "Only when each person's small consideration gathers will we be able to realize a warm society.",
+     "a": [
+      "것이다"
+     ]
+    }
+   ]
+  },
+  "g54-problem": {
+   "cards": [
+    {
+     "ko": "심각한 사회적 문제로 대두되고 있다",
+     "en": "Is emerging as a serious social problem. (standard problem-statement opening)"
+    },
+    {
+     "ko": "이러한 현상이 발생하는 근본적인 원인은 ~",
+     "en": "The fundamental cause of this phenomenon occurring is [cause]. (introducing underlying cause)"
+    },
+    {
+     "ko": "결과적으로 사회 전체에 막대한 피해를 초래한다",
+     "en": "As a result, it brings about immense damage to the whole society. (describing severe negative repercussions)"
+    },
+    {
+     "ko": "이 문제를 방치할 경우 더 큰 혼란을 야기할 수 있다",
+     "en": "If this problem is neglected, it can cause greater turmoil. (warning of risks of inaction)"
+    },
+    {
+     "ko": "근본적인 해결책 마련이 시급하다",
+     "en": "Preparing a fundamental solution is urgent. (stating urgency of response)"
+    },
+    {
+     "ko": "개인적 차원의 인식 전환이 선행되어야 한다",
+     "en": "A shift in awareness on the individual level must precede. (individual-level solution)"
+    },
+    {
+     "ko": "정부 차원에서 강력한 법적 규제를 마련해야 한다",
+     "en": "On the government level, strong legal regulations must be prepared. (governmental solution)"
+    },
+    {
+     "ko": "지속적인 관심과 실질적인 대책이 수반되어야 한다",
+     "en": "Continuous attention and substantive countermeasures must be accompanied. (comprehensive closing call)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which expression is standard for stating that a negative social phenomenon is rapidly becoming severe?",
+     "opts": [
+      "날로 심각해지고 있다.",
+      "점점 재미있어지고 있다.",
+      "아무 문제가 없다.",
+      "대단히 만족스럽다."
+     ],
+     "a": 0,
+     "why": "'날로 심각해지고 있다' (becoming increasingly serious day by day) is the standard expository formula for social problems."
+    },
+    {
+     "q": "In Q54, which word best completes '이러한 무분별한 개발은 환경 파괴를 ___'?",
+     "opts": [
+      "초래한다",
+      "축하한다",
+      "보존한다",
+      "기대한다"
+     ],
+     "a": 0,
+     "why": "초래하다 (bring about / cause) collocates with negative consequences like 환경 파괴 (environmental destruction)."
+    },
+    {
+     "q": "Which phrase represents the 'individual dimension' in a problem-solution essay?",
+     "opts": [
+      "정부의 법안 제정",
+      "시민 개개인의 의식 개선",
+      "국제기구의 제재 조치",
+      "기업의 대규모 투자"
+     ],
+     "a": 1,
+     "why": "'시민 개개인의 의식 개선' (improvement of individual citizens' consciousness) is an individual-level action."
+    },
+    {
+     "q": "When warning of the danger of leaving a problem unaddressed, which conditional clause is standard?",
+     "opts": [
+      "이를 방치할 경우",
+      "이를 칭찬할 경우",
+      "이를 완성할 경우",
+      "이를 기뻐할 경우"
+     ],
+     "a": 0,
+     "why": "방치하다 means to neglect or leave unattended; '이를 방치할 경우' warns about the danger of inaction."
+    },
+    {
+     "q": "Which sentence ending is written in correct plain form for the verb 해결하다 in Q54?",
+     "opts": [
+      "해결해야 한다.",
+      "해결해야 합니다.",
+      "해결해야 해요.",
+      "해결해야 하겠지요."
+     ],
+     "a": 0,
+     "why": "-아야/어야 한다 (해결해야 한다) is the plain form modal ending expressing necessity in argumentative essays."
+    }
+   ],
+   "fill": [
+    {
+     "q": "현대 사회에서 환경오염 문제는 인류의 생존을 위협하는 중대한 과제로 ___.",
+     "en": "In modern society, the environmental pollution problem is emerging as a critical challenge threatening human survival.",
+     "a": [
+      "떠올랐다",
+      "대두되었다",
+      "나타났다"
+     ]
+    },
+    {
+     "q": "이러한 환경 파괴의 주된 원인은 무분별한 자원 낭비와 소비 위주의 생활 방식에서 ___.",
+     "en": "The main cause of such environmental destruction stems from reckless resource waste and consumption-oriented lifestyles.",
+     "a": [
+      "비롯된다",
+      "기인한다",
+      "시작된다"
+     ]
+    },
+    {
+     "q": "만약 이 문제를 이대로 방치한다면 미래 세대에 돌이킬 수 없는 피해를 초래하게 ___.",
+     "en": "If we leave this problem as it is, we will end up causing irreversible damage to future generations.",
+     "a": [
+      "될 것이다",
+      "된다"
+     ]
+    },
+    {
+     "q": "이를 해결하기 위해서는 에너지 절약을 실천하는 시민 의식이 밑바탕이 되어야 ___.",
+     "en": "In order to solve this, civic consciousness practicing energy conservation must be the foundation.",
+     "a": [
+      "한다"
+     ]
+    },
+    {
+     "q": "동시에 기업과 정부 차원에서도 친환경 기술 개발을 적극 지원해야 ___.",
+     "en": "At the same time, corporations and the government must also actively support eco-friendly technology development.",
+     "a": [
+      "한다",
+      "할 것이다"
+     ]
+    }
+   ]
+  },
+  "g54-twosides": {
+   "cards": [
+    {
+     "ko": "~에 대한 찬반 논쟁이 뜨겁게 이어지고 있다",
+     "en": "The debate for and against [topic] is continuing heatedly. (opening controversy formula)"
+    },
+    {
+     "ko": "찬성하는 측에서는 ~다는 점을 주요 근거로 내세운다",
+     "en": "The proponents put forward the point that [clause] as primary ground. (introducing pro argument)"
+    },
+    {
+     "ko": "반대하는 입장에서는 ~에 따른 부작용을 지적한다",
+     "en": "The opposing stance points out the side effects resulting from [cause]. (introducing con argument)"
+    },
+    {
+     "ko": "양측의 주장은 모두 타당한 논거를 지니고 있다",
+     "en": "Both sides' claims possess valid grounds. (acknowledging dual merit)"
+    },
+    {
+     "ko": "무조건적인 찬성이나 반대보다는 절충안이 필요하다",
+     "en": "Rather than unconditional approval or opposition, a compromise proposal is needed. (nuanced synthesis)"
+    },
+    {
+     "ko": "장점을 극대화하고 단점을 최소화하는 방안",
+     "en": "A plan to maximize advantages and minimize disadvantages. (core balance formula)"
+    },
+    {
+     "ko": "이를 보완하기 위한 제도적 안전장치가 마련되어야 한다",
+     "en": "Institutional safeguards to remedy this must be prepared. (safety mechanism formula)"
+    },
+    {
+     "ko": "충분한 사회적 합의를 거쳐 신중하게 결정해야 한다",
+     "en": "Must decide prudently through sufficient social consensus. (concluding advice)"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which phrase acknowledges that an argument has reasonable and legitimate grounds in Q54?",
+     "opts": [
+      "타당한 근거를 지니고 있다.",
+      "전혀 터무니없는 주장이다.",
+      "아무런 이유가 없다.",
+      "거짓말에 불과하다."
+     ],
+     "a": 0,
+     "why": "'타당한 근거를 지니고 있다' (possesses valid grounds) formally validates an argument in balanced argumentative essays."
+    },
+    {
+     "q": "Which connector is standard when presenting the counterargument to the preceding position?",
+     "opts": [
+      "이에 반해",
+      "마찬가지로",
+      "예를 들면",
+      "더불어"
+     ],
+     "a": 0,
+     "why": "'이에 반해' (in contrast to this / on the contrary) introduces the contrasting opposing perspective."
+    },
+    {
+     "q": "What does '장점을 살리고 단점을 보완하다' mean in a compromise conclusion?",
+     "opts": [
+      "To utilize the merits and remedy the demerits.",
+      "To discard both advantages and disadvantages.",
+      "To focus only on negative aspects.",
+      "To accept only one side entirely."
+     ],
+     "a": 0,
+     "why": "This expression describes a balanced solution: keep the strengths and make up for the weaknesses."
+    },
+    {
+     "q": "Which sentence shows appropriate plain form essay ending for stating one's agreement in Q54?",
+     "opts": [
+      "나는 이 제도의 점진적 도입에 찬성한다.",
+      "나는 이 제도가 아주 마음에 들어요.",
+      "이 제도를 꼭 해 주시면 좋겠습니다.",
+      "다 같이 박수를 쳐라."
+     ],
+     "a": 0,
+     "why": "'찬성한다' is the formal plain form; polite or emotional forms (-들어요, -좋겠습니다) are not acceptable in Q54."
+    },
+    {
+     "q": "Which term refers to reaching agreement through dialogue among diverse social groups?",
+     "opts": [
+      "사회적 합의",
+      "일방적 통보",
+      "무조건적 비판",
+      "개인적 편견"
+     ],
+     "a": 0,
+     "why": "'사회적 합의' (social consensus) is the formal term for broad mutual agreement achieved through public discourse."
+    }
+   ],
+   "fill": [
+    {
+     "q": "원격 근무의 확대를 두고 사회적 찬반 의견이 팽팽하게 대립하고 ___.",
+     "en": "Over the expansion of remote work, social opinions for and against are clashing tightly.",
+     "a": [
+      "있다"
+     ]
+    },
+    {
+     "q": "찬성하는 측은 출퇴근 시간 절약과 업무 자율성을 가장 큰 이점으로 ___.",
+     "en": "Proponents cite commuting time savings and work autonomy as the biggest advantages.",
+     "a": [
+      "꼽는다",
+      "내세운다",
+      "든다"
+     ]
+    },
+    {
+     "q": "이에 반해 반대하는 측은 소통 부재와 소속감 약화를 주된 문제점으로 ___.",
+     "en": "In contrast, the opposing side points out lack of communication and weakening sense of belonging as main problems.",
+     "a": [
+      "지적한다",
+      "꼽는다"
+     ]
+    },
+    {
+     "q": "따라서 어느 한쪽의 입장만 고집하기보다는 장점을 살리고 단점을 보완하는 절충안이 ___.",
+     "en": "Therefore, rather than insisting on only one side's stance, a compromise that capitalizes on merits and compensates for demerits is needed.",
+     "a": [
+      "필요하다",
+      "요구된다"
+     ]
+    },
+    {
+     "q": "모든 구성원이 납득할 수 있는 합리적인 기준을 세우기 위해 충분한 대화가 선행되어야 ___.",
+     "en": "In order to establish rational standards that all members can understand, sufficient dialogue must precede.",
+     "a": [
+      "한다"
+     ]
+    }
+   ]
+  }
+ }
+}

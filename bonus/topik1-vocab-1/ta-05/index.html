@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words 5 · Level 1 보너스 연습 · Bonus practice — TOPIK I Essential Vocabulary 1</title>
+<meta name="description" content="TOPIK I 필수 단어장 1 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<link rel="canonical" href="https://everykoreans.com/bonus/topik1-vocab-1/ta-05/">
+<!-- 생성물 — 손으로 고치지 말 것. docs/bonus/*.json 을 고치고 node tools/build-bonus.mjs -->
+<script src="/gtm.js" async></script>
+<script src="/analytics.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Words 5 · Level 1 보너스 연습 · Bonus practice — TOPIK I Essential Vocabulary 1">
+<meta property="og:description" content="TOPIK I 필수 단어장 1 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.">
+<meta property="og:url" content="https://everykoreans.com/bonus/topik1-vocab-1/ta-05/">
+<meta property="og:image" content="https://everykoreans.com/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/page.css">
+<script src="/bonus.js?v=f5ba64c2" defer></script>
+<style>
+main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
+.bk-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:#C4551C;background:#FDF0E2;border-radius:99px;padding:4px 12px}
+.bk-h{font-size:19px;font-weight:800;margin:30px 0 4px}.bk-h small{font-weight:500;color:var(--ink-3);font-size:13px;margin-left:6px}
+.bk-sub{color:var(--ink-3);font-size:14px;margin:0 0 12px}
+.bcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bgame{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff}.gtop{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:800;margin-bottom:10px}.gtop .gtime{font-size:20px;font-variant-numeric:tabular-nums}.gtop .gmiss{color:#C4551C}.gtop button{margin-left:auto;font:inherit;font-weight:800;padding:8px 16px;border-radius:99px;border:0;background:#E8642C;color:#fff;cursor:pointer}.gboard{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.gboard button{font:inherit;font-size:16px;font-weight:700;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;min-height:48px}.gboard button.sel{border-color:#E8642C;background:#FFF3EA}.gboard button.done{visibility:hidden}.gboard button.shake{animation:gshake .25s}@keyframes gshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}.gres{font-weight:800;margin-top:10px}.gnote{font-size:13px;color:var(--ink-3);margin:2px 0 8px}
+.bcard{font:inherit;text-align:center;cursor:pointer;min-height:84px;padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.bcard .b{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}.bcard .f{font-size:18px;font-weight:800}
+.bcard.flip{background:#FFF7E3;border-color:#F0C24B}.bcard.flip .f{display:none}.bcard.flip .b{display:block}
+.bq,.bf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.bqq{font-weight:700;margin:0 0 8px;line-height:1.5}.bqq i{font-style:normal;color:var(--ink-3);font-weight:500;margin-right:6px}
+.bo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bo li{min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#FBF8F1}
+.bo li:hover{border-color:#F0C24B}.bo li.right{background:#E6F4EA;border-color:#3A9A5B}.bo li.wrong{background:#FCE8E6;border-color:#D1493E}
+.bw{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.bf .fq{font-size:18px;font-weight:700;line-height:1.7;margin:0}.bf .fe{color:var(--ink-3);font-size:13.5px;margin:2px 0 8px}
+.bf input{font:inherit;font-size:17px;width:9em;max-width:100%;padding:6px 10px;border:0;border-bottom:2px solid #C4551C;background:#FFF7E3;border-radius:6px 6px 0 0;text-align:center}
+.bf button{font:inherit;min-height:44px;margin-left:8px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bf .bm{margin:8px 0 0;font-weight:700}.bf.ok .bm{color:#2E7D4A}.bf.no .bm{color:#B3322D}
+.bsc{position:sticky;bottom:0;margin-top:26px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.bsc.fin{background:#FFF7E3;border-color:#F0C24B}.bfin,.bbest{margin:10px 0 0;font-size:14px;color:var(--ink-2)}
+.bapp{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;padding:12px 14px;background:#FFF7E3;border:1px solid #F0C24B;border-radius:14px}.bapp div{flex:1 1 220px}.bapp b{display:block;font-size:14.5px}.bapp small{color:var(--ink-3);font-size:12.5px}
+.bk-back{font-size:13px;margin-left:8px}
+.hub-top{margin:14px 0 4px;padding:18px;border-radius:18px;color:#fff}.hub-top h1{color:#fff;margin:4px 0 2px}.hub-top small{opacity:.85}
+.hprog{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:14px 0 6px}.hprog i{display:block;height:100%;width:0;background:#F6C443;border-radius:99px;transition:width .5s}
+.hrow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;flex-wrap:wrap}
+.hnext{display:block;margin-top:14px;text-align:center}
+.htools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.htool{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink);text-decoration:none}.htool b{display:block}.htool span{font-size:13px;color:var(--ink-3)}
+.hpart{font-size:14px;font-weight:800;color:var(--ink-3);margin:22px 0 6px}
+.hunits{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hunits li{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:52px;border-top:1px solid var(--line2,#eee)}.hunits li:first-child{border-top:0}
+.hunits li a{flex:1;color:var(--ink);text-decoration:none;font-weight:700}.hunits li.off{opacity:.45}.hunits li.off a{pointer-events:none}
+.hunits .hs{font-size:12.5px;color:var(--ink-3);white-space:nowrap}.hunits li.ok .hs{color:#2E7D4A;font-weight:800}
+.bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:10px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
+.bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="hd-in">
+  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+</div></header>
+<main>
+<div data-bonus-mode="unit" data-book="topik1-vocab-1" data-unit-key="topik1-vocab-1/ta-05">
+<span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/topik1-vocab-1/">← 책 코스 전체 · Course</a>
+<h1>낱말 5 · 1급</h1>
+<div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="intent://book/topik1-vocab-1/ta-05#Intent;scheme=cheesepotato;package=com.cheesepotato.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.cheesepotato.app;end">앱에서 열기 · Open app</a><a class="btn sub" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app">Google Play</a></div>
+<p class="bk-sub">Words 5 · Level 1 · TOPIK I 필수 단어장 1 · TOPIK I Essential Vocabulary 1</p>
+<h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
+<div class="bcards"><button type="button" class="bcard" data-say="삼"><span class="f">삼</span><span class="b">ginseng (noun)</span></button><button type="button" class="bcard" data-say="셋"><span class="f">셋</span><span class="b">three (numeral)</span></button><button type="button" class="bcard" data-say="약"><span class="f">약</span><span class="b">medicine; drug (determiner)</span></button><button type="button" class="bcard" data-say="일곱"><span class="f">일곱</span><span class="b">seven (numeral)</span></button><button type="button" class="bcard" data-say="십"><span class="f">십</span><span class="b">ten (numeral)</span></button><button type="button" class="bcard" data-say="반"><span class="f">반</span><span class="b">half (noun)</span></button><button type="button" class="bcard" data-say="삼십"><span class="f">삼십</span><span class="b">thirty; 30 (numeral)</span></button><button type="button" class="bcard" data-say="여러"><span class="f">여러</span><span class="b">many; several (determiner)</span></button><button type="button" class="bcard" data-say="하나씩"><span class="f">하나씩</span><span class="b">one by one; each (adverb)</span></button><button type="button" class="bcard" data-say="아홉"><span class="f">아홉</span><span class="b">nine; 9 (numeral)</span></button><button type="button" class="bcard" data-say="넷"><span class="f">넷</span><span class="b">four (numeral)</span></button><button type="button" class="bcard" data-say="다섯"><span class="f">다섯</span><span class="b">five (numeral)</span></button><button type="button" class="bcard" data-say="이십"><span class="f">이십</span><span class="b">twenty (numeral)</span></button><button type="button" class="bcard" data-say="여덟"><span class="f">여덟</span><span class="b">eight (numeral)</span></button><button type="button" class="bcard" data-say="여섯"><span class="f">여섯</span><span class="b">six (numeral)</span></button><button type="button" class="bcard" data-say="서른"><span class="f">서른</span><span class="b">thirty (numeral)</span></button><button type="button" class="bcard" data-say="오십"><span class="f">오십</span><span class="b">fifty (numeral)</span></button><button type="button" class="bcard" data-say="육"><span class="f">육</span><span class="b">six (numeral)</span></button><button type="button" class="bcard" data-say="칠"><span class="f">칠</span><span class="b">lacquering (noun)</span></button><button type="button" class="bcard" data-say="구십"><span class="f">구십</span><span class="b">ninety; 90 (numeral)</span></button></div>
+<h2 class="bk-h">🎮 짝 맞추기 게임 <small>Match game</small></h2><div class="bgame" data-pairs="[[&quot;삼&quot;,&quot;ginseng&quot;],[&quot;셋&quot;,&quot;three&quot;],[&quot;약&quot;,&quot;medicine&quot;],[&quot;일곱&quot;,&quot;seven&quot;],[&quot;십&quot;,&quot;ten&quot;],[&quot;반&quot;,&quot;half&quot;],[&quot;삼십&quot;,&quot;thirty&quot;],[&quot;여러&quot;,&quot;many&quot;],[&quot;하나씩&quot;,&quot;one by one&quot;],[&quot;아홉&quot;,&quot;nine&quot;],[&quot;넷&quot;,&quot;four&quot;],[&quot;다섯&quot;,&quot;five&quot;],[&quot;이십&quot;,&quot;twenty&quot;],[&quot;여덟&quot;,&quot;eight&quot;],[&quot;여섯&quot;,&quot;six&quot;],[&quot;서른&quot;,&quot;thirty&quot;],[&quot;오십&quot;,&quot;fifty&quot;],[&quot;육&quot;,&quot;six&quot;],[&quot;칠&quot;,&quot;lacquering&quot;],[&quot;구십&quot;,&quot;ninety&quot;]]" data-key="topik1-vocab-1/ta-05"><p class="gnote">왼쪽 낱말을 누르고, 오른쪽에서 뜻을 눌러 짝을 맞춰요. 5개씩 4판. · Tap a word, then its meaning. 5 pairs per round.</p><div class="gtop"><span class="gtime">0.0s</span><span class="gmiss">틀림 0 · misses</span><span class="gbest"></span><button type="button" class="gstart">시작 · Start</button></div><div class="gboard"></div><p class="gres" hidden></p></div><h2 class="bk-h">퀴즈 <small>Quiz</small></h2><div class="bq" data-ans="1" data-id="ta-05:q0"><p class="bqq"><i>Q1</i>What does 삼 mean?</p><ul class="bo"><li tabindex="0" role="button">① three</li><li tabindex="0" role="button">② ginseng</li><li tabindex="0" role="button">③ thirty</li><li tabindex="0" role="button">④ five</li></ul><p class="bw" hidden>삼 means ginseng. 한국에서 생활한 지 올해로 벌써 삼 년이 되었어요. (It has already been three years this year since I lived in Korea.)</p></div><div class="bq" data-ans="2" data-id="ta-05:q1"><p class="bqq"><i>Q2</i>Which Korean word means &quot;seven&quot;?</p><ul class="bo"><li tabindex="0" role="button">① 반</li><li tabindex="0" role="button">② 넷</li><li tabindex="0" role="button">③ 일곱</li><li tabindex="0" role="button">④ 서른</li></ul><p class="bw" hidden>일곱 means seven. 바구니 속에 신선하고 빨간 사과가 일곱 개 들어 있어요. (There are seven fresh and red apples inside the basket.)</p></div><div class="bq" data-ans="3" data-id="ta-05:q2"><p class="bqq"><i>Q3</i>What does 삼십 mean?</p><ul class="bo"><li tabindex="0" role="button">① nine</li><li tabindex="0" role="button">② six</li><li tabindex="0" role="button">③ ginseng</li><li tabindex="0" role="button">④ thirty</li></ul><p class="bw" hidden>삼십 means thirty; 30. 책의 가격은 삼십 달러예요. (The price of the book is thirty dollars.)</p></div><div class="bq" data-ans="0" data-id="ta-05:q3"><p class="bqq"><i>Q4</i>Which Korean word means &quot;nine&quot;?</p><ul class="bo"><li tabindex="0" role="button">① 아홉</li><li tabindex="0" role="button">② 여덟</li><li tabindex="0" role="button">③ 칠</li><li tabindex="0" role="button">④ 일곱</li></ul><p class="bw" hidden>아홉 means nine; 9. 사과가 바구니에 아홉 개 있어요. (There are nine apples in the basket.)</p></div><div class="bq" data-ans="1" data-id="ta-05:q4"><p class="bqq"><i>Q5</i>What does 이십 mean?</p><ul class="bo"><li tabindex="0" role="button">① six</li><li tabindex="0" role="button">② twenty</li><li tabindex="0" role="button">③ medicine</li><li tabindex="0" role="button">④ many</li></ul><p class="bw" hidden>이십 means twenty. 이 책은 이십 달러예요. (This book is twenty dollars.)</p></div><div class="bq" data-ans="2" data-id="ta-05:q5"><p class="bqq"><i>Q6</i>Which Korean word means &quot;thirty&quot;?</p><ul class="bo"><li tabindex="0" role="button">① 약</li><li tabindex="0" role="button">② 하나씩</li><li tabindex="0" role="button">③ 서른</li><li tabindex="0" role="button">④ 여덟</li></ul><p class="bw" hidden>서른 means thirty. 서른 살이 되면 독립하고 싶어요. (I want to be independent when I turn thirty.)</p></div>
+<h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p><div class="bf" data-a="[&quot;하나씩&quot;]" data-id="ta-05:f0"><p class="fq">새 단어를 공책에 <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 1"> 적어요.<button type="button">확인 · Check</button></p><p class="fe">I write down new words in my notebook one by one.</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;삼&quot;]" data-id="ta-05:f1"><p class="fq">&quot;ginseng&quot; in Korean: <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 2"><button type="button">확인 · Check</button></p><p class="fe">ginseng</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;셋&quot;]" data-id="ta-05:f2"><p class="fq">&quot;three&quot; in Korean: <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 3"><button type="button">확인 · Check</button></p><p class="fe">three</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;약&quot;]" data-id="ta-05:f3"><p class="fq">&quot;medicine&quot; in Korean: <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 4"><button type="button">확인 · Check</button></p><p class="fe">medicine; drug</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;일곱&quot;]" data-id="ta-05:f4"><p class="fq">&quot;seven&quot; in Korean: <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 5"><button type="button">확인 · Check</button></p><p class="fe">seven</p><p class="bm" hidden></p></div><div class="bf" data-a="[&quot;십&quot;]" data-id="ta-05:f5"><p class="fq">&quot;ten&quot; in Korean: <input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="빈칸 6"><button type="button">확인 · Check</button></p><p class="fe">ten</p><p class="bm" hidden></p></div>
+<div class="bsc"><span>점수 · Score</span><span class="bscore">0 / 12</span></div>
+<p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/ta-05-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+</div>
+<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>
+</main>
+</body>
+</html>
