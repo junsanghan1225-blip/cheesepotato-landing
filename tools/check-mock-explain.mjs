@@ -1,12 +1,12 @@
 // TOPIK I 읽기 모의고사 정답 쪽 글(docs/mock/explain.txt) 검사: 문항마다 근거 + 선지 네 개 이유가 있고, 근거는 지문 · 보기에 그대로 있는 말이어야 한다.
-//   node tools/check-mock-explain.mjs          (빠진 문항은 알려 주기만)
-//   node tools/check-mock-explain.mjs --strict (400문항이 다 있어야 통과)
+//   node tools/check-mock-explain.mjs --loose  (만드는 중: 빠진 문항은 알려 주기만)
+//   node tools/check-mock-explain.mjs          (400문항이 다 있어야 통과)
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPIK_READING } from '../topik.js';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const strict = process.argv.includes('--strict');
+const strict = !process.argv.includes('--loose');   // 400문항이 다 있어야 통과(만드는 중에는 --loose)
 const norm = (t) => String(t).replace(/\s+/g, ' ').trim();
 const by = Object.fromEntries(TOPIK_READING.map((q) => [q.id, q]));
 const bad = []; const seen = new Set();
