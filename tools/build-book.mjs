@@ -10,6 +10,7 @@
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
 import fs from 'node:fs';
+import os from 'node:os';
 import { logoSvg } from './brand-logo.mjs';
 import { createRequire } from 'node:module';
 import http from 'node:http';
@@ -126,7 +127,7 @@ const unitUrl = (u) => {
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
 };
 const unitQr = (u) => {
-  if (u.id === 'fs-guide') return '';   // 계획표 쪽은 연습 쪽이 따로 없다
+  if (u.id === 'fs-guide' || B.noQr) return '';   // 계획표 쪽은 연습 쪽이 따로 없다
   const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
   const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
   const shown = url.split('?')[0].replace('https://', '');
@@ -243,7 +244,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시' };
+const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', mcq: '문제', omr: '답안지' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -497,7 +498,21 @@ function fmCheck() {
 <table class="lg2"><thead><tr><th>Date · 날짜</th><th>Q · 문제</th><th>Score · 점수</th><th>What to fix · 고칠 것</th></tr></thead><tbody>${Array.from({ length: 6 }, () => '<tr><td></td><td></td><td></td><td></td></tr>').join('')}</tbody></table>
 ${qrBox()}</div>`;
 }
-const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ['fm5', 'Self-check', '자가 점검표', fmCheck]] : [];
+/* 유형별 풀이 방법 + 필요한 단어(TOPIK I 읽기 모의고사). 한 쪽에 두 유형씩 */
+function methodsPages() {
+  const page = (m, i) => {
+    const ex = m.example, tk = (t) => esc(t).replace(/\(\s{2}\)/g, '<u class="mb"></u>');
+    return `<div class="blk plain mtp"><div class="mth"><b>TYPE ${i + 1}</b><span>${esc(m.name.ko)}<small>${esc(m.name.en)}</small></span><em>${esc(m.nos)}번 · ${m.count}문항</em></div>
+<div class="mta">${esc(m.ask.ko)}<small>${esc(m.ask.en)}</small></div>
+<div class="mtl">Solve it step by step · 차례대로 풀기</div>
+<ol class="mts">${m.steps.map((x, k) => `<li><i>${k + 1}</i><div>${esc(x.ko)}<small>${esc(x.en)}</small>${x.sub ? `<ul>${x.sub.map((y) => `<li>${esc(y.ko)}<small>${esc(y.en)}</small></li>`).join('')}</ul>` : ''}</div></li>`).join('')}</ol>
+<div class="mex"><div class="mexh">Try it · 따라 풀기 <span>모의고사 ${ex.test}회 ${ex.no}번</span></div>${ex.sentence ? `<div class="mbo"><i>&lt;보기&gt;</i> ${cm(esc(ex.sentence))}</div>` : ''}<div class="mp">${cm(tk(ex.passage))}</div><div class="mexo">${ex.options.map((o, k) => `<span>${cn(k)}${cm(esc(o))}</span>`).join('')}</div><div class="mexa"><b>정답 ${cn(ex.answer)}</b> ${cm(esc(ex.why))}</div></div>
+<div class="mtw"><b>Words you need · 필요한 단어</b><div>${m.words.map((w) => `<span>${esc(w.ko)}<small>${esc(w.en)}</small></span>`).join('')}</div></div>
+<div class="mtr">${esc(m.trap.ko)}<small>${esc(m.trap.en)}</small></div></div>`;
+  };
+  return B.methods.map(page).join('\n');
+}
+const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ['fm5', 'Self-check', '자가 점검표', fmCheck]] : B.methods ? [['fm1', 'How to solve each type', '유형별 풀이 방법 · 필요한 단어', methodsPages]] : [];
 
 function partPage(p) {
   const many = p.sheets.length > 10;   // 단어장처럼 단원이 많으면 짧게 쓰고 두 줄로 나눠 부 표지 밖으로 넘치지 않게
@@ -519,6 +534,40 @@ function writingHtml(x) {
   const data = x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
   return `<div class="wp">${esc(x.passage)}</div>${data}<ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wlines(Math.ceil(x.max / 30))}`;
 }
+/* 객관식 모의고사 문항(TOPIK I 읽기 모의고사): 짝 지문은 한 번만 보이고, 보기는 ①~④. 정답 · 풀이는 정답 쪽에 */
+const CIRC = ['①', '②', '③', '④'];
+/* ㉠㉡㉢㉣ 는 글꼴마다 크기가 달라서 같은 크기의 동그라미 + ㄱㄴㄷㄹ 로 그린다 */
+const CMK = { '㉠': 'ㄱ', '㉡': 'ㄴ', '㉢': 'ㄷ', '㉣': 'ㄹ' };
+const cn = (i) => `<span class="cm">${i + 1}</span>`;   // 보기 번호 ①~④ 도 같은 동그라미로
+const cm = (h) => h.replace(/[㉠㉡㉢㉣]/g, (c) => `<span class="cm">${CMK[c]}</span>`);
+const mcqText = (t) => cm(esc(t).replace(/\(\s{2}\)/g, '<u class="mb"></u>'));
+function mcqHtml(s) {
+  const done = new Set(); const out = [];
+  for (const q of s.items) {
+    if (done.has(q.no)) continue;
+    const grp = q.pair ? s.items.filter((x) => x.pair === q.pair) : [q];
+    grp.forEach((x) => done.add(x.no));
+    const [a, b] = q.pair ? q.pair.split('-') : [];
+    const one = (x) => {
+      const short = x.options.every((o) => [...o].length <= 9);
+      return `<div class="mq1"><div class="mqh"><b>${x.no}.</b> ${esc(x.question)}</div>${x.sentence ? `<div class="mbo"><i>&lt;보기&gt;</i> ${cm(esc(x.sentence))}</div>` : ''}${q.pair ? '' : `<div class="mp">${mcqText(x.passage)}</div>`}<ol class="mo${short ? ' g' : ''}">${x.options.map((o, i) => `<li>${cn(i)}${cm(esc(o))}</li>`).join('')}</ol></div>`;
+    };
+    out.push(`<div class="mg${q.pair ? ' pr2' : ''}">${q.pair ? `<div class="mh">※ [${a}~${b}] 다음을 읽고 물음에 답하십시오.</div><div class="mp">${mcqText(q.passage)}</div>` : ''}${grp.map(one).join('')}</div>`);
+  }
+  return out.join('');
+}
+const omrHtml = (s) => {
+  const bub = (n) => `<span class="ob">${n}</span>`;
+  const col = (from, to) => `<div class="oc"><div class="oh"><b>번호</b><span>답 (Answer)</span></div>${Array.from({ length: to - from + 1 }, (_, i) => from + i).map((n) => `<div class="or"><b>${n}</b>${[1, 2, 3, 4].map(bub).join('')}</div>`).join('')}</div>`;
+  const mid = Math.floor((s.from + s.to) / 2);
+  const idg = Array.from({ length: 8 }, () => `<div class="oi8">${Array.from({ length: 10 }, (_, d) => `<span class="ob s">${d}</span>`).join('')}</div>`).join('');
+  return `<div class="osheet"><div class="otop"><div class="ot1"><b>TOPIK I 읽기 연습 답안지</b><small>Reading Practice · Answer Sheet</small></div><div class="ot2">모의고사 <u></u> 회 &nbsp; Test No.</div></div>
+<div class="ohead"><div class="onum"><div class="olab">수험번호 <small>Registration No.</small></div><div class="oid">${idg}</div></div>
+<div class="oside"><div class="onm"><span>이름 · Name (한국어)</span><u></u></div><div class="onm"><span>이름 · Name (English)</span><u></u></div><div class="onm"><span>날짜 · Date</span><u></u></div>
+<div class="omk"><b>표기 방법 · How to mark</b><div class="omk1"><span class="ob f">1</span> 올바른 표기 · right <span class="ob x">2</span><span class="ob y">3</span> 잘못된 표기 · wrong</div><small>연필이나 사인펜으로 번호 안을 진하게 칠하세요. 고친 답은 지우개로 깨끗이 지웁니다.</small></div></div></div>
+<div class="om">${col(s.from, mid)}${col(mid + 1, s.to)}</div>
+<div class="os"><span>Correct answers · 맞은 개수 <u></u> / ${s.to - s.from + 1}</span><span>Minutes I used · 걸린 시간 <u></u></span></div></div>`;
+};
 const qw = (items) => { const m = Math.max(...items.filter((x) => !/_{3}/.test(x.q)).map((x) => [...x.q].length), 0); return m <= 12 ? '34%' : m <= 22 ? '48%' : m <= 34 ? '60%' : '72%'; };
 function unitBlock(u) {
   const secs = u.sections;
@@ -568,6 +617,8 @@ function unitBlock(u) {
     }
     if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
+    if (s.type === 'mcq') return `<div class="sec mqs">${sr(si)}${secLabel(s)}${mcqHtml(s)}</div>`;
+    if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
@@ -587,6 +638,12 @@ function answersBlock() {
       const x = s.raw;
       if (x.q <= 52) h += `<div class="set a wa"><b>${esc(s.title.en)}</b> ${x.blanks.map((b) => `${esc(b.mark)} ${b.answers.map(esc).join(' / ')}`).join(' &nbsp;·&nbsp; ')}<small>${x.blanks.map((b) => esc(b.point)).join(' ')}</small><small class="dd">감점 · ${x.deduct.map(esc).join(' · ')}</small></div>`;
       else h += `<div class="set a wa"><b>${esc(s.title.en)}</b><p class="mdl">${esc(x.model).replace(/\n+/g, ' ¶ ')}</p><small>채점 · ${Object.entries(x.points).map(([k, v]) => `${{ content: '내용', structure: '구성', language: '언어' }[k] || k}: ${esc(v)}`).join(' / ')}</small>${(x.samples || []).map((m) => `<small class="sm"><i>${esc(m.level)} ${m.total}점</i> ${esc(m.text).replace(/\n+/g, ' ¶ ')} — ${esc(m.why)}</small>`).join('')}<small class="dd">감점 · ${(x.deduct || []).map(esc).join(' · ')}</small></div>`;
+    }
+    for (const s of u.sections.filter((x) => x.type === 'mcq')) {
+      const TN = B.methods ? Object.fromEntries(B.methods.flatMap((m) => [[m.type, m.name.ko]])) : {};
+      h += `<div class="set a mk"><b>${esc(s.title.en)}</b> ${s.items.map((q) => `${q.no}) ${cn(q.answer)}`).join(' &nbsp; ')}</div><div class="mw">${s.items.map((q) => q.rs && q.rs.length === 4
+        ? `<div class="mx"><div class="mxh"><b>${q.no}</b> 정답 ${cn(q.answer)}<small>${esc(TN[q.type] || '')}</small></div><p class="mxe"><em>근거</em> ${cm(esc(q.ev))}</p><ul>${q.options.map((o, k) => `<li class="${k === q.answer ? 'y' : 'n'}"><div class="o">${cn(k)}<span>${cm(esc(o))}</span><b>${k === q.answer ? '○ 정답' : '✕'}</b></div><div class="r">${cm(esc(q.rs[k].replace(/\(정답\)/g, '')))}</div></li>`).join('')}</ul></div>`
+        : `<p><b>${q.no}</b> ${cn(q.answer)} ${cm(esc(q.why))}</p>`).join('')}</div>`;
     }
     for (const s of u.sections.filter((x) => x.type === 'checkup')) {
       h += `<div class="set a"><b>Checkup</b> ${s.match.answer.map((a, i) => `${i + 1}) ${a}`).join(' &nbsp;·&nbsp; ')} &nbsp;|&nbsp; ${s.cloze.items.map((x, i) => `${s.match.words.length + i + 1}) ${esc(x.a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
@@ -668,6 +725,10 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx .lg svg{width:3.3mm;height:3.3mm;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.bx .lg small{font-weight:600;letter-spacing:0;color:#6b7a92;font-size:6.8pt}
 .pd .list.mc{columns:2;column-gap:6mm;font-size:7.6pt;line-height:1.55;margin-top:9mm}
 .vsec{margin-bottom:0}.vlg{display:flex;gap:6mm;flex-wrap:wrap;font-size:7.4pt;color:#5a5348;margin:0 0 1.6mm;padding:1.1mm 2.4mm;background:${TINT};border-radius:1.6mm}.vlg .ic{vertical-align:-1.1mm}.vw{display:grid;grid-template-columns:6.5mm 1fr;gap:1.6mm;padding:1.4mm 0;height:23mm;box-sizing:border-box;align-content:start;border-top:.25mm solid #e1dbe9;break-inside:avoid}.vw:first-of-type{border-top:0}.vn{font-size:7.4pt;font-weight:800;color:${ACC};padding-top:.8mm}.vh{display:flex;align-items:baseline;gap:2.4mm}.vh>b{font-size:12pt;color:#1d1a17}.vp{font-size:7pt;color:#6b6458;border:.25mm solid #cfc7d9;border-radius:1mm;padding:0 1.2mm}.vi{margin-left:auto;white-space:nowrap}.vi em{display:inline-block;width:2.4mm}.ic{width:3.3mm;height:3.3mm;margin-left:.3mm}.ve{font-size:8.4pt;color:${ACC};font-weight:700;margin-top:0}.vx{font-size:8.2pt;line-height:1.38;margin-top:.4mm;color:#2a2620}.vx b{color:${ACC};font-weight:800}.vx small{display:block;font-size:7pt;color:#6b6458}
+.mqs .mg{break-inside:avoid;margin:0 0 4.2mm}.mqs .mh{font-size:8.6pt;font-weight:700;margin:0 0 1.6mm}.mqs .mp{white-space:pre-line;border:.3mm solid #444;border-radius:1mm;padding:2.4mm 3.2mm;font-size:9.4pt;line-height:1.75;margin:0 0 2mm;background:#fff}.cm{display:inline-block;box-sizing:border-box;width:4.8mm;height:4.8mm;border:.3mm solid currentColor;border-radius:50%;font-size:8.6pt;line-height:4.2mm;text-align:center;vertical-align:-1mm;font-weight:600;font-style:normal}.mqs .mb{display:inline-block;width:11mm;border-bottom:.3mm solid #222}.mqs .mq1{margin:0 0 2.6mm}.mqs .mqh{font-size:9.2pt;font-weight:700;margin:0 0 1.4mm}.mqs .mqh b{margin-right:.6mm}.mqs .mbo{border:.3mm dashed #666;padding:1.6mm 3mm;font-size:9pt;margin:0 0 1.6mm}.mqs .mbo i{font-style:normal;font-weight:800;margin-right:1.4mm}.mqs .mo{list-style:none;margin:0;padding:0;font-size:9.2pt;line-height:1.6}.mqs .mo li{margin:.1mm 0}.mqs .mo .cm{margin-right:1.8mm;width:4.2mm;height:4.2mm;font-size:7.4pt;line-height:3.6mm;vertical-align:-.8mm}.mw .cm,.mk .cm{width:3.4mm;height:3.4mm;font-size:6.4pt;line-height:2.9mm;vertical-align:-.6mm}.mqs .mo.g{display:grid;grid-template-columns:1fr 1fr;column-gap:4mm}
+.omr{break-before:page;break-inside:avoid}.omr .osheet{border:.5mm solid #222;padding:2.4mm 4mm;margin-top:0}.omr .otop{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.4mm solid #222;padding-bottom:1.6mm;margin-bottom:2.4mm}.omr .ot1 b{font-size:13pt}.omr .ot1 small{display:block;font-size:7.4pt;color:#555}.omr .ot2{font-size:8.6pt}.omr u{display:inline-block;border-bottom:.3mm solid #222;width:12mm}.omr .ohead{display:grid;grid-template-columns:auto 1fr;gap:5mm;border-bottom:.4mm solid #222;padding-bottom:2.4mm;margin-bottom:2.4mm}.omr .olab{font-size:8.2pt;font-weight:800;margin-bottom:1mm}.omr .olab small{font-weight:500;color:#555}.omr .oid{display:flex;gap:1.1mm}.omr .oi8{display:flex;flex-direction:column;gap:.7mm;border:.25mm solid #888;padding:.8mm;background:#fafafa}.omr .ob{display:inline-flex;align-items:center;justify-content:center;width:3.6mm;height:5mm;border:.3mm solid #444;border-radius:50%;font-size:6.2pt;color:#444;background:#fff;line-height:1}.omr .ob.s{height:3.3mm;width:3.1mm;font-size:5.2pt}.omr .ob.f{background:#222;color:#222}.omr .ob.y{background:linear-gradient(#222 0 0) center/100% 38% no-repeat #fff;color:#fff}.omr .oside{display:flex;flex-direction:column;gap:1.4mm}.omr .onm{display:flex;align-items:flex-end;gap:2mm;font-size:8pt}.omr .onm u{flex:1}.omr .omk{border:.25mm solid #888;padding:1.2mm 2mm;font-size:7.8pt}.omr .omk .omk1{display:flex;align-items:center;gap:1.4mm;margin:1mm 0}.omr .omk small{display:block;font-size:6.8pt;color:#555}.omr .om{display:grid;grid-template-columns:1fr 1fr;column-gap:7mm}.omr .oh{display:flex;gap:3mm;border-bottom:.3mm solid #222;font-size:7pt;padding-bottom:.6mm;margin-bottom:.4mm}.omr .oh b{width:7mm;text-align:right}.omr .or{display:flex;align-items:center;gap:2.2mm;padding:.3mm 0;border-bottom:.15mm solid #ddd;font-size:8.6pt}.omr .or b{width:7mm;text-align:right}.omr .or .ob{width:3.9mm;height:4.7mm;font-size:6.6pt}.omr .os{display:flex;gap:7mm;flex-wrap:wrap;margin-top:2mm;padding-top:1.6mm;border-top:.4mm solid #222;font-size:8.2pt}
+.ak .u:has(.mw){break-inside:auto}.mw{columns:2;column-gap:6mm}.mw .mx{break-inside:avoid;margin:0 0 2.6mm;border-top:.2mm solid #d6dce8;padding-top:1mm}.mw .mxh{font-size:8pt}.mw .mxh small{display:inline;margin-left:1.6mm;color:#6b6458;font-size:6.8pt}.mw .mxe{margin:.5mm 0;font-size:7.2pt;line-height:1.45;background:#F4F1E8;padding:.7mm 1.6mm;border-radius:.8mm}.mw .mxe em{font-style:normal;font-weight:800;color:${ACC};margin-right:1.2mm}.mw ul{list-style:none;margin:0;padding:0}.mw li{font-size:7.1pt;line-height:1.4;margin:.5mm 0}.mw li .o{display:flex;gap:1mm;align-items:baseline}.mw li .o span{font-weight:700}.mw li .o b{margin-left:1mm;font-size:6.6pt}.mw li .r{margin:.1mm 0 0 4.4mm;color:#333}.mw li.y b{color:#12704F}.mw li.n b{color:#B03A3A}.ak .mw p{break-inside:avoid}.mk b{margin-right:1.6mm}.mw p{margin:.5mm 0;font-size:7.6pt;line-height:1.5}.mw p b{display:inline-block;min-width:5mm}.mw p i{font-style:normal;font-weight:800;margin-right:1mm}
+.mtp .mth{display:flex;align-items:baseline;gap:3mm;border-bottom:.5mm solid ${ACC};padding-bottom:1mm;margin-bottom:1.8mm}.mtp .mth b{font-size:8pt;color:${ACC};letter-spacing:.06em}.mtp .mth span{font-size:15pt;font-weight:800}.mtp small{display:block;font-size:6.9pt;font-weight:500;color:#5a6780}.mtp .mth em{margin-left:auto;font-style:normal;font-size:8.4pt;font-weight:700;color:${ACC}}.mtp .mta{background:${TINT};border-radius:1.4mm;padding:1.1mm 3mm;font-size:9pt;font-weight:700;margin-bottom:1.6mm}.mtp .mtl{font-size:8.4pt;font-weight:800;color:${ACC};margin:0 0 1.4mm}.mtp .mts{list-style:none;margin:0 0 2.2mm;padding:0}.mtp .mts>li{display:flex;gap:2.6mm;align-items:flex-start;font-size:8.7pt;line-height:1.42;margin:.9mm 0;break-inside:avoid}.mtp .mts>li>i{flex:none;width:5.4mm;height:5.4mm;border-radius:50%;background:${ACC};color:#fff;font-style:normal;font-size:7.8pt;font-weight:800;text-align:center;line-height:5.4mm}.mtp .mts ul{list-style:none;margin:.8mm 0 0;padding:.4mm 0 .4mm 2.4mm;border-left:.5mm solid #cfd6e0}.mtp .mts ul li{font-size:8.1pt;margin:.2mm 0}.mtp .mts ul li:before{content:"▸ ";color:${ACC}}.mtp .mex{border:.3mm dashed #888;border-radius:1.6mm;padding:1.6mm 3mm;margin:0 0 2.2mm;font-size:8.3pt}.mtp .mexh{font-weight:800;color:${ACC};margin-bottom:1.2mm}.mtp .mexh span{margin-left:2mm;font-weight:500;color:#6b6458}.mtp .mex .mp{white-space:pre-line;border:.25mm solid #666;border-radius:1mm;padding:1.4mm 2.6mm;margin:0 0 1.2mm;font-size:8.2pt;line-height:1.5;background:#fff}.mtp .mexo{display:flex;flex-wrap:wrap;gap:.6mm 5mm;margin:0 0 1.2mm}.mtp .mexa{background:#F4F1E8;border-radius:1mm;padding:1.2mm 2.4mm;font-size:8.2pt;line-height:1.5}.mtp .mexa b{margin-right:1.6mm}.mtp .mtw b{font-size:8.2pt;color:${ACC}}.mtp .mtw div{display:flex;flex-wrap:wrap;gap:1.4mm 1.6mm;margin-top:1.2mm}.mtp .mtw span{border:.25mm solid #cfd6e0;border-radius:1.4mm;padding:.5mm 2mm;font-size:8.4pt;font-weight:700;background:#fff}.mtp .mtw span small{display:inline;margin-left:1.2mm;font-weight:500}.mtp .mtr{margin-top:1.8mm;border-left:.9mm solid #C4551C;background:#FDEEE2;padding:1.2mm 3mm;font-size:8.4pt}
 .cku{break-inside:avoid}.cku .cki{font-size:8.6pt;font-weight:700;color:${ACC};margin:2.2mm 0 1.6mm}.cku .cki small{font-weight:500;color:#6b6458;margin-left:1.6mm}.cku .lt{display:inline-flex;align-items:center;justify-content:center;width:4.4mm;height:4.4mm;border:.3mm solid ${ACC};border-radius:50%;font-size:7pt;font-weight:800;color:${ACC};margin-right:1.8mm}.cku .ckm{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}.cku ol,.cku ul{list-style:none;margin:0;padding:0}.cku .ckm li{display:flex;align-items:baseline;gap:2.4mm;padding:1.1mm 0;font-size:10pt;height:7.4mm;box-sizing:border-box}.cku .ckm ol li b{font-size:8pt;color:${ACC};width:5mm}.cku .ckm ol li span{min-width:22mm;font-weight:700}.cku .ckl{flex:1;border-bottom:.3mm solid ${ACC}99;height:4.4mm;max-width:14mm}.cku .ckm ul li{font-size:9pt}.cku .ckc li{display:flex;gap:2.4mm;padding:1.2mm 0;min-height:11mm;font-size:9.6pt;line-height:1.5}.cku .ckc li b{font-size:8pt;color:${ACC};width:5mm;padding-top:.6mm}.cku .ckc u{display:inline-block;width:22mm;border-bottom:.3mm solid #1d1a17;text-decoration:none;margin:0 .6mm}.cku .ckc small{display:block;font-size:7.4pt;color:#6b6458}.cku .ckb{margin-top:2mm;border:.35mm solid ${ACC};border-radius:1.6mm;padding:2.4mm 3mm;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:0;font-size:10pt;font-weight:700;background:${TINT}}.cku .ckb>span{display:flex;align-items:center;justify-content:center;padding:0 1mm;border-left:.25mm solid ${ACC}55;white-space:nowrap}.cku .ckb>span:first-child{border-left:0}
 .cmp .ci{break-inside:avoid;display:grid;grid-template-columns:30mm 1fr;gap:3mm;padding:1.5mm 0;border-top:.25mm solid #e1dbe9}.cmp .ci:first-of-type{border-top:0}.cmp .cw b{display:block;font-size:11pt;color:#1d1a17;line-height:1.3}.cmp .cw b i{font-style:normal;color:#9a93a6;font-weight:400}.cmp .cp{display:inline-block;margin-top:.8mm;font-size:6.8pt;font-weight:800;padding:.3mm 1.8mm;border-radius:99px}.cmp .cp small{font-weight:500;margin-left:1.2mm;opacity:.85}.cmp .ci p{margin:0;font-size:7.9pt;line-height:1.42;color:#2a2620}
 .plan{break-inside:avoid}.plan .plg{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm 7mm;margin-top:1mm}.plan .plk b{font-size:8.6pt;color:${ACC}}.plan .plk small{font-size:7.6pt;color:#6b6458;margin-left:1.6mm}.plan .pll{border-bottom:.3mm solid ${ACC}99;height:7.2mm}.plan .pld{margin-top:3.6mm}.plan .pldc{display:flex;gap:2.2mm;margin-top:1.8mm}.plan .pldc i{width:12.5mm;height:12.5mm;border:.35mm solid ${ACC};border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:normal;line-height:1.1}.plan .pldc i b{font-size:9.4pt;color:${ACC}}.plan .pldc i small{font-size:6.2pt;color:#6b6458}.plan .plgl{margin-top:4mm;background:${TINT};border-radius:2mm;padding:2.6mm 3.4mm}
@@ -766,7 +827,7 @@ const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u =
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
-for (const [k, html] of blocks) counts[k] = countPages(await pdf(html));
+for (const [k, html] of blocks) { counts[k] = countPages(await pdf(html)); if (process.env.BOOK_DEBUG) { console.log("  블록", k, counts[k]); if (k === "unit1") fs.writeFileSync("/tmp/blk-unit1.pdf", await pdf(html)); } }
 let total = Object.values(counts).reduce((a, b) => a + b, 0);
 const memoPages = (total + 1) % 2 === 0 ? 1 : 2;   // 메모 쪽은 1~2쪽 — 총 쪽수는 짝수(인쇄 · 제본)
 if (!B.compact) { blocks.push(['memo', memoBlock(memoPages)]); counts.memo = memoPages; total += memoPages; }
@@ -776,18 +837,38 @@ for (const [k] of blocks) { start[k] = at; at += counts[k]; }
 const starts = { front: Object.fromEntries(FRONT_LIST.map(([k]) => [k, start[k]])), preface: start.preface, guide: start.guide, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
 // 단원 첫 쪽(표지 쪽)은 목차에 그 단원의 첫 쪽으로 적는다 — unit 블록은 첫 쪽이 단원 표지이므로 start 그대로가 맞다
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
-const final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
+let final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
 
 const dir = path.join(outDir, bookId + (THEME !== (B.theme || 'brand') ? `-${THEME}` : ''));
 fs.mkdirSync(dir, { recursive: true });
-const interior = await pdf(final);
-const realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
+let interior = await pdf(final);
+let realTotal = countPages(interior) - (REVIEW ? countPages(await pdf(reviewSheet())) : 0);
+/* 단원 블록을 따로 찍은 쪽수가 한꺼번에 찍은 쪽수와 다를 때(모의고사 책) 목차 쪽 번호는 한꺼번에 찍은 PDF 글에서 찾아 다시 찍는다 */
+if (realTotal !== total && !REVIEW) {
+  try {
+    const { execFileSync } = await import('node:child_process');
+    const tmpPdf = path.join(os.tmpdir(), `toc-${process.pid}.pdf`); fs.writeFileSync(tmpPdf, interior);
+    const pages = execFileSync('pdftotext', ['-layout', tmpPdf, '-'], { maxBuffer: 1 << 28 }).toString().split('\f');
+    fs.rmSync(tmpPdf, { force: true });
+    const at = (re, from = 0) => { const i = pages.findIndex((t, k) => k >= from && re.test(t)); return i < 0 ? null : i + 1; };
+    const tocAt = at(/Contents · 목차/) || 1;
+    for (const u of units) { const pg = at(new RegExp(`U ?N ?I ?T ?${String(u.no).padStart(2, '0').split('').join(' ?')}(?!\\d)`), tocAt); if (pg) starts.unit[u.no] = pg; }
+    starts.answers = at(/Answer Key/, tocAt) || starts.answers;
+    if (!B.compact) starts.memo = at(/Notes\s*·\s*메모/, tocAt) || starts.memo;
+    for (const [k] of FRONT_LIST) { const pg = at(k === 'fm1' && B.methods ? /TYPE 1/ : /^$/, tocAt); if (pg && k === 'fm1' && B.methods) starts.front[k] = pg; }
+    final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n');
+    interior = await pdf(final);
+    realTotal = countPages(interior); total = realTotal;
+    console.log('목차 쪽 번호를 한꺼번에 찍은 PDF 에서 다시 찾아 찍었다');
+  } catch (e) { console.warn('⚠ 목차 쪽 번호를 PDF 에서 찾지 못했다:', e.message); }
+}
 fs.writeFileSync(path.join(dir, REVIEW ? 'interior-review.pdf' : 'interior.pdf'), interior);
 /* 한 장 요약(compact) — 표지 · 판권면 · 목차 없이 단원 쪽만. 업무 형식 이름(B.file)으로도 한 부 둔다. */
 if (B.compact && !REVIEW) { fs.writeFileSync(path.join(dir, `${B.file || bookId}.pdf`), interior); await browser.close(); server.close(); console.log(`요약 ${bookId}: ${countPages(interior)}쪽 → ${path.join(dir, `${B.file || bookId}.pdf`)}`); process.exit(0); }
 if (REVIEW) {
   /* 글 판 — 단원 · 칸마다 출처(학습지id · §번호) · 블록 종류 · 표 · 설명 · 연습(정답 포함) */
   const md = [`# ${B.title.en} · ${B.title.ko} — review text`, '', `단원 ${units.length} · 출처 표기 = 「학습지id · §칸번호」`, ''];
+  for (const m of B.methods || []) md.push(`## 유형 ${m.type} · ${m.name.ko} / ${m.name.en}  (${m.nos}번, ${m.count}문항)`, `묻는 말: ${m.ask.ko} / ${m.ask.en}`, ...m.steps.map((x, i) => `${i + 1}. ${x.ko} / ${x.en}`), `필요한 단어: ${m.words.map((w) => `${w.ko}(${w.en})`).join(' · ')}`, `주의: ${m.trap.ko} / ${m.trap.en}`, '');
   for (const u of units) {
     md.push(`## Unit ${String(u.no).padStart(2, '0')} · ${u.title.en} · ${u.title.ko}  [${u.id}]`, `> ${u.sub.en} / ${u.sub.ko}`, '');
     u.sections.forEach((x, i) => {
@@ -800,6 +881,8 @@ if (REVIEW) {
       else if (x.type === 'checkup') { md.push(`(짝짓기) ${x.match.words.map((w, n) => `${n + 1}. ${w}`).join(' · ')}  ↔  ${x.match.options.map((o, n) => `${'abcdef'[n]}. ${o}`).join(' · ')}  →  **${x.match.answer.map((c, n) => `${n + 1}${c}`).join(' ')}**`); x.cloze.items.forEach((q, n) => md.push(`${x.match.words.length + n + 1}. ${q.q}  (${q.en})  →  **${q.a}**`)); md.push(`(낱말 상자) ${x.cloze.bank.join(' · ')}`); }
       else if (x.type === 'compare') x.items.forEach((q, n) => md.push(`${n + 1}. [${q.kind}] ${q.words.join(' · ')}: ${q.note}`));
       else if (x.type === 'writing') { const r = x.raw; md.push(`(지문) ${r.passage || ''}`); if (r.blanks) r.blanks.forEach((b) => md.push(`${b.mark} 모범답안: ${b.answers.join(' / ')}  |  채점 포인트: ${b.point}`)); else if (r.model) md.push(`모범답안: ${r.model}`); }
+      else if (x.type === 'mcq') x.items.forEach((q) => md.push(`${q.no}. [${q.type} · ${q.genre} · ${q.grade}급] ${q.pair ? `(짝 ${q.pair}) ` : ''}${q.question}${q.sentence ? `  <보기> ${q.sentence}` : ''}`, `   지문: ${q.passage.replace(/\n+/g, ' ¶ ')}`, `   ${q.options.map((o, i) => `${CIRC[i]} ${o}`).join('  ')}  →  **${CIRC[q.answer]}**`, `   풀이: ${q.why}`, ...(q.rs ? [`   근거: ${q.ev}`, ...q.rs.map((r, k) => `   ${CIRC[k]} ${k === q.answer ? '○' : '✕'} ${r}`)] : [])));
+      else if (x.type === 'omr') md.push(`(답안지) ${x.from}~${x.to}번`);
       else if (x.type === 'flow') md.push(x.steps.map((st) => `${st.ko} (${st.en})`).join(' → '));
       else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
       const pat = (B.patterns || {})[`${u.id}:${i + 1}`];

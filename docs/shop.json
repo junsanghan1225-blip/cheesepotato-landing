@@ -79,7 +79,7 @@
    },
    "sheets": "A1",
    "trim": "B5 (182 × 257 mm)",
-   "pages": "140쪽 (PDF · 속지 기준)",
+   "pages": "148쪽 (PDF · 속지 기준)",
    "status": "on",
    "price": "9.90",
    "polar": "https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2"
@@ -202,8 +202,8 @@
     "ko": "실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함"
    },
    "about": {
-    "en": "Ten full TOPIK I reading tests (40 questions each) written in the official format by a Korean teacher. These are original practice questions, not past exam papers. Answers and short explanations are at the back.",
-    "ko": "TOPIK I 읽기 40문항 × 10회. 한국어 선생님이 공식 형식에 맞춰 새로 만든 연습 문제다(기출 아님). 뒤쪽에 정답과 짧은 풀이."
+    "en": "Ten full TOPIK I reading tests (40 questions each) written in the official format by a Korean teacher. Before the tests, one page per question type shows how to solve it and the words you need. These are original practice questions, not past exam papers. Answers and short explanations are at the back.",
+    "ko": "TOPIK I 읽기 40문항 × 10회. 시험 앞에 유형별 풀이 방법과 필요한 단어가 있다. 한국어 선생님이 공식 형식에 맞춰 새로 만든 연습 문제다(기출 아님). 뒤쪽에 정답과 짧은 풀이."
    },
    "for": {
     "en": [
@@ -217,26 +217,27 @@
    },
    "toc": [
     {
-     "en": "How the TOPIK I reading test works",
-     "ko": "TOPIK I 읽기 시험 안내"
+     "en": "How to solve each question type, with the words you need (8 types)",
+     "ko": "유형별 풀이 방법과 필요한 단어 (8유형)"
     },
     {
-     "en": "Practice Tests 1–10 (40 questions each)",
-     "ko": "모의고사 1~10회 (회당 40문항)"
+     "en": "Practice Tests 1–10 (40 questions each, questions 31–70)",
+     "ko": "모의고사 1~10회 (회당 40문항, 31~70번)"
     },
     {
-     "en": "Answers and explanations",
-     "ko": "정답과 풀이"
+     "en": "An answer sheet after every test",
+     "ko": "회마다 답안지"
     },
     {
-     "en": "Score chart",
-     "ko": "점수 기록표"
+     "en": "Answers and short explanations",
+     "ko": "정답과 짧은 풀이"
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "약 240쪽 (예정)",
+   "pages": "206쪽 (PDF · 속지 기준)",
    "status": "planned",
-   "price": "9.90"
+   "price": "9.90",
+   "coverImg": "/assets/books/topik1-reading-mock/cover.jpg"
   },
   {
    "id": "topik2-writing-51-52",
@@ -626,7 +627,7 @@
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "280쪽 (PDF · 속지 기준)",
+   "pages": "284쪽 (PDF · 속지 기준)",
    "status": "planned",
    "price": "6.90",
    "coverImg": "/assets/books/topik2-vocab-1000/cover.jpg"
