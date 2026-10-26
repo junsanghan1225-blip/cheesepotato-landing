@@ -22,7 +22,7 @@ secs = re.split(r'\n## (?=\d\d\. )', src)[1:]
 body = []
 nav = []
 if applicant:
-    body.append('<section><h2>신청자 (여섯 권 · 일곱 권 공통, 한 줄)</h2>' + field('이름;이메일;전화', applicant) + '</section>')
+    body.append('<section><h2>신청자 (책 전체 공통, 한 줄)</h2>' + field('이름;이메일;전화', applicant) + '</section>')
 body.append('<section><h2>공통으로 고르는 값</h2><p class="n">모든 책이 같습니다. 화면에서 해당 칸에 고르거나 붙이세요.</p>' + ''.join(field(a, re.sub(r'\*\*', '', b)) for a, b in common_rows) + '</section>')
 
 for sec in secs:

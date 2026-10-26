@@ -757,7 +757,7 @@
    },
    "sub": {
     "en": "Describe data in 300 characters, argue in 700, with scored samples.",
-    "ko": "자료 설명 300자 · 논술 700자 · 상중하 답안과 채점"
+    "ko": "자료 설명 · 논술 쓰기와 채점 기준"
    },
    "about": {
     "en": "100 original questions for 53 and 54 with a model answer, scoring criteria and three sample answers (high / middle / low) with scores and reasons. Original practice material, not past papers.",
@@ -788,9 +788,10 @@
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "약 220쪽 (시안)",
+   "pages": "246쪽 (PDF · 속지 기준)",
    "status": "planned",
-   "price": "9.90"
+   "price": "9.90",
+   "coverImg": "/assets/books/topik2-writing-53-54/cover.jpg"
   }
  ],
  "publisher": {
