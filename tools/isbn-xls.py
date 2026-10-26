@@ -8,9 +8,9 @@ import sys, re, json
 import xlrd, xlwt
 SAMPLE, OUT = sys.argv[1], sys.argv[2]
 NUMS = sys.argv[3:] or ['04', '05', '06']
-ITEM = {'04': 1, '05': 2, '06': 3, '07': 4, '08': 8}  # 서명식별번호(5·6·7 은 첫걸음 · 조사 · 쓰기 51~52 가 썼다. 07 모의고사 = 4(2026-10-26 엑셀로 신청), 08 은 8. 남은 번호 0 · 9)
-PRICE = {'03': '6.9', '04': '6.9', '05': '6.9', '06': '6.9', '07': '9.9', '08': '9.9'}
-BID = {'04': 'topik2-vocab-1000', '05': 'topik2-vocab-2000', '06': 'topik2-vocab-lv3', '07': 'topik1-reading-mock', '08': 'topik2-writing-53-54'}
+ITEM = {'04': 1, '05': 2, '06': 3, '07': 4, '08': 8, '09': 0, '10': 9}  # 서명식별번호(5·6·7 은 첫걸음 · 조사 · 쓰기 51~52 가 썼다. 07 모의고사 = 4(2026-10-26 엑셀로 신청), 08 은 8, 09 TOPIK I 필수 단어장 = 0, 10 필수 관용 표현 = 9. 번호 10개를 다 씀)
+PRICE = {'03': '6.9', '04': '6.9', '05': '6.9', '06': '6.9', '07': '9.9', '08': '9.9', '09': '9.9', '10': '9.9'}
+BID = {'04': 'topik2-vocab-1000', '05': 'topik2-vocab-2000', '06': 'topik2-vocab-lv3', '07': 'topik1-reading-mock', '08': 'topik2-writing-53-54', '09': 'topik1-vocab', '10': 'korean-idioms'}
 def chk(item):
     d = [int(c) for c in '97911222407' + str(item)]
     return (10 - sum(x * (1 if i % 2 == 0 else 3) for i, x in enumerate(d)) % 10) % 10

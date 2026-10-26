@@ -8,7 +8,7 @@ out = sys.argv[1]; shop_name = sys.argv[2] if len(sys.argv) > 2 else '쿠팡'
 e = html.escape
 forms = open('docs/ops/isbn-forms.md', encoding='utf8').read()
 shop = {b['id']: b for b in json.load(open('docs/shop.json', encoding='utf8'))['books']}
-IDS = [('01', 'first-steps-workbook'), ('02', 'particles-workbook'), ('03', 'topik2-writing-51-52'), ('04', 'topik2-vocab-1000'), ('05', 'topik2-vocab-2000'), ('06', 'topik2-vocab-lv3'), ('07', 'topik1-reading-mock'), ('08', 'topik2-writing-53-54')]
+IDS = [('01', 'first-steps-workbook'), ('02', 'particles-workbook'), ('03', 'topik2-writing-51-52'), ('04', 'topik2-vocab-1000'), ('05', 'topik2-vocab-2000'), ('06', 'topik2-vocab-lv3'), ('07', 'topik1-reading-mock'), ('08', 'topik2-writing-53-54'), ('09', 'topik1-vocab'), ('10', 'korean-idioms')]
 NO_QR = {'topik1-reading-mock'}   # 모의고사 책에는 단원 QR 이 없다
 secs = {s[:2]: s for s in re.split(r'\n## (?=\d\d\. )', forms)[1:]}
 box = lambda sec, name: re.search(r'\*\*' + re.escape(name) + r'\*\*\n```\n(.*?)\n```', sec, re.S).group(1)

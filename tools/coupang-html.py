@@ -10,12 +10,12 @@ e = html.escape
 forms = open('docs/ops/isbn-forms.md', encoding='utf8').read()
 shop = {b['id']: b for b in json.load(open('docs/shop.json', encoding='utf8'))['books']}
 IDS = [('01', 'first-steps-workbook', 5), ('02', 'particles-workbook', 6), ('03', 'topik2-writing-51-52', 7), ('04', 'topik2-vocab-1000', 1),
-       ('05', 'topik2-vocab-2000', 2), ('06', 'topik2-vocab-lv3', 3), ('07', 'topik1-reading-mock', 4), ('08', 'topik2-writing-53-54', 8)]
+       ('05', 'topik2-vocab-2000', 2), ('06', 'topik2-vocab-lv3', 3), ('07', 'topik1-reading-mock', 4), ('08', 'topik2-writing-53-54', 8), ('09', 'topik1-vocab', 0), ('10', 'korean-idioms', 9)]
 FILE = {'01': '01_한국어첫걸음워크북', '02': '02_한국어조사워크북', '03': '03_TOPIK쓰기51-52번100제', '04': '04_TOPIK2단어장워크북1', '05': '05_TOPIK2단어장워크북2',
-        '06': '06_TOPIK2단어장워크북3', '07': '07_TOPIKI읽기실전모의고사10회', '08': '08_TOPIKII쓰기53-54번100제'}
-CODE = {'01': 'EK-FIRSTSTEPS', '02': 'EK-PARTICLES', '03': 'EK-WRITING5152', '04': 'EK-VOCAB2-1', '05': 'EK-VOCAB2-2', '06': 'EK-VOCAB2-3', '07': 'EK-T1READ-MOCK', '08': 'EK-WRITING5354'}
-USD = {'01': '9.9', '02': '9.9', '03': '6.9', '04': '6.9', '05': '6.9', '06': '6.9', '07': '9.9', '08': '9.9'}   # ISBN 신청서 정가(달러)
-KRW = {'01': '12900', '02': '12900', '03': '8900', '07': '12900', '08': '12900'}   # 운영자 2026-10-26 「원화 가격은 12900원」(9.9달러 책). 단어장(6.9달러) 원화는 아직 안 정해짐
+        '06': '06_TOPIK2단어장워크북3', '07': '07_TOPIKI읽기실전모의고사10회', '08': '08_TOPIKII쓰기53-54번100제', '09': '09_TOPIKI필수단어장', '10': '10_필수관용표현'}
+CODE = {'01': 'EK-FIRSTSTEPS', '02': 'EK-PARTICLES', '03': 'EK-WRITING5152', '04': 'EK-VOCAB2-1', '05': 'EK-VOCAB2-2', '06': 'EK-VOCAB2-3', '07': 'EK-T1READ-MOCK', '08': 'EK-WRITING5354', '09': 'EK-T1VOCAB', '10': 'EK-IDIOMS'}
+USD = {'01': '9.9', '02': '9.9', '03': '6.9', '04': '6.9', '05': '6.9', '06': '6.9', '07': '9.9', '08': '9.9', '09': '9.9', '10': '9.9'}   # ISBN 신청서 정가(달러)
+KRW = {'01': '12900', '02': '12900', '03': '8900', '07': '12900', '08': '12900', '09': '12900', '10': '12900'}   # 운영자 2026-10-26 「원화 가격은 12900원」(9.9달러 책). 단어장(6.9달러) 원화는 아직 안 정해짐
 NO_QR = {'topik1-reading-mock'}
 secs = {s[:2]: s for s in re.split(r'\n## (?=\d\d\. )', forms)[1:]}
 box = lambda sec, name: re.search(r'\*\*' + re.escape(name) + r'\*\*\n```\n(.*?)\n```', sec, re.S).group(1)
