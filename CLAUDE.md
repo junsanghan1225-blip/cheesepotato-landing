@@ -31,6 +31,7 @@
 |---|---|
 | 「머지해줘」 | `node tools/preflight.mjs` → 커밋 · 푸시 → PR → CI 초록불 → squash 머지(`expectedHeadSha`) → 작업 브랜치를 새 main 으로 다시 세움(`git checkout -B <브랜치> origin/main && git merge -s ours origin/<브랜치>` → 푸시). 「머지해줘」가 없으면 PR 까지만. |
 | 「안티가 올렸어」 | `node tools/ag-status.mjs` → 🆕 인 브랜치만 → 그 지시서의 「지킬 것」대로 검토(다른 칸 안 바뀜 · 사실 · 기출) → 고칠 것은 고쳐 넣음 → 생성 도구 · 자국 → PR → `docs/antigravity/STATUS.md` 고침. 🆕 가 없으면 「아직 안 올라왔다」고 바로 말한다. |
+| 「잘자」 · 「자라」(운영자가 쉬러 갈 때) | **오늘 한 일을 쉬운 말로 정리**(한 일 · 정한 것 · 남은 일 · 내일 할 일)하고 `docs/todo.md` 를 마지막으로 맞춘 뒤 푸시. 그 뒤에 인사. |
 | 「SQL 돌렸어」 · 「배포했어」 · 「설정했어」 | `docs/todo.md` 운영자 줄을 「끝난 것」으로 → 그다음 단계를 말한다. |
 | Clarity CSV · 숫자 판 캡처 | 나라 · 기기 · 입구 · 머문 시간 · 한 사람이 여러 번인지(유럽 — 쿠키 동의 전) 를 보고 이상한 것 · 고칠 것 1~3개. 숫자는 숫자 판이 기준. |
 | 「앱 …」 | 앱 저장소 `/home/user/cheesepotatoapp`(없으면 add_repo) — 그 저장소 `AGENTS.md` 먼저. 앱 저장소엔 CI 가 없으니 `npx tsc --noEmit` 으로 확인. |
