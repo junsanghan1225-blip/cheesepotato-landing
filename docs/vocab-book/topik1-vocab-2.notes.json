@@ -1,0 +1,262 @@
+{
+  "tb-01": [
+    {
+      "words": [
+        "입원",
+        "퇴원"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 입원 means being admitted to hospital (병원에 입원해요), while 퇴원 means leaving hospital after getting well (건강해져서 퇴원해요)."
+    },
+    {
+      "words": [
+        "버릇",
+        "습관"
+      ],
+      "kind": "synonym",
+      "note": "Both mean habit. 버릇 often refers to personal quirks or unconscious habits (손톱을 깨무는 버릇), while 습관 is broader and neutral (좋은 독서 습관)."
+    },
+    {
+      "words": [
+        "들리다",
+        "들리다"
+      ],
+      "kind": "homonym",
+      "note": "들리다 means to be heard by ears (노랫소리가 들려요), and also to drop by a place briefly (서점에 잠시 들러요)."
+    }
+  ],
+  "tb-02": [
+    {
+      "words": [
+        "오른손",
+        "왼손"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 오른손 means the right hand (오른손을 들어요), while 왼손 means the left hand (왼손으로 글씨를 써요)."
+    },
+    {
+      "words": [
+        "손가락",
+        "발가락"
+      ],
+      "kind": "contrast",
+      "note": "손가락 means finger on a hand (열 손가락), while 발가락 means toe on a foot (발가락이 아파요)."
+    },
+    {
+      "words": [
+        "낫다",
+        "낫다"
+      ],
+      "kind": "homonym",
+      "note": "낫다 means to recover from illness (감기가 다 나았어요), and also to be better than another choice (이 옷이 더 나아요)."
+    }
+  ],
+  "tb-03": [
+    {
+      "words": [
+        "늘다",
+        "줄다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 늘다 means to increase or improve (실력이 늘어요), while 줄다 means to decrease or shrink (체중이 줄어요)."
+    },
+    {
+      "words": [
+        "열리다",
+        "열리다"
+      ],
+      "kind": "homonym",
+      "note": "열리다 means a door opens (문이 열려요), fruit grows on a tree (열매가 열려요), and an event is held (축제가 열려요)."
+    },
+    {
+      "words": [
+        "오래되다",
+        "새롭다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 오래되다 means aged or used for a long time (오래된 건물), while 새롭다 means new or fresh (새로운 느낌)."
+    }
+  ],
+  "tb-04": [
+    {
+      "words": [
+        "올리다",
+        "내리다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 올리다 means to raise or lift up (손을 올려요), while 내리다 means to lower or drop down (손을 내려요)."
+    },
+    {
+      "words": [
+        "강하다",
+        "약하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 강하다 means strong or sturdy (바람이 강해요), while 약하다 means weak or frail (몸이 약해요)."
+    },
+    {
+      "words": [
+        "줄이다",
+        "늘리다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 줄이다 means to reduce or shorten (시간을 줄여요), while 늘리다 means to increase or expand (양을 늘려요)."
+    }
+  ],
+  "tb-05": [
+    {
+      "words": [
+        "이상",
+        "이하"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 이상 means or more / above (열 살 이상), while 이하 means or less / below (십만 원 이하)."
+    },
+    {
+      "words": [
+        "비다",
+        "차다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 비다 means to be empty (방이 비어 있어요), while 차다 means to be full (자리가 다 찼어요)."
+    },
+    {
+      "words": [
+        "충분하다",
+        "부족하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 충분하다 means enough or ample (시간이 충분해요), while 부족하다 means insufficient or lacking (잠이 부족해요)."
+    }
+  ],
+  "tb-06": [
+    {
+      "words": [
+        "일부",
+        "전부"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 일부 means a part or portion (일부 학생), while 전부 means all or entirety (전부 다 했어요)."
+    },
+    {
+      "words": [
+        "더하다",
+        "빼다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites in math. 더하다 means to add (숫자를 더해요), while 빼다 means to subtract or remove (살을 빼요, 삼을 빼요)."
+    },
+    {
+      "words": [
+        "대",
+        "대"
+      ],
+      "kind": "homonym",
+      "note": "대 is a counter for vehicles and machines (차 두 대, 컴퓨터 세 대), and also denotes age groups (이십대 청년)."
+    }
+  ],
+  "tb-07": [
+    {
+      "words": [
+        "겉",
+        "속"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 겉 means the outside surface (겉은 바삭해요), while 속 means the inner part or inside (속은 따뜻해요)."
+    },
+    {
+      "words": [
+        "주변",
+        "주위"
+      ],
+      "kind": "synonym",
+      "note": "Both mean surroundings or nearby vicinity. 주변 (학교 주변) and 주위 (집 주위) are very commonly interchangeable."
+    },
+    {
+      "words": [
+        "가까이",
+        "멀리"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 가까이 means near or close (가까이 오세요), while 멀리 means far away (멀리 떠나요)."
+    }
+  ],
+  "tb-08": [
+    {
+      "words": [
+        "굵다",
+        "가늘다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 굵다 means thick for round cylindrical items (나무가 굵어요), while 가늘다 means thin or slender (실이 가늘어요)."
+    },
+    {
+      "words": [
+        "하얗다",
+        "까맣다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 하얗다 means pure white (눈이 하얘요), while 까맣다 means deep black (머리카락이 까매요)."
+    },
+    {
+      "words": [
+        "줄",
+        "줄"
+      ],
+      "kind": "homonym",
+      "note": "줄 means a rope or line to stand in (줄을 서요), and also the grammar form for knowing how to do (피아노를 칠 줄 알아요)."
+    }
+  ],
+  "tb-09": [
+    {
+      "words": [
+        "설날",
+        "추석"
+      ],
+      "kind": "contrast",
+      "note": "Major Korean traditional holidays. 설날 is Lunar New Year in winter (떡국을 먹어요), while 추석 is harvest festival in autumn (송편을 먹어요)."
+    },
+    {
+      "words": [
+        "녹색",
+        "초록색"
+      ],
+      "kind": "synonym",
+      "note": "Both mean green color. 초록색 is native-style and very common in conversation, while 녹색 is Sino-Korean (녹색 불이 켜져요)."
+    },
+    {
+      "words": [
+        "얇다",
+        "두껍다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 얇다 means thin for flat items like paper or clothes (책이 얇아요), while 두껍다 means thick (두꺼운 옷)."
+    }
+  ],
+  "tb-10": [
+    {
+      "words": [
+        "매다",
+        "메다"
+      ],
+      "kind": "contrast",
+      "note": "Pronounced the same. 매다 means to tie or fasten (넥타이를 매요, 끈을 매요), while 메다 means to carry on one's shoulder (가방을 메요)."
+    },
+    {
+      "words": [
+        "갈아입다",
+        "입다"
+      ],
+      "kind": "contrast",
+      "note": "입다 means to put on clothes (옷을 입어요), while 갈아입다 means to change clothes (잠옷으로 갈아입어요)."
+    },
+    {
+      "words": [
+        "목걸이",
+        "귀걸이"
+      ],
+      "kind": "contrast",
+      "note": "목걸이 is a necklace worn around the neck (예쁜 목걸이), while 귀걸이 is an earring worn on ears (귀걸이를 해요)."
+    }
+  ]
+}
