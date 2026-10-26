@@ -62,7 +62,7 @@ for (let t = 0; t < N_TESTS; t++) {
     no: q.slot, id: q.id, type: q.type, genre: q.genre, grade: q.grade, passage: q.passage, question: q.question, options: q.options, answer: q.answer, why: q.why, ...(q.pair ? { pair: q.pair } : {}), ...(q.sentence ? { sentence: q.sentence } : {}),
   }));
   g1Info.push(items.filter((x) => x.grade === 1).length);
-  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format.', ko: '31~70번, 실제 시험 형식' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }] };
+  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format.', ko: '31~70번, 실제 시험 형식' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 31, to: 70 }] };
 }
 const book = {
   _note: '책 한 권의 틀: tools/build-topik1-mock-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik1-reading-mock. 문항은 topik.js(전부 창작, 기출 아님).',
@@ -81,7 +81,7 @@ const book = {
     ko: ['시간을 정해 한 회를 한 번에 풀어 보세요. 실제 시험 시간은 공식 안내를 확인하세요.', '풀고 나면 회 끝의 답안지에 답을 표시합니다.', '정답 쪽으로 맞춰 보고, 틀린 문항은 풀이를 꼭 읽습니다.', '점수를 표에 적고, 며칠 뒤 다음 회를 풉니다.'],
   },
   parts: [{ title: { en: 'Practice tests', ko: '실전 모의고사' }, units: unitIds }],
-  noGuide: true, noIndex: true, unitCount: N_TESTS, coverAccent: '읽기',
+  noGuide: true, noIndex: true, noQr: true, unitCount: N_TESTS, coverAccent: '읽기',
   coverLevel: { code: 'TOPIK I', name: '1~2급', bg: '#12704F', bg2: '#0B4A33', mascot: ['cheese', 2], title: ['TOPIK I', '읽기', '실전 모의고사 10회'], sub: '새로 만든 문제 400개 · 풀이 포함' },
   back: { items: [['10 tests · 모의고사 10회', 'Questions 31-70, 40 each · 31~70번, 회마다 40문항'], ['400 original questions · 새로 만든 문제 400개', 'In the real test format; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK I test takers · TOPIK I 응시 준비에', price: '정가 9.9달러' },
   inline,

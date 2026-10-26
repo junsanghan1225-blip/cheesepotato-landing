@@ -217,26 +217,23 @@
    },
    "toc": [
     {
-     "en": "How the TOPIK I reading test works",
-     "ko": "TOPIK I 읽기 시험 안내"
+     "en": "Practice Tests 1–10 (40 questions each, questions 31–70)",
+     "ko": "모의고사 1~10회 (회당 40문항, 31~70번)"
     },
     {
-     "en": "Practice Tests 1–10 (40 questions each)",
-     "ko": "모의고사 1~10회 (회당 40문항)"
+     "en": "An answer sheet after every test",
+     "ko": "회마다 답안지"
     },
     {
-     "en": "Answers and explanations",
-     "ko": "정답과 풀이"
-    },
-    {
-     "en": "Score chart",
-     "ko": "점수 기록표"
+     "en": "Answers and short explanations",
+     "ko": "정답과 짧은 풀이"
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "약 240쪽 (예정)",
+   "pages": "140쪽 (PDF · 속지 기준)",
    "status": "planned",
-   "price": "9.90"
+   "price": "9.90",
+   "coverImg": "/assets/books/topik1-reading-mock/cover.jpg"
   },
   {
    "id": "topik2-writing-51-52",

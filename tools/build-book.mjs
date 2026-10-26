@@ -126,7 +126,7 @@ const unitUrl = (u) => {
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
 };
 const unitQr = (u) => {
-  if (u.id === 'fs-guide') return '';   // 계획표 쪽은 연습 쪽이 따로 없다
+  if (u.id === 'fs-guide' || B.noQr) return '';   // 계획표 쪽은 연습 쪽이 따로 없다
   const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
   const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
   const shown = url.split('?')[0].replace('https://', '');
@@ -243,7 +243,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시' };
+const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', mcq: '문제', omr: '답안지' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -519,6 +519,29 @@ function writingHtml(x) {
   const data = x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
   return `<div class="wp">${esc(x.passage)}</div>${data}<ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wlines(Math.ceil(x.max / 30))}`;
 }
+/* 객관식 모의고사 문항(TOPIK I 읽기 모의고사): 짝 지문은 한 번만 보이고, 보기는 ①~④. 정답 · 풀이는 정답 쪽에 */
+const CIRC = ['①', '②', '③', '④'];
+const mcqText = (t) => esc(t).replace(/\(\s{2}\)/g, '<u class="mb"></u>');
+function mcqHtml(s) {
+  const done = new Set(); const out = [];
+  for (const q of s.items) {
+    if (done.has(q.no)) continue;
+    const grp = q.pair ? s.items.filter((x) => x.pair === q.pair) : [q];
+    grp.forEach((x) => done.add(x.no));
+    const [a, b] = q.pair ? q.pair.split('-') : [];
+    const one = (x) => {
+      const short = x.options.every((o) => [...o].length <= 9);
+      return `<div class="mq1"><div class="mqh"><b>${x.no}.</b> ${esc(x.question)}</div>${x.sentence ? `<div class="mbo"><i>&lt;보기&gt;</i> ${esc(x.sentence)}</div>` : ''}${q.pair ? '' : `<div class="mp">${mcqText(x.passage)}</div>`}<ol class="mo${short ? ' g' : ''}">${x.options.map((o, i) => `<li><i>${CIRC[i]}</i>${esc(o)}</li>`).join('')}</ol></div>`;
+    };
+    out.push(`<div class="mg${q.pair ? ' pr2' : ''}">${q.pair ? `<div class="mh">※ [${a}~${b}] 다음을 읽고 물음에 답하십시오.</div><div class="mp">${mcqText(q.passage)}</div>` : ''}${grp.map(one).join('')}</div>`);
+  }
+  return out.join('');
+}
+const omrHtml = (s) => {
+  const col = (from, to) => `<div class="oc">${Array.from({ length: to - from + 1 }, (_, i) => from + i).map((n) => `<div class="or"><b>${n}</b>${CIRC.map((c) => `<span>${c}</span>`).join('')}</div>`).join('')}</div>`;
+  const mid = Math.floor((s.from + s.to) / 2);
+  return `<p class="oi">Fill in the number you chose. After the test, check the answer key at the back. <small>고른 번호에 표시하세요. 풀고 나면 책 뒤의 정답 쪽으로 맞춰 보세요.</small></p><div class="om">${col(s.from, mid)}${col(mid + 1, s.to)}</div><div class="os"><span>Correct answers · 맞은 개수 <u></u> / ${s.to - s.from + 1}</span><span>Date · 날짜 <u></u></span><span>Minutes I used · 걸린 시간 <u></u></span></div>`;
+};
 const qw = (items) => { const m = Math.max(...items.filter((x) => !/_{3}/.test(x.q)).map((x) => [...x.q].length), 0); return m <= 12 ? '34%' : m <= 22 ? '48%' : m <= 34 ? '60%' : '72%'; };
 function unitBlock(u) {
   const secs = u.sections;
@@ -568,6 +591,8 @@ function unitBlock(u) {
     }
     if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
+    if (s.type === 'mcq') return `<div class="sec mqs">${sr(si)}${secLabel(s)}${mcqHtml(s)}</div>`;
+    if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
@@ -587,6 +612,9 @@ function answersBlock() {
       const x = s.raw;
       if (x.q <= 52) h += `<div class="set a wa"><b>${esc(s.title.en)}</b> ${x.blanks.map((b) => `${esc(b.mark)} ${b.answers.map(esc).join(' / ')}`).join(' &nbsp;·&nbsp; ')}<small>${x.blanks.map((b) => esc(b.point)).join(' ')}</small><small class="dd">감점 · ${x.deduct.map(esc).join(' · ')}</small></div>`;
       else h += `<div class="set a wa"><b>${esc(s.title.en)}</b><p class="mdl">${esc(x.model).replace(/\n+/g, ' ¶ ')}</p><small>채점 · ${Object.entries(x.points).map(([k, v]) => `${{ content: '내용', structure: '구성', language: '언어' }[k] || k}: ${esc(v)}`).join(' / ')}</small>${(x.samples || []).map((m) => `<small class="sm"><i>${esc(m.level)} ${m.total}점</i> ${esc(m.text).replace(/\n+/g, ' ¶ ')} — ${esc(m.why)}</small>`).join('')}<small class="dd">감점 · ${(x.deduct || []).map(esc).join(' · ')}</small></div>`;
+    }
+    for (const s of u.sections.filter((x) => x.type === 'mcq')) {
+      h += `<div class="set a mk"><b>${esc(s.title.en)}</b> ${s.items.map((q) => `${q.no}) ${CIRC[q.answer]}`).join(' &nbsp; ')}</div><div class="mw">${s.items.map((q) => `<p><b>${q.no}</b> <i>${CIRC[q.answer]}</i> ${esc(q.why)}</p>`).join('')}</div>`;
     }
     for (const s of u.sections.filter((x) => x.type === 'checkup')) {
       h += `<div class="set a"><b>Checkup</b> ${s.match.answer.map((a, i) => `${i + 1}) ${a}`).join(' &nbsp;·&nbsp; ')} &nbsp;|&nbsp; ${s.cloze.items.map((x, i) => `${s.match.words.length + i + 1}) ${esc(x.a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
@@ -668,6 +696,9 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .bx .lg svg{width:3.3mm;height:3.3mm;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.bx .lg small{font-weight:600;letter-spacing:0;color:#6b7a92;font-size:6.8pt}
 .pd .list.mc{columns:2;column-gap:6mm;font-size:7.6pt;line-height:1.55;margin-top:9mm}
 .vsec{margin-bottom:0}.vlg{display:flex;gap:6mm;flex-wrap:wrap;font-size:7.4pt;color:#5a5348;margin:0 0 1.6mm;padding:1.1mm 2.4mm;background:${TINT};border-radius:1.6mm}.vlg .ic{vertical-align:-1.1mm}.vw{display:grid;grid-template-columns:6.5mm 1fr;gap:1.6mm;padding:1.4mm 0;height:23mm;box-sizing:border-box;align-content:start;border-top:.25mm solid #e1dbe9;break-inside:avoid}.vw:first-of-type{border-top:0}.vn{font-size:7.4pt;font-weight:800;color:${ACC};padding-top:.8mm}.vh{display:flex;align-items:baseline;gap:2.4mm}.vh>b{font-size:12pt;color:#1d1a17}.vp{font-size:7pt;color:#6b6458;border:.25mm solid #cfc7d9;border-radius:1mm;padding:0 1.2mm}.vi{margin-left:auto;white-space:nowrap}.vi em{display:inline-block;width:2.4mm}.ic{width:3.3mm;height:3.3mm;margin-left:.3mm}.ve{font-size:8.4pt;color:${ACC};font-weight:700;margin-top:0}.vx{font-size:8.2pt;line-height:1.38;margin-top:.4mm;color:#2a2620}.vx b{color:${ACC};font-weight:800}.vx small{display:block;font-size:7pt;color:#6b6458}
+.mqs .mg{break-inside:avoid;margin:0 0 4.2mm}.mqs .mh{font-size:8.6pt;font-weight:700;margin:0 0 1.6mm}.mqs .mp{white-space:pre-line;border:.3mm solid #444;border-radius:1mm;padding:2.4mm 3.2mm;font-size:9.4pt;line-height:1.75;margin:0 0 2mm;background:#fff}.mqs .mb{display:inline-block;width:11mm;border-bottom:.3mm solid #222}.mqs .mq1{margin:0 0 2.6mm}.mqs .mqh{font-size:9.2pt;font-weight:700;margin:0 0 1.4mm}.mqs .mqh b{margin-right:.6mm}.mqs .mbo{border:.3mm dashed #666;padding:1.6mm 3mm;font-size:9pt;margin:0 0 1.6mm}.mqs .mbo i{font-style:normal;font-weight:800;margin-right:1.4mm}.mqs .mo{list-style:none;margin:0;padding:0;font-size:9.2pt;line-height:1.6}.mqs .mo li{margin:.4mm 0}.mqs .mo i{font-style:normal;margin-right:1.6mm}.mqs .mo.g{display:grid;grid-template-columns:1fr 1fr;column-gap:4mm}
+.omr{break-before:page;break-inside:avoid}.omr .oi{font-size:8.4pt;margin:0 0 3mm}.omr .oi small{margin-left:1.6mm;color:#6b6458}.omr .om{display:grid;grid-template-columns:1fr 1fr;column-gap:10mm}.omr .or{display:flex;align-items:center;gap:2.6mm;padding:1mm 0;border-bottom:.2mm solid #d9d9d9;font-size:9pt}.omr .or b{width:8mm;text-align:right}.omr .or span{display:inline-flex;align-items:center;justify-content:center;width:5.8mm;height:5.8mm;border:.3mm solid #555;border-radius:50%;font-size:8pt;color:#555}.omr .os{display:flex;gap:6mm;flex-wrap:wrap;margin-top:5mm;font-size:8.6pt}.omr .os u{display:inline-block;width:16mm;border-bottom:.3mm solid #222}
+.ak .u:has(.mw){break-inside:auto}.ak .mw p{break-inside:avoid}.mk b{margin-right:1.6mm}.mw p{margin:.5mm 0;font-size:7.6pt;line-height:1.5}.mw p b{display:inline-block;min-width:5mm}.mw p i{font-style:normal;font-weight:800;margin-right:1mm}
 .cku{break-inside:avoid}.cku .cki{font-size:8.6pt;font-weight:700;color:${ACC};margin:2.2mm 0 1.6mm}.cku .cki small{font-weight:500;color:#6b6458;margin-left:1.6mm}.cku .lt{display:inline-flex;align-items:center;justify-content:center;width:4.4mm;height:4.4mm;border:.3mm solid ${ACC};border-radius:50%;font-size:7pt;font-weight:800;color:${ACC};margin-right:1.8mm}.cku .ckm{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}.cku ol,.cku ul{list-style:none;margin:0;padding:0}.cku .ckm li{display:flex;align-items:baseline;gap:2.4mm;padding:1.1mm 0;font-size:10pt;height:7.4mm;box-sizing:border-box}.cku .ckm ol li b{font-size:8pt;color:${ACC};width:5mm}.cku .ckm ol li span{min-width:22mm;font-weight:700}.cku .ckl{flex:1;border-bottom:.3mm solid ${ACC}99;height:4.4mm;max-width:14mm}.cku .ckm ul li{font-size:9pt}.cku .ckc li{display:flex;gap:2.4mm;padding:1.2mm 0;min-height:11mm;font-size:9.6pt;line-height:1.5}.cku .ckc li b{font-size:8pt;color:${ACC};width:5mm;padding-top:.6mm}.cku .ckc u{display:inline-block;width:22mm;border-bottom:.3mm solid #1d1a17;text-decoration:none;margin:0 .6mm}.cku .ckc small{display:block;font-size:7.4pt;color:#6b6458}.cku .ckb{margin-top:2mm;border:.35mm solid ${ACC};border-radius:1.6mm;padding:2.4mm 3mm;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:0;font-size:10pt;font-weight:700;background:${TINT}}.cku .ckb>span{display:flex;align-items:center;justify-content:center;padding:0 1mm;border-left:.25mm solid ${ACC}55;white-space:nowrap}.cku .ckb>span:first-child{border-left:0}
 .cmp .ci{break-inside:avoid;display:grid;grid-template-columns:30mm 1fr;gap:3mm;padding:1.5mm 0;border-top:.25mm solid #e1dbe9}.cmp .ci:first-of-type{border-top:0}.cmp .cw b{display:block;font-size:11pt;color:#1d1a17;line-height:1.3}.cmp .cw b i{font-style:normal;color:#9a93a6;font-weight:400}.cmp .cp{display:inline-block;margin-top:.8mm;font-size:6.8pt;font-weight:800;padding:.3mm 1.8mm;border-radius:99px}.cmp .cp small{font-weight:500;margin-left:1.2mm;opacity:.85}.cmp .ci p{margin:0;font-size:7.9pt;line-height:1.42;color:#2a2620}
 .plan{break-inside:avoid}.plan .plg{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm 7mm;margin-top:1mm}.plan .plk b{font-size:8.6pt;color:${ACC}}.plan .plk small{font-size:7.6pt;color:#6b6458;margin-left:1.6mm}.plan .pll{border-bottom:.3mm solid ${ACC}99;height:7.2mm}.plan .pld{margin-top:3.6mm}.plan .pldc{display:flex;gap:2.2mm;margin-top:1.8mm}.plan .pldc i{width:12.5mm;height:12.5mm;border:.35mm solid ${ACC};border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:normal;line-height:1.1}.plan .pldc i b{font-size:9.4pt;color:${ACC}}.plan .pldc i small{font-size:6.2pt;color:#6b6458}.plan .plgl{margin-top:4mm;background:${TINT};border-radius:2mm;padding:2.6mm 3.4mm}
@@ -800,6 +831,8 @@ if (REVIEW) {
       else if (x.type === 'checkup') { md.push(`(짝짓기) ${x.match.words.map((w, n) => `${n + 1}. ${w}`).join(' · ')}  ↔  ${x.match.options.map((o, n) => `${'abcdef'[n]}. ${o}`).join(' · ')}  →  **${x.match.answer.map((c, n) => `${n + 1}${c}`).join(' ')}**`); x.cloze.items.forEach((q, n) => md.push(`${x.match.words.length + n + 1}. ${q.q}  (${q.en})  →  **${q.a}**`)); md.push(`(낱말 상자) ${x.cloze.bank.join(' · ')}`); }
       else if (x.type === 'compare') x.items.forEach((q, n) => md.push(`${n + 1}. [${q.kind}] ${q.words.join(' · ')}: ${q.note}`));
       else if (x.type === 'writing') { const r = x.raw; md.push(`(지문) ${r.passage || ''}`); if (r.blanks) r.blanks.forEach((b) => md.push(`${b.mark} 모범답안: ${b.answers.join(' / ')}  |  채점 포인트: ${b.point}`)); else if (r.model) md.push(`모범답안: ${r.model}`); }
+      else if (x.type === 'mcq') x.items.forEach((q) => md.push(`${q.no}. [${q.type} · ${q.genre} · ${q.grade}급] ${q.pair ? `(짝 ${q.pair}) ` : ''}${q.question}${q.sentence ? `  <보기> ${q.sentence}` : ''}`, `   지문: ${q.passage.replace(/\n+/g, ' ¶ ')}`, `   ${q.options.map((o, i) => `${CIRC[i]} ${o}`).join('  ')}  →  **${CIRC[q.answer]}**`, `   풀이: ${q.why}`));
+      else if (x.type === 'omr') md.push(`(답안지) ${x.from}~${x.to}번`);
       else if (x.type === 'flow') md.push(x.steps.map((st) => `${st.ko} (${st.en})`).join(' → '));
       else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
       const pat = (B.patterns || {})[`${u.id}:${i + 1}`];
