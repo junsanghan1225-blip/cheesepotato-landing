@@ -778,5 +778,265 @@
       "kind": "homonym",
       "note": "불 means fire (불이 뜨거워요), electric room light (불을 켜요), and also dollars in currency (십 불)."
     }
+  ],
+  "ta-31": [
+    {
+      "words": [
+        "혼자",
+        "함께"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 혼자 means alone or by oneself (혼자 밥을 먹어요), while 함께 means together with others (친구와 함께 공부해요)."
+    },
+    {
+      "words": [
+        "명",
+        "분"
+      ],
+      "kind": "contrast",
+      "note": "Both count people. 명 is standard (학생 세 명), while 분 is the respectful honorific counter (손님 세 분)."
+    },
+    {
+      "words": [
+        "남자",
+        "여자"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 남자 means man or male (남자 친구), while 여자 means woman or female (여자 아이)."
+    }
+  ],
+  "ta-32": [
+    {
+      "words": [
+        "남편",
+        "아내"
+      ],
+      "kind": "contrast",
+      "note": "Opposites in marriage. 남편 means husband (남편과 산책해요), while 아내 means wife (아내와 식사해요)."
+    },
+    {
+      "words": [
+        "형",
+        "오빠"
+      ],
+      "kind": "contrast",
+      "note": "Both mean older brother. A male speaker calls his older brother 형, while a female speaker calls him 오빠."
+    },
+    {
+      "words": [
+        "누나",
+        "언니"
+      ],
+      "kind": "contrast",
+      "note": "Both mean older sister. A male speaker calls his older sister 누나, while a female speaker calls her 언니."
+    }
+  ],
+  "ta-33": [
+    {
+      "words": [
+        "예쁘다",
+        "멋있다"
+      ],
+      "kind": "contrast",
+      "note": "예쁘다 means pretty or cute (꽃이 예뻐요), while 멋있다 means cool, stylish, or handsome (옷이 멋있어요)."
+    },
+    {
+      "words": [
+        "선생님",
+        "학생"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 선생님 means teacher (선생님께 배워요), while 학생 means student (한국어 반 학생)."
+    },
+    {
+      "words": [
+        "살",
+        "살"
+      ],
+      "kind": "homonym",
+      "note": "살 is the counter for age in years (스무 살), and also means flesh or body weight (살이 빠졌어요)."
+    }
+  ],
+  "ta-34": [
+    {
+      "words": [
+        "배우다",
+        "가르치다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 배우다 means to learn from someone (한국어를 배워요), while 가르치다 means to teach (학생을 가르쳐요)."
+    },
+    {
+      "words": [
+        "쓰다",
+        "쓰다"
+      ],
+      "kind": "homonym",
+      "note": "쓰다 means to write with a pen (편지를 써요), to wear a hat or use an item (모자를 써요), and to taste bitter (약이 써요)."
+    },
+    {
+      "words": [
+        "어렵다",
+        "쉽다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 어렵다 means difficult (시험이 어려워요), while 쉽다 means easy (한국어가 쉬워요)."
+    }
+  ],
+  "ta-35": [
+    {
+      "words": [
+        "사전",
+        "사전"
+      ],
+      "kind": "homonym",
+      "note": "사전 means a dictionary for looking up words (사전을 찾아요), and also means beforehand or in advance (사전 예약)."
+    },
+    {
+      "words": [
+        "예",
+        "예"
+      ],
+      "kind": "homonym",
+      "note": "예 means 'yes' in polite polite speech (예, 알겠습니다), and also an example (예를 들어 설명해요)."
+    },
+    {
+      "words": [
+        "합격하다",
+        "불합격하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 합격하다 means to pass a test (시험에 합격했어요), while 불합격하다 means to fail (아쉽게 불합격했어요)."
+    }
+  ],
+  "ta-36": [
+    {
+      "words": [
+        "한국",
+        "외국"
+      ],
+      "kind": "contrast",
+      "note": "한국 means Korea (한국에 살아요), while 외국 means a foreign country outside Korea (외국에 여행 가요)."
+    },
+    {
+      "words": [
+        "나라",
+        "국가"
+      ],
+      "kind": "synonym",
+      "note": "Both mean country or nation. 나라 is everyday native Korean (어느 나라 사람이에요?), while 국가 is more formal (국가 대표)."
+    },
+    {
+      "words": [
+        "영국",
+        "미국"
+      ],
+      "kind": "contrast",
+      "note": "영국 means the United Kingdom or Britain (영국 사람), while 미국 means the United States of America (미국 뉴욕)."
+    }
+  ],
+  "ta-37": [
+    {
+      "words": [
+        "고맙다",
+        "감사하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to thank. 고맙다 is warm native Korean (도와줘서 고마워요), while 감사하다 is polite Sino-Korean (진심으로 감사합니다)."
+    },
+    {
+      "words": [
+        "미안하다",
+        "죄송하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean sorry. 미안하다 is used with friends or peers (늦어서 미안해요), while 죄송하다 is more polite for elders (죄송합니다)."
+    },
+    {
+      "words": [
+        "아니요",
+        "네"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 네 (or 예) means yes (네, 맞아요), while 아니요 means no (아니요, 아니에요)."
+    }
+  ],
+  "ta-38": [
+    {
+      "words": [
+        "말",
+        "말"
+      ],
+      "kind": "homonym",
+      "note": "말 means speech or language (한국 말을 배워요), a horse animal (말을 타요), and also the end of a time period (월말)."
+    },
+    {
+      "words": [
+        "말",
+        "말씀"
+      ],
+      "kind": "synonym",
+      "note": "Both mean words or speech. 말 is standard (친구의 말), while 말씀 is the respectful honorific word for an elder's speech (선생님 말씀)."
+    },
+    {
+      "words": [
+        "알다",
+        "모르다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 알다 means to know (그 사람을 알아요), while 모르다 means not to know (이름을 몰라요)."
+    }
+  ],
+  "ta-39": [
+    {
+      "words": [
+        "묻다",
+        "묻다"
+      ],
+      "kind": "homonym",
+      "note": "묻다 means to ask a question (길을 물어봐요), to get stained on clothes (옷에 얼룩이 묻어요), and to bury in the ground."
+    },
+    {
+      "words": [
+        "달다",
+        "달다"
+      ],
+      "kind": "homonym",
+      "note": "달다 means sweet in taste (초콜릿이 달아요), and also to hang or fasten an item (벽에 시계를 달아요)."
+    },
+    {
+      "words": [
+        "보내다",
+        "보내다"
+      ],
+      "kind": "homonym",
+      "note": "보내다 means to send a letter or parcel (편지를 보내요), and also to spend time (주말을 잘 보내요)."
+    }
+  ],
+  "ta-40": [
+    {
+      "words": [
+        "시청",
+        "시청"
+      ],
+      "kind": "homonym",
+      "note": "시청 means city hall building (서울 시청에 가요), and also means watching a television broadcast (뉴스 시청)."
+    },
+    {
+      "words": [
+        "질문",
+        "대답"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 질문 means question (질문이 있어요), while 대답 means answer or reply (질문에 대답해요)."
+    },
+    {
+      "words": [
+        "곳",
+        "장소"
+      ],
+      "kind": "synonym",
+      "note": "Both mean place. 곳 is native Korean (조용한 곳), while 장소 is formal Sino-Korean (약속 장소)."
+    }
   ]
 }
