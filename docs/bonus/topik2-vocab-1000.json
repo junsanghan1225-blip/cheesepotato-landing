@@ -440,7 +440,7 @@
     },
     {
      "ko": "편",
-     "en": "side; team; party (bound noun)"
+     "en": "side; team; counter for films and works (bound noun)"
     },
     {
      "ko": "한쪽",
@@ -1040,7 +1040,7 @@
     },
     {
      "ko": "쏟아지다",
-     "en": "spill (verb)"
+     "en": "pour down; spill (verb)"
     },
     {
      "ko": "햇볕",
@@ -1118,7 +1118,7 @@
       "time",
       "summer season",
       "throughout",
-      "spill"
+      "pour down"
      ],
      "a": 1,
      "why": "여름철 means summer season; summertime. 덥고 습한 여름철 날씨에는 식중독 예방에 각별히 유의해야 한다. (In hot and humid summer weather, one must pay special care to prevent food poisoning.)"
@@ -1188,7 +1188,7 @@
     },
     {
      "ko": "용기",
-     "en": "container; courage (noun)"
+     "en": "courage; bravery (noun)"
     },
     {
      "ko": "긍정적",
@@ -1361,8 +1361,8 @@
      ]
     },
     {
-     "q": "\"container\" in Korean: ___",
-     "en": "container; courage",
+     "q": "\"courage\" in Korean: ___",
+     "en": "courage; bravery",
      "a": [
       "용기"
      ]
@@ -1588,7 +1588,7 @@
     },
     {
      "ko": "말리다",
-     "en": "be involved in (verb)"
+     "en": "to dry; to dissuade; to be rolled up (verb)"
     },
     {
      "ko": "낡다",
@@ -1620,7 +1620,7 @@
     },
     {
      "ko": "단지",
-     "en": "danji; pot (noun)"
+     "en": "complex; estate (noun)"
     },
     {
      "ko": "공간",
@@ -1661,14 +1661,14 @@
      "opts": [
       "air conditioning",
       "clear away",
-      "danji",
+      "complex",
       "kitchen"
      ],
      "a": 1,
      "why": "치우다 means clear away; tidy up. 안전사고 방지를 위해 복도에 어지럽게 쌓인 물건들을 신속히 치웠다. (Things messily piled in the hallway were promptly cleared to prevent accidents.)"
     },
     {
-     "q": "Which Korean word means \"be involved in\"?",
+     "q": "Which Korean word means \"to dry\"?",
      "opts": [
       "덮다",
       "금",
@@ -1676,7 +1676,7 @@
       "치우다"
      ],
      "a": 2,
-     "why": "말리다 means be involved in. 길에서 다투는 두 사람을 주위 이웃들이 적극 말렸다. (Surrounding neighbors actively stopped the two people arguing on the street.)"
+     "why": "말리다 means to dry; to dissuade; to be rolled up. 길에서 다투는 두 사람을 주위 이웃들이 적극 말렸다. (Surrounding neighbors actively stopped the two people arguing on the street.)"
     },
     {
      "q": "What does 냉방 mean?",
@@ -2756,7 +2756,7 @@
     },
     {
      "ko": "기사",
-     "en": "article; engineer (noun)"
+     "en": "article; news story (noun)"
     },
     {
      "ko": "상대방",
@@ -2776,7 +2776,7 @@
     },
     {
      "ko": "통",
-     "en": "container; bottle (adverb)"
+     "en": "at all (with a negative) (adverb)"
     },
     {
      "ko": "밝히다",
@@ -2835,7 +2835,7 @@
     {
      "q": "What does 대상 mean?",
      "opts": [
-      "container",
+      "at all (with a negative)",
       "target",
       "opinion",
       "goal"
@@ -2860,10 +2860,10 @@
       "formula",
       "screen",
       "expression",
-      "container"
+      "at all (with a negative)"
      ],
      "a": 3,
-     "why": "통 means container; bottle. 그는 요즘 감기 때문에 밥을 통 먹지 못한다. (He cannot eat at all lately because of a cold.)"
+     "why": "통 means at all (with a negative). 그는 요즘 감기 때문에 밥을 통 먹지 못한다. (He cannot eat at all lately because of a cold.)"
     },
     {
      "q": "Which Korean word means \"distraction\"?",
@@ -2930,7 +2930,7 @@
     },
     {
      "q": "\"article\" in Korean: ___",
-     "en": "article; engineer",
+     "en": "article; news story",
      "a": [
       "기사"
      ]
@@ -3164,7 +3164,7 @@
     },
     {
      "ko": "서",
-     "en": "three (noun)"
+     "en": "west (noun)"
     },
     {
      "ko": "목적지",
@@ -3188,7 +3188,7 @@
     },
     {
      "ko": "태우다",
-     "en": "burn; ignite (verb)"
+     "en": "give a ride; burn; ignite (verb)"
     },
     {
      "ko": "공사",
@@ -3229,7 +3229,7 @@
      "opts": [
       "destination",
       "capital city",
-      "burn",
+      "give a ride",
       "farming"
      ],
      "a": 1,
@@ -3400,7 +3400,7 @@
     },
     {
      "ko": "볼",
-     "en": "(from 보다) to see; to look at (noun)"
+     "en": "cheek (noun)"
     },
     {
      "ko": "심장",
@@ -3476,7 +3476,7 @@
      "why": "부작용 means side effect. 급격한 최저임금 인상은 단기적인 고용 감소라는 부작용을 낳기도 했다. (Rapid minimum wage hikes also brought side effects of short-term employment drops.)"
     },
     {
-     "q": "Which Korean word means \"(from 보다) to see\"?",
+     "q": "Which Korean word means \"cheek\"?",
      "opts": [
       "사항",
       "균형",
@@ -3484,7 +3484,7 @@
       "쥐다"
      ],
      "a": 2,
-     "why": "볼 means (from 보다) to see; to look at. 아기의 통통하고 부드러운 볼은 보는 이에게 절로 미소를 짓게 한다. (A baby's chubby, soft cheeks naturally bring smiles to beholders.)"
+     "why": "볼 means cheek. 아기의 통통하고 부드러운 볼은 보는 이에게 절로 미소를 짓게 한다. (A baby's chubby, soft cheeks naturally bring smiles to beholders.)"
     }
    ],
    "fill": [
@@ -3744,7 +3744,7 @@
     },
     {
      "ko": "실제",
-     "en": "reality; actual (adverb)"
+     "en": "reality; actual (noun)"
     },
     {
      "ko": "넘치다",
@@ -4144,7 +4144,7 @@
     },
     {
      "ko": "띠다",
-     "en": "put on; tie (verb)"
+     "en": "take on; show (a color or look) (verb)"
     },
     {
      "ko": "흔적",
@@ -5108,7 +5108,7 @@
     },
     {
      "ko": "모",
-     "en": "rice seedling (pronoun)"
+     "en": "a certain (person); so-and-so (pronoun)"
     },
     {
      "ko": "조명",
@@ -5281,8 +5281,8 @@
      ]
     },
     {
-     "q": "\"rice seedling\" in Korean: ___",
-     "en": "rice seedling",
+     "q": "\"a certain (person)\" in Korean: ___",
+     "en": "a certain (person); so-and-so",
      "a": [
       "모"
      ]
@@ -6488,7 +6488,7 @@
     },
     {
      "ko": "바람직하다",
-     "en": "to desirable (adjective)"
+     "en": "to be desirable (adjective)"
     },
     {
      "ko": "배경",
@@ -6568,7 +6568,7 @@
      "why": "드러나다 means to be revealed; to be exposed. 새로운 증거가 확보되면서 사건의 전모가 명백히 드러났다. (As new evidence was secured, the whole story of the case came to light clearly.)"
     },
     {
-     "q": "Which Korean word means \"to desirable\"?",
+     "q": "Which Korean word means \"to be desirable\"?",
      "opts": [
       "사용자",
       "인공",
@@ -6576,7 +6576,7 @@
       "드러나다"
      ],
      "a": 2,
-     "why": "바람직하다 means to desirable. 청소년기에는 바람직한 가치관을 형성하는 교육이 필요하다. (In adolescence, education that forms desirable values is necessary.)"
+     "why": "바람직하다 means to be desirable. 청소년기에는 바람직한 가치관을 형성하는 교육이 필요하다. (In adolescence, education that forms desirable values is necessary.)"
     },
     {
      "q": "What does 온라인 mean?",
@@ -7496,7 +7496,7 @@
     },
     {
      "ko": "장기",
-     "en": "specialty; talent; long term (noun)"
+     "en": "long term; long period (noun)"
     },
     {
      "ko": "기상",
@@ -7652,7 +7652,7 @@
    "cards": [
     {
      "ko": "찡하다",
-     "en": "to feel choked up; to feel a pang (verb)"
+     "en": "to feel choked up; to feel a pang (adjective)"
     },
     {
      "ko": "눈살",
@@ -8508,11 +8508,11 @@
     },
     {
      "ko": "건",
-     "en": "matter; case (counter) (noun)"
+     "en": "matter; case (counter) (bound noun)"
     },
     {
      "ko": "본",
-     "en": "pattern (determiner)"
+     "en": "this; the present (determiner)"
     }
    ],
    "quiz": [
@@ -8542,7 +8542,7 @@
      "q": "What does 선박 mean?",
      "opts": [
       "fertilizer",
-      "pattern",
+      "this",
       "driver",
       "vessel"
      ],
@@ -8696,7 +8696,7 @@
     },
     {
      "ko": "대폭",
-     "en": "drastically; sharply (noun)"
+     "en": "drastically; sharply (adverb)"
     },
     {
      "ko": "막대하다",
@@ -9296,7 +9296,7 @@
     },
     {
      "ko": "파장",
-     "en": "wavelength (noun)"
+     "en": "repercussion; impact; wavelength (noun)"
     }
    ],
    "quiz": [
@@ -9326,7 +9326,7 @@
      "q": "What does 하천 mean?",
      "opts": [
       "potential",
-      "wavelength",
+      "repercussion",
       "depletion",
       "river"
      ],
@@ -9436,7 +9436,7 @@
     },
     {
      "ko": "채다",
-     "en": "be kicked (verb)"
+     "en": "to sense; to notice (verb)"
     },
     {
      "ko": "인위적",
@@ -9444,7 +9444,7 @@
     },
     {
      "ko": "공방",
-     "en": "workshop; studio (noun)"
+     "en": "back-and-forth battle; verbal sparring (noun)"
     },
     {
      "ko": "세밀하다",
@@ -9545,7 +9545,7 @@
      "opts": [
       "elderly person living alone",
       "construction",
-      "workshop",
+      "back-and-forth battle",
       "groundbreaking"
      ],
      "a": 1,

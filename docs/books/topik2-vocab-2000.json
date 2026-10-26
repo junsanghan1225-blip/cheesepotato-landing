@@ -1356,8 +1356,8 @@
         "a": "치수"
        },
        {
-        "q": "선수들이 테니스 ___에 입장하여 몸을 풀기 시작했다.",
-        "en": "Athletes entered the tennis court and began warming up.",
+        "q": "추운 겨울바람을 막기 위해 두꺼운 모직 ___를 걸쳤다.",
+        "en": "I put on a thick wool coat to block the cold winter wind.",
         "a": "코트"
        },
        {
@@ -2895,7 +2895,7 @@
       {
        "ko": "감상",
        "pos": "noun",
-       "en": "sentimentality",
+       "en": "appreciation; one's impressions",
        "ex": {
         "ko": "퇴근 후 조용히 클래식 음악을 감상해요.",
         "en": "After work, I quietly appreciate classical music."
@@ -2928,7 +2928,7 @@
       {
        "ko": "물리다",
        "pos": "verb",
-       "en": "be sick and tired of; have had enough",
+       "en": "be bitten; be sick and tired of (food)",
        "ex": {
         "ko": "공원에서 모기에 여러 군데 물렸어요.",
         "en": "I was bitten by mosquitoes in several places at the park."
@@ -2963,7 +2963,7 @@
        "pos": "determiner",
        "en": "being nationwide",
        "ex": {
-        "ko": "내일은 전국적 비 소식이 있으니 우산을 챙기세요.",
+        "ko": "내일은 전국적인 비 소식이 있으니 우산을 챙기세요.",
         "en": "Pack an umbrella as there is news of nationwide rain tomorrow."
        },
        "lv": 3,
@@ -3009,7 +3009,7 @@
       ],
       "options": [
        "to be dirty",
-       "be sick and tired of",
+       "be bitten",
        "to prey on",
        "hold with one's lips or teeth",
        "smoke",
@@ -3147,7 +3147,7 @@
        "a": "시집"
       },
       {
-       "q": "be sick and tired of →",
+       "q": "be bitten →",
        "a": "물리다"
       },
       {
@@ -3798,7 +3798,7 @@
       {
        "ko": "통하다",
        "pos": "verb",
-       "en": "flow; pass; circulate",
+       "en": "communicate; flow; pass through",
        "ex": {
         "ko": "그 친구와는 말이 참 잘 통해요.",
         "en": "Words communicate really well with that friend."
@@ -3811,7 +3811,7 @@
        "pos": "determiner",
        "en": "being concrete; being material",
        "ex": {
-        "ko": "이해하기 쉽게 구체적 사례를 들어 주세요.",
+        "ko": "이해하기 쉽게 구체적인 사례를 들어 주세요.",
         "en": "Please give concrete examples so it is easy to understand."
        },
        "lv": 3,
@@ -3860,7 +3860,7 @@
        "to become known",
        "exchange",
        "accurately",
-       "flow",
+       "communicate",
        "being concrete"
       ],
       "answer": [
@@ -3970,7 +3970,7 @@
       },
       {
        "q": "통하다 →",
-       "a": "flow; pass; circulate"
+       "a": "communicate; flow; pass through"
       }
      ]
     },
@@ -4222,7 +4222,7 @@
       {
        "ko": "밀리다",
        "pos": "verb",
-       "en": "be left undone",
+       "en": "be backed up; be delayed; be left undone",
        "ex": {
         "ko": "퇴근 시간에는 도로가 꽉 막혀 차가 밀려요.",
         "en": "At rush hour, roads are jammed and cars are backed up."
@@ -4281,7 +4281,7 @@
       ],
       "options": [
        "recommend",
-       "be left undone",
+       "be backed up",
        "to return",
        "to head toward",
        "inquiry",
@@ -4386,7 +4386,7 @@
       },
       {
        "q": "밀리다 →",
-       "a": "be left undone"
+       "a": "be backed up; be delayed; be left undone"
       }
      ]
     },
@@ -4605,7 +4605,7 @@
       {
        "ko": "이끌다",
        "pos": "verb",
-       "en": "bring; take",
+       "en": "lead; guide",
        "ex": {
         "ko": "팀장님이 우리 프로젝트 팀을 훌륭하게 이끌어 줘요.",
         "en": "The team leader guides our project team excellently."
@@ -4696,7 +4696,7 @@
        "미루다"
       ],
       "options": [
-       "bring",
+       "lead",
        "delay",
        "empty seat",
        "step aside",
@@ -4965,8 +4965,8 @@
        "pos": "noun",
        "en": "chin",
        "ex": {
-        "ko": "승진 기념으로 오늘 제가 한턱낼게요.",
-        "en": "To celebrate the promotion, I will treat today."
+        "ko": "생각에 잠겨 손으로 턱을 괴고 창밖을 바라보았어요.",
+        "en": "Lost in thought, I rested my chin on my hand and looked out the window."
        },
        "lv": 4,
        "fq": 2
@@ -5148,8 +5148,8 @@
         "a": "고객"
        },
        {
-        "q": "소문에는 언제나 어느 정도의 ___이 섞이기 마련이다.",
-        "en": "Rumors are always bound to be mixed with some degree of exaggeration.",
+        "q": "이번에 승진한 김 ___은 부서원들의 신망이 두텁다.",
+        "en": "Manager Kim, who was just promoted, has the deep trust of the team members.",
         "a": "과장"
        },
        {
@@ -5788,7 +5788,7 @@
       },
       {
        "ko": "조",
-       "pos": "numeral",
+       "pos": "noun",
        "en": "group",
        "ex": {
         "ko": "발표를 위해 네 명씩 한 조를 짜요.",
@@ -5963,17 +5963,17 @@
       "words": [
        "썩",
        "끊임없다",
-       "조",
        "무려",
-       "밀리미터"
+       "밀리미터",
+       "일일이"
       ],
       "options": [
-       "as many as",
        "millimeter",
        "one by one",
+       "group",
        "exceedingly",
        "incessant",
-       "group"
+       "as many as"
       ],
       "answer": [
        "d",
@@ -6358,7 +6358,7 @@
        "pos": "determiner",
        "en": "instant; momentary",
        "ex": {
-        "ko": "순간적 판단이 결과를 바꿨어요.",
+        "ko": "순간적인 판단이 결과를 바꿨어요.",
         "en": "A momentary judgment changed the result."
        },
        "lv": 4,
@@ -6592,7 +6592,7 @@
       },
       {
        "ko": "이내",
-       "pos": "adverb",
+       "pos": "noun",
        "en": "within; less than",
        "ex": {
         "ko": "서류를 3일 이내에 제출해 주세요.",
@@ -6681,7 +6681,7 @@
       {
        "ko": "시점",
        "pos": "noun",
-       "en": "starting point",
+       "en": "point in time; juncture",
        "ex": {
         "ko": "지금 시점에서 가장 시급한 일을 먼저 해요.",
         "en": "Do the most urgent task first at the present point in time."
@@ -6839,8 +6839,8 @@
         "a": "연속"
        },
        {
-        "q": "빗방울이 떨어지더니 ___ 굵은 장대비로 변했다.",
-        "en": "Raindrops fell and shortly turned into heavy pouring rain.",
+        "q": "신청서는 마감일 삼 일 ___에 제출해야 한다.",
+        "en": "The application must be submitted within three days of the deadline.",
         "a": "이내"
        },
        {
@@ -8443,7 +8443,7 @@
       {
        "ko": "골",
        "pos": "noun",
-       "en": "anger",
+       "en": "goal; gap (rift)",
        "ex": {
         "ko": "경기 종료 직전에 환상적인 슛으로 극적인 골을 넣었어요.",
         "en": "Right before the match ended, he scored a dramatic goal with a fantastic shot."
@@ -8489,7 +8489,7 @@
        "pos": "verb",
        "en": "sink; settle",
        "ex": {
-        "ko": "약을 먹으니 붓기가 차츰 가라앉아요.",
+        "ko": "약을 먹으니 부기가 차츰 가라앉아요.",
         "en": "The swelling gradually subsides after taking medicine."
        },
        "lv": 4,
@@ -9671,7 +9671,7 @@
       {
        "ko": "수용",
        "pos": "noun",
-       "en": "expropriation",
+       "en": "acceptance; accommodation",
        "ex": {
         "ko": "상대방의 의견을 수용하기로 했어요.",
         "en": "We decided to accept the other person's opinion."
@@ -9728,8 +9728,8 @@
        "pos": "noun",
        "en": "group; crowd; flock",
        "ex": {
-        "ko": "건강을 위해 무리한 다이어트는 삼가세요.",
-        "en": "Please refrain from overdoing diets for health."
+        "ko": "하늘 위로 철새들이 큰 무리를 지어 날아갔어요.",
+        "en": "Migratory birds flew across the sky in a large flock."
        },
        "lv": 4,
        "fq": 2
@@ -10935,7 +10935,7 @@
       {
        "ko": "상대",
        "pos": "noun",
-       "en": "facing each other",
+       "en": "opponent; counterpart; the other party",
        "ex": {
         "ko": "결승전에서 만날 상대를 면밀히 분석해요.",
         "en": "Carefully analyze the opponent to meet in the finals."
@@ -11304,7 +11304,7 @@
       {
        "ko": "근거",
        "pos": "noun",
-       "en": "base; stronghold",
+       "en": "grounds; basis; evidence",
        "ex": {
         "ko": "주장을 뒷받침할 구체적인 통계 근거를 제시했어요.",
         "en": "I presented concrete statistical grounds to back up the claim."
@@ -11359,7 +11359,7 @@
       {
        "ko": "조작",
        "pos": "noun",
-       "en": "forgery",
+       "en": "operation; handling; fabrication",
        "ex": {
         "ko": "기계의 조작 방법이 아주 간단해요.",
         "en": "The operation method of the machine is very simple."
@@ -11472,7 +11472,7 @@
        "관점"
       ],
       "options": [
-       "base",
+       "grounds",
        "never",
        "logical",
        "to go up and down",
@@ -11603,7 +11603,7 @@
        "a": "가치관"
       },
       {
-       "q": "base →",
+       "q": "grounds →",
        "a": "근거"
       },
       {
@@ -13102,7 +13102,7 @@
       {
        "ko": "절다",
        "pos": "verb",
-       "en": "be soaked; be marinated",
+       "en": "to limp; to be salted (pickled)",
        "ex": {
         "ko": "발목을 삐어서 다리를 조금 절면서 걸었어요.",
         "en": "Having sprained my ankle, I walked limping slightly on my leg."
@@ -13135,7 +13135,7 @@
       {
        "ko": "패다",
        "pos": "verb",
-       "en": "come out",
+       "en": "chop; split (firewood); head out (rice)",
        "ex": {
         "ko": "추운 겨울을 나려고 도끼로 장작을 팼어요.",
         "en": "I chopped firewood with an ax to spend the cold winter."
@@ -13274,7 +13274,7 @@
       },
       {
        "q": "절다 →",
-       "a": "be soaked; be marinated"
+       "a": "to limp; to be salted (pickled)"
       }
      ]
     },
@@ -13807,7 +13807,7 @@
       {
        "ko": "동동",
        "pos": "adverb",
-       "en": "rub-a-dub",
+       "en": "(stamping) repeatedly; bobbing; floating lightly",
        "ex": {
         "ko": "추운 날씨에 발을 동동 구르며 버스를 기다려요.",
         "en": "I wait for the bus stamping my feet in the cold weather."
@@ -13906,7 +13906,7 @@
       {
        "ko": "판",
        "pos": "noun",
-       "en": "occasion; scene",
+       "en": "counter for pizza and games; board; scene",
        "ex": {
         "ko": "친구들과 피자 한 판을 나눠 먹어요.",
         "en": "I share a whole pizza with my friends."
@@ -14118,7 +14118,7 @@
       },
       {
        "q": "판 →",
-       "a": "occasion; scene"
+       "a": "counter for pizza and games; board; scene"
       },
       {
        "q": "퓨전 →",
@@ -14200,7 +14200,7 @@
        "pos": "determiner",
        "en": "stimulating; provocative",
        "ex": {
-        "ko": "위장을 위해 너무 자극적 음식을 피하세요.",
+        "ko": "위장을 위해 너무 자극적인 음식을 피하세요.",
         "en": "Avoid excessively stimulating food for your stomach."
        },
        "lv": 5,
@@ -14319,7 +14319,7 @@
       {
        "ko": "육상",
        "pos": "noun",
-       "en": "overland",
+       "en": "track and field; on land",
        "ex": {
         "ko": "학교 대표로 육상 경기에 나가요.",
         "en": "I participate in the track and field match as a school representative."
@@ -14701,8 +14701,8 @@
        "pos": "noun",
        "en": "natural world; nature",
        "ex": {
-        "ko": "과학을 좋아해서 대학 진학 때 자연계를 선택했어요.",
-        "en": "Liking science, I chose natural sciences when entering university."
+        "ko": "생태계의 균형이 깨지면 자연계 전체가 큰 위기에 처해요.",
+        "en": "If the balance of the ecosystem breaks, the whole natural world is in great danger."
        },
        "lv": 5,
        "fq": 1
@@ -14765,7 +14765,7 @@
       {
        "ko": "가시",
        "pos": "noun",
-       "en": "needle",
+       "en": "thorn; spine; fish bone",
        "ex": {
         "ko": "장미꽃을 꺾다가 줄기에 돋친 뾰족한 가시에 찔렸어요.",
         "en": "While plucking a rose, I got pricked by sharp thorns on the stem."
@@ -15101,7 +15101,7 @@
       {
        "ko": "문어",
        "pos": "noun",
-       "en": "octopus",
+       "en": "written language; literary style",
        "ex": {
         "ko": "이 표현은 대화보다 문어에서 주로 써요.",
         "en": "This expression is mainly used in written language rather than conversation."
@@ -15282,7 +15282,7 @@
       "options": [
        "language study",
        "failing an examination",
-       "octopus",
+       "written language",
        "completion (of course)",
        "taking an exam",
        "(grammatical) ending"
@@ -15503,7 +15503,7 @@
       {
        "ko": "재고",
        "pos": "noun",
-       "en": "reconsideration",
+       "en": "stock; inventory; reconsideration",
        "ex": {
         "ko": "주문하기 전에 창고에 남은 재고를 먼저 확인해요.",
         "en": "Before placing an order, check remaining stock in the warehouse first."
@@ -16047,7 +16047,7 @@
       },
       {
        "ko": "가급적",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "as much as possible; if possible",
        "ex": {
         "ko": "건강을 지키기 위해 가급적 기름진 음식은 피해요.",
@@ -16841,7 +16841,7 @@
       {
        "ko": "사유",
        "pos": "noun",
-       "en": "private ownership; proprietorship; possession",
+       "en": "reason; cause; grounds",
        "ex": {
         "ko": "휴가를 신청할 때 구체적인 결근 사유를 적었어요.",
         "en": "When applying for leave, I wrote down the specific reason for absence."
@@ -17330,7 +17330,7 @@
       },
       {
        "ko": "정적",
-       "pos": "determiner",
+       "pos": "noun",
        "en": "silence; stillness",
        "ex": {
         "ko": "도서관에 깊은 정적이 흘러 숨소리마저 조심스러웠어요.",
@@ -17397,11 +17397,11 @@
        "뒤섞이다",
        "뒤엉키다",
        "뒤틀리다",
-       "정적"
+       "견주다"
       ],
       "options": [
        "to be twisted",
-       "silence",
+       "compare",
        "lungs",
        "fatal",
        "to be mixed up",
@@ -17689,10 +17689,10 @@
       {
        "ko": "이면",
        "pos": "noun",
-       "en": "imyeon",
+       "en": "back side; reverse side; hidden side",
        "ex": {
-        "ko": "종이를 아끼려고 이면지를 모아 메모장으로 써요.",
-        "en": "To save paper, I collect blank reverse sides and use them as notepads."
+        "ko": "복사한 종이의 이면을 활용하면 종이를 아낄 수 있어요.",
+        "en": "You can save paper by using the reverse side of copied sheets."
        },
        "lv": 6,
        "fq": 1
@@ -18628,7 +18628,7 @@
       {
        "ko": "거르다",
        "pos": "verb",
-       "en": "filter; sieve; sift",
+       "en": "skip (a meal); filter; sift",
        "ex": {
         "ko": "아무리 바빠도 아침밥을 거르면 건강에 안 좋아요.",
         "en": "No matter how busy you are, skipping breakfast is bad for health."
@@ -18807,7 +18807,7 @@
        "a": "씁쓸하다"
       },
       {
-       "q": "filter →",
+       "q": "skip (a meal) →",
        "a": "거르다"
       }
      ]
@@ -19280,8 +19280,8 @@
        "pos": "verb",
        "en": "be chapped",
        "ex": {
-        "ko": "봄이 오니 화단에서 파릇파릇 싹이 터요.",
-        "en": "As spring arrives, fresh sprouts burst forth in flowerbeds."
+        "ko": "겨울철에는 날씨가 건조해서 손등이 자주 터요.",
+        "en": "In winter the weather is dry, so the backs of my hands often get chapped."
        },
        "lv": 6,
        "fq": 2
@@ -19779,7 +19779,7 @@
       {
        "ko": "고가",
        "pos": "noun",
-       "en": "old song; old lyrics",
+       "en": "high price; expensive",
        "ex": {
         "ko": "백화점에서 너무 고가인 물건은 사기 부담스러워요.",
         "en": "High-priced items at department stores feel burdensome to buy."
@@ -19867,7 +19867,7 @@
       {
        "ko": "실정",
        "pos": "noun",
-       "en": "maladministration; misgovernment",
+       "en": "actual situation; reality",
        "ex": {
         "ko": "현장의 실정을 잘 아는 전문가의 의견을 들어요.",
         "en": "Listen to the opinions of experts who know on-site reality well."
@@ -19936,7 +19936,7 @@
        "과열"
       ],
       "options": [
-       "old song",
+       "high price",
        "overheating",
        "immigrant",
        "small and medium (size)",
@@ -20619,7 +20619,7 @@
       {
        "ko": "비단",
        "pos": "adverb",
-       "en": "silk",
+       "en": "not only; not merely",
        "ex": {
         "ko": "환경 문제는 비단 우리 동네만의 일이 아니에요.",
         "en": "Environmental problems are not merely our neighborhood's matter alone."
@@ -20776,7 +20776,7 @@
        "회의적"
       ],
       "options": [
-       "silk",
+       "not only",
        "to be clumsy",
        "being intentional",
        "skeptical",

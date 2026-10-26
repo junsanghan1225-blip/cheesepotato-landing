@@ -1228,7 +1228,7 @@
     },
     {
      "ko": "감상",
-     "en": "sentimentality (noun)"
+     "en": "appreciation; one's impressions (noun)"
     },
     {
      "ko": "마라톤",
@@ -1240,7 +1240,7 @@
     },
     {
      "ko": "물리다",
-     "en": "be sick and tired of; have had enough (verb)"
+     "en": "be bitten; be sick and tired of (food) (verb)"
     },
     {
      "ko": "잡아먹다",
@@ -1269,7 +1269,7 @@
      "opts": [
       "smoke",
       "downstairs",
-      "sentimentality",
+      "appreciation",
       "hold with one's lips or teeth"
      ],
      "a": 1,
@@ -1289,7 +1289,7 @@
     {
      "q": "What does 연기 mean?",
      "opts": [
-      "be sick and tired of",
+      "be bitten",
       "flowerpot",
       "to be dirty",
       "smoke"
@@ -1640,7 +1640,7 @@
     },
     {
      "ko": "통하다",
-     "en": "flow; pass; circulate (verb)"
+     "en": "communicate; flow; pass through (verb)"
     },
     {
      "ko": "구체적",
@@ -1662,7 +1662,7 @@
       "oneself",
       "interest (finance)",
       "accurately",
-      "flow"
+      "communicate"
      ],
      "a": 1,
      "why": "이자 means interest (finance). 금리 상승으로 인해 대출 이자 부담이 크게 가중되었다. (Due to interest rate rises, loan interest burdens increased heavily.)"
@@ -1836,7 +1836,7 @@
     },
     {
      "ko": "밀리다",
-     "en": "be left undone (verb)"
+     "en": "be backed up; be delayed; be left undone (verb)"
     },
     {
      "ko": "간판",
@@ -1858,7 +1858,7 @@
       "recommend",
       "idea",
       "laptop",
-      "be left undone"
+      "be backed up"
      ],
      "a": 1,
      "why": "아이디어 means idea. 반짝이는 아이디어가 신제품 개발의 출발점이 되었다. (A brilliant idea became the starting point of new product development.)"
@@ -2020,7 +2020,7 @@
     },
     {
      "ko": "이끌다",
-     "en": "bring; take (verb)"
+     "en": "lead; guide (verb)"
     },
     {
      "ko": "인쇄",
@@ -2098,7 +2098,7 @@
       "course",
       "look for",
       "means of transportation",
-      "bring"
+      "lead"
      ],
      "a": 1,
      "why": "구하다 means look for; obtain. 소방관은 불길 속에서 소중한 인명을 용감하게 구했다. (The firefighter bravely rescued precious human lives from flames.)"
@@ -2576,7 +2576,7 @@
     },
     {
      "ko": "조",
-     "en": "group (numeral)"
+     "en": "group (noun)"
     },
     {
      "ko": "개별",
@@ -2952,7 +2952,7 @@
     },
     {
      "ko": "이내",
-     "en": "within; less than (adverb)"
+     "en": "within; less than (noun)"
     },
     {
      "ko": "정기적",
@@ -2984,7 +2984,7 @@
     },
     {
      "ko": "시점",
-     "en": "starting point (noun)"
+     "en": "point in time; juncture (noun)"
     },
     {
      "ko": "어쩌다",
@@ -3062,7 +3062,7 @@
      "why": "마침내 means finally; after all. 탐험대는 온갖 역경을 딛고 마침내 정상에 올랐다. (The expedition overcame all hardships and finally reached the summit.)"
     },
     {
-     "q": "Which Korean word means \"starting point\"?",
+     "q": "Which Korean word means \"point in time\"?",
      "opts": [
       "시점",
       "짙다",
@@ -3070,7 +3070,7 @@
       "수년"
      ],
      "a": 0,
-     "why": "시점 means starting point. 경제 위기를 극복하기 위한 정책 변화가 필요한 시점이다. (It is a point in time when policy changes to overcome economic crises are needed.)"
+     "why": "시점 means point in time; juncture. 경제 위기를 극복하기 위한 정책 변화가 필요한 시점이다. (It is a point in time when policy changes to overcome economic crises are needed.)"
     },
     {
      "q": "What does 오늘날 mean?",
@@ -3792,7 +3792,7 @@
     },
     {
      "ko": "골",
-     "en": "anger (noun)"
+     "en": "goal; gap (rift) (noun)"
     },
     {
      "ko": "둥지",
@@ -3868,7 +3868,7 @@
      "why": "헤엄치다 means to swim. 물고기들이 맑은 시냇물 속을 자유롭게 헤엄친다. (Fishes swim freely in the clear brook water.)"
     },
     {
-     "q": "Which Korean word means \"anger\"?",
+     "q": "Which Korean word means \"goal\"?",
      "opts": [
       "꽃꽂이",
       "동화",
@@ -3876,7 +3876,7 @@
       "떼"
      ],
      "a": 2,
-     "why": "골 means anger. 오랜 갈등으로 깊어진 감정의 골을 메우기는 쉽지 않았다. (It was not easy to bridge the deep valley of emotional rift caused by long conflicts.)"
+     "why": "골 means goal; gap (rift). 오랜 갈등으로 깊어진 감정의 골을 메우기는 쉽지 않았다. (It was not easy to bridge the deep valley of emotional rift caused by long conflicts.)"
     }
    ],
    "fill": [
@@ -4364,7 +4364,7 @@
     },
     {
      "ko": "수용",
-     "en": "expropriation (noun)"
+     "en": "acceptance; accommodation (noun)"
     },
     {
      "ko": "위협",
@@ -4405,7 +4405,7 @@
      "opts": [
       "finance",
       "business",
-      "expropriation",
+      "acceptance",
       "group"
      ],
      "a": 1,
@@ -4952,7 +4952,7 @@
     },
     {
      "ko": "상대",
-     "en": "facing each other (noun)"
+     "en": "opponent; counterpart; the other party (noun)"
     },
     {
      "ko": "인정",
@@ -4993,7 +4993,7 @@
      "opts": [
       "insisting on",
       "judgment",
-      "facing each other",
+      "opponent",
       "presentation"
      ],
      "a": 1,
@@ -5128,7 +5128,7 @@
     },
     {
      "ko": "근거",
-     "en": "base; stronghold (noun)"
+     "en": "grounds; basis; evidence (noun)"
     },
     {
      "ko": "논리적",
@@ -5148,7 +5148,7 @@
     },
     {
      "ko": "조작",
-     "en": "forgery (noun)"
+     "en": "operation; handling; fabrication (noun)"
     },
     {
      "ko": "통계",
@@ -5187,9 +5187,9 @@
     {
      "q": "What does 핑계 mean?",
      "opts": [
-      "base",
+      "grounds",
       "excuse",
-      "forgery",
+      "operation",
       "shortcut"
      ],
      "a": 1,
@@ -5212,10 +5212,10 @@
       "street",
       "to pack",
       "never",
-      "base"
+      "grounds"
      ],
      "a": 3,
-     "why": "근거 means base; stronghold. 합리적 근거가 결여된 주장은 청중을 설득하기 어렵다. (Arguments lacking rational grounds can hardly persuade an audience.)"
+     "why": "근거 means grounds; basis; evidence. 합리적 근거가 결여된 주장은 청중을 설득하기 어렵다. (Arguments lacking rational grounds can hardly persuade an audience.)"
     },
     {
      "q": "Which Korean word means \"the newest\"?",
@@ -5952,7 +5952,7 @@
     },
     {
      "ko": "절다",
-     "en": "be soaked; be marinated (verb)"
+     "en": "to limp; to be salted (pickled) (verb)"
     },
     {
      "ko": "찌꺼기",
@@ -5964,7 +5964,7 @@
     },
     {
      "ko": "패다",
-     "en": "come out (verb)"
+     "en": "chop; split (firewood); head out (rice) (verb)"
     }
    ],
    "quiz": [
@@ -5974,7 +5974,7 @@
       "bet",
       "wear",
       "to swell",
-      "be soaked"
+      "to limp"
      ],
      "a": 1,
      "why": "착용 means wear. 차량에 탑승한 모든 승객은 안전띠를 착용해야 한다. (All passengers riding the vehicle must wear seatbelts.)"
@@ -5994,7 +5994,7 @@
      "q": "What does 내기 mean?",
      "opts": [
       "elevator",
-      "come out",
+      "chop",
       "to cease",
       "bet"
      ],
@@ -6292,7 +6292,7 @@
     },
     {
      "ko": "동동",
-     "en": "rub-a-dub (adverb)"
+     "en": "(stamping) repeatedly; bobbing; floating lightly (adverb)"
     },
     {
      "ko": "불안감",
@@ -6328,7 +6328,7 @@
     },
     {
      "ko": "판",
-     "en": "occasion; scene (noun)"
+     "en": "counter for pizza and games; board; scene (noun)"
     },
     {
      "ko": "듬뿍",
@@ -6372,7 +6372,7 @@
      "why": "활기차다 means to be energetic; to be lively. 시장 골목에는 상인들의 활기찬 목소리가 넘쳐난다. (Merchant's energetic voices overflow in the market alleys.)"
     },
     {
-     "q": "Which Korean word means \"rub-a-dub\"?",
+     "q": "Which Korean word means \"(stamping) repeatedly\"?",
      "opts": [
       "차분하다",
       "조개",
@@ -6380,7 +6380,7 @@
       "활기차다"
      ],
      "a": 2,
-     "why": "동동 means rub-a-dub. 맑은 연못 위에 떨어진 단풍잎이 동동 떠다닌다. (Maple leaves that fell on the clear pond float lightly about.)"
+     "why": "동동 means (stamping) repeatedly; bobbing; floating lightly. 맑은 연못 위에 떨어진 단풍잎이 동동 떠다닌다. (Maple leaves that fell on the clear pond float lightly about.)"
     },
     {
      "q": "What does 막막하다 mean?",
@@ -6408,12 +6408,12 @@
      "q": "What does 판 mean?",
      "opts": [
       "to be heartwarming",
-      "occasion",
+      "counter for pizza and games",
       "invariably",
       "plentifully"
      ],
      "a": 1,
-     "why": "판 means occasion; scene. 노인들이 공원에서 바둑판을 사이에 두고 마주 앉았다. (The elderly sat facing each other across a baduk board in the park.)"
+     "why": "판 means counter for pizza and games; board; scene. 노인들이 공원에서 바둑판을 사이에 두고 마주 앉았다. (The elderly sat facing each other across a baduk board in the park.)"
     },
     {
      "q": "Which Korean word means \"clam\"?",
@@ -6520,7 +6520,7 @@
     },
     {
      "ko": "육상",
-     "en": "overland (noun)"
+     "en": "track and field; on land (noun)"
     },
     {
      "ko": "탈락",
@@ -6561,11 +6561,11 @@
      "opts": [
       "residential area",
       "stimulating",
-      "overland",
+      "track and field",
       "goat"
      ],
      "a": 1,
-     "why": "자극적 means stimulating; provocative. 자극적 기사 제목은 독자의 눈길을 끌기 위한 수단이다. (Sensational article headlines are a means to draw readers' eyes.)"
+     "why": "자극적 means stimulating; provocative. 자극적인 기사 제목은 독자의 눈길을 끌기 위한 수단이다. (Sensational article headlines are a means to draw readers' eyes.)"
     },
     {
      "q": "Which Korean word means \"to sew\"?",
@@ -6724,7 +6724,7 @@
     },
     {
      "ko": "가시",
-     "en": "needle (noun)"
+     "en": "thorn; spine; fish bone (noun)"
     },
     {
      "ko": "동반",
@@ -6802,7 +6802,7 @@
       "stagnate",
       "vitality",
       "natural world",
-      "needle"
+      "thorn"
      ],
      "a": 1,
      "why": "생명력 means vitality; life force. 자연의 끈질긴 생명력은 혹독한 환경도 이겨낸다. (The tenacious vitality of nature overcomes even severe environments.)"
@@ -6888,7 +6888,7 @@
     },
     {
      "ko": "문어",
-     "en": "octopus (noun)"
+     "en": "written language; literary style (noun)"
     },
     {
      "ko": "수료",
@@ -7076,7 +7076,7 @@
     },
     {
      "ko": "재고",
-     "en": "reconsideration (noun)"
+     "en": "stock; inventory; reconsideration (noun)"
     },
     {
      "ko": "출시",
@@ -7156,7 +7156,7 @@
      "why": "생산량 means output; production. 가뭄으로 인해 올해 쌀 생산량이 작년보다 감소했다. (Due to drought, this year's rice production volume decreased compared to last year.)"
     },
     {
-     "q": "Which Korean word means \"reconsideration\"?",
+     "q": "Which Korean word means \"stock\"?",
      "opts": [
       "악영향",
       "비리",
@@ -7164,7 +7164,7 @@
       "생산량"
      ],
      "a": 2,
-     "why": "재고 means reconsideration. 매출 부진 품목에 대한 원점 재고가 불가피하다. (Reconsideration from square one regarding sluggish-selling items is inevitable.)"
+     "why": "재고 means stock; inventory; reconsideration. 매출 부진 품목에 대한 원점 재고가 불가피하다. (Reconsideration from square one regarding sluggish-selling items is inevitable.)"
     },
     {
      "q": "What does 획일적 mean?",
@@ -7316,7 +7316,7 @@
     },
     {
      "ko": "가급적",
-     "en": "as much as possible; if possible (noun)"
+     "en": "as much as possible; if possible (adverb)"
     },
     {
      "ko": "간접",
@@ -7688,7 +7688,7 @@
     },
     {
      "ko": "사유",
-     "en": "private ownership; proprietorship; possession (noun)"
+     "en": "reason; cause; grounds (noun)"
     },
     {
      "ko": "팀장",
@@ -7766,7 +7766,7 @@
      "why": "구직 means looking for a job; job seeking; job hunting. 정부는 청년 구직자들을 위한 맞춤형 직업 훈련을 제공한다. (The government provides customized vocational training for young job seekers.)"
     },
     {
-     "q": "Which Korean word means \"private ownership\"?",
+     "q": "Which Korean word means \"reason\"?",
      "opts": [
       "사유",
       "유연성",
@@ -7774,7 +7774,7 @@
       "만족도"
      ],
      "a": 0,
-     "why": "사유 means private ownership; proprietorship; possession. 계약을 취소하려면 정당한 사유를 서면으로 밝혀야 한다. (To cancel the contract, one must state legitimate reasons in writing.)"
+     "why": "사유 means reason; cause; grounds. 계약을 취소하려면 정당한 사유를 서면으로 밝혀야 한다. (To cancel the contract, one must state legitimate reasons in writing.)"
     },
     {
      "q": "What does 근로 mean?",
@@ -7908,7 +7908,7 @@
     },
     {
      "ko": "정적",
-     "en": "silence; stillness (determiner)"
+     "en": "silence; stillness (noun)"
     },
     {
      "ko": "견주다",
@@ -7992,7 +7992,7 @@
       "유독"
      ],
      "a": 2,
-     "why": "정적 means silence; stillness. 작품은 동적인 동작보다 정적인 내면의 고요를 표현했다. (The artwork expressed static inner stillness rather than dynamic movement.)"
+     "why": "정적 means silence; stillness. 방 안에 한동안 정적이 흐르다가 누군가 조용히 입을 열었다. (Silence lingered in the room for a while before someone quietly spoke.)"
     }
    ],
    "fill": [
@@ -8080,7 +8080,7 @@
     },
     {
      "ko": "이면",
-     "en": "imyeon (noun)"
+     "en": "back side; reverse side; hidden side (noun)"
     },
     {
      "ko": "각도",
@@ -8158,7 +8158,7 @@
      "why": "남김없이 means completely; fully; without leaving anything. 그는 평생 모은 재산을 사회에 남김없이 기부했다. (He donated all the wealth accumulated over his lifetime to society without reservation.)"
     },
     {
-     "q": "Which Korean word means \"imyeon\"?",
+     "q": "Which Korean word means \"back side\"?",
      "opts": [
       "이면",
       "깃발",
@@ -8166,7 +8166,7 @@
       "우뚝"
      ],
      "a": 0,
-     "why": "이면 means imyeon. 화려한 성공의 이면에는 피나는 땀과 눈물이 숨어 있다. (Behind splendid success hides painful sweat and tears.)"
+     "why": "이면 means back side; reverse side; hidden side. 화려한 성공의 이면에는 피나는 땀과 눈물이 숨어 있다. (Behind splendid success hides painful sweat and tears.)"
     },
     {
      "q": "What does 테두리 mean?",
@@ -8508,7 +8508,7 @@
     },
     {
      "ko": "거르다",
-     "en": "filter; sieve; sift (verb)"
+     "en": "skip (a meal); filter; sift (verb)"
     },
     {
      "ko": "통째",
@@ -9052,7 +9052,7 @@
     },
     {
      "ko": "고가",
-     "en": "old song; old lyrics (noun)"
+     "en": "high price; expensive (noun)"
     },
     {
      "ko": "과열",
@@ -9084,7 +9084,7 @@
     },
     {
      "ko": "실정",
-     "en": "maladministration; misgovernment (noun)"
+     "en": "actual situation; reality (noun)"
     },
     {
      "ko": "주범",
@@ -9153,14 +9153,14 @@
      "opts": [
       "steel",
       "interference",
-      "old song",
+      "high price",
       "negligence"
      ],
      "a": 1,
      "why": "개입 means interference; meddling. 정부는 시장 안정화를 위해 직접적 개입을 피했다. (The government avoided direct intervention to stabilize the market.)"
     },
     {
-     "q": "Which Korean word means \"maladministration\"?",
+     "q": "Which Korean word means \"actual situation\"?",
      "opts": [
       "흑자",
       "저항",
@@ -9168,7 +9168,7 @@
       "환원"
      ],
      "a": 2,
-     "why": "실정 means maladministration; misgovernment. 탁상행정은 현장의 실정을 제대로 반영하지 못한다. (Desk administration fails to reflect actual field conditions properly.)"
+     "why": "실정 means actual situation; reality. 탁상행정은 현장의 실정을 제대로 반영하지 못한다. (Desk administration fails to reflect actual field conditions properly.)"
     }
    ],
    "fill": [
@@ -9444,7 +9444,7 @@
     },
     {
      "ko": "비단",
-     "en": "silk (adverb)"
+     "en": "not only; not merely (adverb)"
     },
     {
      "ko": "어설프다",
@@ -9545,7 +9545,7 @@
      "opts": [
       "advantage",
       "idiomatic",
-      "silk",
+      "not only",
       "asking around"
      ],
      "a": 1,

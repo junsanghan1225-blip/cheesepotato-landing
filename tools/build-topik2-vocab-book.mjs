@@ -61,7 +61,24 @@ function bonusFor(ws, id, usedInBook) {
 }
 /* 헷갈리는 낱말(유의어 · 동음이의어 · 비슷한 말) — 안티가 쓴 docs/vocab-book/topik2-vocab-1000.notes.json 이 있으면 단원 끝에 표로 붙인다(지시 docs/antigravity/antigravity-vocab-notes-task.md) */
 const NOTES_F = path.join(ROOT, `docs/vocab-book/${CFG.id}.notes.json`);
-const NOTES = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
+const NOTES_RAW = fs.existsSync(NOTES_F) ? JSON.parse(fs.readFileSync(NOTES_F, 'utf8')) : {};
+/* 메모가 적힌 단원에 그 낱말이 하나도 없으면(4권처럼 단원이 어긋난 경우) 낱말이 모인 단원으로 옮긴다. 짝 낱말만 다른 단원에 있는 메모는 그대로 둔다 */
+const NOTE_UNIT = {};
+for (let u = 0; u < N_WORDS / PER; u++) for (const w of picked.slice(u * PER, u * PER + PER)) (NOTE_UNIT[w.head] ||= new Set()).add(`${CFG.prefix}-${String(u + 1).padStart(2, '0')}`);
+const NOTES = {};
+let notesDropped = 0, notesMoved = 0;
+for (const [key, arr] of Object.entries(NOTES_RAW)) for (const n of arr || []) {
+  const sets = [...new Set(n.words)].map((x) => NOTE_UNIT[x] || new Set());
+  let to = sets.some((st) => st.has(key)) ? key : null;
+  if (!to) {
+    const all = [...(sets[0] || [])].find((id) => sets.every((st) => st.has(id)));
+    to = all || [...(sets[0] || [])][0] || null;
+    if (to) notesMoved++;
+  }
+  if (to) (NOTES[to] ||= []).push(n); else notesDropped++;
+}
+if (notesMoved) console.log(`헷갈리는 낱말 메모 ${notesMoved}개를 낱말이 있는 단원으로 옮겼다`);
+if (notesDropped) console.log(`⚠ 헷갈리는 낱말 메모 ${notesDropped}개는 책에 없는 낱말이라 뺐다`);
 const KIND = { synonym: 'Similar · 비슷한 말', homonym: 'Same spelling · 동음이의어', contrast: 'Do not mix up · 헷갈림', antonym: 'Opposites · 반대말' };
 const AVOID = new Set(['누다', '살인']);
 const inline = {};
