@@ -868,7 +868,7 @@ if (B.compact && !REVIEW) { fs.writeFileSync(path.join(dir, `${B.file || bookId}
 if (REVIEW) {
   /* 글 판 — 단원 · 칸마다 출처(학습지id · §번호) · 블록 종류 · 표 · 설명 · 연습(정답 포함) */
   const md = [`# ${B.title.en} · ${B.title.ko} — review text`, '', `단원 ${units.length} · 출처 표기 = 「학습지id · §칸번호」`, ''];
-  for (const m of B.methods || []) md.push(`## 유형 ${m.type} · ${m.name.ko} / ${m.name.en}  (${m.nos}번, ${m.count}문항)`, `묻는 말: ${m.ask.ko} / ${m.ask.en}`, ...m.steps.map((x, i) => `${i + 1}. ${x.ko} / ${x.en}`), `필요한 단어: ${m.words.map((w) => `${w.ko}(${w.en})`).join(' · ')}`, `주의: ${m.trap.ko} / ${m.trap.en}`, '');
+  for (const m of B.methods || []) md.push(`## 유형 ${m.type} · ${m.name.ko} / ${m.name.en}  (${m.nos}번, ${m.count}문항)`, `묻는 말: ${m.ask.ko} / ${m.ask.en}`, ...m.steps.flatMap((x, i) => [`${i + 1}. ${x.ko} / ${x.en}`, ...(x.sub || []).map((y) => `     - ${y.ko} / ${y.en}`)]), `필요한 단어: ${m.words.map((w) => `${w.ko}(${w.en})`).join(' · ')}`, `주의: ${m.trap.ko} / ${m.trap.en}`, '');
   for (const u of units) {
     md.push(`## Unit ${String(u.no).padStart(2, '0')} · ${u.title.en} · ${u.title.ko}  [${u.id}]`, `> ${u.sub.en} / ${u.sub.ko}`, '');
     u.sections.forEach((x, i) => {

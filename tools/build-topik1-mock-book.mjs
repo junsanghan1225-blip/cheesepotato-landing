@@ -130,7 +130,7 @@ const TYPE_INFO = {
       ['둘 이상이 자연스러우면, 연결 말 단서가 더 강한 곳을 골라요.', 'If two spots work, choose the one with the stronger connector clue.'],
     ],
     words: [['그때', 'at that time'], ['그래서', 'so'], ['이렇게', 'like this'], ['그렇게', 'like that'], ['그 뒤부터', 'from then on'], ['처음에는', 'at first'], ['그런데', 'but, by the way'], ['또', 'again; also'], ['그제야', 'only then'], ['덕분에', 'thanks to']],
-    trap: ['「그렇게 · 이렇게」가 있는 문장은 바로 앞에 그 일이 먼저 나와야 해요.', 'A sentence with so / like this needs the event it refers to just before it.'] },
+    trap: ['「그렇게 · 이렇게」가 있는 문장은 바로 앞에 그 일이 먼저 나와야 해요.', 'A sentence with like that / like this needs the event it refers to just before it.'] },
   intent: { ko: '글을 쓴 이유', en: 'Why was it written?', ask: ['이 글을 쓴 이유로 가장 알맞은 것을 고르십시오.', 'Choose the writer\'s purpose.'],
     steps: [
       ['글의 종류를 확인해요. 안내문 · 광고 · 메일 · 메모 중 무엇인가요? 제목과 첫 문장을 봐요.', 'Identify the kind of text: notice, ad, e-mail or note. Look at the title and first sentence.'],
