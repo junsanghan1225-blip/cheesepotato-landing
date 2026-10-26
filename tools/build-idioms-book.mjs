@@ -17,7 +17,7 @@ const dash = (t) => String(t).replace(/\s*[—–]\s*/g, ', ');   // 줄표는 �
 const kor = (t) => (String(t).match(/[가-힣]+/g) || []).join('');
 const first = (en) => String(en).split(';')[0].trim();
 const TYPES = [
-  { t: 'idiom', pos: 'idiom', ko: '관용구', en: 'Idioms', unit: 'Idioms', ex: '발이 넓다', cols: 2, cloze: 'Fill in the blank with the right idiom. Change the ending if needed.', clozeKo: '대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요.' },
+  { t: 'idiom', pos: 'idiom', ko: '관용구', en: 'Idioms and Set Phrases', unit: 'Idioms and Set Phrases', ex: '발이 넓다', cols: 2, cloze: 'Fill in the blank with the right idiom. Put it in the right form (change the ending).', clozeKo: '대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요.' },
   { t: 'proverb', pos: 'proverb', ko: '속담', en: 'Proverbs', unit: 'Proverbs', ex: '가는 말이 고와야 오는 말이 곱다', cols: 1, cloze: 'Fill in the blank with the right proverb.', clozeKo: '대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요.' },
   { t: 'idiom4', pos: 'four-character idiom', ko: '사자성어', en: 'Four-Character Idioms', unit: 'Four-Character Idioms', ex: '일석이조', cols: 2, cloze: 'Fill in the blank with the right four-character idiom.', clozeKo: '대화의 빈칸에 알맞은 사자성어를 상자에서 골라 쓰세요.' },
 ];
@@ -27,11 +27,17 @@ const stemOf = (h) => (h.endsWith('다') ? h.slice(0, -1) : h);
 const blankLine = (x) => {
   for (const [, line] of x.dialog || []) {
     for (const k of [x.head, stemOf(x.head)]) {
-      if (k.length >= 2 && line.split(k).length === 2) return { q: line.replace(k, '___'), line, k, exact: k === x.head };
+      if (k.length < 2 || line.split(k).length !== 2) continue;
+      const exact = k === x.head, i = line.indexOf(k);
+      /* 활용한 모양(어간 + 어미)은 어절 끝까지를 통째로 빈칸으로 둔다 — 어미가 빈칸 뒤에 남아 정답과 겹치지 않게(안티 검수 2026-10-26) */
+      let end = i + k.length;
+      if (!exact) while (end < line.length && !/[\s.,!?]/.test(line[end])) end++;
+      return { q: line.slice(0, i) + '___' + line.slice(end), line, k, exact, surface: line.slice(i, end) };
     }
   }
   return null;
 };
+const ansOf = (x, b) => (b.exact ? [b.k] : [...new Set([b.surface, x.head, b.k])]);   // 보너스 빈칸: 활용한 모양 · 기본형 · 어간 모두 정답
 
 const book = { units: {}, order: [] };
 const bonus = {};
@@ -62,7 +68,7 @@ for (const T of TYPES) {
       const cBank = rot(clW, (unitNo + 1) % clW.length);
       secs.push({ type: 'checkup', title: { en: 'Unit Checkup', ko: '단원 점검' },
         match: { inst: { en: 'Match each expression with its meaning. Write the letter on the line.', ko: '표현과 뜻을 짝지어 알맞은 글자를 쓰세요.' }, words: matchW.map((w) => w.head), options: mOpts.map(mean), answer: matchW.map((w) => 'abcdef'[mOpts.indexOf(w)]) },
-        cloze: { inst: { en: T.cloze, ko: T.clozeKo }, cols: T.cols, items: cl.map((x) => ({ q: x.b.q, en: '', a: x.w.head })), bank: cBank.map((w) => w.head) } });
+        cloze: { inst: { en: T.cloze, ko: T.clozeKo }, cols: T.cols, items: cl.map((x) => ({ q: x.b.q, en: '', a: x.b.exact ? x.w.head : `${x.w.head} (${x.b.surface})` })), bank: cBank.map((w) => w.head) } });
     } else console.log(`⚠ ${id}: 점검 문항 부족(짝 ${matchW.length} · 빈칸 ${cl.length})`);
     secs.push({ type: 'practice', title: { en: 'Write the meaning', ko: '뜻 쓰기' }, hint: 'Cover the list first, then write the English meaning.', items: ws.filter((_, j) => j % 4 === 0).map((w) => ({ q: `${w.head} →`, a: dash(w.en) })) });
     if (T.t === 'proverb') {
@@ -86,10 +92,10 @@ for (const T of TYPES) {
     const corpus = kor(JSON.stringify(book.units[id]));
     const fresh = (b) => kor(b.q.replace('___', '')).length < 5 || !corpus.includes(kor(b.q.replace('___', '')));
     const fill = [];
-    for (const w of ws) { if (fill.length >= 6) break; const b = blankLine(w); if (b && fresh(b) && !clW.includes(w)) fill.push({ q: b.q, en: first(w.en), a: [b.k] }); }
-    for (const w of ws) { if (fill.length >= 4) break; const b = blankLine(w); if (b && fresh(b) && !fill.some((f) => f.a[0] === b.k)) fill.push({ q: b.q, en: first(w.en), a: [b.k] }); }
+    for (const w of ws) { if (fill.length >= 6) break; const b = blankLine(w); if (b && fresh(b) && !clW.includes(w)) fill.push({ q: b.q, en: first(w.en), a: ansOf(w, b) }); }
+    for (const w of ws) { if (fill.length >= 4) break; const b = blankLine(w); if (b && fresh(b) && !fill.some((f) => f.a.includes(b.k))) fill.push({ q: b.q, en: first(w.en), a: ansOf(w, b) }); }
     /* 대화에서 가져올 빈칸이 모자라면 영어 뜻 → 한국어 쓰기로 채운다(띄어쓰기는 채점에서 무시된다) */
-    for (const w of ws) { if (fill.length >= 4) break; if (!fill.some((f) => f.a[0] === w.head) && !fill.some((f) => f.a[0] === stemOf(w.head))) fill.push({ q: `"${dash(first(w.en))}" in Korean (${T.pos}): ___`, en: dash(w.en), a: [w.head] }); }
+    for (const w of ws) { if (fill.length >= 4) break; if (!fill.some((f) => f.a.includes(w.head) || f.a.includes(stemOf(w.head)))) fill.push({ q: `"${dash(first(w.en))}" in Korean (${T.pos}): ___`, en: dash(w.en), a: [w.head] }); }
     bonus[id] = { cards: ws.map((w) => ({ ko: w.head, en: dash(`${first(w.en)} (${T.pos})`) })), quiz, fill };
   }
   parts.push({ title: { en: `${T.en} (${items.length})`, ko: `${T.ko} (${items.length}개)` }, units: unitIds });
@@ -106,10 +112,10 @@ const out = {
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
   preface: {
     en: [`This book collects ${N} expressions that Korean speakers use all the time and that are useful for TOPIK II reading and writing: 150 idioms, 150 proverbs and 149 four-character idioms. Each one has its meaning in English and Korean, a literal translation, a similar English saying when there is one, and two example sentences. The cheese marks the level.`,
-      'Idioms do not mean what their words say, so learn each one together with its example. Read the example aloud, then cover the meaning and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.',
+      'Idioms often do not mean what their words say, so learn each one together with its example. Part 1 also includes very common set phrases (연어), such as 시간을 내다, that you need to use together as a unit. Read the example aloud, then cover the meaning and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.',
       `You do not have to memorize ${N} expressions in one go. One unit a day is a calm pace: ${U} units, about ${Math.round(U / 7)} weeks.`],
     ko: [`이 책은 한국어 화자가 일상에서 자주 쓰고 TOPIK II 읽기 · 쓰기에 도움이 되는 표현 ${N}개를 담았습니다: 관용구 150 · 속담 150 · 사자성어 149. 표현마다 영어 · 한국어 뜻, 직역, 비슷한 영어 속담(있을 때), 예문 둘이 있습니다. 치즈는 급수입니다.`,
-      '관용 표현은 낱말 뜻을 더해도 뜻이 나오지 않으니 예문과 함께 익히세요. 예문을 소리 내 읽고, 뜻을 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.',
+      '관용 표현은 낱말 뜻을 더해도 뜻이 나오지 않는 것이 많으니 예문과 함께 익히세요. 1부에는 「시간을 내다」처럼 늘 붙어 다니는 연어도 함께 넣었습니다. 예문을 소리 내 읽고, 뜻을 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.',
       `${N}개를 한 번에 외울 필요는 없습니다. 하루 한 단원이면 ${U}단원, 약 ${Math.round(U / 7)}주입니다.`],
   },
   howto: {

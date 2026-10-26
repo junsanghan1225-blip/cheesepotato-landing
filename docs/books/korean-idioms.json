@@ -43,12 +43,12 @@
  "preface": {
   "en": [
    "This book collects 449 expressions that Korean speakers use all the time and that are useful for TOPIK II reading and writing: 150 idioms, 150 proverbs and 149 four-character idioms. Each one has its meaning in English and Korean, a literal translation, a similar English saying when there is one, and two example sentences. The cheese marks the level.",
-   "Idioms do not mean what their words say, so learn each one together with its example. Read the example aloud, then cover the meaning and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.",
+   "Idioms often do not mean what their words say, so learn each one together with its example. Part 1 also includes very common set phrases (연어), such as 시간을 내다, that you need to use together as a unit. Read the example aloud, then cover the meaning and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.",
    "You do not have to memorize 449 expressions in one go. One unit a day is a calm pace: 30 units, about 4 weeks."
   ],
   "ko": [
    "이 책은 한국어 화자가 일상에서 자주 쓰고 TOPIK II 읽기 · 쓰기에 도움이 되는 표현 449개를 담았습니다: 관용구 150 · 속담 150 · 사자성어 149. 표현마다 영어 · 한국어 뜻, 직역, 비슷한 영어 속담(있을 때), 예문 둘이 있습니다. 치즈는 급수입니다.",
-   "관용 표현은 낱말 뜻을 더해도 뜻이 나오지 않으니 예문과 함께 익히세요. 예문을 소리 내 읽고, 뜻을 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.",
+   "관용 표현은 낱말 뜻을 더해도 뜻이 나오지 않는 것이 많으니 예문과 함께 익히세요. 1부에는 「시간을 내다」처럼 늘 붙어 다니는 연어도 함께 넣었습니다. 예문을 소리 내 읽고, 뜻을 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.",
    "449개를 한 번에 외울 필요는 없습니다. 하루 한 단원이면 30단원, 약 4주입니다."
   ]
  },
@@ -123,7 +123,7 @@
  "parts": [
   {
    "title": {
-    "en": "Idioms (150)",
+    "en": "Idioms and Set Phrases (150)",
     "ko": "관용구 (150개)"
    },
    "units": [
@@ -181,7 +181,7 @@
   "ex-01": {
    "id": "ex-01",
    "title": {
-    "en": "Idioms 1 · Level 3",
+    "en": "Idioms and Set Phrases 1 · Level 3",
     "ko": "관용구 1"
    },
    "sub": {
@@ -245,7 +245,7 @@
        "lv": 3,
        "ex": {
         "ko": "무거운 냉장고를 혼자 옮기느라 허리에 온 힘을 쓰는 바람에 통증이 생겼어요.",
-        "en": "Moving the heavy fridge alone, using all strength on back caused pain."
+        "en": "Moving the heavy fridge alone, using all my strength strained my back and caused pain."
        },
        "ex2": {
         "ko": "공직자가 사적인 친분을 이유로 인사에 부당하게 힘을 쓰는 행위는 처벌 대상이다.",
@@ -302,7 +302,7 @@
         "en": "Exhausted from wrestling with files all day, I cooled my head on the roof."
        },
        "ex2": {
-        "ko": "복잡한 도심을 벗어나 한적한 숲길을 걸으며 복잡한 머리를 식히는 여행객이 늘었다.",
+        "ko": "번잡한 도심을 벗어나 한적한 숲길을 걸으며 복잡한 머리를 식히는 여행객이 늘었다.",
         "en": "More travelers walk quiet forest trails to clear their heads away from cities."
        }
       },
@@ -338,8 +338,8 @@
         "en": "Due to loud construction noise, I woke up unpleasantly from early morning."
        },
        "ex2": {
-        "ko": "신선한 아침 공기를 마시며 산책을 하니 흐릿했던 잠이 말끔히 깼다.",
-        "en": "Taking a walk in fresh morning air, my foggy sleep was completely cleared."
+        "ko": "신선한 아침 공기를 마시며 산책을 하니 흐릿했던 정신이 들고 잠이 말끔히 깼다.",
+        "en": "Taking a walk in the fresh morning air, my grogginess cleared and I woke up completely."
        }
       },
       {
@@ -407,7 +407,7 @@
        "lv": 3,
        "ex": {
         "ko": "휴일에는 가족들과 공원에서 맛있는 도시락을 먹으며 행복한 시간을 보냈어요.",
-        "en": "On the holiday, I spent happy time eating tasty picnic lunches with family in the park."
+        "en": "On the holiday, I had a happy time eating tasty picnic lunches with my family in the park."
        },
        "ex2": {
         "ko": "의미 없는 스마트폰 사용으로 아까운 시간을 허비하지 않도록 주의해야 한다.",
@@ -461,7 +461,7 @@
        "lv": 3,
        "ex": {
         "ko": "주말에 시간이 나면 교외로 드라이브나 다녀올 생각이에요.",
-        "en": "If I have free time on the weekend, I plan to go for a drive in suburbs."
+        "en": "If I have free time on the weekend, I plan to go for a drive in the suburbs."
        },
        "ex2": {
         "ko": "직장인들은 업무 틈틈이 시간이 날 때마다 가벼운 스트레칭을 해야 한다.",
@@ -506,25 +506,25 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "약속 시간이 다 되어 초조한지 자꾸 출입문 쪽으로 ___더라고요.",
+        "q": "약속 시간이 다 되어 초조한지 자꾸 출입문 쪽으로 ___.",
         "en": "",
-        "a": "눈길을 주다"
+        "a": "눈길을 주다 (눈길을 주더라고요)"
        },
        {
-        "q": "아니요, 초반에 보다가 나도 모르게 깜빡 ___어서 끝을 못 봤어요.",
+        "q": "아니요, 초반에 보다가 나도 모르게 깜빡 ___ 끝을 못 봤어요.",
         "en": "",
-        "a": "잠이 들다"
+        "a": "잠이 들다 (잠이 들어서)"
        },
        {
         "q": "내일 오후 회의가 끝난 뒤에 30분 정도 ___ 볼게요.",
         "en": "",
-        "a": "시간을 내다"
+        "a": "시간을 내다 (시간을 내)"
        }
       ],
       "bank": [
@@ -583,7 +583,7 @@
   "ex-02": {
    "id": "ex-02",
    "title": {
-    "en": "Idioms 2 · Level 3",
+    "en": "Idioms and Set Phrases 2 · Level 3",
     "ko": "관용구 2"
    },
    "sub": {
@@ -658,18 +658,18 @@
        "ko": "코앞에 닥치다",
        "hanja": "",
        "pos": "idiom",
-       "en": "to be right under one's nose; to be imminent",
+       "en": "to be imminent; to be right around the corner",
        "km": "어떤 일이나 때가 아주 가까이 임박하다",
        "lit": "approach right in front of one's nose",
-       "eq": "right around the corner; just under one's nose",
+       "eq": "right around the corner; just days away",
        "lv": 3,
        "ex": {
         "ko": "기말시험이 코앞에 닥쳤는데 아직 책 한 글자도 읽지 않아 초조하네요.",
-        "en": "With finals right under my nose, I feel anxious having not read a single page."
+        "en": "With finals just around the corner, I feel anxious because I have not read a single page."
        },
        "ex2": {
         "ko": "지구 온난화로 인한 기후 재난은 먼 미래가 아닌 코앞에 닥친 생존의 위기이다.",
-        "en": "Climate disasters from warming are an imminent crisis right under our nose."
+        "en": "Climate disasters from warming are not a distant future but an imminent crisis."
        }
       },
       {
@@ -791,7 +791,7 @@
        "lv": 3,
        "ex": {
         "ko": "어젯밤에 하늘을 훨훨 날아다니는 신기하고 아름다운 꿈을 꾸었어요.",
-        "en": "Last night I dreamed a marvelous and beautiful dream flying in the sky."
+        "en": "Last night I had a marvelous, beautiful dream of flying in the sky."
        },
        "ex2": {
         "ko": "어려운 환경에서도 위대한 과학자가 되겠다는 원대한 꿈을 꾸며 정진했다.",
@@ -831,7 +831,7 @@
        },
        "ex2": {
         "ko": "업무 스트레스로 지친 직장인들은 퇴근 후 동료들과 술잔을 기울이며 기분을 풀었다.",
-        "en": "Workers exhausted from stress cheered up drinking drinks with peers after work."
+        "en": "Workers exhausted from stress cheered up by having drinks with their coworkers after work."
        }
       },
       {
@@ -894,7 +894,7 @@
        "to feel relieved",
        "to cost time",
        "time passes",
-       "to be right under one's nose",
+       "to be imminent",
        "to make up one's mind",
        "to do one's best"
       ],
@@ -908,30 +908,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "___면 모든 게 추억이 될 테니 너무 자책하지 마세요.",
+        "q": "___ 모든 게 추억이 될 테니 너무 자책하지 마세요.",
         "en": "",
-        "a": "시간이 흐르다"
+        "a": "시간이 흐르다 (시간이 흐르면)"
        },
        {
-        "q": "케이팝 음악을 처음 들었을 때부터 한국어에 큰 ___게 되었어요.",
+        "q": "케이팝 음악을 처음 들었을 때부터 한국어에 큰 ___ 되었어요.",
         "en": "",
-        "a": "관심을 가지다"
+        "a": "관심을 가지다 (관심을 가지게)"
        },
        {
-        "q": "아래를 보지 말고 ___고 뛰어내려 봐. 할 수 있어!",
+        "q": "아래를 보지 말고 ___ 뛰어내려 봐. 할 수 있어!",
         "en": "",
-        "a": "눈 딱 감다"
+        "a": "눈 딱 감다 (눈 딱 감고)"
        },
        {
         "q": "준비 많이 했으니 스스로를 믿고 ___ 봐요. 잘할 수 있어요!",
         "en": "",
-        "a": "용기를 내다"
+        "a": "용기를 내다 (용기를 내)"
        }
       ],
       "bank": [
@@ -987,7 +987,7 @@
   "ex-03": {
    "id": "ex-03",
    "title": {
-    "en": "Idioms 3 · Level 3",
+    "en": "Idioms and Set Phrases 3 · Level 3",
     "ko": "관용구 3"
    },
    "sub": {
@@ -1044,10 +1044,10 @@
        "ko": "목을 축이다",
        "hanja": "",
        "pos": "idiom",
-       "en": "to wet one's whistle; to quench one's thirst slightly",
+       "en": "to quench one's thirst slightly; to wet one's throat",
        "km": "마른 목에 물이나 음료를 조금 마셔 갈증을 달래다",
        "lit": "moisten one's throat",
-       "eq": "to wet one's whistle",
+       "eq": "to quench one's thirst; to wet one's throat",
        "lv": 3,
        "ex": {
         "ko": "가파른 산행을 하다가 시원한 샘물 한 모금으로 타는 듯한 목을 축였어요.",
@@ -1134,10 +1134,10 @@
        "ko": "손을 잡다",
        "hanja": "",
        "pos": "idiom",
-       "en": "to hold hands; to join hands with; to cooperate together",
+       "en": "to join hands with; to cooperate; to hold hands",
        "km": "서로 손을 맞잡거나, 뜻을 같이하여 협력하고 동맹을 맺다",
        "lit": "hold hands",
-       "eq": "to join hands with; to collaborate",
+       "eq": "to join forces; to collaborate",
        "lv": 3,
        "ex": {
         "ko": "어려운 이웃을 돕기 위해 두 자선 단체가 서로 굳게 손을 잡았어요.",
@@ -1297,10 +1297,10 @@
       "options": [
        "to be loose-lipped",
        "to be tight-lipped",
-       "to hold hands",
+       "to join hands with",
        "to break a promise",
        "to keep a promise",
-       "to wet one's whistle"
+       "to quench one's thirst slightly"
       ],
       "answer": [
        "f",
@@ -1312,30 +1312,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "동료들과 너무 ___어서 발걸음이 쉽게 떨어지지 않네요.",
+        "q": "동료들과 너무 ___ 발걸음이 쉽게 떨어지지 않네요.",
         "en": "",
-        "a": "정이 들다"
+        "a": "정이 들다 (정이 들어서)"
        },
        {
-        "q": "아까부터 창밖만 보면서 왜 그렇게 땅이 꺼지게 ___어요?",
+        "q": "아까부터 창밖만 보면서 왜 그렇게 땅이 꺼지게 ___?",
         "en": "",
-        "a": "한숨을 쉬다"
+        "a": "한숨을 쉬다 (한숨을 쉬어요)"
        },
        {
-        "q": "네, 인명 피해는 없었지만 건물 외벽이 무너지는 등 적잖은 ___었습니다.",
+        "q": "네, 인명 피해는 없었지만 건물 외벽이 무너지는 등 적잖은 ___.",
         "en": "",
-        "a": "피해를 입다"
+        "a": "피해를 입다 (피해를 입었습니다)"
        },
        {
-        "q": "맞아요. 이름은 기억 안 나는데 얼굴은 확실히 ___네요.",
+        "q": "맞아요. 이름은 기억 안 나는데 얼굴은 확실히 ___.",
         "en": "",
-        "a": "낯이 익다"
+        "a": "낯이 익다 (낯이 익네요)"
        }
       ],
       "bank": [
@@ -1395,7 +1395,7 @@
   "ex-04": {
    "id": "ex-04",
    "title": {
-    "en": "Idioms 4 · Level 3 / 4",
+    "en": "Idioms and Set Phrases 4 · Level 3 / 4",
     "ko": "관용구 4"
    },
    "sub": {
@@ -1427,7 +1427,7 @@
        },
        "ex2": {
         "ko": "재난 지역에 통신망이 복구되면서 고립되었던 주민들과의 연락이 다시 닿기 시작했다.",
-        "en": "As networks restored in disaster zones, contact with isolated residents was reached."
+        "en": "As networks were restored in the disaster zone, contact with the isolated residents was re-established."
        }
       },
       {
@@ -1720,30 +1720,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "네, 이메일로 ___아서 다음 달에 방학 맞이해 귀국한다고 하더라고요.",
+        "q": "네, 이메일로 ___ 다음 달에 방학 맞이해 귀국한다고 하더라고요.",
         "en": "",
-        "a": "연락이 닿다"
+        "a": "연락이 닿다 (연락이 닿아서)"
        },
        {
-        "q": "지금 외근 중이라 ___셨는데 메모 남겨 드릴까요?",
+        "q": "지금 외근 중이라 ___ 메모 남겨 드릴까요?",
         "en": "",
-        "a": "자리를 비우다"
+        "a": "자리를 비우다 (자리를 비우셨는데)"
        },
        {
-        "q": "양측이 한 발씩 양보하고 성실히 대화에 임한 태도가 상생의 ___았습니다.",
+        "q": "양측이 한 발씩 양보하고 성실히 대화에 임한 태도가 상생의 ___.",
         "en": "",
-        "a": "결과를 낳다"
+        "a": "결과를 낳다 (결과를 낳았습니다)"
        },
        {
-        "q": "누구나 ___는 순간이 오지만 포기하지 않으면 결국 돌파구가 생겨요.",
+        "q": "누구나 ___ 순간이 오지만 포기하지 않으면 결국 돌파구가 생겨요.",
         "en": "",
-        "a": "벽에 부딪히다"
+        "a": "벽에 부딪히다 (벽에 부딪히는)"
        }
       ],
       "bank": [
@@ -1803,7 +1803,7 @@
   "ex-05": {
    "id": "ex-05",
    "title": {
-    "en": "Idioms 5 · Level 4",
+    "en": "Idioms and Set Phrases 5 · Level 4",
     "ko": "관용구 5"
    },
    "sub": {
@@ -1852,8 +1852,8 @@
         "en": "Unjustly defeated in the last match, players ground teeth for revenge."
        },
        "ex2": {
-        "ko": "부당한 해고에 맞서 법적 대응을 준비하며 노동자들은 이를 악물고 갈았다.",
-        "en": "Preparing legal responses to wrongful dismissal, workers gritted and ground teeth."
+        "ko": "남몰래 이를 갈며 피나는 훈련을 견뎌 낸 선수들이 결국 우승을 차지했다.",
+        "en": "The players who secretly gnashed their teeth and endured grueling training finally won the title."
        }
       },
       {
@@ -1889,7 +1889,7 @@
        },
        "ex2": {
         "ko": "공공장소에 무단 투기된 쓰레기 더미는 오가는 시민들의 눈살을 찌푸리게 한다.",
-        "en": "Garbage dumped in public areas makes citizens knitting their brows in displeasure."
+        "en": "Garbage dumped in public areas makes citizens knit their brows in displeasure."
        }
       },
       {
@@ -1924,8 +1924,8 @@
         "en": "My sibling was so stubborn that the whole family ended up throwing up their hands."
        },
        "ex2": {
-        "ko": "막무가내로 억지를 부리는 고객 앞에서는 노련한 상담원도 두 손을 다 들었다.",
-        "en": "Before customers stubbornly persisting in absurdity, even veterans threw up hands."
+        "ko": "아이의 고집에는 부모도 두 손 두 발 다 들었다.",
+        "en": "Even the parents threw up their hands at the child's stubbornness."
        }
       },
       {
@@ -1971,7 +1971,7 @@
        "en": "to view with prejudice; to look at someone through colored glasses",
        "km": "선입견이나 편견을 품고 사람이나 사물을 비딱하게 바라보다",
        "lit": "look through tinted glasses",
-       "eq": "to look through rose-colored (or tinted) glasses",
+       "eq": "to look at someone through biased, tinted lenses; to be prejudiced",
        "lv": 4,
        "ex": {
         "ko": "외모나 출신 배경만 보고 색안경을 끼고 사람을 대하면 안 돼요.",
@@ -2128,30 +2128,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "더 유리한 조건을 얻어내려고 일부러 ___고 있는 것 같아요.",
+        "q": "더 유리한 조건을 얻어내려고 일부러 ___ 있는 것 같아요.",
         "en": "",
-        "a": "시간을 끌다"
+        "a": "시간을 끌다 (시간을 끌고)"
        },
        {
-        "q": "지난 대회 패배 이후 선수들이 ___며 훈련해 왔으니 기대하셔도 좋습니다.",
+        "q": "지난 대회 패배 이후 선수들이 ___ 훈련해 왔으니 기대하셔도 좋습니다.",
         "en": "",
-        "a": "이를 갈다"
+        "a": "이를 갈다 (이를 갈며)"
        },
        {
-        "q": "네, 연구원들이 품질 개선을 위해 밤낮으로 많은 ___고 있습니다.",
+        "q": "네, 연구원들이 품질 개선을 위해 밤낮으로 많은 ___ 있습니다.",
         "en": "",
-        "a": "노력을 기울이다"
+        "a": "노력을 기울이다 (노력을 기울이고)"
        },
        {
-        "q": "남에게 피해를 주는 무례한 행동은 보는 사람의 ___게 만들지요.",
+        "q": "남에게 피해를 주는 무례한 행동은 보는 사람의 ___ 만들지요.",
         "en": "",
-        "a": "눈살을 찌푸리다"
+        "a": "눈살을 찌푸리다 (눈살을 찌푸리게)"
        }
       ],
       "bank": [
@@ -2211,7 +2211,7 @@
   "ex-06": {
    "id": "ex-06",
    "title": {
-    "en": "Idioms 6 · Level 4",
+    "en": "Idioms and Set Phrases 6 · Level 4",
     "ko": "관용구 6"
    },
    "sub": {
@@ -2397,7 +2397,7 @@
        "en": "to beat one's chest in deep sorrow, regret, or despair",
        "km": "마음속 깊이 극심한 슬픔, 후회, 원통함을 느끼다",
        "lit": "beat one's chest",
-       "eq": "to eat one's heart out",
+       "eq": "to beat one's breast (in grief or regret)",
        "lv": 4,
        "ex": {
         "ko": "공부할 기회를 놓치고 나이 들어 후회하며 가슴을 쳤어요.",
@@ -2441,7 +2441,7 @@
        },
        "ex2": {
         "ko": "보호소를 나서며 뒤돌아보던 유기견의 슬픈 눈망울이 집에 와서도 눈에 밟혔다.",
-        "en": "The abandoned dog's sad eyes looking back kept haunting me even after home."
+        "en": "The abandoned dog's sad eyes looking back kept haunting me even after I returned home."
        }
       },
       {
@@ -2536,30 +2536,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "네, 인건비와 자재비가 급등해서 담당자마다 ___고 있어요.",
+        "q": "네, 인건비와 자재비가 급등해서 담당자마다 ___ 있어요.",
         "en": "",
-        "a": "골치를 앓다"
+        "a": "골치를 앓다 (골치를 앓고)"
        },
        {
-        "q": "네, 범인이 밝혀지는 순간까지 ___고 몰입해서 봤어요.",
+        "q": "네, 범인이 밝혀지는 순간까지 ___ 몰입해서 봤어요.",
         "en": "",
-        "a": "손에 땀을 쥐다"
+        "a": "손에 땀을 쥐다 (손에 땀을 쥐고)"
        },
        {
-        "q": "죄송해요. 실적 문제를 지적하려다 좋은 분위기에 ___고 말았네요.",
+        "q": "죄송해요. 실적 문제를 지적하려다 좋은 분위기에 ___ 말았네요.",
         "en": "",
-        "a": "찬물을 끼얹다"
+        "a": "찬물을 끼얹다 (찬물을 끼얹고)"
        },
        {
-        "q": "___는 말은 주워 담을 수 없으니 꼭 진심으로 사과하세요.",
+        "q": "___ 말은 주워 담을 수 없으니 꼭 진심으로 사과하세요.",
         "en": "",
-        "a": "가슴에 못을 박다"
+        "a": "가슴에 못을 박다 (가슴에 못을 박는)"
        }
       ],
       "bank": [
@@ -2619,7 +2619,7 @@
   "ex-07": {
    "id": "ex-07",
    "title": {
-    "en": "Idioms 7 · Level 4",
+    "en": "Idioms and Set Phrases 7 · Level 4",
     "ko": "관용구 7"
    },
    "sub": {
@@ -2647,7 +2647,7 @@
        "lv": 4,
        "ex": {
         "ko": "중요한 발표 자리에서 치명적인 실수를 해서 쥐구멍에 들어가고 싶었어요.",
-        "en": "Making a critical mistake in an important presentation made me want to sink in."
+        "en": "Making a critical mistake in an important presentation made me want to sink through the floor."
        },
        "ex2": {
         "ko": "거짓말이 탄로 난 사기범은 쥐구멍에라도 들어가고 싶은 부끄러움을 겪었다.",
@@ -2944,30 +2944,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "___아서 그래요. 스스로 분석하고 신중해야 했는데 안타깝네요.",
+        "q": "___ 그래요. 스스로 분석하고 신중해야 했는데 안타깝네요.",
         "en": "",
-        "a": "귀가 얇다"
+        "a": "귀가 얇다 (귀가 얇아서)"
        },
        {
-        "q": "부모가 먼저 스마트폰을 내려놓고 책 읽는 ___는 게 가장 효과적이에요.",
+        "q": "부모가 먼저 스마트폰을 내려놓고 책 읽는 ___ 게 가장 효과적이에요.",
         "en": "",
-        "a": "모범을 보이다"
+        "a": "모범을 보이다 (모범을 보이는)"
        },
        {
-        "q": "___셔서 그래요. 이웃들과 넉넉히 나눠 먹으면 좋겠어요.",
+        "q": "___ 그래요. 이웃들과 넉넉히 나눠 먹으면 좋겠어요.",
         "en": "",
-        "a": "손이 크다"
+        "a": "손이 크다 (손이 크셔서)"
        },
        {
-        "q": "워낙 ___은 성격이라 남의 일도 가만히 못 보고 넘어가서 그래요.",
+        "q": "워낙 ___ 성격이라 남의 일도 가만히 못 보고 넘어가서 그래요.",
         "en": "",
-        "a": "오지랖이 넓다"
+        "a": "오지랖이 넓다 (오지랖이 넓은)"
        }
       ],
       "bank": [
@@ -3023,7 +3023,7 @@
   "ex-08": {
    "id": "ex-08",
    "title": {
-    "en": "Idioms 8 · Level 4",
+    "en": "Idioms and Set Phrases 8 · Level 4",
     "ko": "관용구 8"
    },
    "sub": {
@@ -3217,7 +3217,7 @@
        },
        "ex2": {
         "ko": "정부의 관광 활성화 정책 덕분에 침체되었던 지역 상권이 부쩍 활기를 띠고 있다.",
-        "en": "Thanks to tourism revitalization, slumping local commerce is buzzing lively."
+        "en": "Thanks to the tourism revitalization policy, the slumping local commerce is suddenly buzzing with life."
        }
       },
       {
@@ -3230,11 +3230,11 @@
        "eq": "to be caught by the scruff of the neck; caught red-handed",
        "lv": 4,
        "ex": {
-        "ko": "치밀하게 준비했던 횡령 수법이 내부 감사 과정에서 뒷덜미를 잡혔어요.",
-        "en": "The embezzlement method prepared meticulously was caught in internal audit."
+        "ko": "교묘하게 횡령하던 범인이 내부 감사에서 마침내 뒷덜미를 잡혔어요.",
+        "en": "The embezzler who had been so clever was finally caught in an internal audit."
        },
        "ex2": {
-        "ko": "불법 도박 사이트를 운영하던 범죄 조직은 경찰의 끈질긴 추적에 덜미를 잡혔다.",
+        "ko": "불법 도박 사이트를 운영하던 범죄 조직은 경찰의 끈질긴 추적에 뒷덜미를 잡혔다.",
         "en": "The gambling crime ring was caught by police after persistent tracking."
        }
       },
@@ -3244,12 +3244,12 @@
        "pos": "idiom",
        "en": "to take to one's heels; to run away in a hurry",
        "km": "감당하기 힘든 위기나 책임을 피해 뒤도 돌아보지 않고 도망치다",
-       "lit": "run down the long corridor",
+       "lit": "run away in a continuous line (origin uncertain)",
        "eq": "to take to one's heels; to cut and run",
        "lv": 4,
        "ex": {
         "ko": "유리창을 깬 개구쟁이 아이들은 주인이 나오자마자 골목으로 줄행랑을 쳤어요.",
-        "en": "Naughty kids who broke the window took to heels down the alley as owner emerged."
+        "en": "The naughty kids who broke the window took to their heels down the alley as soon as the owner came out."
        },
        "ex2": {
         "ko": "경찰의 불시 음주 단속을 목격한 음주 운전자는 차량을 버리고 줄행랑을 쳤다.",
@@ -3348,30 +3348,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "아직은 사람들도 길거리도 다 ___어서 어색해요.",
+        "q": "아직은 사람들도 길거리도 다 ___ 어색해요.",
         "en": "",
-        "a": "낯이 설다"
+        "a": "낯이 설다 (낯이 설어서)"
        },
        {
-        "q": "아는 지인이 중간에서 ___아 줘서 같이 협업하게 되었어요.",
+        "q": "아는 지인이 중간에서 ___ 줘서 같이 협업하게 되었어요.",
         "en": "",
-        "a": "다리를 놓다"
+        "a": "다리를 놓다 (다리를 놓아)"
        },
        {
-        "q": "스마트폰 게임에 빠지더니 독서와는 완전히 ___았더라고요.",
+        "q": "스마트폰 게임에 빠지더니 독서와는 완전히 ___.",
         "en": "",
-        "a": "담을 쌓다"
+        "a": "담을 쌓다 (담을 쌓았더라고요)"
        },
        {
-        "q": "원래 나설 생각이 없었는데 선배들이 ___어서 출마하게 되었어요.",
+        "q": "원래 나설 생각이 없었는데 선배들이 ___ 출마하게 되었어요.",
         "en": "",
-        "a": "등을 떠밀다"
+        "a": "등을 떠밀다 (등을 떠밀어서)"
        }
       ],
       "bank": [
@@ -3431,7 +3431,7 @@
   "ex-09": {
    "id": "ex-09",
    "title": {
-    "en": "Idioms 9 · Level 4",
+    "en": "Idioms and Set Phrases 9 · Level 4",
     "ko": "관용구 9"
    },
    "sub": {
@@ -3491,7 +3491,7 @@
        "en": "to go one step further; to outdo someone in wickedness or absurdity",
        "km": "이미 심한 상태인데 거기서 더 지나치거나 얄미운 짓을 보태다",
        "lit": "take one more spoonful",
-       "eq": "to add insult to injury; to go one better",
+       "eq": "to go one better; to take it a step further",
        "lv": 4,
        "ex": {
         "ko": "지각을 한 친구가 미안해하기는커녕 한술 더 떠서 화를 내네요.",
@@ -3542,14 +3542,14 @@
        "ko": "뜸을 들이다",
        "hanja": "",
        "pos": "idiom",
-       "en": "to hesitate; to beat around the bush; to stall before acting or speaking",
+       "en": "to take one's time; to stall before acting or speaking",
        "km": "말이나 행동을 바로 하지 않고 시간을 끌며 망설이다",
        "lit": "steam the rice to finish cooking",
-       "eq": "to beat around the bush",
+       "eq": "to drag one's feet; to keep someone waiting",
        "lv": 4,
        "ex": {
         "ko": "할 말이 있으면 뜸을 들이지 말고 솔직하게 바로 털어놓으렴.",
-        "en": "If you have something to say, don't beat around the bush; speak frankly."
+        "en": "If you have something to say, don't stall; tell me frankly."
        },
        "ex2": {
         "ko": "정부는 발표를 미루며 뜸을 들이기보다 조속한 대책을 공개해야 한다.",
@@ -3606,7 +3606,7 @@
         "en": "Lip service without sincere heart is quickly detected by listeners."
        },
        "ex2": {
-        "ko": "달콤한 입에 발린 소리에 현혹되지 말고 냉정한 비판에 귀를 기울여야 한다.",
+        "ko": "달콤한 입에 발린 말에 현혹되지 말고 냉정한 비판에 귀를 기울여야 한다.",
         "en": "Rather than being dazzled by sweet flattery, one must heed cool criticisms."
        }
       },
@@ -3740,7 +3740,7 @@
       ],
       "options": [
        "to go one step further",
-       "to hesitate",
+       "to take one's time",
        "to nail down",
        "to gather opinions",
        "lip service",
@@ -3756,30 +3756,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "다 함께 따라 부를 수 있는 경쾌한 댄스곡을 틀면 ___기에 딱 좋아요.",
+        "q": "다 함께 따라 부를 수 있는 경쾌한 댄스곡을 틀면 ___ 딱 좋아요.",
         "en": "",
-        "a": "흥을 돋우다"
+        "a": "흥을 돋우다 (흥을 돋우기에)"
        },
        {
-        "q": "추가 시장 분석 자료를 검토한 후 다음 주에 최종 ___기로 했습니다.",
+        "q": "추가 시장 분석 자료를 검토한 후 다음 주에 최종 ___ 했습니다.",
         "en": "",
-        "a": "결론을 내리다"
+        "a": "결론을 내리다 (결론을 내리기로)"
        },
        {
-        "q": "리더는 팀원들의 목소리에 늘 ___고 경청할 줄 알아야 해요.",
+        "q": "리더는 팀원들의 목소리에 늘 ___ 경청할 줄 알아야 해요.",
         "en": "",
-        "a": "귀를 기울이다"
+        "a": "귀를 기울이다 (귀를 기울이고)"
        },
        {
-        "q": "네, 일 처리가 꼼꼼하다고 하루 종일 ___게 자랑하시더라고요.",
+        "q": "네, 일 처리가 꼼꼼하다고 하루 종일 ___ 자랑하시더라고요.",
         "en": "",
-        "a": "입에 침이 마르다"
+        "a": "입에 침이 마르다 (입에 침이 마르게)"
        }
       ],
       "bank": [
@@ -3835,7 +3835,7 @@
   "ex-10": {
    "id": "ex-10",
    "title": {
-    "en": "Idioms 10 · Level 4 / 5",
+    "en": "Idioms and Set Phrases 10 · Level 4 / 5",
     "ko": "관용구 10"
    },
    "sub": {
@@ -4010,7 +4010,7 @@
         "en": "The doctor who devoted life to service left a great mark on human history."
        },
        "ex2": {
-        "ko": "그 시인은 독창적인 한국어 운율을 개척하여 현대 문학사에 뚜렷한 족적을 남겼다.",
+        "ko": "그 시인은 독창적인 한국어 운율을 개척하여 현대 문학사에 뚜렷한 발자취를 남겼다.",
         "en": "The poet pioneered Korean rhythm, leaving distinct footprints in literary history."
        }
       },
@@ -4075,7 +4075,7 @@
        "en": "to catch someone off guard; to strike where least expected",
        "km": "상대방이 전혀 생각지도 못하고 방비가 없는 틈을 기습하다",
        "lit": "stab the vulnerable void",
-       "eq": "to catch off guard; to hit someone where it hurts",
+       "eq": "to catch off guard",
        "lv": 5,
        "ex": {
         "ko": "감독의 기습적인 전술 변화는 상대 수비진의 허를 제대로 찔렀어요.",
@@ -4083,7 +4083,7 @@
        },
        "ex2": {
         "ko": "시장의 허를 찌르는 역발상 상품이 불황 속에서도 놀라운 매출을 기록했다.",
-        "en": "An unconventional product catching market voids logged amazing sales in recession."
+        "en": "An unconventional product that caught the market off guard recorded amazing sales even in a recession."
        }
       },
       {
@@ -4160,30 +4160,30 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right idiom. Change the ending if needed.",
-       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 쓰세요. 어미는 바꿔 쓰세요."
+       "en": "Fill in the blank with the right idiom. Put it in the right form (change the ending).",
+       "ko": "대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 2,
       "items": [
        {
-        "q": "혼자 끙끙 앓지 말고 부원들과 ___고 방법을 찾아봅시다.",
+        "q": "혼자 끙끙 앓지 말고 부원들과 ___ 방법을 찾아봅시다.",
         "en": "",
-        "a": "머리를 맞대다"
+        "a": "머리를 맞대다 (머리를 맞대고)"
        },
        {
-        "q": "네, 막중한 과업을 맡아 솔직히 ___지만 최선을 다하겠습니다.",
+        "q": "네, 막중한 과업을 맡아 솔직히 ___ 최선을 다하겠습니다.",
         "en": "",
-        "a": "어깨가 무겁다"
+        "a": "어깨가 무겁다 (어깨가 무겁지만)"
        },
        {
-        "q": "네, 오늘 최종 보고서를 제출하고 나니 이제야 좀 ___겠네요.",
+        "q": "네, 오늘 최종 보고서를 제출하고 나니 이제야 좀 ___.",
         "en": "",
-        "a": "한숨을 돌리다"
+        "a": "한숨을 돌리다 (한숨을 돌리겠네요)"
        },
        {
-        "q": "네, 5년간 이어졌던 소모적인 분쟁에 마침내 ___게 되어 다행이에요.",
+        "q": "네, 5년간 이어졌던 소모적인 분쟁에 마침내 ___ 되어 다행이에요.",
         "en": "",
-        "a": "종지부를 찍다"
+        "a": "종지부를 찍다 (종지부를 찍게)"
        }
       ],
       "bank": [
@@ -4867,11 +4867,11 @@
        "eq": "smile and the world smiles with you",
        "lv": 4,
        "ex": {
-        "ko": "손님이 화를 내도 웃는 낯에 침 뱉으랴는 마음으로 공손히 응대해.",
+        "ko": "손님이 화를 내도 \"웃는 낯에 침 뱉으랴\"라는 마음으로 공손히 응대해.",
         "en": "Even if guests get mad, respond politely: a smile disarms hostility."
        },
        "ex2": {
-        "ko": "불만 고객 상담 시 웃는 낯에 침 뱉으랴의 태도로 먼저 경청해야 한다.",
+        "ko": "불만 고객 상담 때는 \"웃는 낯에 침 뱉으랴\"라는 말처럼 먼저 경청해야 한다.",
         "en": "In complaint consultations, listen first with smiles disarming hostility."
        }
       },
@@ -5150,7 +5150,7 @@
        "en": "necessity is the mother of action; whoever needs it most must do it",
        "km": "가장 아쉽고 절박한 사람이 스스로 먼저 서둘러 해결에 나섬",
        "lit": "the thirsty person digs the well",
-       "eq": "the wearer knows best where the shoe pinches",
+       "eq": "necessity is the mother of invention; the one in need must do the work",
        "lv": 4,
        "ex": {
         "ko": "아무도 청소를 안 하니 목마른 놈이 우물 판다고 내가 먼저 치워야지.",
@@ -5291,7 +5291,7 @@
        "ko": "남의 밥에 든 콩이 더 굵어 보인다",
        "hanja": "",
        "pos": "proverb",
-       "en": "the grass is always greener on the other side",
+       "en": "what belongs to others always looks bigger; the beans in another's bowl look bigger",
        "km": "남이 가진 것이 자기가 가진 것보다 더 좋아 보이고 탐나 보임",
        "lit": "beans in another person's rice look bigger",
        "eq": "",
@@ -5438,7 +5438,7 @@
        {
         "q": "___ 격이지만 앞으로는 안전하겠네요.",
         "en": "",
-        "a": "소 잃고 외양간 고친다"
+        "a": "소 잃고 외양간 고친다 (소 잃고 외양간 고친)"
        }
       ],
       "bank": [
@@ -5579,11 +5579,11 @@
        "eq": "Rome wasn't built in a day",
        "lv": 4,
        "ex": {
-        "ko": "첫 시험 결과에 너무 낙담 마. 첫술에 배부르랴는 말처럼 계속해 봐.",
+        "ko": "첫 시험 결과에 너무 낙담 마. \"첫술에 배부르랴\"라는 말처럼 계속해 봐.",
         "en": "Don't despair over first tests; Rome wasn't built in a day."
        },
        "ex2": {
-        "ko": "신규 사업 초기 적자에 흔들리지 말고 첫술에 배부르랴듯 길게 봐야 한다.",
+        "ko": "신규 사업 초기 적자에 흔들리지 말고 \"첫술에 배부르랴\" 하는 마음으로 길게 봐야 한다.",
         "en": "Don't shake at initial losses; take a long view as Rome wasn't built in a day."
        }
       },
@@ -5594,7 +5594,7 @@
        "en": "even in small matters respect and order must be observed; elders first",
        "km": "사소한 일이라도 어른과 아이 사이에는 지켜야 할 질서와 예의가 있음",
        "lit": "even cold water has an order of above and below",
-       "eq": "respect your elders; first come, first served",
+       "eq": "respect your elders; there is a proper order even in small things",
        "lv": 4,
        "ex": {
         "ko": "어른보다 먼저 숟가락을 들면 안 돼. 찬물도 위아래가 있는 법이란다.",
@@ -5847,14 +5847,14 @@
       "cols": 1,
       "items": [
        {
-        "q": "식탁 위에 있잖아요. 정말 ___네요.",
+        "q": "식탁 위에 있잖아요. 정말 ___.",
         "en": "",
-        "a": "등잔 밑이 어둡다"
+        "a": "등잔 밑이 어둡다 (등잔 밑이 어둡네요)"
        },
        {
-        "q": "어르신들이 계시니 ___듯 양보해 드려야죠.",
+        "q": "어르신들이 계시니 ___ 양보해 드려야죠.",
         "en": "",
-        "a": "찬물도 위아래가 있다"
+        "a": "찬물도 위아래가 있다 (찬물도 위아래가 있듯)"
        },
        {
         "q": "___더니 기대 이하로 지루하더라고요.",
@@ -5862,9 +5862,9 @@
         "a": "소문난 잔치에 먹을 것 없다"
        },
        {
-        "q": "___댔어요. 한 번만 더 찾아가 봐요.",
+        "q": "___. 한 번만 더 찾아가 봐요.",
         "en": "",
-        "a": "열 번 찍어 안 넘어가는 나무 없다"
+        "a": "열 번 찍어 안 넘어가는 나무 없다 (열 번 찍어 안 넘어가는 나무 없댔어요)"
        }
       ],
       "bank": [
@@ -6283,9 +6283,9 @@
         "a": "엎친 데 덮친 격"
        },
        {
-        "q": "___요. 오늘부터 실천에 옮기세요.",
+        "q": "___. 오늘부터 실천에 옮기세요.",
         "en": "",
-        "a": "부뚜막의 소금도 집어넣어야 짜다"
+        "a": "부뚜막의 소금도 집어넣어야 짜다 (부뚜막의 소금도 집어넣어야 짜요)"
        },
        {
         "q": "기능이 엉망이라 ___이라는 후기가 많으니 사지 마세요.",
@@ -6713,9 +6713,9 @@
         "a": "우물 안 개구리"
        },
        {
-        "q": "___는데 너무 가혹하게 굴지 마세요.",
+        "q": "___ 너무 가혹하게 굴지 마세요.",
         "en": "",
-        "a": "털어서 먼지 안 나는 사람 없다"
+        "a": "털어서 먼지 안 나는 사람 없다 (털어서 먼지 안 나는 사람 없는데)"
        },
        {
         "q": "___고 성실한 인재임이 분명해요.",
@@ -6931,10 +6931,10 @@
        "ko": "눈 가리고 아웅",
        "hanja": "",
        "pos": "proverb",
-       "en": "burying one's head in the sand; transparent shallow deception",
+       "en": "a clumsy attempt to fool someone; transparent trickery",
        "km": "얕은 꾀로 남을 속이려 하지만 뻔히 다 드러나 보임",
        "lit": "covering eyes and saying meow",
-       "eq": "bury one's head in the sand",
+       "eq": "to try to pull the wool over someone's eyes (clumsily)",
        "lv": 4,
        "ex": {
         "ko": "청소도 안 하고 이불만 덮어놓는 건 눈 가리고 아웅 하는 속임수야.",
@@ -6942,7 +6942,7 @@
        },
        "ex2": {
         "ko": "임시방편 대책은 눈 가리고 아웅 식의 기만에 불과하다는 비판을 받았다.",
-        "en": "Stopgap measures were criticized as transparent deception burying heads in sand."
+        "en": "The stopgap measures were criticized as nothing more than a transparent attempt to fool the public."
        }
       },
       {
@@ -6956,7 +6956,7 @@
        "lv": 4,
        "ex": {
         "ko": "자기도 매일 지각하면서 남더러 늦었다니 똥 묻은 개가 겨 묻은 개 나무라네.",
-        "en": "Lating every day oneself and scolding others is the pot calling the kettle black."
+        "en": "Being late every day yourself and scolding others for being late is the pot calling the kettle black."
        },
        "ex2": {
         "ko": "비리를 저지른 인사가 남의 과오를 질타하는 것은 똥 묻은 개 격이다.",
@@ -7039,18 +7039,18 @@
        "ko": "모로 가도 서울만 가면 된다",
        "hanja": "",
        "pos": "proverb",
-       "en": "all roads lead to Rome; the ends justify the means",
+       "en": "the ends justify the means; any way is fine as long as you reach the goal",
        "km": "과정이나 수단이 어떠하든 결국 목적이나 결과만 이루면 됨",
        "lit": "even going sideways, you just need to reach Seoul",
-       "eq": "all roads lead to Rome",
+       "eq": "the ends justify the means",
        "lv": 4,
        "ex": {
         "ko": "방법이 조금 특이해도 모로 가도 서울만 가면 되니 결과만 내자.",
-        "en": "Even if methods are quirky, all roads lead to Rome, so let's get results."
+        "en": "Even if the method is a bit unusual, any way is fine as long as we reach the goal, so let's just get results."
        },
        "ex2": {
         "ko": "모로 가도 서울만 가면 된다는 식의 조급한 편법은 지양해야 한다.",
-        "en": "Hasty shortcuts under the belief that all roads lead to Rome should be avoided."
+        "en": "We should avoid hasty shortcuts based on the belief that any way is fine as long as you get there."
        }
       },
       {
@@ -7110,7 +7110,7 @@
        "쇠귀에 경 읽기"
       ],
       "options": [
-       "all roads lead to Rome",
+       "the ends justify the means",
        "it takes two to tango",
        "the pot calling the kettle black",
        "walls have ears",
@@ -7183,7 +7183,7 @@
       },
       {
        "q": "모로 가도 서울만 가면 된다 →",
-       "a": "all roads lead to Rome; the ends justify the means"
+       "a": "the ends justify the means; any way is fine as long as you reach the goal"
       }
      ]
     },
@@ -7421,12 +7421,12 @@
        "eq": "hard work pays off",
        "lv": 5,
        "ex": {
-        "ko": "수년간 땀 흘려 훈련했으니 공든 탑이 무너지랴는 믿음으로 시험에 임해.",
-        "en": "Trained sweating years, take exams trusting hard work never collapses."
+        "ko": "수년간 땀 흘려 훈련했으니 \"공든 탑이 무너지랴\"라는 믿음으로 시험에 임해.",
+        "en": "You trained and sweated for years, so take the exam believing that hard work will not fail you."
        },
        "ex2": {
-        "ko": "품질 관리에 전력을 기울인 기업은 공든 탑이 무너지랴듯 불황을 꿋꿋이 견뎠다.",
-        "en": "Firms dedicated to quality endured recessions as towers of effort stand."
+        "ko": "품질 관리에 전력을 기울인 기업은 \"공든 탑이 무너지랴\"라는 말처럼 불황을 꿋꿋이 견뎠다.",
+        "en": "Companies that devoted themselves to quality endured the recession, as the saying goes that a painstakingly built tower will not collapse."
        }
       },
       {
@@ -7565,7 +7565,7 @@
        {
         "q": "___ 격이네요. 씨씨티비로 확인해 보세요.",
         "en": "",
-        "a": "까마귀 날자 배 떨어진다"
+        "a": "까마귀 날자 배 떨어진다 (까마귀 날자 배 떨어진)"
        },
        {
         "q": "___더니 유지비는 어쩌려고요?",
@@ -7578,9 +7578,9 @@
         "a": "구슬이 서 말이라도 꿰어야 보배"
        },
        {
-        "q": "___네요. 천천히 꼼꼼히 확인해야죠.",
+        "q": "___. 천천히 꼼꼼히 확인해야죠.",
         "en": "",
-        "a": "번갯불에 콩 볶아 먹겠다"
+        "a": "번갯불에 콩 볶아 먹겠다 (번갯불에 콩 볶아 먹겠네요)"
        }
       ],
       "bank": [
@@ -7711,7 +7711,7 @@
         "en": "Can't halt innovation for tiny side effects: don't fear petty risks."
        },
        "ex2": {
-        "ko": "구더기 무서워 장 못 담글까라는 결단으로 신규 사업 투자를 과감히 단행했다.",
+        "ko": "\"구더기 무서워 장 못 담글까\"라는 결단으로 신규 사업 투자를 과감히 단행했다.",
         "en": "With resolve not to fear petty risks, new business investments were made."
        }
       },
@@ -7920,11 +7920,11 @@
        "en": "experience breeds competence; even a novice learns by long exposure",
        "km": "어떤 분야에 문외한이라도 곁에서 오래 보고 들으면 자연히 지식과 요령이 생김",
        "lit": "a village school dog of three years recites poetry",
-       "eq": "the dog that trots about finds a bone",
+       "eq": "you pick things up just by being around them",
        "lv": 5,
        "ex": {
         "ko": "어깨너머로 요리를 돕더니 서당 개 삼 년이면 풍월을 읊듯 제법 잘하네.",
-        "en": "Helping over the shoulder, they cook quite well as school dogs learn poetry."
+        "en": "After helping over their shoulder for a while, they cook quite well, just like the school dog that learns poetry."
        },
        "ex2": {
         "ko": "오랜 기간 디자인 부서에 근무하며 서당 개 삼 년식 감각을 익혔다.",
@@ -8003,9 +8003,9 @@
         "a": "마파람에 게 눈 감추듯"
        },
        {
-        "q": "___라고 손맛이 일품이니 일단 잡숴 보세요.",
+        "q": "___ 손맛이 일품이니 일단 잡숴 보세요.",
         "en": "",
-        "a": "뚝배기보다 장맛이다"
+        "a": "뚝배기보다 장맛이다 (뚝배기보다 장맛이라고)"
        },
        {
         "q": "___더니 정말 신동이네요.",
@@ -8300,7 +8300,7 @@
        "lv": 5,
        "ex": {
         "ko": "지각해 놓고 교통 핑계 대지 마. 핑계 없는 무덤 없다잖아.",
-        "en": "Don't blame traffic for lating: there's an excuse for everything."
+        "en": "Don't blame traffic for being late: there's an excuse for everything."
        },
        "ex2": {
         "ko": "실패 원인을 남 탓으로 돌리는 것은 핑계 없는 무덤 없다는 비겁한 변명이다.",
@@ -8430,7 +8430,7 @@
        {
         "q": "___ 꼴이군요. 정말 답답하네요.",
         "en": "",
-        "a": "고래 싸움에 새우 등 터진다"
+        "a": "고래 싸움에 새우 등 터진다 (고래 싸움에 새우 등 터진)"
        },
        {
         "q": "___더니 어이가 없네요.",
@@ -9097,8 +9097,8 @@
        "eq": "kill two birds with one stone",
        "lv": 5,
        "ex": {
-        "ko": "버스로 출퇴근하면 운동도 되고 돈도 아끼니 일석이조예요.",
-        "en": "Commuting by bus gives you exercise and saves money, two birds with one stone."
+        "ko": "자전거로 출퇴근하면 운동도 되고 돈도 아끼니 일석이조예요.",
+        "en": "Commuting by bicycle gives you exercise and saves money, so it kills two birds with one stone."
        },
        "ex2": {
         "ko": "이번 정책은 환경도 지키고 일자리도 늘리는 일석이조의 효과를 냈다.",
@@ -9491,8 +9491,8 @@
         "en": "We must reform the ostentatious wedding culture of spending excessive money on ceremonies."
        },
        "ex2": {
-        "ko": "명절 차례상 차림의 허례허식을 줄이고 가족 간 화합에 집중하자는 목소리.",
-        "en": "Voices call for reducing empty formalities on holiday ancestral tables and focusing on family harmony."
+        "ko": "명절 차례상 차림의 허례허식을 줄이고 가족 간 화합에 집중하자는 목소리가 높아지고 있다.",
+        "en": "Voices are growing louder calling for less empty formality on holiday ancestral tables and more focus on family harmony."
        }
       },
       {
@@ -9863,8 +9863,8 @@
         "en": "Even amidst severe tribulations, the unwavering loyalty to protect the nation never wavered."
        },
        "ex2": {
-        "ko": "오랜 세월 떨어져 살면서도 오직 서로만을 사랑한 일편단심의 연인들.",
-        "en": "Lovers of single-hearted devotion who loved only each other despite living apart for years."
+        "ko": "오랜 세월 떨어져 살면서도 오직 서로만을 사랑한 일편단심의 연인들의 이야기가 큰 감동을 주었다.",
+        "en": "The story of lovers who stayed single-heartedly devoted to each other despite living apart for years moved many people."
        }
       },
       {
@@ -10007,8 +10007,8 @@
         "en": "With the blessing of both families' parents, the couple made a lifetime vow and wed."
        },
        "ex2": {
-        "ko": "따스한 봄날 야외 식장에서 백년가약을 서약하는 신랑 신부의 모습.",
-        "en": "The sight of bride and groom pledging a hundred-year marital vow at an outdoor wedding."
+        "ko": "따스한 봄날 야외 식장에서 백년가약을 서약하는 신랑 신부의 모습이 행복해 보였다.",
+        "en": "The bride and groom pledging a hundred-year marital vow at an outdoor wedding on a warm spring day looked happy."
        }
       },
       {
@@ -10173,7 +10173,7 @@
        "pos": "four-character idiom",
        "en": "like attracts like; people of the same kind flock together",
        "km": "성격이나 뜻이 비슷한 사람끼리 자연스럽게 서로 어울림",
-       "lit": "birds of a kind follow each other",
+       "lit": "things of a kind follow each other",
        "eq": "birds of a feather flock together",
        "lv": 5,
        "ex": {
@@ -10336,7 +10336,7 @@
        "en": "many small contributions adding up to a big help",
        "km": "여러 사람이 조금씩 보태어 큰 도움을 만듦",
        "lit": "ten spoons make one bowl of rice",
-       "eq": "many hands make light work",
+       "eq": "every little bit helps",
        "lv": 5,
        "ex": {
         "ko": "동네 주민들이 십시일반으로 모은 성금으로 불우 이웃을 도왔어요.",
@@ -10426,11 +10426,11 @@
        "en": "the guilty party turning around to blame the innocent",
        "km": "잘못한 사람이 도리어 잘한 사람을 나무람",
        "lit": "thief conversely carries the cudgel",
-       "eq": "the pot calling the kettle black",
+       "eq": "the guilty blaming the innocent; turning the tables shamelessly",
        "lv": 5,
        "ex": {
         "ko": "새치기를 한 사람이 도리어 나한테 화를 내니 적반하장이 따로 없네요.",
-        "en": "The person who cut in line angrily scolded me instead, the thief carrying the stick indeed."
+        "en": "The person who cut in line angrily scolded me instead, a classic case of the thief carrying the stick."
        },
        "ex2": {
         "ko": "가해 운전자가 피해자에게 소리를 지르는 적반하장식 태도에 공분이 일었다.",
@@ -10787,8 +10787,8 @@
         "en": "The car was badly smashed in the accident, but the driver narrowly escaped with life."
        },
        "ex2": {
-        "ko": "산사태 매몰 현장에서 소방대원의 신속한 구조로 구사일생한 주민들.",
-        "en": "Residents who narrowly escaped death thanks to firefighters' swift rescue at the landslide site."
+        "ko": "산사태 매몰 현장에서 소방대원의 신속한 구조로 구사일생한 주민들이 병원으로 옮겨졌다.",
+        "en": "Residents who narrowly escaped death thanks to the firefighters' swift rescue at the landslide site were taken to the hospital."
        }
       },
       {
@@ -10841,8 +10841,8 @@
         "en": "Telling more lies to cover one lie ended in trapping oneself in one's own net."
        },
        "ex2": {
-        "ko": "지나치게 까다로운 규정을 내세우다 스스로 자승자박의 꼴이 된 기업.",
-        "en": "A corporation caught in its own trap after insisting on excessively strict regulations."
+        "ko": "지나치게 까다로운 규정을 내세우다 스스로 자승자박의 꼴이 된 기업이 비판을 받았다.",
+        "en": "A company that insisted on excessively strict regulations and ended up trapped by its own rules drew criticism."
        }
       }
      ]
@@ -12286,7 +12286,7 @@
        "en": "seeking one's own advantage; self-serving interpretation",
        "km": "자기에게만 유리하게 일을 꾀하거나 해석함",
        "lit": "drawing water to one's own rice field",
-       "eq": "feathering one's own nest",
+       "eq": "twisting things to suit oneself",
        "lv": 6,
        "ex": {
         "ko": "규정을 자기한테 유리하게만 해석하는 건 아전인수격 주장이에요.",
@@ -12329,7 +12329,7 @@
         "en": "Pretending to be rich on the outside was mere empty bluffing, while in truth drowned in debt."
        },
        "ex2": {
-        "ko": "적군의 허장성세에 속지 말고 침착하게 방어선을 유지하라는 명령이 내렸다.",
+        "ko": "적군의 허장성세에 속지 말고 침착하게 방어선을 유지하라는 명령이 내려졌다.",
         "en": "Orders came to maintain the defensive line calmly without being duped by the enemy's bluffing."
        }
       },

@@ -88,7 +88,7 @@
       "귀를 기울이다"
      ],
      "a": 2,
-     "why": "힘을 쓰다 means to use one's strength; to exert influence or pull strings. 무거운 냉장고를 혼자 옮기느라 허리에 온 힘을 쓰는 바람에 통증이 생겼어요. (Moving the heavy fridge alone, using all strength on back caused pain.)"
+     "why": "힘을 쓰다 means to use one's strength; to exert influence or pull strings. 무거운 냉장고를 혼자 옮기느라 허리에 온 힘을 쓰는 바람에 통증이 생겼어요. (Moving the heavy fridge alone, using all my strength strained my back and caused pain.)"
     },
     {
      "q": "What does 땀을 흘리다 mean?",
@@ -182,7 +182,7 @@
     },
     {
      "ko": "코앞에 닥치다",
-     "en": "to be right under one's nose (idiom)"
+     "en": "to be imminent (idiom)"
     },
     {
      "ko": "관심을 가지다",
@@ -294,28 +294,34 @@
       "눈이 높다"
      ],
      "a": 2,
-     "why": "꿈을 꾸다 means to dream a dream; to cherish an ambition or aspiration. 어젯밤에 하늘을 훨훨 날아다니는 신기하고 아름다운 꿈을 꾸었어요. (Last night I dreamed a marvelous and beautiful dream flying in the sky.)"
+     "why": "꿈을 꾸다 means to dream a dream; to cherish an ambition or aspiration. 어젯밤에 하늘을 훨훨 날아다니는 신기하고 아름다운 꿈을 꾸었어요. (Last night I had a marvelous, beautiful dream of flying in the sky.)"
     }
    ],
    "fill": [
     {
-     "q": "네, 아무 이상 없다는 의사 선생님 말씀을 듣고 이제야 ___네요.",
+     "q": "네, 아무 이상 없다는 의사 선생님 말씀을 듣고 이제야 ___.",
      "en": "to feel relieved",
      "a": [
+      "마음이 놓이네요",
+      "마음이 놓이다",
       "마음이 놓이"
      ]
     },
     {
-     "q": "넓은 우주를 탐험하는 우주비행사가 되는 행복한 ___곤 했지요.",
+     "q": "넓은 우주를 탐험하는 우주비행사가 되는 행복한 ___ 했지요.",
      "en": "to dream a dream",
      "a": [
+      "꿈을 꾸곤",
+      "꿈을 꾸다",
       "꿈을 꾸"
      ]
     },
     {
-     "q": "솔직히 ___겠지만, 자극제로 삼아 더 열심히 해 보세요.",
+     "q": "솔직히 ___, 자극제로 삼아 더 열심히 해 보세요.",
      "en": "to be green with envy",
      "a": [
+      "배가 아프겠지만",
+      "배가 아프다",
       "배가 아프"
      ]
     },
@@ -323,7 +329,8 @@
      "q": "프로젝트 마감이 코앞이니 조금만 더 ___ 봐요. 내가 응원할게요!",
      "en": "to cheer up",
      "a": [
-      "힘을 내"
+      "힘을 내",
+      "힘을 내다"
      ]
     }
    ]
@@ -340,7 +347,7 @@
     },
     {
      "ko": "목을 축이다",
-     "en": "to wet one's whistle (idiom)"
+     "en": "to quench one's thirst slightly (idiom)"
     },
     {
      "ko": "피해를 입다",
@@ -360,7 +367,7 @@
     },
     {
      "ko": "손을 잡다",
-     "en": "to hold hands (idiom)"
+     "en": "to join hands with (idiom)"
     },
     {
      "ko": "약속을 어기다",
@@ -404,7 +411,7 @@
      "why": "정이 들다 means to grow fond of; to become attached to someone or something. 처음에는 낯설었던 룸메이트였는데 1년 동안 같이 살다 보니 깊이 정이 들었어요. (At first an unfamiliar roommate, living together a year made me deeply attached.)"
     },
     {
-     "q": "Which idiom means \"to wet one's whistle\"?",
+     "q": "Which idiom means \"to quench one's thirst slightly\"?",
      "opts": [
       "진땀을 흘리다",
       "이를 갈다",
@@ -412,14 +419,14 @@
       "눈시울이 붉어지다"
      ],
      "a": 2,
-     "why": "목을 축이다 means to wet one's whistle; to quench one's thirst slightly. 가파른 산행을 하다가 시원한 샘물 한 모금으로 타는 듯한 목을 축였어요. (Hiking steep mountains, I quenched my burning thirst with cold spring water.)"
+     "why": "목을 축이다 means to quench one's thirst slightly; to wet one's throat. 가파른 산행을 하다가 시원한 샘물 한 모금으로 타는 듯한 목을 축였어요. (Hiking steep mountains, I quenched my burning thirst with cold spring water.)"
     },
     {
      "q": "What does 입이 가볍다 mean?",
      "opts": [
       "to break someone's heart",
       "to be held back",
-      "to be right under one's nose",
+      "to be imminent",
       "to be loose-lipped"
      ],
      "a": 3,
@@ -461,37 +468,47 @@
    ],
    "fill": [
     {
-     "q": "네, 급변하는 글로벌 시장에서 살아남기 위해 전략적으로 ___았대요.",
-     "en": "to hold hands",
+     "q": "네, 급변하는 글로벌 시장에서 살아남기 위해 전략적으로 ___.",
+     "en": "to join hands with",
      "a": [
+      "손을 잡았대요",
+      "손을 잡다",
       "손을 잡"
      ]
     },
     {
-     "q": "남과의 ___는 것은 인간관계에서 가장 기본이니까요.",
+     "q": "남과의 ___ 것은 인간관계에서 가장 기본이니까요.",
      "en": "to keep a promise",
      "a": [
+      "약속을 지키는",
+      "약속을 지키다",
       "약속을 지키"
      ]
     },
     {
-     "q": "주차에서 감점당해서 결국 ___고 말았어요.",
+     "q": "주차에서 감점당해서 결국 ___ 말았어요.",
      "en": "to fail an exam or audition",
      "a": [
+      "미역국을 먹고",
+      "미역국을 먹다",
       "미역국을 먹"
      ]
     },
     {
-     "q": "네, 매일 실전처럼 모의고사 ___면서 오답 노트를 정리하고 있어요.",
+     "q": "네, 매일 실전처럼 모의고사 ___ 오답 노트를 정리하고 있어요.",
      "en": "to solve a problem",
      "a": [
+      "문제를 풀면서",
+      "문제를 풀다",
       "문제를 풀"
      ]
     },
     {
-     "q": "팀장님께서도 설명을 들으시면서 연신 ___셨으니 긍정적이세요.",
+     "q": "팀장님께서도 설명을 들으시면서 연신 ___ 긍정적이세요.",
      "en": "to nod in agreement",
      "a": [
+      "고개를 끄덕이셨으니",
+      "고개를 끄덕이다",
       "고개를 끄덕이"
      ]
     }
@@ -630,23 +647,29 @@
    ],
    "fill": [
     {
-     "q": "걱정거리가 하나 떠오르더니 ___고 이어져서 잘 수가 없었어요.",
+     "q": "걱정거리가 하나 떠오르더니 ___ 이어져서 잘 수가 없었어요.",
      "en": "to happen in rapid succession",
      "a": [
+      "꼬리를 물고",
+      "꼬리를 물다",
       "꼬리를 물"
      ]
     },
     {
-     "q": "당분간 불필요한 쇼핑을 자제하고 다 함께 ___야겠어요.",
+     "q": "당분간 불필요한 쇼핑을 자제하고 다 함께 ___.",
      "en": "to tighten one's belt",
      "a": [
+      "허리띠를 졸라매야겠어요",
+      "허리띠를 졸라매다",
       "허리띠를 졸라매"
      ]
     },
     {
-     "q": "적절한 ___면 나중에 더 큰 비용을 치르게 되는 법이지요.",
+     "q": "적절한 ___ 나중에 더 큰 비용을 치르게 되는 법이지요.",
      "en": "to miss the opportune moment",
      "a": [
+      "때를 놓치면",
+      "때를 놓치다",
       "때를 놓치"
      ]
     },
@@ -792,44 +815,56 @@
    ],
    "fill": [
     {
-     "q": "질서를 안 지키면 누구라도 주변 사람들의 따가운 ___게 돼요.",
+     "q": "질서를 안 지키면 누구라도 주변 사람들의 따가운 ___ 돼요.",
      "en": "to draw glares",
      "a": [
+      "눈총을 받게",
+      "눈총을 받다",
       "눈총을 받"
      ]
     },
     {
-     "q": "그 친구는 워낙 옹고집이라 나도 이제 ___었어.",
+     "q": "그 친구는 워낙 옹고집이라 나도 이제 ___.",
      "en": "to throw up both hands and feet",
      "a": [
+      "두 손 두 발 다 들었어",
+      "두 손 두 발 다 들다",
       "두 손 두 발 다 들"
      ]
     },
     {
-     "q": "그 사람은 승진을 위해서라면 ___는대요.",
+     "q": "그 사람은 승진을 위해서라면 ___.",
      "en": "to stop at nothing",
      "a": [
+      "물불을 가리지 않는대요",
+      "물불을 가리지 않다",
       "물불을 가리지 않"
      ]
     },
     {
-     "q": "요즘 새로 투자한 종목이 있어서 온종일 주식 정보 찾는 데 ___더라고요.",
+     "q": "요즘 새로 투자한 종목이 있어서 온종일 주식 정보 찾는 데 ___.",
      "en": "to be passionate about",
      "a": [
+      "열을 올리더라고요",
+      "열을 올리다",
       "열을 올리"
      ]
     },
     {
-     "q": "정말 위험하네요. 옆 차선 운전자들도 다 ___고 있어요.",
+     "q": "정말 위험하네요. 옆 차선 운전자들도 다 ___ 있어요.",
      "en": "to click one's tongue",
      "a": [
+      "혀를 차고",
+      "혀를 차다",
       "혀를 차"
      ]
     },
     {
-     "q": "최선을 다했으니 이제는 ___고 담담하게 결과를 기다려 봐요.",
+     "q": "최선을 다했으니 이제는 ___ 담담하게 결과를 기다려 봐요.",
      "en": "to clear one's mind of greed",
      "a": [
+      "마음을 비우고",
+      "마음을 비우다",
       "마음을 비우"
      ]
     }
@@ -948,7 +983,7 @@
      "opts": [
       "to stall for time",
       "to break someone's heart",
-      "to hold hands",
+      "to join hands with",
       "to break a promise"
      ],
      "a": 1,
@@ -968,16 +1003,20 @@
    ],
    "fill": [
     {
-     "q": "제자들을 떠나보내는 자리에서 선생님도 ___셨나 봐요.",
+     "q": "제자들을 떠나보내는 자리에서 선생님도 ___ 봐요.",
      "en": "to be moved to tears",
      "a": [
+      "눈시울이 붉어지셨나",
+      "눈시울이 붉어지다",
       "눈시울이 붉어지"
      ]
     },
     {
-     "q": "네, 홀로 배웅하시던 어머니 모습이 기차 안에서도 내내 ___더라고요.",
+     "q": "네, 홀로 배웅하시던 어머니 모습이 기차 안에서도 내내 ___.",
      "en": "to haunt one's mind",
      "a": [
+      "눈에 밟히더라고요",
+      "눈에 밟히다",
       "눈에 밟히"
      ]
     },
@@ -1070,7 +1109,7 @@
       "to throw cold water on"
      ],
      "a": 1,
-     "why": "쥐구멍에 들어가다 means to want to sink through the floor; to be deeply ashamed. 중요한 발표 자리에서 치명적인 실수를 해서 쥐구멍에 들어가고 싶었어요. (Making a critical mistake in an important presentation made me want to sink in.)"
+     "why": "쥐구멍에 들어가다 means to want to sink through the floor; to be deeply ashamed. 중요한 발표 자리에서 치명적인 실수를 해서 쥐구멍에 들어가고 싶었어요. (Making a critical mistake in an important presentation made me want to sink through the floor.)"
     },
     {
      "q": "Which idiom means \"to whet one's appetite\"?",
@@ -1130,16 +1169,20 @@
    ],
    "fill": [
     {
-     "q": "업계 일등이라고 ___아서 그래요. 다른 대안을 찾아봅시다.",
+     "q": "업계 일등이라고 ___ 그래요. 다른 대안을 찾아봅시다.",
      "en": "to be haughty",
      "a": [
+      "콧대가 높아서",
+      "콧대가 높다",
       "콧대가 높"
      ]
     },
     {
-     "q": "어제 모임에서 늦게 귀가했다고 집사람이 ___었나 봅니다.",
+     "q": "어제 모임에서 늦게 귀가했다고 집사람이 ___ 봅니다.",
      "en": "to nag (esp. wife nagging her husband)",
      "a": [
+      "바가지를 긁었나",
+      "바가지를 긁다",
       "바가지를 긁"
      ]
     },
@@ -1287,21 +1330,25 @@
       "입이 가볍다"
      ],
      "a": 2,
-     "why": "뒷덜미를 잡히다 means to be caught red-handed; to have one's dirty secret or vulnerability seized. 치밀하게 준비했던 횡령 수법이 내부 감사 과정에서 뒷덜미를 잡혔어요. (The embezzlement method prepared meticulously was caught in internal audit.)"
+     "why": "뒷덜미를 잡히다 means to be caught red-handed; to have one's dirty secret or vulnerability seized. 교묘하게 횡령하던 범인이 내부 감사에서 마침내 뒷덜미를 잡혔어요. (The embezzler who had been so clever was finally caught in an internal audit.)"
     }
    ],
    "fill": [
     {
-     "q": "남의 일에 그렇게 ___는 분이 흔치 않은데 참 고맙네요.",
+     "q": "남의 일에 그렇게 ___ 분이 흔치 않은데 참 고맙네요.",
      "en": "to roll up one's sleeves",
      "a": [
+      "발 벗고 나서는",
+      "발 벗고 나서다",
       "발 벗고 나서"
      ]
     },
     {
-     "q": "워낙 ___어서 모르는 사람이 없을 정도예요.",
+     "q": "워낙 ___ 모르는 사람이 없을 정도예요.",
      "en": "to have a wide circle of acquaintances",
      "a": [
+      "발이 넓어서",
+      "발이 넓다",
       "발이 넓"
      ]
     },
@@ -1313,23 +1360,29 @@
      ]
     },
     {
-     "q": "네, 위치가 후미져서 그런지 대낮에도 손님이 없어 ___더라고요.",
+     "q": "네, 위치가 후미져서 그런지 대낮에도 손님이 없어 ___.",
      "en": "to have no customers",
      "a": [
+      "파리를 날리더라고요",
+      "파리를 날리다",
       "파리를 날리"
      ]
     },
     {
-     "q": "네, 새 학기가 시작되니 학교 전체가 생동감 넘치는 ___고 있어요.",
+     "q": "네, 새 학기가 시작되니 학교 전체가 생동감 넘치는 ___ 있어요.",
      "en": "to take on vitality",
      "a": [
+      "활기를 띠고",
+      "활기를 띠다",
       "활기를 띠"
      ]
     },
     {
-     "q": "네, 첫 경기부터 해트트릭을 기록하며 팬들의 큰 ___고 있어요.",
+     "q": "네, 첫 경기부터 해트트릭을 기록하며 팬들의 큰 ___ 있어요.",
      "en": "to raise expectations",
      "a": [
+      "기대를 모으고",
+      "기대를 모으다",
       "기대를 모으"
      ]
     }
@@ -1359,7 +1412,7 @@
     },
     {
      "ko": "뜸을 들이다",
-     "en": "to hesitate (idiom)"
+     "en": "to take one's time (idiom)"
     },
     {
      "ko": "못을 박다",
@@ -1468,23 +1521,29 @@
    ],
    "fill": [
     {
-     "q": "혼자 ___고 헤맬 때는 선배나 진로 상담사의 조언을 구해 보세요.",
+     "q": "혼자 ___ 헤맬 때는 선배나 진로 상담사의 조언을 구해 보세요.",
      "en": "to be at a loss",
      "a": [
+      "갈피를 못 잡고",
+      "갈피를 못 잡다",
       "갈피를 못 잡"
      ]
     },
     {
-     "q": "네, 개발팀 전체가 원인을 찾느라 주말 내내 ___고 있습니다.",
+     "q": "네, 개발팀 전체가 원인을 찾느라 주말 내내 ___ 있습니다.",
      "en": "to rack one's brain",
      "a": [
+      "골머리를 썩이고",
+      "골머리를 썩이다",
       "골머리를 썩이"
      ]
     },
     {
-     "q": "네, 전임 팀장님의 기획을 바탕으로 훌륭하게 ___으셨기 때문이에요.",
+     "q": "네, 전임 팀장님의 기획을 바탕으로 훌륭하게 ___ 때문이에요.",
      "en": "to take up the baton",
      "a": [
+      "바통을 이어받으셨기",
+      "바통을 이어받다",
       "바통을 이어받"
      ]
     },
@@ -1630,37 +1689,47 @@
    ],
    "fill": [
     {
-     "q": "네, 현대인들의 건강에 좋다고 알려지면서 큰 ___고 있어요.",
+     "q": "네, 현대인들의 건강에 좋다고 알려지면서 큰 ___ 있어요.",
      "en": "to be in the spotlight",
      "a": [
+      "각광을 받고",
+      "각광을 받다",
       "각광을 받"
      ]
     },
     {
-     "q": "반세기 동안 경제학계에 위대한 ___신 거목이시니 당연하지요.",
+     "q": "반세기 동안 경제학계에 위대한 ___ 거목이시니 당연하지요.",
      "en": "to leave one's mark",
      "a": [
+      "발자취를 남기신",
+      "발자취를 남기다",
       "발자취를 남기"
      ]
     },
     {
-     "q": "다행히 양측 대표가 비공식 면담을 갖고 대화의 ___기로 합의했습니다.",
+     "q": "다행히 양측 대표가 비공식 면담을 갖고 대화의 ___ 합의했습니다.",
      "en": "to open the floodgates",
      "a": [
+      "물꼬를 트기로",
+      "물꼬를 트다",
       "물꼬를 트"
      ]
     },
     {
-     "q": "상대가 준비되지 않은 약점의 ___고 들어와서 당황하셨나 봐요.",
+     "q": "상대가 준비되지 않은 약점의 ___ 들어와서 당황하셨나 봐요.",
      "en": "to catch someone off guard",
      "a": [
+      "허를 찌르고",
+      "허를 찌르다",
       "허를 찌르"
      ]
     },
     {
-     "q": "연구 환경이 너무 훌륭해서 여기에 ___고 싶을 정도예요.",
+     "q": "연구 환경이 너무 훌륭해서 여기에 ___ 싶을 정도예요.",
      "en": "to dedicate one's whole life to an organization or place",
      "a": [
+      "뼈를 묻고",
+      "뼈를 묻다",
       "뼈를 묻"
      ]
     }
@@ -1813,9 +1882,11 @@
      ]
     },
     {
-     "q": "___에요. 교재를 펼친 것만으로도 대단해요!",
+     "q": "___. 교재를 펼친 것만으로도 대단해요!",
      "en": "well begun is half done",
      "a": [
+      "시작이 반이에요",
+      "시작이 반이다",
       "시작이 반이"
      ]
     },
@@ -1827,9 +1898,11 @@
      ]
     },
     {
-     "q": "___라잖아요. 깔끔한 정장으로 갈아입으세요.",
+     "q": "___. 깔끔한 정장으로 갈아입으세요.",
      "en": "clothes make the man",
      "a": [
+      "옷이 날개라잖아요",
+      "옷이 날개다",
       "옷이 날개"
      ]
     },
@@ -1970,7 +2043,7 @@
       "원숭이도 나무에서 떨어진다"
      ],
      "a": 2,
-     "why": "웃는 낯에 침 뱉으랴 means a soft answer turns away wrath; smiling disarms hostility. 손님이 화를 내도 웃는 낯에 침 뱉으랴는 마음으로 공손히 응대해. (Even if guests get mad, respond politely: a smile disarms hostility.)"
+     "why": "웃는 낯에 침 뱉으랴 means a soft answer turns away wrath; smiling disarms hostility. 손님이 화를 내도 \"웃는 낯에 침 뱉으랴\"라는 마음으로 공손히 응대해. (Even if guests get mad, respond politely: a smile disarms hostility.)"
     }
    ],
    "fill": [
@@ -1989,9 +2062,11 @@
      ]
     },
     {
-     "q": "정말 ___네요. 정보력이 최고예요.",
+     "q": "정말 ___. 정보력이 최고예요.",
      "en": "knowledge is power",
      "a": [
+      "아는 것이 힘이네요",
+      "아는 것이 힘이다",
       "아는 것이 힘이"
      ]
     },
@@ -2062,7 +2137,7 @@
     },
     {
      "ko": "남의 밥에 든 콩이 더 굵어 보인다",
-     "en": "the grass is always greener on the other side (proverb)"
+     "en": "what belongs to others always looks bigger (proverb)"
     },
     {
      "ko": "뛰는 놈 위에 나는 놈 있다",
@@ -2088,7 +2163,7 @@
       "speak of the devil and he appears",
       "let sleeping dogs lie",
       "he that will steal a pin will steal an ox",
-      "all roads lead to Rome"
+      "the ends justify the means"
      ],
      "a": 1,
      "why": "긁어 부스럼 만든다 means let sleeping dogs lie; stirring up trouble for oneself unnecessarily. 지난 일은 덮어두지 왜 들춰서 긁어 부스럼을 만들어 싸움을 키워. (Leave past things; why dig up sores and fuel fights unnecessarily.)"
@@ -2138,7 +2213,7 @@
      "why": "길고 짧은 것은 대어 보아야 안다 means you never know who will win until the end; it's not over till it's over. 상대가 강팀이어도 길고 짧은 건 대어 보아야 아니 끝까지 뛰어보자. (Even if rivals are strong, it's not over till it's over, so let's run to the end.)"
     },
     {
-     "q": "Which proverb means \"the grass is always greener on the other side\"?",
+     "q": "Which proverb means \"what belongs to others always looks bigger\"?",
      "opts": [
       "찬물도 위아래가 있다",
       "낮말은 새가 듣고 밤말은 쥐가 듣는다",
@@ -2146,7 +2221,7 @@
       "고생 끝에 낙이 온다"
      ],
      "a": 2,
-     "why": "남의 밥에 든 콩이 더 굵어 보인다 means the grass is always greener on the other side. 남의 밥에 든 콩이 굵어 보여도 막상 바꾸면 별 차이 없단다. (Though beans in others' rice look bigger, switching makes little difference.)"
+     "why": "남의 밥에 든 콩이 더 굵어 보인다 means what belongs to others always looks bigger; the beans in another's bowl look bigger. 남의 밥에 든 콩이 굵어 보여도 막상 바꾸면 별 차이 없단다. (Though beans in others' rice look bigger, switching makes little difference.)"
     }
    ],
    "fill": [
@@ -2165,16 +2240,20 @@
      ]
     },
     {
-     "q": "___댔어. 저기 다른 친구 점수 좀 봐.",
+     "q": "___. 저기 다른 친구 점수 좀 봐.",
      "en": "there is always someone better",
      "a": [
+      "뛰는 놈 위에 나는 놈 있댔어",
+      "뛰는 놈 위에 나는 놈 있다",
       "뛰는 놈 위에 나는 놈 있"
      ]
     },
     {
-     "q": "___군요. 오히려 손해잖아요.",
+     "q": "___. 오히려 손해잖아요.",
      "en": "the tail wags the dog",
      "a": [
+      "배보다 배꼽이 더 크군요",
+      "배보다 배꼽이 더 크다",
       "배보다 배꼽이 더 크"
      ]
     },
@@ -2278,7 +2357,7 @@
       "열 길 물속은 알아도 한 길 사람 속은 모른다"
      ],
      "a": 2,
-     "why": "첫술에 배부르랴 means Rome was not built in a day; don't expect instant success from step one. 첫 시험 결과에 너무 낙담 마. 첫술에 배부르랴는 말처럼 계속해 봐. (Don't despair over first tests; Rome wasn't built in a day.)"
+     "why": "첫술에 배부르랴 means Rome was not built in a day; don't expect instant success from step one. 첫 시험 결과에 너무 낙담 마. \"첫술에 배부르랴\"라는 말처럼 계속해 봐. (Don't despair over first tests; Rome wasn't built in a day.)"
     },
     {
      "q": "What does 소문난 잔치에 먹을 것 없다 mean?",
@@ -2337,7 +2416,8 @@
      "q": "아무 말도 안 했는데 왜 혼자 화를 내? ___ 거야?",
      "en": "a guilty conscience needs no accuser",
      "a": [
-      "도둑이 제 발 저린"
+      "도둑이 제 발 저린",
+      "도둑이 제 발 저린다"
      ]
     },
     {
@@ -2355,9 +2435,11 @@
      ]
     },
     {
-     "q": "___으니 기운 차리고 다시 일어나세요.",
+     "q": "___ 기운 차리고 다시 일어나세요.",
      "en": "every cloud has a silver lining",
      "a": [
+      "하늘이 무너져도 솟아날 구멍이 있으니",
+      "하늘이 무너져도 솟아날 구멍이 있다",
       "하늘이 무너져도 솟아날 구멍이 있"
      ]
     },
@@ -2520,7 +2602,8 @@
      "q": "___ 법이니 좋은 기회로 삼으세요.",
      "en": "nothing ventured, nothing gained",
      "a": [
-      "호랑이 굴에 들어가야 호랑이 새끼를 잡는"
+      "호랑이 굴에 들어가야 호랑이 새끼를 잡는",
+      "호랑이 굴에 들어가야 호랑이 새끼를 잡는다"
      ]
     },
     {
@@ -2650,7 +2733,7 @@
     {
      "q": "What does 칼로 물 베기 mean?",
      "opts": [
-      "burying one's head in the sand",
+      "a clumsy attempt to fool someone",
       "cutting water with a sword",
       "caught in an emergency",
       "scratching the surface"
@@ -2672,9 +2755,11 @@
    ],
    "fill": [
     {
-     "q": "___단다. 너도 똑같이 소중해.",
+     "q": "___. 너도 똑같이 소중해.",
      "en": "every child is equally dear to parents",
      "a": [
+      "열 손가락 깨물어 안 아픈 손가락 없단다",
+      "열 손가락 깨물어 안 아픈 손가락 없다",
       "열 손가락 깨물어 안 아픈 손가락 없"
      ]
     },
@@ -2703,7 +2788,8 @@
      "q": "정말 ___ 격이네요. 참 대견해요.",
      "en": "rising from rags to riches",
      "a": [
-      "개천에서 용 난"
+      "개천에서 용 난",
+      "개천에서 용 난다"
      ]
     },
     {
@@ -2743,7 +2829,7 @@
     },
     {
      "ko": "눈 가리고 아웅",
-     "en": "burying one's head in the sand (proverb)"
+     "en": "a clumsy attempt to fool someone (proverb)"
     },
     {
      "ko": "똥 묻은 개가 겨 묻은 개 나무란다",
@@ -2767,7 +2853,7 @@
     },
     {
      "ko": "모로 가도 서울만 가면 된다",
-     "en": "all roads lead to Rome (proverb)"
+     "en": "the ends justify the means (proverb)"
     },
     {
      "ko": "아는 길도 물어 가라",
@@ -2813,7 +2899,7 @@
      "why": "바늘 도둑이 소 도둑 된다 means he that will steal a pin will steal an ox; small vices lead to big crimes. 사소한 거짓말도 묵인하면 바늘 도둑이 소 도둑 되듯 큰 죄로 이어져. (Overlooking petty lies leads to grave crimes, as needle thieves become ox thieves.)"
     },
     {
-     "q": "Which proverb means \"burying one's head in the sand\"?",
+     "q": "Which proverb means \"a clumsy attempt to fool someone\"?",
      "opts": [
       "눈 가리고 아웅",
       "하나를 보면 열을 안다",
@@ -2821,7 +2907,7 @@
       "모난 돌이 정 맞는다"
      ],
      "a": 0,
-     "why": "눈 가리고 아웅 means burying one's head in the sand; transparent shallow deception. 청소도 안 하고 이불만 덮어놓는 건 눈 가리고 아웅 하는 속임수야. (Covering beds without cleaning is shallow deception like hiding eyes.)"
+     "why": "눈 가리고 아웅 means a clumsy attempt to fool someone; transparent trickery. 청소도 안 하고 이불만 덮어놓는 건 눈 가리고 아웅 하는 속임수야. (Covering beds without cleaning is shallow deception like hiding eyes.)"
     },
     {
      "q": "What does 가는 말이 고와야 오는 말이 곱다 mean?",
@@ -2855,9 +2941,11 @@
      ]
     },
     {
-     "q": "먼저 따뜻하게 인사해 보세요. ___잖아요.",
+     "q": "먼저 따뜻하게 인사해 보세요. ___.",
      "en": "speak kindly to receive kind words in return",
      "a": [
+      "가는 말이 고와야 오는 말이 곱잖아요",
+      "가는 말이 고와야 오는 말이 곱다",
       "가는 말이 고와야 오는 말이 곱"
      ]
     },
@@ -3189,7 +3277,8 @@
      "q": "___ 이기적인 태도네요.",
      "en": "use when convenient and discard when not",
      "a": [
-      "달면 삼키고 쓰면 뱉는"
+      "달면 삼키고 쓰면 뱉는",
+      "달면 삼키고 쓰면 뱉는다"
      ]
     },
     {
@@ -3221,9 +3310,11 @@
      ]
     },
     {
-     "q": "팀장님부터 일찍 출근하세요. ___죠.",
+     "q": "팀장님부터 일찍 출근하세요. ___.",
      "en": "as the upper stream is pure, so is the lower",
      "a": [
+      "윗물이 맑아야 아랫물이 맑죠",
+      "윗물이 맑아야 아랫물이 맑다",
       "윗물이 맑아야 아랫물이 맑"
      ]
     }
@@ -3357,14 +3448,16 @@
       "세 살 버릇 여든까지 간다"
      ],
      "a": 2,
-     "why": "핑계 없는 무덤 없다 means there's an excuse for everything; every sinner has his excuse. 지각해 놓고 교통 핑계 대지 마. 핑계 없는 무덤 없다잖아. (Don't blame traffic for lating: there's an excuse for everything.)"
+     "why": "핑계 없는 무덤 없다 means there's an excuse for everything; every sinner has his excuse. 지각해 놓고 교통 핑계 대지 마. 핑계 없는 무덤 없다잖아. (Don't blame traffic for being late: there's an excuse for everything.)"
     }
    ],
    "fill": [
     {
-     "q": "___래요. 용기 내어 말해 봐요.",
+     "q": "___. 용기 내어 말해 봐요.",
      "en": "speak your mind",
      "a": [
+      "말은 해야 맛이고 고기는 씹어야 맛이래요",
+      "말은 해야 맛이고 고기는 씹어야 맛이다",
       "말은 해야 맛이고 고기는 씹어야 맛이"
      ]
     },
@@ -3691,7 +3784,7 @@
       "brazen-faced and shameless"
      ],
      "a": 1,
-     "why": "일석이조 means to kill two birds with one stone. 버스로 출퇴근하면 운동도 되고 돈도 아끼니 일석이조예요. (Commuting by bus gives you exercise and saves money, two birds with one stone.)"
+     "why": "일석이조 means to kill two birds with one stone. 자전거로 출퇴근하면 운동도 되고 돈도 아끼니 일석이조예요. (Commuting by bicycle gives you exercise and saves money, so it kills two birds with one stone.)"
     },
     {
      "q": "Which four-character idiom means \"coming back from the brink of death\"?",
