@@ -8,8 +8,9 @@ import sys, re, json
 import xlrd, xlwt
 SAMPLE, OUT = sys.argv[1], sys.argv[2]
 NUMS = sys.argv[3:] or ['04', '05', '06']
-ITEM = {'04': 1, '05': 2, '06': 3}          # 서명식별번호(5·6·7 은 첫걸음 · 조사 · 쓰기가 썼다)
-BID = {'04': 'topik2-vocab-1000', '05': 'topik2-vocab-2000', '06': 'topik2-vocab-lv3'}
+ITEM = {'04': 1, '05': 2, '06': 3, '07': 4, '08': 8}  # 서명식별번호(5·6·7 은 첫걸음 · 조사 · 쓰기 51~52 가 썼다. 07 모의고사 = 4(2026-10-26 엑셀로 신청), 08 은 8. 남은 번호 0 · 9)
+PRICE = {'04': '6.9', '05': '6.9', '06': '6.9', '07': '9.9', '08': '9.9'}
+BID = {'04': 'topik2-vocab-1000', '05': 'topik2-vocab-2000', '06': 'topik2-vocab-lv3', '07': 'topik1-reading-mock', '08': 'topik2-writing-53-54'}
 def chk(item):
     d = [int(c) for c in '97911222407' + str(item)]
     return (10 - sum(x * (1 if i % 2 == 0 else 3) for i, x in enumerate(d)) % 10) % 10
@@ -25,7 +26,7 @@ for n in NUMS:
     rows.append({'접두부': '979', '국가번호': '11', '발행자번호': '222407', '서명식별번호': str(item), '체크기호': str(chk(item)), '*부가기호': '15710',
                  '*책제목': cell(s, '책제목'), '책부제': cell(s, '부제목'), '*저자명': cell(s, '저자명'), '본문언어': '한국어',
                  '키워드': '; '.join(x.strip() for x in cell(s, '키워드').split(',')), '발행제본형태': '전자책', '발행제본상세': 'PDF',
-                 '*가격': '6.9', '화폐단위': '달러', '*발행(예정)': re.search(r'\| 발행일 \| (\d{4})-(\d\d)-(\d\d)', doc).expand(r'\1\2\3'),
+                 '*가격': PRICE[n], '화폐단위': '달러', '*발행(예정)': re.search(r'\| 발행일 \| (\d{4})-(\d\d)-(\d\d)', doc).expand(r'\1\2\3'),
                  '특기사항': cell(s, '특기사항'), '서비스형태': '온라인서비스기타', '판권지': pan})
 out = xlwt.Workbook(encoding='utf-8'); a = out.add_sheet('Sheet1')
 for c, h in enumerate(hdr): a.write(0, c, h)

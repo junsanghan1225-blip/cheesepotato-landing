@@ -1066,8 +1066,8 @@
  "coverLevel": {
   "code": "TOPIK I",
   "name": "1~2급",
-  "bg": "#12704F",
-  "bg2": "#0B4A33",
+  "bg": "#E0583C",
+  "bg2": "#B8402A",
   "mascot": [
    "cheese",
    2
@@ -11218,5 +11218,9 @@
     }
    ]
   }
+ },
+ "innerLevel": {
+  "bg": "#12704F",
+  "bg2": "#0B4A33"
  }
 }
