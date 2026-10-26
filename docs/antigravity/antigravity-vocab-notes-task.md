@@ -58,8 +58,9 @@
 사전과 맞는가 · 동음이의어가 정말 둘인가 · 유의어의 차이가 구체적인가 · 기출 아님 · 쪽수 증가(단원당 약 반 쪽).
 
 ## TOPIK I 필수 단어장 1권 · 2권(운영자 2026-10-26 「같은 로직으로」)
+> 2026-10-26 운영자 「토픽 필수 단어장은 하나에 다 넣자」 → 책은 **한 권**(`topik1-vocab`, 97단원)으로 나온다. 메모 파일과 단원 번호(`ta-` · `tb-`)는 아래 그대로 두 몫으로 쓴다. 안티가 할 일은 바뀌지 않는다.
 - TOPIK I 필수 단어장 1권(`topik1-vocab-1`, 낱말 1~960번째: 1급 858 + 2급 일부)의 단원은 `ta-01` ~ `ta-48`, 2권(`topik1-vocab-2`, 961~1,931번째, 2급)의 단원은 `tb-01` ~ `tb-49`.
-- 결과 파일: 1권 **`docs/vocab-book/topik1-vocab-1.notes.json`**, 2권 **`docs/vocab-book/topik1-vocab-2.notes.json`**(모양 · 규칙은 TOPIK II 1권과 같음, 브랜치 `ag/vocab-notes-t1a-N` · `ag/vocab-notes-t1b-N`). 낱말 보기: `node tools/vocab-notes-list.mjs ta-01` · `tb-01`. 확인: `node tools/build-topik1-vocab-book.mjs 1`(2권이면 `… 2`).
+- 결과 파일: 1권 **`docs/vocab-book/topik1-vocab-1.notes.json`**, 2권 **`docs/vocab-book/topik1-vocab-2.notes.json`**(모양 · 규칙은 TOPIK II 1권과 같음, 브랜치 `ag/vocab-notes-t1a-N` · `ag/vocab-notes-t1b-N`). 낱말 보기: `node tools/vocab-notes-list.mjs ta-01` · `tb-01`. 확인: `node tools/build-topik1-vocab-all.mjs`(두 권 몫을 한 책으로 이어 붙이는 도구, 에러 없이 끝나는지만 본다).
 - **낱말이 쉬운 1~2급**이다. 그래서 더 쉬운 말로, 초급 학습자가 실제로 헷갈리는 것을 고른다: 동음이의어(배 · 눈 · 밤 · 말 · 차 · 다리 · 손 …처럼 소리가 같고 뜻이 다른 낱말, 한자가 아니라 **뜻으로 구분**), 비슷한 말(보다/구경하다, 집/댁, 먹다/드시다처럼 높임 · 말투가 다른 짝), 모양이 비슷한 말(작다/적다, 맞다/맛다 아님 — 실제 있는 짝만), 반대말과 같이 구분할 것. 한자어 어원 설명은 필요 없다(`hanja` 는 있을 때만).
 - 영어 설명은 **아주 쉬운 영어**로 한두 문장 + 한국어 예 짧게(그대로 책에 실린다). 예문은 초급 문법(-아요/어요 · -ㅂ니다 · -고 싶다 정도)만 쓴다.
 - 단원마다 **2~3개**(마땅한 항목이 없으면 1개, 억지로 채우지 않는다). 이름 · 호칭 · 높임 표현은 사실만(한국어 사전으로 두 번 확인).

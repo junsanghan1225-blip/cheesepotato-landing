@@ -6,9 +6,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pre = process.argv[2] || '';
-const bid = pre.startsWith('ta') ? 'topik1-vocab-1' : pre.startsWith('tb') ? 'topik1-vocab-2' : pre.startsWith('tx') ? 'topik2-vocab-lv3' : pre.startsWith('tw') ? 'topik2-vocab-2000' : 'topik2-vocab-1000';
+const t1 = pre.startsWith('ta') || pre.startsWith('tb');   // TOPIK I 단어장은 책 한 권(topik1-vocab) 인데 메모 파일은 1권 · 2권 몫으로 나눠 둔다
+const bid = t1 ? 'topik1-vocab' : pre.startsWith('tx') ? 'topik2-vocab-lv3' : pre.startsWith('tw') ? 'topik2-vocab-2000' : 'topik2-vocab-1000';
 const book = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${bid}.json`), 'utf8'));
-const nf = path.join(ROOT, `docs/vocab-book/${bid}.notes.json`);
+const nf = path.join(ROOT, `docs/vocab-book/${t1 ? (pre.startsWith('ta') ? 'topik1-vocab-1' : 'topik1-vocab-2') : bid}.notes.json`);
 const notes = fs.existsSync(nf) ? JSON.parse(fs.readFileSync(nf, 'utf8')) : {};
 const all = JSON.parse(fs.readFileSync(path.join(ROOT, 'vocab/data/' + (pre.startsWith('ta') || pre.startsWith('tb') ? 'topik1' : 'topik2') + '.json'), 'utf8'));
 const byHead = new Map(all.map((w) => [w.head, w]));

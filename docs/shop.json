@@ -792,6 +792,116 @@
    "status": "planned",
    "price": "9.90",
    "coverImg": "/assets/books/topik2-writing-53-54/cover.jpg"
+  },
+  {
+   "id": "topik1-vocab",
+   "series": "topik",
+   "color": "#12704F",
+   "level": "TOPIK I",
+   "title": {
+    "en": "TOPIK I Essential Vocabulary",
+    "ko": "TOPIK I 필수 단어장"
+   },
+   "sub": {
+    "en": "All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice.",
+    "ko": "TOPIK I 필수 낱말 1,931개 · 예문과 쓰기 연습"
+   },
+   "about": {
+    "en": "Every word of the TOPIK I word list (level 1 and level 2) in one book: 1,931 words, 20 per unit in 97 units. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
+    "ko": "TOPIK I 낱말 목록(1급 · 2급) 전체를 한 권에: 낱말 1,931개를 20개씩 97단원. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+   },
+   "for": {
+    "en": [
+     "Learners preparing for TOPIK I (levels 1–2)",
+     "Beginners who want one complete word list with practice",
+     "Teachers who need word lists with practice"
+    ],
+    "ko": [
+     "TOPIK I(1~2급)을 준비하는 학습자",
+     "낱말을 한 권으로 끝내고 싶은 초급 학습자",
+     "연습이 붙은 낱말장이 필요한 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Part 1 · Level 1 words (43 units)",
+     "ko": "1부 1급 낱말 (43단원)"
+    },
+    {
+     "en": "Part 2 · Level 2 words (54 units)",
+     "ko": "2부 2급 낱말 (54단원)"
+    },
+    {
+     "en": "Index",
+     "ko": "찾아보기"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "528쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "9.90",
+   "coverImg": "/assets/books/topik1-vocab/cover.jpg"
+  },
+  {
+   "id": "korean-idioms",
+   "series": "workbook",
+   "color": "#8E2F5A",
+   "level": "TOPIK II",
+   "title": {
+    "en": "Essential Korean Idioms",
+    "ko": "필수 관용 표현"
+   },
+   "sub": {
+    "en": "449 idioms, proverbs and four-character idioms with examples, checkups and writing practice.",
+    "ko": "관용구 · 속담 · 사자성어 449개"
+   },
+   "about": {
+    "en": "150 idioms, 150 proverbs and 149 four-character idioms that Korean speakers use all the time, 15 per unit in 30 units. Each expression has its meaning in English and Korean, a literal translation, a similar English saying when there is one, and two example sentences with translation. Then you write the meaning, finish the proverb and write your own sentence, finish with a unit checkup (match the meanings, fill the dialog blanks), and mark your work with the answer key at the back. A QR code opens a free match game for the same expressions.",
+    "ko": "한국어 화자가 일상에서 자주 쓰는 관용구 150개 · 속담 150개 · 사자성어 149개를 15개씩 30단원에 담았습니다. 표현마다 영어 · 한국어 뜻, 직역, 비슷한 영어 속담(있을 때), 번역이 붙은 예문 둘. 뜻 쓰기 · 속담 이어 쓰기 · 내 문장 쓰기와 단원 점검(뜻 짝짓기 · 대화 빈칸)을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 표현의 짝 맞추기 게임이 열립니다."
+   },
+   "for": {
+    "en": [
+     "Learners who want to sound natural in Korean",
+     "Learners aiming at TOPIK II reading and writing",
+     "Teachers who need idiom and proverb practice"
+    ],
+    "ko": [
+     "자연스러운 한국어를 쓰고 싶은 학습자",
+     "TOPIK II 읽기 · 쓰기를 준비하는 학습자",
+     "관용 표현 연습이 필요한 선생님"
+    ]
+   },
+   "toc": [
+    {
+     "en": "Part 1 · Idioms (units 1–10)",
+     "ko": "1부 관용구 (1~10단원)"
+    },
+    {
+     "en": "Part 2 · Proverbs (units 11–20)",
+     "ko": "2부 속담 (11~20단원)"
+    },
+    {
+     "en": "Part 3 · Four-character idioms (units 21–30)",
+     "ko": "3부 사자성어 (21~30단원)"
+    },
+    {
+     "en": "Index",
+     "ko": "찾아보기"
+    },
+    {
+     "en": "Answer key",
+     "ko": "정답"
+    }
+   ],
+   "trim": "B5 (182 × 257 mm)",
+   "pages": "204쪽 (PDF · 속지 기준)",
+   "status": "planned",
+   "price": "9.90",
+   "coverImg": "/assets/books/korean-idioms/cover.jpg"
   }
  ],
  "publisher": {
