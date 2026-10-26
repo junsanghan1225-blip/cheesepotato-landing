@@ -37693,8 +37693,8 @@
  "coverLevel": {
   "code": "TOPIK I",
   "name": "1~2급",
-  "bg": "#12704F",
-  "bg2": "#0B4A33",
+  "bg": "#0E6F8C",
+  "bg2": "#08495E",
   "mascot": [
    "cheese",
    2
@@ -37702,9 +37702,10 @@
   "title": [
    "TOPIK I",
    "필수 단어장",
-   "1,931낱말"
+   ""
   ],
-  "sub": "TOPIK I 필수 낱말 1,931개"
+  "sub": "TOPIK I 필수 낱말 1,931개",
+  "h1": 124
  },
  "reviewer": {
   "ko": "준상",
@@ -37726,5 +37727,9 @@
    "When you teach Korean, you sometimes meet a beauty so deep that it frustrates you because you cannot explain it. I feel blessed to be able to teach that Korean. Today I run everykoreans.com, a website for learning Korean, to spread Korean further, and I am studying at university at the same time."
   ]
  },
- "published": "2026.11.10"
+ "published": "2026.11.10",
+ "innerLevel": {
+  "bg": "#12704F",
+  "bg2": "#0B4A33"
+ }
 }

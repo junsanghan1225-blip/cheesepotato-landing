@@ -969,7 +969,7 @@ const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ell
 .lvc .au{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(50px + var(--b));display:flex;justify-content:space-between;font-size:15px;font-weight:700}.lvc .au small{font-size:11px;letter-spacing:.24em;font-weight:500;color:${LVG[0]}}
 .front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
 const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>KOREAN WORKBOOK SERIES</span><span>한국어 워크북 시리즈</span></div><div class="r1"></div>
-<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1>${esc(LV.title[1])}</h1><div class="c">${esc(LV.title[2])}</div></div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
+<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1${LV.h1 ? ` style="font-size:${LV.h1}px"` : ''}>${esc(LV.title[1])}</h1>${LV.title[2] ? `<div class="c">${esc(LV.title[2])}</div>` : ''}</div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
 <div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
 const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
