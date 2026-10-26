@@ -1038,5 +1038,239 @@
       "kind": "contrast",
       "note": "국내 means domestic or within the country, while 해외 means overseas or abroad. (국내 여행을 가요 / 해외로 유학을 떠나요)"
     }
+  ],
+  "tb-41": [
+    {
+      "words": [
+        "세계",
+        "세상"
+      ],
+      "kind": "synonym",
+      "note": "Both mean the world; 세계 often refers to countries and global society, while 세상 refers to the world and everyday life. (세계 여행을 가요 / 세상에서 제일 좋아요)"
+    },
+    {
+      "words": [
+        "안전",
+        "위험"
+      ],
+      "kind": "contrast",
+      "note": "안전 means safety or security, while 위험 means danger or risk. (안전 벨트를 매요 / 위험하니까 조심하세요)"
+    },
+    {
+      "words": [
+        "마중",
+        "배웅"
+      ],
+      "kind": "contrast",
+      "note": "마중 is going out to meet or welcome an arriving person, while 배웅 is seeing someone off as they leave. (공항에 마중을 나가요 / 친구를 배웅해요)"
+    }
+  ],
+  "tb-42": [
+    {
+      "words": [
+        "뜻",
+        "의미"
+      ],
+      "kind": "synonym",
+      "note": "Both mean the meaning or sense of a word or action. (단어의 뜻을 알아요 / 같은 의미예요)"
+    },
+    {
+      "words": [
+        "간단하다",
+        "복잡하다"
+      ],
+      "kind": "contrast",
+      "note": "간단하다 means simple or easy, while 복잡하다 means complicated or crowded. (설명이 간단해요 / 길이 너무 복잡해요)"
+    },
+    {
+      "words": [
+        "진짜",
+        "가짜"
+      ],
+      "kind": "contrast",
+      "note": "진짜 means real, authentic, or genuine, while 가짜 means fake or counterfeit. (진짜 꽃이에요 / 가짜 보석이에요)"
+    }
+  ],
+  "tb-43": [
+    {
+      "words": [
+        "만약",
+        "만일"
+      ],
+      "kind": "synonym",
+      "note": "Both mean if or supposing, used when imagining an event or possibility. (만약 비가 오면 어떡해요? / 만일의 경우를 대비해요)"
+    },
+    {
+      "words": [
+        "칭찬",
+        "꾸중"
+      ],
+      "kind": "contrast",
+      "note": "칭찬 means praise or compliment, while 꾸중 means scolding or reprimand. (선생님께 칭찬을 받았어요 / 어머니께 꾸중을 들었어요)"
+    },
+    {
+      "words": [
+        "소식",
+        "소식"
+      ],
+      "kind": "homonym",
+      "note": "소식 means news or updates from someone, and also eating small meals or light eating. (친구의 반가운 소식을 들었어요 / 건강을 위해 소식해요)"
+    }
+  ],
+  "tb-44": [
+    {
+      "words": [
+        "부치다",
+        "부치다"
+      ],
+      "kind": "homonym",
+      "note": "부치다 means to send a letter or parcel by post, and also to fry pancakes or food in a pan. (편지를 우체국에서 부쳐요 / 전을 부쳐요)"
+    },
+    {
+      "words": [
+        "항공권",
+        "비행기표"
+      ],
+      "kind": "synonym",
+      "note": "Both mean an airline ticket or flight ticket. (제주도 항공권을 예약해요 / 비행기표를 샀어요)"
+    },
+    {
+      "words": [
+        "여쭙다",
+        "묻다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to ask; 여쭙다 is the honorific polite form used towards elders. (선생님께 질문을 여쭤요 / 길을 물어요)"
+    }
+  ],
+  "tb-45": [
+    {
+      "words": [
+        "입구",
+        "출구"
+      ],
+      "kind": "contrast",
+      "note": "입구 is the entrance where you go in, while 출구 is the exit where you leave. (지하철 입구로 들어가요 / 3번 출구로 나와요)"
+    },
+    {
+      "words": [
+        "도시",
+        "시골"
+      ],
+      "kind": "contrast",
+      "note": "도시 is a big city or urban area, while 시골 is the countryside or rural area. (서울은 큰 도시예요 / 방학에 시골 할머니 댁에 가요)"
+    },
+    {
+      "words": [
+        "동네",
+        "마을"
+      ],
+      "kind": "synonym",
+      "note": "Both mean a village, neighborhood, or small town community. (우리 동네는 조용해요 / 작은 시골 마을에 살아요)"
+    }
+  ],
+  "tb-46": [
+    {
+      "words": [
+        "내려가다",
+        "올라가다"
+      ],
+      "kind": "contrast",
+      "note": "내려가다 means to go down, while 올라가다 means to go up. (계단을 천천히 내려가요 / 산으로 올라가요)"
+    },
+    {
+      "words": [
+        "나타나다",
+        "사라지다"
+      ],
+      "kind": "contrast",
+      "note": "나타나다 means to appear or show up, while 사라지다 means to vanish or disappear. (주인공이 무대에 나타나요 / 안개가 사라져요)"
+    },
+    {
+      "words": [
+        "도로",
+        "길"
+      ],
+      "kind": "synonym",
+      "note": "Both mean a road or street; 도로 usually refers to paved public roads for cars. (도로에 차가 많아요 / 이 길을 따라 걸어요)"
+    }
+  ],
+  "tb-47": [
+    {
+      "words": [
+        "삼거리",
+        "사거리"
+      ],
+      "kind": "contrast",
+      "note": "삼거리 is a three-way intersection with three branches, while 사거리 is a four-way crossroads. (삼거리에서 우회전해요 / 사거리 신호등이 빨간색이에요)"
+    },
+    {
+      "words": [
+        "동쪽",
+        "서쪽"
+      ],
+      "kind": "contrast",
+      "note": "동쪽 means east, while 서쪽 means west. (동쪽에서 해가 떠요 / 해가 서쪽으로 져요)"
+    },
+    {
+      "words": [
+        "해외여행",
+        "국내여행"
+      ],
+      "kind": "contrast",
+      "note": "해외여행 is traveling to foreign countries abroad, while 국내여행 is traveling within one's own country. (여름에 해외여행을 가요 / 주말에 국내여행을 해요)"
+    }
+  ],
+  "tb-48": [
+    {
+      "words": [
+        "열차",
+        "기차"
+      ],
+      "kind": "synonym",
+      "note": "Both refer to a train running on rail tracks; 기차 is the common everyday word. (열차가 곧 출발해요 / 부산행 기차를 타요)"
+    },
+    {
+      "words": [
+        "전철",
+        "지하철"
+      ],
+      "kind": "synonym",
+      "note": "Both refer to the electric subway/rail transit system. (전철을 타고 출근해요 / 지하철 역이 가까워요)"
+    },
+    {
+      "words": [
+        "취직",
+        "퇴직"
+      ],
+      "kind": "contrast",
+      "note": "취직 means getting hired or starting a job, while 퇴직 means leaving or retiring from a job. (회사에 취직했어요 / 아버지께서 올해 퇴직하세요)"
+    }
+  ],
+  "tb-49": [
+    {
+      "words": [
+        "성공",
+        "실패"
+      ],
+      "kind": "contrast",
+      "note": "성공 means success or succeeding in a goal, while 실패 means failure. (시험에 성공했어요 / 실패해도 다시 도전해요)"
+    },
+    {
+      "words": [
+        "출근",
+        "퇴근"
+      ],
+      "kind": "contrast",
+      "note": "출근 is arriving at work in the morning, while 퇴근 is leaving work at the end of the day. (아침 9시에 출근해요 / 저녁 6시에 퇴근해요)"
+    },
+    {
+      "words": [
+        "조심",
+        "주의"
+      ],
+      "kind": "synonym",
+      "note": "Both mean caution, care, or watchfulness; 조심 is everyday language and 주의 is often seen on signs. (차 조심하세요 / 감전 주의 표시가 있어요)"
+    }
   ]
 }
