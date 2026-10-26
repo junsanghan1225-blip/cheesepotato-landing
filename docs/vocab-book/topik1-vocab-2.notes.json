@@ -518,5 +518,265 @@
       "kind": "contrast",
       "note": "Opposites. 행복 means happiness or joy (행복을 느껴요), while 불행 means misfortune or sorrow (불행을 이겨내요)."
     }
+  ],
+  "tb-21": [
+    {
+      "words": [
+        "울음",
+        "웃음"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 울음 means crying or weeping (울음을 터뜨려요), while 웃음 means laughter or a smile (웃음이 나와요)."
+    },
+    {
+      "words": [
+        "시끄럽다",
+        "조용하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 시끄럽다 means noisy or loud (밖이 시끄러워요), while 조용하다 means quiet and calm (방이 조용해요)."
+    },
+    {
+      "words": [
+        "꿈",
+        "꿈"
+      ],
+      "kind": "homonym",
+      "note": "꿈 means a dream while sleeping (어젯밤 꿈을 꿨어요), and also a future goal or wish (선생님이 저의 꿈이에요)."
+    }
+  ],
+  "tb-22": [
+    {
+      "words": [
+        "깎다",
+        "깎다"
+      ],
+      "kind": "homonym",
+      "note": "깎다 means to peel fruit with a knife (사과를 깎아요), and also to discount or bargain a price (값을 깎아 주세요)."
+    },
+    {
+      "words": [
+        "끓다",
+        "끓이다"
+      ],
+      "kind": "contrast",
+      "note": "끓다 is intransitive (물이 끓어요 = the water boils), while 끓이다 is transitive (냄비에 라면을 끓여요 = I boil ramen)."
+    },
+    {
+      "words": [
+        "굽다",
+        "굽다"
+      ],
+      "kind": "homonym",
+      "note": "굽다 means to roast or bake food (고기를 구워요, 빵을 구워요), and also to be curved or bent (허리가 굽었어요)."
+    }
+  ],
+  "tb-23": [
+    {
+      "words": [
+        "계란",
+        "달걀"
+      ],
+      "kind": "synonym",
+      "note": "Both mean chicken egg. 달걀 is native Korean (달걀을 삶아요), while 계란 is Sino-Korean (계란을 풀어요). Both are completely interchangeable."
+    },
+    {
+      "words": [
+        "찌다",
+        "찌다"
+      ],
+      "kind": "homonym",
+      "note": "찌다 means to steam food (만두를 쪄요), to gain body weight (살이 쪘어요), and for summer weather to feel sweltering."
+    },
+    {
+      "words": [
+        "소고기",
+        "돼지고기"
+      ],
+      "kind": "contrast",
+      "note": "소고기 means beef from a cow (소고기 볶음), while 돼지고기 means pork from a pig (돼지고기 김치찌개)."
+    }
+  ],
+  "tb-24": [
+    {
+      "words": [
+        "야채",
+        "채소"
+      ],
+      "kind": "synonym",
+      "note": "Both mean vegetables. 채소 is standard Korean for cultivated greens (신선한 채소), while 야채 is also widely used in daily conversation (야채를 씻어요)."
+    },
+    {
+      "words": [
+        "수저",
+        "숟가락"
+      ],
+      "kind": "contrast",
+      "note": "수저 refers to the combination pair of spoon and chopsticks together (수저를 놓아요), while 숟가락 is just the spoon."
+    },
+    {
+      "words": [
+        "한식",
+        "양식"
+      ],
+      "kind": "contrast",
+      "note": "Opposites in cuisine. 한식 means Korean food (된장찌개와 밥), while 양식 means Western-style meals (스파게티와 샐러드)."
+    }
+  ],
+  "tb-25": [
+    {
+      "words": [
+        "찬물",
+        "더운물"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 찬물 means cold water (찬물을 마셔요), while 더운물 means hot or warm water (더운물로 손을 씻어요)."
+    },
+    {
+      "words": [
+        "녹차",
+        "홍차"
+      ],
+      "kind": "contrast",
+      "note": "녹차 is unfermented green tea (따뜻한 녹차를 마셔요), while 홍차 is fermented black tea (향긋한 홍차)."
+    },
+    {
+      "words": [
+        "치킨",
+        "닭고기"
+      ],
+      "kind": "contrast",
+      "note": "닭고기 refers to raw or cooked chicken meat as an ingredient (닭고기 수프), while 치킨 specifically refers to crispy fried chicken (치킨을 주문해요)."
+    }
+  ],
+  "tb-26": [
+    {
+      "words": [
+        "김",
+        "김"
+      ],
+      "kind": "homonym",
+      "note": "김 means dried edible seaweed sheets (김에 밥을 싸요), and also hot steam rising from soup (김이 모락모락 나요)."
+    },
+    {
+      "words": [
+        "쌀",
+        "밥"
+      ],
+      "kind": "contrast",
+      "note": "쌀 is uncooked raw rice grains before cooking (쌀을 씻어요), while 밥 is cooked edible rice ready to eat (밥을 먹어요)."
+    },
+    {
+      "words": [
+        "설탕",
+        "소금"
+      ],
+      "kind": "contrast",
+      "note": "Opposites in seasoning. 설탕 is sweet sugar (설탕을 넣어요), while 소금 is salty salt (소금으로 간을 맞춰요)."
+    }
+  ],
+  "tb-27": [
+    {
+      "words": [
+        "진하다",
+        "연하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites for drinks or color. 진하다 means strong or dark (진한 커피, 진한 색), while 연하다 means mild or pale (연한 보리차, 연한 색)."
+    },
+    {
+      "words": [
+        "등",
+        "등"
+      ],
+      "kind": "homonym",
+      "note": "등 means the back of a person's body (등이 아파요), an electric light or lamp (가로등), and etc. in lists (사과, 배 등)."
+    },
+    {
+      "words": [
+        "장",
+        "장"
+      ],
+      "kind": "homonym",
+      "note": "장 is the counter for thin flat sheets like paper or tickets (종이 한 장, 표 두 장), and also means a chapter in a book."
+    }
+  ],
+  "tb-28": [
+    {
+      "words": [
+        "붙이다",
+        "부치다"
+      ],
+      "kind": "contrast",
+      "note": "Pronounced identically as [부치다]. 붙이다 means to stick or paste (벽에 사진을 붙여요), while 부치다 means to send a letter by post (편지를 부쳐요)."
+    },
+    {
+      "words": [
+        "켤레",
+        "벌"
+      ],
+      "kind": "contrast",
+      "note": "켤레 is the counter for pairs of shoes or socks (신발 한 켤레), while 벌 is the counter for sets of clothing (옷 두 벌)."
+    },
+    {
+      "words": [
+        "우리",
+        "저희"
+      ],
+      "kind": "contrast",
+      "note": "Both mean we or our. 우리 is standard (우리 학교), while 저희 is the polite humble pronoun used when speaking to elders (저희 가족)."
+    }
+  ],
+  "tb-29": [
+    {
+      "words": [
+        "빨래",
+        "세탁"
+      ],
+      "kind": "synonym",
+      "note": "Both mean laundry. 빨래 is everyday native Korean (빨래를 널어요), while 세탁 is Sino-Korean used in words like 세탁기 (세탁을 해요)."
+    },
+    {
+      "words": [
+        "선풍기",
+        "에어컨"
+      ],
+      "kind": "contrast",
+      "note": "선풍기 is an electric fan with spinning blades (선풍기를 틀어요), while 에어컨 is a refrigeration air conditioner (에어컨을 켜요)."
+    },
+    {
+      "words": [
+        "옷장",
+        "책장"
+      ],
+      "kind": "contrast",
+      "note": "옷장 is a wardrobe for hanging clothes (옷장에 옷을 걸어요), while 책장 is a bookcase for holding books (책장에 책을 꽂아요)."
+    }
+  ],
+  "tb-30": [
+    {
+      "words": [
+        "초",
+        "초"
+      ],
+      "kind": "homonym",
+      "note": "초 means a wax candle (촛불을 켜요), a second of clock time (십 초 동안), and the beginning of a period (학기 초)."
+    },
+    {
+      "words": [
+        "짓다",
+        "짓다"
+      ],
+      "kind": "homonym",
+      "note": "짓다 means to construct a house (집을 지어요), to cook rice (밥을 지어요), to smile (미소를 지어요), or to give a name (이름을 지어요)."
+    },
+    {
+      "words": [
+        "지하",
+        "지상"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 지하 means underground or basement level (지하철, 지하 1층), while 지상 means above ground (지상 주차장)."
+    }
   ]
 }
