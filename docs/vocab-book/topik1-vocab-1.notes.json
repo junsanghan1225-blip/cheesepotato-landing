@@ -518,5 +518,265 @@
       "kind": "synonym",
       "note": "Both mean a meal or cooked rice. 밥 is standard (밥을 먹어요), while 진지 is the respectful honorific word for elders (진지 드셨어요?)."
     }
+  ],
+  "ta-21": [
+    {
+      "words": [
+        "드시다",
+        "잡수시다"
+      ],
+      "kind": "synonym",
+      "note": "Both are polite honorific verbs for 먹다. 드시다 is widely used (맛있게 드세요), while 잡수시다 is an older traditional honorific for elders (할머니께서 진지를 잡수셨어요)."
+    },
+    {
+      "words": [
+        "잔",
+        "컵"
+      ],
+      "kind": "synonym",
+      "note": "Both mean cup. 잔 is used as a counter for cups or glasses of drinks (물 한 잔, 커피 두 잔), while 컵 refers to the cup object itself (종이 컵)."
+    },
+    {
+      "words": [
+        "술",
+        "술"
+      ],
+      "kind": "homonym",
+      "note": "술 means alcoholic beverage (술을 마셔요), and also a spoonful of food (밥 한 술)."
+    }
+  ],
+  "ta-22": [
+    {
+      "words": [
+        "사과",
+        "사과"
+      ],
+      "kind": "homonym",
+      "note": "사과 means the sweet apple fruit (사과를 먹어요) and also an apology (친구에게 사과해요). Same spelling and sound."
+    },
+    {
+      "words": [
+        "주문하다",
+        "시키다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to order food. 시키다 is very common in everyday spoken Korean (피자를 시켜요), while 주문하다 is slightly more formal (메뉴를 주문해요)."
+    },
+    {
+      "words": [
+        "맛있다",
+        "맛없다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 맛있다 means delicious or tasty (불고기가 맛있어요), while 맛없다 means not delicious (음식이 맛없어요)."
+    }
+  ],
+  "ta-23": [
+    {
+      "words": [
+        "짜다",
+        "짜다"
+      ],
+      "kind": "homonym",
+      "note": "짜다 means salty in taste (음식이 짜요), and also means to squeeze out liquid or make a plan (치약을 짜요, 계획을 짜요)."
+    },
+    {
+      "words": [
+        "주다",
+        "드리다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to give. 주다 is standard (친구에게 책을 줘요), while 드리다 is the polite honorific used for elders (선생님께 선물을 드려요)."
+    },
+    {
+      "words": [
+        "가다",
+        "오다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 가다 means to go away (학교에 가요), while 오다 means to come toward the speaker (집에 와요)."
+    }
+  ],
+  "ta-24": [
+    {
+      "words": [
+        "나",
+        "저"
+      ],
+      "kind": "contrast",
+      "note": "Both mean I or me. 나 is casual used with friends (나는 학생이야), while 저 is humble and polite (저는 학생이에요)."
+    },
+    {
+      "words": [
+        "이",
+        "이"
+      ],
+      "kind": "homonym",
+      "note": "이 means this near the speaker (이 책), a tooth in the mouth (이가 아파요), and the Sino-Korean number two."
+    },
+    {
+      "words": [
+        "거기",
+        "저기"
+      ],
+      "kind": "contrast",
+      "note": "거기 refers to a location near the listener (거기 어디예요?), while 저기 refers to a place far from both speaker and listener (저기 건물이 보여요)."
+    }
+  ],
+  "ta-25": [
+    {
+      "words": [
+        "무슨",
+        "어느"
+      ],
+      "kind": "contrast",
+      "note": "무슨 means what or what kind of (무슨 영화를 봐요?), while 어느 means which one among choices (어느 것을 골라요?)."
+    },
+    {
+      "words": [
+        "켜다",
+        "끄다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 켜다 means to turn on a light or machine (불을 켜요), while 끄다 means to turn it off (컴퓨터를 꺼요)."
+    },
+    {
+      "words": [
+        "깨끗하다",
+        "더럽다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 깨끗하다 means clean (방이 깨끗해요), while 더럽다 means dirty (신발이 더러워요)."
+    }
+  ],
+  "ta-26": [
+    {
+      "words": [
+        "집",
+        "댁"
+      ],
+      "kind": "synonym",
+      "note": "Both mean house or home. 집 is standard (우리 집), while 댁 is the honorific noun for an elder's home (선생님 댁)."
+    },
+    {
+      "words": [
+        "넓다",
+        "좁다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 넓다 means spacious or wide (방이 넓어요), while 좁다 means cramped or narrow (길이 좁아요)."
+    },
+    {
+      "words": [
+        "식탁",
+        "밥상"
+      ],
+      "kind": "synonym",
+      "note": "Both mean dining table. 밥상 is a traditional low dining table (밥상을 차려요), while 식탁 is a modern dining table with chairs (식탁에 앉아요)."
+    }
+  ],
+  "ta-27": [
+    {
+      "words": [
+        "열다",
+        "닫다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 열다 means to open (문을 열어요), while 닫다 means to close (창문을 닫아요)."
+    },
+    {
+      "words": [
+        "듣다",
+        "듣다"
+      ],
+      "kind": "homonym",
+      "note": "듣다 means to hear or listen (음악을 들어요), and also means medicine is effective (약이 잘 들어요)."
+    },
+    {
+      "words": [
+        "그림",
+        "사진"
+      ],
+      "kind": "contrast",
+      "note": "그림 is a drawn or painted artwork (그림을 그려요), while 사진 is a photograph taken with a camera (사진을 찍어요)."
+    }
+  ],
+  "ta-28": [
+    {
+      "words": [
+        "부르다",
+        "부르다"
+      ],
+      "kind": "homonym",
+      "note": "부르다 means to sing or call (노래를 불러요, 택시를 불러요), and also to feel full after eating (배가 불러요)."
+    },
+    {
+      "words": [
+        "찍다",
+        "찍다"
+      ],
+      "kind": "homonym",
+      "note": "찍다 means to take a photo (사진을 찍어요), and also to dip food into sauce (소스를 찍어 먹어요)."
+    },
+    {
+      "words": [
+        "극장",
+        "영화관"
+      ],
+      "kind": "synonym",
+      "note": "Both mean cinema or theater. 극장 also includes live performance stages (극장에서 연극을 봐요), while 영화관 specifically shows movies (영화관에 가요)."
+    }
+  ],
+  "ta-29": [
+    {
+      "words": [
+        "치다",
+        "치다"
+      ],
+      "kind": "homonym",
+      "note": "치다 means to play ball sports with a racket (탁구를 쳐요, 테니스를 쳐요), and also to play piano or clap hands (피아노를 쳐요)."
+    },
+    {
+      "words": [
+        "개",
+        "개"
+      ],
+      "kind": "homonym",
+      "note": "개 means a dog pet (귀여운 개), and also the general counter for everyday items (사과 세 개)."
+    },
+    {
+      "words": [
+        "등산",
+        "산책"
+      ],
+      "kind": "contrast",
+      "note": "등산 is mountain hiking (주말에 등산을 가요), while 산책 is a gentle walk on level ground (공원에서 산책해요)."
+    }
+  ],
+  "ta-30": [
+    {
+      "words": [
+        "이름",
+        "성함"
+      ],
+      "kind": "synonym",
+      "note": "Both mean name. 이름 is standard (이름이 뭐예요?), while 성함 is the respectful honorific word for elders (성함이 어떻게 되세요?)."
+    },
+    {
+      "words": [
+        "사람",
+        "분"
+      ],
+      "kind": "synonym",
+      "note": "Both mean person. 사람 is standard (좋은 사람), while 분 is the polite honorific noun and counter (감사한 분, 손님 두 분)."
+    },
+    {
+      "words": [
+        "불",
+        "불"
+      ],
+      "kind": "homonym",
+      "note": "불 means fire (불이 뜨거워요), electric room light (불을 켜요), and also dollars in currency (십 불)."
+    }
   ]
 }
