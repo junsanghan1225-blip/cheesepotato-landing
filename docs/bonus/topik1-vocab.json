@@ -97,7 +97,7 @@
       "mouth"
      ],
      "a": 1,
-     "why": "건강 means health. 건강을 유지하기 위해 꾸준히 유산소 운동을 해요. (To maintain health, I consistently do aerobic exercise.)"
+     "why": "건강 means health. 건강을 위해 매일 아침 운동을 해요. (I exercise every morning for my health.)"
     },
     {
      "q": "Which Korean word means \"disease\"?",
@@ -272,7 +272,7 @@
     },
     {
      "ko": "조용하다",
-     "en": "to quiet (adjective)"
+     "en": "to be quiet; quiet (adjective)"
     },
     {
      "ko": "좋아지다",
@@ -331,7 +331,7 @@
     {
      "q": "What does 끝나다 mean?",
      "opts": [
-      "to quiet",
+      "to be quiet",
       "to end",
       "a cold (illness)",
       "same"
@@ -408,7 +408,7 @@
     },
     {
      "ko": "정말",
-     "en": "really; truly (noun)"
+     "en": "really; truly (adverb)"
     },
     {
      "ko": "잘",
@@ -428,7 +428,7 @@
     },
     {
      "ko": "조금",
-     "en": "a little (noun)"
+     "en": "a little (adverb)"
     },
     {
      "ko": "많다",
@@ -444,7 +444,7 @@
     },
     {
      "ko": "잘하다",
-     "en": "do a right thing; do right (verb)"
+     "en": "to do well; to be good at (verb)"
     },
     {
      "ko": "다시",
@@ -460,7 +460,7 @@
     },
     {
      "ko": "가장",
-     "en": "head of a household (noun)"
+     "en": "most; best (adverb)"
     },
     {
      "ko": "가볍다",
@@ -472,7 +472,7 @@
     },
     {
      "ko": "길다",
-     "en": "to be long (verb)"
+     "en": "to be long (adjective)"
     },
     {
      "ko": "천천히",
@@ -486,7 +486,7 @@
       "all",
       "different",
       "more",
-      "do a right thing"
+      "to do well"
      ],
      "a": 1,
      "why": "다른 means different; other. 이것 말고 다른 책을 읽어요. (I read another book besides this one.)"
@@ -536,7 +536,7 @@
      "why": "다시 means again. 틀린 문제를 복습하기 위해 단어를 다시 외워요. (To review wrong problems, I memorize the words again.)"
     },
     {
-     "q": "Which Korean word means \"head of a household\"?",
+     "q": "Which Korean word means \"most\"?",
      "opts": [
       "다",
       "더",
@@ -544,7 +544,7 @@
       "잘하다"
      ],
      "a": 2,
-     "why": "가장 means head of a household. 사계절 중에서 알록달록한 가을이 저는 가장 좋아요. (Among the four seasons, I like colorful autumn the best.)"
+     "why": "가장 means most; best. 사계절 중에서 알록달록한 가을이 저는 가장 좋아요. (Among the four seasons, I like colorful autumn the best.)"
     }
    ],
    "fill": [
@@ -616,7 +616,7 @@
     },
     {
      "ko": "적다",
-     "en": "to be few; to be little (verb)"
+     "en": "to be few; to be little (adjective)"
     },
     {
      "ko": "제일",
@@ -644,23 +644,23 @@
     },
     {
      "ko": "만",
-     "en": "ten thousand; only (noun)"
+     "en": "ten thousand; 10,000 (noun)"
     },
     {
      "ko": "몇",
-     "en": "some; several (numeral)"
+     "en": "how many; some; several (numeral)"
     },
     {
      "ko": "천",
-     "en": "cloth; fabric (numeral)"
+     "en": "thousand; 1,000 (numeral)"
     },
     {
      "ko": "가지",
-     "en": "branch; sprig; bough; twig (bound noun)"
+     "en": "kind; sort; type (bound noun)"
     },
     {
      "ko": "사",
-     "en": "(from 사다) to buy (noun)"
+     "en": "four; 4 (numeral)"
     },
     {
      "ko": "번",
@@ -702,7 +702,7 @@
      "q": "What does 제일 mean?",
      "opts": [
       "two",
-      "cloth",
+      "thousand",
       "to be few",
       "most"
      ],
@@ -729,10 +729,10 @@
       "to be special"
      ],
      "a": 1,
-     "why": "만 means ten thousand; only. 이 신발의 가격은 오만 원이에요. (The price of these shoes is fifty thousand won.)"
+     "why": "만 means ten thousand; 10,000. 이 신발의 가격은 오만 원이에요. (The price of these shoes is fifty thousand won.)"
     },
     {
-     "q": "Which Korean word means \"branch\"?",
+     "q": "Which Korean word means \"kind\"?",
      "opts": [
       "넉넉히",
       "제일",
@@ -740,7 +740,7 @@
       "네"
      ],
      "a": 2,
-     "why": "가지 means branch; sprig; bough; twig. 시장에는 여러 가지 신선한 과일들이 진열되어 있어요. (Various kinds of fresh fruits are displayed at the market.)"
+     "why": "가지 means kind; sort; type. 시장에는 여러 가지 신선한 과일들이 진열되어 있어요. (Various kinds of fresh fruits are displayed at the market.)"
     }
    ],
    "fill": [
@@ -792,7 +792,7 @@
    "cards": [
     {
      "ko": "삼",
-     "en": "ginseng (noun)"
+     "en": "three; 3 (numeral)"
     },
     {
      "ko": "셋",
@@ -800,7 +800,7 @@
     },
     {
      "ko": "약",
-     "en": "medicine; drug (determiner)"
+     "en": "medicine; drug (noun)"
     },
     {
      "ko": "일곱",
@@ -864,7 +864,7 @@
     },
     {
      "ko": "칠",
-     "en": "lacquering (noun)"
+     "en": "seven; 7 (numeral)"
     },
     {
      "ko": "구십",
@@ -875,13 +875,13 @@
     {
      "q": "What does 삼 mean?",
      "opts": [
+      "medicine",
       "three",
-      "ginseng",
-      "thirty",
-      "five"
+      "many",
+      "twenty"
      ],
      "a": 1,
-     "why": "삼 means ginseng. 한국에서 생활한 지 올해로 벌써 삼 년이 되었어요. (It has already been three years this year since I lived in Korea.)"
+     "why": "삼 means three; 3. 한국에서 생활한 지 올해로 벌써 삼 년이 되었어요. (It has already been three years this year since I lived in Korea.)"
     },
     {
      "q": "Which Korean word means \"seven\"?",
@@ -899,7 +899,7 @@
      "opts": [
       "nine",
       "six",
-      "ginseng",
+      "three",
       "thirty"
      ],
      "a": 3,
@@ -911,7 +911,7 @@
       "아홉",
       "여덟",
       "칠",
-      "일곱"
+      "넷"
      ],
      "a": 0,
      "why": "아홉 means nine; 9. 사과가 바구니에 아홉 개 있어요. (There are nine apples in the basket.)"
@@ -948,20 +948,6 @@
      ]
     },
     {
-     "q": "\"ginseng\" in Korean: ___",
-     "en": "ginseng",
-     "a": [
-      "삼"
-     ]
-    },
-    {
-     "q": "\"three\" in Korean: ___",
-     "en": "three",
-     "a": [
-      "셋"
-     ]
-    },
-    {
      "q": "\"medicine\" in Korean: ___",
      "en": "medicine; drug",
      "a": [
@@ -969,17 +955,31 @@
      ]
     },
     {
-     "q": "\"seven\" in Korean: ___",
-     "en": "seven",
-     "a": [
-      "일곱"
-     ]
-    },
-    {
      "q": "\"ten\" in Korean: ___",
      "en": "ten",
      "a": [
       "십"
+     ]
+    },
+    {
+     "q": "\"half\" in Korean: ___",
+     "en": "half",
+     "a": [
+      "반"
+     ]
+    },
+    {
+     "q": "\"many\" in Korean: ___",
+     "en": "many; several",
+     "a": [
+      "여러"
+     ]
+    },
+    {
+     "q": "\"nine\" in Korean: ___",
+     "en": "nine; 9",
+     "a": [
+      "아홉"
      ]
     }
    ]
@@ -1024,7 +1024,7 @@
     },
     {
      "ko": "억",
-     "en": "ah; argh; eek (interjection)"
+     "en": "hundred million; 100,000,000 (numeral)"
     },
     {
      "ko": "여든",
@@ -1032,11 +1032,11 @@
     },
     {
      "ko": "열",
-     "en": "heat; fever (numeral)"
+     "en": "ten; 10 (numeral)"
     },
     {
      "ko": "영",
-     "en": "not in the least (adverb)"
+     "en": "zero; 0 (numeral)"
     },
     {
      "ko": "오",
@@ -1074,7 +1074,7 @@
       "hundred",
       "forty",
       "one hundred thousand",
-      "not in the least"
+      "zero"
      ],
      "a": 1,
      "why": "마흔 means forty; 40. 마흔 명의 관객이 모였어요. (Forty audience members gathered.)"
@@ -1093,7 +1093,7 @@
     {
      "q": "What does 스물 mean?",
      "opts": [
-      "ah",
+      "hundred million",
       "sixty",
       "inside",
       "twenty"
@@ -1102,7 +1102,7 @@
      "why": "스물 means twenty; 20. 스물부터 서른까지 숫자를 세어요. (I count numbers from twenty to thirty.)"
     },
     {
-     "q": "Which Korean word means \"ah\"?",
+     "q": "Which Korean word means \"hundred million\"?",
      "opts": [
       "억",
       "오",
@@ -1110,18 +1110,18 @@
       "번호"
      ],
      "a": 0,
-     "why": "억 means ah; argh; eek. 복권에 당첨되어 십억을 받았어요. (I won the lottery and received one billion won.)"
+     "why": "억 means hundred million; 100,000,000. 복권에 당첨되어 십억을 받았어요. (I won the lottery and received one billion won.)"
     },
     {
      "q": "What does 영 mean?",
      "opts": [
       "seventy",
-      "not in the least",
+      "zero",
       "million",
       "one hundred thousand"
      ],
      "a": 1,
-     "why": "영 means not in the least. 축구 경기 점수가 이 대 영이에요. (The soccer match score is two to zero.)"
+     "why": "영 means zero; 0. 축구 경기 점수가 이 대 영이에요. (The soccer match score is two to zero.)"
     },
     {
      "q": "Which Korean word means \"seventy\"?",
@@ -1220,7 +1220,7 @@
     },
     {
      "ko": "멀다",
-     "en": "to be far (verb)"
+     "en": "to be far (adjective)"
     },
     {
      "ko": "옆",
@@ -1240,7 +1240,7 @@
     },
     {
      "ko": "종류별",
-     "en": "category (noun)"
+     "en": "by category; by type (noun)"
     },
     {
      "ko": "선물하다",
@@ -1290,7 +1290,7 @@
      "q": "What does 근처 mean?",
      "opts": [
       "to be far",
-      "category",
+      "by category",
       "clothes",
       "nearby"
      ],
@@ -1380,11 +1380,11 @@
    "cards": [
     {
      "ko": "입다",
-     "en": "to wear; to put on (verb)"
+     "en": "to wear (clothes) (verb)"
     },
     {
      "ko": "신다",
-     "en": "to put on; to wear (verb)"
+     "en": "to put on (shoes) (verb)"
     },
     {
      "ko": "신발",
@@ -1420,7 +1420,7 @@
     },
     {
      "ko": "구두",
-     "en": "shoes; dress shoes (noun)"
+     "en": "dress shoes (noun)"
     },
     {
      "ko": "운동화",
@@ -1463,13 +1463,13 @@
     {
      "q": "What does 입다 mean?",
      "opts": [
-      "to put on",
-      "to wear",
+      "to put on (shoes)",
+      "to wear (clothes)",
       "indoor shoes",
       "sneakers"
      ],
      "a": 1,
-     "why": "입다 means to wear; to put on. 날씨가 쌀쌀하니까 따뜻한 외투를 입어요. (Because the weather is chilly, I wear a warm coat.)"
+     "why": "입다 means to wear (clothes). 날씨가 쌀쌀하니까 따뜻한 외투를 입어요. (Because the weather is chilly, I wear a warm coat.)"
     },
     {
      "q": "Which Korean word means \"bag\"?",
@@ -1550,24 +1550,24 @@
      ]
     },
     {
-     "q": "\"to wear\" in Korean: ___",
-     "en": "to wear; to put on",
+     "q": "\"to wear (clothes)\" in Korean: ___",
+     "en": "to wear (clothes)",
      "a": [
       "입다"
      ]
     },
     {
-     "q": "\"to put on\" in Korean: ___",
-     "en": "to put on; to wear",
+     "q": "\"to put on (shoes)\" in Korean: ___",
+     "en": "to put on (shoes)",
      "a": [
       "신다"
      ]
     },
     {
-     "q": "\"bag\" in Korean: ___",
-     "en": "bag",
+     "q": "\"shoes\" in Korean: ___",
+     "en": "shoes",
      "a": [
-      "가방"
+      "신발"
      ]
     }
    ]
@@ -1580,7 +1580,7 @@
     },
     {
      "ko": "들다",
-     "en": "to enter; to hold (verb)"
+     "en": "to lift; to hold; to enter (verb)"
     },
     {
      "ko": "바쁘다",
@@ -1659,7 +1659,7 @@
     {
      "q": "What does 앉다 mean?",
      "opts": [
-      "to enter",
+      "to lift",
       "to sit",
       "to sleep",
       "to attend"
@@ -1746,8 +1746,8 @@
      ]
     },
     {
-     "q": "\"to enter\" in Korean: ___",
-     "en": "to enter; to hold",
+     "q": "\"to lift\" in Korean: ___",
+     "en": "to lift; to hold; to enter",
      "a": [
       "들다"
      ]
@@ -1816,7 +1816,7 @@
     },
     {
      "ko": "지내다",
-     "en": "live (verb)"
+     "en": "to get along; to spend time; to live (verb)"
     },
     {
      "ko": "배달하다",
@@ -1858,7 +1858,7 @@
       "appointment",
       "go and come back",
       "post office",
-      "live"
+      "to get along"
      ],
      "a": 1,
      "why": "다녀오다 means go and come back. 오전 아홉 시에 학교에 다녀와서 집에서 점심을 먹어요. (I go to school at 9 a.m. and return home to eat lunch.)"
@@ -1984,7 +1984,7 @@
     },
     {
      "ko": "계속",
-     "en": "continuously; keep (noun)"
+     "en": "continuously; keep (adverb)"
     },
     {
      "ko": "목욕탕",
@@ -2172,7 +2172,7 @@
     },
     {
      "ko": "싸다",
-     "en": "to be cheap; to pack (verb)"
+     "en": "to be cheap; to wrap (pack) (adjective)"
     },
     {
      "ko": "물건",
@@ -2208,7 +2208,7 @@
     },
     {
      "ko": "쿠폰",
-     "en": "prepaid ticket; voucher (noun)"
+     "en": "coupon; voucher (noun)"
     },
     {
      "ko": "영업시간",
@@ -2220,7 +2220,7 @@
     },
     {
      "ko": "장보기",
-     "en": "shopping (noun)"
+     "en": "grocery shopping (noun)"
     },
     {
      "ko": "백화점",
@@ -2250,7 +2250,7 @@
       "convenience store",
       "shop",
       "to sell",
-      "prepaid ticket"
+      "coupon"
      ],
      "a": 1,
      "why": "가게 means shop; store. 집 앞 작은 과일 가게에서 달콤한 딸기를 샀어요. (I bought sweet strawberries at the small fruit shop in front of my house.)"
@@ -2270,7 +2270,7 @@
      "q": "What does 팔다 mean?",
      "opts": [
       "to choose",
-      "shopping",
+      "grocery shopping",
       "today",
       "to sell"
      ],
@@ -2313,8 +2313,8 @@
    ],
    "fill": [
     {
-     "q": "이 옷은 디자인도 예쁘고 ___도 아주 착해요.",
-     "en": "This clothing has a pretty design and the price is also very good.",
+     "q": "이 옷은 디자인도 예쁘고 ___도 아주 싸요.",
+     "en": "This clothing has a pretty design and the price is also very cheap.",
      "a": [
       "가격"
      ]
@@ -2349,7 +2349,7 @@
     },
     {
      "q": "\"to be cheap\" in Korean: ___",
-     "en": "to be cheap; to pack",
+     "en": "to be cheap; to wrap (pack)",
      "a": [
       "싸다"
      ]
@@ -2392,7 +2392,7 @@
     },
     {
      "ko": "후",
-     "en": "after; later (adverb)"
+     "en": "after; later (noun)"
     },
     {
      "ko": "전",
@@ -2509,13 +2509,6 @@
    ],
    "fill": [
     {
-     "q": "이번 ___에는 집에서 푹 쉬고 싶어요.",
-     "en": "This weekend, I want to rest soundly at home.",
-     "a": [
-      "주말"
-     ]
-    },
-    {
      "q": "상쾌한 ___ 공기를 마시며 산책해요.",
      "en": "I take a walk while breathing the fresh morning air.",
      "a": [
@@ -2527,6 +2520,13 @@
      "en": "Next weekend, I go on a trip to Jeju Island with friends.",
      "a": [
       "다음"
+     ]
+    },
+    {
+     "q": "친구와 식당에서 맛있는 ___을 먹었어요.",
+     "en": "I ate delicious lunch with a friend at a restaurant.",
+     "a": [
+      "점심"
      ]
     },
     {
@@ -2568,11 +2568,11 @@
     },
     {
      "ko": "먼저",
-     "en": "first; beforehand (noun)"
+     "en": "first; beforehand (adverb)"
     },
     {
      "ko": "만날",
-     "en": "every day (noun)"
+     "en": "every day (adverb)"
     },
     {
      "ko": "밤",
@@ -2792,7 +2792,7 @@
     },
     {
      "ko": "보통",
-     "en": "being ordinary; being average (noun)"
+     "en": "usually; normally; ordinary (adverb)"
     },
     {
      "ko": "수요일",
@@ -2812,7 +2812,7 @@
     },
     {
      "ko": "며칠",
-     "en": "date (noun)"
+     "en": "a few days; what date (noun)"
     },
     {
      "ko": "시작",
@@ -2888,15 +2888,15 @@
      "why": "밤늦게 means late at night. 밤늦게 전화하면 실례예요. (It is rude to call late at night.)"
     },
     {
-     "q": "Which Korean word means \"date\"?",
+     "q": "Which Korean word means \"a few days\"?",
      "opts": [
-      "년",
-      "올해",
+      "기간",
+      "목요일",
       "며칠",
-      "지난"
+      "수요일"
      ],
      "a": 2,
-     "why": "며칠 means date. 오늘이 몇 월 며칠이에요? (What is the date today?)"
+     "why": "며칠 means a few days; what date. 오늘이 몇 월 며칠이에요? (What is the date today?)"
     }
    ],
    "fill": [
@@ -2922,6 +2922,13 @@
      ]
     },
     {
+     "q": "\"date\" in Korean: ___",
+     "en": "date",
+     "a": [
+      "날짜"
+     ]
+    },
+    {
      "q": "\"period\" in Korean: ___",
      "en": "period; term",
      "a": [
@@ -2933,13 +2940,6 @@
      "en": "still; yet",
      "a": [
       "아직"
-     ]
-    },
-    {
-     "q": "\"year(s)\" in Korean: ___",
-     "en": "year(s)",
-     "a": [
-      "년"
      ]
     }
    ]
@@ -2956,7 +2956,7 @@
     },
     {
      "ko": "잠깐",
-     "en": "while; moment (noun)"
+     "en": "for a moment; a short while (adverb)"
     },
     {
      "ko": "오랜만에",
@@ -2980,7 +2980,7 @@
     },
     {
      "ko": "그저께",
-     "en": "day before yesterday (adverb)"
+     "en": "day before yesterday (noun)"
     },
     {
      "ko": "모레",
@@ -3077,7 +3077,7 @@
      "opts": [
       "January",
       "December",
-      "while",
+      "for a moment",
       "September"
      ],
      "a": 1,
@@ -3132,8 +3132,8 @@
      ]
     },
     {
-     "q": "\"while\" in Korean: ___",
-     "en": "while; moment",
+     "q": "\"for a moment\" in Korean: ___",
+     "en": "for a moment; a short while",
      "a": [
       "잠깐"
      ]
@@ -3220,7 +3220,7 @@
     },
     {
      "ko": "흐리다",
-     "en": "be cloudy (weather); blur; adulterate (verb)"
+     "en": "to be cloudy; to be blurry (adjective)"
     }
    ],
    "quiz": [
@@ -3251,7 +3251,7 @@
      "opts": [
       "to be hot (weather)",
       "blow",
-      "be cloudy (weather)",
+      "to be cloudy",
       "to be warm"
      ],
      "a": 3,
@@ -3348,7 +3348,7 @@
     },
     {
      "ko": "꼭",
-     "en": "firmly; tightly (adverb)"
+     "en": "surely; without fail; tightly (adverb)"
     },
     {
      "ko": "중요하다",
@@ -3384,7 +3384,7 @@
     },
     {
      "ko": "좋아하다",
-     "en": "to like; to fond of (verb)"
+     "en": "to like; to be fond of (verb)"
     },
     {
      "ko": "마음",
@@ -3469,7 +3469,7 @@
      "opts": [
       "to be okay",
       "mind",
-      "firmly",
+      "surely",
       "pardon"
      ],
      "a": 1,
@@ -3503,8 +3503,8 @@
      ]
     },
     {
-     "q": "\"firmly\" in Korean: ___",
-     "en": "firmly; tightly",
+     "q": "\"surely\" in Korean: ___",
+     "en": "surely; without fail; tightly",
      "a": [
       "꼭"
      ]
@@ -3564,7 +3564,7 @@
     },
     {
      "ko": "고민하다",
-     "en": "agonize; writhe (verb)"
+     "en": "to worry; to ponder; to agonize (verb)"
     },
     {
      "ko": "긴장하다",
@@ -3592,7 +3592,7 @@
     },
     {
      "ko": "싫다",
-     "en": "disgusting; distasteful; having no taste for (adjective)"
+     "en": "to dislike; not to like (adjective)"
     },
     {
      "ko": "재미없다",
@@ -3608,7 +3608,7 @@
     },
     {
      "ko": "요리",
-     "en": "cooking; a dish (adverb)"
+     "en": "cooking; a dish (noun)"
     },
     {
      "ko": "그릇",
@@ -3666,7 +3666,7 @@
       "to cook",
       "being sorry",
       "to be uncomfortable",
-      "agonize"
+      "to worry"
      ],
      "a": 1,
      "why": "미안 means being sorry. 기다리게 해서 정말 미안해요. (I am really sorry to have kept you waiting.)"
@@ -3720,8 +3720,8 @@
      ]
     },
     {
-     "q": "\"agonize\" in Korean: ___",
-     "en": "agonize; writhe",
+     "q": "\"to worry\" in Korean: ___",
+     "en": "to worry; to ponder; to agonize",
      "a": [
       "고민하다"
      ]
