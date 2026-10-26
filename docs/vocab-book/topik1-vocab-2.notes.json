@@ -258,5 +258,265 @@
       "kind": "contrast",
       "note": "목걸이 is a necklace worn around the neck (예쁜 목걸이), while 귀걸이 is an earring worn on ears (귀걸이를 해요)."
     }
+  ],
+  "tb-11": [
+    {
+      "words": [
+        "반바지",
+        "긴바지"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 반바지 means shorts (여름에 반바지를 입어요), while 긴바지 means trousers or long pants (긴바지를 입어요)."
+    },
+    {
+      "words": [
+        "현금",
+        "카드"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 현금 means cash paper or coins (현금으로 내요), while 카드는 means a credit or bank card (카드로 결제해요)."
+    },
+    {
+      "words": [
+        "동전",
+        "지폐"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 동전 means metal coins (백 원짜리 동전), while 지폐 means paper bills (만 원짜리 지폐)."
+    }
+  ],
+  "tb-12": [
+    {
+      "words": [
+        "공짜",
+        "무료"
+      ],
+      "kind": "synonym",
+      "note": "Both mean free of charge. 공짜 is everyday colloquial Korean (공짜로 얻었어요), while 무료 is formal Sino-Korean (무료 입장)."
+    },
+    {
+      "words": [
+        "서다",
+        "앉다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 서다 means to stand up (자리에 서 있어요), while 앉다 means to sit down (의자에 앉아요)."
+    },
+    {
+      "words": [
+        "잊다",
+        "기억하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 잊다 means to forget (약속을 잊었어요), while 기억하다 means to remember (이름을 기억해요)."
+    }
+  ],
+  "tb-13": [
+    {
+      "words": [
+        "감다",
+        "감다"
+      ],
+      "kind": "homonym",
+      "note": "감다 means to close one's eyes (눈을 감아요), to wash one's hair (머리를 감아요), and to wind rope or bandages."
+    },
+    {
+      "words": [
+        "풀다",
+        "묶다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 묶다 means to tie or knot (신발 끈을 묶어요), while 풀다 means to untie or solve (끈을 풀어요, 문제를 풀어요)."
+    },
+    {
+      "words": [
+        "잃어버리다",
+        "찾다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 잃어버리다 means to lose an item (지갑을 잃어버렸어요), while 찾다 means to find it (지갑을 찾았어요)."
+    }
+  ],
+  "tb-14": [
+    {
+      "words": [
+        "밀다",
+        "당기다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites on doors. 밀다 means to push forward (문을 밀어요), while 당기다 means to pull backward (문을 당겨요)."
+    },
+    {
+      "words": [
+        "뜨다",
+        "뜨다"
+      ],
+      "kind": "homonym",
+      "note": "뜨다 means to open eyes (눈을 떠요), to float on water (배가 떠요), and for the sun or moon to rise (해가 떠요)."
+    },
+    {
+      "words": [
+        "꺼내다",
+        "넣다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 넣다 means to put inside (가방에 책을 넣어요), while 꺼내다 means to pull out (가방에서 책을 꺼내요)."
+    }
+  ],
+  "tb-15": [
+    {
+      "words": [
+        "줍다",
+        "버리다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 줍다 means to pick up from the floor (쓰레기를 주워요), while 버리다 means to throw away (쓰레기를 버려요)."
+    },
+    {
+      "words": [
+        "접다",
+        "펴다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 펴다 means to unfold or open (우산을 펴요, 책을 펴요), while 접다 means to fold up (우산을 접어요)."
+    },
+    {
+      "words": [
+        "틀다",
+        "끄다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 틀다 means to turn on water or an appliance (물을 틀어요, 라디오를 틀어요), while 끄다 means to turn it off."
+    }
+  ],
+  "tb-16": [
+    {
+      "words": [
+        "평일",
+        "주말"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 평일 means weekdays Monday to Friday (평일에 출근해요), while 주말 means the weekend Saturday and Sunday (주말에 쉬어요)."
+    },
+    {
+      "words": [
+        "과거",
+        "현재"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 과거 means the past (과거의 추억), while 현재 means the present time (현재 살고 있는 집)."
+    },
+    {
+      "words": [
+        "곧",
+        "방금"
+      ],
+      "kind": "contrast",
+      "note": "곧 means soon in the coming moments (기차가 곧 와요), while 방금 means just a moment ago in the past (방금 도착했어요)."
+    }
+  ],
+  "tb-17": [
+    {
+      "words": [
+        "자주",
+        "가끔"
+      ],
+      "kind": "contrast",
+      "note": "자주 means often or frequently (자주 만나요), while 가끔 means sometimes or occasionally (가끔 영화를 봐요)."
+    },
+    {
+      "words": [
+        "이틀",
+        "사흘"
+      ],
+      "kind": "contrast",
+      "note": "Korean day counters. 이틀 means two days (이틀 동안), while 사흘 means three days (사흘 동안; not four days!)."
+    },
+    {
+      "words": [
+        "첫",
+        "마지막"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 첫 means the very first placed before a noun (첫 만남), while 마지막 means the final or last (마지막 수업)."
+    }
+  ],
+  "tb-18": [
+    {
+      "words": [
+        "연초",
+        "연말"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 연초 means the start of the year (연초 계획), while 연말 means the close of the year (연말 파티)."
+    },
+    {
+      "words": [
+        "이전",
+        "이후"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 이전 means before or earlier than a set time (오후 세 시 이전), while 이후 means after that time (세 시 이후)."
+    },
+    {
+      "words": [
+        "새벽",
+        "밤"
+      ],
+      "kind": "contrast",
+      "note": "밤 means nighttime while it is dark (밤 10시), while 새벽 means dawn or the quiet hours before sunrise (새벽 5시)."
+    }
+  ],
+  "tb-19": [
+    {
+      "words": [
+        "영상",
+        "영하"
+      ],
+      "kind": "contrast",
+      "note": "Opposites for temperature. 영상 means above freezing zero degrees (영상 15도), while 영하 means sub-zero (영하 8도)."
+    },
+    {
+      "words": [
+        "얼다",
+        "녹다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 얼다 means to freeze into ice (물이 얼어요), while 녹다 means to melt or thaw (얼음이 녹아요)."
+    },
+    {
+      "words": [
+        "익숙하다",
+        "낯설다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 익숙하다 means familiar or used to something (길이 익숙해요), while 낯설다 means unfamiliar (낯선 동네)."
+    }
+  ],
+  "tb-20": [
+    {
+      "words": [
+        "심심하다",
+        "지루하다"
+      ],
+      "kind": "contrast",
+      "note": "심심하다 means feeling bored with nothing to do (할 일이 없어서 심심해요), while 지루하다 means tedious from taking too long (수업이 지루해요)."
+    },
+    {
+      "words": [
+        "화",
+        "화"
+      ],
+      "kind": "homonym",
+      "note": "화 means anger or fury (화가 나요, 화를 내요), and also fire or disaster (화재)."
+    },
+    {
+      "words": [
+        "행복",
+        "불행"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 행복 means happiness or joy (행복을 느껴요), while 불행 means misfortune or sorrow (불행을 이겨내요)."
+    }
   ]
 }
