@@ -1038,5 +1038,213 @@
       "kind": "synonym",
       "note": "Both mean place. 곳 is native Korean (조용한 곳), while 장소 is formal Sino-Korean (약속 장소)."
     }
+  ],
+  "ta-41": [
+    {
+      "words": [
+        "출발하다",
+        "도착하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 출발하다 means to depart (기차가 출발해요), while 도착하다 means to arrive (서울역에 도착했어요)."
+    },
+    {
+      "words": [
+        "올라가다",
+        "내려가다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 올라가다 means to go up (계단으로 올라가요), while 내려가다 means to go down (아래로 내려가요)."
+    },
+    {
+      "words": [
+        "표",
+        "표"
+      ],
+      "kind": "homonym",
+      "note": "표 means an admission or travel ticket (비행기 표를 사요), and also a chart or table (시간표를 봐요)."
+    }
+  ],
+  "ta-42": [
+    {
+      "words": [
+        "타다",
+        "내리다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 타다 means to get on or ride a vehicle (버스를 타요), while 내리다 means to get off (정류장에서 내려요)."
+    },
+    {
+      "words": [
+        "보다",
+        "구경하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to look or see. 보다 is general (영화를 봐요), while 구경하다 specifically means to sightsee or browse around (시장을 구경해요)."
+    },
+    {
+      "words": [
+        "예약하다",
+        "예매하다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to reserve. 예약하다 is used for hotel rooms or restaurants (호텔을 예약해요), while 예매하다 is buying tickets in advance (기차표를 예매해요)."
+    }
+  ],
+  "ta-43": [
+    {
+      "words": [
+        "출근하다",
+        "퇴근하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 출근하다 means to go to work in the morning (회사에 출근해요), while 퇴근하다 means to leave work (저녁에 퇴근해요)."
+    },
+    {
+      "words": [
+        "일",
+        "일"
+      ],
+      "kind": "homonym",
+      "note": "일 means work or a task (일을 해요), a calendar day (오늘 며칠이에요?), and the Sino-Korean number one."
+    },
+    {
+      "words": [
+        "역",
+        "역"
+      ],
+      "kind": "homonym",
+      "note": "역 means a train or subway station (서울역에 가요), and also an acting role in drama (주인공 역)."
+    }
+  ],
+  "ta-44": [
+    {
+      "words": [
+        "벗다",
+        "입다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 입다 (or 신다/쓰다) means to put on clothes, while 벗다 means to take off clothes, shoes, or gloves (장갑을 벗어요)."
+    },
+    {
+      "words": [
+        "길다",
+        "짧다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 길다 means long (바지가 길어요), while 짧다 means short (치마가 짧아요)."
+    },
+    {
+      "words": [
+        "마르다",
+        "마르다"
+      ],
+      "kind": "homonym",
+      "note": "마르다 means to dry (빨래가 말라요), to feel thirsty (목이 말라요), and to become skinny (몸이 말랐어요)."
+    }
+  ],
+  "ta-45": [
+    {
+      "words": [
+        "가져오다",
+        "가져가다"
+      ],
+      "kind": "contrast",
+      "note": "가져오다 means to bring toward the speaker (우산을 가져왔어요), while 가져가다 means to take away (쓰레기를 가져가요)."
+    },
+    {
+      "words": [
+        "놓다",
+        "두다"
+      ],
+      "kind": "synonym",
+      "note": "Both mean to put or place something down. 놓다 (책상 위에 놓아요) and 두다 (가방을 방에 둬요) are often interchangeable."
+    },
+    {
+      "words": [
+        "내다",
+        "내다"
+      ],
+      "kind": "homonym",
+      "note": "내다 means to pay money (돈을 내요), to submit an assignment (숙제를 내요), and to make time (시간을 내요)."
+    }
+  ],
+  "ta-46": [
+    {
+      "words": [
+        "해",
+        "해"
+      ],
+      "kind": "homonym",
+      "note": "해 means the sun in the sky (해가 밝아요), and also a calendar year (새해 복 많이 받으세요)."
+    },
+    {
+      "words": [
+        "차갑다",
+        "뜨겁다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites for temperature of things. 차갑다 means cold to touch (차가운 물), while 뜨겁다 means hot (뜨거운 차)."
+    },
+    {
+      "words": [
+        "편하다",
+        "불편하다"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 편하다 means comfortable or convenient (신발이 편해요), while 불편하다 means uncomfortable (자리가 불편해요)."
+    }
+  ],
+  "ta-47": [
+    {
+      "words": [
+        "새",
+        "새"
+      ],
+      "kind": "homonym",
+      "note": "새 means a flying bird (새가 노래해요), and also means new placed before a noun (새 옷을 입어요)."
+    },
+    {
+      "words": [
+        "달리다",
+        "달리다"
+      ],
+      "kind": "homonym",
+      "note": "달리다 means to run fast (운동장을 달려요), and also to hang or dangle (나무에 열매가 달렸어요)."
+    },
+    {
+      "words": [
+        "개",
+        "강아지"
+      ],
+      "kind": "contrast",
+      "note": "개 refers to a fully grown dog (큰 개), while 강아지 specifically refers to a young puppy or cute small dog (귀여운 강아지)."
+    }
+  ],
+  "ta-48": [
+    {
+      "words": [
+        "차",
+        "차"
+      ],
+      "kind": "homonym",
+      "note": "차 means an automobile or car (차를 운전해요), and also a tea drink (따뜻한 차를 마셔요)."
+    },
+    {
+      "words": [
+        "나이",
+        "연세"
+      ],
+      "kind": "synonym",
+      "note": "Both mean age. 나이 is standard (나이가 몇 살이에요?), while 연세 is the respectful honorific word for elders (할머니 연세)."
+    },
+    {
+      "words": [
+        "아이",
+        "어른"
+      ],
+      "kind": "contrast",
+      "note": "Opposites. 아이 means a child (아이가 웃어요), while 어른 means an adult (어른에게 인사해요)."
+    }
   ]
 }
