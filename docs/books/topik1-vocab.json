@@ -8831,8 +8831,8 @@
        "pos": "noun",
        "en": "fruit",
        "ex": {
-        "ko": "아침마다 신선한 사과와 과일을 먹어요.",
-        "en": "I eat fresh apples and fruit every morning."
+        "ko": "아침마다 사과와 바나나 같은 신선한 과일을 먹어요.",
+        "en": "I eat fresh fruit like apples and bananas every morning."
        },
        "lv": 1,
        "fq": 5
@@ -8895,7 +8895,7 @@
       {
        "ko": "주문하다",
        "pos": "verb",
-       "en": "order",
+       "en": "to order",
        "ex": {
         "ko": "카페에서 따뜻한 아메리카노 한 잔을 주문해요.",
         "en": "I order a cup of warm Americano at the cafe."
@@ -8917,7 +8917,7 @@
       {
        "ko": "시키다",
        "pos": "verb",
-       "en": "order",
+       "en": "to order (food); to make someone do",
        "ex": {
         "ko": "카페에서 시원한 커피를 시켰어요.",
         "en": "I ordered cold coffee at the cafe."
@@ -9034,19 +9034,19 @@
      },
      "match": {
       "words": [
+       "주문하다",
        "포장하다",
+       "시키다",
        "인분",
-       "맛있다",
-       "맵다",
-       "맛없다"
+       "맛있다"
       ],
       "options": [
+       "wrap",
+       "to order (food)",
        "serving",
        "to be delicious",
-       "to be spicy",
-       "tasteless",
        "banana",
-       "wrap"
+       "to order"
       ],
       "answer": [
        "f",
@@ -9105,7 +9105,7 @@
       },
       {
        "q": "주문하다 →",
-       "a": "order"
+       "a": "to order"
       },
       {
        "q": "인분 →",
@@ -9134,7 +9134,7 @@
        "a": "소금"
       },
       {
-       "q": "order →",
+       "q": "to order (food) →",
        "a": "시키다"
       },
       {
@@ -9200,7 +9200,7 @@
       {
        "ko": "짜다",
        "pos": "adjective",
-       "en": "to knit; to weave",
+       "en": "to be salty",
        "ex": {
         "ko": "찌개가 너무 짜서 물을 넣었어요.",
         "en": "The stew was too salty, so I added water."
@@ -9298,7 +9298,7 @@
       },
       {
        "ko": "못",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "cannot (used before a verb)",
        "ex": {
         "ko": "감기에 걸려서 오늘 수업에 못 가요.",
@@ -9378,7 +9378,7 @@
        "pos": "adverb",
        "en": "so; therefore",
        "ex": {
-        "ko": "비가 와요, 그래서 우산을 사요.",
+        "ko": "비가 와요. 그래서 우산을 사요.",
         "en": "It is raining, so I buy an umbrella."
        },
        "lv": 1,
@@ -9389,7 +9389,7 @@
        "pos": "adverb",
        "en": "and; and then",
        "ex": {
-        "ko": "저는 우유를 마셔요, 그리고 빵도 먹어요.",
+        "ko": "저는 우유를 마셔요. 그리고 빵도 먹어요.",
         "en": "I drink milk, and I eat bread too."
        },
        "lv": 1,
@@ -9400,7 +9400,7 @@
        "pos": "adverb",
        "en": "but; by the way",
        "ex": {
-        "ko": "가게에 가요, 그런데 문이 닫혀 있어요.",
+        "ko": "가게에 가요. 그런데 문이 닫혀 있어요.",
         "en": "I go to the store, but the door is closed."
        },
        "lv": 1,
@@ -9427,7 +9427,7 @@
        "to come",
        "to see",
        "bland",
-       "to knit",
+       "to be salty",
        "to do"
       ],
       "answer": [
@@ -9564,7 +9564,7 @@
      "entries": [
       {
        "ko": "때문",
-       "pos": "noun",
+       "pos": "bound noun",
        "en": "because of",
        "ex": {
         "ko": "갑자기 내린 비 때문에 옷이 다 젖어요.",
@@ -9641,8 +9641,8 @@
       },
       {
        "ko": "이",
-       "pos": "noun",
-       "en": "this; this one",
+       "pos": "determiner",
+       "en": "this",
        "ex": {
         "ko": "이 책은 한국어를 배우는 외국인에게 정말 유익해요.",
         "en": "This book is truly beneficial for foreigners learning Korean."
@@ -9655,7 +9655,7 @@
        "pos": "pronoun",
        "en": "I; me",
        "ex": {
-        "ko": "수미야, 나 지금 도서관에 가요.",
+        "ko": "수미 씨, 저는 지금 도서관에 가요.",
         "en": "Sumi, I am going to the library now."
        },
        "lv": 1,
@@ -9708,7 +9708,7 @@
       {
        "ko": "저기",
        "pos": "pronoun",
-       "en": "that place",
+       "en": "over there; that place",
        "ex": {
         "ko": "저기 멀리 보이는 산이 남산이에요.",
         "en": "The mountain seen over there in the distance is Namsan."
@@ -9740,7 +9740,7 @@
       },
       {
        "ko": "내",
-       "pos": "noun",
+       "pos": "pronoun",
        "en": "my; I",
        "ex": {
         "ko": "내 가방이 어디에 있는지 찾아요.",
@@ -9763,7 +9763,7 @@
       {
        "ko": "저것",
        "pos": "pronoun",
-       "en": "that",
+       "en": "that over there; that thing over there",
        "ex": {
         "ko": "저것은 무엇인지 가르쳐 주세요.",
         "en": "Please tell me what that over there is."
@@ -9792,19 +9792,19 @@
      },
      "match": {
       "words": [
+       "때문",
+       "이",
        "이렇게",
        "거기",
-       "저기",
-       "그쪽",
-       "너"
+       "저기"
       ],
       "options": [
+       "that way",
+       "because of",
        "this",
        "like this",
        "there",
-       "that place",
-       "that way",
-       "you (to a friend or someone younger)"
+       "over there"
       ],
       "answer": [
        "b",
@@ -9816,11 +9816,6 @@
      },
      "cloze": {
       "items": [
-       {
-        "q": "교통 체증 ___에 약속 장소에 십 분 늦었어요.",
-        "en": "Because of the traffic jam, I was ten minutes late to the meeting place.",
-        "a": "때문"
-       },
        {
         "q": "___ 제가 먼저 발표할게요.",
         "en": "Then I will present first.",
@@ -9835,13 +9830,18 @@
         "q": "비가 와요? ___ 우산을 챙기세요.",
         "en": "Is it raining? Then take an umbrella.",
         "a": "그러면"
+       },
+       {
+        "q": "비가 와요. ___ 운동하러 가요.",
+        "en": "It rains. However, I go to exercise.",
+        "a": "그렇지만"
        }
       ],
       "bank": [
-       "때문",
        "그럼",
        "그러니까",
-       "그러면"
+       "그러면",
+       "그렇지만"
       ]
      }
     },
@@ -9900,7 +9900,7 @@
        "a": "그것"
       },
       {
-       "q": "that →",
+       "q": "that over there →",
        "a": "저것"
       }
      ]
@@ -9947,7 +9947,7 @@
       {
        "ko": "뭐",
        "pos": "pronoun",
-       "en": "what",
+       "en": "what (casual)",
        "ex": {
         "ko": "오늘 저녁 메뉴로 뭐 먹을까요?",
         "en": "What shall we eat for tonight's dinner menu?"
@@ -9991,7 +9991,7 @@
       {
        "ko": "무슨",
        "pos": "determiner",
-       "en": "what",
+       "en": "what kind of; what",
        "ex": {
         "ko": "오늘 점심으로 무슨 음식을 먹을까요?",
         "en": "What food shall we eat for lunch today?"
@@ -10002,10 +10002,10 @@
       {
        "ko": "어떤",
        "pos": "determiner",
-       "en": "certain; some",
+       "en": "what kind of; which; some",
        "ex": {
-        "ko": "도서관 서가에서 어떤 책을 읽을지 차근차근 골라요.",
-        "en": "I carefully pick out a certain book to read from the library bookshelf."
+        "ko": "도서관에서 어떤 책을 읽을지 차근차근 골라요.",
+        "en": "I carefully choose which book to read at the library."
        },
        "lv": 1,
        "fq": 5
@@ -10013,7 +10013,7 @@
       {
        "ko": "어떻다",
        "pos": "adjective",
-       "en": "such",
+       "en": "how; what ... is like",
        "ex": {
         "ko": "오늘 점심으로 따뜻한 국수를 먹는 것은 어때요?",
         "en": "How about having warm noodles for lunch today?"
@@ -10024,7 +10024,7 @@
       {
        "ko": "무엇",
        "pos": "pronoun",
-       "en": "what",
+       "en": "what (formal)",
        "ex": {
         "ko": "오늘 점심으로 무엇을 드시고 싶어요?",
         "en": "What do you want to eat for lunch today?"
@@ -10059,8 +10059,8 @@
        "pos": "verb",
        "en": "clean",
        "ex": {
-        "ko": "환기를 위해 창문을 열고 거실을 깨끗이 청소해요.",
-        "en": "I open the windows for ventilation and clean the living room cleanly."
+        "ko": "창문을 열고 거실을 깨끗이 청소해요.",
+        "en": "I open the windows and clean the living room thoroughly."
        },
        "lv": 1,
        "fq": 4
@@ -10082,7 +10082,7 @@
        "en": "cleaning",
        "ex": {
         "ko": "주말 아침에 창문을 활짝 열고 방 청소를 깨끗이 해요.",
-        "en": "On weekend mornings, I open the windows wide and do room cleaning cleanly."
+        "en": "On weekend mornings, I open the windows wide and clean my room."
        },
        "lv": 1,
        "fq": 4
@@ -10134,7 +10134,7 @@
       {
        "ko": "끄다",
        "pos": "verb",
-       "en": "put out; extinguish",
+       "en": "to turn off; to put out",
        "ex": {
         "ko": "방을 나갈 때 불을 끄세요.",
         "en": "Please turn off the light when leaving the room."
@@ -10174,19 +10174,19 @@
      },
      "match": {
       "words": [
+       "뭐",
        "어디",
        "누구",
        "어느",
-       "어떤",
        "어떻다"
       ],
       "options": [
+       "where",
        "who",
        "which",
-       "certain",
-       "such",
-       "why",
-       "where"
+       "how",
+       "what (formal)",
+       "what (casual)"
       ],
       "answer": [
        "f",
@@ -10231,11 +10231,11 @@
      "items": [
       {
        "q": "뭐 →",
-       "a": "what"
+       "a": "what (casual)"
       },
       {
        "q": "무슨 →",
-       "a": "what"
+       "a": "what kind of; what"
       },
       {
        "q": "왜 →",
@@ -10264,7 +10264,7 @@
        "a": "누구"
       },
       {
-       "q": "such →",
+       "q": "how →",
        "a": "어떻다"
       },
       {
@@ -10413,8 +10413,8 @@
        "pos": "adjective",
        "en": "to be wide; to be broad",
        "ex": {
-        "ko": "새로 이사한 거실이 아주 넓어요.",
-        "en": "The newly moved living room is very broad."
+        "ko": "새로 이사한 집의 거실이 아주 넓어요.",
+        "en": "The living room of the house we newly moved into is very spacious."
        },
        "lv": 1,
        "fq": 4
@@ -10443,11 +10443,11 @@
       },
       {
        "ko": "호",
-       "pos": "interjection",
-       "en": "wow",
+       "pos": "bound noun",
+       "en": "room number; unit number",
        "ex": {
-        "ko": "호, 정말 멋진 그림이네요!",
-        "en": "Wow, that's really a wonderful painting!"
+        "ko": "저는 삼 층 이백일 호에 살아요.",
+        "en": "I live on the third floor, room 201."
        },
        "lv": 1,
        "fq": 3
@@ -10480,7 +10480,7 @@
        "en": "address",
        "ex": {
         "ko": "이사한 집의 새 주소를 알려 주세요.",
-        "en": "Please let me know the new address of your moved house."
+        "en": "Please tell me the address of the new house you moved into."
        },
        "lv": 1,
        "fq": 2
@@ -10557,7 +10557,7 @@
        "의자"
       ],
       "options": [
-       "wow",
+       "room number",
        "chair",
        "dormitory",
        "to live",
@@ -10840,7 +10840,7 @@
        "en": "dance; dancing",
        "ex": {
         "ko": "음악에 맞춰 신나게 춤을 춰요.",
-        "en": "I dance excitingly to the music."
+        "en": "I dance excitedly to the music."
        },
        "lv": 1,
        "fq": 0
@@ -10895,7 +10895,7 @@
        "en": "film; movie",
        "ex": {
         "ko": "주말 저녁에 친구와 함께 감동적인 영화를 봐요.",
-        "en": "I watch a touching movie with my friend on weekend evening."
+        "en": "I watch a touching movie with my friend on weekend evenings."
        },
        "lv": 1,
        "fq": 5
@@ -11634,7 +11634,7 @@
       {
        "ko": "치다",
        "pos": "verb",
-       "en": "hit; strike; play (an instrument); rain; snow; blow",
+       "en": "to play (a racket or ball sport, an instrument); to hit",
        "ex": {
         "ko": "방과 후에 친구와 테니스를 쳐요.",
         "en": "I play tennis with a friend after school."
@@ -11707,7 +11707,7 @@
        "kick",
        "jegichagi",
        "swim",
-       "hit",
+       "to play (a racket or ball sport, an instrument)",
        "slide"
       ],
       "answer": [
@@ -11736,7 +11736,7 @@
         "a": "물놀이"
        },
        {
-        "q": "강아지와 잔디밭에서 ___해요.",
+        "q": "강아지와 잔디밭에서 ___를 해요.",
         "en": "I play ball on the lawn with my puppy.",
         "a": "공놀이"
        }
@@ -12232,7 +12232,7 @@
      "entries": [
       {
        "ko": "혼자",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "alone; by oneself",
        "ex": {
         "ko": "조용한 도서관에서 혼자 책을 읽으며 시간을 보내요.",
@@ -12243,7 +12243,7 @@
       },
       {
        "ko": "분",
-       "pos": "noun",
+       "pos": "bound noun",
        "en": "person (honorific)",
        "ex": {
         "ko": "저기 안경을 쓰신 분이 우리 한국어 선생님이에요.",
@@ -12302,7 +12302,7 @@
        "en": "foreigner; foreign national",
        "ex": {
         "ko": "길을 찾는 친절한 외국인 여행객에게 길을 알려줘요.",
-        "en": "I show the way to a kind foreigner tourist looking for directions."
+        "en": "I show the way to a kind foreign tourist looking for directions."
        },
        "lv": 1,
        "fq": 4
@@ -12324,7 +12324,7 @@
        "en": "middle-aged man; mister",
        "ex": {
         "ko": "경비실 아저씨께 인사를 드려요.",
-        "en": "I greet the security guard uncle."
+        "en": "I greet the security guard."
        },
        "lv": 1,
        "fq": 3
@@ -12460,19 +12460,19 @@
      },
      "match": {
       "words": [
+       "분",
        "명",
        "여러분",
        "친절하다",
-       "친하다",
-       "분"
+       "친하다"
       ],
       "options": [
+       "person",
        "everyone",
        "to be kind",
        "to be close",
-       "person (honorific)",
        "middle-aged woman",
-       "person"
+       "person (honorific)"
       ],
       "answer": [
        "f",
@@ -12780,7 +12780,7 @@
       {
        "ko": "사장님",
        "pos": "noun",
-       "en": "president",
+       "en": "boss; owner (of a shop); company president",
        "ex": {
         "ko": "식당 사장님이 손님들에게 친절하게 인사해요.",
         "en": "The restaurant owner kindly greets the customers."
@@ -13448,7 +13448,7 @@
        "en": "study",
        "ex": {
         "ko": "내일 시험이 있어서 저녁에 공부를 해요.",
-        "en": "I do study in the evening because I have an exam tomorrow."
+        "en": "I study in the evening because I have an exam tomorrow."
        },
        "lv": 1,
        "fq": 5
@@ -13555,10 +13555,10 @@
       {
        "ko": "구",
        "pos": "noun",
-       "en": "phrase",
+       "en": "district; ward",
        "ex": {
-        "ko": "두 단어가 모여 하나의 명사 구를 이뤄요.",
-        "en": "Two words come together to form one noun phrase."
+        "ko": "저는 서울 마포구에 살아요.",
+        "en": "I live in Mapo-gu, Seoul."
        },
        "lv": 1,
        "fq": 3
@@ -13590,8 +13590,8 @@
        "pos": "noun",
        "en": "writing; text",
        "ex": {
-        "ko": "한국어로 일기 글을 써요.",
-        "en": "I write diary entries in Korean."
+        "ko": "한국어로 짧은 글을 써요.",
+        "en": "I write a short text in Korean."
        },
        "lv": 1,
        "fq": 3
@@ -13685,7 +13685,7 @@
       },
       {
        "q": "구 →",
-       "a": "phrase"
+       "a": "district; ward"
       }
      ]
     },
@@ -13797,7 +13797,7 @@
        "en": "letter paper",
        "ex": {
         "ko": "예쁜 꽃 그림이 그려진 편지지를 샀어요.",
-        "en": "I bought letter paper drawn with pretty flowers."
+        "en": "I bought letter paper with pretty flowers drawn on it."
        },
        "lv": 1,
        "fq": 2
@@ -13849,7 +13849,7 @@
       {
        "ko": "사전",
        "pos": "noun",
-       "en": "advance; dictionary",
+       "en": "dictionary",
        "ex": {
         "ko": "모르는 단어는 사전을 찾아요.",
         "en": "I look up unfamiliar words in the dictionary."
@@ -13959,7 +13959,7 @@
       {
        "ko": "대학",
        "pos": "noun",
-       "en": "university; college",
+       "en": "college; university",
        "ex": {
         "ko": "열심히 공부해 원하는 대학에 들어갔어요.",
         "en": "I studied hard and entered my desired university."
@@ -13970,7 +13970,7 @@
       {
        "ko": "대학교",
        "pos": "noun",
-       "en": "university; college",
+       "en": "university",
        "ex": {
         "ko": "저는 대학교에서 한국어를 전공해요.",
         "en": "I major in Korean at the university."
@@ -13997,7 +13997,7 @@
       "options": [
        "to be easy",
        "example",
-       "advance",
+       "dictionary",
        "concentrate",
        "repeat",
        "pass"
@@ -14059,7 +14059,7 @@
       },
       {
        "q": "사전 →",
-       "a": "advance; dictionary"
+       "a": "dictionary"
       },
       {
        "q": "필통 →",
@@ -14096,7 +14096,7 @@
        "a": "대학생"
       },
       {
-       "q": "university; college →",
+       "q": "college →",
        "a": "대학"
       }
      ]
@@ -14593,7 +14593,7 @@
        "pos": "interjection",
        "en": "no; no sir; no ma'am",
        "ex": {
-        "ko": "질문에 대해 고개를 저으며 아니요라고 대답해요.",
+        "ko": "질문에 고개를 저으며 \"아니요\"라고 대답해요.",
         "en": "I shake my head and answer 'no' to the question."
        },
        "lv": 1,
@@ -14626,8 +14626,8 @@
        "pos": "adjective",
        "en": "sorry",
        "ex": {
-        "ko": "약속 시간에 조금 늦어서 친구에게 정말 죄송해요.",
-        "en": "I am truly sorry to my friend for being a little late for the appointment."
+        "ko": "약속 시간에 조금 늦어서 선생님께 정말 죄송해요.",
+        "en": "I am truly sorry to my teacher for being a little late for the appointment."
        },
        "lv": 1,
        "fq": 4
@@ -14646,7 +14646,7 @@
       {
        "ko": "안녕히",
        "pos": "adverb",
-       "en": "in peace",
+       "en": "safely; in peace (used in goodbyes)",
        "ex": {
         "ko": "선생님, 안녕히 계세요!",
         "en": "Goodbye, teacher!"
@@ -14690,7 +14690,7 @@
       {
        "ko": "안녕",
        "pos": "noun",
-       "en": "peace; good health",
+       "en": "hi; hello; bye (informal)",
        "ex": {
         "ko": "친구를 만나서 안녕 하고 인사해요.",
         "en": "I meet my friend and say hello."
@@ -14995,7 +14995,7 @@
       {
        "ko": "말씀",
        "pos": "noun",
-       "en": "words",
+       "en": "words; speech (honorific)",
        "ex": {
         "ko": "선생님 말씀을 조용히 들어요.",
         "en": "I listen quietly to the teacher's words."
@@ -15028,7 +15028,7 @@
       {
        "ko": "그렇게",
        "pos": "adverb",
-       "en": "geureoke",
+       "en": "like that; so",
        "ex": {
         "ko": "그렇게 말해 주니 정말 고마워요.",
         "en": "Thank you so much for saying it like that."
@@ -15105,7 +15105,7 @@
       {
        "ko": "말씀드리다",
        "pos": "verb",
-       "en": "say; tell; relate",
+       "en": "to say; to tell (humble)",
        "ex": {
         "ko": "부모님께 제 생각을 솔직히 말씀드렸어요.",
         "en": "I honestly told my parents my thoughts."
@@ -15116,7 +15116,7 @@
       {
        "ko": "별로",
        "pos": "adverb",
-       "en": "specially; particularly",
+       "en": "(not) really; (not) particularly",
        "ex": {
         "ko": "오늘 점심은 입맛이 별로 없어요.",
         "en": "I don't really have an appetite for lunch today."
@@ -15205,7 +15205,7 @@
       },
       {
        "q": "말씀 →",
-       "a": "words"
+       "a": "words; speech (honorific)"
       },
       {
        "q": "소개 →",
@@ -15242,7 +15242,7 @@
        "a": "잘못"
       },
       {
-       "q": "say →",
+       "q": "to say →",
        "a": "말씀드리다"
       }
      ]
@@ -15487,7 +15487,7 @@
       {
        "ko": "묻다",
        "pos": "verb",
-       "en": "to be stained; to stick to",
+       "en": "to ask; to inquire",
        "ex": {
         "ko": "길을 잘 몰라서 지나가는 사람에게 길을 물어요.",
         "en": "I do not know the way well, so I ask a passerby for directions."
@@ -15498,7 +15498,7 @@
       {
        "ko": "달다",
        "pos": "verb",
-       "en": "to ask; to request",
+       "en": "to ask for; to request (something to be given)",
        "ex": {
         "ko": "갈증이 나서 친구에게 물을 좀 달라고 부탁해요.",
         "en": "Being thirsty, I request my friend to give me some water."
@@ -15556,7 +15556,7 @@
         "a": "전화"
        },
        {
-        "q": "생일을 맞은 친구에게 정성스러운 손 ___를 썼어요.",
+        "q": "생일을 맞은 친구에게 정성스러운 ___를 썼어요.",
         "en": "I wrote a thoughtful handwritten letter to a friend celebrating a birthday.",
         "a": "편지"
        }
@@ -15624,7 +15624,7 @@
        "a": "여보세요"
       },
       {
-       "q": "to be stained →",
+       "q": "to ask →",
        "a": "묻다"
       }
      ]
@@ -15880,7 +15880,7 @@
       {
        "ko": "에서",
        "pos": "particle",
-       "en": "eseo",
+       "en": "at; in; from (place or source)",
        "ex": {
         "ko": "저는 도서관에서 한국어를 공부해요.",
         "en": "I study Korean at the library."
@@ -15905,7 +15905,7 @@
        "앱"
       ],
       "options": [
-       "eseo",
+       "at",
        "camera",
        "computer",
        "app",
@@ -16108,7 +16108,7 @@
       {
        "ko": "으로",
        "pos": "particle",
-       "en": "euro",
+       "en": "to; toward; by; with (direction or means)",
        "ex": {
         "ko": "오른쪽으로 가면 은행이 바로 나와요.",
         "en": "If you go to the right, a bank will appear right away."
@@ -16231,7 +16231,7 @@
        "pos": "noun",
        "en": "ticket",
        "ex": {
-        "ko": "기차를 타기 위해 매표소에서 목적지행 승차 표를 사요.",
+        "ko": "기차를 타기 위해 매표소에서 기차 표를 사요.",
         "en": "I buy a train ticket bound for my destination at the ticket booth to ride the train."
        },
        "lv": 1,
@@ -16288,7 +16288,7 @@
       ],
       "options": [
        "to go out",
-       "euro",
+       "to",
        "way",
        "to go in",
        "to arrive",
@@ -16894,7 +16894,7 @@
       {
        "ko": "진행하다",
        "pos": "verb",
-       "en": "progress",
+       "en": "to proceed; to conduct; to host",
        "ex": {
         "ko": "동아리 회장이 모임을 진행해요.",
         "en": "The club president conducts the meeting."
@@ -16993,7 +16993,7 @@
       {
        "ko": "퇴근하다",
        "pos": "verb",
-       "en": "leaving work; arriving home from work",
+       "en": "to leave work; to get off work",
        "ex": {
         "ko": "저녁 여섯 시에 일을 마치고 퇴근해요.",
         "en": "I finish work and head home at 6 p.m."
@@ -17047,16 +17047,16 @@
        "진행하다",
        "완료되다",
        "일하다",
-       "운전",
-       "역"
+       "퇴근하다",
+       "운전"
       ],
       "options": [
        "be completed",
        "to work",
+       "to leave work",
        "driving",
        "station",
-       "part-time job",
-       "progress"
+       "to proceed"
       ],
       "answer": [
        "f",
@@ -17123,7 +17123,7 @@
       },
       {
        "q": "퇴근하다 →",
-       "a": "leaving work; arriving home from work"
+       "a": "to leave work; to get off work"
       }
      ]
     },
@@ -17246,7 +17246,7 @@
        "en": "to happen; to appear",
        "ex": {
         "ko": "집 근처에 크고 편리한 마트가 새로 생겨요.",
-        "en": "A large and convenient mart is newly formed near my house."
+        "en": "A large, convenient mart has newly opened near my house."
        },
        "lv": 2,
        "fq": 4
@@ -17309,10 +17309,10 @@
       {
        "ko": "세다",
        "pos": "verb",
-       "en": "turn white",
+       "en": "to be strong; to count; to turn white",
        "ex": {
-        "ko": "세월이 흐르며 할아버지의 머리가 하얗게 세요.",
-        "en": "As time passes, my grandfather's hair turns white."
+        "ko": "바람이 너무 세서 창문을 꼭 닫았어요.",
+        "en": "The wind was so strong that I shut the window tightly."
        },
        "lv": 2,
        "fq": 5
@@ -17352,7 +17352,7 @@
       },
       {
        "ko": "밝다",
-       "pos": "verb",
+       "pos": "adjective",
        "en": "to be bright",
        "ex": {
         "ko": "방 안으로 햇빛이 잘 들어와서 아주 밝아요.",
@@ -17526,7 +17526,7 @@
        "a": "짧다"
       },
       {
-       "q": "turn white →",
+       "q": "to be strong →",
        "a": "세다"
       },
       {
@@ -17614,7 +17614,7 @@
       {
        "ko": "가져가다",
        "pos": "verb",
-       "en": "bring",
+       "en": "to take; to bring along",
        "ex": {
         "ko": "학교에 숙제 공책을 가져가요.",
         "en": "I bring my homework notebook to school."
@@ -17679,7 +17679,7 @@
       },
       {
        "ko": "한번",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "one day; once",
        "ex": {
         "ko": "한국에 한번 가 보고 싶어요.",
@@ -17712,10 +17712,10 @@
       },
       {
        "ko": "아까",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "a moment ago",
        "ex": {
-        "ko": "아까 점심시간에 식당에서 리아를 만나요.",
+        "ko": "아까 점심시간에 식당에서 리아를 만났어요.",
         "en": "I met Lia at the cafeteria a moment ago during lunchtime."
        },
        "lv": 2,
@@ -17734,7 +17734,7 @@
       },
       {
        "ko": "이제",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "now; from now on",
        "ex": {
         "ko": "점심시간이 다 되었으니 이제 식당으로 출발해요.",
@@ -17746,7 +17746,7 @@
       {
        "ko": "벌써",
        "pos": "adverb",
-       "en": "so soon",
+       "en": "already; so soon",
        "ex": {
         "ko": "이야기를 나누다 보니 벌써 저녁 시간이 다 돼요.",
         "en": "While chatting, it is already dinner time so soon."
@@ -17818,7 +17818,7 @@
        "to put down",
        "to pay",
        "to gather",
-       "bring",
+       "to take",
        "to divide",
        "to put"
       ],
@@ -18075,8 +18075,8 @@
        "pos": "noun",
        "en": "thanks to",
        "ex": {
-        "ko": "선생님의 따뜻한 격려 덕분에 시험에 합격해요.",
-        "en": "Thanks to the teacher's warm encouragement, I pass the exam."
+        "ko": "선생님의 따뜻한 격려 덕분에 힘이 났어요.",
+        "en": "Thanks to the teacher's warm encouragement, I felt energized."
        },
        "lv": 2,
        "fq": 4
@@ -18358,7 +18358,7 @@
        "pos": "pronoun",
        "en": "this",
        "ex": {
-        "ko": "책상 위에 놓인 이거 한번 먹어보세요.",
+        "ko": "책상 위에 놓인 이거 한번 먹어 보세요.",
         "en": "Please try eating this placed on the desk."
        },
        "lv": 2,
@@ -18389,7 +18389,7 @@
       {
        "ko": "빨다",
        "pos": "verb",
-       "en": "suck; puff on",
+       "en": "to wash (laundry); to suck",
        "ex": {
         "ko": "아기가 입에 손가락을 넣고 쪽쪽 빨아요.",
         "en": "The baby puts a finger in their mouth and sucks on it."
@@ -18403,7 +18403,7 @@
        "en": "to wipe; to polish",
        "ex": {
         "ko": "밥을 먹고 깨끗하게 이를 닦아요.",
-        "en": "I brush and polish my teeth cleanly after eating."
+        "en": "I brush my teeth thoroughly after eating."
        },
        "lv": 2,
        "fq": 4
@@ -18545,8 +18545,8 @@
        "pos": "noun",
        "en": "bird",
        "ex": {
-        "ko": "문틈 새로 시원한 바람이 솔솔 들어와요.",
-        "en": "A cool breeze gently comes in through the gap in the door."
+        "ko": "나무 위에서 작은 새가 예쁘게 노래해요.",
+        "en": "A small bird sings prettily in the tree."
        },
        "lv": 2,
        "fq": 5
@@ -18579,7 +18579,7 @@
        "닦다"
       ],
       "options": [
-       "suck",
+       "to wash (laundry)",
        "to wipe",
        "rubbish",
        "thing",
@@ -18639,7 +18639,7 @@
       },
       {
        "q": "빨다 →",
-       "a": "suck; puff on"
+       "a": "to wash (laundry); to suck"
       },
       {
        "q": "상자 →",
@@ -18749,7 +18749,7 @@
       {
        "ko": "성함",
        "pos": "noun",
-       "en": "name",
+       "en": "name (honorific)",
        "ex": {
         "ko": "서류 확인을 위해 손님의 성함을 정중하게 여쭤봐요.",
         "en": "I politely ask for the guest's name to verify the document."
@@ -18759,7 +18759,7 @@
       },
       {
        "ko": "서로",
-       "pos": "noun",
+       "pos": "adverb",
        "en": "each other; mutually",
        "ex": {
         "ko": "우리는 어려운 일이 있을 때 서로 도와요.",
@@ -18773,8 +18773,8 @@
        "pos": "verb",
        "en": "serve; attend; wait on",
        "ex": {
-        "ko": "부모님을 모시고 맛있는 한식당에 가요.",
-        "en": "I attend my parents and go to a delicious Korean restaurant."
+        "ko": "부모님을 모시고 병원에 가요.",
+        "en": "I take my parents to the hospital."
        },
        "lv": 2,
        "fq": 5
@@ -19046,7 +19046,7 @@
      "hint": "Cover the word list first, then write the Korean word.",
      "items": [
       {
-       "q": "name →",
+       "q": "name (honorific) →",
        "a": "성함"
       },
       {

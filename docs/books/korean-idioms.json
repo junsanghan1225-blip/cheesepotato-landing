@@ -320,8 +320,8 @@
         "en": "At a tourist site restaurant, I was ripped off paying triple the normal price."
        },
        "ex2": {
-        "ko": "바가지요금 근절을 위해 상인회의 자정 노력과 단속이 시급하다.",
-        "en": "To eradicate rip-off fees, merchants' self-cleaning efforts and crackdowns are urgent."
+        "ko": "바가지를 쓰는 피해가 없도록 상인회의 자정 노력과 단속이 시급하다.",
+        "en": "Merchants' self-regulation and crackdowns are urgent so that customers are not ripped off."
        }
       },
       {
@@ -1180,8 +1180,8 @@
         "en": "Even with minor promises to friends, one who keeps them gains trust."
        },
        "ex2": {
-        "ko": "기업과 정부는 국민과 맺은 공약을 철저히 지킴으로써 신뢰를 회복해야 한다.",
-        "en": "Businesses and governments must restore trust by keeping pledges to citizens."
+        "ko": "기업과 정부는 국민과 맺은 약속을 철저히 지킴으로써 신뢰를 회복해야 한다.",
+        "en": "Businesses and governments must restore trust by faithfully keeping their promises to citizens."
        }
       },
       {
@@ -1870,8 +1870,8 @@
         "en": "To correct Korean pronunciation accurately, I devoted effort every day in the mirror."
        },
        "ex2": {
-        "ko": "정부는 저출생 문제를 극복하고 보육 환경을 개선하기 위해 총력을 기울이고 있다.",
-        "en": "The government devotes all efforts to overcome low birth rates and improve childcare."
+        "ko": "정부는 저출생 문제를 극복하고 보육 환경을 개선하기 위해 많은 노력을 기울이고 있다.",
+        "en": "The government is devoting great effort to overcome low birth rates and improve childcare."
        }
       },
       {
@@ -3714,7 +3714,7 @@
         "en": "After the predecessor's departure, I took up the baton to conclude the project."
        },
        "ex2": {
-        "ko": "젊은 연구원들이 원로 과학자들의 열정을 이어받아 차세대 연구를 주도하고 있다.",
+        "ko": "젊은 연구원들이 원로 과학자들의 바통을 이어받아 차세대 연구를 주도하고 있다.",
         "en": "Young researchers picked up the baton of senior scientists to lead new studies."
        }
       }
@@ -4568,8 +4568,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -4985,8 +4985,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -5415,8 +5415,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -5799,7 +5799,7 @@
         "en": "Though an unknown actor now, every dog has his day, so keep dreaming."
        },
        "ex2": {
-        "ko": "끝없는 불황 속에서도 쥐구멍에 볕 들 날처럼 수출 회복의 신호가 감지되었다.",
+        "ko": "끝없는 불황 속에서도 쥐구멍에도 볕 들 날이 있듯 수출 회복의 신호가 감지되었다.",
         "en": "Amid endless recessions, signs of export recovery emerged like sunny days in rat holes."
        }
       }
@@ -5841,8 +5841,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -6267,8 +6267,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -6697,8 +6697,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -7127,8 +7127,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -7557,8 +7557,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -7987,8 +7987,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -8231,8 +8231,8 @@
         "en": "A sincere word of apology settles big debts, so apologize quickly."
        },
        "ex2": {
-        "ko": "정교한 말 한마디로 천 냥 빚을 갚듯 갈등을 원만히 풀었다.",
-        "en": "Settling big debts with precise words, conflicts were amicably solved."
+        "ko": "말 한마디로 천 냥 빚을 갚는다고 하니 정교한 말로 갈등을 원만히 풀었다.",
+        "en": "They say a single word can repay a thousand-nyang debt, and with careful words the conflict was settled amicably."
        }
       },
       {
@@ -8321,8 +8321,8 @@
         "en": "Buying work clothes before acceptance announcements is counting chickens prematurely."
        },
        "ex2": {
-        "ko": "상대 의중도 모르면서 섣부른 낙관으로 김칫국부터 마셔선 안 된다.",
-        "en": "Don't drink kimchi soup prematurely with hasty optimism without knowing intentions."
+        "ko": "떡 줄 사람은 생각도 않는데 김칫국부터 마시지 말고 상대 의중을 먼저 확인해야 한다.",
+        "en": "Don't count on a reward nobody has offered; check the other side's intentions first."
        }
       },
       {
@@ -8417,8 +8417,8 @@
      },
      "cloze": {
       "inst": {
-       "en": "Fill in the blank with the right proverb.",
-       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요."
+       "en": "Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).",
+       "ko": "대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요."
       },
       "cols": 1,
       "items": [
@@ -8613,7 +8613,7 @@
       },
       {
        "ko": "삼십육계",
-       "hanja": "三十六計",
+       "hanja": "三十六計",
        "pos": "four-character idiom",
        "en": "thirty-six stratagems; running away is the best strategy when cornered",
        "km": "삼십육계 줄행랑; 형세가 불리할 때 도망치는 것을 상책으로 여김",
@@ -8667,7 +8667,7 @@
       },
       {
        "ko": "희로애락",
-       "hanja": "喜怒哀樂",
+       "hanja": "喜怒哀樂",
        "pos": "four-character idiom",
        "en": "the full range of human emotions: joy, anger, sorrow, and pleasure",
        "km": "기쁨, 노여움, 슬픔, 즐거움 등 인간의 모든 감정과 인생의 정서",
@@ -8685,7 +8685,7 @@
       },
       {
        "ko": "천진난만",
-       "hanja": "天眞爛漫",
+       "hanja": "天眞爛漫",
        "pos": "four-character idiom",
        "en": "innocent and naive; pure-hearted; childlike innocence",
        "km": "말이나 행동에 꾸밈이나 거짓이 없고 아이처럼 순수하고 해맑음",
@@ -8775,7 +8775,7 @@
       },
       {
        "ko": "남녀노소",
-       "hanja": "男女老少",
+       "hanja": "男女老少",
        "pos": "four-character idiom",
        "en": "men and women of all ages; people of every age group",
        "km": "남자, 여자, 노인, 젊은이 등 모든 사람",
@@ -9353,7 +9353,7 @@
      "entries": [
       {
        "ko": "과유불급",
-       "hanja": "過猶不及",
+       "hanja": "過猶不及",
        "pos": "four-character idiom",
        "en": "excess is as bad as deficiency; moderation in all things",
        "km": "지나친 것은 미치지 못한 것과 같음",
@@ -9371,7 +9371,7 @@
       },
       {
        "ko": "부지기수",
-       "hanja": "不知其數",
+       "hanja": "不知其數",
        "pos": "four-character idiom",
        "en": "countless; innumerable; too many to count",
        "km": "그 수를 셀 수 없을 만큼 매우 많음",
@@ -9407,7 +9407,7 @@
       },
       {
        "ko": "용두사미",
-       "hanja": "龍頭蛇尾",
+       "hanja": "龍頭蛇尾",
        "pos": "four-character idiom",
        "en": "starting with a bang but ending with a whimper; anticlimax",
        "km": "시작은 거창하고 좋으나 끝이 흐지부지되고 보잘것없음",
@@ -9587,7 +9587,7 @@
       },
       {
        "ko": "노심초사",
-       "hanja": "勞心焦思",
+       "hanja": "勞心焦思",
        "pos": "four-character idiom",
        "en": "anxious fretting; worrying deeply with a troubled heart",
        "km": "몹시 마음을 쓰며 애를 태우고 걱정함",
@@ -9923,7 +9923,7 @@
       },
       {
        "ko": "자포자기",
-       "hanja": "自暴自棄",
+       "hanja": "自暴自棄",
        "pos": "four-character idiom",
        "en": "giving up on oneself in despair; abandonment of hope",
        "km": "스스로를 포기하고 될 대로 되라는 식으로 내버려 둠",
@@ -9977,7 +9977,7 @@
       },
       {
        "ko": "동고동락",
-       "hanja": "同苦同樂",
+       "hanja": "同苦同樂",
        "pos": "four-character idiom",
        "en": "sharing joys and sorrows together",
        "km": "괴로움과 즐거움을 함께 나눔",
@@ -10169,7 +10169,7 @@
      "entries": [
       {
        "ko": "유유상종",
-       "hanja": "類類相從",
+       "hanja": "類類相從",
        "pos": "four-character idiom",
        "en": "like attracts like; people of the same kind flock together",
        "km": "성격이나 뜻이 비슷한 사람끼리 자연스럽게 서로 어울림",
@@ -10577,7 +10577,7 @@
      "entries": [
       {
        "ko": "감언이설",
-       "hanja": "甘言利說",
+       "hanja": "甘言利說",
        "pos": "four-character idiom",
        "en": "sweet talk; honeyed words to deceive others",
        "km": "남의 비위를 맞추거나 꾐에 빠뜨리려고 달콤하게 꾸며 대는 말",
@@ -10985,7 +10985,7 @@
      "entries": [
       {
        "ko": "진퇴양난",
-       "hanja": "進退兩難",
+       "hanja": "進退兩難",
        "pos": "four-character idiom",
        "en": "caught in a dilemma; between a rock and a hard place",
        "km": "나아갈 수도 물러설 수도 없는 궁지에 빠짐",
@@ -11219,7 +11219,7 @@
       },
       {
        "ko": "풍찬노숙",
-       "hanja": "風餐露宿",
+       "hanja": "風餐露宿",
        "pos": "four-character idiom",
        "en": "eating in the wind and sleeping under the dew; enduring hardship in the wild",
        "km": "바람을 맞으며 밥을 먹고 이슬을 맞으며 잠을 잠; 들판에서 온갖 고초를 겪음",
@@ -11393,7 +11393,7 @@
      "entries": [
       {
        "ko": "안빈낙도",
-       "hanja": "安貧樂道",
+       "hanja": "安貧樂道",
        "pos": "four-character idiom",
        "en": "living comfortably in poverty while enjoying the righteous path; simple contented life",
        "km": "가난한 생활 가운데서도 편안한 마음으로 도를 즐겨 닦음",
@@ -11429,7 +11429,7 @@
       },
       {
        "ko": "백절불굴",
-       "hanja": "百折不屈",
+       "hanja": "百折不屈",
        "pos": "four-character idiom",
        "en": "indomitable; undaunted by repeated setbacks; never giving up",
        "km": "수많은 좌절과 어려움 속에서도 꺾이거나 굽히지 않는 굳센 의지",
@@ -11519,7 +11519,7 @@
       },
       {
        "ko": "오매불망",
-       "hanja": "寤寐不忘",
+       "hanja": "寤寐不忘",
        "pos": "four-character idiom",
        "en": "never forgetting awake or asleep; yearning constantly",
        "km": "자나 깨나 잊지 못하고 간절히 생각함",
@@ -12035,7 +12035,7 @@
       },
       {
        "ko": "무소불위",
-       "hanja": "無所不爲",
+       "hanja": "無所不爲",
        "pos": "four-character idiom",
        "en": "omnipotent; having absolute, unrestricted power",
        "km": "못 하는 바가 없음; 매우 큰 권력을 휘둘러 무엇이든 마음대로 함",
@@ -12353,7 +12353,7 @@
       },
       {
        "ko": "교언영색",
-       "hanja": "巧言令色",
+       "hanja": "巧言令色",
        "pos": "four-character idiom",
        "en": "sweet talk and flattering manners; glib speech and an oily smile",
        "km": "남의 환심을 사려고 아첨하는 말과 보기 좋게 꾸미는 표정",
