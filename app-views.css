@@ -7701,3 +7701,4 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-join-more { margin-top:10px; font-size:13px; color:var(--ink-2); }
 .lt-join-more summary { cursor:pointer; color:var(--ink-3); min-height:28px; }
 .lt-join-more ul { margin:6px 0 0; padding-left:18px; display:grid; gap:4px; line-height:1.5; word-break:keep-all; }
+.rd-rec-chip { flex:none; font-size:12px; font-weight:800; color:var(--orange-deep); background:var(--tint); border:1px solid var(--orange); border-radius:999px; padding:3px 10px; }
