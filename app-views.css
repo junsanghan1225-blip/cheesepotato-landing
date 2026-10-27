@@ -3652,7 +3652,7 @@ a.gp-use-src:hover { color:var(--orange); }
   #lsecList .lc-card { padding:16px 18px; border-radius:18px; }
   #lsecList .lc-top { gap:14px; align-items:center; }
   #lsecList .lc-mark { width:44px; height:44px; border-radius:13px; font-size:22px; }
-  #lsecList .lc-lv { font-size:11px; }
+  #lsecList .lc-lv { font-size:12px; }
   #lsecList .lc-title { font-size:17.5px; margin-top:3px; }
   #lsecList .lc-tag { font-size:13.5px; margin-top:2px; line-height:1.45; }
   #lsecList .lc-blurb { display:none; }
@@ -3697,7 +3697,7 @@ a.gp-use-src:hover { color:var(--orange); }
 @media (max-width:600px) {
   .sb-pt-n { font-size:13px; }
   .sb-cat-n { font-size:12px; }
-  .lc-lv, .ls-kicker, .ex-tag, .roadmap-k, .bd-cat, .tq-sec-h { font-size:11.5px; }
+  .lc-lv, .ls-kicker, .ex-tag, .roadmap-k, .bd-cat, .tq-sec-h { font-size:12px; }
   :root .roadmap-m, :root .lq-chip, :root .bd-meta, :root .tq-note, :root .wb-card-tag, :root .wb-card-n, :root .stat-label, :root .way-n { font-size:12.5px; }
   .ls-hud .hud-xp, .ls-hud .hud-combo { font-size:11px; }
   :root table th, :root table td { font-size:12.5px; }
@@ -7687,3 +7687,17 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 .bkw-go .bkw-main{border-color:#ff914d;background:#ff914d;color:#fff}
 .bkw-x{position:absolute;top:8px;right:10px;border:0;background:none;font-size:18px;color:#8c7a66;cursor:pointer;padding:6px}
 html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-theme="dark"] .bkw-sub{color:#cdbfae}html[data-theme="dark"] .bkw-card ul,html[data-theme="dark"] .bkw-go button{background:#352a22;border-color:#4a3b30;color:#f4ece2}html[data-theme="dark"] .bkw-go .bkw-main{background:#ff914d;color:#fff}
+
+/* 폰에서 누르기 쉽게 — 작은 단추는 높이 36px 이상, 12px 미만 글자는 12px(운영자 2026-10-27 「작은 글자 · 단추 키우기」) */
+.footer-info a { display:inline-block; padding:8px 4px; min-height:36px; box-sizing:border-box; }
+.cv-cat, .qa-chip { min-height:36px; }
+.lsec-help { min-width:36px; min-height:36px; }
+.my-link { min-height:36px; padding:8px 0; }
+.lc-lv, .cl-gk { font-size:12px; }
+.learn-stat-k { font-size:12px; }
+.wd-day-rest button { min-height:36px; }
+.wd-more { min-height:36px; }
+.lt-join-lead { margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--ink-2); word-break:keep-all; }
+.lt-join-more { margin-top:10px; font-size:13px; color:var(--ink-2); }
+.lt-join-more summary { cursor:pointer; color:var(--ink-3); min-height:28px; }
+.lt-join-more ul { margin:6px 0 0; padding-left:18px; display:grid; gap:4px; line-height:1.5; word-break:keep-all; }

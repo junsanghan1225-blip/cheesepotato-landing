@@ -15,10 +15,12 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const hasCover = (k) => k.coverImg && fs.existsSync(path.join(ROOT, k.coverImg.replace(/^\//, '')));
 const on = SHOP.books.filter((k) => k.status === 'on' && hasCover(k));
 const soon = SHOP.books.filter((k) => k.status === 'planned' && hasCover(k));
-const src = (k) => k.coverImg.replace(/^\//, '');
+/* 첫 화면 카드는 148px 폭이라 300px 작은 표지(cover-sm.jpg, 약 16KB)를 쓴다 — 700px 원본(약 50KB)을 열 장 받던 것을 줄임(2026-10-27) */
+const smPath = (k) => k.coverImg.replace(/^\//, '').replace(/cover\.jpg$/, 'cover-sm.jpg');
+const src = (k) => (fs.existsSync(path.join(ROOT, smPath(k))) ? smPath(k) : k.coverImg.replace(/^\//, ''));
 
 const card = (k, buy) => `<a class="hm-bk" role="listitem" href="shop/${esc(k.id)}/" data-ev="책클릭" data-ev-from="첫화면">
-          <img src="${esc(src(k))}" alt="${esc(k.title.en)} — ${esc(k.title.ko)}" width="700" height="995" loading="lazy" decoding="async">
+          <img src="${esc(src(k))}" alt="${esc(k.title.en)} — ${esc(k.title.ko)}" width="300" height="426" loading="lazy" decoding="async">
           <b>${esc(k.title.en)}</b><span class="hm-bk-ko">${esc(k.title.ko)}</span>
           ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
         </a>`;
