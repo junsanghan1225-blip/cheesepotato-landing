@@ -12,7 +12,11 @@ PDF 올리기 → 표지 그림 올리기 → 「파일 다운로드」 혜택 �
 1. **Polar 토큰 만들기** — 개인 토큰(Personal access token)은 이제 못 만든다(Polar 안내, 2026-10-27). **조직 토큰(Organization access token)** 을 만든다: Polar → 우리 조직(everykoreans) 설정 → Access tokens → 새 토큰. 조직 토큰은 조직 하나에만 걸려 있어 도구가 조직 번호를 따로 안 보내도 된다.
    권한은 이 다섯 개만: `products:read` · `products:write` · `files:write` · `benefits:write` · `checkout_links:write`.
    (주문 · 고객 · 환불 쓰기는 주지 않는다. 만료는 짧게 — 예: 30일.) 만든 직후 한 번만 보이는 토큰을 복사.
-2. **Claude 환경에 넣기** — 이 세션 위쪽 환경 메뉴(클라우드 환경) → Edit →
+2. **Claude 환경에 넣기 — 「시크릿 추가」 창을 쓸 때**(권장: Claude 는 토큰 값을 못 보고, 허용한 사이트로 가는 요청에만 붙는다)
+   - 시크릿 유형 **Bearer** · 허용된 웹사이트 **`api.polar.sh`** · 경로 접두사는 비움 · 헤더 이름 `Authorization` · 접두사 `Bearer` · 값 = 조직 토큰 → 추가.
+   - 파일 저장소로 올릴 때를 위해 환경의 Network access 허용 도메인에 `*.amazonaws.com` 도 추가(시크릿은 api.polar.sh 에만 붙는다).
+   - (환경 변수 칸이 있으면 이름 `POLAR_ACCESS_TOKEN` 으로 넣어도 된다 — 도구는 둘 다 지원.)
+   **다른 방법: Claude 환경에 넣기** — 이 세션 위쪽 환경 메뉴(클라우드 환경) → Edit →
    - 환경 변수(또는 Network secrets / API credentials 칸)에 이름 **`POLAR_ACCESS_TOKEN`**, 값은 복사한 토큰.
    - Network access: **`api.polar.sh`** 를 허용 도메인에 추가. 파일 올릴 때 Polar 의 파일 저장소(아마존 S3)에도 접속하므로 `*.amazonaws.com` 도 허용(번거로우면 올리는 동안만 넓은 접근으로 두었다가 되돌리기).
 3. **새 세션을 연다**(환경 설정은 새 세션부터 적용). 「Polar 에 단어장 3 올려」라고 하면 된다.

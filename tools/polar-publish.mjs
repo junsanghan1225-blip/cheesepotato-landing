@@ -6,7 +6,7 @@
 //   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로> --apply    ← 진짜로 올림
 //   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로> --apply --sandbox   ← Polar 연습장(sandbox)에 올림(링크는 shop.json 에 안 적음)
 //
-// 비밀 값: 토큰은 환경 변수 POLAR_ACCESS_TOKEN 에서만 읽는다. 코드 · 채팅 · 커밋에 적지 않는다(CLAUDE.md §3).
+// 비밀 값: 토큰은 환경 변수 POLAR_ACCESS_TOKEN 또는 환경 시크릿(api.polar.sh 로 가는 요청에 Authorization 헤더를 붙여 줌)으로만 쓴다. 코드 · 채팅 · 커밋에 적지 않는다(CLAUDE.md §3).
 //   필요한 권한(scope): files:write · benefits:write · products:write · checkout_links:write · products:read
 //   (주문 · 고객 · 환불 쓰기 권한은 주지 않는다).
 // 같은 책을 두 번 올리지 않는다 — 상품 메타데이터 book_id 로 이미 있는지 먼저 본다. 이미 있으면 멈추고 알려 준다.
@@ -66,11 +66,13 @@ console.log('  상품 설명(영어):\n' + description.split('\n').map((l) => ' 
 if (!APPLY) { console.log('\n위 내용이 맞으면 --apply 를 붙여 다시 실행.'); process.exit(0); }
 
 /* 2) 진짜로 올리기 */
+// 토큰을 환경 변수로 넣었으면 그것을 쓰고, 없으면 환경의 「시크릿」(허용 웹사이트 api.polar.sh + Authorization 헤더)이
+// 네트워크 쪽에서 헤더를 붙여 준다고 보고 헤더 없이 보낸다. 둘 다 없으면 첫 요청이 401 로 끝난다.
 const TOKEN = process.env.POLAR_ACCESS_TOKEN;
-if (!TOKEN) die('환경 변수 POLAR_ACCESS_TOKEN 이 없다(환경 설정에서 넣어야 한다. 채팅에 적지 말 것).');
+if (!TOKEN) console.log('  (POLAR_ACCESS_TOKEN 환경 변수가 없다 — 환경 시크릿이 인증 헤더를 붙여 준다고 보고 진행)');
 
 async function api(method, p, body) {
-  const r = await fetch(API + p, { method, headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  const r = await fetch(API + p, { method, headers: { ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}), 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
   const txt = await r.text();
   if (!r.ok) die(`${method} ${p} → ${r.status} ${txt.slice(0, 400)}`);
   return txt ? JSON.parse(txt) : {};
