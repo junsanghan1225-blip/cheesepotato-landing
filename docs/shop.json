@@ -1829,6 +1829,10 @@
       "18"
      ],
      [
+      "ISBN",
+      "979-11-222407-7-1 (PDF)"
+     ],
+     [
       "Published · 발행",
       "2026.11.10"
      ],
@@ -3569,7 +3573,7 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "246쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "9.90",
    "coverImg": "/assets/books/topik2-writing-53-54/cover.jpg",
    "page": {
@@ -3864,6 +3868,10 @@
       "16"
      ],
      [
+      "ISBN",
+      "979-11-222407-8-8 (PDF)"
+     ],
+     [
       "Published · 발행",
       "2026.11.10"
      ],
@@ -3934,7 +3942,11 @@
       }
      ]
     ]
-   }
+   },
+   "sample": {
+    "pages": 46
+   },
+   "polar": "https://buy.polar.sh/polar_cl_Z9laAeHTB9L1FhOMJEBc86bgrAMrYsNJjUyvV4Rhdiq"
   },
   {
    "id": "topik1-vocab",

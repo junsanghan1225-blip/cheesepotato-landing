@@ -150,7 +150,7 @@ const fileId = await upload(pdf, path.basename(pdfPath), 'application/pdf', 'dow
 let mediaId = null;
 if (fs.existsSync(cover)) { console.log('② 표지 그림 올리는 중…'); mediaId = await upload(fs.readFileSync(cover), `${id}-cover.jpg`, 'image/jpeg', 'product_media'); }
 console.log('③ 「파일 다운로드」 혜택 만드는 중…');
-const benefit = await api('POST', '/benefits/', { type: 'downloadables', description: `${book.title.en} (PDF)`, properties: { files: [fileId] } });
+const benefit = await api('POST', '/benefits/', { type: 'downloadables', description: (`${book.title.en} (PDF)`.length <= 42 ? `${book.title.en} (PDF)` : `${book.title.en.slice(0, 34).trim()}… (PDF)`)   /* Polar 혜택 설명은 42자까지 */, properties: { files: [fileId] } });
 console.log('④ 상품 만드는 중…');
 const made = await api('POST', '/products/', { ...product, ...(mediaId ? { medias: [mediaId] } : {}) });
 await api('POST', `/products/${made.id}/benefits`, { benefits: [benefit.id] });
