@@ -32,6 +32,7 @@ const cards = {
   '04_particles': single('particles-workbook', '은/는 vs 이/가: one question, not ten rules.', '$9.90', 'KOREAN PARTICLES'),
   '05_writing-51-52': single('topik2-writing-51-52', 'TOPIK II 51 & 52: match the style of the passage exactly.', '$6.90', 'TOPIK II WRITING'),
   '06_bundle': multi(['topik2-vocab-1000', 'topik2-vocab-2000', 'topik2-vocab-lv3'], '3 vocabulary workbooks. 2,940 words.', '$14.90 · save 28%', 'TOPIK II BUNDLE'),
+  '08_teachers': wrap('#14264A', '#0B1A33', `<div class="top"><div class="k">FOR KOREAN TEACHERS · 한국어 선생님께</div><div class="h">Free homework &amp; progress tool for your class.</div></div><div style="position:absolute;left:70px;right:70px;top:520px;font-size:44px;line-height:1.5;font-weight:700">📚 Homework in two taps<br>📊 Who did it, at a glance<br>🔗 Students join with one QR scan<br>🆓 Free for teachers · Pro free for your students</div><div class="ft"><span>everykoreans.com/for-teachers.html</span><span class="chip">FREE</span></div>`),
   '07_idioms-soon': single('korean-idioms', '하늘의 별 따기: plucking stars from the sky.', 'COMING SOON', 'ESSENTIAL KOREAN IDIOMS'),
 };
 const PW = process.env.PLAYWRIGHT_PATH || '/opt/node22/lib/node_modules/playwright/index.mjs';

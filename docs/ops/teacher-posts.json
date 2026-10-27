@@ -1,0 +1,48 @@
+{
+  "_note": "한국어 선생님께 우리 사이트(숙제 · 진도 도구 · 무료 학습지 · 수업용 책)를 알리는 글(운영자 2026-10-27 「한국어 교사한테 우리 웹사이트 홍보하는 글도」). 사실은 for-teachers.html · 학습지 쪽 · 책 쪽에 있는 것만 — 사용 교사 수 · 후기 같은 것은 쓰지 않는다. 반은 숙제 · 복습용이고 수업 · 결제는 선생님이 쓰는 플랫폼 그대로(Preply 규정)라는 말을 꼭 넣는다. 링크의 utm_source 는 올리는 곳마다 다르게 붙는다(src).",
+  "utm": "?utm_medium=social&utm_campaign=teachers-nov",
+  "posts": [
+    {
+      "n": 1, "when": "목 10/29", "where": "쓰레드 · 링크드인", "src": "threads", "card": "08_teachers", "link": "/for-teachers.html",
+      "en": "Korean teachers & tutors: I built a free homework tool for you.\n\nBetween lessons, give your students a course lesson, a word session or a grammar drill, and see who actually did it: a students × homework table, CSV export, a printable report for each student.\n\nFree for teachers. Your students get Pro features free while they're in your class. Your lessons and payments stay on your own platform.\n\nTutors on Preply, italki or your own classes: would this help you?",
+      "ko": "한국어 선생님께: 수업 사이 숙제 도구를 무료로 만들었어요.\n\n레슨 · 단어 세션 · 문법 바꿔 쓰기를 숙제로 내고, 누가 했는지 학생 × 숙제 표 · CSV · 학생별 리포트로 봅니다.\n\n선생님은 늘 무료, 반에 있는 학생은 Pro 무료. 수업 · 결제는 쓰시는 플랫폼 그대로예요.\n\nPreply · italki · 학원 선생님, 도움이 될까요?",
+      "reply": "How it works, and how to get a teacher account: {link}"
+    },
+    {
+      "n": 2, "when": "금 10/30", "where": "페이스북 교사 모임 · 링크드인(긴 글)", "src": "facebook", "card": "08_teachers", "link": "/for-teachers.html",
+      "en": "A small problem every Korean tutor knows: the student nods in the lesson, and a week later nothing has been reviewed.\n\nI'm a Korean teacher too (about 100 students, 1,700+ hours, mostly Europe and the US), and I built a tool for exactly this. It's on my site CheesePotato:\n\n• Homework in two taps: a course lesson (401 to choose from), a word session (how many times), a grammar drill\n• Set each student's level, no level test needed\n• Progress report: students × homework table, CSV export, printable report per student\n• \"Students to check today\": overdue, inactive for 3 days, or just finished\n• Students join by link or one QR scan\n\nFree for teachers, always. Students in your class get Pro free. Lessons, schedule and payments stay on your own platform: the class tool is only for homework and review.\n\nIf you'd like to try it, email me the address you sign in with and I'll open a teacher account.",
+      "ko": "한국어 선생님이라면 다 아는 고민이 있죠. 수업 시간엔 고개를 끄덕이는데, 일주일 뒤엔 복습이 하나도 안 돼 있어요.\n\n저도 한국어 교사(약 100명 · 1,700시간 이상, 주로 유럽 · 미국 학생)라서 이 문제를 풀려고 사이트 치즈감자에 도구를 만들었어요.\n\n• 숙제 두 번 눌러서: 코스 레슨(401개 중), 단어 세션(몇 번), 문법 바꿔 쓰기\n• 학생별 레벨 설정(레벨테스트 없이)\n• 진도 리포트: 학생 × 숙제 표 · CSV · 학생별 인쇄 리포트\n• 「오늘 확인할 학생」: 밀린 · 3일 안 한 · 방금 끝낸\n• 링크나 QR 한 번으로 학생이 들어옴\n\n선생님은 늘 무료, 반 학생은 Pro 무료. 수업 · 일정 · 결제는 쓰시는 플랫폼 그대로이고, 반은 숙제 · 복습용이에요.\n\n써 보실 분은 로그인에 쓰실 메일을 보내 주세요. 선생님 계정을 열어 드려요.",
+      "reply": "Details: {link}"
+    },
+    {
+      "n": 3, "when": "토 10/31", "where": "쓰레드 · 페이스북", "src": "threads", "card": "", "link": "/worksheets/",
+      "en": "35 free printable Korean worksheets for your class, every one with an answer key.\n\nNumbers and counters, Hangul, particles, speech levels, irregular verbs, reported speech and more. Print them, save as PDF or download as Word to edit.\n\nMade by a Korean teacher for A1–A2 classes. No sign-up needed.",
+      "ko": "수업에 바로 쓰는 무료 인쇄용 한국어 학습지 35개, 전부 정답지 포함.\n\n수사 · 한글 · 조사 · 말투 · 불규칙 · 간접 화법 등. 인쇄하거나 PDF로 저장하거나 Word로 받아 고쳐 쓸 수 있어요.\n\n한국어 선생님이 A1~A2 수업용으로 만들었고, 가입 없이 쓸 수 있어요.",
+      "reply": "All worksheets: {link}"
+    },
+    {
+      "n": 4, "when": "일 11/1", "where": "네이버 카페 · 한국어 교사 모임 게시판 · 카카오 오픈채팅(길게)", "src": "cafe", "card": "", "link": "/for-teachers.html",
+      "en": "",
+      "ko": "안녕하세요, 한국어를 가르치는 준상입니다. 같은 일을 하시는 선생님들께 도움이 될까 해서 글을 남깁니다(홍보 글이니 게시판 규칙에 맞지 않으면 알려 주세요).\n\n제가 운영하는 한국어 학습 사이트 치즈감자(everykoreans.com)에 선생님용 숙제 · 진도 도구를 만들어 무료로 열었습니다.\n\n1) 수업 사이 숙제: 코스 레슨 · 단어 세션 · 문법 바꿔 쓰기를 숙제로 내고, 학생별로 했는지 표 · CSV · 인쇄 리포트로 확인\n2) 학생은 링크나 QR 한 번으로 입장, 선생님이 학생 레벨을 직접 설정\n3) 선생님은 늘 무료, 반에 있는 학생은 Pro 무료\n4) 수업 · 일정 · 결제는 선생님이 쓰시는 플랫폼 그대로이고, 반은 숙제 · 복습용입니다\n\n그리고 정답지가 있는 인쇄용 학습지 35개(A1~A2)도 무료입니다. 가입 없이 인쇄 · PDF · Word로 받을 수 있어요.\n\n써 보시려면 로그인에 쓰실 메일을 cheesepotato@everykoreans.com 으로 보내 주세요. 선생님 계정을 열어 드립니다. 불편한 점은 편하게 말씀해 주세요, 바로 고치겠습니다.",
+      "reply": "안내 쪽: {link}"
+    },
+    {
+      "n": 5, "when": "월 11/2", "where": "쓰레드 · 인스타 스토리(짧은 한국어)", "src": "threads", "card": "", "link": "/for-teachers.html",
+      "en": "",
+      "ko": "한국어 선생님, 숙제 낼 때 매번 PDF 만들어 보내세요?\n\n레슨 · 단어 · 문법 숙제를 두 번 눌러 내고 학생이 했는지 표로 보세요. 선생님은 무료, 학생은 Pro 무료. 수업 · 결제는 지금 쓰시는 곳 그대로예요.",
+      "reply": "{link}"
+    },
+    {
+      "n": 6, "when": "화 11/3", "where": "쓰레드 · 페이스북", "src": "threads", "card": "", "link": "/shop/",
+      "en": "Korean teachers: you can use my workbooks as printable class material.\n\nThey're PDF workbooks with answer keys: Hangul, particles, TOPIK II vocabulary and writing. Print for your own class (A4 or B5), mark with the key, send the QR practice link to students.\n\nEach book has a free sample, so you can try a unit with a student before you decide.",
+      "ko": "한국어 선생님, 제 워크북을 수업 자료로 인쇄해 쓰셔도 돼요.\n\n한글 · 조사 · TOPIK II 단어 · 쓰기 PDF 워크북, 정답 포함이에요. 본인 수업용으로 A4나 B5로 인쇄해서 쓰고, 단원마다 있는 QR 로 학생에게 무료 연습을 안내하세요.\n\n책마다 무료 샘플이 있어서, 학생과 한 단원 해 보고 정하실 수 있어요.",
+      "reply": "Books and free samples: {link}"
+    },
+    {
+      "n": 7, "when": "수~ 연락할 때", "where": "아는 선생님에게 직접 메시지(DM · 카톡)", "src": "dm", "card": "", "link": "/for-teachers.html",
+      "en": "Hi [name]! I built a free homework tool for Korean teachers on my site CheesePotato (everykoreans.com).\nYou can give lesson / vocab / grammar homework between classes and see who did it, with a progress report.\nIt's free for teachers, and your students get the Pro features free while they're in your class. Lessons and payments stay on your own platform, it's only for homework.\nIf you'd like to try it, just send me the email you'll sign in with: {link}",
+      "ko": "[이름] 선생님, 안녕하세요! 제가 만든 한국어 사이트 치즈감자(everykoreans.com)에 선생님용 숙제 도구를 무료로 열었어요.\n수업 사이에 레슨 · 단어 · 문법 숙제를 내고, 누가 했는지 진도 리포트로 볼 수 있어요.\n선생님은 무료이고, 반에 있는 학생은 Pro 기능을 무료로 써요. 수업 · 결제는 쓰시는 플랫폼 그대로고 숙제용이에요.\n써 보실 거면 로그인에 쓰실 메일만 보내 주세요: {link}",
+      "reply": "(일주일 뒤 안부) Hi [name], did you get a chance to look? Happy to open the teacher account whenever you like, and tell me anything that feels clunky and I'll fix it. / [이름] 선생님, 한번 보셨어요? 계정은 언제든 열어 드릴게요. 불편한 점 말씀해 주시면 바로 고칠게요."
+    }
+  ]
+}
