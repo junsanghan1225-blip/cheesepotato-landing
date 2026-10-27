@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=41a99d1a', ja: './i18n-ja.js?v=41a99d1a', zh: './i18n-zh.js?v=41a99d1a', id: './i18n-id.js?v=41a99d1a', ne: './i18n-ne.js?v=41a99d1a', my: './i18n-my.js?v=41a99d1a', ru: './i18n-ru.js?v=41a99d1a', mn: './i18n-mn.js?v=41a99d1a', pt: './i18n-pt.js?v=41a99d1a', uz: './i18n-uz.js?v=41a99d1a' };
+const I18N_URL = { vi: './i18n-vi.js?v=a2dd0b36', ja: './i18n-ja.js?v=a2dd0b36', zh: './i18n-zh.js?v=a2dd0b36', id: './i18n-id.js?v=a2dd0b36', ne: './i18n-ne.js?v=a2dd0b36', my: './i18n-my.js?v=a2dd0b36', ru: './i18n-ru.js?v=a2dd0b36', mn: './i18n-mn.js?v=a2dd0b36', pt: './i18n-pt.js?v=a2dd0b36', uz: './i18n-uz.js?v=a2dd0b36' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1481,3 +1481,16 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+
+/* 치즈 도우미 단추가 읽는 글을 가리지 않게 — 아래로 읽는 동안은 숨고, 위로 올리거나 멈추면 돌아온다(운영자 2026-10-27) */
+(() => {
+  const fab = document.querySelector('.hlp-fab');
+  if (!fab) return;
+  let last = window.scrollY, tm = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > last + 8 && y > 240) fab.classList.add('away'); else if (y < last - 8) fab.classList.remove('away');
+    last = y;
+    clearTimeout(tm); tm = setTimeout(() => fab.classList.remove('away'), 900);
+  }, { passive: true });
+})();
