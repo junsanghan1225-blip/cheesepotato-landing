@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE = { monthly: '$4.99', yearly: '$39', pass: '$15', passMonths: 3, trialDays: 7 };   // 시험 패스 · 7일 체험(2026-10-04) — billing.js BILLING 과 같이 고친다
 const EMAIL = 'cheesepotato@everykoreans.com';
-const UPDATED = '2026-10-04';
+const UPDATED = '2026-10-27';
 const SELLER = {
   name: '에브리코리안즈 (everykoreans · 치즈감자)',
   owner: '한준상',   // 대표자 (통신판매업신고증 · 출판사 신고확인증, 2026-10-22)
@@ -217,6 +217,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <li>14일이 지난 뒤에는 남은 기간을 나눠 돌려 드리지 않습니다. 대신 언제든 해지할 수 있고, 해지해도 이미 낸 기간이 끝날 때까지 Pro 를 쓸 수 있습니다.</li>
 <li>서비스 장애로 Pro 기능을 쓰지 못한 경우에는 기간과 관계없이 환불하거나 기간을 늘려 드립니다.</li>
 <li>연 구독이 자동 갱신된 뒤 14일 안에 알려 주시면 갱신분을 전액 환불합니다.</li>
+<li><strong>책(PDF 파일)은 이상이 있을 때 환불합니다.</strong> 파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책일 때입니다. 먼저 고친 파일을 보내 드릴 수도 있고, 그래도 해결되지 않으면 환불합니다.</li>
 </ul>
 <h2>환불 요청</h2>
 <p>결제 영수증 이메일(Polar 가 보냄)에 답장하거나, <code>${EMAIL}</code> 로 결제에 쓴 이메일 주소를 적어 보내 주세요. 환불은 Polar 가 처리하며, 원래 결제 수단으로 5~10 영업일 안에 들어갑니다.</p>
@@ -227,6 +228,7 @@ const refund = page('refund.html', '환불 규정 · Refund Policy', '치즈감�
 <li>After 14 days we do not give partial refunds for the remaining period. You can cancel anytime and keep Pro until the end of the period you paid for.</li>
 <li>If an outage prevented you from using Pro, we will refund or extend your subscription regardless of timing.</li>
 <li>If a yearly plan renews automatically, tell us within 14 days of the renewal for a full refund of that renewal.</li>
+<li><strong>Books (PDF files) are refunded if there is a problem with the book</strong> — the file does not open, pages are missing, or it is not the book described. We may first send you a fixed file, and if that does not solve it we refund you.</li>
 </ul>
 <h2>How to request a refund</h2>
 <p>Reply to your receipt email from Polar, or write to <code>${EMAIL}</code> with the email address you paid with. Refunds are processed by Polar to your original payment method, usually within 5–10 business days.</p>
