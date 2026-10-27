@@ -149,9 +149,10 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "186쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "9.90",
-   "coverImg": "/assets/books/particles-workbook/cover.jpg"
+   "coverImg": "/assets/books/particles-workbook/cover.jpg",
+   "polar": "https://buy.polar.sh/polar_cl_D2AswCvTpPVPzq20yuE7lWa4sWMYw0UsGzs1z4HpljO"
   },
   {
    "id": "elementary-grammar-workbook",
@@ -628,9 +629,10 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "284쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "6.90",
-   "coverImg": "/assets/books/topik2-vocab-1000/cover.jpg"
+   "coverImg": "/assets/books/topik2-vocab-1000/cover.jpg",
+   "polar": "https://buy.polar.sh/polar_cl_SQEzjrCOB7W88gNz1DoTwqvIKadNzBe3iwzYr2Pk9Xw"
   },
   {
    "id": "topik2-vocab-2000",
@@ -685,9 +687,10 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "282쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "6.90",
-   "coverImg": "/assets/books/topik2-vocab-2000/cover.jpg"
+   "coverImg": "/assets/books/topik2-vocab-2000/cover.jpg",
+   "polar": "https://buy.polar.sh/polar_cl_rppPJzMcTnMmZNOCDM5AGfHYHmnOk417Ba0vS1tyzYm"
   },
   {
    "id": "topik2-vocab-lv3",
@@ -742,9 +745,10 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "266쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "6.90",
-   "coverImg": "/assets/books/topik2-vocab-lv3/cover.jpg"
+   "coverImg": "/assets/books/topik2-vocab-lv3/cover.jpg",
+   "polar": "https://buy.polar.sh/polar_cl_VZPx8ba5N2Of0liQKj15rOJOWH6MAmxIPOteR3g4pw2"
   },
   {
    "id": "topik2-writing-53-54",
