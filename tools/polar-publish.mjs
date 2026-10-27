@@ -4,6 +4,8 @@
 // 쓰는 법
 //   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로>            ← 점검만(인터넷 안 씀, 아무것도 안 올림)
 //   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로> --apply    ← 진짜로 올림
+//   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로> --apply --update <Polar 상품 번호 앞 8자리>
+//        ← 이미 있는 상품의 PDF 만 새 파일로 바꿈(ePub 같은 다른 파일 · 가격 · 링크는 그대로)
 //   node tools/polar-publish.mjs <책 id> --pdf <PDF 경로> --apply --sandbox   ← Polar 연습장(sandbox)에 올림(링크는 shop.json 에 안 적음)
 //
 // 비밀 값: 토큰은 환경 변수 POLAR_ACCESS_TOKEN 또는 환경 시크릿(api.polar.sh 로 가는 요청에 Authorization 헤더를 붙여 줌)으로만 쓴다. 코드 · 채팅 · 커밋에 적지 않는다(CLAUDE.md §3).
@@ -20,10 +22,11 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(n);
 const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
-const id = args.find((a) => !a.startsWith('--') && a !== opt('--pdf'));
+const id = args.find((a) => !a.startsWith('--') && a !== opt('--pdf') && a !== opt('--update'));
 const pdfPath = opt('--pdf');
 const APPLY = flag('--apply');
 const SANDBOX = flag('--sandbox');
+const UPDATE = opt('--update');
 const API = SANDBOX ? 'https://sandbox-api.polar.sh/v1' : 'https://api.polar.sh/v1';
 const PART = 10 * 1024 * 1024; // 올릴 때 10MB 씩 나눠 보낸다(S3 규칙: 마지막 조각 말고는 5MB 이상)
 
@@ -35,7 +38,7 @@ const shopFile = path.join(ROOT, 'docs/shop.json');
 const shop = JSON.parse(fs.readFileSync(shopFile, 'utf8'));
 const book = shop.books.find((b) => b.id === id);
 if (!book) die(`docs/shop.json 에 책 「${id}」 이(가) 없다. 있는 책: ${shop.books.map((b) => b.id).join(', ')}`);
-if (book.polar && !SANDBOX) die(`「${id}」 은(는) 이미 Polar 링크가 있다(${book.polar.slice(0, 40)}…). 이 도구는 새 상품만 만든다.`);
+if (book.polar && !SANDBOX && !UPDATE) die(`「${id}」 은(는) 이미 Polar 링크가 있다(${book.polar.slice(0, 40)}…). 이 도구는 새 상품만 만든다.`);
 const frame = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${id}.json`), 'utf8')); } catch { return {}; } })();
 const cents = Math.round(parseFloat(book.price) * 100);
 if (!(cents >= 50)) die(`가격 「${book.price}」 이(가) 이상하다`);
@@ -58,7 +61,7 @@ const product = {
   metadata: { book_id: id },
 };
 const fmt = (n) => (n / 1048576).toFixed(1) + 'MB';
-console.log(`${SANDBOX ? '[연습장 sandbox] ' : ''}${APPLY ? '올리기' : '점검만(--apply 가 없어 아무것도 안 올림)'}`);
+console.log(`${SANDBOX ? '[연습장 sandbox] ' : ''}${UPDATE ? `[기존 상품 ${UPDATE} 의 PDF 바꾸기] ` : ''}${APPLY ? '올리기' : '점검만(--apply 가 없어 아무것도 안 올림)'}`);
 console.log(`  책: ${id} — ${book.title.ko} / ${book.title.en}`);
 console.log(`  가격: $${(cents / 100).toFixed(2)} (한 번 결제) · PDF ${fmt(pdf.length)} · 표지 그림 ${fs.existsSync(cover) ? '있음' : '없음'}${frame.isbn ? ' · ISBN ' + frame.isbn : ''}`);
 console.log(`  파일 이름(받는 사람에게 보임): ${path.basename(pdfPath)}`);
@@ -98,6 +101,40 @@ async function upload(buf, name, mime, service) {
   }
   await api('POST', `/files/${file.id}/uploaded`, { id: file.upload.id, path: file.upload.path, parts: done });
   return file.id;
+}
+
+/* 이미 있는 상품의 PDF 만 바꾸기: 새 PDF 올림 → 혜택의 파일 목록에서 옛 PDF 를 빼고 새 PDF 를 넣음(ePub 등 다른 파일은 둠) */
+if (UPDATE) {
+  const all = [];
+  for (let page = 1; ; page++) {
+    const list = await api('GET', `/products/?limit=100&page=${page}&is_archived=false`);
+    all.push(...(list.items || []));
+    if (page >= (list.pagination?.max_page || 1)) break;
+  }
+  const hits = all.filter((p) => p.id.startsWith(UPDATE));
+  if (hits.length !== 1) die(`상품 번호 「${UPDATE}」 로 시작하는 상품이 ${hits.length}개다(하나여야 한다).`);
+  const prod = hits[0];
+  const ben = (prod.benefits || []).find((b) => b.type === 'downloadables');
+  if (!ben) die('그 상품에 「파일 다운로드」 혜택이 없다.');
+  const cur = await api('GET', `/benefits/${ben.id}`);
+  const curIds = cur.properties?.files || [];
+  const meta = [];
+  for (let page = 1; ; page++) {
+    const l = await api('GET', `/files/?limit=100&page=${page}`);
+    meta.push(...(l.items || []));
+    if (page >= (l.pagination?.max_page || 1)) break;
+  }
+  const byId = new Map(meta.map((f) => [f.id, f]));
+  if (curIds.some((f) => !byId.has(f))) die('혜택의 파일 중 목록에서 못 찾은 것이 있다(안전하게 멈춤). 파일 읽기 권한(files:read)을 확인.');
+  const keep = curIds.filter((fid) => byId.get(fid).mime_type !== 'application/pdf');
+  const drop = curIds.filter((fid) => !keep.includes(fid));
+  console.log(`상품: ${prod.name}\n  지금 파일: ${curIds.map((f) => `${byId.get(f)?.name || f}(${byId.get(f)?.mime_type || '?'})`).join(' · ')}\n  빼는 것(PDF): ${drop.length}개 · 두는 것: ${keep.length}개`);
+  console.log('① 새 PDF 올리는 중…');
+  const nid = await upload(pdf, path.basename(pdfPath), 'application/pdf', 'downloadable');
+  await api('PATCH', `/benefits/${ben.id}`, { type: 'downloadables', properties: { files: [...keep, nid] } });
+  await api('PATCH', `/products/${prod.id}`, { metadata: { ...(prod.metadata || {}), book_id: id } });
+  console.log(`\n✔ 완료  「${prod.name}」 의 PDF 를 ${path.basename(pdfPath)} 로 바꿨다(이미 산 사람은 포털에서 새 파일을 받는다 — 옛 PDF 는 목록에서 빠짐).`);
+  process.exit(0);
 }
 
 // 같은 책이 이미 있으면 멈춘다(두 번 만들지 않기)
