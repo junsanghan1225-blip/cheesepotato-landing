@@ -79,10 +79,437 @@
    },
    "sheets": "A1",
    "trim": "B5 (182 × 257 mm)",
-   "pages": "148쪽 (PDF · 속지 기준)",
+   "pages": "140쪽 (PDF · 속지 기준)",
    "status": "on",
    "price": "9.90",
-   "polar": "https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2"
+   "polar": "https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2",
+   "coverImg": "/assets/books/first-steps-workbook/cover.jpg",
+   "sample": {
+    "pages": 18
+   },
+   "page": {
+    "headline": {
+     "en": "Start with Hangul. Write your way to everyday Korean.",
+     "ko": "한글부터 일상 한국어까지, 쓰면서 배워요"
+    },
+    "lead": {
+     "en": "A beginner workbook built from our most-used free worksheets. Every unit has a short explanation, tables to copy by hand, practice, and an answer key at the back.",
+     "ko": "가장 많이 쓰인 무료 학습지로 만든 입문 워크북. 단원마다 짧은 설명 · 따라 쓰는 표 · 연습, 뒤쪽에 정답이 있어요."
+    },
+    "features": [
+     {
+      "ic": "🔤",
+      "t": {
+       "en": "Hangul first",
+       "ko": "한글부터"
+      },
+      "d": {
+       "en": "Consonants, vowels and final consonants (받침) come before everything else.",
+       "ko": "자음 · 모음 · 받침을 먼저 익힙니다."
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "You write in every unit",
+       "ko": "단원마다 직접 쓰기"
+      },
+      "d": {
+       "en": "Tables to copy, short practice sets and review tests.",
+       "ko": "따라 쓰는 표 · 연습 · 복습 테스트"
+      }
+     },
+     {
+      "ic": "🛒",
+      "t": {
+       "en": "Everyday topics",
+       "ko": "생활 주제"
+      },
+      "d": {
+       "en": "Greetings, numbers and dates, family, food, shopping and the basic particles.",
+       "ko": "인사 · 숫자와 날짜 · 가족 · 음식 · 쇼핑 · 기초 조사"
+      }
+     },
+     {
+      "ic": "✅",
+      "t": {
+       "en": "Answer key and free online practice",
+       "ko": "정답과 무료 온라인 연습"
+      },
+      "d": {
+       "en": "Mark your own work with the key at the back; QR codes open free practice on everykoreans.com.",
+       "ko": "뒤쪽 정답으로 스스로 채점, QR 로 everykoreans.com 무료 연습"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Reading about Hangul is not the same as writing it.",
+     "a": "Writing each letter, then each word, is what makes the script automatic. Every unit gives you tables to copy and practice sets to fill in."
+    },
+    "steps": [
+     {
+      "ic": "📖",
+      "t": "Read",
+      "d": "A short explanation and the tables you need."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write",
+      "d": "Copy the tables, then do the practice."
+     },
+     {
+      "ic": "✅",
+      "t": "Check",
+      "d": "Mini tests and an answer key to mark your own work."
+     }
+    ],
+    "notFor": [
+     "Learners who already read Hangul fluently and want grammar depth (try the Particles workbook)"
+    ],
+    "pick": "you are starting from zero or have just learned Hangul",
+    "related": [
+     "first-steps-workbook",
+     "particles-workbook"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ],
+       [
+        "How this book is organized 이 책의 구성 · 블록 읽는 법",
+        "7"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · START READING & WRITING",
+       "ko": "읽고 쓰기 시작"
+      },
+      "items": [
+       [
+        "01 Study plan: 8 weeks 공부 계획표 · 8주",
+        "11"
+       ],
+       [
+        "02 Hangul Alphabet: Consonants & Vowels 한글 자음과 모음",
+        "14"
+       ],
+       [
+        "03 Hangul Batchim & Sound Rules 받침과 소리 규칙",
+        "17"
+       ],
+       [
+        "04 Short dialogue · Part 1: Reading practice 1부 짧은 대화 · 읽기 연습",
+        "21"
+       ],
+       [
+        "05 Mini test · Part 1: Start Reading & Writing 1부 미니 테스트 · 읽고 쓰기 시작",
+        "24"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · YOUR FIRST SENTENCES",
+       "ko": "첫 문장 만들기"
+      },
+      "items": [
+       [
+        "06 Greetings & Self-Introduction 인사말과 자기소개",
+        "27"
+       ],
+       [
+        "07 이다 vs 아니다 and 있다 vs 없다 이다 · 아니다 · 있다 · 없다 비교",
+        "31"
+       ],
+       [
+        "08 Korean Demonstratives: 이 · 그 · 저 지시어: 이 · 그 · 저",
+        "34"
+       ],
+       [
+        "09 Essential Korean Particles 기초 필수 조사",
+        "37"
+       ],
+       [
+        "10 Korean Question Words 의문사: 누구 · 언제 · 어디 · 무엇 · 왜",
+        "40"
+       ],
+       [
+        "11 Polite Present Tense: -아요 / -어요 / 해요 해요체 현재형 만들기",
+        "44"
+       ],
+       [
+        "12 Essential Verbs & Adjectives 꼭 필요한 동사 · 형용사",
+        "49"
+       ],
+       [
+        "13 Short dialogue · Part 2: Meeting a neighbor 2부 짧은 대화 · 이웃을 만나요",
+        "54"
+       ],
+       [
+        "14 Mini test · Part 2: Your First Sentences 2부 미니 테스트 · 첫 문장 만들기",
+        "57"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · TALKING ABOUT MY WORLD",
+       "ko": "내 주변 이야기"
+      },
+      "items": [
+       [
+        "15 Numbers & Counters 숫자와 세는 말",
+        "60"
+       ],
+       [
+        "16 Days, months & dates 요일 · 월 · 날짜",
+        "64"
+       ],
+       [
+        "17 Family Terms & Honorifics 가족 호칭과 높임말",
+        "68"
+       ],
+       [
+        "18 Location, Places & Existence 위치 · 장소 · 있다/없다",
+        "72"
+       ],
+       [
+        "19 Colors, Shapes & Opposite Adjectives 색깔 · 모양 · 반대말 형용사",
+        "76"
+       ],
+       [
+        "20 House, Rooms & Furniture 집 · 방 · 가구",
+        "80"
+       ],
+       [
+        "21 School & Classroom Expressions 학교 · 교실 표현",
+        "83"
+       ],
+       [
+        "22 Short dialogue · Part 3: A visit to my home 3부 짧은 대화 · 우리 집에 오세요",
+        "87"
+       ],
+       [
+        "23 Mini test · Part 3: Talking About My World 3부 미니 테스트 · 내 주변 이야기",
+        "90"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 4 · OUT AND ABOUT",
+       "ko": "밖으로 나가요"
+      },
+      "items": [
+       [
+        "24 Food Ordering, Menus & Taste 음식 주문 · 메뉴 · 맛 표현",
+        "93"
+       ],
+       [
+        "25 Shopping, Prices & Clothing 쇼핑 · 가격 · 옷 · 크기",
+        "97"
+       ],
+       [
+        "26 Directions & Transportation 길 묻기 · 교통 · 방향",
+        "101"
+       ],
+       [
+        "27 Weather, Seasons & Temperature 날씨 · 계절 · 기온",
+        "105"
+       ],
+       [
+        "28 Hobbies, Leisure & Sports 취미 · 여가 · 운동",
+        "109"
+       ],
+       [
+        "29 Body Parts, Illness & Hospital 몸 · 아플 때 쓰는 말 · 병원",
+        "112"
+       ],
+       [
+        "30 Short dialogue · Part 4: At a restaurant 4부 짧은 대화 · 식당에서",
+        "116"
+       ],
+       [
+        "31 Mini test · Part 4: Out and About 4부 미니 테스트 · 밖으로 나가요",
+        "119"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 5 · PAST, FUTURE & NEGATION",
+       "ko": "시제와 부정"
+      },
+      "items": [
+       [
+        "32 Negation & Tenses 부정과 시제: 안 · 못 · 과거 · 미래",
+        "122"
+       ],
+       [
+        "33 Short dialogue · Part 5: After being sick 5부 짧은 대화 · 아팠어요",
+        "125"
+       ],
+       [
+        "34 Mini test · Part 5: Past, Future & Negation 5부 미니 테스트 · 시제와 부정",
+        "128"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "130"
+       ],
+       [
+        "Index 찾아보기",
+        "136"
+       ],
+       [
+        "Notes 메모",
+        "140"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "140"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "34"
+     ],
+     [
+      "ISBN",
+      "979-11-222407-5-7 (PDF)"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "particles-workbook",
@@ -152,7 +579,477 @@
    "status": "on",
    "price": "9.90",
    "coverImg": "/assets/books/particles-workbook/cover.jpg",
-   "polar": "https://buy.polar.sh/polar_cl_D2AswCvTpPVPzq20yuE7lWa4sWMYw0UsGzs1z4HpljO"
+   "polar": "https://buy.polar.sh/polar_cl_D2AswCvTpPVPzq20yuE7lWa4sWMYw0UsGzs1z4HpljO",
+   "sample": {
+    "pages": 21
+   },
+   "page": {
+    "headline": {
+     "en": "The small words that glue Korean together, one unit at a time.",
+     "ko": "한국어를 이어 주는 작은 말, 조사를 한 단원에 하나씩"
+    },
+    "lead": {
+     "en": "Each unit takes one particle: its meaning, its form, examples, the trap to avoid and practice. Then a “Choose the right particle” part sets look-alikes side by side.",
+     "ko": "단원마다 조사 하나: 뜻 · 모양 · 예문 · 조심할 점 · 연습. 뒤에는 헷갈리는 조사를 나란히 놓고 고르는 부분이 있어요."
+    },
+    "features": [
+     {
+      "ic": "🧩",
+      "t": {
+       "en": "20 particles, one per unit",
+       "ko": "조사 20개, 단원마다 하나"
+      },
+      "d": {
+       "en": "Meaning, form, examples, the trap to avoid, and practice.",
+       "ko": "뜻 · 모양 · 예문 · 조심할 점 · 연습"
+      }
+     },
+     {
+      "ic": "⚖️",
+      "t": {
+       "en": "Choose the right particle",
+       "ko": "헷갈리는 조사 가르기"
+      },
+      "d": {
+       "en": "Look-alikes side by side, such as 은/는 vs 이/가 and 에 vs 에서.",
+       "ko": "은/는 vs 이/가, 에 vs 에서 같은 짝을 나란히"
+      }
+     },
+     {
+      "ic": "📝",
+      "t": {
+       "en": "Review tests",
+       "ko": "복습 테스트"
+      },
+      "d": {
+       "en": "Review tests mix all the particles together.",
+       "ko": "모든 조사를 섞은 복습 테스트"
+      }
+     },
+     {
+      "ic": "✅",
+      "t": {
+       "en": "Answer key and free online practice",
+       "ko": "정답과 무료 온라인 연습"
+      },
+      "d": {
+       "en": "Answer key at the back and a QR code in each unit to free practice.",
+       "ko": "뒤쪽 정답, 단원마다 무료 연습 QR"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Particles are tiny, and they change the whole sentence.",
+     "a": "Learners who can read Hangul still stumble on 은/는 vs 이/가 or 에 vs 에서. Here each particle gets its own unit, and the look-alikes are set side by side."
+    },
+    "steps": [
+     {
+      "ic": "🧩",
+      "t": "Learn one",
+      "d": "Meaning, form and examples for a single particle."
+     },
+     {
+      "ic": "⚠️",
+      "t": "Avoid the trap",
+      "d": "The common mistake, then practice."
+     },
+     {
+      "ic": "⚖️",
+      "t": "Choose",
+      "d": "Pick the right particle between look-alikes, then review tests."
+     }
+    ],
+    "notFor": [
+     "Complete beginners who cannot read Hangul yet (start with Korean First Steps)"
+    ],
+    "pick": "you can read Hangul but mix up 은/는 vs 이/가, 에 vs 에서 and other particles",
+    "related": [
+     "first-steps-workbook",
+     "particles-workbook"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ],
+       [
+        "How this book is organized 이 책의 구성 · 블록 읽는 법",
+        "8"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · START HERE",
+       "ko": "시작하기"
+      },
+      "items": [
+       [
+        "01 How to study particles 조사, 이렇게 공부하세요",
+        "12"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · CORE MARKERS",
+       "ko": "기본 조사"
+      },
+      "items": [
+       [
+        "02 N이/가 N이/가",
+        "15"
+       ],
+       [
+        "03 N은/는 N은/는",
+        "20"
+       ],
+       [
+        "04 N을/를 N을/를",
+        "25"
+       ],
+       [
+        "05 N의 N의",
+        "30"
+       ],
+       [
+        "06 Mini test · Part 2: Core markers 2부 미니 테스트 · 핵심 조사",
+        "35"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · PLACE, TIME & DIRECTION",
+       "ko": "장소 · 시간 · 방향"
+      },
+      "items": [
+       [
+        "07 N에 ① (장소·시간) N에 ① (장소·시간)",
+        "38"
+       ],
+       [
+        "08 N에 ② (방향·단위) N에 ② (방향·단위)",
+        "43"
+       ],
+       [
+        "09 N에서 N에서",
+        "48"
+       ],
+       [
+        "10 N에서 N까지, N부터 N까지 N에서 N까지, N부터 N까지",
+        "53"
+       ],
+       [
+        "11 N에게/한테 N에게/한테",
+        "58"
+       ],
+       [
+        "12 Mini test · Part 3: Place, time & direction 3부 미니 테스트 · 장소 · 시간 · 방향",
+        "63"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 4 · TOGETHER, ALSO & ONLY",
+       "ko": "함께 · 도 · 만"
+      },
+      "items": [
+       [
+        "13 N와/과, N(이)랑, N하고 N와/과, N(이)랑, N하고",
+        "66"
+       ],
+       [
+        "14 N도 N도",
+        "71"
+       ],
+       [
+        "15 N만 N만",
+        "75"
+       ],
+       [
+        "16 N밖에 N밖에",
+        "80"
+       ],
+       [
+        "17 N(이)나 ① (선택) N(이)나 ① (선택)",
+        "85"
+       ],
+       [
+        "18 N(이)나 ② (많음) N(이)나 ② (많음)",
+        "90"
+       ],
+       [
+        "19 Mini test · Part 4: Together, also & only 4부 미니 테스트 · 함께 · 도 · 만",
+        "95"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 5 · WAYS, AMOUNTS & COMPARING",
+       "ko": "수단 · 어림 · 견주기"
+      },
+      "items": [
+       [
+        "20 N(으)로 N(으)로",
+        "98"
+       ],
+       [
+        "21 N쯤 N쯤",
+        "103"
+       ],
+       [
+        "22 N처럼, N같이 N처럼, N같이",
+        "108"
+       ],
+       [
+        "23 N보다 N보다",
+        "112"
+       ],
+       [
+        "24 N마다 N마다",
+        "117"
+       ],
+       [
+        "25 Mini test · Part 5: Ways, amounts & comparing 5부 미니 테스트 · 방법 · 양 · 비교",
+        "122"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 6 · CHOOSE THE RIGHT PARTICLE",
+       "ko": "헷갈리는 조사 가르기"
+      },
+      "items": [
+       [
+        "26 은/는 or 이/가? 은/는 vs 이/가",
+        "125"
+       ],
+       [
+        "27 은/는 or 이/가? Context decides 은/는 vs 이/가: 맥락이 정해요",
+        "128"
+       ],
+       [
+        "28 에 or 에서? 에 vs 에서",
+        "133"
+       ],
+       [
+        "29 에게/한테 or 에? 에게/한테 vs 에",
+        "136"
+       ],
+       [
+        "30 (으)로 or 에? (으)로 vs 에",
+        "139"
+       ],
+       [
+        "31 와/과, 하고, (이)랑 와/과 · 하고 · (이)랑",
+        "142"
+       ],
+       [
+        "32 도, 만, 밖에 도 · 만 · 밖에",
+        "145"
+       ],
+       [
+        "33 (이)나: “or” and “as many as” (이)나 ① 선택 · ② 많음",
+        "148"
+       ],
+       [
+        "34 에서~까지 or 부터~까지? 에서 ~ 까지 vs 부터 ~ 까지",
+        "151"
+       ],
+       [
+        "35 Mini test · Part 6: Choose the right particle 6부 미니 테스트 · 헷갈리는 조사 가르기",
+        "154"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 7 · REVIEW TESTS",
+       "ko": "종합 연습"
+      },
+      "items": [
+       [
+        "36 Review test 1 종합 연습 1",
+        "157"
+       ],
+       [
+        "37 Review test 2 종합 연습 2",
+        "159"
+       ],
+       [
+        "38 Review test 3 종합 연습 3",
+        "161"
+       ],
+       [
+        "39 Review test 4 종합 연습 4",
+        "164"
+       ],
+       [
+        "40 Review test 5 종합 연습 5",
+        "167"
+       ],
+       [
+        "41 Review test 6 종합 연습 6",
+        "170"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "174"
+       ],
+       [
+        "Index 찾아보기",
+        "184"
+       ],
+       [
+        "Notes 메모",
+        "185"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "186"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "41"
+     ],
+     [
+      "ISBN",
+      "979-11-222407-6-4 (PDF)"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "elementary-grammar-workbook",
@@ -238,7 +1135,322 @@
    "pages": "206쪽 (PDF · 속지 기준)",
    "status": "planned",
    "price": "9.90",
-   "coverImg": "/assets/books/topik1-reading-mock/cover.jpg"
+   "coverImg": "/assets/books/topik1-reading-mock/cover.jpg",
+   "page": {
+    "headline": {
+     "en": "Ten full TOPIK I reading tests, 400 questions in the real format.",
+     "ko": "TOPIK I 읽기 실전 모의고사 10회, 실제 형식 400문항"
+    },
+    "lead": {
+     "en": "Ten tests of 40 questions written in the official format by a Korean teacher. Before the tests, one page per question type shows how to solve it and the words you need.",
+     "ko": "한국어 선생님이 시험 형식에 맞춰 만든 40문항 모의고사 10회. 시험 앞에 유형마다 풀이 방법과 필요한 낱말 한 쪽씩."
+    },
+    "features": [
+     {
+      "ic": "⏱️",
+      "t": {
+       "en": "10 full tests",
+       "ko": "모의고사 10회"
+      },
+      "d": {
+       "en": "40 questions each, 400 in total, for timed practice.",
+       "ko": "회마다 40문항, 모두 400문항, 시간 재고 풀기"
+      }
+     },
+     {
+      "ic": "🧠",
+      "t": {
+       "en": "How to solve each type",
+       "ko": "유형별 풀이 방법"
+      },
+      "d": {
+       "en": "One page per question type: the method and the words you need.",
+       "ko": "유형마다 풀이 방법과 필요한 낱말 한 쪽"
+      }
+     },
+     {
+      "ic": "💡",
+      "t": {
+       "en": "Explanations at the back",
+       "ko": "해설"
+      },
+      "d": {
+       "en": "Answers and short explanations, with the reason for each choice.",
+       "ko": "정답과 짧은 해설, 선택지마다 이유"
+      }
+     },
+     {
+      "ic": "📄",
+      "t": {
+       "en": "Original questions",
+       "ko": "새로 만든 문항"
+      },
+      "d": {
+       "en": "Original practice questions, not past exam papers.",
+       "ko": "기출이 아닌 새 연습 문항"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Knowing the words is not enough: you also need practice in the test's format, against the clock.",
+     "a": "Ten full tests in the official format, with a short how-to page for every question type before you start."
+    },
+    "steps": [
+     {
+      "ic": "🧠",
+      "t": "Learn the method",
+      "d": "One page per question type: how to solve it and the words you need."
+     },
+     {
+      "ic": "⏱️",
+      "t": "Take a test",
+      "d": "40 questions in the real format, timed."
+     },
+     {
+      "ic": "💡",
+      "t": "Check",
+      "d": "Answers and short explanations at the back."
+     }
+    ],
+    "notFor": [
+     "Learners who cannot yet read simple Korean sentences"
+    ],
+    "pick": "you want timed TOPIK I reading practice",
+    "related": [
+     "topik1-reading-mock",
+     "topik1-vocab"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BEFORE YOU START",
+       "ko": "시작하기 전에"
+      },
+      "items": [
+       [
+        "How to solve each type 유형별 풀이 방법 · 필요한 단어",
+        "7"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · PRACTICE TESTS",
+       "ko": "실전 모의고사"
+      },
+      "items": [
+       [
+        "01 Practice Test 1 모의고사 1회",
+        "16"
+       ],
+       [
+        "02 Practice Test 2 모의고사 2회",
+        "30"
+       ],
+       [
+        "03 Practice Test 3 모의고사 3회",
+        "43"
+       ],
+       [
+        "04 Practice Test 4 모의고사 4회",
+        "57"
+       ],
+       [
+        "05 Practice Test 5 모의고사 5회",
+        "70"
+       ],
+       [
+        "06 Practice Test 6 모의고사 6회",
+        "83"
+       ],
+       [
+        "07 Practice Test 7 모의고사 7회",
+        "97"
+       ],
+       [
+        "08 Practice Test 8 모의고사 8회",
+        "111"
+       ],
+       [
+        "09 Practice Test 9 모의고사 9회",
+        "124"
+       ],
+       [
+        "10 Practice Test 10 모의고사 10회",
+        "137"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "150"
+       ],
+       [
+        "Notes 메모",
+        "206"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "206"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "10"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ],
+     [
+      {
+       "en": "When will it be available?",
+       "ko": "언제 나오나요?"
+      },
+      {
+       "en": "It is in preparation and we have not set a date. Download a free sample of another book, or check this page again later.",
+       "ko": "준비 중이며 날짜는 아직 정하지 않았습니다. 다른 책의 무료 샘플을 받아 보시거나 나중에 이 쪽을 다시 확인해 주세요."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "topik2-writing-51-52",
@@ -282,7 +1494,7 @@
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "92쪽 (PDF · 속지 기준)",
+   "pages": "94쪽 (PDF · 속지 기준)",
    "status": "on",
    "price": "6.90",
    "polar": "https://buy.polar.sh/polar_cl_bi6QFC16s44llPfzyF8HQrnCi90g8AgVpfSNt4gBZKJ",
@@ -364,132 +1576,217 @@
       }
      }
     ],
+    "problem": {
+     "q": "Two short blanks, and the wrong speech style can cost you the marks.",
+     "a": "The two fill-in questions look easy. The trick is matching the style of the passage exactly. This book teaches each text type first, then drills it."
+    },
+    "steps": [
+     {
+      "ic": "🧭",
+      "t": "Learn the type",
+      "d": "The shape of the text, how to read it and the key expressions."
+     },
+     {
+      "ic": "✍️",
+      "t": "Fill the blanks",
+      "d": "Original questions, one sentence per blank, in the right style."
+     },
+     {
+      "ic": "✅",
+      "t": "Compare",
+      "d": "Several accepted answers, the scoring point and the mistakes that lose marks."
+     }
+    ],
+    "notFor": [
+     "Learners who need the long writing questions 53 and 54 (see the companion book)"
+    ],
+    "pick": "you want to master the two fill-in questions, 51 and 52",
+    "related": [
+     "topik2-writing-51-52",
+     "topik2-writing-53-54"
+    ],
     "contents": [
      {
       "part": {
-       "en": "Before you start",
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BEFORE YOU START",
        "ko": "시작하기 전에"
       },
       "items": [
        [
-        "Exam overview · 시험 소개",
-        "6"
-       ],
-       [
-        "4-week plan · 4주 계획표",
-        "7"
-       ],
-       [
-        "Answer grid · 원고지 쓰기법",
+        "Exam overview 시험 소개",
         "8"
        ],
        [
-        "Spoken → written · 말→글 바꾸기 표",
+        "4-week plan 4주 계획표",
         "9"
        ],
        [
-        "Self-check · 자가 점검표",
+        "Answer grid (원고지) 원고지 쓰기법",
         "10"
+       ],
+       [
+        "Spoken → written 말 → 글 바꾸기 표",
+        "11"
+       ],
+       [
+        "Self-check 자가 점검표",
+        "12"
        ]
       ]
      },
      {
       "part": {
-       "en": "Part 1 · Question 51 · Practical text",
-       "ko": "1부 · 51번 실용문 완성 (50문항)"
+       "en": "PART 1 · QUESTION 51 · PRACTICAL TEXT 51",
+       "ko": "번 · 실용문 완성"
       },
       "items": [
        [
-        "How to solve · scoring · worked example · 풀이 · 채점 · 예시",
-        "12"
+        "01 Guide · Recruiting & inviting 안내 · 모집 · 초대",
+        "17"
        ],
        [
-        "Recruiting & inviting · 모집 · 초대 (14)",
-        "15"
+        "02 Q51 · Recruiting & inviting 51번 · 모집 · 초대",
+        "19"
        ],
        [
-        "Selling, giving away, lost & found · 판매 · 나눔 · 분실 (7)",
-        "22"
+        "03 Guide · Selling, giving away, lost & found 안내 · 판매 · 나눔 · 분실",
+        "25"
        ],
        [
-        "Notices & announcements · 공지 · 안내 (15)",
+        "04 Q51 · Selling, giving away, lost & found 51번 · 판매 · 나눔 · 분실",
         "27"
        ],
        [
-        "Inquiries, applications & requests · 문의 · 신청 · 요청 (14)",
-        "35"
+        "05 Guide · Notices & announcements 안내 · 공지 · 안내문",
+        "30"
+       ],
+       [
+        "06 Q51 · Notices & announcements 51번 · 공지 · 안내",
+        "32"
+       ],
+       [
+        "07 Guide · Inquiries, applications & requests 안내 · 문의 · 신청 · 요청",
+        "38"
+       ],
+       [
+        "08 Q51 · Inquiries, applications & requests 51번 · 문의 · 신청 · 요청",
+        "40"
        ]
       ]
      },
      {
       "part": {
-       "en": "Part 2 · Question 52 · Explanatory text",
-       "ko": "2부 · 52번 설명문 완성 (50문항)"
+       "en": "PART 2 · QUESTION 52 · EXPLANATORY TEXT 52",
+       "ko": "번 · 설명문 완성"
       },
       "items": [
        [
-        "Why it happens · 원인 · 원리 (22)",
-        "46"
+        "09 Guide · Why it happens 안내 · 원인 · 원리",
+        "50"
        ],
        [
-        "Effects & influence · 효과 · 영향 (20)",
-        "56"
+        "10 Q52 · Why it happens (causes & principles) 52번 · 원인 · 원리",
+        "52"
        ],
        [
-        "Contrast & caution · 대조 · 주의 (8)",
-        "66"
+        "11 Guide · Effects & influence 안내 · 효과 · 영향",
+        "60"
+       ],
+       [
+        "12 Q52 · Effects & influence 52번 · 효과 · 영향",
+        "62"
+       ],
+       [
+        "13 Guide · Contrast & caution 안내 · 대조 · 주의",
+        "70"
+       ],
+       [
+        "14 Q52 · Contrast & caution 52번 · 대조 · 주의",
+        "72"
        ]
       ]
      },
      {
       "part": {
-       "en": "Back matter",
+       "en": "BACK MATTER",
        "ko": "부록"
       },
       "items": [
        [
-        "Answer key with scoring points · 정답 · 채점 포인트",
-        "71"
+        "Answer Key 정답",
+        "76"
+       ],
+       [
+        "Notes 메모",
+        "94"
+       ],
+       [
+        "51 실용문 빈칸 · Practical text 10 one sentence per blank · 빈칸당",
+        "4"
+       ],
+       [
+        "52 설명문 빈칸 · Explanatory 10 one sentence per blank · 빈칸당",
+        "4"
+       ],
+       [
+        "53 자료 설명 · Describing 30 200–300",
+        "12"
+       ],
+       [
+        "54 논술 · Essay 50 600–700",
+        "25"
        ]
       ]
      }
     ],
     "previewNote": {
-     "en": "Eight real pages from the book. Tap a page to enlarge.",
-     "ko": "책 속 실제 쪽 8장입니다. 누르면 크게 볼 수 있어요."
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
     },
     "previews": [
      [
-      "Exam overview",
-      "시험 소개"
+      "How to use this book",
+      "이 책 쓰는 법"
      ],
      [
-      "4-week plan",
-      "4주 계획표"
+      "Contents",
+      "목차"
      ],
      [
-      "Answer grid",
-      "원고지 쓰기법"
+      "More pages",
+      "더 보기"
      ],
      [
-      "Spoken → written",
-      "말 → 글 표"
+      "First unit",
+      "첫 단원"
      ],
      [
-      "How to solve Q51",
-      "51번 풀이 방법"
+      "Inside a unit",
+      "단원 안"
      ],
      [
-      "Worked example",
-      "예시 풀이"
+      "Practice",
+      "연습"
      ],
      [
-      "Type guide",
-      "유형 안내"
+      "More pages",
+      "더 보기"
      ],
      [
-      "Practice questions",
-      "연습 문제"
+      "Answer key",
+      "정답"
      ]
     ],
     "author": {
@@ -509,27 +1806,27 @@
      ],
      [
       "Pages · 쪽수",
-      "89"
+      "94"
      ],
      [
       "Size · 판형",
-      "B5 182 × 257 mm: prints on A4 too · A4 인쇄 가능"
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
      ],
      [
       "Language · 언어",
       "English + Korean · 영어 + 한국어"
      ],
      [
-      "Questions · 문항",
-      "100 (Q51 × 50, Q52 × 50)"
+      "Units · 단원",
+      "18"
      ],
      [
       "Published · 발행",
-      "2026.10"
+      "2026.11.10"
      ],
      [
-      "Answers · 정답",
-      "Included · 포함"
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
      ]
     ],
     "faq": [
@@ -541,6 +1838,16 @@
       {
        "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
        "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
       }
      ],
      [
@@ -559,21 +1866,24 @@
        "ko": "기출 문제인가요?"
       },
       {
-       "en": "No. All questions are newly written in the exam format. Scores and sample answers are for practice and are not official.",
-       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제이고, 점수와 예시 답안은 연습용이며 공식 점수가 아닙니다."
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
       }
      ],
      [
       {
-       "en": "What about Q53 and Q54?",
-       "ko": "53 · 54번은요?"
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
       },
       {
-       "en": "They are in the companion book, “TOPIK II Writing 53–54: 100 Practice Questions”.",
-       "ko": "짝이 되는 책 「TOPIK II 쓰기 53~54번 100제」에 있습니다."
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
       }
      ]
     ]
+   },
+   "sample": {
+    "pages": 20
    }
   },
   {
@@ -632,7 +1942,497 @@
    "status": "on",
    "price": "6.90",
    "coverImg": "/assets/books/topik2-vocab-1000/cover.jpg",
-   "polar": "https://buy.polar.sh/polar_cl_SQEzjrCOB7W88gNz1DoTwqvIKadNzBe3iwzYr2Pk9Xw"
+   "polar": "https://buy.polar.sh/polar_cl_SQEzjrCOB7W88gNz1DoTwqvIKadNzBe3iwzYr2Pk9Xw",
+   "sample": {
+    "pages": 20
+   },
+   "page": {
+    "headline": {
+     "en": "The 1,000 words that come up most, learned by writing.",
+     "ko": "가장 자주 나오는 낱말 1,000개를 쓰면서"
+    },
+    "lead": {
+     "en": "Words 1–1,000 ranked by how often they appear in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6.",
+     "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 순서대로 낱말 1~1,000. 50단원 · 단원마다 20개, 3급에서 6급까지."
+    },
+    "features": [
+     {
+      "ic": "🔢",
+      "t": {
+       "en": "Most useful words first",
+       "ko": "자주 나오는 순서"
+      },
+      "d": {
+       "en": "Ranked by frequency in our own TOPIK II practice material (not an official list).",
+       "ko": "우리 TOPIK II 연습 자료 기준 빈도순(공식 목록 아님)"
+      }
+     },
+     {
+      "ic": "🧀",
+      "t": {
+       "en": "Cheese and potato marks",
+       "ko": "치즈 · 감자 표시"
+      },
+      "d": {
+       "en": "A level mark (cheese) and a frequency mark (potato) on every word.",
+       "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "Write meaning, word and sentence",
+       "ko": "뜻 · 낱말 · 문장 쓰기"
+      },
+      "d": {
+       "en": "Each unit: 20 words with examples, writing practice and a unit checkup.",
+       "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"
+      }
+     },
+     {
+      "ic": "📱",
+      "t": {
+       "en": "Look-alikes and a free match game",
+       "ko": "헷갈리는 낱말 · 무료 짝 맞추기"
+      },
+      "d": {
+       "en": "Synonyms and sound-alikes explained; a QR code opens a free match game.",
+       "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Reading a word list feels productive. A week later, half of it is gone.",
+     "a": "The words that stay are the ones you had to produce. This workbook makes you write every word before you check the key."
+    },
+    "steps": [
+     {
+      "ic": "📖",
+      "t": "Read",
+      "d": "20 words with part of speech, meaning and an example sentence."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write",
+      "d": "The meaning, the Korean word, and a sentence of your own."
+     },
+     {
+      "ic": "✅",
+      "t": "Check",
+      "d": "A unit checkup and an answer key. Circle the weak words and repeat them."
+     }
+    ],
+    "notFor": [
+     "Complete beginners who cannot read Hangul yet (start with Korean First Steps)",
+     "Anyone looking for a grammar course: this is a vocabulary workbook"
+    ],
+    "pick": "you want the most frequent TOPIK II words first",
+    "related": [
+     "topik2-vocab-1000",
+     "topik2-vocab-2000",
+     "topik2-vocab-lv3"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · LEVEL 3 WORDS 3",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "01 Words 1 · Level 3 낱말 1 · 3급",
+        "9"
+       ],
+       [
+        "02 Words 2 · Level 3 낱말 2 · 3급",
+        "14"
+       ],
+       [
+        "03 Words 3 · Level 3 낱말 3 · 3급",
+        "19"
+       ],
+       [
+        "04 Words 4 · Level 3 낱말 4 · 3급",
+        "24"
+       ],
+       [
+        "05 Words 5 · Level 3 낱말 5 · 3급",
+        "29"
+       ],
+       [
+        "06 Words 6 · Level 3 낱말 6 · 3급",
+        "34"
+       ],
+       [
+        "07 Words 7 · Level 3 낱말 7 · 3급",
+        "40"
+       ],
+       [
+        "08 Words 8 · Level 3 낱말 8 · 3급",
+        "45"
+       ],
+       [
+        "09 Words 9 · Level 3 낱말 9 · 3급",
+        "50"
+       ],
+       [
+        "10 Words 10 · Level 3 낱말 10 · 3급",
+        "55"
+       ],
+       [
+        "11 Words 11 · Level 3 낱말 11 · 3급",
+        "60"
+       ],
+       [
+        "12 Words 12 · Level 3 낱말 12 · 3급",
+        "65"
+       ],
+       [
+        "13 Words 13 · Level 3 낱말 13 · 3급",
+        "70"
+       ],
+       [
+        "14 Words 14 · Level 3 낱말 14 · 3급",
+        "75"
+       ],
+       [
+        "15 Words 15 · Level 3 낱말 15 · 3급",
+        "80"
+       ],
+       [
+        "16 Words 16 · Level 3 낱말 16 · 3급",
+        "85"
+       ],
+       [
+        "17 Words 17 · Level 3 낱말 17 · 3급",
+        "90"
+       ],
+       [
+        "18 Words 18 · Level 3 / Level 4 낱말 18 · 3급·4급",
+        "95"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · LEVEL 4 WORDS 4",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "19 Words 19 · Level 4 낱말 19 · 4급",
+        "101"
+       ],
+       [
+        "20 Words 20 · Level 4 낱말 20 · 4급",
+        "106"
+       ],
+       [
+        "21 Words 21 · Level 4 낱말 21 · 4급",
+        "111"
+       ],
+       [
+        "22 Words 22 · Level 4 낱말 22 · 4급",
+        "116"
+       ],
+       [
+        "23 Words 23 · Level 4 낱말 23 · 4급",
+        "121"
+       ],
+       [
+        "24 Words 24 · Level 4 낱말 24 · 4급",
+        "126"
+       ],
+       [
+        "25 Words 25 · Level 4 낱말 25 · 4급",
+        "131"
+       ],
+       [
+        "26 Words 26 · Level 4 낱말 26 · 4급",
+        "136"
+       ],
+       [
+        "27 Words 27 · Level 4 낱말 27 · 4급",
+        "141"
+       ],
+       [
+        "28 Words 28 · Level 4 낱말 28 · 4급",
+        "146"
+       ],
+       [
+        "29 Words 29 · Level 4 낱말 29 · 4급",
+        "151"
+       ],
+       [
+        "30 Words 30 · Level 4 낱말 30 · 4급",
+        "156"
+       ],
+       [
+        "31 Words 31 · Level 4 낱말 31 · 4급",
+        "161"
+       ],
+       [
+        "32 Words 32 · Level 4 낱말 32 · 4급",
+        "166"
+       ],
+       [
+        "33 Words 33 · Level 4 낱말 33 · 4급",
+        "172"
+       ],
+       [
+        "34 Words 34 · Level 4 낱말 34 · 4급",
+        "177"
+       ],
+       [
+        "35 Words 35 · Level 4 낱말 35 · 4급",
+        "182"
+       ],
+       [
+        "36 Words 36 · Level 4 낱말 36 · 4급",
+        "187"
+       ],
+       [
+        "37 Words 37 · Level 4 / Level 5 낱말 37 · 4급·5급",
+        "192"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · LEVEL 5 WORDS 5",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "38 Words 38 · Level 5 낱말 38 · 5급",
+        "198"
+       ],
+       [
+        "39 Words 39 · Level 5 낱말 39 · 5급",
+        "204"
+       ],
+       [
+        "40 Words 40 · Level 5 낱말 40 · 5급",
+        "210"
+       ],
+       [
+        "41 Words 41 · Level 5 낱말 41 · 5급",
+        "215"
+       ],
+       [
+        "42 Words 42 · Level 5 낱말 42 · 5급",
+        "220"
+       ],
+       [
+        "43 Words 43 · Level 5 낱말 43 · 5급",
+        "225"
+       ],
+       [
+        "44 Words 44 · Level 5 낱말 44 · 5급",
+        "230"
+       ],
+       [
+        "45 Words 45 · Level 5 / Level 6 낱말 45 · 5급·6급",
+        "235"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 4 · LEVEL 6 WORDS 6",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "46 Words 46 · Level 6 낱말 46 · 6급",
+        "241"
+       ],
+       [
+        "47 Words 47 · Level 6 낱말 47 · 6급",
+        "246"
+       ],
+       [
+        "48 Words 48 · Level 6 낱말 48 · 6급",
+        "251"
+       ],
+       [
+        "49 Words 49 · Level 6 낱말 49 · 6급",
+        "256"
+       ],
+       [
+        "50 Words 50 · Level 6 낱말 50 · 6급",
+        "261"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "266"
+       ],
+       [
+        "Index 찾아보기",
+        "275"
+       ],
+       [
+        "Notes 메모",
+        "284"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "284"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "50"
+     ],
+     [
+      "ISBN",
+      "979-11-222407-1-9 (PDF)"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "topik2-vocab-2000",
@@ -690,7 +2490,497 @@
    "status": "on",
    "price": "6.90",
    "coverImg": "/assets/books/topik2-vocab-2000/cover.jpg",
-   "polar": "https://buy.polar.sh/polar_cl_rppPJzMcTnMmZNOCDM5AGfHYHmnOk417Ba0vS1tyzYm"
+   "polar": "https://buy.polar.sh/polar_cl_rppPJzMcTnMmZNOCDM5AGfHYHmnOk417Ba0vS1tyzYm",
+   "sample": {
+    "pages": 20
+   },
+   "page": {
+    "headline": {
+     "en": "The next 1,000 words: widen your range.",
+     "ko": "다음 낱말 1,000개로 어휘 폭을 넓히세요"
+    },
+    "lead": {
+     "en": "Book 2 of the series: words 1,001–2,000 by the same frequency ranking, 20 per unit in 50 units.",
+     "ko": "시리즈 2권: 같은 빈도 순서로 낱말 1,001~2,000. 50단원 · 단원마다 20개."
+    },
+    "features": [
+     {
+      "ic": "🔢",
+      "t": {
+       "en": "Continues Book 1",
+       "ko": "1권에 이어서"
+      },
+      "d": {
+       "en": "Words 1,001–2,000 by frequency in our TOPIK II practice material.",
+       "ko": "우리 TOPIK II 연습 자료 빈도순 낱말 1,001~2,000"
+      }
+     },
+     {
+      "ic": "🧀",
+      "t": {
+       "en": "Cheese and potato marks",
+       "ko": "치즈 · 감자 표시"
+      },
+      "d": {
+       "en": "A level mark (cheese) and a frequency mark (potato) on every word.",
+       "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "Write meaning, word and sentence",
+       "ko": "뜻 · 낱말 · 문장 쓰기"
+      },
+      "d": {
+       "en": "Each unit: 20 words with examples, writing practice and a unit checkup.",
+       "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"
+      }
+     },
+     {
+      "ic": "📱",
+      "t": {
+       "en": "Look-alikes and a free match game",
+       "ko": "헷갈리는 낱말 · 무료 짝 맞추기"
+      },
+      "d": {
+       "en": "Synonyms and sound-alikes explained; a QR code opens a free match game.",
+       "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Reading a word list feels productive. A week later, half of it is gone.",
+     "a": "The words that stay are the ones you had to produce. This workbook makes you write every word before you check the key."
+    },
+    "steps": [
+     {
+      "ic": "📖",
+      "t": "Read",
+      "d": "20 words with part of speech, meaning and an example sentence."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write",
+      "d": "The meaning, the Korean word, and a sentence of your own."
+     },
+     {
+      "ic": "✅",
+      "t": "Check",
+      "d": "A unit checkup and an answer key. Circle the weak words and repeat them."
+     }
+    ],
+    "notFor": [
+     "Learners who have not started Book 1 and want the most frequent words first",
+     "Anyone looking for a grammar course: this is a vocabulary workbook"
+    ],
+    "pick": "you finished Book 1 and want a wider range",
+    "related": [
+     "topik2-vocab-1000",
+     "topik2-vocab-2000",
+     "topik2-vocab-lv3"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · LEVEL 3 WORDS 3",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "01 Words 1 · Level 3 낱말 1 · 3급",
+        "9"
+       ],
+       [
+        "02 Words 2 · Level 3 낱말 2 · 3급",
+        "14"
+       ],
+       [
+        "03 Words 3 · Level 3 낱말 3 · 3급",
+        "19"
+       ],
+       [
+        "04 Words 4 · Level 3 낱말 4 · 3급",
+        "24"
+       ],
+       [
+        "05 Words 5 · Level 3 낱말 5 · 3급",
+        "29"
+       ],
+       [
+        "06 Words 6 · Level 3 낱말 6 · 3급",
+        "34"
+       ],
+       [
+        "07 Words 7 · Level 3 낱말 7 · 3급",
+        "39"
+       ],
+       [
+        "08 Words 8 · Level 3 낱말 8 · 3급",
+        "44"
+       ],
+       [
+        "09 Words 9 · Level 3 낱말 9 · 3급",
+        "49"
+       ],
+       [
+        "10 Words 10 · Level 3 낱말 10 · 3급",
+        "54"
+       ],
+       [
+        "11 Words 11 · Level 3 낱말 11 · 3급",
+        "59"
+       ],
+       [
+        "12 Words 12 · Level 3 / Level 4 낱말 12 · 3급·4급",
+        "64"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · LEVEL 4 WORDS 4",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "13 Words 13 · Level 4 낱말 13 · 4급",
+        "70"
+       ],
+       [
+        "14 Words 14 · Level 4 낱말 14 · 4급",
+        "75"
+       ],
+       [
+        "15 Words 15 · Level 4 낱말 15 · 4급",
+        "80"
+       ],
+       [
+        "16 Words 16 · Level 4 낱말 16 · 4급",
+        "85"
+       ],
+       [
+        "17 Words 17 · Level 4 낱말 17 · 4급",
+        "90"
+       ],
+       [
+        "18 Words 18 · Level 4 낱말 18 · 4급",
+        "95"
+       ],
+       [
+        "19 Words 19 · Level 4 낱말 19 · 4급",
+        "100"
+       ],
+       [
+        "20 Words 20 · Level 4 낱말 20 · 4급",
+        "105"
+       ],
+       [
+        "21 Words 21 · Level 4 낱말 21 · 4급",
+        "110"
+       ],
+       [
+        "22 Words 22 · Level 4 낱말 22 · 4급",
+        "115"
+       ],
+       [
+        "23 Words 23 · Level 4 낱말 23 · 4급",
+        "120"
+       ],
+       [
+        "24 Words 24 · Level 4 낱말 24 · 4급",
+        "125"
+       ],
+       [
+        "25 Words 25 · Level 4 낱말 25 · 4급",
+        "130"
+       ],
+       [
+        "26 Words 26 · Level 4 낱말 26 · 4급",
+        "135"
+       ],
+       [
+        "27 Words 27 · Level 4 낱말 27 · 4급",
+        "140"
+       ],
+       [
+        "28 Words 28 · Level 4 낱말 28 · 4급",
+        "145"
+       ],
+       [
+        "29 Words 29 · Level 4 / Level 5 낱말 29 · 4급·5급",
+        "150"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · LEVEL 5 WORDS 5",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "30 Words 30 · Level 5 낱말 30 · 5급",
+        "156"
+       ],
+       [
+        "31 Words 31 · Level 5 낱말 31 · 5급",
+        "161"
+       ],
+       [
+        "32 Words 32 · Level 5 낱말 32 · 5급",
+        "166"
+       ],
+       [
+        "33 Words 33 · Level 5 낱말 33 · 5급",
+        "171"
+       ],
+       [
+        "34 Words 34 · Level 5 낱말 34 · 5급",
+        "176"
+       ],
+       [
+        "35 Words 35 · Level 5 낱말 35 · 5급",
+        "181"
+       ],
+       [
+        "36 Words 36 · Level 5 낱말 36 · 5급",
+        "186"
+       ],
+       [
+        "37 Words 37 · Level 5 낱말 37 · 5급",
+        "191"
+       ],
+       [
+        "38 Words 38 · Level 5 낱말 38 · 5급",
+        "196"
+       ],
+       [
+        "39 Words 39 · Level 5 낱말 39 · 5급",
+        "201"
+       ],
+       [
+        "40 Words 40 · Level 5 / Level 6 낱말 40 · 5급·6급",
+        "206"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 4 · LEVEL 6 WORDS 6",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "41 Words 41 · Level 6 낱말 41 · 6급",
+        "212"
+       ],
+       [
+        "42 Words 42 · Level 6 낱말 42 · 6급",
+        "217"
+       ],
+       [
+        "43 Words 43 · Level 6 낱말 43 · 6급",
+        "222"
+       ],
+       [
+        "44 Words 44 · Level 6 낱말 44 · 6급",
+        "227"
+       ],
+       [
+        "45 Words 45 · Level 6 낱말 45 · 6급",
+        "232"
+       ],
+       [
+        "46 Words 46 · Level 6 낱말 46 · 6급",
+        "237"
+       ],
+       [
+        "47 Words 47 · Level 6 낱말 47 · 6급",
+        "242"
+       ],
+       [
+        "48 Words 48 · Level 6 낱말 48 · 6급",
+        "247"
+       ],
+       [
+        "49 Words 49 · Level 6 낱말 49 · 6급",
+        "252"
+       ],
+       [
+        "50 Words 50 · Level 6 낱말 50 · 6급",
+        "257"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "262"
+       ],
+       [
+        "Index 찾아보기",
+        "272"
+       ],
+       [
+        "Notes 메모",
+        "281"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "282"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "50"
+     ],
+     [
+      "ISBN",
+      "979-11-222407-2-6 (PDF)"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "topik2-vocab-lv3",
@@ -748,7 +3038,485 @@
    "status": "on",
    "price": "6.90",
    "coverImg": "/assets/books/topik2-vocab-lv3/cover.jpg",
-   "polar": "https://buy.polar.sh/polar_cl_VZPx8ba5N2Of0liQKj15rOJOWH6MAmxIPOteR3g4pw2"
+   "polar": "https://buy.polar.sh/polar_cl_VZPx8ba5N2Of0liQKj15rOJOWH6MAmxIPOteR3g4pw2",
+   "sample": {
+    "pages": 20
+   },
+   "page": {
+    "headline": {
+     "en": "Fill the gaps in level 3: 940 words not in Books 1 and 2.",
+     "ko": "3급의 빈틈 채우기: 1 · 2권에 없는 낱말 940개"
+    },
+    "lead": {
+     "en": "Book 3 of the series collects 940 level-3 words that are not in Books 1 and 2, 20 per unit in 47 units.",
+     "ko": "시리즈 3권: 1 · 2권에 없는 3급 낱말 940개. 47단원 · 단원마다 20개."
+    },
+    "features": [
+     {
+      "ic": "🧱",
+      "t": {
+       "en": "Only words you have not met",
+       "ko": "새 낱말만"
+      },
+      "d": {
+       "en": "None of these 940 level-3 words is in Book 1 or Book 2.",
+       "ko": "1 · 2권에 없는 3급 낱말 940개"
+      }
+     },
+     {
+      "ic": "🧀",
+      "t": {
+       "en": "Cheese and potato marks",
+       "ko": "치즈 · 감자 표시"
+      },
+      "d": {
+       "en": "A level mark (cheese) and a frequency mark (potato) on every word.",
+       "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "Write meaning, word and sentence",
+       "ko": "뜻 · 낱말 · 문장 쓰기"
+      },
+      "d": {
+       "en": "Each unit: 20 words with examples, writing practice and a unit checkup.",
+       "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"
+      }
+     },
+     {
+      "ic": "📱",
+      "t": {
+       "en": "Look-alikes and a free match game",
+       "ko": "헷갈리는 낱말 · 무료 짝 맞추기"
+      },
+      "d": {
+       "en": "Synonyms and sound-alikes explained; a QR code opens a free match game.",
+       "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"
+      }
+     }
+    ],
+    "problem": {
+     "q": "Reading a word list feels productive. A week later, half of it is gone.",
+     "a": "The words that stay are the ones you had to produce. This workbook makes you write every word before you check the key."
+    },
+    "steps": [
+     {
+      "ic": "📖",
+      "t": "Read",
+      "d": "20 words with part of speech, meaning and an example sentence."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write",
+      "d": "The meaning, the Korean word, and a sentence of your own."
+     },
+     {
+      "ic": "✅",
+      "t": "Check",
+      "d": "A unit checkup and an answer key. Circle the weak words and repeat them."
+     }
+    ],
+    "notFor": [
+     "Complete beginners who cannot read Hangul yet (start with Korean First Steps)",
+     "Anyone looking for a grammar course: this is a vocabulary workbook"
+    ],
+    "pick": "you want the rest of level 3 that is not in Books 1 and 2",
+    "related": [
+     "topik2-vocab-1000",
+     "topik2-vocab-2000",
+     "topik2-vocab-lv3"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · WORDS 1-240",
+       "ko": "낱말 1~240"
+      },
+      "items": [
+       [
+        "01 Words 1 · Level 3 낱말 1 · 3급",
+        "9"
+       ],
+       [
+        "02 Words 2 · Level 3 낱말 2 · 3급",
+        "14"
+       ],
+       [
+        "03 Words 3 · Level 3 낱말 3 · 3급",
+        "19"
+       ],
+       [
+        "04 Words 4 · Level 3 낱말 4 · 3급",
+        "24"
+       ],
+       [
+        "05 Words 5 · Level 3 낱말 5 · 3급",
+        "29"
+       ],
+       [
+        "06 Words 6 · Level 3 낱말 6 · 3급",
+        "34"
+       ],
+       [
+        "07 Words 7 · Level 3 낱말 7 · 3급",
+        "39"
+       ],
+       [
+        "08 Words 8 · Level 3 낱말 8 · 3급",
+        "44"
+       ],
+       [
+        "09 Words 9 · Level 3 낱말 9 · 3급",
+        "49"
+       ],
+       [
+        "10 Words 10 · Level 3 낱말 10 · 3급",
+        "54"
+       ],
+       [
+        "11 Words 11 · Level 3 낱말 11 · 3급",
+        "59"
+       ],
+       [
+        "12 Words 12 · Level 3 낱말 12 · 3급",
+        "64"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · WORDS 241-480",
+       "ko": "낱말 241~480"
+      },
+      "items": [
+       [
+        "13 Words 13 · Level 3 낱말 13 · 3급",
+        "70"
+       ],
+       [
+        "14 Words 14 · Level 3 낱말 14 · 3급",
+        "75"
+       ],
+       [
+        "15 Words 15 · Level 3 낱말 15 · 3급",
+        "80"
+       ],
+       [
+        "16 Words 16 · Level 3 낱말 16 · 3급",
+        "85"
+       ],
+       [
+        "17 Words 17 · Level 3 낱말 17 · 3급",
+        "90"
+       ],
+       [
+        "18 Words 18 · Level 3 낱말 18 · 3급",
+        "95"
+       ],
+       [
+        "19 Words 19 · Level 3 낱말 19 · 3급",
+        "100"
+       ],
+       [
+        "20 Words 20 · Level 3 낱말 20 · 3급",
+        "105"
+       ],
+       [
+        "21 Words 21 · Level 3 낱말 21 · 3급",
+        "110"
+       ],
+       [
+        "22 Words 22 · Level 3 낱말 22 · 3급",
+        "115"
+       ],
+       [
+        "23 Words 23 · Level 3 낱말 23 · 3급",
+        "120"
+       ],
+       [
+        "24 Words 24 · Level 3 낱말 24 · 3급",
+        "125"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · WORDS 481-720",
+       "ko": "낱말 481~720"
+      },
+      "items": [
+       [
+        "25 Words 25 · Level 3 낱말 25 · 3급",
+        "131"
+       ],
+       [
+        "26 Words 26 · Level 3 낱말 26 · 3급",
+        "136"
+       ],
+       [
+        "27 Words 27 · Level 3 낱말 27 · 3급",
+        "141"
+       ],
+       [
+        "28 Words 28 · Level 3 낱말 28 · 3급",
+        "146"
+       ],
+       [
+        "29 Words 29 · Level 3 낱말 29 · 3급",
+        "151"
+       ],
+       [
+        "30 Words 30 · Level 3 낱말 30 · 3급",
+        "156"
+       ],
+       [
+        "31 Words 31 · Level 3 낱말 31 · 3급",
+        "161"
+       ],
+       [
+        "32 Words 32 · Level 3 낱말 32 · 3급",
+        "166"
+       ],
+       [
+        "33 Words 33 · Level 3 낱말 33 · 3급",
+        "171"
+       ],
+       [
+        "34 Words 34 · Level 3 낱말 34 · 3급",
+        "176"
+       ],
+       [
+        "35 Words 35 · Level 3 낱말 35 · 3급",
+        "181"
+       ],
+       [
+        "36 Words 36 · Level 3 낱말 36 · 3급",
+        "186"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 4 · WORDS 721-940",
+       "ko": "낱말 721~940"
+      },
+      "items": [
+       [
+        "37 Words 37 · Level 3 낱말 37 · 3급",
+        "192"
+       ],
+       [
+        "38 Words 38 · Level 3 낱말 38 · 3급",
+        "197"
+       ],
+       [
+        "39 Words 39 · Level 3 낱말 39 · 3급",
+        "202"
+       ],
+       [
+        "40 Words 40 · Level 3 낱말 40 · 3급",
+        "207"
+       ],
+       [
+        "41 Words 41 · Level 3 낱말 41 · 3급",
+        "212"
+       ],
+       [
+        "42 Words 42 · Level 3 낱말 42 · 3급",
+        "217"
+       ],
+       [
+        "43 Words 43 · Level 3 낱말 43 · 3급",
+        "222"
+       ],
+       [
+        "44 Words 44 · Level 3 낱말 44 · 3급",
+        "227"
+       ],
+       [
+        "45 Words 45 · Level 3 낱말 45 · 3급",
+        "232"
+       ],
+       [
+        "46 Words 46 · Level 3 낱말 46 · 3급",
+        "237"
+       ],
+       [
+        "47 Words 47 · Level 3 낱말 47 · 3급",
+        "242"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "247"
+       ],
+       [
+        "Index 찾아보기",
+        "256"
+       ],
+       [
+        "Notes 메모",
+        "265"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "266"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "47"
+     ],
+     [
+      "ISBN",
+      "979-11-222407-3-3 (PDF)"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "topik2-writing-53-54",
@@ -795,7 +3563,370 @@
    "pages": "246쪽 (PDF · 속지 기준)",
    "status": "planned",
    "price": "9.90",
-   "coverImg": "/assets/books/topik2-writing-53-54/cover.jpg"
+   "coverImg": "/assets/books/topik2-writing-53-54/cover.jpg",
+   "page": {
+    "headline": {
+     "en": "Describe data in 300 characters, argue in 700, and see how it is scored.",
+     "ko": "300자로 자료를 설명하고 700자로 주장하고, 채점은 이렇게"
+    },
+    "lead": {
+     "en": "100 original questions for 53 and 54, each with a model answer, scoring criteria and three sample answers (high, middle, low) with scores and reasons.",
+     "ko": "53 · 54번 새 문제 100개. 문제마다 모범 답안 · 채점 기준 · 상 · 중 · 하 예시 답안 세 개(점수와 이유 포함)."
+    },
+    "features": [
+     {
+      "ic": "📊",
+      "t": {
+       "en": "100 original questions",
+       "ko": "새 문제 100개"
+      },
+      "d": {
+       "en": "Questions 53 and 54, newly written in the exam format. Not past papers.",
+       "ko": "시험 형식으로 새로 만든 53 · 54번 문제(기출 아님)"
+      }
+     },
+     {
+      "ic": "🏅",
+      "t": {
+       "en": "Three scored sample answers",
+       "ko": "점수가 붙은 예시 답안 셋"
+      },
+      "d": {
+       "en": "High, middle and low samples with the score and the reason for each.",
+       "ko": "상 · 중 · 하 답안과 점수 · 이유"
+      }
+     },
+     {
+      "ic": "🧭",
+      "t": {
+       "en": "Scoring criteria",
+       "ko": "채점 기준"
+      },
+      "d": {
+       "en": "See what earns marks and what loses them.",
+       "ko": "점수를 얻는 것과 잃는 것"
+      }
+     },
+     {
+      "ic": "✅",
+      "t": {
+       "en": "Model answer for every question",
+       "ko": "모범 답안"
+      },
+      "d": {
+       "en": "Compare your writing with a model answer.",
+       "ko": "내 글과 모범 답안을 비교"
+      }
+     }
+    ],
+    "problem": {
+     "q": "The long writing questions are scored on content, structure and language, and it is hard to know what a good answer looks like.",
+     "a": "Here every question comes with a model answer, the scoring criteria and three scored samples, high, middle and low, with the reason for each score."
+    },
+    "steps": [
+     {
+      "ic": "🧭",
+      "t": "Read the criteria",
+      "d": "What earns marks and what loses them."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write your answer",
+      "d": "Describe data in about 300 characters, argue in about 700."
+     },
+     {
+      "ic": "🏅",
+      "t": "Compare",
+      "d": "See high, middle and low samples with scores and reasons."
+     }
+    ],
+    "notFor": [
+     "Learners who need the two fill-in questions 51 and 52 (see the companion book)"
+    ],
+    "pick": "you want to see exactly how 53 and 54 answers are scored",
+    "related": [
+     "topik2-writing-51-52",
+     "topik2-writing-53-54"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BEFORE YOU START",
+       "ko": "시작하기 전에"
+      },
+      "items": [
+       [
+        "Exam overview 시험 소개",
+        "8"
+       ],
+       [
+        "8-week plan 8주 계획표",
+        "9"
+       ],
+       [
+        "Answer grid (원고지) 원고지 쓰기법",
+        "11"
+       ],
+       [
+        "Spoken → written 말 → 글 바꾸기 표",
+        "12"
+       ],
+       [
+        "Self-check 자가 점검표",
+        "13"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · QUESTION 53 · DESCRIBING DATA 53",
+       "ko": "번 · 자료 설명"
+      },
+      "items": [
+       [
+        "01 Guide · Change over time 안내 · 변화 추이와 원인",
+        "19"
+       ],
+       [
+        "02 Q53 · Change over time and its causes 53번 · 변화 추이와 원인",
+        "21"
+       ],
+       [
+        "03 Guide · Present situation and reasons 안내 · 현황과 이유",
+        "44"
+       ],
+       [
+        "04 Q53 · Present situation and reasons 53번 · 현황과 이유",
+        "46"
+       ],
+       [
+        "05 Guide · Opinions and evaluation 안내 · 인식 · 평가",
+        "70"
+       ],
+       [
+        "06 Q53 · Opinions and evaluation 53번 · 인식 · 평가",
+        "72"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · QUESTION 54 · ARGUMENTATIVE ESSAY 54",
+       "ko": "번 · 논술"
+      },
+      "items": [
+       [
+        "07 Guide · Why it matters and how to do it 안내 · 의미와 실천 방법",
+        "83"
+       ],
+       [
+        "08 Q54 · Why it matters and how to do it 54번 · 의미 · 중요성과 실천 방법",
+        "85"
+       ],
+       [
+        "09 Guide · A problem and its solution 안내 · 문제 · 원인 · 해결",
+        "126"
+       ],
+       [
+        "10 Q54 · A problem, its causes and solutions 54번 · 문제 · 원인 · 해결 방안",
+        "128"
+       ],
+       [
+        "11 Guide · For and against, pros and cons 안내 · 찬반 · 장단점",
+        "175"
+       ],
+       [
+        "12 Q54 · Two sides: for and against, pros and cons 54번 · 찬반 · 장단점",
+        "177"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "192"
+       ],
+       [
+        "Notes 메모",
+        "245"
+       ],
+       [
+        "51 실용문 빈칸 · Practical text 10 one sentence per blank · 빈칸당",
+        "4"
+       ],
+       [
+        "52 설명문 빈칸 · Explanatory 10 one sentence per blank · 빈칸당",
+        "4"
+       ],
+       [
+        "53 자료 설명 · Describing 30 200–300",
+        "12"
+       ],
+       [
+        "54 논술 · Essay 50 600–700",
+        "25"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "246"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "16"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ],
+     [
+      {
+       "en": "When will it be available?",
+       "ko": "언제 나오나요?"
+      },
+      {
+       "en": "It is in preparation and we have not set a date. Download a free sample of another book, or check this page again later.",
+       "ko": "준비 중이며 날짜는 아직 정하지 않았습니다. 다른 책의 무료 샘플을 받아 보시거나 나중에 이 쪽을 다시 확인해 주세요."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "topik1-vocab",
@@ -848,7 +3979,670 @@
    "pages": "530쪽 (PDF · 속지 기준)",
    "status": "planned",
    "price": "9.90",
-   "coverImg": "/assets/books/topik1-vocab/cover.jpg"
+   "coverImg": "/assets/books/topik1-vocab/cover.jpg",
+   "page": {
+    "headline": {
+     "en": "Every word of the TOPIK I list, in one book.",
+     "ko": "TOPIK I 낱말 전부, 한 권에"
+    },
+    "lead": {
+     "en": "All 1,931 words of the TOPIK I word list (level 1 and level 2) in 97 units of 20 words, each with example sentences, writing practice and a checkup.",
+     "ko": "TOPIK I 낱말 1,931개(1급 · 2급)를 97단원 · 단원마다 20개로. 예문 · 쓰기 연습 · 점검 포함."
+    },
+    "features": [
+     {
+      "ic": "📚",
+      "t": {
+       "en": "The complete list",
+       "ko": "전체 목록"
+      },
+      "d": {
+       "en": "1,931 words in 97 units, 20 per unit.",
+       "ko": "낱말 1,931개 · 97단원 · 단원마다 20개"
+      }
+     },
+     {
+      "ic": "🧀",
+      "t": {
+       "en": "Cheese and potato marks",
+       "ko": "치즈 · 감자 표시"
+      },
+      "d": {
+       "en": "A level mark (cheese) and a frequency mark (potato) on every word.",
+       "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "Write meaning, word and sentence",
+       "ko": "뜻 · 낱말 · 문장 쓰기"
+      },
+      "d": {
+       "en": "Writing practice and a checkup in every unit, answer key at the back.",
+       "ko": "단원마다 쓰기 연습과 점검, 뒤쪽 정답"
+      }
+     },
+     {
+      "ic": "📱",
+      "t": {
+       "en": "Look-alikes and a free match game",
+       "ko": "헷갈리는 낱말 · 무료 짝 맞추기"
+      },
+      "d": {
+       "en": "Synonyms and sound-alikes explained; a QR code opens a free match game.",
+       "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"
+      }
+     }
+    ],
+    "problem": {
+     "q": "A long word list alone does not stick.",
+     "a": "All 1,931 TOPIK I words, cut into 97 short units of 20, each with practice and a checkup."
+    },
+    "steps": [
+     {
+      "ic": "📖",
+      "t": "Read",
+      "d": "20 words with meaning and an example sentence."
+     },
+     {
+      "ic": "✍️",
+      "t": "Write",
+      "d": "The meaning, the Korean word, and a sentence of your own."
+     },
+     {
+      "ic": "✅",
+      "t": "Check",
+      "d": "A unit checkup and an answer key."
+     }
+    ],
+    "notFor": [
+     "Learners aiming only at TOPIK II (see Vocabulary Workbooks 1–3)"
+    ],
+    "pick": "you want the complete TOPIK I word list with practice",
+    "related": [
+     "topik1-reading-mock",
+     "topik1-vocab"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · LEVEL 1 WORDS 1",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "01 Words 1 · Level 1 낱말 1 · 1급",
+        "10"
+       ],
+       [
+        "02 Words 2 · Level 1 낱말 2 · 1급",
+        "15"
+       ],
+       [
+        "03 Words 3 · Level 1 낱말 3 · 1급",
+        "20"
+       ],
+       [
+        "04 Words 4 · Level 1 낱말 4 · 1급",
+        "25"
+       ],
+       [
+        "05 Words 5 · Level 1 낱말 5 · 1급",
+        "30"
+       ],
+       [
+        "06 Words 6 · Level 1 낱말 6 · 1급",
+        "35"
+       ],
+       [
+        "07 Words 7 · Level 1 낱말 7 · 1급",
+        "40"
+       ],
+       [
+        "08 Words 8 · Level 1 낱말 8 · 1급",
+        "45"
+       ],
+       [
+        "09 Words 9 · Level 1 낱말 9 · 1급",
+        "50"
+       ],
+       [
+        "10 Words 10 · Level 1 낱말 10 · 1급",
+        "54"
+       ],
+       [
+        "11 Words 11 · Level 1 낱말 11 · 1급",
+        "59"
+       ],
+       [
+        "12 Words 12 · Level 1 낱말 12 · 1급",
+        "64"
+       ],
+       [
+        "13 Words 13 · Level 1 낱말 13 · 1급",
+        "69"
+       ],
+       [
+        "14 Words 14 · Level 1 낱말 14 · 1급",
+        "74"
+       ],
+       [
+        "15 Words 15 · Level 1 낱말 15 · 1급",
+        "79"
+       ],
+       [
+        "16 Words 16 · Level 1 낱말 16 · 1급",
+        "84"
+       ],
+       [
+        "17 Words 17 · Level 1 낱말 17 · 1급",
+        "89"
+       ],
+       [
+        "18 Words 18 · Level 1 낱말 18 · 1급",
+        "94"
+       ],
+       [
+        "19 Words 19 · Level 1 낱말 19 · 1급",
+        "99"
+       ],
+       [
+        "20 Words 20 · Level 1 낱말 20 · 1급",
+        "104"
+       ],
+       [
+        "21 Words 21 · Level 1 낱말 21 · 1급",
+        "109"
+       ],
+       [
+        "22 Words 22 · Level 1 낱말 22 · 1급",
+        "114"
+       ],
+       [
+        "23 Words 23 · Level 1 낱말 23 · 1급",
+        "119"
+       ],
+       [
+        "24 Words 24 · Level 1 낱말 24 · 1급",
+        "124"
+       ],
+       [
+        "25 Words 25 · Level 1 낱말 25 · 1급",
+        "129"
+       ],
+       [
+        "26 Words 26 · Level 1 낱말 26 · 1급",
+        "134"
+       ],
+       [
+        "27 Words 27 · Level 1 낱말 27 · 1급",
+        "139"
+       ],
+       [
+        "28 Words 28 · Level 1 낱말 28 · 1급",
+        "144"
+       ],
+       [
+        "29 Words 29 · Level 1 낱말 29 · 1급",
+        "149"
+       ],
+       [
+        "30 Words 30 · Level 1 낱말 30 · 1급",
+        "154"
+       ],
+       [
+        "31 Words 31 · Level 1 낱말 31 · 1급",
+        "159"
+       ],
+       [
+        "32 Words 32 · Level 1 낱말 32 · 1급",
+        "164"
+       ],
+       [
+        "33 Words 33 · Level 1 낱말 33 · 1급",
+        "169"
+       ],
+       [
+        "34 Words 34 · Level 1 낱말 34 · 1급",
+        "174"
+       ],
+       [
+        "35 Words 35 · Level 1 낱말 35 · 1급",
+        "179"
+       ],
+       [
+        "36 Words 36 · Level 1 낱말 36 · 1급",
+        "184"
+       ],
+       [
+        "37 Words 37 · Level 1 낱말 37 · 1급",
+        "189"
+       ],
+       [
+        "38 Words 38 · Level 1 낱말 38 · 1급",
+        "194"
+       ],
+       [
+        "39 Words 39 · Level 1 낱말 39 · 1급",
+        "199"
+       ],
+       [
+        "40 Words 40 · Level 1 낱말 40 · 1급",
+        "204"
+       ],
+       [
+        "41 Words 41 · Level 1 낱말 41 · 1급",
+        "209"
+       ],
+       [
+        "42 Words 42 · Level 1 낱말 42 · 1급",
+        "214"
+       ],
+       [
+        "43 Words 43 · Level 1 / Level 2 낱말 43 · 1급·2급",
+        "219"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · LEVEL 2 WORDS 2",
+       "ko": "급 낱말"
+      },
+      "items": [
+       [
+        "44 Words 44 · Level 2 낱말 44 · 2급",
+        "225"
+       ],
+       [
+        "45 Words 45 · Level 2 낱말 45 · 2급",
+        "230"
+       ],
+       [
+        "46 Words 46 · Level 2 낱말 46 · 2급",
+        "235"
+       ],
+       [
+        "47 Words 47 · Level 2 낱말 47 · 2급",
+        "240"
+       ],
+       [
+        "48 Words 48 · Level 2 낱말 48 · 2급",
+        "245"
+       ],
+       [
+        "49 Words 1 · Level 2 낱말 1 · 2급",
+        "250"
+       ],
+       [
+        "50 Words 2 · Level 2 낱말 2 · 2급",
+        "255"
+       ],
+       [
+        "51 Words 3 · Level 2 낱말 3 · 2급",
+        "260"
+       ],
+       [
+        "52 Words 4 · Level 2 낱말 4 · 2급",
+        "265"
+       ],
+       [
+        "53 Words 5 · Level 2 낱말 5 · 2급",
+        "270"
+       ],
+       [
+        "54 Words 6 · Level 2 낱말 6 · 2급",
+        "275"
+       ],
+       [
+        "55 Words 7 · Level 2 낱말 7 · 2급",
+        "280"
+       ],
+       [
+        "56 Words 8 · Level 2 낱말 8 · 2급",
+        "285"
+       ],
+       [
+        "57 Words 9 · Level 2 낱말 9 · 2급",
+        "290"
+       ],
+       [
+        "58 Words 10 · Level 2 낱말 10 · 2급",
+        "295"
+       ],
+       [
+        "59 Words 11 · Level 2 낱말 11 · 2급",
+        "300"
+       ],
+       [
+        "60 Words 12 · Level 2 낱말 12 · 2급",
+        "305"
+       ],
+       [
+        "61 Words 13 · Level 2 낱말 13 · 2급",
+        "310"
+       ],
+       [
+        "62 Words 14 · Level 2 낱말 14 · 2급",
+        "315"
+       ],
+       [
+        "63 Words 15 · Level 2 낱말 15 · 2급",
+        "320"
+       ],
+       [
+        "64 Words 16 · Level 2 낱말 16 · 2급",
+        "325"
+       ],
+       [
+        "65 Words 17 · Level 2 낱말 17 · 2급",
+        "330"
+       ],
+       [
+        "66 Words 18 · Level 2 낱말 18 · 2급",
+        "335"
+       ],
+       [
+        "67 Words 19 · Level 2 낱말 19 · 2급",
+        "340"
+       ],
+       [
+        "68 Words 20 · Level 2 낱말 20 · 2급",
+        "345"
+       ],
+       [
+        "69 Words 21 · Level 2 낱말 21 · 2급",
+        "350"
+       ],
+       [
+        "70 Words 22 · Level 2 낱말 22 · 2급",
+        "355"
+       ],
+       [
+        "71 Words 23 · Level 2 낱말 23 · 2급",
+        "360"
+       ],
+       [
+        "72 Words 24 · Level 2 낱말 24 · 2급",
+        "365"
+       ],
+       [
+        "73 Words 25 · Level 2 낱말 25 · 2급",
+        "370"
+       ],
+       [
+        "74 Words 26 · Level 2 낱말 26 · 2급",
+        "375"
+       ],
+       [
+        "75 Words 27 · Level 2 낱말 27 · 2급",
+        "380"
+       ],
+       [
+        "76 Words 28 · Level 2 낱말 28 · 2급",
+        "385"
+       ],
+       [
+        "77 Words 29 · Level 2 낱말 29 · 2급",
+        "390"
+       ],
+       [
+        "78 Words 30 · Level 2 낱말 30 · 2급",
+        "395"
+       ],
+       [
+        "79 Words 31 · Level 2 낱말 31 · 2급",
+        "400"
+       ],
+       [
+        "80 Words 32 · Level 2 낱말 32 · 2급",
+        "405"
+       ],
+       [
+        "81 Words 33 · Level 2 낱말 33 · 2급",
+        "410"
+       ],
+       [
+        "82 Words 34 · Level 2 낱말 34 · 2급",
+        "415"
+       ],
+       [
+        "83 Words 35 · Level 2 낱말 35 · 2급",
+        "420"
+       ],
+       [
+        "84 Words 36 · Level 2 낱말 36 · 2급",
+        "425"
+       ],
+       [
+        "85 Words 37 · Level 2 낱말 37 · 2급",
+        "430"
+       ],
+       [
+        "86 Words 38 · Level 2 낱말 38 · 2급",
+        "435"
+       ],
+       [
+        "87 Words 39 · Level 2 낱말 39 · 2급",
+        "440"
+       ],
+       [
+        "88 Words 40 · Level 2 낱말 40 · 2급",
+        "445"
+       ],
+       [
+        "89 Words 41 · Level 2 낱말 41 · 2급",
+        "450"
+       ],
+       [
+        "90 Words 42 · Level 2 낱말 42 · 2급",
+        "455"
+       ],
+       [
+        "91 Words 43 · Level 2 낱말 43 · 2급",
+        "460"
+       ],
+       [
+        "92 Words 44 · Level 2 낱말 44 · 2급",
+        "465"
+       ],
+       [
+        "93 Words 45 · Level 2 낱말 45 · 2급",
+        "470"
+       ],
+       [
+        "94 Words 46 · Level 2 낱말 46 · 2급",
+        "475"
+       ],
+       [
+        "95 Words 47 · Level 2 낱말 47 · 2급",
+        "480"
+       ],
+       [
+        "96 Words 48 · Level 2 낱말 48 · 2급",
+        "485"
+       ],
+       [
+        "97 Words 49 · Level 2 낱말 49 · 2급",
+        "490"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "494"
+       ],
+       [
+        "Index 찾아보기",
+        "511"
+       ],
+       [
+        "Notes 메모",
+        "528"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Checkup",
+      "점검"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "528"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "97"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "Are these past exam questions?",
+       "ko": "기출 문제인가요?"
+      },
+      {
+       "en": "No. All questions are newly written in the exam format. TOPIK is a test name of NIIED; this is an independent study book, not operated or endorsed by NIIED or the TOPIK Center.",
+       "ko": "아닙니다. 시험 형식에 맞춰 새로 만든 문제입니다. TOPIK 은 국립국제교육원의 시험 이름이며, 이 책은 독자적인 학습서로 국립국제교육원 · 한국어능력시험센터가 운영 · 인증하지 않았습니다."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ],
+     [
+      {
+       "en": "When will it be available?",
+       "ko": "언제 나오나요?"
+      },
+      {
+       "en": "It is in preparation and we have not set a date. Download a free sample of another book, or check this page again later.",
+       "ko": "준비 중이며 날짜는 아직 정하지 않았습니다. 다른 책의 무료 샘플을 받아 보시거나 나중에 이 쪽을 다시 확인해 주세요."
+      }
+     ]
+    ]
+   }
   },
   {
    "id": "korean-idioms",
@@ -905,12 +4699,426 @@
    "pages": "204쪽 (PDF · 속지 기준)",
    "status": "planned",
    "price": "9.90",
-   "coverImg": "/assets/books/korean-idioms/cover.jpg"
+   "coverImg": "/assets/books/korean-idioms/cover.jpg",
+   "page": {
+    "headline": {
+     "en": "Sound natural: 449 idioms, proverbs and four-character idioms.",
+     "ko": "자연스러운 한국어: 관용구 · 속담 · 사자성어 449개"
+    },
+    "lead": {
+     "en": "150 idioms, 150 proverbs and 149 four-character idioms Korean speakers use all the time, 15 per unit in 30 units.",
+     "ko": "한국 사람들이 늘 쓰는 관용구 150개 · 속담 150개 · 사자성어 149개. 30단원 · 단원마다 15개."
+    },
+    "features": [
+     {
+      "ic": "🐸",
+      "t": {
+       "en": "Literal meaning and real meaning",
+       "ko": "글자 뜻과 진짜 뜻"
+      },
+      "d": {
+       "en": "Each expression has its meaning in English and Korean, a literal translation, and a similar English saying when there is one.",
+       "ko": "영어 · 한국어 뜻, 글자 그대로의 뜻, 비슷한 영어 표현"
+      }
+     },
+     {
+      "ic": "💬",
+      "t": {
+       "en": "Two example sentences",
+       "ko": "예문 두 개"
+      },
+      "d": {
+       "en": "Two example sentences with translation for every expression.",
+       "ko": "표현마다 번역이 붙은 예문 두 개"
+      }
+     },
+     {
+      "ic": "✍️",
+      "t": {
+       "en": "Write the meaning, finish the proverb",
+       "ko": "뜻 쓰기 · 속담 완성"
+      },
+      "d": {
+       "en": "Write the meaning, finish the proverb, write your own sentence; then a unit checkup.",
+       "ko": "뜻 쓰기 · 속담 완성 · 내 문장 · 단원 점검"
+      }
+     },
+     {
+      "ic": "📱",
+      "t": {
+       "en": "Free match game",
+       "ko": "무료 짝 맞추기"
+      },
+      "d": {
+       "en": "A QR code opens a free match game for the same expressions.",
+       "ko": "QR 로 무료 짝 맞추기 게임"
+      }
+     }
+    ],
+    "problem": {
+     "q": "The literal words of an idiom rarely tell you its meaning.",
+     "a": "Each expression shows the word-for-word picture, the real meaning and two example sentences, and then makes you use it."
+    },
+    "steps": [
+     {
+      "ic": "🐸",
+      "t": "See the picture",
+      "d": "The literal translation, and a similar English saying when there is one."
+     },
+     {
+      "ic": "💬",
+      "t": "Learn the meaning",
+      "d": "Meaning in English and Korean, plus two example sentences."
+     },
+     {
+      "ic": "✍️",
+      "t": "Use it",
+      "d": "Write the meaning, finish the proverb, write your own sentence."
+     }
+    ],
+    "notFor": [
+     "Complete beginners who cannot read Hangul yet (start with Korean First Steps)"
+    ],
+    "pick": "you want to sound natural and understand idioms in TOPIK II readings",
+    "related": [
+     "korean-idioms"
+    ],
+    "contents": [
+     {
+      "part": {
+       "en": "Front matter",
+       "ko": "앞부분"
+      },
+      "items": [
+       [
+        "Preface · About the author · How to use this book 머리말 · 저자 소개 · 쓰는 법",
+        "3"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 1 · IDIOMS AND SET PHRASES (150)",
+       "ko": "관용구 (150개)"
+      },
+      "items": [
+       [
+        "01 Idioms and Set Phrases 1 · Level 3 관용구 1",
+        "9"
+       ],
+       [
+        "02 Idioms and Set Phrases 2 · Level 3 관용구 2",
+        "15"
+       ],
+       [
+        "03 Idioms and Set Phrases 3 · Level 3 관용구 3",
+        "21"
+       ],
+       [
+        "04 Idioms and Set Phrases 4 · Level 3 / 4 관용구 4",
+        "27"
+       ],
+       [
+        "05 Idioms and Set Phrases 5 · Level 4 관용구 5",
+        "33"
+       ],
+       [
+        "06 Idioms and Set Phrases 6 · Level 4 관용구 6",
+        "39"
+       ],
+       [
+        "07 Idioms and Set Phrases 7 · Level 4 관용구 7",
+        "45"
+       ],
+       [
+        "08 Idioms and Set Phrases 8 · Level 4 관용구 8",
+        "51"
+       ],
+       [
+        "09 Idioms and Set Phrases 9 · Level 4 관용구 9",
+        "57"
+       ],
+       [
+        "10 Idioms and Set Phrases 10 · Level 4 / 5 관용구 10",
+        "63"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 2 · PROVERBS (150)",
+       "ko": "속담 (150개)"
+      },
+      "items": [
+       [
+        "11 Proverbs 1 · Level 3 속담 1",
+        "70"
+       ],
+       [
+        "12 Proverbs 2 · Level 3 / 4 속담 2",
+        "76"
+       ],
+       [
+        "13 Proverbs 3 · Level 4 속담 3",
+        "82"
+       ],
+       [
+        "14 Proverbs 4 · Level 4 속담 4",
+        "88"
+       ],
+       [
+        "15 Proverbs 5 · Level 4 속담 5",
+        "94"
+       ],
+       [
+        "16 Proverbs 6 · Level 4 속담 6",
+        "100"
+       ],
+       [
+        "17 Proverbs 7 · Level 4 속담 7",
+        "106"
+       ],
+       [
+        "18 Proverbs 8 · Level 4 / 5 속담 8",
+        "112"
+       ],
+       [
+        "19 Proverbs 9 · Level 5 속담 9",
+        "118"
+       ],
+       [
+        "20 Proverbs 10 · Level 5 / 6 속담 10",
+        "124"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "PART 3 · FOUR-CHARACTER IDIOMS (149)",
+       "ko": "사자성어 (149개)"
+      },
+      "items": [
+       [
+        "21 Four-Character Idioms 1 · Level 4 사자성어 1",
+        "131"
+       ],
+       [
+        "22 Four-Character Idioms 2 · Level 4 / 5 사자성어 2",
+        "137"
+       ],
+       [
+        "23 Four-Character Idioms 3 · Level 5 사자성어 3",
+        "143"
+       ],
+       [
+        "24 Four-Character Idioms 4 · Level 5 사자성어 4",
+        "149"
+       ],
+       [
+        "25 Four-Character Idioms 5 · Level 5 사자성어 5",
+        "155"
+       ],
+       [
+        "26 Four-Character Idioms 6 · Level 5 / 6 사자성어 6",
+        "161"
+       ],
+       [
+        "27 Four-Character Idioms 7 · Level 6 사자성어 7",
+        "167"
+       ],
+       [
+        "28 Four-Character Idioms 8 · Level 6 사자성어 8",
+        "173"
+       ],
+       [
+        "29 Four-Character Idioms 9 · Level 6 사자성어 9",
+        "179"
+       ],
+       [
+        "30 Four-Character Idioms 10 · Level 6 사자성어 10",
+        "185"
+       ]
+      ]
+     },
+     {
+      "part": {
+       "en": "BACK MATTER",
+       "ko": "부록"
+      },
+      "items": [
+       [
+        "Answer Key 정답",
+        "191"
+       ],
+       [
+        "Index 찾아보기",
+        "198"
+       ],
+       [
+        "Notes 메모",
+        "204"
+       ]
+      ]
+     }
+    ],
+    "previewNote": {
+     "en": "Real pages from the book. Tap a page to enlarge.",
+     "ko": "책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요."
+    },
+    "previews": [
+     [
+      "How to use this book",
+      "이 책 쓰는 법"
+     ],
+     [
+      "Contents",
+      "목차"
+     ],
+     [
+      "First unit",
+      "첫 단원"
+     ],
+     [
+      "Inside a unit",
+      "단원 안"
+     ],
+     [
+      "Practice",
+      "연습"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "More pages",
+      "더 보기"
+     ],
+     [
+      "Answer key",
+      "정답"
+     ]
+    ],
+    "author": {
+     "name": {
+      "en": "Junsang",
+      "ko": "준상"
+     },
+     "bio": {
+      "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean.",
+      "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다."
+     }
+    },
+    "specs": [
+     [
+      "Format · 형태",
+      "PDF (digital edition) · 디지털판"
+     ],
+     [
+      "Pages · 쪽수",
+      "204"
+     ],
+     [
+      "Size · 판형",
+      "B5 182 × 257 mm, prints on A4 too · A4 인쇄 가능"
+     ],
+     [
+      "Language · 언어",
+      "English + Korean · 영어 + 한국어"
+     ],
+     [
+      "Units · 단원",
+      "30"
+     ],
+     [
+      "Published · 발행",
+      "2026.11.10"
+     ],
+     [
+      "Publisher · 출판사",
+      "Everykoreans · 에브리코리안즈"
+     ]
+    ],
+    "faq": [
+     [
+      {
+       "en": "How do I get the file?",
+       "ko": "파일은 어떻게 받나요?"
+      },
+      {
+       "en": "After payment you get a download link right away, and a copy by email. Payment is handled by Polar.",
+       "ko": "결제가 끝나면 바로 내려받을 수 있는 링크가 나오고 메일로도 갑니다. 결제는 Polar 가 처리합니다."
+      }
+     ],
+     [
+      {
+       "en": "Can I try it first?",
+       "ko": "먼저 볼 수 있나요?"
+      },
+      {
+       "en": "Yes. Look through the preview pages above, or download the free sample with the cover, contents and the first units.",
+       "ko": "네. 위 미리보기 쪽을 보거나, 표지 · 목차 · 앞 단원이 들어 있는 무료 샘플을 받아 보세요."
+      }
+     ],
+     [
+      {
+       "en": "Can I print it?",
+       "ko": "인쇄해도 되나요?"
+      },
+      {
+       "en": "Yes, for your own study or your own class. Please do not share or resell the file.",
+       "ko": "네, 본인 학습이나 본인 수업용으로 인쇄할 수 있습니다. 파일을 나누거나 되팔지는 말아 주세요."
+      }
+     ],
+     [
+      {
+       "en": "What if there is a problem with the book?",
+       "ko": "책에 이상이 있으면요?"
+      },
+      {
+       "en": "If the file does not open, pages are missing or it is not the book described, write to cheesepotato@everykoreans.com with the email you paid with. We will send a fixed file, or refund you if that does not solve it.",
+       "ko": "파일이 열리지 않거나, 쪽이 빠졌거나, 소개와 다른 책이면 cheesepotato@everykoreans.com 으로 결제에 쓴 이메일을 적어 보내 주세요. 고친 파일을 보내 드리고, 그래도 해결되지 않으면 환불해 드립니다."
+      }
+     ],
+     [
+      {
+       "en": "When will it be available?",
+       "ko": "언제 나오나요?"
+      },
+      {
+       "en": "It is in preparation and we have not set a date. Download a free sample of another book, or check this page again later.",
+       "ko": "준비 중이며 날짜는 아직 정하지 않았습니다. 다른 책의 무료 샘플을 받아 보시거나 나중에 이 쪽을 다시 확인해 주세요."
+      }
+     ]
+    ]
+   }
   }
  ],
  "publisher": {
   "en": "Everykoreans",
   "ko": "에브리코리안즈",
   "_note": "출판사 이름 = 출판사 신고확인증의 명칭(2026-10-20 신고, 제 2026-000158 호, 경기도 수원시 영통구청). 주소는 집 주소라 공개하지 않는다."
- }
+ },
+ "bundles": [
+  {
+   "id": "topik2-vocab-bundle",
+   "books": [
+    "topik2-vocab-1000",
+    "topik2-vocab-2000",
+    "topik2-vocab-lv3"
+   ],
+   "title": {
+    "en": "TOPIK II Vocabulary Workbooks 1–3 · Bundle",
+    "ko": "TOPIK II 단어장 워크북 1~3 묶음"
+   },
+   "sub": {
+    "en": "All three vocabulary workbooks in one purchase: 2,940 words in 147 units, each with example sentences, writing practice, checkups and answer keys.",
+    "ko": "세 권을 한 번에: 낱말 2,940개 · 147단원"
+   },
+   "price": "14.90",
+   "status": "on",
+   "polar": "https://buy.polar.sh/polar_cl_GxfjPATs0oWMO20DL9sNr18GUHexMr63fTiwf2jQG5R",
+   "_note": "가격 14.90 은 Claude 제안값(따로 사면 20.70달러, 28% 싸다) — 운영자가 정하면 `node tools/polar-bundle.mjs topik2-vocab-bundle --apply`. status 가 on 이 되기 전에는 사이트에 안 보인다."
+  }
+ ]
 }
