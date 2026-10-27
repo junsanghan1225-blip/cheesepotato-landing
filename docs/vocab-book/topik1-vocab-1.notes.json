@@ -486,5 +486,693 @@
    "kind": "synonym",
    "note": "Both mean a meal or cooked rice. 밥 is standard (밥을 먹어요), while 진지 is the respectful honorific word for elders (진지 드셨어요?)."
   }
+ ],
+ "ta-21": [
+  {
+   "words": [
+    "드시다",
+    "잡수시다"
+   ],
+   "kind": "synonym",
+   "note": "Both are polite honorific verbs for 먹다. 드시다 is widely used (맛있게 드세요), while 잡수시다 is an older traditional honorific for elders (할머니께서 진지를 잡수셨어요)."
+  },
+  {
+   "words": [
+    "잔",
+    "컵"
+   ],
+   "kind": "synonym",
+   "note": "Both mean cup. 잔 is used as a counter for cups or glasses of drinks (물 한 잔, 커피 두 잔), while 컵 refers to the cup object itself (종이 컵)."
+  },
+  {
+   "words": [
+    "술",
+    "술"
+   ],
+   "kind": "homonym",
+   "note": "술 means alcoholic beverage (술을 마셔요), and also a spoonful of food (밥 한 술)."
+  }
+ ],
+ "ta-22": [
+  {
+   "words": [
+    "사과",
+    "사과"
+   ],
+   "kind": "homonym",
+   "note": "사과 means the sweet apple fruit (사과를 먹어요) and also an apology (친구에게 사과해요). Same spelling and sound."
+  },
+  {
+   "words": [
+    "주문하다",
+    "시키다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to order food. 시키다 is very common in everyday spoken Korean (피자를 시켜요), while 주문하다 is slightly more formal (메뉴를 주문해요)."
+  },
+  {
+   "words": [
+    "맛있다",
+    "맛없다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 맛있다 means delicious or tasty (불고기가 맛있어요), while 맛없다 means not delicious (음식이 맛없어요)."
+  }
+ ],
+ "ta-23": [
+  {
+   "words": [
+    "짜다",
+    "짜다"
+   ],
+   "kind": "homonym",
+   "note": "짜다 means salty in taste (음식이 짜요), and also means to squeeze out liquid or make a plan (치약을 짜요, 계획을 짜요)."
+  },
+  {
+   "words": [
+    "주다",
+    "드리다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to give. 주다 is standard (친구에게 책을 줘요), while 드리다 is the polite honorific used for elders (선생님께 선물을 드려요)."
+  },
+  {
+   "words": [
+    "가다",
+    "오다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 가다 means to go away (학교에 가요), while 오다 means to come toward the speaker (집에 와요)."
+  }
+ ],
+ "ta-24": [
+  {
+   "words": [
+    "나",
+    "저"
+   ],
+   "kind": "contrast",
+   "note": "Both mean I or me. 나 is casual used with friends (나는 학생이야), while 저 is humble and polite (저는 학생이에요)."
+  },
+  {
+   "words": [
+    "이",
+    "이"
+   ],
+   "kind": "homonym",
+   "note": "이 means this near the speaker (이 책), a tooth in the mouth (이가 아파요), and the Sino-Korean number two."
+  },
+  {
+   "words": [
+    "거기",
+    "저기"
+   ],
+   "kind": "contrast",
+   "note": "거기 refers to a location near the listener (거기 어디예요?), while 저기 refers to a place far from both speaker and listener (저기 건물이 보여요)."
+  }
+ ],
+ "ta-25": [
+  {
+   "words": [
+    "무슨",
+    "어느"
+   ],
+   "kind": "contrast",
+   "note": "무슨 means what or what kind of (무슨 영화를 봐요?), while 어느 means which one among choices (어느 것을 골라요?)."
+  },
+  {
+   "words": [
+    "켜다",
+    "끄다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 켜다 means to turn on a light or machine (불을 켜요), while 끄다 means to turn it off (컴퓨터를 꺼요)."
+  },
+  {
+   "words": [
+    "깨끗하다",
+    "더럽다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 깨끗하다 means clean (방이 깨끗해요), while 더럽다 means dirty (신발이 더러워요)."
+  }
+ ],
+ "ta-26": [
+  {
+   "words": [
+    "집",
+    "댁"
+   ],
+   "kind": "synonym",
+   "note": "Both mean house or home. 집 is standard (우리 집), while 댁 is the honorific noun for an elder's home (선생님 댁)."
+  },
+  {
+   "words": [
+    "넓다",
+    "좁다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 넓다 means spacious or wide (방이 넓어요), while 좁다 means cramped or narrow (길이 좁아요)."
+  },
+  {
+   "words": [
+    "식탁",
+    "밥상"
+   ],
+   "kind": "synonym",
+   "note": "Both mean dining table. 밥상 is a traditional low dining table (밥상을 차려요), while 식탁 is a modern dining table with chairs (식탁에 앉아요)."
+  }
+ ],
+ "ta-27": [
+  {
+   "words": [
+    "열다",
+    "닫다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 열다 means to open (문을 열어요), while 닫다 means to close (창문을 닫아요)."
+  },
+  {
+   "words": [
+    "듣다",
+    "듣다"
+   ],
+   "kind": "homonym",
+   "note": "듣다 means to hear or listen (음악을 들어요), and also means medicine is effective (약이 잘 들어요)."
+  },
+  {
+   "words": [
+    "그림",
+    "사진"
+   ],
+   "kind": "contrast",
+   "note": "그림 is a drawn or painted artwork (그림을 그려요), while 사진 is a photograph taken with a camera (사진을 찍어요)."
+  }
+ ],
+ "ta-28": [
+  {
+   "words": [
+    "부르다",
+    "부르다"
+   ],
+   "kind": "homonym",
+   "note": "부르다 means to sing or call (노래를 불러요, 택시를 불러요), and also to feel full after eating (배가 불러요)."
+  },
+  {
+   "words": [
+    "극장",
+    "영화관"
+   ],
+   "kind": "synonym",
+   "note": "Both mean cinema or theater. 극장 also includes live performance stages (극장에서 연극을 봐요), while 영화관 specifically shows movies (영화관에 가요)."
+  }
+ ],
+ "ta-29": [
+  {
+   "words": [
+    "개",
+    "개"
+   ],
+   "kind": "homonym",
+   "note": "개 means a dog pet (귀여운 개), and also the general counter for everyday items (사과 세 개)."
+  },
+  {
+   "words": [
+    "등산",
+    "산책"
+   ],
+   "kind": "contrast",
+   "note": "등산 is mountain hiking (주말에 등산을 가요), while 산책 is a gentle walk on level ground (공원에서 산책해요)."
+  }
+ ],
+ "ta-30": [
+  {
+   "words": [
+    "이름",
+    "성함"
+   ],
+   "kind": "synonym",
+   "note": "Both mean name. 이름 is standard (이름이 뭐예요?), while 성함 is the respectful honorific word for elders (성함이 어떻게 되세요?)."
+  },
+  {
+   "words": [
+    "사람",
+    "분"
+   ],
+   "kind": "synonym",
+   "note": "Both mean person. 사람 is standard (좋은 사람), while 분 is the polite honorific noun and counter (감사한 분, 손님 두 분)."
+  },
+  {
+   "words": [
+    "불",
+    "불"
+   ],
+   "kind": "homonym",
+   "note": "불 means fire (불이 뜨거워요) and also an electric light (불을 켜요)."
+  }
+ ],
+ "ta-31": [
+  {
+   "words": [
+    "혼자",
+    "함께"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 혼자 means alone or by oneself (혼자 밥을 먹어요), while 함께 means together with others (친구와 함께 공부해요)."
+  },
+  {
+   "words": [
+    "명",
+    "분"
+   ],
+   "kind": "contrast",
+   "note": "Both count people. 명 is standard (학생 세 명), while 분 is the respectful honorific counter (손님 세 분)."
+  },
+  {
+   "words": [
+    "남자",
+    "여자"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 남자 means man or male (남자 친구), while 여자 means woman or female (여자 아이)."
+  }
+ ],
+ "ta-32": [
+  {
+   "words": [
+    "남편",
+    "아내"
+   ],
+   "kind": "contrast",
+   "note": "Opposites in marriage. 남편 means husband (남편과 산책해요), while 아내 means wife (아내와 식사해요)."
+  },
+  {
+   "words": [
+    "형",
+    "오빠"
+   ],
+   "kind": "contrast",
+   "note": "Both mean older brother. A male speaker calls his older brother 형, while a female speaker calls him 오빠."
+  },
+  {
+   "words": [
+    "누나",
+    "언니"
+   ],
+   "kind": "contrast",
+   "note": "Both mean older sister. A male speaker calls his older sister 누나, while a female speaker calls her 언니."
+  }
+ ],
+ "ta-33": [
+  {
+   "words": [
+    "예쁘다",
+    "멋있다"
+   ],
+   "kind": "contrast",
+   "note": "예쁘다 means pretty or cute (꽃이 예뻐요), while 멋있다 means cool, stylish, or handsome (옷이 멋있어요)."
+  },
+  {
+   "words": [
+    "선생님",
+    "학생"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 선생님 means teacher (선생님께 배워요), while 학생 means student (한국어 반 학생)."
+  },
+  {
+   "words": [
+    "살",
+    "살"
+   ],
+   "kind": "homonym",
+   "note": "살 is the counter for age in years (스무 살), and also means flesh or body weight (살이 빠졌어요)."
+  }
+ ],
+ "ta-34": [
+  {
+   "words": [
+    "배우다",
+    "가르치다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 배우다 means to learn from someone (한국어를 배워요), while 가르치다 means to teach (학생을 가르쳐요)."
+  },
+  {
+   "words": [
+    "쓰다",
+    "쓰다"
+   ],
+   "kind": "homonym",
+   "note": "쓰다 means to write with a pen (편지를 써요), to wear a hat or use an item (모자를 써요), and to taste bitter (약이 써요)."
+  },
+  {
+   "words": [
+    "어렵다",
+    "쉽다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 어렵다 means difficult (시험이 어려워요), while 쉽다 means easy (한국어가 쉬워요)."
+  }
+ ],
+ "ta-35": [
+  {
+   "words": [
+    "사전",
+    "사전"
+   ],
+   "kind": "homonym",
+   "note": "사전 means a dictionary for looking up words (사전을 찾아요), and also means beforehand or in advance (사전 예약)."
+  },
+  {
+   "words": [
+    "예",
+    "예"
+   ],
+   "kind": "homonym",
+   "note": "예 means 'yes' in polite speech (예, 알겠습니다), and also an example (예를 들어 설명해요)."
+  },
+  {
+   "words": [
+    "합격하다",
+    "불합격하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 합격하다 means to pass a test (시험에 합격했어요), while 불합격하다 means to fail (아쉽게 불합격했어요)."
+  }
+ ],
+ "ta-36": [
+  {
+   "words": [
+    "한국",
+    "외국"
+   ],
+   "kind": "contrast",
+   "note": "한국 means Korea (한국에 살아요), while 외국 means a foreign country outside Korea (외국에 여행 가요)."
+  },
+  {
+   "words": [
+    "나라",
+    "국가"
+   ],
+   "kind": "synonym",
+   "note": "Both mean country or nation. 나라 is everyday native Korean (어느 나라 사람이에요?), while 국가 is more formal (국가 대표)."
+  },
+  {
+   "words": [
+    "영국",
+    "미국"
+   ],
+   "kind": "contrast",
+   "note": "영국 means the United Kingdom or Britain (영국 사람), while 미국 means the United States of America (미국 뉴욕)."
+  }
+ ],
+ "ta-37": [
+  {
+   "words": [
+    "고맙다",
+    "감사하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to thank. 고맙다 is warm native Korean (도와줘서 고마워요), while 감사하다 is polite Sino-Korean (진심으로 감사합니다)."
+  },
+  {
+   "words": [
+    "미안하다",
+    "죄송하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean sorry. 미안하다 is used with friends or peers (늦어서 미안해요), while 죄송하다 is more polite for elders (죄송합니다)."
+  },
+  {
+   "words": [
+    "아니요",
+    "네"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 네 (or 예) means yes (네, 맞아요), while 아니요 means no (아니요, 아니에요)."
+  }
+ ],
+ "ta-38": [
+  {
+   "words": [
+    "말",
+    "말"
+   ],
+   "kind": "homonym",
+   "note": "말 means speech or language (한국 말을 배워요), a horse animal (말을 타요), and also the end of a time period (월말)."
+  },
+  {
+   "words": [
+    "말",
+    "말씀"
+   ],
+   "kind": "synonym",
+   "note": "Both mean words or speech. 말 is standard (친구의 말), while 말씀 is the respectful honorific word for an elder's speech (선생님 말씀)."
+  },
+  {
+   "words": [
+    "알다",
+    "모르다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 알다 means to know (그 사람을 알아요), while 모르다 means not to know (이름을 몰라요)."
+  }
+ ],
+ "ta-39": [
+  {
+   "words": [
+    "묻다",
+    "묻다"
+   ],
+   "kind": "homonym",
+   "note": "묻다 means to ask a question (길을 물어봐요), to get stained on clothes (옷에 얼룩이 묻어요), and to bury in the ground."
+  },
+  {
+   "words": [
+    "달다",
+    "달다"
+   ],
+   "kind": "homonym",
+   "note": "달다 means sweet in taste (초콜릿이 달아요), and also to hang or fasten an item (벽에 시계를 달아요)."
+  }
+ ],
+ "ta-40": [
+  {
+   "words": [
+    "시청",
+    "시청"
+   ],
+   "kind": "homonym",
+   "note": "시청 means city hall building (서울 시청에 가요), and also means watching a television broadcast (뉴스 시청)."
+  },
+  {
+   "words": [
+    "질문",
+    "대답"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 질문 means question (질문이 있어요), while 대답 means answer or reply (질문에 대답해요)."
+  },
+  {
+   "words": [
+    "곳",
+    "장소"
+   ],
+   "kind": "synonym",
+   "note": "Both mean place. 곳 is native Korean (조용한 곳), while 장소 is formal Sino-Korean (약속 장소)."
+  }
+ ],
+ "ta-41": [
+  {
+   "words": [
+    "출발하다",
+    "도착하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 출발하다 means to depart (기차가 출발해요), while 도착하다 means to arrive (서울역에 도착했어요)."
+  },
+  {
+   "words": [
+    "올라가다",
+    "내려가다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 올라가다 means to go up (계단으로 올라가요), while 내려가다 means to go down (아래로 내려가요)."
+  },
+  {
+   "words": [
+    "표",
+    "표"
+   ],
+   "kind": "homonym",
+   "note": "표 means an admission or travel ticket (비행기 표를 사요), and also a chart or table (시간표를 봐요)."
+  }
+ ],
+ "ta-42": [
+  {
+   "words": [
+    "타다",
+    "내리다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 타다 means to get on or ride a vehicle (버스를 타요), while 내리다 means to get off (정류장에서 내려요)."
+  },
+  {
+   "words": [
+    "보다",
+    "구경하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to look or see. 보다 is general (영화를 봐요), while 구경하다 specifically means to sightsee or browse around (시장을 구경해요)."
+  },
+  {
+   "words": [
+    "예약하다",
+    "예매하다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to reserve. 예약하다 is used for hotel rooms or restaurants (호텔을 예약해요), while 예매하다 is buying tickets in advance (기차표를 예매해요)."
+  }
+ ],
+ "ta-43": [
+  {
+   "words": [
+    "출근하다",
+    "퇴근하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 출근하다 means to go to work in the morning (회사에 출근해요), while 퇴근하다 means to leave work (저녁에 퇴근해요)."
+  },
+  {
+   "words": [
+    "일",
+    "일"
+   ],
+   "kind": "homonym",
+   "note": "일 means work or a task (일을 해요), a calendar day (오늘 며칠이에요?), and the Sino-Korean number one."
+  },
+  {
+   "words": [
+    "역",
+    "역"
+   ],
+   "kind": "homonym",
+   "note": "역 means a train or subway station (서울역에 가요), and also an acting role in drama (주인공 역)."
+  }
+ ],
+ "ta-44": [
+  {
+   "words": [
+    "벗다",
+    "입다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 입다 (or 신다/쓰다) means to put on clothes, while 벗다 means to take off clothes, shoes, or gloves (장갑을 벗어요)."
+  },
+  {
+   "words": [
+    "길다",
+    "짧다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 길다 means long (바지가 길어요), while 짧다 means short (치마가 짧아요)."
+  }
+ ],
+ "ta-45": [
+  {
+   "words": [
+    "가져오다",
+    "가져가다"
+   ],
+   "kind": "contrast",
+   "note": "가져오다 means to bring toward the speaker (우산을 가져왔어요), while 가져가다 means to take away (쓰레기를 가져가요)."
+  },
+  {
+   "words": [
+    "놓다",
+    "두다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to put or place something down. 놓다 (책상 위에 놓아요) and 두다 (가방을 방에 둬요) are often interchangeable."
+  }
+ ],
+ "ta-46": [
+  {
+   "words": [
+    "해",
+    "해"
+   ],
+   "kind": "homonym",
+   "note": "해 means the sun in the sky (해가 밝아요), and also a calendar year (새해 복 많이 받으세요)."
+  },
+  {
+   "words": [
+    "차갑다",
+    "뜨겁다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites for temperature of things. 차갑다 means cold to touch (차가운 물), while 뜨겁다 means hot (뜨거운 차)."
+  },
+  {
+   "words": [
+    "편하다",
+    "불편하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 편하다 means comfortable or convenient (신발이 편해요), while 불편하다 means uncomfortable (자리가 불편해요)."
+  }
+ ],
+ "ta-47": [
+  {
+   "words": [
+    "새",
+    "새"
+   ],
+   "kind": "homonym",
+   "note": "새 means a flying bird (새가 노래해요), and also means new placed before a noun (새 옷을 입어요)."
+  },
+  {
+   "words": [
+    "달리다",
+    "달리다"
+   ],
+   "kind": "homonym",
+   "note": "달리다 means to run fast (운동장을 달려요), and also to hang or dangle (나무에 열매가 달렸어요)."
+  },
+  {
+   "words": [
+    "개",
+    "강아지"
+   ],
+   "kind": "contrast",
+   "note": "개 refers to a fully grown dog (큰 개), while 강아지 specifically refers to a young puppy or cute small dog (귀여운 강아지)."
+  }
+ ],
+ "ta-48": [
+  {
+   "words": [
+    "차",
+    "차"
+   ],
+   "kind": "homonym",
+   "note": "차 means an automobile or car (차를 운전해요), and also a tea drink (따뜻한 차를 마셔요)."
+  },
+  {
+   "words": [
+    "나이",
+    "연세"
+   ],
+   "kind": "synonym",
+   "note": "Both mean age. 나이 is standard (나이가 몇 살이에요?), while 연세 is the respectful honorific word for elders (할머니 연세)."
+  },
+  {
+   "words": [
+    "아이",
+    "어른"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 아이 means a child (아이가 웃어요), while 어른 means an adult (어른에게 인사해요)."
+  }
  ]
 }

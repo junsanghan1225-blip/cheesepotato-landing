@@ -9856,7 +9856,7 @@
     },
     {
      "ko": "그대로",
-     "en": "as it is; intact (noun)"
+     "en": "as it is; intact (adverb)"
     },
     {
      "ko": "변하다",
@@ -10036,7 +10036,7 @@
     },
     {
      "ko": "거의",
-     "en": "almost; nearly (noun)"
+     "en": "almost; nearly (adverb)"
     },
     {
      "ko": "기타",
@@ -10060,7 +10060,7 @@
     },
     {
      "ko": "매우",
-     "en": "very; extremely (adverb)"
+     "en": "very; quite (adverb)"
     },
     {
      "ko": "모든",
@@ -10076,7 +10076,7 @@
     },
     {
      "ko": "무척",
-     "en": "very; extremely (adverb)"
+     "en": "extremely; very much (adverb)"
     },
     {
      "ko": "미터",
@@ -10260,11 +10260,11 @@
     },
     {
      "ko": "정확",
-     "en": "accuracy; correctness (noun)"
+     "en": "accuracy (정확하다 = to be accurate) (noun)"
     },
     {
      "ko": "중요",
-     "en": "importance (noun)"
+     "en": "importance (중요하다 = to be important) (noun)"
     },
     {
      "ko": "최고",
@@ -10336,7 +10336,7 @@
      "why": "적당하다 means suitable; proper; moderate. 온도가 아주 적당해요. (The temperature is very moderate.)"
     },
     {
-     "q": "Which Korean word means \"accuracy\"?",
+     "q": "Which Korean word means \"accuracy (정확하다 = to be accurate)\"?",
      "opts": [
       "부족",
       "아무리",
@@ -10344,7 +10344,7 @@
       "자세히"
      ],
      "a": 2,
-     "why": "정확 means accuracy; correctness. 정확한 시간을 알려 주세요. (Please let me know the exact time.)"
+     "why": "정확 means accuracy (정확하다 = to be accurate). 정확한 시간을 알려 주세요. (Please let me know the exact time.)"
     }
    ],
    "fill": [
@@ -10432,7 +10432,7 @@
     },
     {
      "ko": "대",
-     "en": "generation; unit counter (bound noun)"
+     "en": "unit counter (for vehicles, machines); generation (bound noun)"
     },
     {
      "ko": "대부분",
@@ -10501,7 +10501,7 @@
     {
      "q": "What does 넘다 mean?",
      "opts": [
-      "generation",
+      "unit counter (for vehicles, machines)",
       "to subtract",
       "part",
       "to cross"
@@ -10510,7 +10510,7 @@
      "why": "넘다 means to cross; to exceed. 산길을 넘어 이웃 마을로 가요. (I go over the mountain path to the neighboring village.)"
     },
     {
-     "q": "Which Korean word means \"generation\"?",
+     "q": "Which Korean word means \"unit counter (for vehicles, machines)\"?",
      "opts": [
       "대",
       "번째",
@@ -10518,7 +10518,7 @@
       "숫자"
      ],
      "a": 0,
-     "why": "대 means generation; unit counter. 집에 컴퓨터 두 대를 두고 써요. (I keep and use two computers at home.)"
+     "why": "대 means unit counter (for vehicles, machines); generation. 집에 컴퓨터 두 대를 두고 써요. (I keep and use two computers at home.)"
     },
     {
      "q": "What does 둘째 mean?",
@@ -10796,7 +10796,7 @@
     },
     {
      "ko": "줄",
-     "en": "(in -ㄹ 줄 알다) how to; way (noun)"
+     "en": "line; queue; (in -ㄹ 줄 알다) how to (noun)"
     },
     {
      "ko": "부드럽다",
@@ -10852,7 +10852,7 @@
     },
     {
      "ko": "검정",
-     "en": "black (color) (noun)"
+     "en": "black (the color, as a noun) (noun)"
     },
     {
      "ko": "굵다",
@@ -10860,7 +10860,7 @@
     },
     {
      "ko": "까만색",
-     "en": "black (color) (noun)"
+     "en": "jet black (color) (noun)"
     },
     {
      "ko": "까맣다",
@@ -10917,7 +10917,7 @@
      "opts": [
       "thick",
       "blue",
-      "(in -ㄹ 줄 알다) how to",
+      "line",
       "to be yellow"
      ],
      "a": 1,
@@ -10972,8 +10972,8 @@
      ]
     },
     {
-     "q": "\"(in -ㄹ 줄 알다) how to\" in Korean: ___",
-     "en": "(in -ㄹ 줄 알다) how to; way",
+     "q": "\"line\" in Korean: ___",
+     "en": "line; queue; (in -ㄹ 줄 알다) how to",
      "a": [
       "줄"
      ]
@@ -11248,7 +11248,7 @@
     },
     {
      "ko": "메다",
-     "en": "choke up (verb)"
+     "en": "to carry (on one's shoulder); to choke up (verb)"
     },
     {
      "ko": "목걸이",
@@ -11307,7 +11307,7 @@
     {
      "q": "What does 매다 mean?",
      "opts": [
-      "choke up",
+      "to carry (on one's shoulder)",
       "tie",
       "Mugunghwa",
       "hanok"
@@ -11584,7 +11584,7 @@
     },
     {
      "ko": "공짜",
-     "en": "free of charge; freebie (noun)"
+     "en": "free of charge (informal); freebie (noun)"
     },
     {
      "ko": "교통비",
@@ -11596,7 +11596,7 @@
     },
     {
      "ko": "무료",
-     "en": "free; free of charge (noun)"
+     "en": "free of charge (official; no fee) (noun)"
     },
     {
      "ko": "요금",
@@ -11657,14 +11657,14 @@
      "opts": [
       "foreign exchange",
       "make",
-      "free",
+      "free of charge (official",
       "stop"
      ],
      "a": 1,
      "why": "벌다 means make; earn. 열심히 일해서 돈을 많이 벌었어요. (I worked hard and earned a lot of money.)"
     },
     {
-     "q": "Which Korean word means \"free of charge\"?",
+     "q": "Which Korean word means \"free of charge (informal)\"?",
      "opts": [
       "모으다",
       "잊다",
@@ -11672,7 +11672,7 @@
       "눕다"
      ],
      "a": 2,
-     "why": "공짜 means free of charge; freebie. 음료수를 공짜로 하나 더 받았어요. (I received one more beverage for free.)"
+     "why": "공짜 means free of charge (informal); freebie. 음료수를 공짜로 하나 더 받았어요. (I received one more beverage for free.)"
     },
     {
      "q": "What does 무료 mean?",
@@ -11680,10 +11680,10 @@
       "fall down",
       "to cut",
       "laundromat",
-      "free"
+      "free of charge (official"
      ],
      "a": 3,
-     "why": "무료 means free; free of charge. 가게에서 무료 음료수를 제공해요. (The shop offers free drinks.)"
+     "why": "무료 means free of charge (official; no fee). 가게에서 무료 음료수를 제공해요. (The shop offers free drinks.)"
     },
     {
      "q": "Which Korean word means \"fall down\"?",
@@ -11772,7 +11772,7 @@
     },
     {
      "ko": "차례",
-     "en": "procedure; process (noun)"
+     "en": "turn; order; sequence (noun)"
     },
     {
      "ko": "감다",
@@ -11820,7 +11820,7 @@
     },
     {
      "ko": "끊다",
-     "en": "cut (verb)"
+     "en": "to quit; to stop; to cut (verb)"
     },
     {
      "ko": "가져오다",
@@ -11851,7 +11851,7 @@
     {
      "q": "What does 자꾸 mean?",
      "opts": [
-      "procedure",
+      "turn",
       "frequently",
       "to dream (a dream)",
       "lose"
@@ -11945,8 +11945,8 @@
      ]
     },
     {
-     "q": "\"procedure\" in Korean: ___",
-     "en": "procedure; process",
+     "q": "\"turn\" in Korean: ___",
+     "en": "turn; order; sequence",
      "a": [
       "차례"
      ]
@@ -11968,7 +11968,7 @@
     },
     {
      "ko": "깨다",
-     "en": "sober up (verb)"
+     "en": "to wake up; to sober up (verb)"
     },
     {
      "ko": "꺼내다",
@@ -11988,7 +11988,7 @@
     },
     {
      "ko": "뜨다",
-     "en": "float; buoy (verb)"
+     "en": "to open (eyes); to float; to rise (sun) (verb)"
     },
     {
      "ko": "맞추다",
@@ -12047,9 +12047,9 @@
     {
      "q": "What does 깨끗이 mean?",
      "opts": [
-      "sober up",
+      "to wake up",
       "cleanly",
-      "float",
+      "to open (eyes)",
       "push"
      ],
      "a": 1,
@@ -12072,10 +12072,10 @@
       "bath",
       "inconvenience",
       "stand up",
-      "float"
+      "to open (eyes)"
      ],
      "a": 3,
-     "why": "뜨다 means float; buoy. 동쪽 바다에서 붉은 해가 떠요. (The red sun rises from the eastern sea.)"
+     "why": "뜨다 means to open (eyes); to float; to rise (sun). 동쪽 바다에서 붉은 해가 떠요. (The red sun rises from the eastern sea.)"
     },
     {
      "q": "Which Korean word means \"bath\"?",
@@ -12141,8 +12141,8 @@
      ]
     },
     {
-     "q": "\"sober up\" in Korean: ___",
-     "en": "sober up",
+     "q": "\"to wake up\" in Korean: ___",
+     "en": "to wake up; to sober up",
      "a": [
       "깨다"
      ]
@@ -12576,7 +12576,7 @@
     },
     {
      "ko": "이틀",
-     "en": "the second day (noun)"
+     "en": "two days (noun)"
     },
     {
      "ko": "매달",
@@ -12624,7 +12624,7 @@
     },
     {
      "ko": "방금",
-     "en": "moment ago (noun)"
+     "en": "just now; a moment ago (adverb)"
     },
     {
      "ko": "사흘",
@@ -12637,7 +12637,7 @@
      "opts": [
       "first",
       "ordinary times",
-      "the second day",
+      "two days",
       "four days"
      ],
      "a": 1,
@@ -12660,10 +12660,10 @@
       "past",
       "same time",
       "three days",
-      "the second day"
+      "two days"
      ],
      "a": 3,
-     "why": "이틀 means the second day. 약속 날짜가 이틀 앞으로 다가왔어요. (The appointment date has come two days ahead.)"
+     "why": "이틀 means two days. 약속 날짜가 이틀 앞으로 다가왔어요. (The appointment date has come two days ahead.)"
     },
     {
      "q": "Which Korean word means \"past\"?",
@@ -12776,7 +12776,7 @@
     },
     {
      "ko": "우선",
-     "en": "first; above all (noun)"
+     "en": "first; first of all (adverb)"
     },
     {
      "ko": "이날",
@@ -13360,7 +13360,7 @@
     },
     {
      "ko": "답답하다",
-     "en": "to stifling; suffocating (adjective)"
+     "en": "stifling; stuffy; frustrated (adjective)"
     },
     {
      "ko": "데이트",
@@ -13384,7 +13384,7 @@
     },
     {
      "ko": "섭섭하다",
-     "en": "to sorry; regrettable (adjective)"
+     "en": "to feel sorry; disappointed; regretful (adjective)"
     },
     {
      "ko": "소중하다",
@@ -13421,7 +13421,7 @@
      "opts": [
       "to miss",
       "troublesome",
-      "to stifling",
+      "stifling",
       "anxiety"
      ],
      "a": 1,
@@ -13444,10 +13444,10 @@
       "to be shy",
       "to grieve",
       "smile",
-      "to stifling"
+      "stifling"
      ],
      "a": 3,
-     "why": "답답하다 means to stifling; suffocating. 일이 잘 안 풀려서 마음이 답답해요. (Things are not working out, so my heart feels frustrated.)"
+     "why": "답답하다 means stifling; stuffy; frustrated. 일이 잘 안 풀려서 마음이 답답해요. (Things are not working out, so my heart feels frustrated.)"
     },
     {
      "q": "Which Korean word means \"to be shy\"?",
@@ -13464,12 +13464,12 @@
      "q": "What does 섭섭하다 mean?",
      "opts": [
       "lonely",
-      "to sorry",
+      "to feel sorry",
       "nervousness",
       "date"
      ],
      "a": 1,
-     "why": "섭섭하다 means to sorry; regrettable. 약속을 취소해서 섭섭한 마음이 들었어요. (I felt disappointed because the appointment was cancelled.)"
+     "why": "섭섭하다 means to feel sorry; disappointed; regretful. 약속을 취소해서 섭섭한 마음이 들었어요. (I felt disappointed because the appointment was cancelled.)"
     },
     {
      "q": "Which Korean word means \"sadness\"?",
@@ -13572,7 +13572,7 @@
     },
     {
      "ko": "굽다",
-     "en": "to be bent; to be curved (verb)"
+     "en": "to roast; to grill; to bake (verb)"
     },
     {
      "ko": "끓다",
@@ -14328,7 +14328,7 @@
     },
     {
      "ko": "김",
-     "en": "steam (noun)"
+     "en": "dried seaweed (laver); steam (noun)"
     },
     {
      "ko": "무",
@@ -14408,7 +14408,7 @@
      "why": "배추 means napa cabbage; Chinese cabbage. 시장에서 신선한 배추 세 포기를 샀어요. (I bought three heads of fresh cabbage at the market.)"
     },
     {
-     "q": "Which Korean word means \"steam\"?",
+     "q": "Which Korean word means \"dried seaweed (laver)\"?",
      "opts": [
       "간장",
       "밀가루",
@@ -14416,7 +14416,7 @@
       "오이"
      ],
      "a": 2,
-     "why": "김 means steam. 뜨거운 국에서 하얀 김이 나요. (White steam rises from the hot soup.)"
+     "why": "김 means dried seaweed (laver); steam. 뜨거운 국에서 하얀 김이 나요. (White steam rises from the hot soup.)"
     },
     {
      "q": "What does 고추장 mean?",
@@ -15112,7 +15112,7 @@
     },
     {
      "ko": "좁다",
-     "en": "small (adjective)"
+     "en": "narrow; cramped (adjective)"
     },
     {
      "ko": "벽",
@@ -15140,7 +15140,7 @@
     },
     {
      "ko": "방문",
-     "en": "visit (noun)"
+     "en": "room door (noun)"
     },
     {
      "ko": "지하",
@@ -15192,7 +15192,7 @@
      "why": "초 means candle; second; beginning. 1분은 60초예요. (One minute is 60 seconds.)"
     },
     {
-     "q": "Which Korean word means \"small\"?",
+     "q": "Which Korean word means \"narrow\"?",
      "opts": [
       "계단",
       "방문",
@@ -15200,7 +15200,7 @@
       "기타"
      ],
      "a": 2,
-     "why": "좁다 means small. 골목길이 좁아서 차가 못 가요. (The alley is narrow, so cars cannot pass.)"
+     "why": "좁다 means narrow; cramped. 골목길이 좁아서 차가 못 가요. (The alley is narrow, so cars cannot pass.)"
     },
     {
      "q": "What does 이삿짐 mean?",
@@ -15336,7 +15336,7 @@
     },
     {
      "ko": "소설",
-     "en": "soseol (noun)"
+     "en": "novel; fiction (noun)"
     },
     {
      "ko": "앨범",
@@ -15364,11 +15364,11 @@
     },
     {
      "ko": "차다",
-     "en": "be full (verb)"
+     "en": "to kick; to wear (a watch) (verb)"
     },
     {
      "ko": "경기",
-     "en": "economy; business (noun)"
+     "en": "game; match (noun)"
     },
     {
      "ko": "공",
@@ -15423,7 +15423,7 @@
     {
      "q": "What does 연예인 mean?",
      "opts": [
-      "be full",
+      "to kick",
       "celebrity",
       "broadcasting",
       "ticket office"
@@ -15552,7 +15552,7 @@
     },
     {
      "ko": "소",
-     "en": "filling (noun)"
+     "en": "cow; cattle (noun)"
     },
     {
      "ko": "기르다",
@@ -15628,7 +15628,7 @@
      "why": "테니스장 means tennis court. 새로 지은 테니스장이에요. (It is a newly built tennis court.)"
     },
     {
-     "q": "Which Korean word means \"filling\"?",
+     "q": "Which Korean word means \"cow\"?",
      "opts": [
       "대회",
       "스키장",
@@ -15636,7 +15636,7 @@
       "축구공"
      ],
      "a": 2,
-     "why": "소 means filling. 만두 안에 맛있는 고기 소를 넣어요. (I put delicious meat filling inside the dumpling.)"
+     "why": "소 means cow; cattle. 만두 안에 맛있는 고기 소를 넣어요. (I put delicious meat filling inside the dumpling.)"
     }
    ],
    "fill": [
@@ -15744,7 +15744,7 @@
     },
     {
      "ko": "돌",
-     "en": "dol; first birthday (noun)"
+     "en": "stone; pebble; rock (noun)"
     },
     {
      "ko": "땅",
@@ -15760,7 +15760,7 @@
     },
     {
      "ko": "섬",
-     "en": "straw sack (noun)"
+     "en": "island (noun)"
     },
     {
      "ko": "지방",
@@ -15794,7 +15794,7 @@
      "q": "What does 토끼 mean?",
      "opts": [
       "sky",
-      "dol",
+      "stone",
       "region",
       "rabbit"
      ],
@@ -16128,7 +16128,7 @@
     },
     {
      "ko": "관계",
-     "en": "official world; government circles (noun)"
+     "en": "relationship; relation (noun)"
     },
     {
      "ko": "친척",
@@ -16208,12 +16208,12 @@
      "q": "What does 관계 mean?",
      "opts": [
       "paternal aunt",
-      "official world",
+      "relationship",
       "to be smart",
       "to match"
      ],
      "a": 1,
-     "why": "관계 means official world; government circles. 두 사람의 관계가 아주 가까워요. (The relationship between the two is very close.)"
+     "why": "관계 means relationship; relation. 두 사람의 관계가 아주 가까워요. (The relationship between the two is very close.)"
     },
     {
      "q": "Which Korean word means \"marriage\"?",
@@ -17096,7 +17096,7 @@
     },
     {
      "ko": "상",
-     "en": "good; top (noun)"
+     "en": "prize; award (noun)"
     },
     {
      "ko": "성적",
@@ -17165,7 +17165,7 @@
     {
      "q": "What does 문제 mean?",
      "opts": [
-      "good",
+      "prize",
       "title",
       "domestic",
       "problem"
@@ -17174,7 +17174,7 @@
      "why": "문제 means problem; issue. 문제가 생기면 바로 상의하세요. (If a problem arises, consult right away.)"
     },
     {
-     "q": "Which Korean word means \"good\"?",
+     "q": "Which Korean word means \"prize\"?",
      "opts": [
       "상",
       "점수",
@@ -17182,7 +17182,7 @@
       "기억"
      ],
      "a": 0,
-     "why": "상 means good; top. 저녁 식사를 위해 식탁 상을 차려요. (I set the dining table for dinner.)"
+     "why": "상 means prize; award. 저녁 식사를 위해 식탁 상을 차려요. (I set the dining table for dinner.)"
     },
     {
      "q": "What does 예습 mean?",
@@ -17468,7 +17468,7 @@
     },
     {
      "ko": "뜻",
-     "en": "intention; opinion; wish; cause (noun)"
+     "en": "meaning; sense; intention (noun)"
     },
     {
      "ko": "비슷하다",
@@ -17590,10 +17590,10 @@
     {
      "q": "Which Korean word means \"meaning\"?",
      "opts": [
-      "선택",
-      "아무것",
+      "실수",
+      "비교",
       "의미",
-      "똑같다"
+      "단순"
      ],
      "a": 2,
      "why": "의미 means meaning; sense. 의미가 좋은 노래를 들었어요. (I listened to a song with a nice meaning.)"
@@ -17676,7 +17676,7 @@
     },
     {
      "ko": "아니",
-     "en": "not (adverb)"
+     "en": "no (interjection)"
     },
     {
      "ko": "아마",
@@ -17778,7 +17778,7 @@
       "loud voice",
       "right",
       "of course",
-      "not"
+      "no"
      ],
      "a": 1,
      "why": "옳다 means right; correct; proper. 옳은 판단을 했어요. (You made the right judgment.)"
@@ -17804,17 +17804,17 @@
      ]
     },
     {
-     "q": "___, 벌써 약속 시간이 다 되었어요?",
-     "en": "Oh no, has the appointment time already arrived?",
-     "a": [
-      "아니"
-     ]
-    },
-    {
      "q": "그 친구는 ___ 지금 집에 있을 거예요.",
      "en": "That friend is probably at home now.",
      "a": [
       "아마"
+     ]
+    },
+    {
+     "q": "나 ___ 그렇게 봐요.",
+     "en": "I see it that way as well.",
+     "a": [
+      "역시"
      ]
     },
     {
@@ -17872,7 +17872,7 @@
     },
     {
      "ko": "부치다",
-     "en": "be beyond one's capacity (verb)"
+     "en": "to send; to mail; to fry (pancakes) (verb)"
     },
     {
      "ko": "소포",
@@ -17974,7 +17974,7 @@
       "aviation",
       "connection",
       "postcard",
-      "be beyond one's capacity"
+      "to send"
      ],
      "a": 1,
      "why": "연결 means connection. 컴퓨터와 모니터를 케이블로 연결해요. (I connect the computer and monitor with a cable.)"
@@ -18056,7 +18056,7 @@
     },
     {
      "ko": "대구",
-     "en": "cod (noun)"
+     "en": "Daegu (city) (noun)"
     },
     {
      "ko": "대전",
@@ -18236,7 +18236,7 @@
    "cards": [
     {
      "ko": "지도",
-     "en": "map (noun)"
+     "en": "map; guidance (noun)"
     },
     {
      "ko": "건너가다",
@@ -18304,7 +18304,7 @@
     },
     {
      "ko": "멀리",
-     "en": "being far (noun)"
+     "en": "far; far away (adverb)"
     },
     {
      "ko": "멈추다",
@@ -18325,7 +18325,7 @@
       "east"
      ],
      "a": 1,
-     "why": "지도 means map. 선생님의 따뜻한 지도를 받았어요. (I received warm guidance from the teacher.)"
+     "why": "지도 means map; guidance. 선생님의 따뜻한 지도를 받았어요. (I received warm guidance from the teacher.)"
     },
     {
      "q": "Which Korean word means \"to walk here\"?",
@@ -18363,7 +18363,7 @@
     {
      "q": "What does 뒤쪽 mean?",
      "opts": [
-      "being far",
+      "far",
       "back",
       "cross",
       "to come down"
@@ -18407,7 +18407,7 @@
     },
     {
      "q": "\"map\" in Korean: ___",
-     "en": "map",
+     "en": "map; guidance",
      "a": [
       "지도"
      ]
@@ -18452,7 +18452,7 @@
     },
     {
      "ko": "세우다",
-     "en": "to establish; to set up (verb)"
+     "en": "to stop (a car); to stand; to establish (verb)"
     },
     {
      "ko": "신호",
