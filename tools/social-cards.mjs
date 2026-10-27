@@ -16,12 +16,13 @@ const img = (id) => `data:image/jpeg;base64,${fs.readFileSync(path.join(ROOT, `a
 const colors = (id) => { try { const c = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${id}.json`), 'utf8')).coverLevel; return [c.bg, c.bg2 || c.bg]; } catch { return ['#3B1F6E', '#2A1650']; } };
 const book = (id) => shop.books.find((b) => b.id === id);
 
-const CSS = `*{box-sizing:border-box;margin:0}body{width:1080px;height:1350px;font-family:Pretendard,'Noto Sans KR','Noto Sans CJK KR',system-ui,sans-serif;color:#fff;position:relative;overflow:hidden}
+const CSS = `*{box-sizing:border-box;margin:0}body{width:1080px;height:1350px;font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',sans-serif;letter-spacing:-.01em;color:#fff;position:relative;overflow:hidden}
 .top{position:absolute;left:70px;right:70px;top:70px}.k{font-size:30px;font-weight:800;letter-spacing:.12em;opacity:.85}.h{font-size:72px;line-height:1.12;font-weight:900;margin-top:22px;word-break:keep-all}
 .cv{position:absolute;left:50%;transform:translateX(-50%);bottom:190px}.cv img{display:block;border-radius:6px 16px 16px 6px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
 .ft{position:absolute;left:70px;right:70px;bottom:60px;display:flex;justify-content:space-between;align-items:center;font-size:34px;font-weight:800}.chip{background:#FFD23F;color:#3A2600;border-radius:99px;padding:12px 28px}
 .row{position:absolute;left:0;right:0;bottom:190px;display:flex;justify-content:center;gap:26px}.row img{width:300px;border-radius:5px 12px 12px 5px;box-shadow:0 24px 50px rgba(0,0,0,.45)}`;
-const wrap = (c1, c2, inner) => `<!doctype html><meta charset="utf-8"><style>${CSS}body{background:linear-gradient(160deg,${c1},${c2})}</style>${inner}`;
+const FONT = `<link rel="stylesheet" href="file://${path.join(ROOT, 'vendor/pretendard.css')}">`;   // 사이트와 같은 Pretendard(한국어 글꼴) — 없으면 한글이 기본 글꼴로 나와 어색하다
+const wrap = (c1, c2, inner) => `<!doctype html><meta charset="utf-8">${FONT}<style>${CSS}body{background:linear-gradient(160deg,${c1},${c2})}</style>${inner}`;
 const single = (id, hook, chipText, k) => { const b = book(id); const [c1, c2] = colors(id); const w = id === 'topik2-vocab-lv3' || true ? 470 : 470; return wrap(c1, c2, `<div class="top"><div class="k">${e(k || b.level + ' · PDF WORKBOOK')}</div><div class="h">${e(hook)}</div></div><div class="cv"><img src="${img(id)}" width="${w}"></div><div class="ft"><span>everykoreans.com/shop</span><span class="chip">${e(chipText || '$' + b.price)}</span></div>`); };
 const multi = (ids, hook, chipText, k) => { const [c1, c2] = colors(ids[0]); return wrap(c1, c2, `<div class="top"><div class="k">${e(k)}</div><div class="h">${e(hook)}</div></div><div class="row">${ids.map((i) => `<img src="${img(i)}" style="width:${ids.length > 3 ? 228 : 300}px">`).join('')}</div><div class="ft"><span>everykoreans.com/shop</span><span class="chip">${e(chipText)}</span></div>`); };
 
@@ -41,7 +42,7 @@ const br = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || 
 const pg = await br.newPage({ viewport: { width: 1080, height: 1350 } });
 for (const [n, html] of Object.entries(cards)) {
   const f = path.join(out, `_${n}.html`); fs.writeFileSync(f, html);
-  await pg.goto('file://' + f); await pg.waitForTimeout(300);
+  await pg.goto('file://' + f); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(400);
   await pg.screenshot({ path: path.join(out, `${n}.png`) }); fs.rmSync(f);
 }
 await br.close();
