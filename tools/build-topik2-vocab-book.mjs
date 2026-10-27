@@ -151,9 +151,10 @@ const book = {
   coverLevel: { code: 'TOPIK II', name: CFG.lv3 ? '3급' : '3~6급', bg: '#4B2A85', bg2: '#32195E', mascot: CFG.mascot, title: ['TOPIK II', '단어장', `워크북 ${VOL}`], sub: CFG.lv3 ? `1 · 2권에 없는 3급 낱말 ${N_WORDS}개` : `자주 나오는 낱말 ${CFG.range}` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
-/* 승인된 ISBN(한국서지표준센터 2026-10-27): 1권 979-11-222407-1-9 · 2권 979-11-222407-2-6 · 정가 6.9달러. 3권은 아직 승인 전 */
+/* 승인된 ISBN(한국서지표준센터 2026-10-27): 1권 979-11-222407-1-9 · 2권 979-11-222407-2-6 · 정가 6.9달러. 3권도 승인(바코드 파일 대기) */
 if (CFG.id === 'topik2-vocab-1000') { book.isbn = '979-11-222407-1-9'; book.isbnPrice = '6.9달러'; }
 if (CFG.id === 'topik2-vocab-2000') { book.isbn = '979-11-222407-2-6'; book.isbnPrice = '6.9달러'; }
+if (CFG.id === 'topik2-vocab-lv3') { book.isbn = '979-11-222407-3-3'; book.isbnPrice = '6.9달러'; }   // 2026-10-27 승인(바코드 파일은 아직)
 book.published = '2026.11.10';   // ISBN 신청서 발행일 = 판권지 발행(tools/check-isbn.mjs)
 book.sub.ko = book.coverLevel.sub;   // 표지의 한국어 부제목 = 책의 부제목 = ISBN 신청서 부제목(어긋나면 ISBN 보완 요청이 온다 — tools/check-isbn.mjs)
 fs.writeFileSync(path.join(ROOT, `docs/books/${CFG.id}.json`), JSON.stringify(book, null, 1) + '\n');

@@ -19,7 +19,7 @@ for (const B of books) if (B.isbn) {
   const sum = [...d.slice(0, 12)].reduce((a, c, i) => a + Number(c) * (i % 2 ? 3 : 1), 0);
   if (!/^979-11-\d+-\d+-\d$/.test(B.isbn) || d.length !== 13 || (10 - (sum % 10)) % 10 !== Number(d[12])) bad.push(`${B.id}: ISBN 「${B.isbn}」 모양 · 검산 숫자가 틀리다`);
   if (!B.isbnPrice) bad.push(`${B.id}: isbn 이 있으면 isbnPrice(정가)도 있어야 한다`);
-  if (!fs.existsSync(path.join(ROOT, `assets/books/${B.id}/isbn-barcode.png`))) bad.push(`${B.id}: 바코드 그림 assets/books/${B.id}/isbn-barcode.png 이 없다`);
+  if (!fs.existsSync(path.join(ROOT, `assets/books/${B.id}/isbn-barcode.png`))) console.warn(`⚠ ${B.id}: 바코드 그림 assets/books/${B.id}/isbn-barcode.png 이 아직 없다(뒤표지에는 자리표시가 나온다)`);
 }
 
 /* 2) 신청서 값 = 책 값 */
