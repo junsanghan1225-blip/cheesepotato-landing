@@ -949,8 +949,8 @@
     "ko": "세 권을 한 번에: 낱말 2,940개 · 147단원"
    },
    "price": "14.90",
-   "status": "draft",
-   "polar": "",
+   "status": "on",
+   "polar": "https://buy.polar.sh/polar_cl_GxfjPATs0oWMO20DL9sNr18GUHexMr63fTiwf2jQG5R",
    "_note": "가격 14.90 은 Claude 제안값(따로 사면 20.70달러, 28% 싸다) — 운영자가 정하면 `node tools/polar-bundle.mjs topik2-vocab-bundle --apply`. status 가 on 이 되기 전에는 사이트에 안 보인다."
   }
  ]

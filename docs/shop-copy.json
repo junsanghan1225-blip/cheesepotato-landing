@@ -1,0 +1,94 @@
+{
+  "_note": "책 쪽(/shop/<id>/)의 손으로 쓴 글 — 한 줄 제목 · 소개 · 특징 네 가지(운영자 2026-10-27 「서점처럼 책마다 속지 · 미리보기」). 사실은 docs/shop.json 의 about · 책 틀에 있는 것만. 이 글 + 책 PDF 에서 `node tools/make-book-page.mjs <id> --pdf <PDF>` 가 목차 · 미리보기 · 책 정보를 만들어 docs/shop.json 의 page 에 넣는다.",
+  "first-steps-workbook": {
+    "headline": {"en": "Start with Hangul. Write your way to everyday Korean.", "ko": "한글부터 일상 한국어까지, 쓰면서 배워요"},
+    "lead": {"en": "A beginner workbook built from our most-used free worksheets. Every unit has a short explanation, tables to copy by hand, practice, and an answer key at the back.", "ko": "가장 많이 쓰인 무료 학습지로 만든 입문 워크북. 단원마다 짧은 설명 · 따라 쓰는 표 · 연습, 뒤쪽에 정답이 있어요."},
+    "features": [
+      {"ic": "🔤", "t": {"en": "Hangul first", "ko": "한글부터"}, "d": {"en": "Consonants, vowels and final consonants (받침) come before everything else.", "ko": "자음 · 모음 · 받침을 먼저 익힙니다."}},
+      {"ic": "✍️", "t": {"en": "You write in every unit", "ko": "단원마다 직접 쓰기"}, "d": {"en": "Tables to copy, short practice sets and review tests.", "ko": "따라 쓰는 표 · 연습 · 복습 테스트"}},
+      {"ic": "🛒", "t": {"en": "Everyday topics", "ko": "생활 주제"}, "d": {"en": "Greetings, numbers and dates, family, food, shopping and the basic particles.", "ko": "인사 · 숫자와 날짜 · 가족 · 음식 · 쇼핑 · 기초 조사"}},
+      {"ic": "✅", "t": {"en": "Answer key and free online practice", "ko": "정답과 무료 온라인 연습"}, "d": {"en": "Mark your own work with the key at the back; QR codes open free practice on everykoreans.com.", "ko": "뒤쪽 정답으로 스스로 채점, QR 로 everykoreans.com 무료 연습"}}
+    ]
+  },
+  "particles-workbook": {
+    "headline": {"en": "The small words that glue Korean together, one unit at a time.", "ko": "한국어를 이어 주는 작은 말, 조사를 한 단원에 하나씩"},
+    "lead": {"en": "Each unit takes one particle: its meaning, its form, examples, the trap to avoid and practice. Then a “Choose the right particle” part sets look-alikes side by side.", "ko": "단원마다 조사 하나: 뜻 · 모양 · 예문 · 조심할 점 · 연습. 뒤에는 헷갈리는 조사를 나란히 놓고 고르는 부분이 있어요."},
+    "features": [
+      {"ic": "🧩", "t": {"en": "20 particles, one per unit", "ko": "조사 20개, 단원마다 하나"}, "d": {"en": "Meaning, form, examples, the trap to avoid, and practice.", "ko": "뜻 · 모양 · 예문 · 조심할 점 · 연습"}},
+      {"ic": "⚖️", "t": {"en": "Choose the right particle", "ko": "헷갈리는 조사 가르기"}, "d": {"en": "Look-alikes side by side, such as 은/는 vs 이/가 and 에 vs 에서.", "ko": "은/는 vs 이/가, 에 vs 에서 같은 짝을 나란히"}},
+      {"ic": "📝", "t": {"en": "Review tests", "ko": "복습 테스트"}, "d": {"en": "Review tests mix all the particles together.", "ko": "모든 조사를 섞은 복습 테스트"}},
+      {"ic": "✅", "t": {"en": "Answer key and free online practice", "ko": "정답과 무료 온라인 연습"}, "d": {"en": "Answer key at the back and a QR code in each unit to free practice.", "ko": "뒤쪽 정답, 단원마다 무료 연습 QR"}}
+    ]
+  },
+  "topik2-vocab-1000": {
+    "headline": {"en": "The 1,000 words that come up most, learned by writing.", "ko": "가장 자주 나오는 낱말 1,000개를 쓰면서"},
+    "lead": {"en": "Words 1–1,000 ranked by how often they appear in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6.", "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 순서대로 낱말 1~1,000. 50단원 · 단원마다 20개, 3급에서 6급까지."},
+    "features": [
+      {"ic": "🔢", "t": {"en": "Most useful words first", "ko": "자주 나오는 순서"}, "d": {"en": "Ranked by frequency in our own TOPIK II practice material (not an official list).", "ko": "우리 TOPIK II 연습 자료 기준 빈도순(공식 목록 아님)"}},
+      {"ic": "🧀", "t": {"en": "Cheese and potato marks", "ko": "치즈 · 감자 표시"}, "d": {"en": "A level mark (cheese) and a frequency mark (potato) on every word.", "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"}},
+      {"ic": "✍️", "t": {"en": "Write meaning, word and sentence", "ko": "뜻 · 낱말 · 문장 쓰기"}, "d": {"en": "Each unit: 20 words with examples, writing practice and a unit checkup.", "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"}},
+      {"ic": "📱", "t": {"en": "Look-alikes and a free match game", "ko": "헷갈리는 낱말 · 무료 짝 맞추기"}, "d": {"en": "Synonyms and sound-alikes explained; a QR code opens a free match game.", "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"}}
+    ]
+  },
+  "topik2-vocab-2000": {
+    "headline": {"en": "The next 1,000 words: widen your range.", "ko": "다음 낱말 1,000개로 어휘 폭을 넓히세요"},
+    "lead": {"en": "Book 2 of the series: words 1,001–2,000 by the same frequency ranking, 20 per unit in 50 units.", "ko": "시리즈 2권: 같은 빈도 순서로 낱말 1,001~2,000. 50단원 · 단원마다 20개."},
+    "features": [
+      {"ic": "🔢", "t": {"en": "Continues Book 1", "ko": "1권에 이어서"}, "d": {"en": "Words 1,001–2,000 by frequency in our TOPIK II practice material.", "ko": "우리 TOPIK II 연습 자료 빈도순 낱말 1,001~2,000"}},
+      {"ic": "🧀", "t": {"en": "Cheese and potato marks", "ko": "치즈 · 감자 표시"}, "d": {"en": "A level mark (cheese) and a frequency mark (potato) on every word.", "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"}},
+      {"ic": "✍️", "t": {"en": "Write meaning, word and sentence", "ko": "뜻 · 낱말 · 문장 쓰기"}, "d": {"en": "Each unit: 20 words with examples, writing practice and a unit checkup.", "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"}},
+      {"ic": "📱", "t": {"en": "Look-alikes and a free match game", "ko": "헷갈리는 낱말 · 무료 짝 맞추기"}, "d": {"en": "Synonyms and sound-alikes explained; a QR code opens a free match game.", "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"}}
+    ]
+  },
+  "topik2-vocab-lv3": {
+    "headline": {"en": "Fill the gaps in level 3: 940 words not in Books 1 and 2.", "ko": "3급의 빈틈 채우기: 1 · 2권에 없는 낱말 940개"},
+    "lead": {"en": "Book 3 of the series collects 940 level-3 words that are not in Books 1 and 2, 20 per unit in 47 units.", "ko": "시리즈 3권: 1 · 2권에 없는 3급 낱말 940개. 47단원 · 단원마다 20개."},
+    "features": [
+      {"ic": "🧱", "t": {"en": "Only words you have not met", "ko": "새 낱말만"}, "d": {"en": "None of these 940 level-3 words is in Book 1 or Book 2.", "ko": "1 · 2권에 없는 3급 낱말 940개"}},
+      {"ic": "🧀", "t": {"en": "Cheese and potato marks", "ko": "치즈 · 감자 표시"}, "d": {"en": "A level mark (cheese) and a frequency mark (potato) on every word.", "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"}},
+      {"ic": "✍️", "t": {"en": "Write meaning, word and sentence", "ko": "뜻 · 낱말 · 문장 쓰기"}, "d": {"en": "Each unit: 20 words with examples, writing practice and a unit checkup.", "ko": "단원마다 낱말 20개 · 예문 · 쓰기 연습 · 점검"}},
+      {"ic": "📱", "t": {"en": "Look-alikes and a free match game", "ko": "헷갈리는 낱말 · 무료 짝 맞추기"}, "d": {"en": "Synonyms and sound-alikes explained; a QR code opens a free match game.", "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"}}
+    ]
+  },
+  "topik2-writing-51-52": {},
+  "topik2-writing-53-54": {
+    "headline": {"en": "Describe data in 300 characters, argue in 700, and see how it is scored.", "ko": "300자로 자료를 설명하고 700자로 주장하고, 채점은 이렇게"},
+    "lead": {"en": "100 original questions for 53 and 54, each with a model answer, scoring criteria and three sample answers (high, middle, low) with scores and reasons.", "ko": "53 · 54번 새 문제 100개. 문제마다 모범 답안 · 채점 기준 · 상 · 중 · 하 예시 답안 세 개(점수와 이유 포함)."},
+    "features": [
+      {"ic": "📊", "t": {"en": "100 original questions", "ko": "새 문제 100개"}, "d": {"en": "Questions 53 and 54, newly written in the exam format. Not past papers.", "ko": "시험 형식으로 새로 만든 53 · 54번 문제(기출 아님)"}},
+      {"ic": "🏅", "t": {"en": "Three scored sample answers", "ko": "점수가 붙은 예시 답안 셋"}, "d": {"en": "High, middle and low samples with the score and the reason for each.", "ko": "상 · 중 · 하 답안과 점수 · 이유"}},
+      {"ic": "🧭", "t": {"en": "Scoring criteria", "ko": "채점 기준"}, "d": {"en": "See what earns marks and what loses them.", "ko": "점수를 얻는 것과 잃는 것"}},
+      {"ic": "✅", "t": {"en": "Model answer for every question", "ko": "모범 답안"}, "d": {"en": "Compare your writing with a model answer.", "ko": "내 글과 모범 답안을 비교"}}
+    ]
+  },
+  "topik1-reading-mock": {
+    "headline": {"en": "Ten full TOPIK I reading tests, 400 questions in the real format.", "ko": "TOPIK I 읽기 실전 모의고사 10회, 실제 형식 400문항"},
+    "lead": {"en": "Ten tests of 40 questions written in the official format by a Korean teacher. Before the tests, one page per question type shows how to solve it and the words you need.", "ko": "한국어 선생님이 시험 형식에 맞춰 만든 40문항 모의고사 10회. 시험 앞에 유형마다 풀이 방법과 필요한 낱말 한 쪽씩."},
+    "features": [
+      {"ic": "⏱️", "t": {"en": "10 full tests", "ko": "모의고사 10회"}, "d": {"en": "40 questions each, 400 in total, for timed practice.", "ko": "회마다 40문항, 모두 400문항, 시간 재고 풀기"}},
+      {"ic": "🧠", "t": {"en": "How to solve each type", "ko": "유형별 풀이 방법"}, "d": {"en": "One page per question type: the method and the words you need.", "ko": "유형마다 풀이 방법과 필요한 낱말 한 쪽"}},
+      {"ic": "💡", "t": {"en": "Explanations at the back", "ko": "해설"}, "d": {"en": "Answers and short explanations, with the reason for each choice.", "ko": "정답과 짧은 해설, 선택지마다 이유"}},
+      {"ic": "📄", "t": {"en": "Original questions", "ko": "새로 만든 문항"}, "d": {"en": "Original practice questions, not past exam papers.", "ko": "기출이 아닌 새 연습 문항"}}
+    ]
+  },
+  "topik1-vocab": {
+    "headline": {"en": "Every word of the TOPIK I list, in one book.", "ko": "TOPIK I 낱말 전부, 한 권에"},
+    "lead": {"en": "All 1,931 words of the TOPIK I word list (level 1 and level 2) in 97 units of 20 words, each with example sentences, writing practice and a checkup.", "ko": "TOPIK I 낱말 1,931개(1급 · 2급)를 97단원 · 단원마다 20개로. 예문 · 쓰기 연습 · 점검 포함."},
+    "features": [
+      {"ic": "📚", "t": {"en": "The complete list", "ko": "전체 목록"}, "d": {"en": "1,931 words in 97 units, 20 per unit.", "ko": "낱말 1,931개 · 97단원 · 단원마다 20개"}},
+      {"ic": "🧀", "t": {"en": "Cheese and potato marks", "ko": "치즈 · 감자 표시"}, "d": {"en": "A level mark (cheese) and a frequency mark (potato) on every word.", "ko": "낱말마다 급수(치즈)와 빈도(감자) 표시"}},
+      {"ic": "✍️", "t": {"en": "Write meaning, word and sentence", "ko": "뜻 · 낱말 · 문장 쓰기"}, "d": {"en": "Writing practice and a checkup in every unit, answer key at the back.", "ko": "단원마다 쓰기 연습과 점검, 뒤쪽 정답"}},
+      {"ic": "📱", "t": {"en": "Look-alikes and a free match game", "ko": "헷갈리는 낱말 · 무료 짝 맞추기"}, "d": {"en": "Synonyms and sound-alikes explained; a QR code opens a free match game.", "ko": "비슷한 낱말 설명, QR 로 무료 짝 맞추기 게임"}}
+    ]
+  },
+  "korean-idioms": {
+    "headline": {"en": "Sound natural: 449 idioms, proverbs and four-character idioms.", "ko": "자연스러운 한국어: 관용구 · 속담 · 사자성어 449개"},
+    "lead": {"en": "150 idioms, 150 proverbs and 149 four-character idioms Korean speakers use all the time, 15 per unit in 30 units.", "ko": "한국 사람들이 늘 쓰는 관용구 150개 · 속담 150개 · 사자성어 149개. 30단원 · 단원마다 15개."},
+    "features": [
+      {"ic": "🐸", "t": {"en": "Literal meaning and real meaning", "ko": "글자 뜻과 진짜 뜻"}, "d": {"en": "Each expression has its meaning in English and Korean, a literal translation, and a similar English saying when there is one.", "ko": "영어 · 한국어 뜻, 글자 그대로의 뜻, 비슷한 영어 표현"}},
+      {"ic": "💬", "t": {"en": "Two example sentences", "ko": "예문 두 개"}, "d": {"en": "Two example sentences with translation for every expression.", "ko": "표현마다 번역이 붙은 예문 두 개"}},
+      {"ic": "✍️", "t": {"en": "Write the meaning, finish the proverb", "ko": "뜻 쓰기 · 속담 완성"}, "d": {"en": "Write the meaning, finish the proverb, write your own sentence; then a unit checkup.", "ko": "뜻 쓰기 · 속담 완성 · 내 문장 · 단원 점검"}},
+      {"ic": "📱", "t": {"en": "Free match game", "ko": "무료 짝 맞추기"}, "d": {"en": "A QR code opens a free match game for the same expressions.", "ko": "QR 로 무료 짝 맞추기 게임"}}
+    ]
+  }
+}

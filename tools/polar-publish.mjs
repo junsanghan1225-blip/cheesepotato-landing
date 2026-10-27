@@ -155,7 +155,7 @@ console.log('④ 상품 만드는 중…');
 const made = await api('POST', '/products/', { ...product, ...(mediaId ? { medias: [mediaId] } : {}) });
 await api('POST', `/products/${made.id}/benefits`, { benefits: [benefit.id] });
 console.log('⑤ 결제 링크 만드는 중…');
-const link = await api('POST', '/checkout-links/', { payment_processor: 'stripe', products: [made.id], label: id, allow_discount_codes: true, require_billing_address: false, success_url: 'https://everykoreans.com/shop/' });
+const link = await api('POST', '/checkout-links/', { payment_processor: 'stripe', products: [made.id], label: id, allow_discount_codes: true, require_billing_address: false, success_url: `https://everykoreans.com/shop/thanks/?book=${id}&checkout_id={CHECKOUT_ID}` });
 console.log(`\n✔ 완료  상품 ${made.id}\n  결제 링크: ${link.url}`);
 
 /* 3) 연습장이 아니면 shop.json 에 링크 적기(상태 「판매 중」) */
