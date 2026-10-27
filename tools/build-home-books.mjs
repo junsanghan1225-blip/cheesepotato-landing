@@ -33,7 +33,7 @@ const html = `<!-- hm-books:start — tools/build-home-books.mjs 가 만든다(�
   <section class="section hm-books" id="hmBooks" aria-labelledby="hmBooksH">
     <div class="label" data-en="BOOKS · PDF WORKBOOKS">책 · PDF 워크북</div>
     <h2 class="section-title" id="hmBooksH" data-en="Workbooks you write in">써 가며 배우는 한국어 워크북</h2>
-    <p class="hm-books-sub" data-en="Made by a Korean teacher for people who learn Korean in English. Answer key in every book, free QR practice, instant PDF download.">한국어 선생님이 만든 PDF 워크북이에요. 책마다 정답지 · 무료 QR 연습이 있고, 결제하면 바로 내려받아요.</p>
+    <p class="hm-books-sub" data-en="Made by a Korean teacher for people who learn Korean in English. Answers included in every book, free online practice on the site, instant PDF download.">한국어 선생님이 만든 PDF 워크북이에요. 책마다 정답이 들어 있고, 사이트에서 무료로 더 연습할 수 있고, 결제하면 바로 내려받아요.</p>
     <div class="hm-bk-row" role="list" aria-label="판매 중인 책" data-en-aria="Books on sale">
         ${on.map((k) => card(k, true)).join('\n        ')}
     </div>

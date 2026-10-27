@@ -68,7 +68,7 @@ export const BLOG_POSTS = [
       },
       {
         "t": "p",
-        "text": "Most learners start with First Steps and add the Particles workbook once sentences start to grow. If you can already read Hangul and mix up particles, you can go straight to the Particles workbook."
+        "text": "A natural order is First Steps first, then the Particles workbook once your sentences start to grow. If you can already read Hangul and mix up particles, you can go straight to the Particles workbook."
       },
       {
         "t": "h",
@@ -318,7 +318,7 @@ export const BLOG_POSTS = [
     "blocks": [
       {
         "t": "p",
-        "text": "Questions 51 and 52 are the two fill-in-the-blank tasks at the start of the TOPIK II writing paper. They are short, so they look easy, but one wrong speech style or one spelling slip costs the whole answer. The only reliable way to get faster is to practise many of them and learn exactly what the marker rewards."
+        "text": "Questions 51 and 52 are the two fill-in-the-blank tasks at the start of the TOPIK II writing paper. They are short, so they look easy, but a wrong speech style or a spelling slip can cost you the marks. The only reliable way to get faster is to practise many of them and learn exactly what the marker rewards."
       },
       {
         "t": "h",
