@@ -1038,7 +1038,9 @@ function tlPage(it) {
   const grade = trGradeTx(it.exam, it.grade);
   const examName = `TOPIK ${it.exam}`;
   const gist = it.script[0]?.text || it.q;
-  const title = `TOPIK ${it.exam} 듣기 ${it.slot}번 연습 — ${tx.ko} | CheesePotato`;
+  /* 같은 번호 · 같은 유형 문항이 여럿이라 제목이 겹쳤다(검색에서 같은 글로 보임) — 대본 첫 줄 앞부분을 붙여 가른다 */
+  const gistShort = gist.length > 20 ? `${gist.slice(0, 20).trim()}…` : gist;
+  const title = `TOPIK ${it.exam} 듣기 ${it.slot}번 연습 — ${tx.ko} · ${gistShort} | CheesePotato`;
   const desc = clip(`TOPIK ${it.exam} 듣기 ${it.slot}번 유형 연습 문항. ${tx.ko}. 대본과 정답, 해설이 함께 있습니다.`);
 
   const script = it.script.map((l) => {
