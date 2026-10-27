@@ -148,3 +148,4 @@
 - 2026-10-27 **쓰레드 홍보 글 자동 올리기**(운영자 「쓰레드 API 이미 받았다 · 자동화」): 인스타 자동화의 THREADS_TOKEN 을 그대로 써 하루 한 개 21:07(KST) 올림 — tools/threads-promo.mjs · threads-promo.yml · 그림 assets/promo/. 켜기는 변수 THREADS_PROMO=on(운영자). 링크 utm_source 가 두 번 붙던 것도 고침.
 - 2026-10-27 **잘못 안내 방지 규칙**(운영자 「이런 일 없게 해」): 「이미 있나 · 연결됐나 · 할 수 있나」는 답하기 전에 docs/ops · tools · .github/workflows 를 먼저 찾는다(CLAUDE.md §2). 자동화 · 연결 현황은 docs/ops/automations.md 에 한 줄씩.
 - 2026-10-27 **문서 다이어트**(운영자 「md 너무 많다 · 크레딧」): decisions.md 는 10-24 이후만(옛 것 docs/archive/decisions-until-2026-10-23.md), todo.md 는 끝난 것 · 옛 계획을 archive 로, CLAUDE.md 에 「읽는 것 줄이기」 규칙(통째로 읽지 않고 grep · tail).
+- 2026-10-27 **TOPIK I 필수 단어장 tb-01~49 안티 검수 반영**: 낱말 자료(vocab/data/topik1.json) 41줄 — en(책에 찍히는 영어 뜻)이 예문과 다른 뜻이던 곳(동음이의어 오매칭 · 소설 미번역 · 이틀 오역) · 품사(부사 · 감탄사) 고침, 사전 쪽 다시 생성. 97단원 검수 끝. 남은 것: 유의어 8묶음.
