@@ -1133,7 +1133,7 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "206쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "9.90",
    "coverImg": "/assets/books/topik1-reading-mock/cover.jpg",
    "page": {
@@ -1380,6 +1380,10 @@
       "10"
      ],
      [
+      "ISBN",
+      "979-11-222407-4-0 (PDF)"
+     ],
+     [
       "Published · 발행",
       "2026.11.10"
      ],
@@ -1450,7 +1454,11 @@
       }
      ]
     ]
-   }
+   },
+   "sample": {
+    "pages": 31
+   },
+   "polar": "https://buy.polar.sh/polar_cl_CfHnKpwGkTqGILAz0p7hW54k4faJMER5wDgJH1FGB4C"
   },
   {
    "id": "topik2-writing-51-52",
