@@ -35,6 +35,232 @@
 export const BLOG_POSTS = [
   /* 책 소개 · 공부법 — 홈 책 코너 마케팅(2026-10-27) */
   {
+    "id": "how-to-use-topik-i-reading-practice-tests",
+    "lang": "en",
+    "title": "How to Use 10 TOPIK I Reading Practice Tests (Without Wasting Them)",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "TOPIK"
+    ],
+    "excerpt": "A practice test can only be taken once. Here is a simple order for using ten TOPIK I reading tests: learn each question type first, then add the clock, then keep an error log.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Ten practice tests feel like a lot, until you finish the first one in a rush, check the score, and move on. A practice test is only useful the first time you see it, because after that you remember the answers instead of reading. So the real question is not how many tests you own, but how you spend each one."
+      },
+      {
+        "t": "p",
+        "text": "This is the order we recommend. It is also the order our TOPIK I reading workbook is built in: ten tests of 40 questions each, with one page per question type placed before the tests."
+      },
+      {
+        "t": "h",
+        "text": "Step 1: Learn the question types before you time yourself"
+      },
+      {
+        "t": "p",
+        "text": "TOPIK I reading repeats a small set of question types. Reading a notice, matching a short text to a picture, choosing the sentence that fits, finding the main idea: each type has its own way to solve it and its own small set of words that keep coming back. Spend a first session only on the types, with no timer, and write down the solving method in your own words."
+      },
+      {
+        "t": "h",
+        "text": "Step 2: Take the first test without the clock"
+      },
+      {
+        "t": "p",
+        "text": "For test 1, read every question slowly and mark the ones where you guessed. A guess that happens to be right is not knowledge, and it will hide a weak spot from you. Check the answers and read the explanation for every question you marked, not just the ones you got wrong."
+      },
+      {
+        "t": "h",
+        "text": "Step 3: Add the clock from test 2"
+      },
+      {
+        "t": "p",
+        "text": "From the second test on, time yourself. If you run out of time, do not push for speed in everything. Find the question types that slow you down and go back to the type pages for those."
+      },
+      {
+        "t": "h",
+        "text": "Step 4: Keep an error log"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Write the question type and the reason you missed it: unknown word, misread sentence, ran out of time, or careless mistake.",
+          "Copy the unknown word with the sentence it appeared in. One word with a sentence is easier to remember than a list of words.",
+          "Before each new test, read the log once. After three tests you will see the same two or three reasons repeating."
+        ]
+      },
+      {
+        "t": "note",
+        "title": "These are original questions",
+        "text": "The questions in our workbook were written by a Korean teacher in the official format. They are practice material, not past exam papers, so use them to build the habit and the speed, and check the current official guide for the exact format of the test you are taking."
+      },
+      {
+        "t": "p",
+        "text": "If you want to see what a unit looks like before you buy anything, the book page has a free sample."
+      },
+      {
+        "t": "link",
+        "href": "/shop/topik1-reading-mock/",
+        "title": "TOPIK I Reading: 10 Practice Tests",
+        "note": "400 original questions, solving methods for each type, answers and explanations at the back"
+      },
+      {
+        "t": "link",
+        "href": "/shop/",
+        "title": "Everykoreans book shop",
+        "note": "All workbooks, each with a free sample"
+      }
+    ]
+  },
+  {
+    "id": "scored-sample-answers-for-topik-ii-writing",
+    "lang": "en",
+    "title": "Why Scored Sample Answers Teach More Than Model Answers (TOPIK II Writing 53–54)",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "TOPIK"
+    ],
+    "excerpt": "A model answer shows you the top of the mountain. A high, a middle and a low answer with scores show you the steps. Here is how to use scored samples to fix your own TOPIK II writing.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Most TOPIK II writing books give one model answer per question. It is a good answer, and it is also a problem: you read it, you think “I understand,” and you still cannot write it yourself. The gap between your draft and the model is too wide to see."
+      },
+      {
+        "t": "p",
+        "text": "A better teaching tool is three answers to the same question: one high, one middle, one low, each with a score and the reasons. Now the gap is cut into steps, and you can find which step you are standing on."
+      },
+      {
+        "t": "h",
+        "text": "What changes between a low and a high answer"
+      },
+      {
+        "t": "p",
+        "text": "Take question 53, where you describe data. Here is a low sentence, written by us as an example:"
+      },
+      {
+        "t": "p",
+        "text": "그래프는 사람이 많이 늘었습니다."
+      },
+      {
+        "t": "p",
+        "text": "It is understandable, but it has several problems. It does not say what the data is. It uses the polite spoken ending ‑습니다 instead of the plain written style ‑다. It does not say when, and it does not say how much. A higher answer fixes each one:"
+      },
+      {
+        "t": "p",
+        "text": "조사 결과에 따르면 2020년에 비해 2023년에는 이용자가 두 배로 늘어난 것으로 나타났다."
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Source of the data: 조사 결과에 따르면",
+          "Comparison with a time: 2020년에 비해 2023년에는",
+          "Size of the change: 두 배로",
+          "Written style: 나타났다 (plain form, not ‑습니다)"
+        ]
+      },
+      {
+        "t": "h",
+        "text": "How to use scored samples"
+      },
+      {
+        "t": "list",
+        "ordered": true,
+        "items": [
+          "Write your own answer first, before you look at any sample.",
+          "Read the low sample and say what is wrong with it. If you can name the problems, you already know what to avoid.",
+          "Read the middle and the high sample and find the exact words that earn the extra points.",
+          "Score your own answer against the criteria and note the one change that would add the most."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "Question 53 asks for a short description of data and question 54 asks for a longer argument, and the check is different for each: for 53 it is accuracy and written style, for 54 it is structure and how well you support your point. Check the current official guide for the length and the scoring of each question before you plan your practice."
+      },
+      {
+        "t": "note",
+        "title": "Original practice material",
+        "text": "Our workbook has 100 original questions for 53 and 54, each with a model answer, scoring criteria, and high, middle and low sample answers with scores and reasons. They are not past exam papers."
+      },
+      {
+        "t": "link",
+        "href": "/shop/topik2-writing-53-54/",
+        "title": "TOPIK II Writing 53–54: 100 Practice Questions",
+        "note": "Model answers, scoring criteria and three scored samples for each question"
+      },
+      {
+        "t": "link",
+        "href": "/blog/topik-writing-53-english.html",
+        "title": "A free guide to question 53",
+        "note": "Structure and useful phrases, no purchase needed"
+      }
+    ]
+  },
+  {
+    "id": "how-to-check-a-korean-workbook-before-you-buy",
+    "lang": "en",
+    "title": "How to Check a Korean Workbook Before You Buy It: 6 Questions",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "Roadmap"
+    ],
+    "excerpt": "Not every workbook fits every learner. Six questions you can answer in ten minutes from a sample page, so you only buy a book you will actually finish.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Most unfinished workbooks were not bad books. They were the wrong book for that learner at that moment. The cover and the page count tell you very little. A sample tells you almost everything, if you know what to look at."
+      },
+      {
+        "t": "h",
+        "text": "The six questions"
+      },
+      {
+        "t": "list",
+        "ordered": true,
+        "items": [
+          "Is the level right? Open a unit and read the explanation. You should understand most of it, with a few new things to learn. If everything is new, the book is too hard. If nothing is new, it is too easy.",
+          "Does it make you write? Learning sticks when you produce the language. Look for blanks to fill, sentences to complete and tables to copy by hand, not only text to read.",
+          "Can you check your own work? A workbook without an answer key is a reading book. Check that the answers are at the back, and that they are more than a bare list.",
+          "Is the explanation in a language you read easily? An English explanation of Korean grammar is not the same as a Korean one. Pick the one you can read without stopping.",
+          "Is the Korean natural, and is it clear where the examples come from? Examples should sound like something a person would say. For exam books, check whether the questions are past papers or original practice material, and whether the book says so.",
+          "Will you actually open it? A book you can print or read on your phone, and a unit you can finish in one sitting, has a better chance than a heavy book that needs a free weekend."
+        ]
+      },
+      {
+        "t": "h",
+        "text": "How to do it in ten minutes"
+      },
+      {
+        "t": "p",
+        "text": "Download the sample. Read one unit slowly, do the practice without looking at the answers, then check. If you made a mistake, see whether the answer key explains why. That one unit answers all six questions."
+      },
+      {
+        "t": "note",
+        "title": "Our own samples",
+        "text": "Every workbook on our shop has a free sample PDF with the cover, the contents and the first units. You can download it without an email address."
+      },
+      {
+        "t": "link",
+        "href": "/shop/",
+        "title": "Everykoreans book shop",
+        "note": "Pick a book and download its free sample first"
+      },
+      {
+        "t": "link",
+        "href": "/blog/korean-workbooks-for-english-speakers.html",
+        "title": "Korean Workbooks for English Speakers: Which One to Start With",
+        "note": "Our own guide to choosing between the workbooks"
+      }
+    ]
+  },
+  {
     "id": "korean-idioms-and-proverbs-you-will-hear",
     "lang": "en",
     "title": "10 Korean Idioms and Proverbs You Will Actually Hear",
