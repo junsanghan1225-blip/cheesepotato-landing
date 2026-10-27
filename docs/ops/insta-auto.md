@@ -115,5 +115,5 @@ cron-job.org 가입(무료) → **Dashboard → Create cronjob**. 네 개 모두
 1. **그림이 사이트에 올라가야 한다** — `assets/promo/` 가 main 에 머지된 뒤 1~2분 지나면 쓰레드가 그림을 가져갈 수 있다.
 2. **시험** — Actions → **threads-promo** → Run workflow → post `4`, dry `yes` → 글 · 답글 · 그림 주소가 로그에 보인다(올리지 않음).
 3. **한 번 진짜로** — post `1`, dry `no` → 쓰레드에 올라갔는지 본다(열쇠가 맞는지 여기서 갈린다).
-4. **켜기** — Variables 에 `THREADS_PROMO` = `on`. 그다음부터 매일 21:07 에 그날 차례 글이 올라간다. 끄기: 지우거나 `off`.
+4. **켜짐이 기본** — 따로 켤 것 없이 매일 21:07 에 그날 차례 글이 올라간다(1번은 10/27 에 시험 겸 올림). **끄기**: Variables 에 `THREADS_PROMO` = `off`.
 같은 글은 두 번 올라가지 않는다(기록 `insta-media` 가지 `promo/`). 열쇠가 끝나면(약 60일) 위 「스레드 켜기」 4~5번으로 새로 넣는다.

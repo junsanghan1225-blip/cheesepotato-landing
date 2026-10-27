@@ -1,6 +1,6 @@
 # 쓰레드 책 홍보 글 자동 올리기 — 하루 한 개, 한국 시간 21:07(유럽 오후 · 미국 아침). 운영자 요청 2026-10-27.
 # 글 · 날짜: docs/ops/threads-posts.json · 그림: assets/promo/ · 열쇠: Secrets 의 THREADS_TOKEN(인스타 자동 올리기와 같은 것).
-# 켜기: Settings → Secrets and variables → Actions → Variables 에 THREADS_PROMO = on (끄려면 지우거나 off).
+# 기본으로 켜져 있다(운영자 2026-10-27 「쓰레드 준비해줘」). 끄려면: Settings → Secrets and variables → Actions → Variables 에 THREADS_PROMO = off.
 # 같은 글은 두 번 올리지 않는다 — 올린 기록은 insta-media 가지의 promo/<번호>.json.
 name: threads-promo
 
@@ -24,7 +24,7 @@ concurrency: threads-promo
 
 jobs:
   post:
-    if: ${{ vars.THREADS_PROMO == 'on' || github.event_name == 'workflow_dispatch' }}
+    if: ${{ vars.THREADS_PROMO != 'off' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

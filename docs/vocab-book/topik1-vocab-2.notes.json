@@ -1,0 +1,1220 @@
+{
+ "tb-01": [
+  {
+   "words": [
+    "입원",
+    "퇴원"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 입원 means being admitted to hospital (병원에 입원해요), while 퇴원 means leaving hospital after getting well (건강해져서 퇴원해요)."
+  },
+  {
+   "words": [
+    "버릇",
+    "습관"
+   ],
+   "kind": "synonym",
+   "note": "Both mean habit. 버릇 often refers to personal quirks or unconscious habits (손톱을 깨무는 버릇), while 습관 is broader and neutral (좋은 독서 습관)."
+  }
+ ],
+ "tb-02": [
+  {
+   "words": [
+    "오른손",
+    "왼손"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 오른손 means the right hand (오른손을 들어요), while 왼손 means the left hand (왼손으로 글씨를 써요)."
+  },
+  {
+   "words": [
+    "손가락",
+    "발가락"
+   ],
+   "kind": "contrast",
+   "note": "손가락 means finger on a hand (열 손가락), while 발가락 means toe on a foot (발가락이 아파요)."
+  },
+  {
+   "words": [
+    "낫다",
+    "낫다"
+   ],
+   "kind": "homonym",
+   "note": "낫다 means to recover from illness (감기가 다 나았어요), and also to be better than another choice (이 옷이 더 나아요)."
+  }
+ ],
+ "tb-03": [
+  {
+   "words": [
+    "늘다",
+    "줄다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 늘다 means to increase or improve (실력이 늘어요), while 줄다 means to decrease or shrink (체중이 줄어요)."
+  },
+  {
+   "words": [
+    "오래되다",
+    "새롭다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 오래되다 means aged or used for a long time (오래된 건물), while 새롭다 means new or fresh (새로운 느낌)."
+  }
+ ],
+ "tb-04": [
+  {
+   "words": [
+    "올리다",
+    "내리다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 올리다 means to raise or lift up (손을 올려요), while 내리다 means to lower or drop down (손을 내려요)."
+  },
+  {
+   "words": [
+    "강하다",
+    "약하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 강하다 means strong or sturdy (바람이 강해요), while 약하다 means weak or frail (몸이 약해요)."
+  },
+  {
+   "words": [
+    "줄이다",
+    "늘리다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 줄이다 means to reduce or shorten (시간을 줄여요), while 늘리다 means to increase or expand (양을 늘려요)."
+  }
+ ],
+ "tb-05": [
+  {
+   "words": [
+    "이상",
+    "이하"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 이상 means that number or more (열 살 이상), while 이하 means that number or less (십만 원 이하)."
+  },
+  {
+   "words": [
+    "비다",
+    "차다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 비다 means to be empty (방이 비어 있어요), while 차다 means to be full (자리가 다 찼어요)."
+  },
+  {
+   "words": [
+    "충분하다",
+    "부족하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 충분하다 means enough or ample (시간이 충분해요), while 부족하다 means insufficient or lacking (잠이 부족해요)."
+  }
+ ],
+ "tb-06": [
+  {
+   "words": [
+    "일부",
+    "전부"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 일부 means a part or portion (일부 학생), while 전부 means all or entirety (전부 다 했어요)."
+  },
+  {
+   "words": [
+    "더하다",
+    "빼다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites in math. 더하다 means to add (숫자를 더해요), while 빼다 means to subtract or remove (살을 빼요)."
+  },
+  {
+   "words": [
+    "대",
+    "대"
+   ],
+   "kind": "homonym",
+   "note": "대 is a counter for vehicles and machines (차 두 대, 컴퓨터 세 대), and also denotes age groups (이십대 청년)."
+  }
+ ],
+ "tb-07": [
+  {
+   "words": [
+    "겉",
+    "속"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 겉 means the outside surface (겉은 바삭해요), while 속 means the inner part or inside (속은 따뜻해요)."
+  },
+  {
+   "words": [
+    "주변",
+    "주위"
+   ],
+   "kind": "synonym",
+   "note": "Both mean surroundings or nearby vicinity. 주변 (학교 주변) and 주위 (집 주위) are very commonly interchangeable."
+  },
+  {
+   "words": [
+    "가까이",
+    "멀리"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 가까이 means near or close (가까이 오세요), while 멀리 means far away (멀리 떠나요)."
+  }
+ ],
+ "tb-08": [
+  {
+   "words": [
+    "굵다",
+    "가늘다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 굵다 means thick for round cylindrical items (나무가 굵어요), while 가늘다 means thin or slender (실이 가늘어요)."
+  },
+  {
+   "words": [
+    "하얗다",
+    "까맣다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 하얗다 means pure white (눈이 하얘요), while 까맣다 means deep black (머리카락이 까매요)."
+  },
+  {
+   "words": [
+    "줄",
+    "줄"
+   ],
+   "kind": "homonym",
+   "note": "줄 means a rope or line to stand in (줄을 서요), and also the grammar form for knowing how to do (피아노를 칠 줄 알아요)."
+  }
+ ],
+ "tb-09": [
+  {
+   "words": [
+    "설날",
+    "추석"
+   ],
+   "kind": "contrast",
+   "note": "Major Korean traditional holidays. 설날 is Lunar New Year in winter (떡국을 먹어요), while 추석 is harvest festival in autumn (송편을 먹어요)."
+  },
+  {
+   "words": [
+    "녹색",
+    "초록색"
+   ],
+   "kind": "synonym",
+   "note": "Both mean green color. 초록색 is native-style and very common in conversation, while 녹색 is Sino-Korean (녹색 불이 켜져요)."
+  },
+  {
+   "words": [
+    "얇다",
+    "두껍다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 얇다 means thin for flat items like paper or clothes (책이 얇아요), while 두껍다 means thick (두꺼운 옷)."
+  }
+ ],
+ "tb-10": [
+  {
+   "words": [
+    "매다",
+    "메다"
+   ],
+   "kind": "contrast",
+   "note": "They sound very similar. 매다 means to tie or fasten (넥타이를 매요, 끈을 매요), while 메다 means to carry on one's shoulder (가방을 메요)."
+  },
+  {
+   "words": [
+    "갈아입다",
+    "입다"
+   ],
+   "kind": "contrast",
+   "note": "입다 means to put on clothes (옷을 입어요), while 갈아입다 means to change clothes (잠옷으로 갈아입어요)."
+  },
+  {
+   "words": [
+    "목걸이",
+    "귀걸이"
+   ],
+   "kind": "contrast",
+   "note": "목걸이 is a necklace worn around the neck (예쁜 목걸이), while 귀걸이 is an earring worn on ears (귀걸이를 해요)."
+  }
+ ],
+ "tb-11": [
+  {
+   "words": [
+    "반바지",
+    "긴바지"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 반바지 means shorts (여름에 반바지를 입어요), while 긴바지 means trousers or long pants (긴바지를 입어요)."
+  },
+  {
+   "words": [
+    "현금",
+    "카드"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 현금 means cash paper or coins (현금으로 내요), while 카드 means a credit or bank card (카드로 결제해요)."
+  },
+  {
+   "words": [
+    "동전",
+    "지폐"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 동전 means metal coins (백 원짜리 동전), while 지폐 means paper bills (만 원짜리 지폐)."
+  }
+ ],
+ "tb-12": [
+  {
+   "words": [
+    "공짜",
+    "무료"
+   ],
+   "kind": "synonym",
+   "note": "Both mean free of charge. 공짜 is everyday colloquial Korean (공짜로 얻었어요), while 무료 is formal Sino-Korean (무료 입장)."
+  },
+  {
+   "words": [
+    "서다",
+    "앉다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 서다 means to stand up (자리에 서 있어요), while 앉다 means to sit down (의자에 앉아요)."
+  },
+  {
+   "words": [
+    "잊다",
+    "기억하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 잊다 means to forget (약속을 잊었어요), while 기억하다 means to remember (이름을 기억해요)."
+  }
+ ],
+ "tb-13": [
+  {
+   "words": [
+    "풀다",
+    "묶다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 묶다 means to tie or knot (신발 끈을 묶어요), while 풀다 means to untie or solve (끈을 풀어요, 문제를 풀어요)."
+  },
+  {
+   "words": [
+    "잃어버리다",
+    "찾다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 잃어버리다 means to lose an item (지갑을 잃어버렸어요), while 찾다 means to find it (지갑을 찾았어요)."
+  }
+ ],
+ "tb-14": [
+  {
+   "words": [
+    "밀다",
+    "당기다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites on doors. 밀다 means to push forward (문을 밀어요), while 당기다 means to pull backward (문을 당겨요)."
+  },
+  {
+   "words": [
+    "꺼내다",
+    "넣다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 넣다 means to put inside (가방에 책을 넣어요), while 꺼내다 means to pull out (가방에서 책을 꺼내요)."
+  }
+ ],
+ "tb-15": [
+  {
+   "words": [
+    "줍다",
+    "버리다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 줍다 means to pick up from the floor (쓰레기를 주워요), while 버리다 means to throw away (쓰레기를 버려요)."
+  },
+  {
+   "words": [
+    "접다",
+    "펴다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 펴다 means to unfold or open (우산을 펴요, 책을 펴요), while 접다 means to fold up (우산을 접어요)."
+  },
+  {
+   "words": [
+    "틀다",
+    "끄다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 틀다 means to turn on water or an appliance (물을 틀어요, 라디오를 틀어요), while 끄다 means to turn it off."
+  }
+ ],
+ "tb-16": [
+  {
+   "words": [
+    "평일",
+    "주말"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 평일 means weekdays Monday to Friday (평일에 출근해요), while 주말 means the weekend Saturday and Sunday (주말에 쉬어요)."
+  },
+  {
+   "words": [
+    "과거",
+    "현재"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 과거 means the past (과거의 추억), while 현재 means the present time (현재 살고 있는 집)."
+  },
+  {
+   "words": [
+    "곧",
+    "방금"
+   ],
+   "kind": "contrast",
+   "note": "곧 means soon in the coming moments (기차가 곧 와요), while 방금 means just a moment ago in the past (방금 도착했어요)."
+  }
+ ],
+ "tb-17": [
+  {
+   "words": [
+    "자주",
+    "가끔"
+   ],
+   "kind": "contrast",
+   "note": "자주 means often or frequently (자주 만나요), while 가끔 means sometimes or occasionally (가끔 영화를 봐요)."
+  },
+  {
+   "words": [
+    "이틀",
+    "사흘"
+   ],
+   "kind": "contrast",
+   "note": "Korean day counters. 이틀 means two days (이틀 동안), while 사흘 means three days (사흘 동안; not four days!)."
+  },
+  {
+   "words": [
+    "첫",
+    "마지막"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 첫 means the very first placed before a noun (첫 만남), while 마지막 means the final or last (마지막 수업)."
+  }
+ ],
+ "tb-18": [
+  {
+   "words": [
+    "연초",
+    "연말"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 연초 means the start of the year (연초 계획), while 연말 means the close of the year (연말 파티)."
+  },
+  {
+   "words": [
+    "이전",
+    "이후"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 이전 means before or earlier than a set time (오후 세 시 이전), while 이후 means after that time (세 시 이후)."
+  },
+  {
+   "words": [
+    "새벽",
+    "밤"
+   ],
+   "kind": "contrast",
+   "note": "밤 means nighttime while it is dark (밤 10시), while 새벽 means dawn or the quiet hours before sunrise (새벽 5시)."
+  }
+ ],
+ "tb-19": [
+  {
+   "words": [
+    "영상",
+    "영하"
+   ],
+   "kind": "contrast",
+   "note": "Opposites for temperature. 영상 means above freezing zero degrees (영상 15도), while 영하 means sub-zero (영하 8도)."
+  },
+  {
+   "words": [
+    "얼다",
+    "녹다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 얼다 means to freeze into ice (물이 얼어요), while 녹다 means to melt or thaw (얼음이 녹아요)."
+  },
+  {
+   "words": [
+    "익숙하다",
+    "낯설다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 익숙하다 means familiar or used to something (길이 익숙해요), while 낯설다 means unfamiliar (낯선 동네)."
+  }
+ ],
+ "tb-20": [
+  {
+   "words": [
+    "심심하다",
+    "지루하다"
+   ],
+   "kind": "contrast",
+   "note": "심심하다 means feeling bored with nothing to do (할 일이 없어서 심심해요), while 지루하다 means tedious from taking too long (수업이 지루해요)."
+  },
+  {
+   "words": [
+    "화",
+    "화"
+   ],
+   "kind": "homonym",
+   "note": "화 means anger or fury (화가 나요, 화를 내요), and also fire or disaster (화재)."
+  },
+  {
+   "words": [
+    "행복",
+    "불행"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 행복 means happiness or joy (행복을 느껴요), while 불행 means misfortune or sorrow (불행을 이겨내요)."
+  }
+ ],
+ "tb-21": [
+  {
+   "words": [
+    "울음",
+    "웃음"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 울음 means crying or weeping (울음을 터뜨려요), while 웃음 means laughter or a smile (웃음이 나와요)."
+  },
+  {
+   "words": [
+    "시끄럽다",
+    "조용하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 시끄럽다 means noisy or loud (밖이 시끄러워요), while 조용하다 means quiet and calm (방이 조용해요)."
+  }
+ ],
+ "tb-22": [
+  {
+   "words": [
+    "끓다",
+    "끓이다"
+   ],
+   "kind": "contrast",
+   "note": "끓다 is intransitive (물이 끓어요 = the water boils), while 끓이다 is transitive (냄비에 라면을 끓여요 = I boil ramen)."
+  },
+  {
+   "words": [
+    "굽다",
+    "굽다"
+   ],
+   "kind": "homonym",
+   "note": "굽다 means to roast or bake food (고기를 구워요, 빵을 구워요), and also to be curved or bent (허리가 굽었어요)."
+  }
+ ],
+ "tb-23": [
+  {
+   "words": [
+    "계란",
+    "달걀"
+   ],
+   "kind": "synonym",
+   "note": "Both mean chicken egg. 달걀 is native Korean (달걀을 삶아요), while 계란 is Sino-Korean (계란을 풀어요). Both are completely interchangeable."
+  },
+  {
+   "words": [
+    "찌다",
+    "찌다"
+   ],
+   "kind": "homonym",
+   "note": "찌다 means to steam food (만두를 쪄요), and also to gain body weight (살이 쪘어요)."
+  },
+  {
+   "words": [
+    "소고기",
+    "돼지고기"
+   ],
+   "kind": "contrast",
+   "note": "소고기 means beef from a cow (소고기 볶음), while 돼지고기 means pork from a pig (돼지고기 김치찌개)."
+  }
+ ],
+ "tb-24": [
+  {
+   "words": [
+    "야채",
+    "채소"
+   ],
+   "kind": "synonym",
+   "note": "Both mean vegetables. 채소 is standard Korean for cultivated greens (신선한 채소), while 야채 is also widely used in daily conversation (야채를 씻어요)."
+  },
+  {
+   "words": [
+    "수저",
+    "숟가락"
+   ],
+   "kind": "contrast",
+   "note": "수저 refers to the combination pair of spoon and chopsticks together (수저를 놓아요), while 숟가락 is just the spoon."
+  },
+  {
+   "words": [
+    "한식",
+    "양식"
+   ],
+   "kind": "contrast",
+   "note": "Opposites in cuisine. 한식 means Korean food (된장찌개와 밥), while 양식 means Western-style meals (스파게티와 샐러드)."
+  }
+ ],
+ "tb-25": [
+  {
+   "words": [
+    "찬물",
+    "더운물"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 찬물 means cold water (찬물을 마셔요), while 더운물 means hot or warm water (더운물로 손을 씻어요)."
+  },
+  {
+   "words": [
+    "녹차",
+    "홍차"
+   ],
+   "kind": "contrast",
+   "note": "녹차 is unfermented green tea (따뜻한 녹차를 마셔요), while 홍차 is fermented black tea (향긋한 홍차)."
+  },
+  {
+   "words": [
+    "치킨",
+    "닭고기"
+   ],
+   "kind": "contrast",
+   "note": "닭고기 refers to raw or cooked chicken meat as an ingredient (닭고기 수프), while 치킨 specifically refers to crispy fried chicken (치킨을 주문해요)."
+  }
+ ],
+ "tb-26": [
+  {
+   "words": [
+    "김",
+    "김"
+   ],
+   "kind": "homonym",
+   "note": "김 means dried edible seaweed sheets (김에 밥을 싸요), and also hot steam rising from soup (김이 모락모락 나요)."
+  },
+  {
+   "words": [
+    "쌀",
+    "밥"
+   ],
+   "kind": "contrast",
+   "note": "쌀 is uncooked raw rice grains before cooking (쌀을 씻어요), while 밥 is cooked edible rice ready to eat (밥을 먹어요)."
+  },
+  {
+   "words": [
+    "설탕",
+    "소금"
+   ],
+   "kind": "contrast",
+   "note": "Opposites in seasoning. 설탕 is sweet sugar (설탕을 넣어요), while 소금 is salty salt (소금으로 간을 맞춰요)."
+  }
+ ],
+ "tb-27": [
+  {
+   "words": [
+    "진하다",
+    "연하다"
+   ],
+   "kind": "contrast",
+   "note": "Opposites for drinks or color. 진하다 means strong or dark (진한 커피, 진한 색), while 연하다 means mild or pale (연한 보리차, 연한 색)."
+  },
+  {
+   "words": [
+    "등",
+    "등"
+   ],
+   "kind": "homonym",
+   "note": "등 means the back of a person's body (등이 아파요), an electric light or lamp (가로등), and etc. in lists (사과, 배 등)."
+  },
+  {
+   "words": [
+    "장",
+    "장"
+   ],
+   "kind": "homonym",
+   "note": "장 is the counter for thin flat sheets like paper or tickets (종이 한 장, 표 두 장), and also means a chapter in a book."
+  }
+ ],
+ "tb-28": [
+  {
+   "words": [
+    "붙이다",
+    "부치다"
+   ],
+   "kind": "contrast",
+   "note": "They sound very similar. 붙이다 means to stick or paste (벽에 사진을 붙여요), while 부치다 means to send a letter by post (편지를 부쳐요)."
+  },
+  {
+   "words": [
+    "켤레",
+    "벌"
+   ],
+   "kind": "contrast",
+   "note": "켤레 is the counter for pairs of shoes or socks (신발 한 켤레), while 벌 is the counter for sets of clothing (옷 두 벌)."
+  },
+  {
+   "words": [
+    "우리",
+    "저희"
+   ],
+   "kind": "contrast",
+   "note": "Both mean we or our. 우리 is standard (우리 학교), while 저희 is the polite humble pronoun used when speaking to elders (저희 가족)."
+  }
+ ],
+ "tb-29": [
+  {
+   "words": [
+    "빨래",
+    "세탁"
+   ],
+   "kind": "synonym",
+   "note": "Both mean laundry. 빨래 is everyday native Korean (빨래를 널어요), while 세탁 is Sino-Korean used in words like 세탁기 (세탁을 해요)."
+  },
+  {
+   "words": [
+    "선풍기",
+    "에어컨"
+   ],
+   "kind": "contrast",
+   "note": "선풍기 is an electric fan with spinning blades (선풍기를 틀어요), while 에어컨 is a refrigeration air conditioner (에어컨을 켜요)."
+  },
+  {
+   "words": [
+    "옷장",
+    "책장"
+   ],
+   "kind": "contrast",
+   "note": "옷장 is a wardrobe for hanging clothes (옷장에 옷을 걸어요), while 책장 is a bookcase for holding books (책장에 책을 꽂아요)."
+  }
+ ],
+ "tb-30": [
+  {
+   "words": [
+    "초",
+    "초"
+   ],
+   "kind": "homonym",
+   "note": "초 means a wax candle (촛불을 켜요), a second of clock time (십 초 동안), and the beginning of a period (학기 초)."
+  },
+  {
+   "words": [
+    "지하",
+    "지상"
+   ],
+   "kind": "contrast",
+   "note": "Opposites. 지하 means underground or basement level (지하철, 지하 1층), while 지상 means above ground (지상 주차장)."
+  }
+ ],
+ "tb-31": [
+  {
+   "words": [
+    "경기",
+    "경기"
+   ],
+   "kind": "homonym",
+   "note": "경기 means a sports match or game, and also economic conditions or business activity. (축구 경기를 봐요 / 요즘 경기가 좋아요)"
+  },
+  {
+   "words": [
+    "즐기다",
+    "놀다"
+   ],
+   "kind": "synonym",
+   "note": "즐기다 means to enjoy an activity or hobby, while 놀다 means to play, hang out, or have fun. (음악을 즐겨요 / 친구와 놀아요)"
+  },
+  {
+   "words": [
+    "차다",
+    "차다"
+   ],
+   "kind": "homonym",
+   "note": "차다 means to be full or filled up, and also to kick. (물이 가득 차요 / 공을 발로 차요)"
+  }
+ ],
+ "tb-32": [
+  {
+   "words": [
+    "이기다",
+    "지다"
+   ],
+   "kind": "contrast",
+   "note": "이기다 means to win a match or contest, while 지다 means to lose. (경기에서 이겨요 / 시합에서 져요)"
+  },
+  {
+   "words": [
+    "기르다",
+    "키우다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to raise, rear, or grow pets, plants, or children. (강아지를 길러요 / 화초를 키워요)"
+  },
+  {
+   "words": [
+    "소",
+    "소"
+   ],
+   "kind": "homonym",
+   "note": "소 means a cow or bull, and also the stuffing or filling inside dumplings or pastries. (소에게 풀을 줘요 / 만두에 소를 넣어요)"
+  }
+ ],
+ "tb-33": [
+  {
+   "words": [
+    "깊다",
+    "얕다"
+   ],
+   "kind": "contrast",
+   "note": "깊다 means deep, while 얕다 means shallow. (물이 깊어요 / 강이 얕아요)"
+  },
+  {
+   "words": [
+    "경치",
+    "풍경"
+   ],
+   "kind": "synonym",
+   "note": "Both refer to scenery, views, or natural landscapes. (산 경치가 아름다워요 / 창밖 풍경이 좋아요)"
+  },
+  {
+   "words": [
+    "돌",
+    "돌"
+   ],
+   "kind": "homonym",
+   "note": "돌 means a stone or rock, and also a child's first birthday celebration. (길에 작은 돌이 있어요 / 다음 주가 아기 돌이에요)"
+  }
+ ],
+ "tb-34": [
+  {
+   "words": [
+    "피다",
+    "지다"
+   ],
+   "kind": "contrast",
+   "note": "피다 means a flower blooms or opens, while 지다 means it withers or falls. (봄에 꽃이 피어요 / 꽃잎이 져요)"
+  },
+  {
+   "words": [
+    "살다",
+    "죽다"
+   ],
+   "kind": "contrast",
+   "note": "살다 means to live or stay alive, while 죽다 means to die. (오래 살고 싶어요 / 식물이 시들어 죽었어요)"
+  },
+  {
+   "words": [
+    "후배",
+    "선배"
+   ],
+   "kind": "contrast",
+   "note": "후배 is a junior at school or work, while 선배 is a senior. (학교 후배를 만나요 / 선배에게 질문해요)"
+  }
+ ],
+ "tb-35": [
+  {
+   "words": [
+    "부지런하다",
+    "게으르다"
+   ],
+   "kind": "contrast",
+   "note": "부지런하다 means diligent and hard-working, while 게으르다 means lazy. (일찍 일어나는 부지런한 사람이에요 / 게으르면 안 돼요)"
+  },
+  {
+   "words": [
+    "남성",
+    "여성"
+   ],
+   "kind": "contrast",
+   "note": "남성 means male or man, while 여성 means female or woman. (남성 옷을 팔아요 / 여성 고객이 많아요)"
+  },
+  {
+   "words": [
+    "데려가다",
+    "데려오다"
+   ],
+   "kind": "contrast",
+   "note": "데려가다 means to take someone with you to another place, while 데려오다 means to bring someone here. (동생을 공원에 데려가요 / 친구를 집에 데려와요)"
+  }
+ ],
+ "tb-36": [
+  {
+   "words": [
+    "신랑",
+    "신부"
+   ],
+   "kind": "contrast",
+   "note": "신랑 is the groom at a wedding, and 신부 is the bride. (신랑이 멋있어요 / 신부가 예뻐요)"
+  },
+  {
+   "words": [
+    "식구",
+    "가족"
+   ],
+   "kind": "synonym",
+   "note": "Both refer to family members living and sharing meals together. (우리 식구는 네 명이에요 / 가족과 여행을 가요)"
+  },
+  {
+   "words": [
+    "아들",
+    "딸"
+   ],
+   "kind": "contrast",
+   "note": "아들 means son, while 딸 means daughter. (착한 아들이에요 / 딸이 노래를 잘해요)"
+  }
+ ],
+ "tb-37": [
+  {
+   "words": [
+    "교사",
+    "선생님"
+   ],
+   "kind": "synonym",
+   "note": "Both refer to a teacher; 교사 is often used as a job title, while 선생님 is common in polite address. (초등학교 교사예요 / 김 선생님, 안녕하세요)"
+  },
+  {
+   "words": [
+    "자식",
+    "자녀"
+   ],
+   "kind": "synonym",
+   "note": "Both mean children or offspring; 자녀 is formal while 자식 is casual. (자식을 사랑해요 / 자녀가 몇 명이에요?)"
+  },
+  {
+   "words": [
+    "태어나다",
+    "죽다"
+   ],
+   "kind": "contrast",
+   "note": "태어나다 means to be born, while 죽다 means to pass away or die. (한국에서 태어났어요 / 식물이 말라 죽었어요)"
+  }
+ ],
+ "tb-38": [
+  {
+   "words": [
+    "젊다",
+    "늙다"
+   ],
+   "kind": "contrast",
+   "note": "젊다 means young, while 늙다 means to age or grow old. (마음이 젊어요 / 나이가 들어 늙었어요)"
+  },
+  {
+   "words": [
+    "날씬하다",
+    "뚱뚱하다"
+   ],
+   "kind": "contrast",
+   "note": "날씬하다 means slim or slender, while 뚱뚱하다 means fat or overweight. (운동해서 몸이 날씬해요 / 살이 쪄서 뚱뚱해요)"
+  },
+  {
+   "words": [
+    "잘생기다",
+    "못생기다"
+   ],
+   "kind": "contrast",
+   "note": "잘생기다 means handsome or good-looking, while 못생기다 means ugly. (얼굴이 잘생겼어요 / 못생긴 얼굴이 아니에요)"
+  }
+ ],
+ "tb-39": [
+  {
+   "words": [
+    "입학",
+    "졸업"
+   ],
+   "kind": "contrast",
+   "note": "입학 means entering a school, while 졸업 means graduating from a school. (대학교에 입학해요 / 내년에 고등학교를 졸업해요)"
+  },
+  {
+   "words": [
+    "출석",
+    "결석"
+   ],
+   "kind": "contrast",
+   "note": "출석 means being present or attending, while 결석 means absence. (모두 출석했어요 / 감기로 오늘 결석해요)"
+  },
+  {
+   "words": [
+    "제출하다",
+    "내다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to hand in or submit homework, reports, or documents. (숙제를 선생님께 제출해요 / 과제를 내요)"
+  }
+ ],
+ "tb-40": [
+  {
+   "words": [
+    "예습",
+    "복습"
+   ],
+   "kind": "contrast",
+   "note": "예습 is previewing a lesson before class, while 복습 is reviewing what was learned after class. (수업 전에 예습해요 / 수업 후에 복습해요)"
+  },
+  {
+   "words": [
+    "노트",
+    "공책"
+   ],
+   "kind": "synonym",
+   "note": "Both mean a notebook for writing and taking notes. (노트에 단어를 써요 / 공책을 새로 샀어요)"
+  },
+  {
+   "words": [
+    "국내",
+    "해외"
+   ],
+   "kind": "contrast",
+   "note": "국내 means domestic or within the country, while 해외 means overseas or abroad. (국내 여행을 가요 / 해외로 유학을 떠나요)"
+  }
+ ],
+ "tb-41": [
+  {
+   "words": [
+    "세계",
+    "세상"
+   ],
+   "kind": "synonym",
+   "note": "Both mean the world; 세계 often refers to countries and global society, while 세상 refers to the world and everyday life. (세계 여행을 가요 / 세상에서 제일 좋아요)"
+  },
+  {
+   "words": [
+    "안전",
+    "위험"
+   ],
+   "kind": "contrast",
+   "note": "안전 means safety or security, while 위험 means danger or risk. (안전 벨트를 매요 / 위험하니까 조심하세요)"
+  },
+  {
+   "words": [
+    "마중",
+    "배웅"
+   ],
+   "kind": "contrast",
+   "note": "마중 is going out to meet or welcome an arriving person, while 배웅 is seeing someone off as they leave. (공항에 마중을 나가요 / 친구를 배웅해요)"
+  }
+ ],
+ "tb-42": [
+  {
+   "words": [
+    "뜻",
+    "의미"
+   ],
+   "kind": "synonym",
+   "note": "Both mean the meaning or sense of a word or action. (단어의 뜻을 알아요 / 같은 의미예요)"
+  },
+  {
+   "words": [
+    "간단하다",
+    "복잡하다"
+   ],
+   "kind": "contrast",
+   "note": "간단하다 means simple or easy, while 복잡하다 means complicated or crowded. (설명이 간단해요 / 길이 너무 복잡해요)"
+  },
+  {
+   "words": [
+    "진짜",
+    "가짜"
+   ],
+   "kind": "contrast",
+   "note": "진짜 means real, authentic, or genuine, while 가짜 means fake or counterfeit. (진짜 꽃이에요 / 가짜 보석이에요)"
+  }
+ ],
+ "tb-43": [
+  {
+   "words": [
+    "만약",
+    "만일"
+   ],
+   "kind": "synonym",
+   "note": "Both mean if or supposing, used when imagining an event or possibility. (만약 비가 오면 어떡해요? / 만일의 경우를 대비해요)"
+  },
+  {
+   "words": [
+    "칭찬",
+    "꾸중"
+   ],
+   "kind": "contrast",
+   "note": "칭찬 means praise or compliment, while 꾸중 means scolding or reprimand. (선생님께 칭찬을 받았어요 / 어머니께 꾸중을 들었어요)"
+  },
+  {
+   "words": [
+    "소식",
+    "소식"
+   ],
+   "kind": "homonym",
+   "note": "소식 means news or updates from someone, and also eating small meals or light eating. (친구의 반가운 소식을 들었어요 / 건강을 위해 소식해요)"
+  }
+ ],
+ "tb-44": [
+  {
+   "words": [
+    "부치다",
+    "부치다"
+   ],
+   "kind": "homonym",
+   "note": "부치다 means to send a letter or parcel by post, and also to fry pancakes or food in a pan. (편지를 우체국에서 부쳐요 / 전을 부쳐요)"
+  },
+  {
+   "words": [
+    "항공권",
+    "비행기표"
+   ],
+   "kind": "synonym",
+   "note": "Both mean an airline ticket or flight ticket. (제주도 항공권을 예약해요 / 비행기표를 샀어요)"
+  },
+  {
+   "words": [
+    "여쭙다",
+    "묻다"
+   ],
+   "kind": "synonym",
+   "note": "Both mean to ask; 여쭙다 is the honorific polite form used towards elders. (선생님께 질문을 여쭤요 / 길을 물어요)"
+  }
+ ],
+ "tb-45": [
+  {
+   "words": [
+    "입구",
+    "출구"
+   ],
+   "kind": "contrast",
+   "note": "입구 is the entrance where you go in, while 출구 is the exit where you leave. (지하철 입구로 들어가요 / 3번 출구로 나와요)"
+  },
+  {
+   "words": [
+    "도시",
+    "시골"
+   ],
+   "kind": "contrast",
+   "note": "도시 is a big city or urban area, while 시골 is the countryside or rural area. (서울은 큰 도시예요 / 방학에 시골 할머니 댁에 가요)"
+  },
+  {
+   "words": [
+    "동네",
+    "마을"
+   ],
+   "kind": "synonym",
+   "note": "Both mean a village, neighborhood, or small town community. (우리 동네는 조용해요 / 작은 시골 마을에 살아요)"
+  }
+ ],
+ "tb-46": [
+  {
+   "words": [
+    "내려가다",
+    "올라가다"
+   ],
+   "kind": "contrast",
+   "note": "내려가다 means to go down, while 올라가다 means to go up. (계단을 천천히 내려가요 / 산으로 올라가요)"
+  },
+  {
+   "words": [
+    "나타나다",
+    "사라지다"
+   ],
+   "kind": "contrast",
+   "note": "나타나다 means to appear or show up, while 사라지다 means to vanish or disappear. (주인공이 무대에 나타나요 / 안개가 사라져요)"
+  },
+  {
+   "words": [
+    "도로",
+    "길"
+   ],
+   "kind": "synonym",
+   "note": "Both mean a road or street; 도로 usually refers to paved public roads for cars. (도로에 차가 많아요 / 이 길을 따라 걸어요)"
+  }
+ ],
+ "tb-47": [
+  {
+   "words": [
+    "삼거리",
+    "사거리"
+   ],
+   "kind": "contrast",
+   "note": "삼거리 is a three-way intersection with three branches, while 사거리 is a four-way crossroads. (삼거리에서 우회전해요 / 사거리 신호등이 빨간색이에요)"
+  },
+  {
+   "words": [
+    "동쪽",
+    "서쪽"
+   ],
+   "kind": "contrast",
+   "note": "동쪽 means east, while 서쪽 means west. (동쪽에서 해가 떠요 / 해가 서쪽으로 져요)"
+  },
+  {
+   "words": [
+    "해외여행",
+    "국내여행"
+   ],
+   "kind": "contrast",
+   "note": "해외여행 is traveling to foreign countries abroad, while 국내여행 is traveling within one's own country. (여름에 해외여행을 가요 / 주말에 국내여행을 해요)"
+  }
+ ],
+ "tb-48": [
+  {
+   "words": [
+    "열차",
+    "기차"
+   ],
+   "kind": "synonym",
+   "note": "Both refer to a train running on rail tracks; 기차 is the common everyday word. (열차가 곧 출발해요 / 부산행 기차를 타요)"
+  },
+  {
+   "words": [
+    "전철",
+    "지하철"
+   ],
+   "kind": "synonym",
+   "note": "Both refer to the electric subway/rail transit system. (전철을 타고 출근해요 / 지하철 역이 가까워요)"
+  },
+  {
+   "words": [
+    "취직",
+    "퇴직"
+   ],
+   "kind": "contrast",
+   "note": "취직 means getting hired or starting a job, while 퇴직 means leaving or retiring from a job. (회사에 취직했어요 / 아버지께서 올해 퇴직하세요)"
+  }
+ ],
+ "tb-49": [
+  {
+   "words": [
+    "성공",
+    "실패"
+   ],
+   "kind": "contrast",
+   "note": "성공 means success or succeeding in a goal, while 실패 means failure. (사업에 성공했어요 / 실패해도 다시 도전해요)"
+  },
+  {
+   "words": [
+    "출근",
+    "퇴근"
+   ],
+   "kind": "contrast",
+   "note": "출근 is arriving at work in the morning, while 퇴근 is leaving work at the end of the day. (아침 9시에 출근해요 / 저녁 6시에 퇴근해요)"
+  },
+  {
+   "words": [
+    "조심",
+    "주의"
+   ],
+   "kind": "synonym",
+   "note": "Both mean caution, care, or watchfulness; 조심 is everyday language and 주의 is often seen on signs. (차 조심하세요 / 감전 주의 표시가 있어요)"
+  }
+ ]
+}
