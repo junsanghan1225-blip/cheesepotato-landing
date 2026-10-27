@@ -301,77 +301,138 @@ ${singles}
 ${shopFoot}` + foot;
 }
 /* Yes24 식 책 쪽(운영자 2026-10-18 「판매페이지 · 미리보기 · 책소개」) — shop.json 책에 page 가 있으면 소개 · 특징 · 미리보기 · 저자 · 책 정보 · 자주 묻는 질문을 더 보여 준다. 미리보기 그림은 assets/books/<id>/pv-N.jpg, 크게 보기는 CSS :target(스크립트 없음). */
-const bi3 = (o) => `${esc(o.en)}<br><small class="bk-ko">${esc(o.ko)}</small>`;
-function richBody(k) {
-  const g = k.page; const n = g.previews.length;
-  const pv = g.previews.map((c, i) => `<a href="#pv${i + 1}"><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])} — ${esc(c[1])}" loading="lazy" width="749" height="1058"><span>${esc(c[0])} · ${esc(c[1])}</span></a>`).join('');
-  const lb = g.previews.map((c, i) => `<div class="lb" id="pv${i + 1}"><a class="lbx" href="#preview" aria-label="Close">×</a><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="749" height="1058"><div class="lbn"><a href="#pv${i === 0 ? n : i}">‹ Prev</a><a href="#pv${i + 2 > n ? 1 : i + 2}">Next ›</a></div></div>`).join('');
-  return `<div class="pg-head"><h2>${esc(g.headline.ko)}</h2><p><b>${esc(g.headline.en)}</b></p><p>${esc(g.lead.en)}<br><span class="bk-ko">${esc(g.lead.ko)}</span></p></div>
-<h2>Features · 이 책의 특징</h2>
-<div class="pg-feat">${g.features.map((f) => `<div><i>${f.ic}</i><b>${esc(f.t.en)} <span style="font-weight:500;color:var(--ink-3)">· ${esc(f.t.ko)}</span></b><span>${esc(f.d.en)}<br>${esc(f.d.ko)}</span></div>`).join('')}</div>
-@@SPLIT@@<h2 id="preview">Preview · 미리보기</h2>
-<p class="bk-ko">${esc(g.previewNote.en)} · ${esc(g.previewNote.ko)}</p>
-<div class="pg-pv">${pv}</div>${lb}
-<h2>Author · 지은이</h2>
-<div class="pg-author"><div><b>${esc(g.author.name.ko)} · ${esc(g.author.name.en)}</b><p>${esc(g.author.bio.en)}</p><p class="bk-ko">${esc(g.author.bio.ko)}</p></div></div>
-<h2>Book details · 책 정보</h2>
-<table class="bk-spec">${g.specs.map(([a, b]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</table>
-<h2>FAQ · 자주 묻는 질문</h2>
-<div class="pg-faq">${g.faq.map(([q, a]) => `<details><summary>${esc(q.en)} · ${esc(q.ko)}</summary><p>${esc(a.en)}</p><p class="bk-ko">${esc(a.ko)}</p></details>`).join('')}</div>`;
+/* ── 책 상세 쪽(/shop/<id>/) — 예스24 · 교보문고 식 정보 + 마케팅 랜딩 요소(운영자 2026-10-27 「시안 C 에 B 의 색 있는 윗부분을 섞어서」) ──
+   위: 책 표지 색의 큰 띠(제목 · 한 줄 이득 · 별점 · 믿음 줄 · 구매 단추). 아래: 읽을 거리(왜 필요한가 · 3단계 · 특징 · 미리보기 · 샘플 · 이런 분께 · 비교 · 목차 · 지은이 · 정보 · 리뷰 · 질문) + 따라다니는 구매 카드(폰은 아래 고정 줄).
+   글은 docs/shop-copy.json · 목차 · 미리보기 · 책 정보는 tools/make-book-page.mjs 가 만든 shop.json 의 page. 별점 · 리뷰는 reviews.js 가 Supabase(book_reviews, 승인된 것만)에서 읽는다 — 리뷰가 없으면 「No reviews yet」, 가짜 별점은 없다. */
+const heroColors = (k) => { try { const c = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${k.id}.json`), 'utf8')).coverLevel || {}; return [c.bg || k.color, c.bg2 || c.bg || k.color]; } catch { return [k.color || '#3B1F6E', k.color || '#2A1650']; } };
+const bundleOf = (k) => (SHOP.bundles || []).find((b) => b.status === 'on' && b.polar && b.books.includes(k.id));
+const stars0 = '<span class="stars">☆☆☆☆☆</span>';
+const BOOK_CSS = `<style>
+main{max-width:none;padding:0 0 70px}.hd-in{max-width:1120px}.pg2 table{min-width:0}
+.pg2 .in{max-width:1120px;margin:0 auto;padding:0 20px}.pg2 h2{font-size:24px;line-height:1.3;margin:0 0 14px;border:0;padding:0;color:var(--ink)}.pg2 a{color:var(--orange-deep)}
+.pg2-hero{color:#fff;padding:26px 0 70px;background:linear-gradient(160deg,var(--c1),var(--c2))}.pg2-hg{display:grid;grid-template-columns:1fr 250px;gap:44px;align-items:center}.pg2-hero .crumb{font-size:13px;opacity:.8;margin-bottom:14px}.pg2-hero .crumb a{color:#fff}
+.pg2-chip{display:inline-block;font-size:12px;font-weight:800;padding:3px 11px;border-radius:99px;background:rgba(255,255,255,.18);color:#fff}.pg2-hero h1{font-size:38px;line-height:1.2;margin:10px 0 4px;color:#fff;border:0;padding:0}.pg2-ko{font-size:17px;opacity:.85}.pg2-lead{font-size:20px;font-weight:700;line-height:1.45;margin:16px 0 8px;color:#fff;word-break:keep-all}.pg2-sub{opacity:.92;margin:0 0 12px;max-width:640px}
+.pg2-hero .rv-hero{color:#fff;text-decoration:none;font-size:14px;opacity:.95}.stars{color:#FFC93C;letter-spacing:2px}.pg2-trust{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 0;font-size:14px;opacity:.95}
+.pg2-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pg2 .btn.yel{background:#FFD23F;border-color:#FFD23F;color:#3A2600}.pg2 .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.8)}.pg2-hero .cv img{display:block;width:100%;height:auto;border-radius:3px 9px 9px 3px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.pg2-lay{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:36px;align-items:start;margin-top:-44px}.pg2-main{min-width:0;margin:0;background:var(--surface);border-radius:20px;padding:6px 28px 24px;box-shadow:0 8px 28px rgba(0,0,0,.08)}.pg2-sec{padding:30px 0;border-top:1px solid var(--line)}.pg2-sec:first-child{border-top:0}
+.pg2-card{position:sticky;top:76px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 28px rgba(0,0,0,.1)}.pg2-card .px{font-size:34px;font-weight:900;color:var(--ink);text-align:center;line-height:1.2}.pg2-card .px small{display:block;font-size:13px;font-weight:500;color:var(--ink-3)}.pg2-card .btn{width:100%;margin-top:8px}.pg2-card ul{list-style:none;margin:14px 0 0;font-size:14px;color:var(--ink-2)}.pg2-card li{padding:3px 0}
+.pg2 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:800;font-size:16px;text-decoration:none;border:2px solid var(--orange-deep);background:var(--orange-deep);color:#fff;cursor:pointer}.pg2 .btn.sub{background:var(--surface);color:var(--orange-deep)}
+.pg2-prob{text-align:center;padding:10px 0 4px}.pg2-prob .q{font-size:25px;font-weight:800;line-height:1.35;color:var(--ink);word-break:keep-all}.pg2-prob p{color:var(--ink-2);max-width:640px;margin:8px auto 0}
+.pg2-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.pg2-steps div{background:var(--tint);border-radius:14px;padding:16px;font-size:14.5px}.pg2-steps i{font-style:normal;font-size:28px}.pg2-steps b{display:block;font-size:17px;color:var(--ink)}
+.pg2-feat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.pg2-feat div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px}.pg2-feat i{font-style:normal;font-size:26px}.pg2-feat b{display:block;margin:4px 0 2px;color:var(--ink)}.pg2-feat span{font-size:14px;color:var(--ink-2)}.pg2-feat small{color:var(--ink-3)}
+.pg2-pv{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.pg2-pv a{display:block;text-decoration:none;color:var(--ink-3);font-size:12px}.pg2-pv img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.pg2-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pg2-two>div{border:1px solid var(--line);border-radius:14px;padding:15px;font-size:14.5px}.pg2-two b{color:var(--ink)}.pg2-two ul{margin:6px 0 0 18px}
+.pg2-cmp{width:100%;table-layout:fixed;overflow-wrap:anywhere;border-collapse:collapse;margin-top:14px;font-size:14.5px}.pg2-cmp th,.pg2-cmp td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.pg2-cmp th:first-child,.pg2-cmp td:first-child{width:40%}.pg2-cmp tr.me{background:var(--tint);font-weight:700}
+.pg2 details.toc{border:1px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden}.pg2 details.toc summary{cursor:pointer;padding:12px 16px;font-weight:800;color:var(--ink);background:var(--tint);display:flex;justify-content:space-between;gap:10px}.pg2 details.toc summary em{font-style:normal;font-weight:500;color:var(--ink-3);white-space:nowrap}.pg2 details.toc .r{display:flex;justify-content:space-between;gap:10px;padding:8px 16px;border-top:1px solid var(--line);font-size:14px}.pg2 details.toc .r em{font-style:normal;color:var(--ink-3);white-space:nowrap}
+.pg2-spec{border-collapse:collapse;width:100%;table-layout:fixed;overflow-wrap:anywhere}.pg2-spec th{text-align:left;width:150px;color:var(--ink-3);font-weight:600;padding:8px 0;border-bottom:1px solid var(--line)}.pg2-spec td{padding:8px 0;border-bottom:1px solid var(--line)}
+.pg2-rev{border:1px dashed var(--line);border-radius:14px;padding:20px;text-align:center}.rv-item{border-top:1px solid var(--line);padding:12px 0;text-align:left}.rv-item .who{font-size:13px;color:var(--ink-3)}.rv-sum{font-size:18px;margin-bottom:10px;color:var(--ink)}
+.pg2-faq details{border-top:1px solid var(--line);padding:10px 0}.pg2-faq summary{cursor:pointer;font-weight:700;color:var(--ink)}.pg2-faq p{margin:8px 0 0}
+.pg2-more{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.pg2-more a{text-decoration:none;color:var(--ink);font-size:13px}.pg2-more img{display:block;width:100%;height:auto;aspect-ratio:700/995;border-radius:2px 6px 6px 2px;box-shadow:0 6px 14px rgba(0,0,0,.18);margin-bottom:6px}
+.pg2-bundle{margin-top:14px;padding:12px;border-radius:12px;background:var(--tint);font-size:14px}.pg2-bar{display:none}
+@media(max-width:900px){.pg2-hg{grid-template-columns:1fr}.pg2-hero .cv{max-width:180px;order:-1}.pg2-hero h1{font-size:29px}.pg2-lay{grid-template-columns:minmax(0,1fr);margin-top:-34px}.pg2-card{display:none}.pg2-main{padding:4px 16px 18px;border-radius:16px}.pg2-steps,.pg2-feat,.pg2-two{grid-template-columns:1fr}.pg2-pv,.pg2-more{grid-template-columns:repeat(2,1fr)}.pg2-prob .q{font-size:21px}.pg2 h2{font-size:21px}.pg2-spec th{width:110px}
+.pg2-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--surface);border-top:1px solid var(--line);padding:9px 14px;gap:10px;align-items:center}.pg2-bar b{font-size:20px;color:var(--ink)}.pg2-bar .btn{flex:1;padding:11px}}
+</style>\n`;
+
+
+/* 결제 뒤 돌아오는 감사 · 리뷰 쪽(/shop/thanks/) — Polar 결제 링크의 success_url(tools/polar-links.mjs). 검색에는 안 나오게 noindex. */
+function thanksPage() {
+  const opts = SHOP.books.filter((b) => b.status === 'on').map((b) => `<option value="${esc(b.id)}">${esc(b.title.en)}</option>`).join('');
+  return head('Thank you', 'Thank you for your purchase. How to download your files and how to leave a review.', '/shop/thanks/', '<meta name="robots" content="noindex">\n' + BOOK_CSS + SHOP_CSS + '<style>.rate{display:flex;gap:4px;margin:6px 0 12px}.rate button{font-size:34px;line-height:1;background:none;border:0;color:#E0A100;cursor:pointer;padding:2px}.rv-f label{display:block;font-weight:700;color:var(--ink);margin-top:12px}.rv-f select,.rv-f input[type=text],.rv-f textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--surface);color:var(--ink)}.rv-f textarea{min-height:110px}</style>\n') +
+`<div class="pg2"><div class="in" style="max-width:720px;padding-top:44px">
+<h1 style="font-size:34px;line-height:1.2">Thank you! · 감사합니다</h1>
+<p style="font-size:18px">Your purchase went through. Here is how to get your file.</p>
+<div class="pg2-steps" style="grid-template-columns:1fr"><div><b>1 · Download now</b>Use the download button on the payment confirmation page, or the link in the receipt email Polar sent you.</div><div><b>2 · Download again later</b>You can always get your files again from your <a href="https://polar.sh/everykoreans/portal" rel="noopener">Polar customer portal</a> (sign in with the email you paid with).</div><div><b>3 · Something wrong?</b>Write to <a href="mailto:cheesepotato@everykoreans.com">cheesepotato@everykoreans.com</a> with the email you paid with and we will sort it out.</div></div>
+<h2 style="margin-top:34px">Keep practising · 계속 공부해요</h2>
+<p>Each unit has a QR code to free practice on everykoreans.com. More free lessons, worksheets and TOPIK practice are on the <a href="/">home page</a>.</p>
+<section id="review" style="margin-top:34px"><h2>How is the book? · 책은 어땠나요?</h2>
+<p>A few honest words help other learners choose. We read every review before it appears on the book page.</p>
+<form class="rv-f" data-review novalidate>
+  <label for="rvbook">Which book? · 어떤 책?</label><select id="rvbook" name="book">${opts}</select>
+  <label>Your rating · 별점</label><div class="rate">${[1, 2, 3, 4, 5].map((n) => `<button type="button" data-star="${n}" aria-label="${n} star${n > 1 ? 's' : ''}" aria-pressed="false">☆</button>`).join('')}</div>
+  <label for="rvname">Name (optional, first name or initials) · 이름(선택)</label><input id="rvname" type="text" name="name" maxlength="40" autocomplete="given-name">
+  <label for="rvbody">Your review (optional) · 후기(선택)</label><textarea id="rvbody" name="body" maxlength="1500"></textarea>
+  <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp">
+  <label class="lead-tips" style="font-weight:400"><input type="checkbox" name="ok"> <span>You may show my review (with the name above, if I typed one) on everykoreans.com · 리뷰를 사이트에 공개해도 좋아요</span></label>
+  <button class="btn" type="submit" style="margin-top:14px">Send my review</button>
+  <p class="lead-msg" role="status" aria-live="polite"></p>
+</form></section>
+<p style="margin-top:30px"><a class="btn sub" href="/shop/">← Back to the shop</a></p></div></div>
+<script src="/reviews.js" defer></script>` + foot;
 }
-const tocRich = (k) => k.page.contents.map((c) => `<div class="pg-toc"><h3>${esc(c.part.en)} · ${esc(c.part.ko)}</h3>${c.items.map(([t, p]) => `<div><span>${esc(t)}</span><em>${esc(p)}</em></div>`).join('')}</div>`).join('') + '<p class="bk-ko">쪽 번호는 책에 인쇄된 번호입니다 · Page numbers are those printed in the book.</p>';
+function bookPage(k) {
+  const g = k.page || {};
+  const on = k.status === 'on' && k.polar;
+  const base = `/shop/${k.id}/`;
+  const [c1, c2] = heroColors(k);
+  const bundle = bundleOf(k);
+  const isbn = frameIsbn(k.id);
+  const level = k.level;
+  const stDev = { en: k.pages ? '' : '' };
+  const sample = k.sample ? `${base}#sample` : '';
+  const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}">Buy the PDF · $${esc(k.price)}</a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
+  const ctaSub = k.sample ? `<a class="btn ghost" href="#sample">Free sample</a>` : '';
+  const cp = (o) => o ? `${esc(o.en)}${o.ko ? ` <small>· ${esc(o.ko)}</small>` : ''}` : '';
+  const pvN = (g.previews || []).length;
+  const pv = (g.previews || []).map((c, i) => `<a href="#pv${i + 1}"><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])} — ${esc(c[1])}" loading="lazy" width="749" height="1058">${esc(c[0])} · ${esc(c[1])}</a>`).join('');
+  const lb = (g.previews || []).map((c, i) => `<div class="lb" id="pv${i + 1}"><a class="lbx" href="#preview" aria-label="Close">×</a><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="749" height="1058"><div class="lbn"><a href="#pv${i === 0 ? pvN : i}">‹ Prev</a><a href="#pv${i + 2 > pvN ? 1 : i + 2}">Next ›</a></div></div>`).join('');
+  const related = (g.related || []).map((id) => SHOP.books.find((b) => b.id === id)).filter((b) => b && b.page?.pick);
+  const cmp = related.length > 1 ? `<h3 style="margin:22px 0 4px;color:var(--ink)">Which book is right for you?</h3><table class="pg2-cmp"><tr><th>Book</th><th>Pick it if…</th></tr>${related.map((b) => `<tr${b.id === k.id ? ' class="me"' : ''}><td>${b.id === k.id ? esc(b.title.en) : `<a href="/shop/${b.id}/">${esc(b.title.en)}</a>`}<br><small>${esc(b.level)} · $${esc(b.price)}</small></td><td>${esc(b.page.pick)}</td></tr>`).join('')}</table>` : '';
+  const toc = (g.contents || []).map((c, i) => `<details class="toc"${i === 1 || (g.contents.length === 1) ? ' open' : ''}><summary><span>${esc(c.part.en)}${c.part.ko ? ` · ${esc(c.part.ko)}` : ''}</span><em>${c.items.length}</em></summary>${c.items.map(([t, p]) => `<div class="r"><span>${esc(t)}</span><em>p. ${esc(p)}</em></div>`).join('')}</details>`).join('');
+  const more = SHOP.books.filter((b) => b.id !== k.id && b.coverImg && b.status === 'on').slice(0, 4).map((b) => `<a href="/shop/${b.id}/"><img src="${esc(b.coverImg)}" alt="" loading="lazy" width="700" height="995"><b>${esc(b.title.en)}</b><br>$${esc(b.price)}</a>`).join('');
+  const notify = !on ? `<div class="lead-box" id="notify" style="margin:18px 0 0"><b>Tell me when it is out · 나오면 알려 주세요</b><p>Leave your email and we will write to you once when this book is available.</p><form data-lead="notify-${esc(k.id)}" novalidate><div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><input type="checkbox" name="tips" checked hidden><button class="btn main" type="submit">Notify me</button></div><p class="lead-msg" role="status" aria-live="polite"></p></form></div>` : '';
+  const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: k.title.en, description: k.sub.en, sku: k.id, ...(k.coverImg ? { image: `https://everykoreans.com${k.coverImg}` } : {}), brand: { '@type': 'Brand', name: pub.en }, ...(isbn ? { isbn } : {}), ...(on ? { offers: { '@type': 'Offer', price: k.price, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `https://everykoreans.com${base}` } } : {}) })}</script>\n`;
+  const head2 = `${BOOK_CSS}<style>.pg2{--c1:${c1};--c2:${c2}}</style>\n${SHOP_CSS}${ld}`;
+  const body = `<div class="pg2">
+<section class="pg2-hero"><div class="in"><div class="crumb"><a href="/shop/">Books</a> › ${esc(level)} › ${esc(k.title.en)}</div><div class="pg2-hg"><div>
+  <span class="pg2-chip">${esc(level)} · PDF${on ? '' : ' · Coming soon'}</span><h1>${esc(k.title.en)}</h1><div class="pg2-ko">${esc(k.title.ko)} · Junsang</div>
+  <p class="pg2-lead">${esc(g.headline?.en || k.sub.en)}${g.headline?.ko ? `<br><span style="font-weight:500;font-size:16px;opacity:.88">${esc(g.headline.ko)}</span>` : ''}</p>
+  <p class="pg2-sub">${esc(g.lead?.en || k.about.en)}</p>
+  <a class="rv-hero" href="#reviews" data-rv-hero>${stars0} <span>No reviews yet</span></a>
+  <div class="pg2-trust"><span>${on ? '⚡ Instant download' : '📄 PDF edition'}</span><span>✅ Answer key included</span><span>👩‍🏫 By a Korean teacher</span></div>
+  <div class="pg2-cta">${ctaMain}${ctaSub}</div></div><div class="cv">${k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
+<div class="in"><div class="pg2-lay"><main class="pg2-main">
+${notify}
+${g.problem ? `<section class="pg2-sec pg2-prob"><div class="q">${esc(g.problem.q)}</div><p>${esc(g.problem.a)}</p>${g.steps ? `<div class="pg2-steps">${g.steps.map((s, i) => `<div><i>${s.ic}</i><b>${i + 1} · ${esc(s.t)}</b>${esc(s.d)}</div>`).join('')}</div>` : ''}</section>` : `<section class="pg2-sec"><h2>About this book · 책 소개</h2><p>${esc(k.about.en)}</p><p>${esc(k.about.ko)}</p></section>`}
+${g.features ? `<section class="pg2-sec"><h2>What is inside · 이 책의 특징</h2><div class="pg2-feat">${g.features.map((f) => `<div><i>${f.ic}</i><b>${cp(f.t)}</b><span>${esc(f.d.en)}<br><small>${esc(f.d.ko)}</small></span></div>`).join('')}</div></section>` : ''}
+${pvN ? `<section class="pg2-sec" id="preview"><h2>Look inside · 미리보기</h2><p style="color:var(--ink-3);margin:-6px 0 12px">${esc(g.previewNote.en)} <small>· ${esc(g.previewNote.ko)}</small></p><div class="pg2-pv">${pv}</div>${lb}</section>` : ''}
+${k.sample ? `<section class="pg2-sec">${sampleBox(k)}</section>` : ''}
+<section class="pg2-sec"><h2>Is this the right book? · 이런 분께</h2><div class="pg2-two"><div><b>✔ It is for you if…</b><ul>${k.for.en.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div><div><b>✘ It is not for…</b><ul>${(g.notFor || ['Learners looking for a different level']).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div></div>${cmp}</section>
+${toc ? `<section class="pg2-sec"><h2>Contents · 목차</h2>${toc}<p style="color:var(--ink-3);font-size:13px">Page numbers are those printed in the book · 쪽 번호는 책에 인쇄된 번호입니다.</p></section>` : ''}
+${g.author ? `<section class="pg2-sec"><h2>Author · 지은이</h2><p><b style="color:var(--ink)">${esc(g.author.name.ko)} · ${esc(g.author.name.en)}</b></p><p>${esc(g.author.bio.en)}</p><p style="color:var(--ink-3)">${esc(g.author.bio.ko)}</p></section>` : ''}
+${g.specs ? `<section class="pg2-sec"><h2>Book details · 책 정보</h2><table class="pg2-spec">${g.specs.map(([a, b]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}<tr><th>Price · 가격</th><td>$${esc(k.price)}</td></tr></table></section>` : ''}
+<section class="pg2-sec" id="reviews" data-reviews="${esc(k.id)}"><h2>Reviews · 리뷰</h2><div class="rv-sum" data-rv-sum>${stars0} <span>No reviews yet</span></div><div data-rv-list></div>
+  <div class="pg2-rev"><b style="color:var(--ink)">Bought this book?</b><p>Tell other learners what you think. Reviews are checked before they appear.</p><a class="btn sub" href="/shop/thanks/?book=${esc(k.id)}#review">Write a review</a></div></section>
+${g.faq ? `<section class="pg2-sec"><h2>FAQ · 자주 묻는 질문</h2><div class="pg2-faq">${g.faq.map(([q, a]) => `<details><summary>${esc(q.en)} · ${esc(q.ko)}</summary><p>${esc(a.en)}</p><p style="color:var(--ink-3)">${esc(a.ko)}</p></details>`).join('')}</div></section>` : ''}
+${more ? `<section class="pg2-sec"><h2>More books · 다른 책</h2><div class="pg2-more">${more}</div><p style="margin-top:14px"><a class="btn sub" href="/shop/">← All books</a></p></section>` : ''}
+${shopFoot}
+</main>
+<aside class="pg2-card">
+  ${on ? `<div class="px">$${esc(k.price)}<small>PDF · instant download</small></div><a class="btn" href="${esc(k.polar)}" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-card">Buy the PDF</a>` : `<div class="px">Coming soon<small>${esc(level)}</small></div><a class="btn" href="#notify">Tell me when it is out</a>`}
+  ${k.sample ? `<a class="btn sub" href="#sample">Free sample · ${k.sample.pages} pages</a>` : ''}
+  <ul><li>⚡ Instant download after payment</li><li>✅ Answer key included</li><li>🖨️ Prints on A4 or B5</li>${isbn ? `<li>🔖 ISBN ${esc(isbn)} (PDF)</li>` : ''}</ul>
+  ${bundle ? `<div class="pg2-bundle">📦 <b>${esc(bundle.title.en)}</b><br>$${esc(bundle.price)} instead of $${bundle.books.reduce((a, id) => a + parseFloat(SHOP.books.find((b) => b.id === id).price), 0).toFixed(2)} · <a href="${esc(bundle.polar)}" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bundle">Buy the bundle →</a></div>` : ''}
+</aside></div></div>
+<div class="pg2-bar">${on ? `<b>$${esc(k.price)}</b><a class="btn" href="${esc(k.polar)}" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bar">Buy PDF</a>` : `<b>Soon</b><a class="btn" href="#notify">Notify me</a>`}${k.sample ? '<a class="btn sub" href="#sample">Sample</a>' : ''}</div>
+</div>
+<script src="/subscribe.js" defer></script><script src="/reviews.js" defer></script>`;
+  return head(`${k.title.en} — ${pub.en}`, `${g.headline?.en || k.sub.en} ${k.sub.en}`.slice(0, 300), base, head2) + body + foot;
+}
 
 /* 책 쪽 「무료 샘플」 상자 — 이메일을 내면 db/add_email_leads.sql 의 표에 한 줄(subscribe.js), 이메일 없이도 바로 받을 수 있다. */
 function sampleBox(k) {
   if (!k.sample) return '';
   const f = `/assets/books/${k.id}/sample.pdf`;
   const mb = (fs.statSync(path.join(ROOT, f.slice(1))).size / 1048576).toFixed(1);
-  return `<div class="lead-box" id="sample">
+  return `<div class="lead-box" id="sample" style="margin:0">
   <b>Free sample · 무료 샘플</b>
-  <p>The cover, contents and first units of the book (${k.sample.pages} pages, PDF ${mb} MB) — see exactly what you get.</p>
+  <p>The cover, contents and first units of the book (${k.sample.pages} pages, PDF ${mb} MB): see exactly what you get.</p>
   <form data-lead="shop-${esc(k.id)}" novalidate>
     <div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><button class="btn main" type="submit">Get the free sample</button></div>
     <label class="lead-tips"><input type="checkbox" name="tips"> <span>Also send me study tips and new-book news (optional) · 학습 소식도 받기 (선택)</span></label>
     <p class="lead-msg" role="status" aria-live="polite"></p>
   </form>
   <a class="lead-dl" href="${f}" download data-ev="샘플받기" data-ev-from="${esc(k.id)}">↓ Download the sample now, no email needed · 이메일 없이 바로 받기</a>
-</div>
-<script src="/subscribe.js" defer></script>`;
-}
-function bookPage(k) {
-  const toc = bookToc(k);
-  const st = STATUS[k.status] || [k.status, ''];
-  return head(`${k.title.en} — ${pub.en}`, `${k.sub.en} ${st[0]}.`, `/shop/${k.id}/`, SHOP_CSS) +
-`${shopHead()}
-<div class="bk-detail">
-${cover(k, true)}
-<div class="bk-info">
-  <span class="bk-badge">${esc(st[0])} · ${esc(st[1])}</span>
-  <h1>${esc(k.title.en)}</h1>
-  <p class="bk-ko">${esc(k.title.ko)}</p>
-  <p><b>${esc(k.sub.en)}</b><br>${esc(k.sub.ko)}</p>
-  <table class="bk-spec">
-    <tr><th>Level · 급</th><td>${esc(k.level)}</td></tr>
-    <tr><th>Size · 판형</th><td>${esc(k.trim || '')}</td></tr>
-    <tr><th>Pages · 쪽수</th><td>${esc(k.pages || '')}</td></tr>
-    <tr><th>Publisher</th><td>${esc(pub.en)} · ${esc(pub.ko)}</td></tr>
-    ${k.page ? '<tr><th>Format · 형태</th><td>PDF · digital edition · 디지털판</td></tr>' : ''}${frameIsbn(k.id) ? `<tr><th>ISBN</th><td>${esc(frameIsbn(k.id))} (PDF)</td></tr>` : (k.page ? '' : `<tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>`)}
-  </table>
-  ${buy(k.polar, k.price || '', 'Buy')}
-  ${sampleBox(k)}
-</div>
-</div>
-${k.page ? richBody(k).split('@@SPLIT@@')[0] : `<h2>About this book · 책 소개</h2>
-<p>${esc(k.about.en)}</p>
-<p class="bk-ko">${esc(k.about.ko)}</p>`}
-<h2>Who it is for · 이런 분께</h2>
-<ul>${k.for.en.map((x, i) => `<li>${esc(x)} <small class="bk-ko">· ${esc(k.for.ko[i] || '')}</small></li>`).join('')}</ul>
-<h2>Contents · 목차</h2>
-${k.page?.contents ? tocRich(k) : ''}<ol class="bk-toc"${k.page?.contents ? ' hidden' : ''}>${toc.map((t) => `<li>${t.u ? `<a href="${t.u}">${esc(t.en)}</a>` : esc(t.en)}<small>${esc(t.ko)}</small></li>`).join('')}</ol>
-${k.sheets ? '<p>Each unit is based on a free worksheet on this site — open any unit above to try it now.</p>' : ''}
-${k.page ? richBody(k).split('@@SPLIT@@')[1] : ''}
-<p><a class="btn sub" href="/shop/">← All books</a></p>
-${shopFoot}` + foot;
+</div>`;
 }
 
 if (bad.length) { console.error('학습지 자료에 문제가 있다:\n  - ' + bad.join('\n  - ')); process.exit(1); }
@@ -379,6 +440,7 @@ const out = new Map(sheets.map((w) => [`${w.id}-worksheet/index.html`, sheetPage
 out.set('worksheets/index.html', hubPage());
 out.set('shop/index.html', shopPage());
 for (const k of SHOP.books) out.set(`shop/${k.id}/index.html`, bookPage(k));
+out.set('shop/thanks/index.html', thanksPage());
 /* 자료실(#library)이 한 번에 펼쳐 보여 주는 목록 — 손으로 쓴 쪽 + 만든 쪽 */
 out.set('worksheets/list.json', JSON.stringify([...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level }))]) + '\n');
 let diff = 0;
