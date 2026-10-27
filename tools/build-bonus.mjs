@@ -114,7 +114,7 @@ ${d.game ? `<h2 class="bk-h">🎮 짝 맞추기 게임 <small>Match game</small>
 <h2 class="bk-h">빈칸 쓰기 <small>Fill in the blank</small></h2><p class="bk-sub">한글로 쓰고 [확인]을 누르세요. · Type in Hangul, then press Check.</p>${fill}
 <div class="bsc"><span>점수 · Score</span><span class="bscore">0 / ${total}</span></div>
 <p class="bfin" hidden>끝! 틀린 곳은 책 정답 쪽과 같이 다시 보세요. · Done! Review your misses with the book's answer key.</p><p class="bbest" hidden></p>
-<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a><a class="btn sub" href="/${u}-worksheet/">인쇄용 학습지 · Printable sheet</a></div>
+<div class="bcta"><a class="btn main" href="/#learn">앱에서 더 연습하기<span> · Practice more free</span></a>${fs.existsSync(path.join(ROOT, `docs/worksheets/${u}.json`)) ? `<a class="btn sub" href="/${u}-worksheet/">인쇄용 학습지 · Printable sheet</a>` : ''}</div>
 </div>
 ` + foot;
     fs.mkdirSync(path.join(ROOT, 'bonus', id, u), { recursive: true });

@@ -175,7 +175,7 @@ for (const p of POINTS) {
   byCat.get(p.cat.id).items.push({ p, free });
 }
 export const WS_MADE = n;
-const list = (pro) => [...byCat.values()].map(({ cat, items }) => `<h2>${esc(cat.ko)} · ${esc(cat.en || '')}</h2><ul class="pts">${items.map(({ p, free }) => `<li><a href="/worksheet/${pro ? 'pro/' : ''}${p.id}.html">${esc(p.name)}</a>${pro ? '' : free ? ' <small>무료 · Free</small>' : ' <small>🔒 Pro</small>'}</li>`).join('')}</ul>`).join('\n');
+const list = (pro) => [...byCat.values()].map(({ cat, items }) => `<h2>${esc(cat.ko)} · ${esc(cat.en || '')}</h2><ul class="pts">${items.map(({ p, free }) => `<li><a href="/worksheet/${pro && !free ? 'pro/' : ''}${p.id}.html">${esc(p.name)}</a>${pro ? '' : free ? ' <small>무료 · Free</small>' : ' <small>🔒 Pro</small>'}</li>`).join('')}</ul>`).join('\n');
 writeFileSync(join(OUT, 'index.html'), head(`Free Korean Grammar Worksheets (Printable PDF) — Beginner Grammar | CheesePotato`,
   `${nFree} free printable Korean grammar worksheets for beginners, plus ${n - nFree} more with Pro: explanation, examples, fill-in-the-blank, writing practice and an answer key.`, '/worksheet/') + `
 <h1>문법 학습지 · Grammar worksheets</h1>
