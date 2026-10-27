@@ -2,6 +2,8 @@
   "_note": "책 한 권의 틀: node tools/build-book.mjs first-steps-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리다(출판 준비가 되면 운영자가 채운다). 글은 우리 사이트 학습지를 책 쪽으로 옮긴 것.",
   "id": "first-steps-workbook",
   "published": "2026.11.10",
+  "isbn": "979-11-222407-5-7",
+  "isbnPrice": "9.9달러",
   "edition": "Draft proof · 시안",
   "theme": "classic",
   "color": "#E8642C",
