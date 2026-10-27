@@ -31,6 +31,7 @@
 |---|---|
 | 「머지해줘」 | `node tools/preflight.mjs` → 커밋 · 푸시 → PR → CI 초록불 → squash 머지(`expectedHeadSha`) → 작업 브랜치를 새 main 으로 다시 세움(`git checkout -B <브랜치> origin/main && git merge -s ours origin/<브랜치>` → 푸시). 「머지해줘」가 없으면 PR 까지만. |
 | 「안티가 올렸어」 | `node tools/ag-status.mjs` → 🆕 인 브랜치만 → 그 지시서의 「지킬 것」대로 검토(다른 칸 안 바뀜 · 사실 · 기출) → 고칠 것은 고쳐 넣음 → 생성 도구 · 자국 → PR → `docs/antigravity/STATUS.md` 고침. 🆕 가 없으면 「아직 안 올라왔다」고 바로 말한다. |
+| 「잘자」 · 「자라」(운영자가 쉬러 갈 때) | **오늘 한 일을 쉬운 말로 정리**(한 일 · 정한 것 · 남은 일 · 내일 할 일)하고 `docs/todo.md` 를 마지막으로 맞춘 뒤 푸시. 그 뒤에 인사. |
 | 「SQL 돌렸어」 · 「배포했어」 · 「설정했어」 | `docs/todo.md` 운영자 줄을 「끝난 것」으로 → 그다음 단계를 말한다. |
 | Clarity CSV · 숫자 판 캡처 | 나라 · 기기 · 입구 · 머문 시간 · 한 사람이 여러 번인지(유럽 — 쿠키 동의 전) 를 보고 이상한 것 · 고칠 것 1~3개. 숫자는 숫자 판이 기준. |
 | 「앱 …」 | 앱 저장소 `/home/user/cheesepotatoapp`(없으면 add_repo) — 그 저장소 `AGENTS.md` 먼저. 앱 저장소엔 CI 가 없으니 `npx tsc --noEmit` 으로 확인. |
@@ -89,6 +90,7 @@
   | `bonus/`(책 QR 보너스 연습 — 단원마다 낱말 카드 · 퀴즈 · 빈칸 쪽, 책 QR 이 여는 곳) | `docs/bonus/<책 id>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-bonus-task.md`, 검사 `check-bonus`) → `node tools/build-bonus.mjs` |
   | `podcast-episodes.json`(팟캐스트 올리기 쪽 에피소드 목록) | `docs/podcast/ep*.md`(대본) → `node tools/build-podcast.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
+- **책 표지 색은 안 겹치게**(운영자 2026-10-26 「앞으로 표지는 절대로 안 겹치게」): 새 책의 표지 색(`coverLevel.bg`)은 이미 있는 책들과 달라야 한다 — `node tools/check-cover-colors.mjs`(CI · preflight 에 들어 있음, 겹치면 실패), 빈 색은 `--suggest`. 예외는 이미 같은 보라로 나간 TOPIK II 책 여섯뿐.
 - **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.
   첫 쪽 · `llms.txt` 의 숫자(문항 수 등)가 바뀌면 `check-geo` 가, 없는 문서 경로는 `check-docs` 가 알려 준다.
 - **말투:** 코드 주석은 주변처럼 한국어로, 「왜」를 적는다. 사용자에게 보이는 글은 `t('한국어', 'English')` 로 둘 다.

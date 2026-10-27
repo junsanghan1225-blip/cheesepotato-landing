@@ -18,7 +18,7 @@ const kor = (t) => (String(t).match(/[가-힣]+/g) || []).join('');
 const first = (en) => String(en).split(';')[0].trim();
 const TYPES = [
   { t: 'idiom', pos: 'idiom', ko: '관용구', en: 'Idioms and Set Phrases', unit: 'Idioms and Set Phrases', ex: '발이 넓다', cols: 2, cloze: 'Fill in the blank with the right idiom. Put it in the right form (change the ending).', clozeKo: '대화의 빈칸에 알맞은 관용구를 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요.' },
-  { t: 'proverb', pos: 'proverb', ko: '속담', en: 'Proverbs', unit: 'Proverbs', ex: '가는 말이 고와야 오는 말이 곱다', cols: 1, cloze: 'Fill in the blank with the right proverb.', clozeKo: '대화의 빈칸에 알맞은 속담을 상자에서 골라 쓰세요.' },
+  { t: 'proverb', pos: 'proverb', ko: '속담', en: 'Proverbs', unit: 'Proverbs', ex: '가는 말이 고와야 오는 말이 곱다', cols: 1, cloze: 'Fill in the blank with the right proverb. Put it in the right form (change the ending if needed).', clozeKo: '대화의 빈칸에 알맞은 속담을 상자에서 골라 알맞은 형태(어미)로 바꿔 쓰세요.' },
   { t: 'idiom4', pos: 'four-character idiom', ko: '사자성어', en: 'Four-Character Idioms', unit: 'Four-Character Idioms', ex: '일석이조', cols: 2, cloze: 'Fill in the blank with the right four-character idiom.', clozeKo: '대화의 빈칸에 알맞은 사자성어를 상자에서 골라 쓰세요.' },
 ];
 const sortKey = (a, b) => (a.lv - b.lv) || String(a.topics?.[0] || '~').localeCompare(String(b.topics?.[0] || '~')) || a.head.localeCompare(b.head, 'ko');

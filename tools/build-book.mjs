@@ -288,6 +288,8 @@ function titlePage() {
   return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${logoSvg({ fg: '#14264A', one: true, height: '5mm' })}</span></div></div>`;
 }
 /* 출판사 신고(2026-10-20, 경기도 수원시 영통구청 — 운영자 「출판사 신고확인증」). 주소는 판권면에 적지 않는다(신고 주소가 집 주소라서 공개하지 않는다) */
+/* ISBN 이 승인된 책(책 틀 isbn · isbnPrice): 한국서지표준센터가 준 바코드(ISBN · 부가기호 · 값이 들어 있다)를 뒤표지에 넣는다 — assets/books/<책 id>/isbn-barcode.png */
+const ISBN_BC = (() => { if (!B.isbn) return ''; const f = path.join(ROOT, `assets/books/${B.id}/isbn-barcode.png`); return fs.existsSync(f) ? `data:image/png;base64,${fs.readFileSync(f).toString('base64')}` : ''; })();
 const PUBLISHER_NO = '제 2026-000158 호 (Reg. no. 2026-000158 · Suwon Yeongtong-gu, Gyeonggi-do)';
 function copyrightPage() {
   return `<div class="blk plain"><div class="cr">
@@ -298,7 +300,7 @@ ${B.reviewer ? `<dt>Reviewed by · 검수</dt><dd>${esc(B.reviewer.ko)} (${esc(B
 <dt>Publisher reg. no. · 출판사 신고번호</dt><dd>${PUBLISHER_NO}</dd>
 ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요</dd>
 <dt>Edition · 판</dt><dd>${esc(B.digitalEdition || 'First digital edition · 디지털판 초판')}</dd>
-<dt>Published · 발행</dt><dd>${B.published || new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
+<dt>Published · 발행</dt><dd>${B.published || new Date().toISOString().slice(0, 7).replace('-', '.')}</dd>${B.isbn ? `\n<dt>ISBN</dt><dd>${esc(B.isbn)} (PDF)</dd>\n<dt>Price · 정가</dt><dd>${esc(B.isbnPrice || '')}</dd>` : ''}` : `<dt>ISBN</dt><dd class="ph">발급 후 기재 · to be assigned</dd>
 <dt>Edition · 판</dt><dd>${esc(B.edition)}</dd>
 <dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>`}
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>
@@ -940,7 +942,7 @@ body{width:${CW}mm;height:${CH}mm;font-family:'Pretendard Variable',sans-serif;p
 .back li small{display:block;color:#8a8278;font-size:8.4pt}
 .back .pts{margin-top:7mm;font-size:8.8pt;line-height:1.5}.back .pts div{padding:1.4mm 0;border-top:.25mm solid #e6d9c8}.back .pts b{color:${ACC};margin-right:2mm;letter-spacing:.06em;font-size:7.6pt}.back .pts span{color:#8a8278;margin-left:2mm}
 .back .for{margin-top:6mm;font-size:8.8pt;color:#6d655c;line-height:1.6}
-.back .bar{position:absolute;right:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;width:62mm;height:34mm;background:#fff;border:.3mm dashed #c9bfae;display:flex;align-items:center;justify-content:center;text-align:center;font-size:7.4pt;color:#a49a8a;line-height:1.5}
+.back .bar.bc{border:0;padding:0;height:44mm}.back .bar.bc img{width:100%;height:100%;object-fit:contain}.back .bar{position:absolute;right:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;width:62mm;height:34mm;background:#fff;border:.3mm dashed #c9bfae;display:flex;align-items:center;justify-content:center;text-align:center;font-size:7.4pt;color:#a49a8a;line-height:1.5}
 .back .pr{position:absolute;left:${T.bleed + 18}mm;bottom:${T.bleed + 14}mm;font-size:8.4pt;color:#6d655c;line-height:1.6}.back .pr b{font-size:9.8pt;color:#1d1a17}
 `;
 const classicCover = CLASSIC ? `.front{background:#1F3A68}.front .c2{display:none}.front .g{display:block;top:auto;bottom:40mm;right:16mm;width:auto;font-size:74pt;font-weight:900;color:rgba(217,179,91,.14);letter-spacing:.02em;line-height:1.08;white-space:pre;text-align:right}.front .c1{display:block;right:-52mm;bottom:-52mm;width:158mm;height:158mm;background:transparent;border:.5mm solid rgba(217,179,91,.42)}.front:after{content:'';position:absolute;left:8mm;top:8mm;right:8mm;bottom:8mm;border:.3mm solid rgba(217,179,91,.38);pointer-events:none}.front h1 .hl{color:#D9B35B}.front .g svg{display:block;width:96mm;height:67mm;overflow:visible}.front .z:before{content:'';position:absolute;left:0;right:0;top:0;height:1px}
@@ -969,7 +971,7 @@ const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ell
 .lvc .au{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(50px + var(--b));display:flex;justify-content:space-between;font-size:15px;font-weight:700}.lvc .au small{font-size:11px;letter-spacing:.24em;font-weight:500;color:${LVG[0]}}
 .front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
 const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>KOREAN WORKBOOK SERIES</span><span>한국어 워크북 시리즈</span></div><div class="r1"></div>
-<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1>${esc(LV.title[1])}</h1><div class="c">${esc(LV.title[2])}</div></div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
+<div class="tt"><div class="a">${esc(LV.title[0])}</div><h1${LV.h1 ? ` style="font-size:${LV.h1}px"` : ''}>${esc(LV.title[1])}</h1>${LV.title[2] ? `<div class="c">${esc(LV.title[2])}</div>` : ''}</div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
 <div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
 const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
@@ -978,8 +980,8 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <ul>${(B.back?.items || [[`${B.unitCount ?? units.length} units · ${B.unitCount ?? units.length}개 단원`, 'Hangul to everyday conversation · 한글부터 생활 표현까지'], ['4 practice sets per unit · 단원마다 연습 4묶음', 'Write in the book · 책에 바로 쓰기'], ['Answer key &amp; index · 정답과 찾아보기', 'Check yourself, look up any word · 스스로 확인하고 낱말 찾기']]).map(([a, b]) => `<li>${a}<small>${b}</small></li>`).join('')}</ul>
 <div class="pts">${parts.map((p) => `<div><b>PART ${p.no}</b> ${esc(p.title.ko)} <span>${esc(p.title.en)}</span></div>`).join('')}</div>
 <div class="for">${B.back?.for || 'For complete beginners and A1 classes · 완전 초급과 A1 수업에'}<br>${esc(B.web)}</div>
-<div class="pr"><b>${B.back?.price || '정가 ○○,○○○원'}</b> (예정)<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
-${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div></div>
+<div class="pr"><b>${B.back?.price || (B.isbn ? `정가 ${B.isbnPrice}` : '정가 ○○,○○○원')}</b>${B.isbn ? '' : ' (예정)'}<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
+${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}${ISBN_BC ? `<div class="bar bc"><img src="${ISBN_BC}" alt="ISBN ${esc(B.isbn)}"></div>` : `<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div>`}</div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${logoSvg({ fg: '#fff', one: true, rotate: true, width: '3.4mm' })}</div></div>
 ${LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${hlTitle(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>

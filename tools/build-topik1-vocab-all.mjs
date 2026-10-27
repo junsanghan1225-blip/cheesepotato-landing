@@ -37,7 +37,9 @@ const book = {
   },
   inline, bonusUnits: ids, parts, unitCount: U,
   back: { items: [[`${U} units · ${U}개 단원`, `All ${N.toLocaleString('en-US')} TOPIK I words · TOPIK I 낱말 ${N.toLocaleString('en-US')}개 전부`], a.back.items[1], a.back.items[2]], for: a.back.for, price: `정가 ${PRICE}달러` },
-  coverLevel: { ...a.coverLevel, mascot: ['cheese', 2], title: ['TOPIK I', '필수 단어장', `${N.toLocaleString('en-US')}낱말`], sub: `TOPIK I 필수 낱말 ${N.toLocaleString('en-US')}개` },
+  /* 표지색 · 큰 글씨(운영자 2026-10-26 「표지 색 또 바꾸자 · 1,931낱말을 빼고 TOPIK 단어장 크게」): 표지만 청록, 속지는 TOPIK I 초록 그대로. 표지 부제목은 ISBN 신청서 부제목(「TOPIK I 필수 낱말 1,931개」)과 같아야 해서 작은 글씨로 남긴다 */
+  coverLevel: { ...a.coverLevel, bg: '#0E6F8C', bg2: '#08495E', mascot: ['cheese', 2], title: ['TOPIK I', '필수 단어장', ''], sub: `TOPIK I 필수 낱말 ${N.toLocaleString('en-US')}개` },
+  innerLevel: { bg: '#12704F', bg2: '#0B4A33' },
 };
 book.sub.ko = book.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 신청서 부제목(tools/check-isbn.mjs)
 fs.writeFileSync(P('docs/books/topik1-vocab.json'), JSON.stringify(book, null, 1) + '\n');

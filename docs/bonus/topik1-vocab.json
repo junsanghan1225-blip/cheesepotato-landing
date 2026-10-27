@@ -4156,7 +4156,7 @@
     },
     {
      "ko": "주문하다",
-     "en": "order (verb)"
+     "en": "to order (verb)"
     },
     {
      "ko": "포장하다",
@@ -4164,7 +4164,7 @@
     },
     {
      "ko": "시키다",
-     "en": "order (verb)"
+     "en": "to order (food); to make someone do (verb)"
     },
     {
      "ko": "메뉴",
@@ -4324,7 +4324,7 @@
     },
     {
      "ko": "짜다",
-     "en": "to knit; to weave (adjective)"
+     "en": "to be salty (adjective)"
     },
     {
      "ko": "하다",
@@ -4360,7 +4360,7 @@
     },
     {
      "ko": "못",
-     "en": "cannot (used before a verb) (noun)"
+     "en": "cannot (used before a verb) (adverb)"
     },
     {
      "ko": "받다",
@@ -4403,7 +4403,7 @@
     {
      "q": "What does 싱겁다 mean?",
      "opts": [
-      "to knit",
+      "to be salty",
       "bland",
       "to see",
       "to receive"
@@ -4476,8 +4476,8 @@
      ]
     },
     {
-     "q": "\"to knit\" in Korean: ___",
-     "en": "to knit; to weave",
+     "q": "\"to be salty\" in Korean: ___",
+     "en": "to be salty",
      "a": [
       "짜다"
      ]
@@ -4516,7 +4516,7 @@
    "cards": [
     {
      "ko": "때문",
-     "en": "because of (noun)"
+     "en": "because of (bound noun)"
     },
     {
      "ko": "그럼",
@@ -4544,7 +4544,7 @@
     },
     {
      "ko": "이",
-     "en": "this; this one (noun)"
+     "en": "this (determiner)"
     },
     {
      "ko": "나",
@@ -4568,7 +4568,7 @@
     },
     {
      "ko": "저기",
-     "en": "that place (pronoun)"
+     "en": "over there; that place (pronoun)"
     },
     {
      "ko": "그것",
@@ -4580,7 +4580,7 @@
     },
     {
      "ko": "내",
-     "en": "my; I (noun)"
+     "en": "my; I (pronoun)"
     },
     {
      "ko": "너",
@@ -4588,7 +4588,7 @@
     },
     {
      "ko": "저것",
-     "en": "that (pronoun)"
+     "en": "that over there; that thing over there (pronoun)"
     },
     {
      "ko": "저쪽",
@@ -4634,8 +4634,8 @@
      "opts": [
       "그",
       "저기",
-      "때문",
-      "하지만"
+      "저쪽",
+      "그렇지만"
      ],
      "a": 0,
      "why": "그 means that; the; he. 그 식당의 음식은 정말 맛이 좋아요. (The food at that restaurant is really good in taste.)"
@@ -4664,13 +4664,6 @@
     }
    ],
    "fill": [
-    {
-     "q": "비가 와요. ___ 운동하러 가요.",
-     "en": "It rains. However, I go to exercise.",
-     "a": [
-      "그렇지만"
-     ]
-    },
     {
      "q": "날씨가 추워요. ___ 맑아요.",
      "en": "The weather is cold. However, it is clear.",
@@ -4705,6 +4698,13 @@
      "a": [
       "그러니까"
      ]
+    },
+    {
+     "q": "\"if so\" in Korean: ___",
+     "en": "if so",
+     "a": [
+      "그러면"
+     ]
     }
    ]
   },
@@ -4712,7 +4712,7 @@
    "cards": [
     {
      "ko": "뭐",
-     "en": "what (pronoun)"
+     "en": "what (casual) (pronoun)"
     },
     {
      "ko": "어디",
@@ -4728,19 +4728,19 @@
     },
     {
      "ko": "무슨",
-     "en": "what (determiner)"
+     "en": "what kind of; what (determiner)"
     },
     {
      "ko": "어떤",
-     "en": "certain; some (determiner)"
+     "en": "what kind of; which; some (determiner)"
     },
     {
      "ko": "어떻다",
-     "en": "such (adjective)"
+     "en": "how; what ... is like (adjective)"
     },
     {
      "ko": "무엇",
-     "en": "what (pronoun)"
+     "en": "what (formal) (pronoun)"
     },
     {
      "ko": "왜",
@@ -4780,7 +4780,7 @@
     },
     {
      "ko": "끄다",
-     "en": "put out; extinguish (verb)"
+     "en": "to turn off; to put out (verb)"
     },
     {
      "ko": "켜다",
@@ -4796,12 +4796,12 @@
      "q": "What does 뭐 mean?",
      "opts": [
       "where",
-      "what",
-      "why",
-      "to become clean"
+      "what (casual)",
+      "how",
+      "to tidy up"
      ],
      "a": 1,
-     "why": "뭐 means what. 오늘 점심 메뉴로 뭐 먹을래요? (What do you want to eat for lunch today?)"
+     "why": "뭐 means what (casual). 오늘 점심 메뉴로 뭐 먹을래요? (What do you want to eat for lunch today?)"
     },
     {
      "q": "Which Korean word means \"which\"?",
@@ -4820,10 +4820,10 @@
       "to be clean",
       "to repair",
       "desk",
-      "such"
+      "how"
      ],
      "a": 3,
-     "why": "어떻다 means such. 오늘 날씨가 어떤지 창밖을 내다봐요. (I look out the window to see how the weather is today.)"
+     "why": "어떻다 means how; what ... is like. 오늘 날씨가 어떤지 창밖을 내다봐요. (I look out the window to see how the weather is today.)"
     },
     {
      "q": "Which Korean word means \"to be clean\"?",
@@ -4839,10 +4839,10 @@
     {
      "q": "What does 청소 mean?",
      "opts": [
-      "put out",
+      "to turn off",
       "cleaning",
       "who",
-      "what"
+      "what (formal)"
      ],
      "a": 1,
      "why": "청소 means cleaning. 주말 아침에 온 가족이 모여 집 안 대청소를 해요. (On weekend mornings, the whole family gathers and does a big house cleaning.)"
@@ -4860,6 +4860,13 @@
     }
    ],
    "fill": [
+    {
+     "q": "\"what (casual)\" in Korean: ___",
+     "en": "what (casual)",
+     "a": [
+      "뭐"
+     ]
+    },
     {
      "q": "\"where\" in Korean: ___",
      "en": "where",
@@ -4882,24 +4889,17 @@
      ]
     },
     {
-     "q": "\"certain\" in Korean: ___",
-     "en": "certain; some",
-     "a": [
-      "어떤"
-     ]
-    },
-    {
-     "q": "\"such\" in Korean: ___",
-     "en": "such",
+     "q": "\"how\" in Korean: ___",
+     "en": "how; what ... is like",
      "a": [
       "어떻다"
      ]
     },
     {
-     "q": "\"why\" in Korean: ___",
-     "en": "why",
+     "q": "\"what (formal)\" in Korean: ___",
+     "en": "what (formal)",
      "a": [
-      "왜"
+      "무엇"
      ]
     }
    ]
@@ -4952,7 +4952,7 @@
     },
     {
      "ko": "호",
-     "en": "wow (interjection)"
+     "en": "room number; unit number (bound noun)"
     },
     {
      "ko": "열쇠",
@@ -4994,7 +4994,7 @@
       "air conditioner",
       "bed",
       "dormitory",
-      "wow"
+      "room number"
      ],
      "a": 1,
      "why": "침대 means bed. 피곤한 하루를 마치고 푹신한 침대에 편안히 누워요. (Finishing a tiring day, I lie down comfortably on the soft bed.)"
@@ -5556,7 +5556,7 @@
     },
     {
      "ko": "치다",
-     "en": "hit; strike; play (an instrument); rain; snow; blow (verb)"
+     "en": "to play (a racket or ball sport, an instrument); to hit (verb)"
     },
     {
      "ko": "탁구",
@@ -5632,7 +5632,7 @@
      "why": "농구 means basketball. 텔레비전으로 농구 경기를 봤어요. (I watched a basketball game on TV.)"
     },
     {
-     "q": "Which Korean word means \"hit\"?",
+     "q": "Which Korean word means \"to play (a racket or ball sport, an instrument)\"?",
      "opts": [
       "등산",
       "걷기",
@@ -5640,7 +5640,7 @@
       "축구"
      ],
      "a": 2,
-     "why": "치다 means hit; strike; play (an instrument); rain; snow; blow. 어릴 때부터 피아노를 쳤어요. (I have played the piano since childhood.)"
+     "why": "치다 means to play (a racket or ball sport, an instrument); to hit. 어릴 때부터 피아노를 쳤어요. (I have played the piano since childhood.)"
     }
    ],
    "fill": [
@@ -5888,11 +5888,11 @@
    "cards": [
     {
      "ko": "혼자",
-     "en": "alone; by oneself (noun)"
+     "en": "alone; by oneself (adverb)"
     },
     {
      "ko": "분",
-     "en": "person (honorific) (noun)"
+     "en": "person (honorific) (bound noun)"
     },
     {
      "ko": "명",
@@ -6144,7 +6144,7 @@
     },
     {
      "ko": "사장님",
-     "en": "president (noun)"
+     "en": "boss; owner (of a shop); company president (noun)"
     },
     {
      "ko": "가수",
@@ -6220,7 +6220,7 @@
      "why": "언니 means older sister (for females). 언니와 함께 카페에서 이야기해요. (I chat with my older sister at a cafe.)"
     },
     {
-     "q": "Which Korean word means \"president\"?",
+     "q": "Which Korean word means \"boss\"?",
      "opts": [
       "할아버지",
       "남동생",
@@ -6228,7 +6228,7 @@
       "아내"
      ],
      "a": 2,
-     "why": "사장님 means president. 식당 사장님께서 친절하게 따뜻한 반찬을 더 주셨어요. (The restaurant owner kindly gave more warm side dishes.)"
+     "why": "사장님 means boss; owner (of a shop); company president. 식당 사장님께서 친절하게 따뜻한 반찬을 더 주셨어요. (The restaurant owner kindly gave more warm side dishes.)"
     }
    ],
    "fill": [
@@ -6540,7 +6540,7 @@
     },
     {
      "ko": "구",
-     "en": "phrase (noun)"
+     "en": "district; ward (noun)"
     },
     {
      "ko": "지우개",
@@ -6704,7 +6704,7 @@
     },
     {
      "ko": "사전",
-     "en": "advance; dictionary (noun)"
+     "en": "dictionary (noun)"
     },
     {
      "ko": "수첩",
@@ -6744,11 +6744,11 @@
     },
     {
      "ko": "대학",
-     "en": "university; college (noun)"
+     "en": "college; university (noun)"
     },
     {
      "ko": "대학교",
-     "en": "university; college (noun)"
+     "en": "university (noun)"
     }
    ],
    "quiz": [
@@ -7108,7 +7108,7 @@
     },
     {
      "ko": "안녕히",
-     "en": "in peace (adverb)"
+     "en": "safely; in peace (used in goodbyes) (adverb)"
     },
     {
      "ko": "감사",
@@ -7124,7 +7124,7 @@
     },
     {
      "ko": "안녕",
-     "en": "peace; good health (noun)"
+     "en": "hi; hello; bye (informal) (noun)"
     },
     {
      "ko": "와",
@@ -7150,7 +7150,7 @@
       "attend",
       "serve",
       "no",
-      "in peace"
+      "safely"
      ],
      "a": 1,
      "why": "봉사하다 means serve; volunteer. 자원봉사 동아리에서 열심히 봉사했어요. (I actively volunteered in the volunteer club.)"
@@ -7175,7 +7175,7 @@
       "no"
      ],
      "a": 3,
-     "why": "아니요 means no; no sir; no ma'am. 질문에 아니요라고 고개를 저으며 조용히 대답해요. (I answer no to the question while shaking my head quietly.)"
+     "why": "아니요 means no; no sir; no ma'am. 질문에 \"아니요\"라고 고개를 저으며 조용히 대답해요. (I answer no to the question while shaking my head quietly.)"
     },
     {
      "q": "Which Korean word means \"sorry\"?",
@@ -7200,7 +7200,7 @@
      "why": "감사 means gratitude; appreciation; thanks. 선생님께 감사 인사를 올렸어요. (I gave words of gratitude to the teacher.)"
     },
     {
-     "q": "Which Korean word means \"peace\"?",
+     "q": "Which Korean word means \"hi\"?",
      "opts": [
       "참석하다",
       "아니요",
@@ -7208,7 +7208,7 @@
       "안녕히"
      ],
      "a": 2,
-     "why": "안녕 means peace; good health. 헤어질 때 친구에게 안녕 말해요. (When parting, I say goodbye to my friend.)"
+     "why": "안녕 means hi; hello; bye (informal). 헤어질 때 친구에게 안녕 말해요. (When parting, I say goodbye to my friend.)"
     }
    ],
    "fill": [
@@ -7292,7 +7292,7 @@
     },
     {
      "ko": "말씀",
-     "en": "words (noun)"
+     "en": "words; speech (honorific) (noun)"
     },
     {
      "ko": "대화",
@@ -7304,7 +7304,7 @@
     },
     {
      "ko": "그렇게",
-     "en": "geureoke (adverb)"
+     "en": "like that; so (adverb)"
     },
     {
      "ko": "소개",
@@ -7332,11 +7332,11 @@
     },
     {
      "ko": "말씀드리다",
-     "en": "say; tell; relate (verb)"
+     "en": "to say; to tell (humble) (verb)"
     },
     {
      "ko": "별로",
-     "en": "specially; particularly (adverb)"
+     "en": "(not) really; (not) particularly (adverb)"
     }
    ],
    "quiz": [
@@ -7346,7 +7346,7 @@
       "to not know",
       "so",
       "to think",
-      "geureoke"
+      "like that"
      ],
      "a": 1,
      "why": "그렇다 means so; as such; like that. 네, 그렇습니다. 제가 바로 그 사람이에요. (Yes, that is so. I am that very person.)"
@@ -7367,7 +7367,7 @@
      "opts": [
       "conversation",
       "fault",
-      "specially",
+      "(not) really",
       "to think"
      ],
      "a": 3,
@@ -7528,11 +7528,11 @@
     },
     {
      "ko": "묻다",
-     "en": "to be stained; to stick to (verb)"
+     "en": "to ask; to inquire (verb)"
     },
     {
      "ko": "달다",
-     "en": "to ask; to request (verb)"
+     "en": "to ask for; to request (something to be given) (verb)"
     }
    ],
    "quiz": [
@@ -7563,7 +7563,7 @@
      "opts": [
       "call",
       "hello (on phone)",
-      "to ask",
+      "to ask for",
       "being famous"
      ],
      "a": 3,
@@ -7728,7 +7728,7 @@
     },
     {
      "ko": "에서",
-     "en": "eseo (particle)"
+     "en": "at; in; from (place or source) (particle)"
     }
    ],
    "quiz": [
@@ -7759,7 +7759,7 @@
      "opts": [
       "airport",
       "building",
-      "eseo",
+      "at",
       "camera"
      ],
      "a": 3,
@@ -7868,7 +7868,7 @@
     },
     {
      "ko": "으로",
-     "en": "euro (particle)"
+     "en": "to; toward; by; with (direction or means) (particle)"
     },
     {
      "ko": "돌아가다",
@@ -8268,7 +8268,7 @@
     },
     {
      "ko": "진행하다",
-     "en": "progress (verb)"
+     "en": "to proceed; to conduct; to host (verb)"
     },
     {
      "ko": "사무실",
@@ -8304,7 +8304,7 @@
     },
     {
      "ko": "퇴근하다",
-     "en": "leaving work; arriving home from work (verb)"
+     "en": "to leave work; to get off work (verb)"
     },
     {
      "ko": "퇴근",
@@ -8370,7 +8370,7 @@
       "leaving work",
       "company",
       "car",
-      "progress"
+      "to proceed"
      ],
      "a": 1,
      "why": "회사 means company; office. 아침마다 지하철을 타고 회사에 출근해요. (Every morning, I take the subway and commute to the company.)"
@@ -8476,7 +8476,7 @@
     },
     {
      "ko": "세다",
-     "en": "turn white (verb)"
+     "en": "to be strong; to count; to turn white (verb)"
     },
     {
      "ko": "스무",
@@ -8492,7 +8492,7 @@
     },
     {
      "ko": "밝다",
-     "en": "to be bright (verb)"
+     "en": "to be bright (adjective)"
     },
     {
      "ko": "지키다",
@@ -8644,7 +8644,7 @@
     },
     {
      "ko": "가져가다",
-     "en": "bring (verb)"
+     "en": "to take; to bring along (verb)"
     },
     {
      "ko": "나누다",
@@ -8668,7 +8668,7 @@
     },
     {
      "ko": "한번",
-     "en": "one day; once (noun)"
+     "en": "one day; once (adverb)"
     },
     {
      "ko": "할인",
@@ -8680,7 +8680,7 @@
     },
     {
      "ko": "아까",
-     "en": "a moment ago (noun)"
+     "en": "a moment ago (adverb)"
     },
     {
      "ko": "오래",
@@ -8688,11 +8688,11 @@
     },
     {
      "ko": "이제",
-     "en": "now; from now on (noun)"
+     "en": "now; from now on (adverb)"
     },
     {
      "ko": "벌써",
-     "en": "so soon (adverb)"
+     "en": "already; so soon (adverb)"
     },
     {
      "ko": "끝",
@@ -8724,7 +8724,7 @@
      "why": "내다 means to pay; to submit. 식사가 끝나고 식당 카운터에서 밥값을 내요. (After finishing the meal, I pay the bill at the restaurant counter.)"
     },
     {
-     "q": "Which Korean word means \"bring\"?",
+     "q": "Which Korean word means \"to take\"?",
      "opts": [
       "두다",
       "할인",
@@ -8732,7 +8732,7 @@
       "벌써"
      ],
      "a": 2,
-     "why": "가져가다 means bring. 오후에 비 소식이 있어서 가방에 우산을 챙겨 가져가요. (There is rain in the forecast this afternoon, so I pack and take an umbrella.)"
+     "why": "가져가다 means to take; to bring along. 오후에 비 소식이 있어서 가방에 우산을 챙겨 가져가요. (There is rain in the forecast this afternoon, so I pack and take an umbrella.)"
     },
     {
      "q": "What does 놓다 mean?",
@@ -8768,15 +8768,15 @@
      "why": "아까 means a moment ago. 아까 점심을 많이 먹어서 아직 배가 안 고파요. (Because I ate a lot of lunch earlier, I am not hungry yet.)"
     },
     {
-     "q": "Which Korean word means \"so soon\"?",
+     "q": "Which Korean word means \"already\"?",
      "opts": [
-      "모이다",
-      "놓다",
+      "자리",
+      "정하다",
       "벌써",
-      "마트"
+      "아까"
      ],
      "a": 2,
-     "why": "벌써 means so soon. 기차가 빠르게 달려 벌써 서울역에 도착했어요. (The train ran quickly and already arrived at Seoul Station.)"
+     "why": "벌써 means already; so soon. 기차가 빠르게 달려 벌써 서울역에 도착했어요. (The train ran quickly and already arrived at Seoul Station.)"
     }
    ],
    "fill": [
@@ -9040,7 +9040,7 @@
     },
     {
      "ko": "빨다",
-     "en": "suck; puff on (verb)"
+     "en": "to wash (laundry); to suck (verb)"
     },
     {
      "ko": "닦다",
@@ -9228,11 +9228,11 @@
     },
     {
      "ko": "성함",
-     "en": "name (noun)"
+     "en": "name (honorific) (noun)"
     },
     {
      "ko": "서로",
-     "en": "each other; mutually (noun)"
+     "en": "each other; mutually (adverb)"
     },
     {
      "ko": "모시다",
@@ -9349,7 +9349,7 @@
      "opts": [
       "luggage",
       "sound",
-      "name",
+      "name (honorific)",
       "age"
      ],
      "a": 1,
@@ -9404,8 +9404,8 @@
      ]
     },
     {
-     "q": "\"name\" in Korean: ___",
-     "en": "name",
+     "q": "\"name (honorific)\" in Korean: ___",
+     "en": "name (honorific)",
      "a": [
       "성함"
      ]
