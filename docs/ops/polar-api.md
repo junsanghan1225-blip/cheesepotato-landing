@@ -9,7 +9,7 @@ PDF 올리기 → 표지 그림 올리기 → 「파일 다운로드」 혜택 �
 - 같은 책을 두 번 만들지 않는다. 이미 상품이 있는 책의 **파일 · 가격 바꾸기**는 하지 않는다(Polar 대시보드에서).
 
 ## 운영자가 한 번만 할 일 (비밀 값은 채팅에 적지 않는다)
-1. **Polar 토큰 만들기** — Polar → 설정 → Access tokens(조직 토큰) → 새 토큰.
+1. **Polar 토큰 만들기** — 개인 토큰(Personal access token)은 이제 못 만든다(Polar 안내, 2026-10-27). **조직 토큰(Organization access token)** 을 만든다: Polar → 우리 조직(everykoreans) 설정 → Access tokens → 새 토큰. 조직 토큰은 조직 하나에만 걸려 있어 도구가 조직 번호를 따로 안 보내도 된다.
    권한은 이 다섯 개만: `products:read` · `products:write` · `files:write` · `benefits:write` · `checkout_links:write`.
    (주문 · 고객 · 환불 쓰기는 주지 않는다. 만료는 짧게 — 예: 30일.) 만든 직후 한 번만 보이는 토큰을 복사.
 2. **Claude 환경에 넣기** — 이 세션 위쪽 환경 메뉴(클라우드 환경) → Edit →
