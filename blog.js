@@ -33,6 +33,360 @@
    글 안에서 사이트 안쪽을 걸 때는 **실재하는 주소만** 건다. /sentence/26-2.html
    처럼 build-pages.mjs 가 굽는 쪽은 괜찮고, 없는 쪽을 적으면 404 가 는다. */
 export const BLOG_POSTS = [
+  /* 책 소개 — 홈 책 코너와 같이 올림(2026-10-27) */
+  {
+    "id": "korean-workbooks-for-english-speakers",
+    "lang": "en",
+    "title": "Korean Workbooks for English Speakers: Which One to Start With",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "Roadmap"
+    ],
+    "excerpt": "A guide to the Everykoreans PDF workbook library: Hangul and particles for beginners, a three-book TOPIK II vocabulary series, TOPIK II writing practice, and what is coming next.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Everykoreans publishes printable PDF workbooks for people who learn Korean in English. They are workbooks, not textbooks: every unit gives you something to write, and every book has an answer key at the back so you can mark your own work. You download the PDF right after paying, print the pages you want, or fill it in on a tablet."
+      },
+      {
+        "t": "p",
+        "text": "The books are written by a Korean teacher and draw on the same material as the free lessons on this site. If you are not sure a book is for you, the free lessons, worksheets and TOPIK practice questions are a good way to try the style first (links at the end)."
+      },
+      {
+        "t": "h",
+        "text": "If you are just starting out"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Korean First Steps Workbook (A1): Hangul and final consonants first, then greetings, numbers and dates, family, food, shopping and the basic particles. Each unit has a short explanation, tables to copy, practice and an answer key.",
+          "Korean Particles Workbook (A1–A2): 20 particles, one per unit, with the meaning, the form, examples, the trap to avoid and practice. A \"Choose the right particle\" part puts look-alikes side by side, such as 은/는 vs 이/가 and 에 vs 에서."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "Most learners start with First Steps and add the Particles workbook once sentences start to grow. If you can already read Hangul and mix up particles, you can go straight to the Particles workbook."
+      },
+      {
+        "t": "h",
+        "text": "If you are preparing for TOPIK II"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "TOPIK II Vocabulary Workbooks 1–3: a three-book series. Book 1 covers words 1–1,000 and Book 2 words 1,001–2,000, ranked by how often they appear in our own TOPIK II practice material. Book 3 collects 940 level-3 words that are not in Books 1 and 2.",
+          "TOPIK II Writing 51–52: 100 original practice questions for the two fill-in-the-blank writing tasks, with accepted answers, the scoring point and the mistakes that lose marks."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "Our TOPIK practice questions are original material written for practice. They are not past exam papers."
+      },
+      {
+        "t": "h",
+        "text": "Coming soon"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "TOPIK I Essential Vocabulary: all 1,931 words of the TOPIK I word list in 97 units.",
+          "TOPIK I Reading: 10 full practice tests, 400 original questions in the official format.",
+          "TOPIK II Writing 53–54: 100 questions with a model answer, scoring criteria and three scored sample answers each.",
+          "Essential Korean Idioms: 449 idioms, proverbs and four-character idioms, 30 units."
+        ]
+      },
+      {
+        "t": "h",
+        "text": "How the workbooks work"
+      },
+      {
+        "t": "p",
+        "text": "The vocabulary and idiom books share one pattern: a unit of words with meanings and example sentences, then writing practice (write the meaning, write the Korean word, write your own sentence), a short checkup and an answer key. A QR code in each unit opens a free online match game for the same words, so you can practise on your phone after you have written them out."
+      },
+      {
+        "t": "link",
+        "href": "/shop/",
+        "title": "Everykoreans book shop",
+        "note": "All books, what is inside each one, and the PDF download"
+      },
+      {
+        "t": "link",
+        "href": "/worksheets/",
+        "title": "Free printable worksheets",
+        "note": "Try the worksheet style before you buy a book"
+      },
+      {
+        "t": "link",
+        "href": "/topik-writing/",
+        "title": "Free TOPIK writing practice",
+        "note": "Original questions with model answers and scoring points"
+      }
+    ]
+  },
+  /* 책 소개 — 홈 책 코너와 같이 올림(2026-10-27) */
+  {
+    "id": "topik-ii-vocabulary-workbook-series",
+    "lang": "en",
+    "title": "TOPIK II Vocabulary Workbooks 1–3: How the Series Works and How to Study With It",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "TOPIK"
+    ],
+    "excerpt": "How the three TOPIK II Vocabulary Workbooks are organised (1,000 + 1,000 + 940 words), what one unit contains, and a simple routine for working through them.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Word lists are easy to read and hard to remember. The TOPIK II Vocabulary Workbooks turn a word list into something you write: every unit gives you 20 words, then makes you produce the meaning, the Korean word and a sentence of your own before you check the answer key."
+      },
+      {
+        "t": "h",
+        "text": "Three books, one system"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Book 1: words 1–1,000, the words that come up most often in our TOPIK II practice material. 50 units of 20 words, from level 3 to level 6.",
+          "Book 2: the next 1,000 words, ranked 1,001 to 2,000 by the same measure. Also 50 units.",
+          "Book 3: 940 level-3 words that are not in Books 1 and 2, in 47 units."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "The ranking comes from our own TOPIK II practice questions, so it shows what appears often in this kind of material. It is not an official frequency list from the exam organisers."
+      },
+      {
+        "t": "h",
+        "text": "What is in one unit"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "The 20 words, each with its part of speech, an English meaning and an example sentence with a translation.",
+          "A level mark (a cheese) and a frequency mark (a potato) so you can see at a glance which words matter most.",
+          "Writing practice: write the meaning, write the Korean word, and write your own sentence.",
+          "A unit checkup, and a short note on look-alike words (synonyms and sound-alikes) that learners confuse.",
+          "A QR code that opens a free match game for the same 20 words."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "Answers for every exercise are at the back of the book."
+      },
+      {
+        "t": "h",
+        "text": "A simple routine"
+      },
+      {
+        "t": "p",
+        "text": "Plan one short, focused session per unit. Fifty units at one unit a day is about seven weeks for a whole book. A pace of three or four units a week is easier to keep up alongside other study, and the checkup at the end of each unit tells you which words to repeat."
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Day 1: read the 20 words aloud, then do the writing practice without looking.",
+          "Day 2: do the checkup, mark it with the answer key and circle what you missed.",
+          "Day 3: play the QR match game on your phone and re-write only the circled words."
+        ]
+      },
+      {
+        "t": "h",
+        "text": "Which book first?"
+      },
+      {
+        "t": "p",
+        "text": "Start with Book 1 if you are not sure: it holds the most useful words first. If you have already passed level 3 and want to fill the gaps, Book 3 collects level-3 words the other two do not cover."
+      },
+      {
+        "t": "link",
+        "href": "/shop/",
+        "title": "See the three books in the shop",
+        "note": "Contents, units and the PDF download"
+      },
+      {
+        "t": "link",
+        "href": "/topik-vocabulary-list/",
+        "title": "Free TOPIK vocabulary lists",
+        "note": "Browse words online for free"
+      }
+    ]
+  },
+  /* 책 소개 — 홈 책 코너와 같이 올림(2026-10-27) */
+  {
+    "id": "korean-first-steps-and-particles-workbooks",
+    "lang": "en",
+    "title": "Learning Korean From Zero: The First Steps and Particles Workbooks",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "Roadmap"
+    ],
+    "excerpt": "What is inside the Korean First Steps Workbook and the Korean Particles Workbook, who each one is for, and how to use them together in your first months of Korean.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "The first months of Korean decide whether you keep going. You need to read the script, say a few useful things, and understand why a small word like 은/는 or 에 changes the meaning. The two beginner workbooks from Everykoreans are built for exactly that stage."
+      },
+      {
+        "t": "h",
+        "text": "Korean First Steps Workbook (A1)"
+      },
+      {
+        "t": "p",
+        "text": "This workbook is made from our most-used free worksheets. It starts with Hangul and final consonants (받침), then moves through greetings, numbers and dates, family, food, shopping and the basic particles. Every unit has a short explanation, tables to copy by hand, practice, and an answer key at the back."
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Complete beginners who have just learned, or want to learn, Hangul.",
+          "Teachers who need homework sheets for A1 classes.",
+          "Self-learners who remember things better when they write them down."
+        ]
+      },
+      {
+        "t": "h",
+        "text": "Korean Particles Workbook (A1–A2)"
+      },
+      {
+        "t": "p",
+        "text": "Particles are the small words that glue Korean together, and they are where many learners get stuck. Each unit takes one particle and covers its meaning, its form, examples, the trap to avoid, and practice. A \"Choose the right particle\" part sets look-alikes side by side, for example 은/는 vs 이/가 and 에 vs 에서, and review tests mix everything together. The answer key is at the back, and each unit has a QR code to free online practice."
+      },
+      {
+        "t": "p",
+        "text": "If you want the idea behind the most famous pair before you decide, our free article on 은/는 vs 이/가 explains it with one question instead of ten rules."
+      },
+      {
+        "t": "h",
+        "text": "Using them together"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Weeks 1–2: work through the Hangul and final-consonant units of First Steps. Read everything aloud.",
+          "Weeks 3–6: continue with greetings, numbers, family, food and shopping, and copy the tables by hand.",
+          "From week 4 or so: add one Particles unit a week. Re-do the \"Choose the right particle\" pages a few days later without looking."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "The pace is a suggestion, not a rule. The point is to write a little every day rather than a lot once a week."
+      },
+      {
+        "t": "link",
+        "href": "/shop/",
+        "title": "See both workbooks in the shop",
+        "note": "Contents and the PDF download"
+      },
+      {
+        "t": "link",
+        "href": "/blog/eun-neun-vs-i-ga-english.html",
+        "title": "은/는 vs 이/가: one question instead of ten rules",
+        "note": "Free article"
+      },
+      {
+        "t": "link",
+        "href": "/blog/read-hangul-in-a-morning-english.html",
+        "title": "Can you really read Hangul in a morning?",
+        "note": "Free article"
+      }
+    ]
+  },
+  /* 책 소개 — 홈 책 코너와 같이 올림(2026-10-27) */
+  {
+    "id": "topik-ii-writing-51-52-practice-book",
+    "lang": "en",
+    "title": "TOPIK II Writing 51–52 Practice Book: What Is Inside and How to Use It",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "tags": [
+      "English",
+      "TOPIK"
+    ],
+    "excerpt": "The TOPIK II Writing 51–52 practice book has 100 original questions with accepted answers, scoring points and common mistakes. Here is how to work through it.",
+    "blocks": [
+      {
+        "t": "p",
+        "text": "Questions 51 and 52 are the two fill-in-the-blank tasks at the start of the TOPIK II writing paper. They are short, so they look easy, but one wrong speech style or one spelling slip costs the whole answer. The only reliable way to get faster is to practise many of them and learn exactly what the marker rewards."
+      },
+      {
+        "t": "h",
+        "text": "What is in the book"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "100 original questions for Questions 51 and 52, one sentence per blank, in the right style.",
+          "For each question, several accepted answers, because the blank can usually be filled in more than one way.",
+          "The scoring point: what earns the marks.",
+          "The mistakes that lose marks."
+        ]
+      },
+      {
+        "t": "p",
+        "text": "This is original practice material written for practice. It is not made of past exam papers."
+      },
+      {
+        "t": "h",
+        "text": "The one thing to check every time"
+      },
+      {
+        "t": "p",
+        "text": "Question 51 usually asks for the formal polite style (-(스)ㅂ니다), as in a notice or an email, while Question 52 asks for the plain written style (-(느)ㄴ다), as in an explanatory text. Before you write anything, look at the sentences around the blank and match their ending exactly."
+      },
+      {
+        "t": "h",
+        "text": "How to use it"
+      },
+      {
+        "t": "list",
+        "ordered": false,
+        "items": [
+          "Do ten questions in one sitting with a timer. Aim for about five minutes per question at first and get faster.",
+          "Mark your answers, then read the accepted answers and the scoring point, even for the ones you got right.",
+          "Keep a list of your repeated mistakes (style, spelling, particle) and re-do those questions a week later."
+        ]
+      },
+      {
+        "t": "h",
+        "text": "Coming next"
+      },
+      {
+        "t": "p",
+        "text": "A companion book for Questions 53 and 54 is in preparation: 100 questions with a model answer, scoring criteria and three sample answers (high, middle and low score) with the reasons for each score."
+      },
+      {
+        "t": "link",
+        "href": "/shop/topik2-writing-51-52/",
+        "title": "TOPIK II Writing 51–52 in the shop",
+        "note": "Contents and the PDF download"
+      },
+      {
+        "t": "link",
+        "href": "/blog/topik-writing-51-52-english.html",
+        "title": "Free guide: how to fill in the blanks in Questions 51 and 52",
+        "note": "Strategy article"
+      },
+      {
+        "t": "link",
+        "href": "/topik-writing/",
+        "title": "Free TOPIK writing practice",
+        "note": "More original questions with model answers"
+      }
+    ]
+  },
   /* 오늘의 문법 — tools/blog-grammar.mjs 가 만든 초안. 운영자 한마디를 채워 넣음(2026-10-20) */
   {
     "id": "grammar-daily-2026-10-20",

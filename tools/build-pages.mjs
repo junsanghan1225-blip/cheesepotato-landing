@@ -3205,6 +3205,9 @@ console.log(`사전 ${nDict}쪽 + 목록 1쪽 → dictionary/ (보강 쪽 TOPIK 
 console.log(`블로그 ${nB}쪽 + 목록 1쪽 + 갈래 ${nBT}쪽 + rss.xml → blog/`);
 console.log(`sitemap.xml 에 주소 ${urls.length}개 — ${smFiles.map((f) => `${f.file} ${f.n}`).join(' · ')}.`);
 
+/* 첫 화면 책 코너(블로그 최신 글 카드) — blog.js 가 바뀌면 같이 */
+await import('./build-home-books.mjs');
+
 /* 첫 화면 검색 칸의 색인도 같은 자료에서 — 자료가 바뀌면 여기서 같이 새로 만든다 */
 await import('./build-search.mjs');
 

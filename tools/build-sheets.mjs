@@ -338,5 +338,13 @@ for (const [f, body] of out) {
   if (CHECK) { if (!fs.existsSync(p) || fs.readFileSync(p, 'utf8') !== body) { console.error(`${f} 가 자료와 다르다 — node tools/build-sheets.mjs`); diff++; } continue; }
   fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, body);
 }
-if (CHECK) { if (diff) process.exit(1); console.log(`학습지 검사 — 통과 (${sheets.length}편 + 목록)`); }
-else console.log(`학습지 — ${sheets.length}편 + 목록 → <id>-worksheet/ · worksheets/`);
+if (CHECK) {
+  if (diff) process.exit(1);
+  console.log(`학습지 검사 — 통과 (${sheets.length}편 + 목록)`);
+  /* 첫 화면 책 코너도 같은 자료(shop.json)에서 나온다 — 어긋나면 여기서 막는다 */
+  const { execFileSync } = await import('node:child_process');
+  try { execFileSync(process.execPath, [path.join(ROOT, 'tools/build-home-books.mjs'), '--check'], { stdio: 'inherit' }); } catch { process.exit(1); }
+} else {
+  console.log(`학습지 — ${sheets.length}편 + 목록 → <id>-worksheet/ · worksheets/`);
+  await import('./build-home-books.mjs');
+}
