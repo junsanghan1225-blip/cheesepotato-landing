@@ -407,3 +407,4 @@
 - 2026-10-27 **ISBN 승인 7 · 8번째**: 쓰기 51~52 979-11-222407-7-1(6.9달러) · 쓰기 53~54 979-11-222407-8-8(9.9달러). 바코드 EPS 에서 그림(임시, 공식 PDF 오면 교체). 51~52 는 Polar 상품의 PDF 를 보호판 v3.3 으로 교체, 53~54 는 새 상품 · 결제 링크 · 샘플(앞 2단원 45쪽) · 책 쪽. 승인 대기는 TOPIK I 필수 단어장(0-2) · 관용 표현(9-5)만 남음.
 - 2026-10-27 코드 정리(운영자 「A B도」): build-sheets 의 상점 쪽(책 쪽 · 감사 쪽 · 샘플 상자)을 tools/lib/sheets-shop.mjs 로, 쓰레드 · KDP 복사판의 공통 틀을 tools/lib/copy-page.mjs 로 갈랐다. 만든 쪽(shop/ 등) 결과는 한 글자도 안 바뀜(build-sheets 후 git 차이 0).
 - 2026-10-27 **쓰레드 홍보 글 자동 올리기**(운영자 「쓰레드 API 이미 받았다 · 자동화」): 인스타 자동화의 THREADS_TOKEN 을 그대로 써 하루 한 개 21:07(KST) 올림 — tools/threads-promo.mjs · threads-promo.yml · 그림 assets/promo/. 켜기는 변수 THREADS_PROMO=on(운영자). 링크 utm_source 가 두 번 붙던 것도 고침.
+- 2026-10-27 **잘못 안내 방지 규칙**(운영자 「이런 일 없게 해」): 「이미 있나 · 연결됐나 · 할 수 있나」는 답하기 전에 docs/ops · tools · .github/workflows 를 먼저 찾는다(CLAUDE.md §2). 자동화 · 연결 현황은 docs/ops/automations.md 에 한 줄씩.
