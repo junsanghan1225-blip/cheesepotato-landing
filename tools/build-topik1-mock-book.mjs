@@ -193,6 +193,7 @@ const book = {
   inline,
 };
 book.innerLevel = { bg: '#12704F', bg2: '#0B4A33' };   // 운영자 2026-10-26 「표지색만」 주황 · 코랄로 — 속지는 TOPIK I 초록 그대로
+book.isbn = '979-11-222407-4-0'; book.isbnPrice = '9.9달러';   // 2026-10-27 승인(바코드 EPS 받음 — 공식 PDF 는 아직)
 book.sub.ko = book.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 신청서 부제목(tools/check-isbn.mjs)
 fs.writeFileSync(path.join(ROOT, 'docs/books/topik1-reading-mock.json'), JSON.stringify(book, null, 1) + '\n');
 console.log(`근거 · 선지 이유 ${Object.keys(EXPL).length}/${TOPIK_READING.length}문항`);
