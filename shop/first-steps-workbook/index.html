@@ -92,6 +92,7 @@ body.show-ans .nw-work { display:none; }
 .bk-pub{font-size:9px;opacity:.85;margin-top:8px;position:relative;z-index:1}
 .bk-cover.big{width:240px;flex:none}.bk-cover.big b{font-size:28px}.bk-cover.big i{font-size:14px}.bk-cover.big .bk-ser,.bk-cover.big .bk-pub{font-size:11px}.bk-cover.big .bk-lv{font-size:13px}
 .bk-detail{display:flex;gap:28px;align-items:flex-start;margin:18px 0}
+.lead-box{margin:18px 0;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--tint)}.lead-box>b{font-size:15px}.lead-box p{margin:4px 0 10px;font-size:13.5px;color:var(--ink-2)}.lead-row{display:flex;gap:8px;flex-wrap:wrap}.lead-row input[type=email]{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:15px;background:var(--surface);color:var(--ink)}.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.lead-tips{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:12.5px;color:var(--ink-3);cursor:pointer}.lead-tips input{margin-top:2px}.lead-msg{min-height:1.2em;margin:8px 0 0!important}.lead-msg.ok{color:#1b7a3a}.lead-msg.bad{color:#b3261e}.lead-dl{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--orange-deep)}
 .bk-info{flex:1;min-width:0}.bk-info h1{margin:4px 0 2px}.bk-ko{color:var(--ink-3);margin:0 0 10px}
 .bk-spec{width:100%;min-width:0 !important;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0}.bk-spec td{overflow-wrap:anywhere}.bk-spec th{text-align:left;color:var(--ink-3);font-weight:600;width:96px;padding:6px 0}.bk-spec td{padding:6px 0}
 .bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
@@ -126,9 +127,20 @@ body.show-ans .nw-work { display:none; }
     <tr><th>Size · 판형</th><td>B5 (182 × 257 mm)</td></tr>
     <tr><th>Pages · 쪽수</th><td>140쪽 (PDF · 속지 기준)</td></tr>
     <tr><th>Publisher</th><td>Everykoreans · 에브리코리안즈</td></tr>
-    <tr><th>ISBN</th><td>To be assigned · 출간 때 붙음</td></tr>
+    <tr><th>ISBN</th><td>979-11-222407-5-7 (PDF)</td></tr>
   </table>
   <a class="btn main" href="https://buy.polar.sh/polar_cl_pOoOr7fcoZ0ZyEXajOfoL8Al1VNIeQ05dKsb92mWHa2" rel="noopener">Buy · $9.90</a>
+  <div class="lead-box" id="sample">
+  <b>Free sample · 무료 샘플</b>
+  <p>The cover, contents and first units of the book (18 pages, PDF 2.5 MB) — see exactly what you get.</p>
+  <form data-lead="shop-first-steps-workbook" novalidate>
+    <div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><button class="btn main" type="submit">Get the free sample</button></div>
+    <label class="lead-tips"><input type="checkbox" name="tips"> <span>Also send me study tips and new-book news (optional) · 학습 소식도 받기 (선택)</span></label>
+    <p class="lead-msg" role="status" aria-live="polite"></p>
+  </form>
+  <a class="lead-dl" href="/assets/books/first-steps-workbook/sample.pdf" download data-ev="샘플받기" data-ev-from="first-steps-workbook">↓ Download the sample now, no email needed · 이메일 없이 바로 받기</a>
+</div>
+<script src="/subscribe.js" defer></script>
 </div>
 </div>
 <h2>About this book · 책 소개</h2>

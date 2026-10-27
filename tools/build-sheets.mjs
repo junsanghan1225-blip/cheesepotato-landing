@@ -93,6 +93,7 @@ const foot = `</main>
 const table = (s) => `    <div class="nw-tw"><table class="nw-t${s.cols.length === 4 ? ' nw-c' : ''}"><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr>` +
   s.rows.map((r) => `<tr>${r.map((c, i) => `<td class="${i === 0 ? 'k' : 'l'}">${esc(c)}</td>`).join('')}</tr>`).join('') + '</table></div>\n';
 function sheetPage(w) {
+  const ad = bookAd(w);
   let n = 0, pn = 0;
   const work = w.sections.map((s) => {
     n++;
@@ -108,7 +109,7 @@ function sheetPage(w) {
   const url = `/${w.id}-worksheet/`;
   const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'LearningResource', name: w.title.en, url: `https://everykoreans.com${url}`, inLanguage: ['en', 'ko'], isAccessibleForFree: true, educationalLevel: w.level, learningResourceType: 'Worksheet' })}</script>\n`;
   const wsFile = `<meta name="ws-file" content="${esc('Cheesepotato_' + (w.level === 'all' ? 'All' : w.level) + '_' + w.title.en.replace(/[^0-9A-Za-z]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40))}">\n`;
-  return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld + wsFile) + `<h1>${esc(w.title.en)}</h1>
+  return head(`${w.title.en} (Free PDF)`, w.desc.en, url, ld + wsFile + (ad ? BOOK_AD_CSS : '')) + `<h1>${esc(w.title.en)}</h1>
 <p>${esc(w.title.ko)} · ${esc(w.sub.en)} · print, save as PDF or Word · Free</p>
 <div class="box">
   <div class="nw-bar no-print"><div class="nw-row"><span>Worksheet</span><button class="nw-b dark" id="nwPrint" type="button">Print / PDF</button><button class="nw-b" id="nwDocx" type="button">Word</button></div><div class="nw-row"><span>Answer key</span><button class="nw-b dark" id="nwAns" type="button">Print / PDF</button><button class="nw-b" id="nwAnsDocx" type="button">Word</button></div></div>
@@ -131,7 +132,7 @@ ${w.howto.map((x) => `  <li>${esc(x)}</li>`).join('\n')}
 </ul>
 <h2>한국어</h2>
 <p>${esc(w.koSummary)}</p>
-<div class="next">
+${ad}<div class="next">
   <h3>Keep learning Korean</h3>
   <p>Free lessons, practice and games — start where you are.</p>
   <div class="btns">
@@ -185,6 +186,19 @@ for (const k of SHOP.books) {
   if (k.polar && !POLAR.test(k.polar)) bad.push(`docs/shop.json 책 ${k.id}: polar 는 https://buy.polar.sh/… 링크`);
 }
 const pub = SHOP.publisher;
+/* 학습지 쪽 → 그 학습지가 단원으로 들어 있는 책 카드(운영자 2026-10-27 「학습지 받은 사람에게 책 안내」). 책 틀(docs/books/<id>.json)에 학습지 id 가 있으면 그 책. */
+const BOOK_AD_CSS = `<style>.bk-ad{display:flex;gap:16px;align-items:center;margin:22px 0;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--tint)}.bk-ad img{width:84px;height:auto;aspect-ratio:700/995;border-radius:2px 6px 6px 2px;box-shadow:0 6px 14px rgba(0,0,0,.18);flex:none}.bk-ad p{margin:2px 0 8px;font-size:14px;line-height:1.5}.bk-ad .btns{display:flex;gap:8px;flex-wrap:wrap}.bk-ad b.bk-ad-h{font-size:13px;color:var(--orange-deep)}@media print{.bk-ad{display:none}}</style>\n`;
+const frameIsbn = (id) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${id}.json`), 'utf8')).isbn || ''; } catch { return ''; } };
+const ADMAP = { 'korean-particles': ['particles-workbook', 'first-steps-workbook'] };
+const FRAME_TXT = new Map(SHOP.books.filter((k) => k.status === 'on').map((k) => [k.id, (() => { try { return fs.readFileSync(path.join(ROOT, `docs/books/${k.id}.json`), 'utf8'); } catch { return ''; } })()]));
+function bookAd(w) {
+  const ids = ADMAP[w.id] || [...FRAME_TXT].filter(([, tx]) => tx.includes(`"${w.id}"`)).map(([id]) => id);
+  const k = ids.map((id) => SHOP.books.find((b) => b.id === id)).find((b) => b && b.status === 'on' && b.coverImg);
+  if (!k) return '';
+  const base = `/shop/${k.id}/`;
+  return `<aside class="bk-ad no-print"><img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995" loading="lazy"><div><b class="bk-ad-h">PART OF A BOOK · 책으로 보기</b><p>This worksheet is one of the units in <a href="${base}"><b>${esc(k.title.en)}</b></a> — more practice, a study plan and an answer key for every unit, as one PDF.</p><div class="btns">${k.sample ? `<a class="btn main" href="${base}#sample" data-ev="책클릭" data-ev-from="학습지-${esc(w.id)}">Free sample</a>` : ''}<a class="btn sub" href="${base}" data-ev="책클릭" data-ev-from="학습지-${esc(w.id)}">See the book · $${esc(k.price)}</a></div></div></aside>\n`;
+}
+
 const packSheets = (p) => sheets.filter((w) => p.level === 'all' || w.level === p.level);
 /* 책 목차 — 워크북은 그 급 학습지 제목이 곧 단원(자료에서 바로), 나머지는 shop.json 의 toc */
 const bookToc = (k) => k.sheets ? sheets.filter((w) => w.level === k.sheets).map((w, i) => ({ en: `Unit ${i + 1}. ${w.title.en}`, ko: w.title.ko, u: `/${w.id}-worksheet/` })) : (k.toc || []);
@@ -219,6 +233,7 @@ const SHOP_CSS = `<style>
 .bk-pub{font-size:9px;opacity:.85;margin-top:8px;position:relative;z-index:1}
 .bk-cover.big{width:240px;flex:none}.bk-cover.big b{font-size:28px}.bk-cover.big i{font-size:14px}.bk-cover.big .bk-ser,.bk-cover.big .bk-pub{font-size:11px}.bk-cover.big .bk-lv{font-size:13px}
 .bk-detail{display:flex;gap:28px;align-items:flex-start;margin:18px 0}
+.lead-box{margin:18px 0;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--tint)}.lead-box>b{font-size:15px}.lead-box p{margin:4px 0 10px;font-size:13.5px;color:var(--ink-2)}.lead-row{display:flex;gap:8px;flex-wrap:wrap}.lead-row input[type=email]{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:15px;background:var(--surface);color:var(--ink)}.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.lead-tips{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:12.5px;color:var(--ink-3);cursor:pointer}.lead-tips input{margin-top:2px}.lead-msg{min-height:1.2em;margin:8px 0 0!important}.lead-msg.ok{color:#1b7a3a}.lead-msg.bad{color:#b3261e}.lead-dl{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--orange-deep)}
 .bk-info{flex:1;min-width:0}.bk-info h1{margin:4px 0 2px}.bk-ko{color:var(--ink-3);margin:0 0 10px}
 .bk-spec{width:100%;min-width:0 !important;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0}.bk-spec td{overflow-wrap:anywhere}.bk-spec th{text-align:left;color:var(--ink-3);font-weight:600;width:96px;padding:6px 0}.bk-spec td{padding:6px 0}
 .bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
@@ -242,6 +257,21 @@ const shopFoot = `<div class="next">
 </div>
 <p class="ft">${esc(pub.en)} · ${esc(pub.ko)} · 출판사 신고번호 제 2026-000158 호 · 통신판매업 신고번호 제 2026-수원영통-1263 호 · 사업자등록번호 202-43-01897 · <a href="/about.html">About</a> · <a href="/worksheets/">Free worksheets</a></p>
 `;
+
+/* 책 묶음(docs/shop.json bundles) — status 가 on 일 때만 보인다(가격은 운영자가 정한 뒤 tools/polar-bundle.mjs) */
+function bundlesHtml() {
+  const on = (SHOP.bundles || []).filter((b) => b.status === 'on' && b.polar);
+  if (!on.length) return '';
+  return `<h2 id="bundles">Book bundles · 책 묶음</h2>\n` + on.map((b) => {
+    const ks = b.books.map((id) => SHOP.books.find((k) => k.id === id));
+    const sum = ks.reduce((a, k) => a + parseFloat(k.price), 0);
+    const off = Math.round((1 - parseFloat(b.price) / sum) * 100);
+    return `<div class="shop-card"><div class="shop-pk" style="width:auto;height:auto;flex-direction:row;gap:6px;padding:8px;background:var(--tint)">${ks.map((k) => `<img src="${esc(k.coverImg)}" alt="" width="70" height="99" loading="lazy" style="width:70px;height:auto;border-radius:2px 5px 5px 2px;box-shadow:0 4px 10px rgba(0,0,0,.18)">`).join('')}</div>
+  <div class="shop-body"><h3>${esc(b.title.en)}</h3><p class="bk-ko">${esc(b.title.ko)}</p><p>${esc(b.sub.en)}</p>
+    <p class="shop-price">$${esc(b.price)} <small>· <s>$${sum.toFixed(2)}</s> · save ${off}% · ${ks.length} PDF downloads</small></p>
+    ${buy(b.polar, b.price, 'Buy the bundle')}</div></div>\n`;
+  }).join('');
+}
 function shopPage() {
   const books = SHOP.books.map((k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`).join('\n');
   const packs = SHOP.packs.map((p) => {
@@ -260,7 +290,7 @@ function shopPage() {
 <div class="bk-grid">
 ${books}
 </div>
-<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
+${bundlesHtml()}<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
 <p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
 ${packs}
 <h2 id="singles">Single worksheets · 낱장</h2>
@@ -290,6 +320,24 @@ function richBody(k) {
 <div class="pg-faq">${g.faq.map(([q, a]) => `<details><summary>${esc(q.en)} · ${esc(q.ko)}</summary><p>${esc(a.en)}</p><p class="bk-ko">${esc(a.ko)}</p></details>`).join('')}</div>`;
 }
 const tocRich = (k) => k.page.contents.map((c) => `<div class="pg-toc"><h3>${esc(c.part.en)} · ${esc(c.part.ko)}</h3>${c.items.map(([t, p]) => `<div><span>${esc(t)}</span><em>${esc(p)}</em></div>`).join('')}</div>`).join('') + '<p class="bk-ko">쪽 번호는 책에 인쇄된 번호입니다 · Page numbers are those printed in the book.</p>';
+
+/* 책 쪽 「무료 샘플」 상자 — 이메일을 내면 db/add_email_leads.sql 의 표에 한 줄(subscribe.js), 이메일 없이도 바로 받을 수 있다. */
+function sampleBox(k) {
+  if (!k.sample) return '';
+  const f = `/assets/books/${k.id}/sample.pdf`;
+  const mb = (fs.statSync(path.join(ROOT, f.slice(1))).size / 1048576).toFixed(1);
+  return `<div class="lead-box" id="sample">
+  <b>Free sample · 무료 샘플</b>
+  <p>The cover, contents and first units of the book (${k.sample.pages} pages, PDF ${mb} MB) — see exactly what you get.</p>
+  <form data-lead="shop-${esc(k.id)}" novalidate>
+    <div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><button class="btn main" type="submit">Get the free sample</button></div>
+    <label class="lead-tips"><input type="checkbox" name="tips"> <span>Also send me study tips and new-book news (optional) · 학습 소식도 받기 (선택)</span></label>
+    <p class="lead-msg" role="status" aria-live="polite"></p>
+  </form>
+  <a class="lead-dl" href="${f}" download data-ev="샘플받기" data-ev-from="${esc(k.id)}">↓ Download the sample now, no email needed · 이메일 없이 바로 받기</a>
+</div>
+<script src="/subscribe.js" defer></script>`;
+}
 function bookPage(k) {
   const toc = bookToc(k);
   const st = STATUS[k.status] || [k.status, ''];
@@ -307,9 +355,10 @@ ${cover(k, true)}
     <tr><th>Size · 판형</th><td>${esc(k.trim || '')}</td></tr>
     <tr><th>Pages · 쪽수</th><td>${esc(k.pages || '')}</td></tr>
     <tr><th>Publisher</th><td>${esc(pub.en)} · ${esc(pub.ko)}</td></tr>
-    ${k.page ? '<tr><th>Format · 형태</th><td>PDF · digital edition · 디지털판</td></tr>' : `<tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>`}
+    ${k.page ? '<tr><th>Format · 형태</th><td>PDF · digital edition · 디지털판</td></tr>' : ''}${frameIsbn(k.id) ? `<tr><th>ISBN</th><td>${esc(frameIsbn(k.id))} (PDF)</td></tr>` : (k.page ? '' : `<tr><th>ISBN</th><td>${esc(k.isbn || 'To be assigned · 출간 때 붙음')}</td></tr>`)}
   </table>
   ${buy(k.polar, k.price || '', 'Buy')}
+  ${sampleBox(k)}
 </div>
 </div>
 ${k.page ? richBody(k).split('@@SPLIT@@')[0] : `<h2>About this book · 책 소개</h2>

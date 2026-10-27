@@ -23,6 +23,12 @@ const card = (k, buy) => `<a class="hm-bk" role="listitem" href="shop/${esc(k.id
           ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
         </a>`;
 
+/* 책 묶음(status on)이 있으면 한 줄 안내 */
+const bundle = (SHOP.bundles || []).filter((b) => b.status === 'on' && b.polar).map((b) => {
+  const sum = b.books.reduce((a, id) => a + parseFloat(SHOP.books.find((k) => k.id === id).price), 0);
+  return `<p class="hm-bundle"><a href="shop/#bundles" data-ev="책클릭" data-ev-from="첫화면-묶음"><b>${esc(b.title.en)}</b> — <span class="hm-bk-px">$${esc(b.price)}</span> <s>$${sum.toFixed(2)}</s> <span data-en="Buy the bundle →">묶음으로 사기 →</span></a></p>`;
+}).join('');
+
 const posts = BLOG_POSTS.slice(0, 4).map((p) => `<a class="hm-post" role="listitem" href="blog/${esc(p.id)}.html">
           <span class="hm-post-tag">${esc((p.tags || [])[0] || '')}</span>
           <b>${esc(p.title)}</b>
@@ -37,6 +43,7 @@ const html = `<!-- hm-books:start — tools/build-home-books.mjs 가 만든다(�
     <div class="hm-bk-row" role="list" aria-label="판매 중인 책" data-en-aria="Books on sale">
         ${on.map((k) => card(k, true)).join('\n        ')}
     </div>
+    ${bundle}
     <p class="hm-bk-all"><a class="hero-go" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
     <h3 class="hm-books-h" data-en="Coming soon">곧 나와요</h3>
     <div class="hm-bk-row hm-bk-row-soon" role="list" aria-label="곧 나올 책" data-en-aria="Coming soon">
