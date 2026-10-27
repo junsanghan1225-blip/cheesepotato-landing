@@ -106,3 +106,14 @@ cron-job.org 가입(무료) → **Dashboard → Create cronjob**. 네 개 모두
 | 401 | 열쇠가 틀렸거나 끝났다 → 1번을 다시 하고 네 개의 Authorization 을 바꾼다 |
 | 403 · 404 | 열쇠의 권한(Actions: Read and write) · 저장소 선택을 다시 본다 |
 | 422 | body 모양이 틀렸다 → 위 줄을 그대로 다시 붙여 넣는다 |
+
+## 책 홍보 쓰레드 글 자동 올리기 (2026-10-27)
+
+`docs/ops/threads-posts.json` 의 홍보 글 7개를 날짜(수 10/28 ~ 화 11/3)에 맞춰 하루 한 개, **한국 시간 21:07** 에 쓰레드에 올린다(본문 + 그림, 링크는 답글).
+코드 `tools/threads-promo.mjs`, `.github/workflows/threads-promo.yml`. 열쇠는 위에서 넣은 **`THREADS_TOKEN` 그대로**(새로 만들 것 없음).
+
+1. **그림이 사이트에 올라가야 한다** — `assets/promo/` 가 main 에 머지된 뒤 1~2분 지나면 쓰레드가 그림을 가져갈 수 있다.
+2. **시험** — Actions → **threads-promo** → Run workflow → post `4`, dry `yes` → 글 · 답글 · 그림 주소가 로그에 보인다(올리지 않음).
+3. **한 번 진짜로** — post `1`, dry `no` → 쓰레드에 올라갔는지 본다(열쇠가 맞는지 여기서 갈린다).
+4. **켜기** — Variables 에 `THREADS_PROMO` = `on`. 그다음부터 매일 21:07 에 그날 차례 글이 올라간다. 끄기: 지우거나 `off`.
+같은 글은 두 번 올라가지 않는다(기록 `insta-media` 가지 `promo/`). 열쇠가 끝나면(약 60일) 위 「스레드 켜기」 4~5번으로 새로 넣는다.

@@ -12,7 +12,7 @@ const [out, imgDir] = pos;
 if (!out) { console.error('쓰는 법: node tools/threads-html.mjs <파일.html> [그림 폴더]'); process.exit(1); }
 const J = JSON.parse(fs.readFileSync(path.join(ROOT, opt('--json', 'docs/ops/threads-posts.json')), 'utf8'));
 const TITLE = opt('--title', '쓰레드 홍보 글');
-const full = (p, src) => { const [pa, h] = p.split('#'); return `https://everykoreans.com${pa}${J.utm.replace('?', '?utm_source=' + (src || 'threads') + '&')}${h ? '#' + h : ''}`; };
+const full = (p, src) => { const [pa, h] = p.split('#'); return `https://everykoreans.com${pa}${(/utm_source=/.test(J.utm) ? J.utm.replace(/utm_source=[^&]*/, 'utm_source=' + (src || 'threads')) : J.utm.replace('?', '?utm_source=' + (src || 'threads') + '&'))}${h ? '#' + h : ''}`; };
 const card = (c) => (imgDir && fs.existsSync(path.join(imgDir, c + '.png'))) ? `<img src="data:image/png;base64,${fs.readFileSync(path.join(imgDir, c + '.png')).toString('base64')}" alt="" style="width:100%;max-width:300px;border-radius:10px;border:1px solid #e6dccb">` : '';
 const block = (label, text) => { const n = [...text].length; return `<div class="f"><div class="fh"><b>${e(label)}</b><span>${n}자${n > 500 ? ' ⚠ 500자 넘음' : ''}</span><button type="button" data-c>복사</button></div><pre>${e(text)}</pre></div>`; };
 const posts = J.posts.map((p) => {
