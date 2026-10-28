@@ -1183,6 +1183,1186 @@
           "a": "He placed the clock carefully on the corner of his desk."
         }
       ]
+    },
+    {
+      "no": 11,
+      "level": "A2",
+      "title": {
+        "ko": "동네 목공소의 작은 나무 도마",
+        "en": "A Little Wooden Cutting Board at the Woodshop"
+      },
+      "lines": [
+        {
+          "ko": "지수는 동네 골목 안쪽에 있는 작은 목공소를 지나갔어요.",
+          "en": "Jisu walked past a small woodworking shop tucked in the neighborhood alley."
+        },
+        {
+          "ko": "열린 문틈으로 은은한 나무 향기가 기분 좋게 흘러나왔어요.",
+          "en": "Through the open doorway, the pleasant, gentle scent of fresh wood drifted out."
+        },
+        {
+          "ko": "작업대 앞에 선 목수 할아버지가 나무를 정성껏 대패질하고 계셨어요.",
+          "en": "Standing before a workbench, an elderly carpenter was carefully planing a piece of wood."
+        },
+        {
+          "ko": "지수는 호기심 어린 눈빛으로 문 앞에서 발걸음을 멈추었어요.",
+          "en": "Jisu stopped in her tracks at the entrance with curious eyes."
+        },
+        {
+          "ko": "할아버지는 지수를 발견하고 환한 미소로 들어오라고 손짓하셨어요.",
+          "en": "Seeing Jisu, the carpenter gave a bright smile and waved for her to come inside."
+        },
+        {
+          "ko": "바닥에는 노란 나무 대팻밥이 꽃잎처럼 소복하게 쌓여 있었어요.",
+          "en": "On the floor, yellow wood shavings were piled up softly like flower petals."
+        },
+        {
+          "ko": "지수는 버려진 자투리 호두나무 조각 하나를 눈여겨보았어요.",
+          "en": "Jisu noticed a discarded remnant piece of walnut wood on the bench."
+        },
+        {
+          "ko": "할아버지는 그 나무로 작은 빵 도마를 함께 만들어보자고 제안하셨어요.",
+          "en": "The carpenter suggested that they make a small breadboard together with that piece."
+        },
+        {
+          "ko": "거친 사포를 손에 쥐고 나무 표면을 부드럽게 문질렀어요.",
+          "en": "Holding a piece of sandpaper in her hand, she gently rubbed the surface of the wood."
+        },
+        {
+          "ko": "팔이 조금 아팠지만 점점 매끄러워지는 감촉이 참 신기했어요.",
+          "en": "Her arm ached a bit, but the increasingly smooth texture felt wonderful."
+        },
+        {
+          "ko": "마지막으로 천연 오일을 바르자 짙은 갈색 나이테가 또렷하게 드러났어요.",
+          "en": "Finally, when she applied natural oil, the deep brown wood grain appeared clearly."
+        },
+        {
+          "ko": "할아버지는 지수의 이름 첫 글자를 나무 모퉁이에 새겨주셨어요.",
+          "en": "The carpenter carved the first letter of Jisu's name into the corner of the wood."
+        },
+        {
+          "ko": "지수는 정성이 깃든 나만의 도마를 품에 안았어요.",
+          "en": "Jisu held her very own handcrafted cutting board close to her chest."
+        },
+        {
+          "ko": "집으로 돌아가는 길 내내 손에서 향긋한 나무 향이 맴돌았어요.",
+          "en": "All the way home, the fragrant aroma of wood lingered on her hands."
+        },
+        {
+          "ko": "소중한 물건을 직접 완성한 뿌듯함에 가슴이 벅찼어요.",
+          "en": "Her heart was full of pride for having completed such a precious item herself."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "목공소",
+          "en": "woodworking shop, carpentry shop"
+        },
+        {
+          "ko": "문틈",
+          "en": "gap in a door, crack"
+        },
+        {
+          "ko": "대패질",
+          "en": "planing (wood)"
+        },
+        {
+          "ko": "대팻밥",
+          "en": "wood shavings"
+        },
+        {
+          "ko": "사포",
+          "en": "sandpaper"
+        },
+        {
+          "ko": "나이테",
+          "en": "tree rings, wood grain"
+        },
+        {
+          "ko": "모퉁이",
+          "en": "corner"
+        },
+        {
+          "ko": "깃들다",
+          "en": "to dwell, to be imbued with"
+        }
+      ],
+      "check": [
+        {
+          "q": "What caught Jisu's attention as she walked past the woodworking shop?",
+          "a": "The pleasant scent of fresh wood drifting from the open doorway caught her attention."
+        },
+        {
+          "q": "What kind of item did the carpenter suggest making with the leftover walnut wood?",
+          "a": "The carpenter suggested making a small wooden breadboard together."
+        },
+        {
+          "q": "What did the carpenter carve into the corner of the finished cutting board?",
+          "a": "He carved the first letter of Jisu's name into the corner."
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "level": "A2",
+      "title": {
+        "ko": "작은 용기로 시작한 수영 강습",
+        "en": "A Brave Start at the Swimming Pool"
+      },
+      "lines": [
+        {
+          "ko": "민수는 어릴 적 기억 때문에 물을 조금 무서워했어요.",
+          "en": "Minsu had been a little afraid of water because of a childhood memory."
+        },
+        {
+          "ko": "하지만 두려움을 이겨내고 싶어서 구민센터 수영 강습을 신청했어요.",
+          "en": "However, wanting to overcome his fear, he signed up for swimming lessons at the community center."
+        },
+        {
+          "ko": "첫 수업 날 민수는 긴장된 마음으로 수영장 물가에 섰어요.",
+          "en": "On the day of his first class, Minsu stood nervously by the edge of the pool."
+        },
+        {
+          "ko": "푸른 수영장 물이 깊고 차가워 보여서 발이 쉽게 떨어지지 않았어요.",
+          "en": "The blue pool water looked deep and cold, and he hesitated to step inside."
+        },
+        {
+          "ko": "친절한 강사 선생님이 민수의 굳은 어깨를 토닥이며 격려해 주셨어요.",
+          "en": "The friendly instructor gently patted Minsu's tense shoulders and encouraged him."
+        },
+        {
+          "ko": "천천히 물속으로 계단을 밟고 내려가자 시원한 기운이 몸을 감쌌어요.",
+          "en": "Stepping down the pool stairs into the water, a refreshing chill wrapped around his body."
+        },
+        {
+          "ko": "먼저 벽을 잡고 얼굴을 물속에 담그는 호흡 연습부터 시작했어요.",
+          "en": "Holding onto the wall, he first started with breathing exercises by dipping his face in the water."
+        },
+        {
+          "ko": "코로 숨을 천천히 내쉬며 보글보글 거품을 만들었어요.",
+          "en": "He slowly exhaled through his nose, creating bubbling ripples in the water."
+        },
+        {
+          "ko": "몇 번 반복하자 물에 대한 두려움이 조금씩 사라졌어요.",
+          "en": "After repeating this a few times, his fear of water began to fade away."
+        },
+        {
+          "ko": "이어서 네모난 킥판을 두 손으로 잡고 물 위에 엎드렸어요.",
+          "en": "Next, he held a square kickboard with both hands and lay flat on the water."
+        },
+        {
+          "ko": "뒤에서 강사님이 발차기 요령을 차근차근 알려주셨어요.",
+          "en": "From behind him, the instructor gave step-by-step tips on how to flutter kick."
+        },
+        {
+          "ko": "민수는 힘차게 다리를 위아래로 움직이며 물살을 갈랐어요.",
+          "en": "Minsu kicked his legs up and down vigorously, cutting through the water."
+        },
+        {
+          "ko": "놀랍게도 몸이 가볍게 뜨며 앞으로 스르륵 미끄러져 나아갔어요.",
+          "en": "Surprisingly, his body floated lightly and began gliding smoothly forward."
+        },
+        {
+          "ko": "스스로 물 위를 나아갔다는 사실에 기쁨의 미소가 터져 나왔어요.",
+          "en": "Realizing that he was moving through the water on his own brought a joyful smile to his face."
+        },
+        {
+          "ko": "민수는 다음 강습 날이 벌써부터 기다려졌어요.",
+          "en": "Minsu was already looking forward to his next swimming lesson."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "두려움",
+          "en": "fear"
+        },
+        {
+          "ko": "강습",
+          "en": "lesson, training class"
+        },
+        {
+          "ko": "물가",
+          "en": "water's edge, poolside"
+        },
+        {
+          "ko": "굳다",
+          "en": "to be stiff, tense"
+        },
+        {
+          "ko": "킥판",
+          "en": "kickboard"
+        },
+        {
+          "ko": "요령",
+          "en": "knack, tip"
+        },
+        {
+          "ko": "물살",
+          "en": "current, water flow"
+        },
+        {
+          "ko": "미끄러지다",
+          "en": "to slide, to glide"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Minsu sign up for swimming lessons at the community center?",
+          "a": "He signed up because he wanted to overcome his fear of water."
+        },
+        {
+          "q": "What basic exercise did Minsu start with while holding onto the pool wall?",
+          "a": "He started with breathing exercises by dipping his face in the water."
+        },
+        {
+          "q": "How did Minsu feel when his body began gliding forward on the water?",
+          "a": "He broke into a joyful smile, thrilled to be moving through the water on his own."
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "level": "A2",
+      "title": {
+        "ko": "주말의 식물 병원",
+        "en": "A Visit to the Plant Clinic"
+      },
+      "lines": [
+        {
+          "ko": "하나의 방 창가에는 아끼는 초록색 몬스테라 화분이 있었어요.",
+          "en": "On Hana's bedroom windowsill stood her beloved green monstera plant."
+        },
+        {
+          "ko": "그런데 며칠 전부터 싱싱하던 잎사귀가 노랗게 변하고 시들었어요.",
+          "en": "However, a few days ago, its fresh green leaves began turning yellow and wilting."
+        },
+        {
+          "ko": "물을 주고 햇빛을 쬐어주어도 화분은 점점 기운을 잃어갔어요.",
+          "en": "Even after watering it and placing it in the sun, the plant continued to droop."
+        },
+        {
+          "ko": "걱정이 된 하나는 동네 주민센터 안에 있는 식물 병원을 찾아갔어요.",
+          "en": "Worried about her plant, Hana visited the plant clinic inside the local community center."
+        },
+        {
+          "ko": "온화한 인상의 식물 의사 선생님이 돋보기로 잎과 줄기를 살폈어요.",
+          "en": "A gentle plant doctor examined the leaves and stems with a magnifying glass."
+        },
+        {
+          "ko": "흙을 살짝 파내어 뿌리 상태를 꼼꼼하게 확인하셨어요.",
+          "en": "He gently dug into the soil to carefully inspect the condition of the roots."
+        },
+        {
+          "ko": "화분이 너무 작아서 뿌리가 숨을 쉬지 못하고 엉켜 있었어요.",
+          "en": "The pot had become too small, and the roots were tangled and unable to breathe."
+        },
+        {
+          "ko": "선생님은 더 큰 화분으로 분갈이를 해 주어야 한다고 설명하셨어요.",
+          "en": "The specialist explained that the plant needed to be repotted into a larger container."
+        },
+        {
+          "ko": "하나는 선생님을 도와 기존 화분에서 조심스럽게 식물을 꺼냈어요.",
+          "en": "Hana helped the specialist carefully lift the plant out of its old pot."
+        },
+        {
+          "ko": "영양분이 가득한 새 배양토를 넉넉하게 채우고 몬스테라를 옮겨 심었어요.",
+          "en": "They generously filled a new pot with nutrient-rich potting soil and transplanted the monstera."
+        },
+        {
+          "ko": "물이 화분 밑으로 흘러나올 때까지 시원하게 물을 흠뻑 주었어요.",
+          "en": "They watered it thoroughly until clean water flowed from the drainage hole at the bottom."
+        },
+        {
+          "ko": "잎에 묻은 먼지도 부드러운 수건으로 정성스럽게 닦아주었어요.",
+          "en": "She also gently wiped away the dust on the leaves with a soft towel."
+        },
+        {
+          "ko": "통풍이 잘되는 그늘에서 며칠 쉬게 하면 다시 건강해질 거라 하셨어요.",
+          "en": "The doctor said the plant would regain its health if left in well-ventilated shade for a few days."
+        },
+        {
+          "ko": "집으로 돌아오는 하나의 발걸음은 안도감으로 가벼웠어요.",
+          "en": "Hana's walk home was light with a deep sense of relief."
+        },
+        {
+          "ko": "반려식물을 올바르게 돌보는 방법을 배워서 참 유익한 하루였어요.",
+          "en": "It was a truly rewarding day learning how to properly care for her companion plant."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "잎사귀",
+          "en": "leaf, foliage"
+        },
+        {
+          "ko": "시들다",
+          "en": "to wilt, to wither"
+        },
+        {
+          "ko": "돋보기",
+          "en": "magnifying glass"
+        },
+        {
+          "ko": "뿌리",
+          "en": "root"
+        },
+        {
+          "ko": "엉키다",
+          "en": "to be tangled, entangled"
+        },
+        {
+          "ko": "분갈이",
+          "en": "repotting, potting"
+        },
+        {
+          "ko": "배양토",
+          "en": "potting soil, compost"
+        },
+        {
+          "ko": "반려식물",
+          "en": "companion plant, pet plant"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Hana take her monstera plant to the plant clinic?",
+          "a": "She took it because its green leaves were turning yellow and wilting."
+        },
+        {
+          "q": "What was causing the plant to lose its vitality according to the plant doctor?",
+          "a": "The pot was too small and the roots were tangled and unable to breathe."
+        },
+        {
+          "q": "What did they do to help the plant recover its health?",
+          "a": "They repotted the plant into a larger container with nutrient-rich soil and watered it thoroughly."
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "level": "A2",
+      "title": {
+        "ko": "비 오는 날의 따뜻한 국밥",
+        "en": "A Warm Bowl of Gukbap on a Rainy Day"
+      },
+      "lines": [
+        {
+          "ko": "퇴근길 저녁에 갑자기 차가운 가을비가 내리기 시작했어요.",
+          "en": "On their way home from work, a cold autumn rain suddenly began to fall."
+        },
+        {
+          "ko": "우산이 없던 민수와 지수는 옷깃을 여미며 빠른 걸음으로 걸었어요.",
+          "en": "Without an umbrella, Minsu and Jisu pulled their collars tight and walked quickly."
+        },
+        {
+          "ko": "쌀쌀한 바람에 온몸이 오들오들 떨리고 손발이 차가워졌어요.",
+          "en": "The chilly wind made them shiver all over, turning their hands and feet cold."
+        },
+        {
+          "ko": "골목 모퉁이를 돌자 유리창 너머로 따뜻한 김이 피어오르는 식당이 보였어요.",
+          "en": "Turning the corner of an alley, they saw a diner through foggy glass windows with warm steam rising inside."
+        },
+        {
+          "ko": "삼십 년 전통이라는 낡은 간판이 걸린 오래된 국밥집이었어요.",
+          "en": "It was an old gukbap restaurant with a weathered sign boasting thirty years of tradition."
+        },
+        {
+          "ko": "문을 열고 들어가자 구수한 사골 육수 냄새가 코끝을 찔렀어요.",
+          "en": "As they opened the door and entered, the rich aroma of simmering beef bone broth greeted them."
+        },
+        {
+          "ko": "두 사람은 따뜻한 온돌 자리로 안내받아 편하게 앉았어요.",
+          "en": "The two were guided to a warm heated floor seat and sat down comfortably."
+        },
+        {
+          "ko": "민수는 따끈한 소머리국밥 두 그릇을 주문했어요.",
+          "en": "Minsu ordered two piping-hot bowls of beef soup with rice."
+        },
+        {
+          "ko": "잠시 후 뚝배기 속에서 보글보글 끓어오르는 맑은 국밥이 나왔어요.",
+          "en": "A moment later, the bubbling hot soup arrived in deep earthenware pots."
+        },
+        {
+          "ko": "아삭한 깍두기와 잘 익은 겉절이 김치도 상 위에 푸짐하게 차려졌어요.",
+          "en": "Crunchy radish kimchi and fresh cabbage kimchi were served generously on the table."
+        },
+        {
+          "ko": "숟가락으로 뜨거운 국물을 한 입 떠먹자 얼었던 몸이 사르르 녹았어요.",
+          "en": "Taking a spoonful of the hot broth, their shivering bodies melted warmly inside."
+        },
+        {
+          "ko": "부드러운 고기와 밥을 국물에 말아 깍두기를 얹어 크게 한입 먹었어요.",
+          "en": "They mixed tender beef and rice into the broth and took big bites topped with radish kimchi."
+        },
+        {
+          "ko": "정직한 맛과 넉넉한 인심 덕분에 뚝배기 바닥이 훤히 드러났어요.",
+          "en": "Thanks to the hearty flavors and generous hospitality, they emptied their earthenware bowls to the bottom."
+        },
+        {
+          "ko": "든든하게 배를 채우고 식당 문을 나서니 비바람도 춥지 않았어요.",
+          "en": "Stepping out of the diner with full bellies, the rain and wind no longer felt cold."
+        },
+        {
+          "ko": "소박하지만 따뜻한 음식 한 그릇이 전해준 포근한 행복이었어요.",
+          "en": "It was the cozy happiness brought by a simple yet deeply heartwarming meal."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "가을비",
+          "en": "autumn rain"
+        },
+        {
+          "ko": "오들오들",
+          "en": "shivering, trembling with cold"
+        },
+        {
+          "ko": "국밥집",
+          "en": "soup and rice restaurant, gukbap diner"
+        },
+        {
+          "ko": "육수",
+          "en": "broth, stock"
+        },
+        {
+          "ko": "온돌",
+          "en": "ondol, heated floor"
+        },
+        {
+          "ko": "뚝배기",
+          "en": "earthenware pot"
+        },
+        {
+          "ko": "깍두기",
+          "en": "diced radish kimchi"
+        },
+        {
+          "ko": "인심",
+          "en": "hospitality, generosity"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Minsu and Jisu hurry into the old gukbap restaurant?",
+          "a": "They hurried inside because cold autumn rain was falling and they were shivering without an umbrella."
+        },
+        {
+          "q": "What side dishes were served generously on the table with the hot soup?",
+          "a": "Crunchy radish kimchi and fresh cabbage kimchi were served on the table."
+        },
+        {
+          "q": "How did they feel after finishing their bowls of hot soup?",
+          "a": "They felt warm and full, so the wind and rain outside no longer felt cold."
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "level": "A2",
+      "title": {
+        "ko": "아파트 계단 오르기 도전",
+        "en": "The Stair-Climbing Challenge"
+      },
+      "lines": [
+        {
+          "ko": "하나는 요즘 운동 부족으로 계단을 오를 때 숨이 찼어요.",
+          "en": "Lately, Hana found herself out of breath when climbing stairs due to a lack of exercise."
+        },
+        {
+          "ko": "건강을 위해 오늘부터 매일 아파트 계단을 걷기로 결심했어요.",
+          "en": "For her health, she resolved to walk up the stairs of her apartment building every day starting today."
+        },
+        {
+          "ko": "퇴근 후 일층 엘리베이터 앞에서 망설이지 않고 비상계단 문을 열었어요.",
+          "en": "After work, she opened the emergency staircase door on the first floor without hesitation."
+        },
+        {
+          "ko": "서늘하고 조용한 계단실에 하나의 운동화 발소리가 또각또각 울렸어요.",
+          "en": "In the cool and quiet stairwell, the sound of Hana's sneakers echoed clearly."
+        },
+        {
+          "ko": "삼층까지는 가벼운 마음으로 경쾌하게 한 계단씩 올라갔어요.",
+          "en": "Up to the third floor, she climbed each step briskly with a light heart."
+        },
+        {
+          "ko": "하지만 오층을 넘어서자 종아리가 묵직해지고 땀이 솟아났어요.",
+          "en": "However, past the fifth floor, her calves grew heavy and sweat began to bead on her brow."
+        },
+        {
+          "ko": "칠층 계단참에서 잠시 멈춰 서서 난간을 잡고 숨을 몰아쉬었어요.",
+          "en": "She paused at the seventh-floor landing, holding onto the handrail to catch her breath."
+        },
+        {
+          "ko": "엘리베이터를 부르고 싶은 유혹이 마음속에서 강하게 일어났어요.",
+          "en": "A strong temptation to call the elevator arose in her mind."
+        },
+        {
+          "ko": "하지만 포기하지 않고 벽에 붙은 층수 표지판을 보며 다시 힘을 냈어요.",
+          "en": "However, refusing to give up, she gathered her strength as she looked at the floor sign on the wall."
+        },
+        {
+          "ko": "천천히 발을 디디며 한 층 한 층 목표를 향해 올라갔어요.",
+          "en": "Stepping slowly, she climbed floor by floor toward her destination."
+        },
+        {
+          "ko": "마침내 십층 계단 문을 밀고 복도로 나왔어요.",
+          "en": "Finally, she pushed open the tenth-floor door and stepped out into the hallway."
+        },
+        {
+          "ko": "이마에 흐르는 땀을 닦아내자 시원한 바람이 온몸을 스쳐 지나갔어요.",
+          "en": "As she wiped the sweat from her forehead, a cool breeze brushed past her body."
+        },
+        {
+          "ko": "다리는 후들거렸지만 스스로와의 약속을 지켰다는 성취감이 밀려왔어요.",
+          "en": "Her legs trembled slightly, but a wave of accomplishment swept over her for keeping her promise."
+        },
+        {
+          "ko": "현관문을 열고 집으로 들어서는 하나의 얼굴에 환한 미소가 번졌어요.",
+          "en": "Opening her front door and stepping inside, a bright smile spread across Hana's face."
+        },
+        {
+          "ko": "작은 실천이 모여 건강한 일상을 만든다는 소중한 믿음이 생겼어요.",
+          "en": "She gained a precious confidence that small daily efforts create a healthy life."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "계단실",
+          "en": "stairwell"
+        },
+        {
+          "ko": "경쾌하다",
+          "en": "to be brisk, light"
+        },
+        {
+          "ko": "종아리",
+          "en": "calf (of the leg)"
+        },
+        {
+          "ko": "계단참",
+          "en": "stair landing"
+        },
+        {
+          "ko": "난간",
+          "en": "handrail, railing"
+        },
+        {
+          "ko": "유혹",
+          "en": "temptation"
+        },
+        {
+          "ko": "후들거리다",
+          "en": "to tremble, to shake (legs)"
+        },
+        {
+          "ko": "성취감",
+          "en": "sense of accomplishment"
+        }
+      ],
+      "check": [
+        {
+          "q": "What health resolution did Hana make after work today?",
+          "a": "She resolved to walk up the stairs of her apartment building every day."
+        },
+        {
+          "q": "Where did Hana pause to catch her breath while holding onto the handrail?",
+          "a": "She paused to catch her breath at the seventh-floor landing."
+        },
+        {
+          "q": "How did Hana feel after reaching the tenth floor on foot?",
+          "a": "She felt a proud sense of accomplishment for keeping her promise to herself."
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "level": "A2",
+      "title": {
+        "ko": "할머니의 손뜨개 목도리",
+        "en": "Grandmother's Hand-Knitted Muffler"
+      },
+      "lines": [
+        {
+          "ko": "쌀쌀한 초겨울 바람이 불기 시작한 일요일에 지수는 시골 할머니 댁을 방문했어요.",
+          "en": "On a Sunday when chilly early winter winds began to blow, Jisu visited her grandmother's country house."
+        },
+        {
+          "ko": "마당에 들어서자 할머니가 버선발로 뛰어나와 지수를 반갑게 안아주셨어요.",
+          "en": "As she stepped into the yard, her grandmother rushed out with open arms to welcome Jisu warmly."
+        },
+        {
+          "ko": "따뜻한 방바닥에 앉아 할머니가 구워주신 달콤한 군고구마를 나누어 먹었어요.",
+          "en": "Sitting on the warm floor, they shared sweet roasted sweet potatoes that grandmother had baked."
+        },
+        {
+          "ko": "차를 마시던 할머니가 서랍장에서 정성스럽게 싼 보자기 상자를 꺼내오셨어요.",
+          "en": "While sipping tea, grandmother brought out a box wrapped carefully in a traditional silk cloth."
+        },
+        {
+          "ko": "손녀의 겨울을 위해 지난 한 달 동안 틈틈이 뜬 선물이라고 수줍게 건네셨어요.",
+          "en": "She shyly handed it over, saying it was a gift knitted in her spare time over the past month."
+        },
+        {
+          "ko": "보자기를 풀자 부드러운 개나리색 털실로 짠 도톰한 목도리가 나왔어요.",
+          "en": "Untying the cloth, a thick wool muffler knitted with soft forsythia-yellow yarn emerged."
+        },
+        {
+          "ko": "한 올 한 올 고르게 엮인 뜨개질 코마다 할머니의 따뜻한 손길이 느껴졌어요.",
+          "en": "In every single neatly woven stitch, Jisu could feel her grandmother's loving touch."
+        },
+        {
+          "ko": "지수는 목도리를 목에 부드럽게 감고 거울 앞으로 다가갔어요.",
+          "en": "Jisu gently wrapped the muffler around her neck and walked over to the mirror."
+        },
+        {
+          "ko": "칙칙한 겨울옷 위에 화사한 노란빛 목도리가 꽃처럼 피어났어요.",
+          "en": "Over her drab winter clothes, the bright yellow muffler bloomed like a lovely flower."
+        },
+        {
+          "ko": "할머니의 주름진 손을 꼭 잡고 연신 감사하다고 인사드렸어요.",
+          "en": "Holding her grandmother's wrinkled hands tightly, she thanked her over and over again."
+        },
+        {
+          "ko": "할머니는 손녀의 따뜻한 미소를 보며 소녀처럼 환하게 웃으셨어요.",
+          "en": "Looking at her granddaughter's happy smile, grandmother chuckled brightly like a young girl."
+        },
+        {
+          "ko": "서울로 돌아오는 버스 안에서도 지수는 목도리를 풀지 않았어요.",
+          "en": "Even on the bus ride back to Seoul, Jisu did not take off the muffler."
+        },
+        {
+          "ko": "창밖으로 차가운 밤바람이 불었지만 목을 감싼 온기는 식지 않았어요.",
+          "en": "Cold night winds blew outside the window, but the warmth wrapped around her neck never cooled."
+        },
+        {
+          "ko": "할머니의 깊은 사랑이 담긴 세상에서 가장 포근한 선물이었어요.",
+          "en": "It was the coziest gift in the world, filled with her grandmother's deep love."
+        },
+        {
+          "ko": "지수는 올겨울을 그 어느 때보다 따뜻하게 보낼 수 있을 것 같았어요.",
+          "en": "Jisu felt confident that she would spend this winter warmer than ever before."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "초겨울",
+          "en": "early winter"
+        },
+        {
+          "ko": "군고구마",
+          "en": "roasted sweet potato"
+        },
+        {
+          "ko": "보자기",
+          "en": "wrapping cloth"
+        },
+        {
+          "ko": "손뜨개",
+          "en": "hand-knitting"
+        },
+        {
+          "ko": "털실",
+          "en": "knitting yarn, wool"
+        },
+        {
+          "ko": "목도리",
+          "en": "scarf, muffler"
+        },
+        {
+          "ko": "한 올",
+          "en": "single strand, single stitch"
+        },
+        {
+          "ko": "주름지다",
+          "en": "to be wrinkled"
+        }
+      ],
+      "check": [
+        {
+          "q": "What homemade snack did Jisu and her grandmother share in the warm room?",
+          "a": "They shared sweet roasted sweet potatoes baked by her grandmother."
+        },
+        {
+          "q": "What color was the hand-knitted wool muffler grandmother gave to Jisu?",
+          "a": "The muffler was knitted with soft forsythia-yellow wool yarn."
+        },
+        {
+          "q": "How did Jisu feel while wearing the muffler on the bus ride back to Seoul?",
+          "a": "She felt completely warm and protected by her grandmother's deep love."
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "level": "A2",
+      "title": {
+        "ko": "동네 사진관의 흑백 가족사진",
+        "en": "A Black-and-White Family Portrait"
+      },
+      "lines": [
+        {
+          "ko": "부모님의 결혼기념일을 맞아 민수 가족은 동네 옛날 사진관을 찾았어요.",
+          "en": "To celebrate his parents' wedding anniversary, Minsu's family visited an old neighborhood photo studio."
+        },
+        {
+          "ko": "붉은 벽돌 건물 이층에 자리 잡은 사진관은 아늑하고 고풍스러운 분위기였어요.",
+          "en": "Located on the second floor of a red brick building, the studio had a cozy and vintage atmosphere."
+        },
+        {
+          "ko": "벽면에는 수십 년 동안 이곳을 거쳐 간 이웃들의 흑백사진이 가득 걸려 있었어요.",
+          "en": "On the walls hung countless black-and-white portraits of neighbors who had visited over the decades."
+        },
+        {
+          "ko": "가족 모두 거울 앞에서 옷매무새를 다듬고 머리를 단정하게 빗었어요.",
+          "en": "Standing before the mirror, the whole family adjusted their clothes and combed their hair neatly."
+        },
+        {
+          "ko": "사진사 아저씨가 커다란 조명 아래 나무 의자를 나란히 놓아주셨어요.",
+          "en": "The photographer arranged wooden chairs side by side beneath the large studio lights."
+        },
+        {
+          "ko": "부모님이 가운데 앉으시고 민수와 동생은 양옆에 바르게 섰어요.",
+          "en": "His parents sat in the center while Minsu and his younger sibling stood upright on either side."
+        },
+        {
+          "ko": "카메라 렌즈 앞에 서자 모두 어깨가 굳고 표정이 어색해졌어요.",
+          "en": "Standing before the camera lens, everyone's shoulders tensed and their faces grew stiff."
+        },
+        {
+          "ko": "사진사 아저씨가 재미있는 농담을 던지며 긴장을 풀어주셨어요.",
+          "en": "The photographer cracked a witty joke to help ease their nervous tension."
+        },
+        {
+          "ko": "그 순간 아버지가 껄껄 웃으셨고 가족 모두 참았던 웃음보가 터졌어요.",
+          "en": "At that moment, father laughed out loud, and the whole family burst into spontaneous laughter."
+        },
+        {
+          "ko": "찰칵하는 소리와 함께 환한 플래시 불빛이 눈앞을 밝혔어요.",
+          "en": "With a crisp clicking sound, the bright studio flash illuminated the room."
+        },
+        {
+          "ko": "억지로 꾸며낸 미소가 아닌 가장 자연스럽고 행복한 순간이 필름에 담겼어요.",
+          "en": "Rather than forced smiles, their most natural and joyful moment was captured on film."
+        },
+        {
+          "ko": "인화된 흑백사진 속에서 네 사람의 웃는 얼굴이 따스하게 빛났어요.",
+          "en": "In the developed black-and-white print, the smiling faces of the four family members shone warmly."
+        },
+        {
+          "ko": "아버지는 나무 액자에 사진을 담으며 오래도록 기억하자고 말씀하셨어요.",
+          "en": "Placing the photo into a wooden frame, father said they should cherish this memory for years to come."
+        },
+        {
+          "ko": "사진관 계단을 내려오는 가족들의 손에는 작은 액자가 소중하게 들려 있었어요.",
+          "en": "Walking down the studio stairs, the family held the little framed photo with loving care."
+        },
+        {
+          "ko": "오랜 시간이 흘러도 변하지 않을 가족의 따뜻한 추억을 선물 받은 날이었어요.",
+          "en": "It was a day they were gifted with a warm family memory that time would never fade."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "결혼기념일",
+          "en": "wedding anniversary"
+        },
+        {
+          "ko": "고풍스럽다",
+          "en": "to be antique, vintage"
+        },
+        {
+          "ko": "옷매무새",
+          "en": "one's appearance, dress"
+        },
+        {
+          "ko": "사진사",
+          "en": "photographer"
+        },
+        {
+          "ko": "조명",
+          "en": "lighting, studio light"
+        },
+        {
+          "ko": "인화",
+          "en": "photographic printing, developing"
+        },
+        {
+          "ko": "액자",
+          "en": "photo frame"
+        },
+        {
+          "ko": "찰칵",
+          "en": "click (camera shutter sound)"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Minsu's family visit the vintage photo studio?",
+          "a": "They visited to take a family portrait celebrating their parents' wedding anniversary."
+        },
+        {
+          "q": "How did the photographer help the family relax their stiff expressions?",
+          "a": "The photographer cracked a funny joke that made the whole family laugh out loud."
+        },
+        {
+          "q": "What kind of photo frame did father place the developed picture into?",
+          "a": "Father placed the developed picture into a wooden photo frame."
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "level": "A2",
+      "title": {
+        "ko": "당근마켓의 따뜻한 자전거 나눔",
+        "en": "A Warm Exchange on the Neighborhood App"
+      },
+      "lines": [
+        {
+          "ko": "하나는 회사 출퇴근용으로 탈 중고 자전거를 구하고 있었어요.",
+          "en": "Hana had been looking for a secondhand bicycle to use for her daily work commute."
+        },
+        {
+          "ko": "동네 중고 거래 앱을 켜서 알림 설정을 해 두고 매물을 살폈어요.",
+          "en": "She opened her neighborhood trading app, set up notifications, and browsed through the listings."
+        },
+        {
+          "ko": "마침 집 근처 아파트 단지에서 깨끗한 흰색 자전거가 올라왔어요.",
+          "en": "Just then, a well-kept white bicycle was listed by someone in an apartment complex near her home."
+        },
+        {
+          "ko": "가격도 저렴하고 상태가 좋아 보여서 서둘러 판매자에게 메시지를 보냈어요.",
+          "en": "The price was reasonable and the condition looked great, so she quickly messaged the seller."
+        },
+        {
+          "ko": "저녁 일곱 시에 아파트 놀이터 벤치 앞에서 만나기로 약속을 잡았어요.",
+          "en": "They agreed to meet in front of the playground bench in the apartment complex at seven in the evening."
+        },
+        {
+          "ko": "시간에 맞춰 도착하자 한 중년 여성이 자전거를 끌고 다가오셨어요.",
+          "en": "Arriving on time, she saw a middle-aged woman walking over with the bicycle."
+        },
+        {
+          "ko": "자전거는 체인에 기름칠도 잘 되어 있고 타이어 바람도 팽팽했어요.",
+          "en": "The bicycle chain was well-oiled and the tires were properly inflated."
+        },
+        {
+          "ko": "아주머니는 외국으로 유학을 떠난 딸이 타던 소중한 자전거라고 소개하셨어요.",
+          "en": "The woman explained that it was a cherished bike used by her daughter who had gone abroad to study."
+        },
+        {
+          "ko": "하나는 준비해 온 봉투를 건네며 감사 인사를 전했어요.",
+          "en": "Hana handed over the envelope with payment and expressed her gratitude."
+        },
+        {
+          "ko": "그런데 아주머니가 장바구니에서 튼튼한 자물쇠와 새 헬멧을 꺼내셨어요.",
+          "en": "Just then, the woman pulled a sturdy lock and a brand-new helmet from her shopping bag."
+        },
+        {
+          "ko": "딸아이 생각도 나고 안전하게 타길 바라는 마음에 무료로 챙겨주신 선물이었어요.",
+          "en": "She gave them as a free gift, thinking of her daughter and wishing Hana safe rides."
+        },
+        {
+          "ko": "뜻밖의 따뜻한 호의에 하나의 가슴에 뭉클한 감동이 번졌어요.",
+          "en": "This unexpected warmth and kindness touched Hana's heart deeply."
+        },
+        {
+          "ko": "하나는 선물 받은 헬멧을 바르게 착용하고 안장에 올랐어요.",
+          "en": "Hana fastened the gifted helmet securely and climbed onto the bicycle saddle."
+        },
+        {
+          "ko": "가로등 불빛 아래에서 페달을 밟자 자전거가 밤공기를 가르며 부드럽게 굴러갔어요.",
+          "en": "Under the soft glow of the streetlights, she pedaled forward, gliding smoothly through the night air."
+        },
+        {
+          "ko": "이웃의 정이 가득 담긴 자전거를 타고 집으로 돌아가는 길은 참 포근했어요.",
+          "en": "Riding home on a bicycle filled with neighborly warmth made the journey feel deeply cozy."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "출퇴근",
+          "en": "commuting to and from work"
+        },
+        {
+          "ko": "중고",
+          "en": "secondhand, used"
+        },
+        {
+          "ko": "거래",
+          "en": "trade, transaction"
+        },
+        {
+          "ko": "팽팽하다",
+          "en": "to be tight, fully inflated"
+        },
+        {
+          "ko": "유학",
+          "en": "studying abroad"
+        },
+        {
+          "ko": "자물쇠",
+          "en": "lock, padlock"
+        },
+        {
+          "ko": "호의",
+          "en": "goodwill, kindness"
+        },
+        {
+          "ko": "가로등",
+          "en": "streetlight"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why was Hana looking for a secondhand bicycle on the neighborhood app?",
+          "a": "She was looking for a bicycle to use for her daily commute to work."
+        },
+        {
+          "q": "What extra gifts did the seller offer Hana for free?",
+          "a": "The seller gave Hana a sturdy lock and a brand-new helmet for free."
+        },
+        {
+          "q": "Who did the bicycle originally belong to according to the seller?",
+          "a": "The bicycle originally belonged to the seller's daughter who had gone abroad to study."
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "level": "A2",
+      "title": {
+        "ko": "처음 만들어 본 수제 딸기잼",
+        "en": "Homemade Strawberry Jam"
+      },
+      "lines": [
+        {
+          "ko": "봄을 맞아 동네 청과물 가게에서 완숙 딸기를 아주 저렴하게 팔고 있었어요.",
+          "en": "With spring in the air, the local fruit store was selling ripe strawberries at a bargain price."
+        },
+        {
+          "ko": "모양은 조금 찌그러졌지만 달콤한 향기가 상자 가득 풍겨 나왔어요.",
+          "en": "Although slightly bruised in shape, a wonderfully sweet aroma filled the entire crate."
+        },
+        {
+          "ko": "지수는 딸기 두 상자를 사 들고 민수네 집 주방으로 놀러 갔어요.",
+          "en": "Jisu bought two boxes of strawberries and visited the kitchen at Minsu's house."
+        },
+        {
+          "ko": "두 사람은 흐르는 찬물에 딸기를 여러 번 깨끗하게 씻었어요.",
+          "en": "The two washed the strawberries thoroughly several times under running cold water."
+        },
+        {
+          "ko": "초록색 꼭지를 칼로 떼어낸 후 커다란 냄비에 딸기를 가득 담았어요.",
+          "en": "After trimming off the green stems with a knife, they filled a large pot with the berries."
+        },
+        {
+          "ko": "위생 장갑을 끼고 손으로 딸기를 주물러 으깨기 시작했어요.",
+          "en": "Wearing disposable gloves, they began crushing the strawberries with their hands."
+        },
+        {
+          "ko": "새빨간 과즙이 터져 나오며 주방 가득 상큼한 냄새가 번졌어요.",
+          "en": "Bright red juice burst out, filling the entire kitchen with a fresh, sweet scent."
+        },
+        {
+          "ko": "으깬 딸기에 하얀 설탕을 붓고 주걱으로 골고루 섞어주었어요.",
+          "en": "They poured white sugar over the crushed strawberries and stirred evenly with a spatula."
+        },
+        {
+          "ko": "냄비를 중간 불에 올리자 거품이 일며 보글보글 끓기 시작했어요.",
+          "en": "Placing the pot over medium heat, the mixture bubbled up with foam as it came to a boil."
+        },
+        {
+          "ko": "타지 않도록 나무 주걱으로 바닥을 부지런히 저어주었어요.",
+          "en": "They stirred the bottom continuously with a wooden spatula so the jam would not burn."
+        },
+        {
+          "ko": "마지막으로 레몬즙을 몇 방울 떨어뜨리자 색이 더욱 선명해지고 걸쭉해졌어요.",
+          "en": "Finally, adding a few drops of fresh lemon juice made the color vibrant and the texture thick."
+        },
+        {
+          "ko": "열탕 소독한 유리병에 따뜻한 딸기잼을 조심스럽게 나누어 담았어요.",
+          "en": "They carefully poured the warm strawberry jam into sterilized glass jars."
+        },
+        {
+          "ko": "바삭한 크래커 위에 방금 만든 잼을 듬뿍 얹어 맛을 보았어요.",
+          "en": "They scooped a generous dollop of fresh jam onto crunchy crackers to taste it."
+        },
+        {
+          "ko": "시판 제품과는 비교할 수 없을 정도로 깊고 진한 단맛이 입안에 퍼졌어요.",
+          "en": "A deep, rich sweetness spread across their tongues that store-bought jams could never match."
+        },
+        {
+          "ko": "정성으로 끓여낸 빨간 잼 병을 보며 두 사람은 흐뭇하게 웃었어요.",
+          "en": "Looking at the jars of lovingly cooked red jam, the two smiled with deep satisfaction."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "청과물",
+          "en": "fruits and vegetables"
+        },
+        {
+          "ko": "완숙",
+          "en": "fully ripe"
+        },
+        {
+          "ko": "꼭지",
+          "en": "stem, calyx"
+        },
+        {
+          "ko": "으깨다",
+          "en": "to crush, to mash"
+        },
+        {
+          "ko": "과즙",
+          "en": "fruit juice"
+        },
+        {
+          "ko": "주걱",
+          "en": "spatula, paddle"
+        },
+        {
+          "ko": "걸쭉하다",
+          "en": "to be thick, viscous"
+        },
+        {
+          "ko": "열탕 소독",
+          "en": "boiling water sterilization"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why were the strawberries at the fruit shop sold at a bargain price?",
+          "a": "They were sold cheaply because they were fully ripe and slightly bruised in shape."
+        },
+        {
+          "q": "What did Jisu and Minsu add at the end to make the jam's color vibrant and thick?",
+          "a": "They added a few drops of fresh lemon juice at the end."
+        },
+        {
+          "q": "How did they first taste their freshly made strawberry jam?",
+          "a": "They tasted the jam by scooping it generously onto crunchy crackers."
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "level": "A2",
+      "title": {
+        "ko": "옥상에서 본 가을밤의 별빛",
+        "en": "Stargazing from the Rooftop"
+      },
+      "lines": [
+        {
+          "ko": "맑고 서늘한 가을 저녁에 하나는 민수를 자신의 빌라 옥상으로 초대했어요.",
+          "en": "On a clear and cool autumn evening, Hana invited Minsu up to the rooftop of her apartment."
+        },
+        {
+          "ko": "철문을 밀고 나가자 시원한 밤공기와 함께 탁 트인 밤하늘이 펼쳐졌어요.",
+          "en": "Pushing open the heavy metal door, they were greeted by crisp night air and an expansive open sky."
+        },
+        {
+          "ko": "둘은 옥상 바닥에 두툼한 돗자리를 펴고 푹신한 담요를 둘렀어요.",
+          "en": "The two spread a thick mat on the rooftop floor and wrapped themselves in plush blankets."
+        },
+        {
+          "ko": "보온병에 담아온 따뜻한 핫초코를 머그잔에 따라 서로 건넸어요.",
+          "en": "Pouring hot cocoa from a thermos into mugs, they handed each other a cup."
+        },
+        {
+          "ko": "달콤한 김이 모락모락 피어오르는 잔을 두 손으로 감싸 쥐니 손끝이 따뜻했어요.",
+          "en": "Cradling the mugs with steam gently rising, their fingertips were pleasantly warm."
+        },
+        {
+          "ko": "도심의 네온사인 불빛 너머로 밤하늘이 짙은 감청색으로 물들었어요.",
+          "en": "Beyond the glowing city neons, the night sky was dyed in a deep, peaceful navy blue."
+        },
+        {
+          "ko": "눈을 가늘게 뜨고 올려다보자 어둠 속에서 하나둘 작은 별들이 반짝이기 시작했어요.",
+          "en": "Squinting their eyes upward, little stars began twinkling one by one in the darkness."
+        },
+        {
+          "ko": "민수는 손가락으로 북쪽 하늘의 국자 모양 별자리를 가리켰어요.",
+          "en": "Minsu pointed his finger toward a dipper-shaped constellation in the northern sky."
+        },
+        {
+          "ko": "하나는 스마트폰 별자리 앱을 비추며 별들의 이름을 찾아보았어요.",
+          "en": "Hana held up a constellation app on her phone to look up the names of the stars."
+        },
+        {
+          "ko": "복잡한 도심 한가운데에서도 이렇게 맑은 별빛을 볼 수 있다는 게 신기했어요.",
+          "en": "It was magical that such bright starlight was visible even in the heart of the busy city."
+        },
+        {
+          "ko": "두 사람은 잔잔한 밤바람을 맞으며 지난 일 년간의 고민과 꿈을 진솔하게 나누었어요.",
+          "en": "Basking in the gentle night breeze, the two honestly shared their worries and dreams from the past year."
+        },
+        {
+          "ko": "서두르지 않고 천천히 걸어가도 괜찮다는 서로의 응원에 마음이 든든해졌어요.",
+          "en": "Reassuring each other that it is okay to walk slowly without rushing brought great comfort to their hearts."
+        },
+        {
+          "ko": "어느새 밤하늘 저편에서 작은 별똥별 하나가 길게 꼬리를 끌며 떨어졌어요.",
+          "en": "Before long, a small shooting star streaked across the far side of the night sky with a long tail."
+        },
+        {
+          "ko": "두 친구는 두 손을 모으고 마음속으로 소중한 소원을 빌었어요.",
+          "en": "The two friends folded their hands and made heartfelt wishes in their minds."
+        },
+        {
+          "ko": "별빛 아래에서 깊어가는 가을밤은 오래도록 잊지 못할 추억이 되었어요.",
+          "en": "Deepening beneath the starlight, the autumn night became an unforgettable memory."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "옥상",
+          "en": "rooftop"
+        },
+        {
+          "ko": "탁 트이다",
+          "en": "to be wide open, clear"
+        },
+        {
+          "ko": "보온병",
+          "en": "thermos, insulated flask"
+        },
+        {
+          "ko": "감청색",
+          "en": "navy blue, dark blue"
+        },
+        {
+          "ko": "별자리",
+          "en": "constellation"
+        },
+        {
+          "ko": "진솔하다",
+          "en": "to be sincere, candid"
+        },
+        {
+          "ko": "든든하다",
+          "en": "to feel reassured, secure"
+        },
+        {
+          "ko": "별똥별",
+          "en": "shooting star, meteor"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where did Hana invite Minsu on a cool autumn evening?",
+          "a": "Hana invited Minsu up to the rooftop of her apartment building."
+        },
+        {
+          "q": "What warm beverage did they enjoy while stargazing under their blankets?",
+          "a": "They enjoyed hot cocoa poured from a thermos into mugs."
+        },
+        {
+          "q": "What did the two friends do when a shooting star streaked across the sky?",
+          "a": "They folded their hands and made heartfelt wishes in their minds."
+        }
+      ]
     }
   ]
 }
