@@ -1,7 +1,7 @@
 // 책 상세 쪽(/shop/<id>/)에 들어갈 「목차 · 미리보기 · 책 정보」를 완성본 PDF 에서 만들어 docs/shop.json 의 그 책 page 에 넣는다
 // (운영자 2026-10-27 「책마다 서점처럼 속지 · 미리보기」). 손으로 쓴 글(한 줄 제목 · 특징 · 문제 · 3단계 …)은 docs/shop-copy.json.
 //   node tools/make-book-page.mjs <책 id> --pdf <완성본.pdf(앞표지 + 속지)>
-// 하는 일: ① PDF 목차 쪽을 읽어 단원 · 쪽 번호 ② 대표 쪽 8장을 골라 assets/books/<id>/pv-1..8.jpg(749×1058) ③ 책 정보(쪽수 · 단원 수 · ISBN · 발행일 · 가격).
+// 하는 일: ① PDF 목차 쪽을 읽어 단원 · 쪽 번호 ② 대표 쪽 8장을 골라 assets/books/<id>/pv-1..8.jpg(1100×1554) ③ 책 정보(쪽수 · 단원 수 · ISBN · 발행일 · 가격).
 // 완성본은 파는 파일이라 저장소에 없다 — 미리보기는 책 속 8쪽만 그림으로 둔다.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,6 +13,8 @@ const a = process.argv.slice(2);
 const opt = (n) => { const i = a.indexOf(n); return i >= 0 ? a[i + 1] : null; };
 const id = a.find((x) => !x.startsWith('--') && x !== opt('--pdf'));
 const pdf = opt('--pdf');
+/* 미리보기 그림 크기: 책 쪽에서 크게 열어도 선명하게 1100px 폭(2026-10-28 운영자 「고해상도로」, 전에는 749). --pv-only 는 그림만 다시 찍고 shop.json 은 건드리지 않는다. */
+const PVW = Number(opt('--pvw') || 1100), PVH = Math.round(PVW * 1058 / 749), PV_ONLY = a.includes('--pv-only');
 if (!id || !pdf) { console.error('쓰는 법: node tools/make-book-page.mjs <책 id> --pdf <완성본.pdf>'); process.exit(1); }
 
 const shopFile = path.join(ROOT, 'docs/shop.json');
@@ -67,11 +69,12 @@ chosen.sort((x, y) => x[0] - y[0]);
 const dir = path.join(ROOT, `assets/books/${id}`);
 for (const f of fs.readdirSync(dir)) if (/^pv-\d+\.jpg$/.test(f)) fs.rmSync(path.join(dir, f));
 chosen.slice(0, 8).forEach(([p], i) => {
-  execFileSync('pdftoppm', ['-f', String(p + 1), '-l', String(p + 1), '-scale-to-x', '749', '-scale-to-y', '1058', '-jpeg', '-jpegopt', 'quality=80', pdf, path.join(dir, `_pv${i + 1}`)], { stdio: 'ignore' });
+  execFileSync('pdftoppm', ['-f', String(p + 1), '-l', String(p + 1), '-scale-to-x', String(PVW), '-scale-to-y', String(PVH), '-jpeg', '-jpegopt', 'quality=80', pdf, path.join(dir, `_pv${i + 1}`)], { stdio: 'ignore' });
   const f = fs.readdirSync(dir).find((x) => x.startsWith(`_pv${i + 1}-`));
   fs.renameSync(path.join(dir, f), path.join(dir, `pv-${i + 1}.jpg`));
 });
 
+if (PV_ONLY) { console.log(`${id}: 미리보기 그림 8장 ${PVW}×${PVH}`); process.exit(0); }
 /* ③ 책 정보 + 글 합치기 */
 const published = frame.published || '';
 const specs = [
