@@ -2996,9 +2996,9 @@ writeFileSync(join(OUT_BLOG, 'rss.xml'), blogRss(BLOG_POSTS));
    정적 쪽을 하나씩 굽는다 — 글은 화면 번역 사전(docs/i18n/<언어>.json)에서 영어 열쇠로 꺼낸다(없으면 굽기를 멈춘다 —
    반쯤 영어인 쪽을 내보내지 않는다). index.html 과 서로 hreflang 으로 가리킨다. 앱으로 가는 단추는 ?lang=<언어>. */
 const LOCALES = {
-  vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí — luyện thi TOPIK I · II | CheesePotato',
+  vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí: luyện thi TOPIK I · II | CheesePotato',
     desc: 'Học tiếng Hàn miễn phí từ bảng chữ cái Hangul đến TOPIK cấp 6: 401 bài học, 290 điểm ngữ pháp, 1.370 câu luyện TOPIK (nghe · đọc · viết), từ điển và trò chơi. Không cần cài đặt.' },
-  ja: { name: '日本語', title: '無料で韓国語を学ぶ — TOPIK I・II対策 | チーズポテト',
+  ja: { name: '日本語', title: '無料で韓国語を学ぶ. TOPIK I・II対策 | チーズポテト',
     desc: 'ハングルからTOPIK 6級まで無料で学べる韓国語学習サイト。レッスン401個、文法290項目、TOPIK練習問題1,370問（聞取り・読解・書取り）、辞書、ゲーム。インストール不要。' },
 };
 const HREFLANG = '\n' + [['en', '/'], ['ko', '/'], ['vi', '/vi/'], ['ja', '/ja/'], ['x-default', '/']]
@@ -3012,7 +3012,7 @@ function localeHome(code) {
   const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
   const PATHS_L = [
     ['basic', 'Potato L0–L5', 'STEP 1', 'From the basics', 'Hangul and first sentences up to upper beginner', ['Complete beginners, or you just learned Hangul', 'You want to build simple sentences']],
-    ['mid', 'Potato L6 · TOPIK 3–4', 'STEP 2', 'Intermediate', 'Reasons, conditions, guesses — longer sentences', ['You can already make basic sentences', 'You want longer sentences with reasons and conditions']],
+    ['mid', 'Potato L6 · TOPIK 3–4', 'STEP 2', 'Intermediate', 'Reasons, conditions, guesses: longer sentences', ['You can already make basic sentences', 'You want longer sentences with reasons and conditions']],
     ['adv', 'Potato L7 · TOPIK 5–6', 'STEP 3', 'Advanced', 'Written style, news and subtle expressions', ['You can hold everyday conversations', 'You want to read news and formal writing']],
     ['topik', 'Cheese TOPIK 1–6', 'TOPIK', 'TOPIK prep', 'Core words → practice by type → mock tests', ['You have an exam date', 'You need a TOPIK level for study or work']],
   ];

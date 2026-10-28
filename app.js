@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=577d38a8', ja: './i18n-ja.js?v=577d38a8', zh: './i18n-zh.js?v=577d38a8', id: './i18n-id.js?v=577d38a8', ne: './i18n-ne.js?v=577d38a8', my: './i18n-my.js?v=577d38a8', ru: './i18n-ru.js?v=577d38a8', mn: './i18n-mn.js?v=577d38a8', pt: './i18n-pt.js?v=577d38a8', uz: './i18n-uz.js?v=577d38a8' };
+const I18N_URL = { vi: './i18n-vi.js?v=74f372fe', ja: './i18n-ja.js?v=74f372fe', zh: './i18n-zh.js?v=74f372fe', id: './i18n-id.js?v=74f372fe', ne: './i18n-ne.js?v=74f372fe', my: './i18n-my.js?v=74f372fe', ru: './i18n-ru.js?v=74f372fe', mn: './i18n-mn.js?v=74f372fe', pt: './i18n-pt.js?v=74f372fe', uz: './i18n-uz.js?v=74f372fe' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -721,7 +721,7 @@ function ptListen() {
   ptId('ptMic').setAttribute('aria-label', '녹음 끝내기');
   ptId('ptHint').textContent = ptT(
     '듣고 있어요 — 다 읽고 잠시 기다리면 저절로 끝나요',
-    'Listening — pause when you finish and it stops on its own');
+    'Listening: pause when you finish and it stops on its own');
   ptId('ptLiveWrap').classList.remove('hidden');
 
   /* 결과는 "이어붙이지" 않고 번호 칸에 덮어쓴다.
@@ -804,7 +804,7 @@ function ptListen() {
     ptArmSilence(PT_NOSPEECH_MS);
     ptId('ptHint').textContent = ptT(
       '듣고 있어요 — 천천히 읽기 시작하세요',
-      'Listening — start reading whenever you are ready');
+      'Listening: start reading whenever you are ready');
   };
 
   rec.onend = () => {
@@ -1198,7 +1198,7 @@ function applyLang(lang) {
   b.setAttribute('aria-label', '언어 · Language');
   // 지문은 한국어 발음을 재는 것이라 번역하지 않는다. 안내 문구만 바꾼다.
   ptId('ptHint').textContent = ptRunning
-    ? (en ? window.cpTr('Listening — pause when you finish and it stops on its own')
+    ? (en ? window.cpTr('Listening: pause when you finish and it stops on its own')
                      : '듣고 있어요 — 다 읽고 잠시 기다리면 저절로 끝나요')
     : (en ? window.cpTr('Tap the mic and start reading')
                      : '마이크를 누르고 읽기 시작하세요');
