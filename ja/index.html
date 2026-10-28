@@ -72,7 +72,7 @@ h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.03em;font-w
 .desc.en{font-size:15.5px;color:var(--dim);margin:-18px 0 26px}
 .fact i{display:block;font-style:normal;font-size:13.5px;color:var(--dim);margin-top:3px}
 h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
-.facts{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.facts{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
 /* 이름표를 두 말로 겹쳐 쓰니(「자주 함께 쓰는 말 / Often paired with」)
    좁은 칸에서는 세 줄로 접힌다. 폭이 날 때만 좌우로 세운다. */
 .fact{padding:12px 16px;border-top:1px solid var(--line);font-size:15px}
@@ -82,24 +82,24 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
-.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
-.dlg{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card)}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
+.dlg{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:var(--card)}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
-.bub{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:15px}
+.bub{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:15px}
 .line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
-.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:12px;background:var(--cta);color:var(--cta-ink);
+.cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:8px;background:var(--cta);color:var(--cta-ink);
   text-decoration:none;font-weight:700;text-align:center;font-size:16px}
 .cta:hover{opacity:.92}
 .cta span{display:block;font-weight:500;font-size:13px;opacity:.75;margin-top:3px;text-decoration:none}
 .near{display:flex;gap:10px;margin-top:22px;font-size:14px;flex-wrap:wrap}
-.near a{flex:1 1 200px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-decoration:none;background:var(--card)}
+.near a{flex:1 1 200px;border:1px solid var(--line);border-radius:8px;padding:11px 14px;text-decoration:none;background:var(--card)}
 .near b{display:block;font-size:12px;color:var(--dim);font-weight:600}
 .wd-top{display:flex;align-items:center;gap:8px;margin:0 0 14px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em}
 .wd-top img{width:28px;height:28px;border-radius:50%}
 h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
-.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px 16px}
+.ans-box{margin:16px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:12px 16px}
 .ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
@@ -114,7 +114,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 @keyframes ctaPulse{50%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(240,194,75,.35)}}
 .lt-next{margin:10px 0 0;text-align:center;font-size:14px}.lt-next a{color:var(--ink2);text-decoration:none}.lt-next b{color:var(--ink);text-decoration:underline}
 .wd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;text-decoration:none}
+.wd-say,.wd-add{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14.5px;font-weight:600;padding:10px 16px;border-radius:7px;cursor:pointer;text-decoration:none}
 .wd-say{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
 .wd-say.on{border-color:var(--brand);background:var(--tint)}
 .wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
@@ -126,7 +126,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .cat h3{font-size:17px;margin:0 0 4px}
 .cat p{margin:0 0 10px;font-size:13px;color:var(--dim)}
 .pts{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
-.pts a{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:999px;
+.pts a{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:8px;
   padding:6px 13px;font-size:14px;text-decoration:none}
 .pts a:hover{border-color:var(--brand)}
 .lead{font-size:16px;color:var(--dim);margin:0 0 26px}
@@ -134,34 +134,34 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
    무엇을 얻는지 넷 → 큰 단추 둘 → 유형마다 몇 개만 보이고 나머지는 접기 → 함께 쓰면 좋은 것. */
 .why{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
 @media(min-width:640px){.why{grid-template-columns:repeat(4,1fr)}}
-.why li{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 12px 11px;font-size:13px;color:var(--dim);line-height:1.4}
+.why li{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px 12px 11px;font-size:13px;color:var(--dim);line-height:1.4}
 .why b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}.ctas .cta{flex:1 1 240px;margin:0}
 .cta.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
 .hub-note{font-size:12.5px;color:var(--dim);margin:8px 0 0}
-.cat{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px 16px 14px}
+.cat{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 16px 14px}
 .more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
 .more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
-.bkbox{display:flex;gap:14px;align-items:center;margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e7e2d9);border-radius:14px;background:var(--surface,#fff);text-decoration:none;color:inherit}
+.bkbox{display:flex;gap:14px;align-items:center;margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--surface,#fff);text-decoration:none;color:inherit}
 .bkbox:hover{border-color:var(--ink,#222)}.bkbox .bk-i{font-size:34px;line-height:1}.bkbox b{display:block;font-size:15.5px}.bkbox small{display:block;color:var(--ink-3,#777);font-size:13px;line-height:1.6;margin-top:3px}.bkbox em{font-style:normal;font-weight:700;font-size:13px;margin-top:6px;display:block}
 .next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
 @media(min-width:640px){.next{grid-template-columns:repeat(3,1fr)}}
-.next a{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
+.next a{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
 .next a b{display:block;font-size:15px;color:var(--ink)}
 .next a:hover{border-color:var(--brand)}
 /* TOPIK 읽기·듣기 문항 — 보기 넷과 정답. */
 .opts{list-style:none;padding:0;margin:14px 0;display:flex;flex-direction:column;gap:8px}
-.opts li{border:1px solid var(--line);border-radius:12px;padding:11px 15px;background:var(--card);
+.opts li{border:1px solid var(--line);border-radius:8px;padding:11px 15px;background:var(--card);
   display:flex;gap:10px;align-items:baseline;font-size:15.5px}
 .opts li.right{border-color:var(--brand);background:var(--tint);font-weight:700}
 .opts .onum{flex:none;color:var(--dim);font-weight:700}.lc-langs{font-size:13px;color:#8C7A66}.lc-langs a{color:inherit}.lc-h1{font-size:clamp(30px,6vw,46px);line-height:1.15;letter-spacing:-.03em}.lc-h1 em{font-style:normal;color:#E1682B}
-.lc-acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}.lc-go,.lc-how{display:inline-flex;align-items:center;min-height:52px;padding:12px 22px;border-radius:14px;font-weight:800;text-decoration:none}
+.lc-acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}.lc-go,.lc-how{display:inline-flex;align-items:center;min-height:52px;padding:12px 22px;border-radius:8px;font-weight:800;text-decoration:none}
 .lc-go{background:#1B1512;color:#fff}.lc-how{background:#FDF0E2;color:#1B1512}.lc-fine{font-size:13px;color:#8C7A66}
-.lc-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.lc-path{display:flex;flex-direction:column;gap:4px;padding:0 0 14px;border:1px solid #E4DED1;border-radius:18px;background:#fff;color:#1B1512;text-decoration:none;overflow:hidden}
+.lc-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.lc-path{display:flex;flex-direction:column;gap:4px;padding:0 0 14px;border:1px solid #E4DED1;border-radius:10px;background:#fff;color:#1B1512;text-decoration:none;overflow:hidden}
 .lc-path>b,.lc-path>small,.lc-path>em,.lc-path>ul,.lc-start{margin:0 14px}.lc-path>b{font-size:18px;margin-top:8px}.lc-path>small{color:#4E3E31}.lc-path>em{font-style:normal;font-weight:800;font-size:12.5px;color:#C4551C;margin-top:6px}
 .lc-path ul{padding-left:18px;font-size:13.5px}.lc-start{font-weight:800}.lc-top{display:flex;justify-content:space-between;padding:9px 12px}.lc-badge{padding:3px 9px;border-radius:99px;background:#1B1512;color:#fff;font-size:12px;font-weight:800}
-.lc-step{padding:2px 9px;border:1.5px solid #1B1512;border-radius:99px;font-size:11.5px;font-weight:800}.lc-basic .lc-top{background:#F6E7CC}.lc-mid .lc-top{background:#FFD9B8}.lc-adv .lc-top{background:#FFB27A}.lc-topik .lc-top{background:#FFDF7A}
-.lc-tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.lc-tile{display:flex;flex-direction:column;gap:3px;padding:14px;border:1px solid #E4DED1;border-radius:16px;background:#fff;color:#1B1512;text-decoration:none}
+.lc-step{padding:2px 9px;border:1.5px solid #1B1512;border-radius:8px;font-size:11.5px;font-weight:800}.lc-basic .lc-top{background:#F6E7CC}.lc-mid .lc-top{background:#FFD9B8}.lc-adv .lc-top{background:#FFB27A}.lc-topik .lc-top{background:#FFDF7A}
+.lc-tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.lc-tile{display:flex;flex-direction:column;gap:3px;padding:14px;border:1px solid #E4DED1;border-radius:10px;background:#fff;color:#1B1512;text-decoration:none}
 .lc-tile small{color:#8C7A66}.lc-faq{border-top:1px solid #E4DED1;padding:10px 0}.lc-faq summary{font-weight:800;cursor:pointer}</style>
 </head>
 <body>
