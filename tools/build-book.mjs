@@ -549,7 +549,7 @@ function exampleHtml(s) {
 const wlines = (n, per = 30) => `<div class="wg">${Array.from({ length: n }, (_, i) => `<div class="wr">${(i + 1) % 5 === 0 ? `<i>${(i + 1) * per}</i>` : ''}</div>`).join('')}</div>`;
 function writingHtml(x) {
   const cond = x.cond ? `<div class="wc">${esc(x.cond)}</div>` : '';
-  if (x.q <= 52) return `<div class="wp">${esc(x.passage)}</div>${cond}${x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wln"></span></div>`).join('')}`;
+  if (x.q <= 52) return `<div class="wp">${esc(x.passage)}</div>${cond}${x.blanks.map((b) => KDP ? `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>` : `<div class="wl"><b>${esc(b.mark)}</b><span class="wln"></span></div>`).join('')}`;
   const data = x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
   return `<div class="wp">${esc(x.passage)}</div>${data}<ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wlines(Math.ceil(x.max / 30))}`;
 }
