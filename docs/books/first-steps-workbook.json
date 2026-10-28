@@ -2072,5 +2072,84 @@
       "What began as a fun side job has now lasted more than two years. In that time I have taught over 1,700 hours to 100 students. I have taught students from all over the world, mostly from Europe and the United States.",
       "When you teach Korean, you sometimes meet a beauty so deep that it frustrates you because you cannot explain it. I feel blessed to be able to teach that Korean. Today I run everykoreans.com, a website for learning Korean, to spread Korean further, and I am studying at university at the same time."
     ]
+  },
+  "kdp": {
+    "title": {
+      "en": "Korean First Steps",
+      "ko": "한국어 첫걸음"
+    },
+    "sub": {
+      "en": "A beginner's guide to Hangul, greetings and everyday words, with tables, examples and answers",
+      "ko": "한글 · 인사 · 생활 낱말"
+    },
+    "preface": {
+      "en": [
+        "This book grew out of the free worksheets on everykoreans.com. Learners kept asking for something clear they could keep on their phone or e-reader, so we gathered the most useful material into one book.",
+        "Each unit is one small topic. First a few clear tables to read and say aloud; then four short sets of examples with the answer shown below each question. Cover the answer, try it in your head or aloud, and check.",
+        "You do not need to finish it in order, but the book is arranged so each part makes the next one easier. Start with Hangul if the letters are new to you."
+      ],
+      "ko": [
+        "이 책은 everykoreans.com 의 무료 학습지에서 시작했습니다. 폰이나 전자책 단말기에 넣어 두고 볼 수 있는 분명한 자료가 있으면 좋겠다는 학습자들의 바람에 따라, 가장 쓸모 있는 내용을 한 권으로 모았습니다.",
+        "단원마다 작은 주제 하나입니다. 먼저 읽고 소리 내어 말할 수 있는 표 몇 개, 그다음 문제 아래에 정답이 보이는 짧은 예제 네 묶음. 정답을 가리고 머릿속으로, 또는 소리 내어 풀어 본 뒤 확인하세요.",
+        "꼭 순서대로 하지 않아도 되지만, 앞 단원이 뒤 단원을 쉽게 해 주도록 짰습니다. 한글이 처음이라면 1단원부터 시작하세요."
+      ]
+    },
+    "howto": {
+      "en": [
+        "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
+        "Hide the English column with your finger and test yourself, then hide the Korean.",
+        "In each practice set, cover the answer below the question, say it aloud or work it out in your head, then check.",
+        "If you missed more than a few, re-read the tables and come back to the set another day.",
+        "Look up any word in the Index. It tells you which unit it appears in."
+      ],
+      "ko": [
+        "표를 소리 내 읽으세요. 소리가 글자와 다른 곳은 「읽기 팁」이 실제 발음을 보여 줍니다.",
+        "손가락으로 영어 칸을 가리고 스스로 확인한 뒤, 이번엔 한국어 칸을 가려 보세요.",
+        "연습마다 문제 아래 정답을 가리고, 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.",
+        "틀린 것이 많으면 표를 다시 읽고 다른 날 다시 풀어 보세요.",
+        "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다."
+      ]
+    },
+    "authorNote": {
+      "ko": "어릴 때 저에게 국어는 문법부터 배우는 어려운 과목이었습니다. 그래서 한국어를 처음 만나는 분께는 문법 이름보다 소리 내어 읽고 쉬운 문장을 따라 해 보는 일을 먼저 드리고 싶었습니다. 이 책은 everykoreans.com 의 무료 학습지에서 시작했고, 손에 들고 읽을 수 있는 책이 있으면 좋겠다는 학습자들의 바람을 따라 한 권으로 묶었습니다. 펴내기 전에 단원을 하나씩 읽고 확인했습니다. 단원을 읽고, 예문을 소리 내어 말하고, 정답으로 확인한 뒤 며칠 뒤에 다시 보세요. 처음 만나는 한국어가 즐거운 기억이 되기를 바랍니다.",
+      "en": "When I was young, Korean class meant learning grammar first, and it felt hard. So for someone meeting Korean for the first time I wanted to offer reading aloud and practising simple sentences before grammar terms. This book began as the free worksheets on everykoreans.com, and I gathered them into one book because learners wanted something to hold and read. Before publishing I read and checked every unit myself. Read a unit, say the examples aloud, check yourself against the answers, and come back a few days later. I hope your first Korean becomes a happy memory."
+    },
+    "replace": {
+      "③ 연습 A~D: 연필로 책에 바로": "③ 연습 A~D: 정답을 가리고 먼저 풀기",
+      "Do practice A to D in pencil, right in the book": "Do practice A to D: cover the answer first",
+      "1. Say first, then write. Saying makes the sound natural; writing fixes the spelling.\n2. Use pencil. You will want to do the page again.": "1. Say it aloud first. Saying makes the sound natural.\n2. Come back to the same page another day. A second try fixes it.",
+      "1. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n2. 연필로 쓰세요. 다시 풀고 싶어집니다.": "1. 먼저 소리 내어 말하세요. 말하면 소리가 익습니다.\n2. 다른 날 같은 쪽을 다시 보세요. 두 번째에 자리가 잡힙니다.",
+      "4. After each part, take its mini test and be honest with your score.": "4. After each part, work through its mini test and be honest with yourself.",
+      "4. 부가 끝나면 미니 테스트를 풀고 점수를 솔직하게 적으세요.": "4. 부가 끝나면 미니 테스트를 풀고 스스로에게 솔직해 보세요.",
+      "(write the correct syllable)": "(the correct syllable)",
+      "(write the correct sound)": "(the correct sound)"
+    },
+    "series": {
+      "en": "KOREAN STUDY SERIES",
+      "ko": "한국어 학습 시리즈"
+    },
+    "coverLevel": {
+      "title": [
+        "한국어",
+        "첫걸음"
+      ]
+    },
+    "listing": {
+      "about": "A beginner guide to Korean built from our most-used free lessons: Hangul and final consonants first, then greetings, numbers and dates, family, food, shopping and the basic particles. Every unit has a short explanation, clear tables with pronunciation tips, four short sets of examples with the answer shown right below each question, and an index to look up any word. Everything works inside the Kindle app or device: no extra tools, websites or printing needed.",
+      "for": [
+        "Complete beginners who just learned (or want to learn) Hangul",
+        "Self-learners who want one clear book on their phone or e-reader",
+        "Teachers who want a clean reference for A1 students"
+      ],
+      "keywords": [
+        "learn Korean for beginners",
+        "Korean for beginners with answers",
+        "Hangul for beginners",
+        "Korean alphabet and pronunciation",
+        "A1 Korean study guide",
+        "Korean self-study",
+        "everyday Korean words for beginners"
+      ]
+    }
   }
 }
