@@ -1,21 +1,46 @@
-/* 책 쪽 맨 위 표지: 누르면 같은 자리에서 미리보기 쪽이 넘어간다(표지 → 1쪽 → … → 표지). 다른 화면으로 가지 않는다. 스크립트가 꺼져 있으면 표지만 보이고 아래 「Look inside」 로 본다. */
+/* 책 쪽 맨 위 표지: 단추(‹ ›) · 쓸어 넘기기로 같은 자리에서 미리보기 쪽을 넘기고, 누르면 큰 화면(구매자가 읽기 알맞은 크기)으로 연다. 주소는 바뀌지 않는다.
+   스크립트가 꺼져 있으면 표지만 보이고 아래 「Look inside」 작은 쪽을 누르면 그 쪽의 큰 그림으로 간다. */
 (function () {
   var box = document.querySelector('[data-flip]'); if (!box) return;
-  var bar = document.querySelector('.flipbar'), n = box.querySelector('.flipn') || bar.querySelector('.flipn');
-  var im = box.querySelectorAll('.fp'), i = 0, t0 = 0;
+  var bar = document.querySelector('.flipbar'), n = bar.querySelector('.flipn');
+  var im = box.querySelectorAll('.fp'), i = 0, t0 = 0, big = null, bimg, bn;
+  function src(c) { if (!c.getAttribute('src')) c.setAttribute('src', c.getAttribute('data-src')); return c.getAttribute('src'); }
   function show(k) {
     i = (k + im.length) % im.length;
     for (var j = 0; j < im.length; j++) im[j].classList.toggle('on', j === i);
-    var c = im[i]; if (!c.getAttribute('src')) c.setAttribute('src', c.getAttribute('data-src'));
-    var nx = im[(i + 1) % im.length]; if (!nx.getAttribute('src')) nx.setAttribute('src', nx.getAttribute('data-src'));
-    n.textContent = i === 0 ? 'Cover' : i + ' / ' + (im.length - 1);
+    src(im[i]); src(im[(i + 1) % im.length]);
+    var label = i === 0 ? 'Cover' : i + ' / ' + (im.length - 1);
+    n.textContent = label;
+    if (big) { bimg.src = src(im[i]); bimg.alt = im[i].alt; bn.textContent = label; }
   }
+  function open(k) {
+    if (typeof k === 'number') show(k);
+    if (!big) {
+      big = document.createElement('div'); big.className = 'fz'; big.setAttribute('role', 'dialog'); big.setAttribute('aria-label', 'Book preview');
+      big.innerHTML = '<button type="button" class="fz-x" aria-label="Close">×</button><img alt=""><div class="fz-b"><button type="button" data-z="-1" aria-label="Previous page">‹</button><span></span><button type="button" data-z="1" aria-label="Next page">›</button></div>';
+      bimg = big.querySelector('img'); bn = big.querySelector('span');
+      big.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-z]');
+        if (b) show(i + Number(b.getAttribute('data-z')));
+        else if (e.target !== bimg) close();
+      });
+      big.addEventListener('touchstart', function (e) { t0 = e.touches[0].clientX; }, { passive: true });
+      big.addEventListener('touchend', function (e) { var d = e.changedTouches[0].clientX - t0; if (Math.abs(d) > 40) show(i + (d < 0 ? 1 : -1)); });
+    }
+    document.body.appendChild(big); document.body.style.overflow = 'hidden';
+    bimg.src = src(im[i]); bimg.alt = im[i].alt; bn.textContent = n.textContent;
+  }
+  function close() { if (big && big.parentNode) big.parentNode.removeChild(big); document.body.style.overflow = ''; }
   bar.hidden = false;
-  box.addEventListener('click', function () { show(i + 1); });
+  box.addEventListener('click', function () { open(); });
   bar.addEventListener('click', function (e) { var b = e.target.closest('[data-fp]'); if (b) show(i + Number(b.getAttribute('data-fp'))); });
   box.addEventListener('touchstart', function (e) { t0 = e.touches[0].clientX; }, { passive: true });
   box.addEventListener('touchend', function (e) { var d = e.changedTouches[0].clientX - t0; if (Math.abs(d) > 40) { show(i + (d < 0 ? 1 : -1)); e.preventDefault(); } });
-  /* 아래 「Look inside」 작은 쪽을 눌러도 확대 화면으로 가지 않고 맨 위 표지 자리에서 그 쪽이 열린다 */
-  document.querySelectorAll('.pg2-pv a').forEach(function (a, k) { a.addEventListener('click', function (e) { e.preventDefault(); show(k + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') show(i + 1); else if (e.key === 'ArrowLeft') show(i - 1); });
+  /* 아래 「Look inside」 작은 쪽을 누르면 그 쪽이 바로 큰 화면으로 열린다 */
+  document.querySelectorAll('.pg2-pv a').forEach(function (a, k) { a.addEventListener('click', function (e) { e.preventDefault(); open(k + 1); }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(i + 1);
+    else if (e.key === 'ArrowLeft') show(i - 1);
+  });
 })();
