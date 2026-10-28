@@ -180,3 +180,4 @@
 - 2026-10-28 아마존 순위 캡처(Audible 오디오북 기준 — Kindle 아님): 묶음(3 in 1 · 7 in 1 · 10 in 1)과 이야기 · 문맥 속 낱말이 상위. 그래서 이야기 시리즈를 먼저 · 3권 모이면 합본 · 단어장 KDP 판 제목을 「Most Common Korean Words in Context」 꼴로 다듬는 것을 제안. Kindle 순위 캡처를 따로 받아 확인. 자세히 `docs/plans/kdp-original.md`.
 - 2026-10-28 KDP 오리지널 책 1 ePub 만듦(`node tools/build-kdp-original.mjs short-stories --out <폴더>` → ePub 0.2MB · 표지 JPEG 1600×2560 · 복붙표). 영어 번역 다듬기 · Kindle 화면 확인은 운영자 올리기 전에.
 - 2026-10-28 KDP 이야기 책의 영어 번역 다듬기 안티 지시문 `antigravity-kdp-polish-task.md` (영어만 고침, 한국어 · 구조는 검사 `tools/check-kdp-polish.mjs` 가 막음).
+- 2026-10-28 KDP 시리즈 2권(A2~B1 이야기 40편) 지시문 만듦 — 새 파일 `docs/kdp-orig/short-stories-2.json`, 영어 규칙(과거 시제 · 주어 · 직역투 금지)을 처음부터 적용, 책 1과 낱말 · 주제 겹침 없이.
