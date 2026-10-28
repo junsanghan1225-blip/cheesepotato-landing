@@ -19869,6 +19869,10 @@
         "TOPIK II study guide",
         "Korean vocabulary list"
       ]
+    },
+    "replace": {
+      "정답인 보기 번호에 연필로 동그라미를 치세요.": "정답인 보기 번호를 말해 보세요.",
+      "Draw a circle with a pencil on the correct answer choice number.": "Say the number of the correct answer choice."
     }
   }
 }
