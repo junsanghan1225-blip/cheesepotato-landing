@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=577d38a8" async></script>
+<script src="gtm.js?v=74f372fe" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=577d38a8">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=577d38a8">
+<link rel="stylesheet" href="vendor/pretendard.css?v=74f372fe">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=74f372fe">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=577d38a8" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=577d38a8"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=74f372fe" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=74f372fe"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1981,7 +1981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
     <!-- 로그인 여부에 따라 글이 바뀌므로 data-en 대신 JS 가 관리한다. -->
     <!-- Pro 이용자만 보이는 딱지(app.module.js proPaintAccount) — 누르면 내 Pro 상태 쪽 -->
-    <button class="hd-pro" id="hdPro" type="button" hidden aria-label="Pro 이용 중" data-en-aria="Pro member">⭐ PRO</button>
+    <button class="hd-pro" id="hdPro" type="button" hidden aria-label="Pro 이용 중" data-en-aria="Pro member">PRO</button>
     <button class="nav-link" id="authBtn" type="button" aria-label="로그인">
       <span class="nav-ico">👤</span><span class="nav-txt">로그인</span>
     </button>
@@ -2285,7 +2285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
       <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료 — 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
       <!-- 앱 내려받기 유도(운영자 2026-10-21) — 첫 화면에서 바로 보이게. 눌림은 app_download_click(자리: 첫화면) -->
-      <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="📱 Android app · Get it on Google Play">📱 안드로이드 앱 · Google Play 에서 받기</a>
+      <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="Android app · Get it on Google Play">안드로이드 앱 · Google Play 에서 받기</a>
     </div>
     <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
       <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
@@ -2311,7 +2311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button class="hm-banner hm-intro" type="button" data-go="translate">
     <span class="hm-banner-tag">NEW</span>
     <span class="hm-banner-t"><b data-en="Translate, line by line.">한 줄씩, 한국어로.</b>
-      <span data-en="Short English texts — beginner to advanced. Write each line in Korean and compare.">짧은 영어 글을 한 줄씩 한국어로 옮겨 써 봐요 — 초급부터 고급까지 45편.</span></span>
+      <span data-en="Short English texts: beginner to advanced. Write each line in Korean and compare.">짧은 영어 글을 한 줄씩 한국어로 옮겨 써 봐요 — 초급부터 고급까지 45편.</span></span>
     <span class="hm-banner-card" aria-hidden="true"><i>I’m sorry I’m late.</i><b>늦어서 죄송해요.</b></span>
     <span class="hm-banner-go" data-en="Start →">시작하기 →</span>
   </button>
@@ -2348,7 +2348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- 함께 공부한 사람 — 운영자가 준 구글 애널리틱스 숫자(지난 28일 · 2026-09-07 ~ 10-04). 날짜를 같이 적어 오래된 숫자로 읽히지 않게 -->
       <p class="hm-users" data-ko="최근 4주 동안 <b>256명</b>이 치즈감자로 공부했어요 · 한 사람 평균 <b>4분 23초</b> <small>Google Analytics · 2026.9.7 ~ 10.4</small>">In the last 4 weeks <b>256 people</b> studied here · <b>4 min 23 s</b> each on average <small>Google Analytics · Sep 7 – Oct 4, 2026</small></p>
       <ul class="hm-trust">
-        <li data-en="Every question is original — not a past paper">모든 문항 창작 · 기출 아님</li>
+        <li data-en="Every question is original: not a past paper">모든 문항 창작 · 기출 아님</li>
         <li data-en="Definitions from the National Institute of Korean Language">뜻풀이 국립국어원 한국어기초사전</li>
         <li data-en="Courses, grammar and the dictionary are free">코스 · 문법 · 사전은 무료</li>
       </ul>
@@ -2461,33 +2461,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-title" data-en="Six ways in,<br>one language">한국어로 들어가는<br>여섯 갈래</p>
     <div class="way-grid">
       <button class="way" type="button" data-go="learn">
-        <div class="way-em">📚</div>
         <h3 class="way-t" data-en="Learn by course">코스로 배우기</h3>
         <p class="way-d" data-en="From the Hangul letters to sentences, step by step.">한글 낱자에서 문장까지, 차근차근.</p>
       </button>
       <button class="way" type="button" data-go="glossary">
-        <div class="way-em">🔎</div>
         <h3 class="way-t" data-en="Words">단어</h3>
         <p class="way-d" data-en="Ten a day, with review before you forget.">하루 10개, 잊기 전에 복습으로 다시.</p>
       </button>
       <button class="way" type="button" data-go="topik">
-        <div class="way-em">🎯</div>
         <h3 class="way-t" data-en="TOPIK prep">TOPIK 준비</h3>
         <p class="way-d" data-en="Listening, reading, writing and timed mock exams.">듣기 · 읽기 · 쓰기와 시간 재는 모의고사.</p>
       </button>
       <button class="way" type="button" data-go="sentence">
-        <div class="way-em">✍️</div>
         <h3 class="way-t" data-en="Grammar">문법</h3>
         <p class="way-d" data-en="Learn a pattern, build it with blocks, then write your own.">문법을 배우고 블록으로 맞춘 뒤 내 문장을 직접 써 봐요.</p>
       </button>
       <button class="way" type="button" data-go="convo">
-        <div class="way-em">💬</div>
         <h3 class="way-t" data-en="Speaking">회화 연습</h3>
         <p class="way-d" data-en="Answer in your own words in real situations.">실제 상황에서 내 말로 대답해요.</p>
       </button>
       <!-- EPS-TOPIK — TOPIK 과 따로 선 갈래(운영자 결정 2026-09-29). 지금은 무료. -->
       <button class="way" type="button" data-go="eps">
-        <div class="way-em">🏭</div>
         <h3 class="way-t" data-en="Work in Korea · EPS-TOPIK">한국 취업 · EPS-TOPIK</h3>
         <p class="way-d" data-en="The Korean test for the Employment Permit System.">고용허가제 한국어능력시험 준비.</p>
       </button>
@@ -2506,7 +2500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <b data-en="Every day counts">매일 기록</b><span data-en="Days you finish a lesson add up.">레슨을 끝낸 날이 쌓여요.</span>
       </button>
       <a class="hm-tile" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면칸">
-        <b data-en="Wordbook app">단어장 앱</b><span data-en="Snap a photo — AI fills in the meaning and an example.">사진을 찍으면 AI 가 뜻 · 예문을 채워요.</span>
+        <b data-en="Wordbook app">단어장 앱</b><span data-en="Snap a photo. AI fills in the meaning and an example.">사진을 찍으면 AI 가 뜻 · 예문을 채워요.</span>
       </a>
       <a class="hm-tile hm-wotd" id="wotdGoBtn" href="/dictionary/">
         <b data-en="Word of the day">오늘의 단어</b>
@@ -2551,7 +2545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="hm-fine" data-en="Practice items are original, not past papers. They follow the TOPIK format and are not affiliated with NIIED.">연습 문항은 기출이 아니라 직접 만든 것입니다. TOPIK 형식을 따랐고 국립국제교육원과 관계가 없습니다.</p>
     <!-- 「기출 아님」을 장점으로(운영자 결정 2026-10-06): 실제 시험지는 공식 누리집으로 보내고, 우리가 하는 일을 분명히 -->
-    <p class="hm-fine hm-why" data-en="Why original questions? Official past papers can't be copied freely — see them on the official TOPIK website (topik.go.kr). Cheesepotato is where you practise each question type, number by number, with an explanation right after every answer.">왜 창작 문항일까요? 공식 기출문제는 마음대로 옮길 수 없어요 — 실제 시험지는 <a href="https://www.topik.go.kr" target="_blank" rel="noopener">TOPIK 공식 누리집(topik.go.kr)</a>에서 보세요. 치즈감자는 같은 유형을 번호별로 연습하고, 풀자마자 해설로 실력을 쌓는 곳이에요.</p>
+    <p class="hm-fine hm-why" data-en="Why original questions? Official past papers can't be copied freely: see them on the official TOPIK website (topik.go.kr). Cheesepotato is where you practise each question type, number by number, with an explanation right after every answer.">왜 창작 문항일까요? 공식 기출문제는 마음대로 옮길 수 없어요 — 실제 시험지는 <a href="https://www.topik.go.kr" target="_blank" rel="noopener">TOPIK 공식 누리집(topik.go.kr)</a>에서 보세요. 치즈감자는 같은 유형을 번호별로 연습하고, 풀자마자 해설로 실력을 쌓는 곳이에요.</p>
   </div>
 
   <div class="divider hm-intro"></div>
@@ -2582,12 +2576,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-list">
       <details class="faq-i">
         <summary data-en="What is Cheesepotato?">치즈감자는 어떤 사이트인가요?</summary>
-        <p data-en="Cheesepotato is a free website for learning Korean, covering everything from the Hangul letters to TOPIK level 6. It has 97 courses across 401 lessons, 290 grammar points, 1,370 TOPIK-style practice questions, 54 reading passages and a 7,970-word dictionary. It runs in a browser — there is nothing to install.">치즈감자는 한국어를 무료로 배우는 학습 사이트입니다. 한글 낱자부터 TOPIK 6급까지 다루고, 코스 97개·레슨 401개, 문법 표현 290개, TOPIK 연습 문항 1,370개, 읽기 지문 54편, 낱말 7,970개를 담고 있습니다. 브라우저에서 바로 돌아가고 설치할 것이 없습니다.</p>
+        <p data-en="Cheesepotato is a free website for learning Korean, covering everything from the Hangul letters to TOPIK level 6. It has 97 courses across 401 lessons, 290 grammar points, 1,370 TOPIK-style practice questions, 54 reading passages and a 7,970-word dictionary. It runs in a browser: there is nothing to install.">치즈감자는 한국어를 무료로 배우는 학습 사이트입니다. 한글 낱자부터 TOPIK 6급까지 다루고, 코스 97개·레슨 401개, 문법 표현 290개, TOPIK 연습 문항 1,370개, 읽기 지문 54편, 낱말 7,970개를 담고 있습니다. 브라우저에서 바로 돌아가고 설치할 것이 없습니다.</p>
       </details>
 
       <details class="faq-i">
         <summary data-en="Is it really free? Do I need an account?">정말 무료인가요? 회원가입을 해야 하나요?</summary>
-        <p data-en="Yes. Courses, grammar points, the dictionary, the level test and reading are free and open without an account. TOPIK practice gives 10 questions a day without an account — sign in (free) for more. Signing up is free too and never asks for a card — you need it to keep progress across devices. The first TOPIK mock round is free; every round is included in CheesePotato Pro.">네. 코스 · 문법 표현 · 사전 · 레벨테스트 · 읽기는 무료이고 회원가입 없이 바로 열립니다. TOPIK 연습 문제는 로그인 없이 하루 10문항, 무료 로그인하면 더 풀 수 있어요. 가입도 무료이고 카드 정보를 묻지 않아요 — 진도를 여러 기기에서 이어 볼 때 씁니다. TOPIK 모의고사는 1회차가 무료(로그인하면)이고, 전 회차는 유료 구독 「치즈감자 Pro」로 열려요.</p>
+        <p data-en="Yes. Courses, grammar points, the dictionary, the level test and reading are free and open without an account. TOPIK practice gives 10 questions a day without an account: sign in (free) for more. Signing up is free too and never asks for a card: you need it to keep progress across devices. The first TOPIK mock round is free; every round is included in CheesePotato Pro.">네. 코스 · 문법 표현 · 사전 · 레벨테스트 · 읽기는 무료이고 회원가입 없이 바로 열립니다. TOPIK 연습 문제는 로그인 없이 하루 10문항, 무료 로그인하면 더 풀 수 있어요. 가입도 무료이고 카드 정보를 묻지 않아요 — 진도를 여러 기기에서 이어 볼 때 씁니다. TOPIK 모의고사는 1회차가 무료(로그인하면)이고, 전 회차는 유료 구독 「치즈감자 Pro」로 열려요.</p>
       </details>
 
       <details class="faq-i">
@@ -2602,7 +2596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <details class="faq-i">
         <summary data-en="How does the listening practice work?">TOPIK 듣기는 어떻게 연습하나요?</summary>
-        <p data-en="You hear the audio and pick one of four answers. The transcript stays hidden until you have answered — if you could read along while choosing, it would be a reading test, not a listening one. After you answer, the script opens with each speaker marked, so you can see exactly what you missed.">소리를 듣고 보기 넷 중에서 고릅니다. <b>대본은 답을 고른 뒤에야 펼쳐집니다</b> — 고르는 동안 글을 같이 볼 수 있으면 그건 듣기가 아니라 읽기 시험이 되니까요. 답을 고르면 누가 말했는지 표시된 대본이 열려서 무엇을 놓쳤는지 정확히 보입니다.</p>
+        <p data-en="You hear the audio and pick one of four answers. The transcript stays hidden until you have answered: if you could read along while choosing, it would be a reading test, not a listening one. After you answer, the script opens with each speaker marked, so you can see exactly what you missed.">소리를 듣고 보기 넷 중에서 고릅니다. <b>대본은 답을 고른 뒤에야 펼쳐집니다</b> — 고르는 동안 글을 같이 볼 수 있으면 그건 듣기가 아니라 읽기 시험이 되니까요. 답을 고르면 누가 말했는지 표시된 대본이 열려서 무엇을 놓쳤는지 정확히 보입니다.</p>
       </details>
 
       <details class="faq-i">
@@ -2617,7 +2611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <details class="faq-i">
         <summary data-en="Does it work on a phone?">휴대폰에서도 되나요?</summary>
-        <p data-en="Yes. The site is built for phones as much as for desktops — that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way.">됩니다. 대부분이 휴대폰으로 공부하기 때문에 처음부터 그쪽을 기준으로 만들었어요. 단어장 쪽은 안드로이드 앱도 있고 iOS 는 준비 중입니다.</p>
+        <p data-en="Yes. The site is built for phones as much as for desktops: that is where most people study. There is also an Android app for the wordbook part, with an iOS version on the way.">됩니다. 대부분이 휴대폰으로 공부하기 때문에 처음부터 그쪽을 기준으로 만들었어요. 단어장 쪽은 안드로이드 앱도 있고 iOS 는 준비 중입니다.</p>
       </details>
 
       <details class="faq-i">
@@ -2639,7 +2633,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          것이다. 이제 진짜로 메일을 연다 — iOS 판을 기다리는 사람 수를
          가늠할 신호도 겸한다. -->
     <a class="dl-coming" href="mailto:cheesepotato@everykoreans.com?subject=iOS%20%EB%B2%84%EC%A0%84%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&body=iOS%20%EB%B2%84%EC%A0%84%EC%9D%B4%20%EB%82%98%EC%98%A4%EB%A9%B4%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EC%84%B8%EC%9A%94.%0A%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0:%20"
-       data-en="🍎 iOS version coming soon — tap to get notified">🍎 iOS 버전 출시 예정 — 누르면 나올 때 알려드려요</a>
+       data-en="iOS version coming soon: tap to get notified">iOS 버전 출시 예정 — 누르면 나올 때 알려드려요</a>
   </div>
 
   <!-- 푸터 -->
@@ -2650,7 +2644,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          홈에서 한 번 걸리면 290쪽(문법 표현)·글(블로그)이 거기서부터
          따라 발견된다. 블로그는 다른 정적 쪽(course/·sentence/…) 밑에는
          이미 붙어 있었는데 정작 홈에는 없었다. -->
-    <div class="footer-info">© 2026 치즈감자 · <a href="sentence/" data-en="Korean grammar points">한국어 문법 표현</a> · <a href="shop/" data-en="Books">책</a> · <a href="blog/" data-en="Blog">블로그</a><span class="ft-teach"> · <a href="teacher.html" data-en="1:1 lessons">선생님 · 1:1 수업</a></span> · <a href="https://www.instagram.com/cheese_p_otato/" target="_blank" rel="noopener" data-ev="인스타클릭" data-ev-from="맨아래">📷 Instagram</a> · <a href="about.html" data-en="About">소개</a> · <a href="korean-name/" data-en="Your name in Korean">내 이름을 한글로</a> · <a href="korean-age/" data-en="Korean age calculator">한국 나이 계산기</a> · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="pricing.html" data-en="Pricing">가격</a> · <a href="terms.html" data-en="Terms">이용약관</a> · <a href="refund.html" data-en="Refunds">환불 규정</a> · <a href="mailto:cheesepotato@everykoreans.com">cheesepotato@everykoreans.com</a></div>
+    <div class="footer-info">© 2026 치즈감자 · <a href="sentence/" data-en="Korean grammar points">한국어 문법 표현</a> · <a href="shop/" data-en="Books">책</a> · <a href="blog/" data-en="Blog">블로그</a><span class="ft-teach"> · <a href="teacher.html" data-en="1:1 lessons">선생님 · 1:1 수업</a></span> · <a href="https://www.instagram.com/cheese_p_otato/" target="_blank" rel="noopener" data-ev="인스타클릭" data-ev-from="맨아래">Instagram</a> · <a href="about.html" data-en="About">소개</a> · <a href="korean-name/" data-en="Your name in Korean">내 이름을 한글로</a> · <a href="korean-age/" data-en="Korean age calculator">한국 나이 계산기</a> · <a href="privacy.html" data-en="Privacy policy">개인정보처리방침</a> · <a href="pricing.html" data-en="Pricing">가격</a> · <a href="terms.html" data-en="Terms">이용약관</a> · <a href="refund.html" data-en="Refunds">환불 규정</a> · <a href="mailto:cheesepotato@everykoreans.com">cheesepotato@everykoreans.com</a></div>
     <!-- CC BY-SA 는 출처를 밝히라고 한다. 자료 파일 머리에만 적어 두면 그
          파일을 여는 사람만 알고 학습자는 모른다. 뜻풀이를 화면에서 보는
          사람이 여기서 볼 수 있어야 표시한 것이 된다. -->
@@ -2664,7 +2658,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 언어 안내(운영자 2026-10-17 「홈페이지에서 언어 지원하는 거 정확히 명시」) — 화면 12개 / 낱말 뜻 영어 + 9개 / 레슨 · 문제는 한국어. 화면 언어를 바꾸거나 낱말 뜻 언어(GLOSS_LANGS)가 바뀌면 여기도 고친다. -->
     <div class="footer-info" style="margin-top:6px">
       <span data-en="Languages:">언어 안내:</span>
-      <span data-en="the screen (menus, buttons, tips) is in 12 languages — Korean, English, Vietnamese, Japanese, Chinese, Indonesian, Nepali, Burmese, Russian, Mongolian, Portuguese, Uzbek (some newer screens may still show English).">화면(메뉴 · 단추 · 안내)은 12개 언어 — 한국어 · English · Tiếng Việt · 日本語 · 中文 · Bahasa Indonesia · नेपाली · မြန်မာ · Русский · Монгол · Português · Oʻzbekcha (새로 생긴 화면은 일부가 영어로 보일 수 있어요).</span>
+      <span data-en="the screen (menus, buttons, tips) is in 12 languages. Korean, English, Vietnamese, Japanese, Chinese, Indonesian, Nepali, Burmese, Russian, Mongolian, Portuguese, Uzbek (some newer screens may still show English).">화면(메뉴 · 단추 · 안내)은 12개 언어 — 한국어 · English · Tiếng Việt · 日本語 · 中文 · Bahasa Indonesia · नेपाली · မြန်မာ · Русский · Монгол · Português · Oʻzbekcha (새로 생긴 화면은 일부가 영어로 보일 수 있어요).</span>
       <span data-en="Word meanings: English plus Japanese, Chinese, Vietnamese, Russian, Spanish, French, Arabic, Mongolian and Indonesian.">낱말 뜻: 영어 + 일본어 · 중국어 · 베트남어 · 러시아어 · 스페인어 · 프랑스어 · 아랍어 · 몽골어 · 인도네시아어.</span>
       <span data-en="Lessons, exercises and reading passages are in Korean (with English help) and are not translated.">레슨 · 문제 · 읽기 지문은 한국어(영어 설명 함께)이고 번역하지 않아요.</span>
     </div>
@@ -3117,11 +3111,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="learn-head">
             <div class="tv-hd-bar">
               <div class="tv-hd-title-wrap">
-                <h2 style="font-size:24px; font-weight:900; color:var(--ink); letter-spacing:-0.5px;">✈️ 여행 한국어 (Travel Korean)</h2>
+                <h2 style="font-size:24px; font-weight:900; color:var(--ink); letter-spacing:-0.5px;">여행 한국어 (Travel Korean)</h2>
               </div>
               <div class="tv-ext-links">
-                <a href="blog/travel-korean-survival-guide.html" target="_blank" class="tv-ext-btn">✍️ 여행 블로그 가이드</a>
-                <a href="travel-guide.html" target="_blank" class="tv-ext-btn">📄 포켓 팜플렛 / PDF</a>
+                <a href="blog/travel-korean-survival-guide.html" target="_blank" class="tv-ext-btn">여행 블로그 가이드</a>
+                <a href="travel-guide.html" target="_blank" class="tv-ext-btn">포켓 팜플렛 / PDF</a>
                 <a href="record-travel.html" target="_blank" class="tv-ext-btn">🎙️ 직접 녹음 스튜디오</a>
               </div>
             </div>
@@ -3361,7 +3355,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="dashEmpty" class="hidden">
       <div class="wb-state">
         <div style="font-size:44px; margin-bottom:8px;">🥔</div>
-        <span data-en="No words yet — the numbers appear once you start.">아직 단어가 없어요. 단어를 만들면 숫자가 채워집니다.</span>
+        <span data-en="No words yet: the numbers appear once you start.">아직 단어가 없어요. 단어를 만들면 숫자가 채워집니다.</span>
         <div><button class="pt-next" id="dashGoLib" type="button" data-en="Pick words to learn">단어 담으러 가기</button></div>
       </div>
     </div>
@@ -3404,7 +3398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="game-card" id="gcBlocks" type="button">
         <span class="game-card-ico">🥔</span>
         <span class="game-card-name" data-en="Word potatoes">단어 감자</span>
-        <span class="game-card-desc" data-en="A field of potatoes — box a Korean word with its meaning to dig them up. 2 minutes, combos, no sign-in needed.">감자밭에서 한국어 낱말과 뜻이 짝인 감자 둘을 네모로 묶어 캐요. 2분 · 콤보 · 로그인 없이 바로.</span>
+        <span class="game-card-desc" data-en="A field of potatoes: box a Korean word with its meaning to dig them up. 2 minutes, combos, no sign-in needed.">감자밭에서 한국어 낱말과 뜻이 짝인 감자 둘을 네모로 묶어 캐요. 2분 · 콤보 · 로그인 없이 바로.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
@@ -3412,7 +3406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="game-card" id="gcPotdle" type="button">
         <span class="game-card-ico">🟨</span>
         <span class="game-card-name" data-en="Potato Wordle">오늘의 감자들</span>
-        <span class="game-card-desc" data-en="Korean Wordle — one word a day, 6 tries, share your 🥔🧀 grid. No sign-in needed.">한글 워들 — 하루 한 낱말을 6번 안에 맞혀요. 🥔🧀 결과를 친구에게 공유해요. 로그인 없이 바로.</span>
+        <span class="game-card-desc" data-en="Korean Wordle: one word a day, 6 tries, share your 🥔🧀 grid. No sign-in needed.">한글 워들 — 하루 한 낱말을 6번 안에 맞혀요. 🥔🧀 결과를 친구에게 공유해요. 로그인 없이 바로.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
@@ -3434,14 +3428,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="game-card" id="gcWords" type="button">
         <span class="game-card-ico">🧩</span>
         <span class="game-card-name" data-en="Word match">단어 짝 맞추기</span>
-        <span class="game-card-desc" data-en="Today's new words from Words — pair each word with its meaning against the clock. No sign-in needed.">「단어」의 오늘의 새 낱말로 — 낱말과 뜻을 짝지어 시간을 재요. 로그인 없이 바로 됩니다.</span>
+        <span class="game-card-desc" data-en="Today's new words from Words: pair each word with its meaning against the clock. No sign-in needed.">「단어」의 오늘의 새 낱말로 — 낱말과 뜻을 짝지어 시간을 재요. 로그인 없이 바로 됩니다.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
       <button class="game-card" id="gcQuiz" type="button">
         <span class="game-card-ico">⏱</span>
         <span class="game-card-name" data-en="Speed quiz">스피드 퀴즈</span>
-        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. Uses your wordbook — or your Words when it is short.">60초, 보기는 넷. 내 단어장으로 — 모자라면 「단어」에서 외운 낱말로 채워요.</span>
+        <span class="game-card-desc" data-en="Sixty seconds, four choices at a time. Uses your wordbook: or your Words when it is short.">60초, 보기는 넷. 내 단어장으로 — 모자라면 「단어」에서 외운 낱말로 채워요.</span>
         <span class="game-card-go" data-en="Play →">놀아보기 →</span>
       </button>
 
@@ -3704,7 +3698,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 결과는 언제든 「레벨테스트 결과」 리포트에서 다시 본다(2026-10-06) -->
         <!-- 처음 온 사람의 흐름(운영자 2026-10-07): 레벨테스트 → 바로 「오늘 공부」 1회. 가입은 첫 회를 마친 뒤에 권한다. -->
         <button type="button" class="pt-next lt-daily-go" id="ltDailyGo" data-en="▶ Start today’s study now (~15 min)">▶ 오늘 공부 바로 시작 (약 15분)</button>
-        <button type="button" class="lt-report-go" id="ltReportGo" data-en="📊 See the full report — you can come back to it any time">📊 결과 리포트로 보기 — 언제든 다시 볼 수 있어요</button>
+        <button type="button" class="lt-report-go" id="ltReportGo" data-en="See the full report: you can come back to it any time">결과 리포트로 보기 — 언제든 다시 볼 수 있어요</button>
         <!-- 선생님과 체험 수업 — 결과를 막 본 때가 「무엇부터 하지?」가 가장 궁금한 때다(Clarity 분석 2026-10-03).
              누르면 Preply 선생님 쪽으로. 센 수는 analytics.js 의 data-ev. 링크를 바꾸면 teacher.html 도 같이. -->
         <a class="lt-teach" href="https://preply.com/en/tutor/5384966" target="_blank" rel="noopener" data-ev="수업신청클릭" data-ev-from="레벨테스트결과">
@@ -3766,7 +3760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="pt-hero">
     <div class="pt-badge">LIBRARY</div>
     <h2 data-en="Print it,<br>solve it">인쇄해서 푸는<br>모의고사와 자료</h2>
-    <p data-en="Cheesepotato's own practice exams in the TOPIK format — free to print. Word lists for the app too.">치즈감자가 TOPIK 형식으로 직접 만든 모의고사를 무료로 인쇄해 가세요. 앱에 넣는 단어 자료도 있어요.</p>
+    <p data-en="Cheesepotato's own practice exams in the TOPIK format: free to print. Word lists for the app too.">치즈감자가 TOPIK 형식으로 직접 만든 모의고사를 무료로 인쇄해 가세요. 앱에 넣는 단어 자료도 있어요.</p>
   </div>
 
   <div class="pt-body" style="max-width:1160px;">
@@ -3793,7 +3787,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 무료 모의고사 — 사이트 회차를 인쇄용 시험지(표지 · 문제지 · 답안지 · 정답)로. app.module.js mkLibDraw · mkPrint -->
     <div class="bd-sec-title" id="libSecMock">
       <h3 data-en="Cheesepotato mock exams (TOPIK format) · free to print">치즈감자 모의고사 · TOPIK 형식 · 무료 인쇄</h3>
-      <span class="bd-sec-note" data-en="Cover, question booklet, answer sheet and answer key. Choose “Save as PDF” in the print window. All items are original — not past papers, not affiliated with NIIED.">표지 · 문제지 · 답안지 · 정답까지 한 번에. 인쇄 창에서 「PDF로 저장」을 고르면 파일이 돼요. 문항은 모두 치즈감자 창작 — 기출이 아니고 국립국제교육원과 관계없어요.</span>
+      <span class="bd-sec-note" data-en="Cover, question booklet, answer sheet and answer key. Choose “Save as PDF” in the print window. All items are original: not past papers, not affiliated with NIIED.">표지 · 문제지 · 답안지 · 정답까지 한 번에. 인쇄 창에서 「PDF로 저장」을 고르면 파일이 돼요. 문항은 모두 치즈감자 창작 — 기출이 아니고 국립국제교육원과 관계없어요.</span>
     </div>
     <div class="lib-sheets" id="libMock"></div>
 
@@ -3842,7 +3836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="표현">표현</option>
             <option value="기타">기타</option>
           </select>
-          <p class="up-hint" data-en="Only the words are stored — the file itself is not kept. Please upload only lists you have the right to share.">파일은 보관하지 않고 <b>단어와 뜻만</b> 저장합니다. 올려도 되는 자료인지 확인하고 올려주세요.</p>
+          <p class="up-hint" data-en="Only the words are stored: the file itself is not kept. Please upload only lists you have the right to share.">파일은 보관하지 않고 <b>단어와 뜻만</b> 저장합니다. 올려도 되는 자료인지 확인하고 올려주세요.</p>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
             <button class="pt-next" id="libSubmit" type="button" style="flex:1; min-width:140px;" data-en="Share">올리기</button>
             <button class="pt-ghost" id="libCancel" type="button" data-en="Cancel">취소</button>
@@ -3861,7 +3855,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="up-row">
           <div class="rp-on" id="libReportOn"></div>
           <select class="up-sel" id="libReason" aria-label="신고 사유" data-en-aria="Reason for report">
-            <option value="저작권"   data-en="Copyright — this is a paid/published word list">저작권 — 사서 쓰는 자료예요</option>
+            <option value="저작권"   data-en="Copyright: this is a paid/published word list">저작권 — 사서 쓰는 자료예요</option>
             <option value="부적절"   data-en="Inappropriate content">부적절한 내용</option>
             <option value="스팸"     data-en="Spam or advertising">광고·스팸</option>
             <option value="오류"     data-en="Many wrong meanings">뜻이 많이 틀렸어요</option>
@@ -3979,8 +3973,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div id="auForms" class="wb-login">
       <!-- 학생 · 선생님 — 로그인 전에 고른다(2026-10-14). 선생님 계정은 로그인 뒤 신청 → 운영자 승인 -->
       <div class="au-role" id="auRole" role="tablist">
-        <button type="button" role="tab" class="on" data-aurole="student" data-en="🎒 I’m a student">🎒 학생이에요</button>
-        <button type="button" role="tab" data-aurole="teacher" data-en="🧑‍🏫 I’m a teacher">🧑‍🏫 선생님이에요</button>
+        <button type="button" role="tab" class="on" data-aurole="student" data-en="I’m a student">학생이에요</button>
+        <button type="button" role="tab" data-aurole="teacher" data-en="I’m a teacher">선생님이에요</button>
       </div>
       <p class="au-role-note hidden" id="auRoleNote" data-en="Teacher accounts open after a quick review: sign in, then apply on the class screen.">선생님 계정은 확인 뒤에 열려요. 먼저 로그인하고, 반 화면에서 신청해 주세요.</p>
       <div class="au-tabs">
@@ -4210,7 +4204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="wb-add" id="wbAddBtn" type="button" data-en="+ Add word">+ 단어 추가</button>
           <label class="wb-x" id="wbImpLabel">
             <input type="file" id="wbImp" accept=".xlsx,.xls,.csv">
-            <span data-en="⬆ Import">⬆ 가져오기</span>
+            <span data-en="Import">가져오기</span>
           </label>
           <button class="wb-x" id="wbExp" type="button" data-en="⬇ Export">⬇ 내보내기</button>
         </div>
@@ -4416,9 +4410,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=577d38a8"></script>
-<script type="module" src="app.module.js?v=577d38a8"></script>
+<script src="app.js?v=74f372fe"></script>
+<script type="module" src="app.module.js?v=74f372fe"></script>
 
-<script src="analytics.js?v=577d38a8" defer></script>
+<script src="analytics.js?v=74f372fe" defer></script>
 </body>
 </html>
