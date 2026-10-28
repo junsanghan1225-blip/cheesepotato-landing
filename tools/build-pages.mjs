@@ -876,10 +876,14 @@ const hubNext = (skip, n = 6) => '<h2>치즈감자에서 함께 · Also free her
   ['/#words', '단어 1만 개', '10,000 words · daily review'], ['/#games', '단어 게임', 'Word Potatoes · Korean Wordle'],
 ].filter(([h]) => h !== skip).slice(0, n).map(([h, b, s]) => `<a href="${h}"><b>${b}</b>${s}</a>`).join('') + '</div>';
 
-/* 쓰기 쪽 아래 책 안내(운영자 2026-10-18 「학생 들어올 때 밑에 책을 팔자 — 100제 + 쓰는 노하우」). 사람 첨삭보다 책이 먼저. */
-const twBook = () => '<a class="bkbox" href="/shop/topik2-writing-53-54/"><span class="bk-i">📘</span><span><b>TOPIK II 쓰기 100제 + 쓰는 노하우</b>' +
-  '<small>시간 배분 · 단계별 풀이법 · 꼭 쓰는 표현 · 흔한 감점 — 문항 100개를 인쇄해서 손으로 풀고, 뒤쪽 정답 · 채점 기준으로 스스로 점검합니다. 51~52번 / 53~54번 두 권.<br>' +
-  '100 original practice tasks with the how-to: timing, step-by-step method, must-know phrases, common point losses. PDF, $9.90 each.</small><em>책 보기 · See the books →</em></span></a>';
+/* 글 쪽 아래 「다음 걸음」 책 안내(운영자 2026-10-28 「글 쪽에 다음 걸음 넣어줘」 — 글 쪽은 평균 11~48초만 머물고 책 · 앱으로 이어지지 않았다). 책 이름 · 가격은 docs/shop.json 에서 가져와 어긋나지 않게 한다. */
+const SHOPJ = JSON.parse(readFileSync(join(ROOT, 'docs/shop.json'), 'utf8'));
+const bookSteps = (ids, head) => `<h2>${head}</h2>` + ids.map((id) => {
+  const b = SHOPJ.books.find((x) => x.id === id);
+  if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+  return `<a class="bkbox" href="/shop/${id}/?utm_source=hub&amp;utm_medium=page"><span><b>${esc(b.title.en)}</b><small>${esc(b.sub.en)} · PDF $${esc(b.price)}<br>${esc(b.sub.ko || '')}</small><em>책 보기 · See the book →</em></span></a>`;
+}).join('');
+const twBook = () => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '쓰고 나서 · 책으로 이어서 (Next step: the books)');
 
 function twSections(items) {
   return TW_QS.map((g) => {
@@ -1012,6 +1016,7 @@ function trHub() {
     hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['바로 채점 · Instant check', '고르면 정답 · 해설'], ['모의고사 · Mock tests', '시간 재고 회차별'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
     hubCtas(['/#learn/topik/I/reading', '📖 읽기 연습 바로 시작', 'Start reading practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
+    bookSteps(['topik1-reading-mock'], '풀고 나서 · 책으로 이어서 (Next step: the book)'),
     hubNext('/topik-reading/'),
   ].join('\n');
 
@@ -1110,6 +1115,7 @@ function tlHub() {
     hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['대본 · Transcripts', '고른 뒤에 열려요'], ['소리 · Audio', '들으며 바로 풀기'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
     hubCtas(['/#learn/topik/I/listening', '🎧 듣기 연습 바로 시작', 'Start listening practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
+    bookSteps(['topik2-vocab-1000'], '듣기에 나오는 낱말 · 책으로 이어서 (Next step: the book)'),
     hubNext('/topik-listening/'),
   ].join('\n');
 
