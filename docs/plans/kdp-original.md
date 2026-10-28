@@ -23,6 +23,13 @@
 - **Select 독점은 디지털만**: 같은 내용을 PDF 로 내 사이트 · 예스24 에서 팔면 안 된다(종이책은 상관없음). 90일마다 자동 갱신 — 끄는 것을 잊으면 90일 더 묶인다. 새 글을 더해도 독점 조건을 피하지 못한다. 그래서 Select 책은 PDF 와 **겹치지 않게**.
 - **무엇이 잘 팔리나**: 한국어 학습 책의 Kindle 순위 · 판매량은 조사로 확인하지 못했다(검색에서 나오지 않음). 한글 입문(Hangul for Beginners 류) · 「7 Books in 1」 같은 묶음 · 대화 책이 목록에 있다는 것까지만 확인. → 운영자가 아마존에서 「Korean Language Learning」 · 「Foreign Language Study」 베스트셀러 순위 쪽을 캡처해 주면 Claude 가 분석해 책 순서를 다시 정한다.
 
+### 아마존 순위 캡처 분석(운영자 2026-10-28, 「Korean Language Learning」 상위 21권)
+- ⚠ 캡처는 **Audible(오디오북) 순위**였다 — 전부 「Audible Audiobook」 표시. Kindle 전자책 순위는 아니다. 수요의 모양(어떤 주제 · 묶음이 팔리나)을 보는 용도로만 쓰고, Kindle 순위(「Kindle eBooks」 탭)는 따로 받아 확인한다.
+- **묶음이 상위를 차지**: #1 Learn Korean Bundle(5 levels) · #2 Complete Learn Korean for Adult Beginners(3 in 1, 평가 659) · #3 Complete Beginner's Course(10 books in 1) · #10 7 Books in 1(378) · #14 Bundle 5 in 1. → 합본은 효과가 있는 틀(오디오북 기준).
+- **이야기 · 문맥 속 낱말이 상위**: #13 Korean Stories for Language Learners(평가 2,100, 한국어 · 영어 민담) · #11 2000 Most Common Korean Words in Context(평가 1,242). → 우리 책 1(이야기)과 TOPIK II 단어장 방향이 맞다. 우리 단어장 3권(KDP 판)은 제목을 「N Most Common Korean Words in Context」 꼴로 다듬으면 검색에 더 걸린다(제안).
+- **주제 곁가지**: #5 Korean for K-Pop Fans(255) · #9 · #12 수면 학습 · #4 차에서 배우기. → K-pop · 드라마 낱말 책은 수요가 있어 보이나 **실제 가사 · 이름 · 방송 인용은 쓰지 않는다**(저작권 · 상표 위험). 우리 창작 문장으로.
+- 이 캡처의 순위 · 평가 수는 책 한 권 한 권의 판매량이 아니다(평가 수는 인기의 대략적인 힌트).
+
 ### 수익성으로 정한 순서 (제안 — 만드는 돈이 적고 틀을 다시 쓰는 순)
 1. **이야기 시리즈**: 책 1(A1~A2 40편, 안티 진행 중) → 책 2(A2~B1) → 책 3. 같은 틀(`build-kdp-original.mjs`) 재사용, 시리즈로 읽으면 쪽 수익이 이어진다. 가격 4.99달러 근처.
 2. **Hangul in 7 Days**: 입문 검색이 가장 넓은 출입구. 2.99달러(70% 하한)로 두고 시리즈로 이어지게 뒷표지에 다른 책 소개.
