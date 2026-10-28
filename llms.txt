@@ -15,7 +15,7 @@
   (Free with no account: every course and lesson, all grammar points, the
   dictionary, the level test, reading passages, TOPIK practice by question
   type (10 a day without an account; every static question page is open).)
-- **무료, 가입하면**: TOPIK 모의고사 1회차 · 유형 연습 하루 10문항 넘게 · 둘째 날부터의 공부 기록(오늘 공부 · 단어 외우기 · 오답 노트), 진도를 여러 기기에서 이어 보기, AI 쓰기 채점(하루 2번) · AI 발음 · 도우미(하루 20번).
+- **무료, 가입하면**: TOPIK 모의고사 1회차 · 유형 연습 하루 10문항 넘게 · 둘째 날부터의 공부 기록(오늘 공부 · 단어 외우기 · 오답 노트), 진도를 여러 기기에서 이어 보기, AI 발음 · 도우미(하루 20번).
   가입은 이메일이나 구글 계정으로 하고, **카드 정보는 묻지 않는다.**
   (Free with a free account: progress synced across devices and daily AI
   feedback. Signing up never asks for a card.)
@@ -91,8 +91,7 @@
   53번 50 · 54번 50). 시계와 답안지가 붙은 모의고사가 있고, 한 문제씩 넘기거나
   시험지처럼 스크롤해서 풀 수 있다. 쓰기 문항마다 모범답안 · 채점 포인트 · 흔한
   감점 요인이 있다.
-  **쓰기 53·54번은 AI 채점**이 된다 — 실제 배점(내용·구조·언어)대로 점수와 고칠 문장을 준다.
-  로그인하면 하루 2번 무료.
+  **쓰기 53·54번은 AI 채점**이 된다(Pro 전용) — 실제 배점(내용·구조·언어)대로 점수와 고칠 문장을 준다. 모범답안과 견주기는 무료.
 - **읽기 지문 54편** — 읽고 나서 내용을 직접 써 본다.
 - **낱말 7,970개 · 문법 항목 197개** — 뜻풀이는 국립국어원 한국어기초사전
   (CC BY-SA 2.0 KR).

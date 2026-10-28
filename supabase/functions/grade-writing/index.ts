@@ -20,7 +20,7 @@ const admin = createClient(SB_URL, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
 const KEY = Deno.env.get('GEMINI_API_KEY') ?? Deno.env.get('GOOGLE_API_KEY') ?? '';
 const MODEL = Deno.env.get('GEMINI_MODEL') ?? 'gemini-2.5-flash';
 const SITE = 'https://everykoreans.com';
-const LIMIT = { free: 2, pro: 30 };
+const LIMIT = { free: 0, pro: 30 };   // 2026-10-28 운영자 「쓰기 AI 분석은 프로로」: 무료는 AI 채점 없음(Pro 만)
 const MAX = { 53: [7, 7, 16], 54: [12, 12, 26] } as Record<number, number[]>;
 
 const CORS = {
@@ -58,7 +58,8 @@ Deno.serve(async (req) => {
   if (n < 50) return json({ error: 'short' }, 400);
 
   const { data: pro } = await admin.rpc('is_pro', { uid: user.id });
-  const limit = pro ? LIMIT.pro : LIMIT.free;
+  if (!pro) return json({ error: 'pro_only' }, 403);   // 횟수를 세기 전에 막는다 — 무료는 Gemini 도 부르지 않는다
+  const limit = LIMIT.pro;
   const { data: used, error: ue } = await admin.rpc('writing_usage_bump', { uid: user.id });
   if (ue) { console.error(ue); return json({ error: 'server' }, 500); }
   if (used > limit) return json({ error: 'daily_limit', limit, pro: !!pro }, 429);

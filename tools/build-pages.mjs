@@ -902,7 +902,7 @@ function twHub(items) {
     `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
     `${items.length} original TOPIK II writing tasks — write, get an AI score, compare with the model answer.</p>`,
     hubCtas(['/#learn/topik/II/writing', '✍️ AI 채점으로 바로 써 보기', 'Write now and get an AI score — free']),
-    hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(하루 2번 무료) + 모범답안']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
+    hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
     twBook(),
