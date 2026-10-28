@@ -1,1 +1,3192 @@
-{ "id": "kdp-short-stories-1", "title": { "en": "Korean Short Stories for Beginners" }, "stories": [] }
+{
+  "id": "kdp-short-stories-1",
+  "title": {
+    "en": "Korean Short Stories for Beginners"
+  },
+  "stories": [
+    {
+      "no": 1,
+      "level": "A1",
+      "title": {
+        "ko": "민수의 시장 나들이",
+        "en": "Minsu's Trip to the Market"
+      },
+      "lines": [
+        {
+          "ko": "오늘은 날씨가 정말 맑아요.",
+          "en": "Today the weather is very clear."
+        },
+        {
+          "ko": "민수는 장바구니를 챙겨요.",
+          "en": "Minsu packs a shopping bag."
+        },
+        {
+          "ko": "동네 시장에 걸어가요.",
+          "en": "He walks to the neighborhood market."
+        },
+        {
+          "ko": "시장에 맛있는 냄새가 나요.",
+          "en": "There is a delicious smell in the market."
+        },
+        {
+          "ko": "먼저 과일 가게를 찾았어요.",
+          "en": "First, he found the fruit shop."
+        },
+        {
+          "ko": "가게 앞에 빨간 사과가 있어요.",
+          "en": "There are red apples in front of the shop."
+        },
+        {
+          "ko": "사과 향기가 아주 달콤해요.",
+          "en": "The scent of the apples is very sweet."
+        },
+        {
+          "ko": "민수는 큰 사과를 골라요.",
+          "en": "Minsu picks big apples."
+        },
+        {
+          "ko": "친절한 가게 주인이 웃어요.",
+          "en": "The kind shop owner smiles."
+        },
+        {
+          "ko": "주인은 노란 귤도 함께 줘요.",
+          "en": "The owner also gives a yellow tangerine."
+        },
+        {
+          "ko": "이것도 한번 맛보세요.",
+          "en": "Please taste this one as well."
+        },
+        {
+          "ko": "민수는 기쁘게 인사해요.",
+          "en": "Minsu greets the owner with joy."
+        },
+        {
+          "ko": "가벼운 마음으로 집에 돌아가요.",
+          "en": "He returns home with a light heart."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "시장",
+          "en": "market"
+        },
+        {
+          "ko": "장바구니",
+          "en": "shopping bag"
+        },
+        {
+          "ko": "과일",
+          "en": "fruit"
+        },
+        {
+          "ko": "사과",
+          "en": "apple"
+        },
+        {
+          "ko": "고르다",
+          "en": "to choose, to pick"
+        },
+        {
+          "ko": "주인",
+          "en": "owner"
+        },
+        {
+          "ko": "귤",
+          "en": "tangerine"
+        },
+        {
+          "ko": "돌아가다",
+          "en": "to return, to go back"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where does Minsu go today?",
+          "a": "He goes to the neighborhood market."
+        },
+        {
+          "q": "What kind of fruit does Minsu pick?",
+          "a": "He picks big red apples."
+        },
+        {
+          "q": "What extra fruit does the shop owner give to Minsu?",
+          "a": "The owner gives him a yellow tangerine."
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "level": "A1",
+      "title": {
+        "ko": "특별한 생일 선물",
+        "en": "A Special Birthday Gift"
+      },
+      "lines": [
+        {
+          "ko": "내일은 하나의 생일이에요.",
+          "en": "Tomorrow is Hana's birthday."
+        },
+        {
+          "ko": "지수는 선물을 사러 가요.",
+          "en": "Jisu goes to buy a gift."
+        },
+        {
+          "ko": "근처 서점에 들어갔어요.",
+          "en": "She entered a nearby bookstore."
+        },
+        {
+          "ko": "서점에는 책이 정말 많아요.",
+          "en": "There are really many books in the bookstore."
+        },
+        {
+          "ko": "지수는 예쁜 공책을 발견해요.",
+          "en": "Jisu discovers a pretty notebook."
+        },
+        {
+          "ko": "공책 표지가 파란색이에요.",
+          "en": "The notebook cover is blue."
+        },
+        {
+          "ko": "꽃 그림 엽서도 골라요.",
+          "en": "She also chooses a flower postcard."
+        },
+        {
+          "ko": "계산대에서 계산을 마쳤어요.",
+          "en": "She finished paying at the counter."
+        },
+        {
+          "ko": "지수는 카페에 앉았어요.",
+          "en": "Jisu sat down in a cafe."
+        },
+        {
+          "ko": "엽서에 축하 편지를 써요.",
+          "en": "She writes a congratulatory letter on the postcard."
+        },
+        {
+          "ko": "생일 축하해, 친구야.",
+          "en": "Happy birthday, my friend."
+        },
+        {
+          "ko": "하나가 기뻐하면 좋겠어요.",
+          "en": "She hopes that Hana will be pleased."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "생일",
+          "en": "birthday"
+        },
+        {
+          "ko": "선물",
+          "en": "gift, present"
+        },
+        {
+          "ko": "서점",
+          "en": "bookstore"
+        },
+        {
+          "ko": "공책",
+          "en": "notebook"
+        },
+        {
+          "ko": "표지",
+          "en": "cover"
+        },
+        {
+          "ko": "엽서",
+          "en": "postcard"
+        },
+        {
+          "ko": "편지",
+          "en": "letter"
+        },
+        {
+          "ko": "축하하다",
+          "en": "to congratulate"
+        }
+      ],
+      "check": [
+        {
+          "q": "Whose birthday is tomorrow?",
+          "a": "Tomorrow is Hana's birthday."
+        },
+        {
+          "q": "What color is the cover of the notebook?",
+          "a": "The cover of the notebook is blue."
+        },
+        {
+          "q": "Where does Jisu write the letter?",
+          "a": "She writes the letter in a cafe."
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "level": "A1",
+      "title": {
+        "ko": "비 오는 날의 노란 우산",
+        "en": "The Yellow Umbrella on a Rainy Day"
+      },
+      "lines": [
+        {
+          "ko": "아침에는 하늘이 파랬어요.",
+          "en": "The sky was blue in the morning."
+        },
+        {
+          "ko": "하나는 우산 없이 나갔어요.",
+          "en": "Hana went out without an umbrella."
+        },
+        {
+          "ko": "오후에 갑자기 어두워졌어요.",
+          "en": "It suddenly became dark in the afternoon."
+        },
+        {
+          "ko": "하늘에서 비가 쏟아져요.",
+          "en": "Rain pours down from the sky."
+        },
+        {
+          "ko": "하나는 편의점으로 뛰어가요.",
+          "en": "Hana runs to a convenience store."
+        },
+        {
+          "ko": "작은 노란 우산을 샀어요.",
+          "en": "She bought a small yellow umbrella."
+        },
+        {
+          "ko": "우산을 펴고 카페로 갔어요.",
+          "en": "She opened the umbrella and went to a cafe."
+        },
+        {
+          "ko": "따뜻한 차를 마셨어요.",
+          "en": "She drank warm tea."
+        },
+        {
+          "ko": "나갈 때 우산을 잊었어요.",
+          "en": "She forgot the umbrella when leaving."
+        },
+        {
+          "ko": "직원이 우산을 가져다주었어요.",
+          "en": "The staff member brought the umbrella to her."
+        },
+        {
+          "ko": "손님, 우산 두고 가셨어요.",
+          "en": "Customer, you left your umbrella behind."
+        },
+        {
+          "ko": "하나는 고개 숙여 감사해요.",
+          "en": "Hana bows her head and expresses thanks."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "하늘",
+          "en": "sky"
+        },
+        {
+          "ko": "우산",
+          "en": "umbrella"
+        },
+        {
+          "ko": "갑자기",
+          "en": "suddenly"
+        },
+        {
+          "ko": "쏟아지다",
+          "en": "to pour down"
+        },
+        {
+          "ko": "편의점",
+          "en": "convenience store"
+        },
+        {
+          "ko": "펴다",
+          "en": "to open, to unfold"
+        },
+        {
+          "ko": "잊다",
+          "en": "to forget"
+        },
+        {
+          "ko": "직원",
+          "en": "employee, staff member"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Hana go out without an umbrella?",
+          "a": "Because the sky was blue in the morning."
+        },
+        {
+          "q": "Where did Hana buy the yellow umbrella?",
+          "a": "She bought it at a convenience store."
+        },
+        {
+          "q": "Who returned the forgotten umbrella to Hana?",
+          "a": "The staff member brought the umbrella to her."
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "level": "A1",
+      "title": {
+        "ko": "민수의 지하철 여행",
+        "en": "Minsu's Subway Trip"
+      },
+      "lines": [
+        {
+          "ko": "민수는 오늘 강에 가요.",
+          "en": "Minsu goes to the river today."
+        },
+        {
+          "ko": "지하철역으로 걸어 내려가요.",
+          "en": "He walks down into the subway station."
+        },
+        {
+          "ko": "교통카드를 기계에 찍었어요.",
+          "en": "He tapped his transportation card on the machine."
+        },
+        {
+          "ko": "지하철이 금방 도착했어요.",
+          "en": "The subway train arrived quickly."
+        },
+        {
+          "ko": "민수는 빈자리에 앉아요.",
+          "en": "Minsu sits down in an empty seat."
+        },
+        {
+          "ko": "열차가 빠르게 달려요.",
+          "en": "The train runs fast."
+        },
+        {
+          "ko": "역 이름 안내를 열심히 들어요.",
+          "en": "He listens carefully to the station announcements."
+        },
+        {
+          "ko": "민수는 환승역에서 내려요.",
+          "en": "Minsu gets off at the transfer station."
+        },
+        {
+          "ko": "파란색 표지판을 따라 걸어요.",
+          "en": "He walks following the blue sign."
+        },
+        {
+          "ko": "다른 열차로 잘 갈아탔어요.",
+          "en": "He transferred smoothly to another train."
+        },
+        {
+          "ko": "목적지 역에 무사히 도착했어요.",
+          "en": "He arrived safely at the destination station."
+        },
+        {
+          "ko": "시원한 강바람이 불어와요.",
+          "en": "A refreshing river breeze blows."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "강",
+          "en": "river"
+        },
+        {
+          "ko": "지하철역",
+          "en": "subway station"
+        },
+        {
+          "ko": "교통카드",
+          "en": "transportation card"
+        },
+        {
+          "ko": "도착하다",
+          "en": "to arrive"
+        },
+        {
+          "ko": "자리",
+          "en": "seat"
+        },
+        {
+          "ko": "안내",
+          "en": "announcement, guidance"
+        },
+        {
+          "ko": "갈아타다",
+          "en": "to transfer (vehicles)"
+        },
+        {
+          "ko": "바람",
+          "en": "wind, breeze"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where is Minsu going today?",
+          "a": "He is going to the river."
+        },
+        {
+          "q": "What does Minsu tap on the machine?",
+          "a": "He taps his transportation card."
+        },
+        {
+          "q": "What color sign does Minsu follow to transfer?",
+          "a": "He follows the blue sign."
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "level": "A1",
+      "title": {
+        "ko": "즐거운 토요일 점심",
+        "en": "A Fun Saturday Lunch"
+      },
+      "lines": [
+        {
+          "ko": "오늘은 한가한 토요일이에요.",
+          "en": "Today is a leisurely Saturday."
+        },
+        {
+          "ko": "지수는 배가 조금 고파요.",
+          "en": "Jisu is a little hungry."
+        },
+        {
+          "ko": "부엌 냉장고 문을 열어요.",
+          "en": "She opens the kitchen refrigerator door."
+        },
+        {
+          "ko": "잘 익은 김치가 있어요.",
+          "en": "There is well-fermented kimchi."
+        },
+        {
+          "ko": "김치볶음밥을 만들기로 해요.",
+          "en": "She decides to make kimchi fried rice."
+        },
+        {
+          "ko": "도마 위에서 김치를 썰어요.",
+          "en": "She chops the kimchi on the cutting board."
+        },
+        {
+          "ko": "프라이팬에 기름을 둘러요.",
+          "en": "She swirls cooking oil in the frying pan."
+        },
+        {
+          "ko": "밥과 김치를 함께 볶아요.",
+          "en": "She stir-fries the rice and kimchi together."
+        },
+        {
+          "ko": "고소한 냄새가 방에 퍼져요.",
+          "en": "A savory smell spreads throughout the room."
+        },
+        {
+          "ko": "계란 프라이도 예쁘게 올려요.",
+          "en": "She also places a fried egg nicely on top."
+        },
+        {
+          "ko": "식탁에 앉아서 밥을 먹어요.",
+          "en": "She sits at the table and eats the meal."
+        },
+        {
+          "ko": "직접 만든 밥이 참 맛있어요.",
+          "en": "The food she made herself is truly delicious."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "토요일",
+          "en": "Saturday"
+        },
+        {
+          "ko": "냉장고",
+          "en": "refrigerator"
+        },
+        {
+          "ko": "김치",
+          "en": "kimchi"
+        },
+        {
+          "ko": "썰다",
+          "en": "to chop, to slice"
+        },
+        {
+          "ko": "볶다",
+          "en": "to stir-fry"
+        },
+        {
+          "ko": "냄새",
+          "en": "smell, aroma"
+        },
+        {
+          "ko": "계란",
+          "en": "egg"
+        },
+        {
+          "ko": "식탁",
+          "en": "dining table"
+        }
+      ],
+      "check": [
+        {
+          "q": "What day of the week is it in the story?",
+          "a": "It is a leisurely Saturday."
+        },
+        {
+          "q": "What dish does Jisu decide to make?",
+          "a": "She decides to make kimchi fried rice."
+        },
+        {
+          "q": "What does Jisu put on top of the fried rice?",
+          "a": "She places a fried egg on top."
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "level": "A1",
+      "title": {
+        "ko": "방과 후 미술실",
+        "en": "The Art Room After School"
+      },
+      "lines": [
+        {
+          "ko": "수업이 모두 끝났어요.",
+          "en": "All classes are finished."
+        },
+        {
+          "ko": "민수는 미술실로 향해요.",
+          "en": "Minsu heads to the art room."
+        },
+        {
+          "ko": "미술실에는 그림 도구가 많아요.",
+          "en": "There are many drawing tools in the art room."
+        },
+        {
+          "ko": "민수는 그림 그리기를 좋아해요.",
+          "en": "Minsu likes drawing pictures."
+        },
+        {
+          "ko": "책상 위에 사과가 놓여 있어요.",
+          "en": "An apple is placed on top of the desk."
+        },
+        {
+          "ko": "하얀 종이를 책상에 펴요.",
+          "en": "He spreads white paper on the desk."
+        },
+        {
+          "ko": "연필을 잡고 사과를 그려요.",
+          "en": "He holds a pencil and draws the apple."
+        },
+        {
+          "ko": "동그란 모양을 천천히 그려요.",
+          "en": "He slowly draws the round shape."
+        },
+        {
+          "ko": "선생님이 다가와 그림을 봐요.",
+          "en": "The teacher comes over and looks at the drawing."
+        },
+        {
+          "ko": "선생님이 환하게 칭찬해요.",
+          "en": "The teacher compliments him brightly."
+        },
+        {
+          "ko": "선이 아주 부드럽고 좋아요.",
+          "en": "The lines are very soft and nice."
+        },
+        {
+          "ko": "민수는 다음 주도 기대돼요.",
+          "en": "Minsu looks forward to next week as well."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "수업",
+          "en": "class, lesson"
+        },
+        {
+          "ko": "미술실",
+          "en": "art room"
+        },
+        {
+          "ko": "그림",
+          "en": "picture, drawing"
+        },
+        {
+          "ko": "종이",
+          "en": "paper"
+        },
+        {
+          "ko": "연필",
+          "en": "pencil"
+        },
+        {
+          "ko": "그리다",
+          "en": "to draw"
+        },
+        {
+          "ko": "모양",
+          "en": "shape"
+        },
+        {
+          "ko": "칭찬하다",
+          "en": "to praise, to compliment"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where does Minsu go after class?",
+          "a": "He goes to the art room."
+        },
+        {
+          "q": "What object is placed on the desk to draw?",
+          "a": "An apple is placed on the desk."
+        },
+        {
+          "q": "What does the teacher say about Minsu's drawing?",
+          "a": "The teacher says that the lines are very soft and nice."
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "level": "A1",
+      "title": {
+        "ko": "하나의 활기찬 아침",
+        "en": "Hana's Energetic Morning"
+      },
+      "lines": [
+        {
+          "ko": "하나는 오늘 일찍 출근했어요.",
+          "en": "Hana arrived at work early today."
+        },
+        {
+          "ko": "사무실이 아직 아주 조용해요.",
+          "en": "The office is still very quiet."
+        },
+        {
+          "ko": "창문을 열어 공기를 바꿔요.",
+          "en": "She opens the window to freshen the air."
+        },
+        {
+          "ko": "따뜻한 차를 한 잔 타요.",
+          "en": "She prepares a cup of warm tea."
+        },
+        {
+          "ko": "컴퓨터 전원을 켰어요.",
+          "en": "She turned on the computer power."
+        },
+        {
+          "ko": "오늘 회의 문서를 확인해요.",
+          "en": "She reviews today's meeting documents."
+        },
+        {
+          "ko": "동료 지수가 사무실에 들어와요.",
+          "en": "Her colleague Jisu walks into the office."
+        },
+        {
+          "ko": "둘은 반갑게 아침 인사를 해요.",
+          "en": "The two exchange pleasant morning greetings."
+        },
+        {
+          "ko": "오늘 회의 준비 다 했어요?",
+          "en": "Did you finish preparing for today's meeting?"
+        },
+        {
+          "ko": "하나는 웃으며 고개를 끄덕여요.",
+          "en": "Hana smiles and nods her head."
+        },
+        {
+          "ko": "준비한 발표 자료를 함께 봐요.",
+          "en": "They look at the prepared presentation materials together."
+        },
+        {
+          "ko": "힘찬 하루를 즐겁게 시작해요.",
+          "en": "They start an energetic day delightfully."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "출근하다",
+          "en": "to go to work, to arrive at work"
+        },
+        {
+          "ko": "사무실",
+          "en": "office"
+        },
+        {
+          "ko": "창문",
+          "en": "window"
+        },
+        {
+          "ko": "회의",
+          "en": "meeting"
+        },
+        {
+          "ko": "문서",
+          "en": "document"
+        },
+        {
+          "ko": "동료",
+          "en": "colleague, coworker"
+        },
+        {
+          "ko": "발표",
+          "en": "presentation"
+        },
+        {
+          "ko": "시작하다",
+          "en": "to start, to begin"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why is the office very quiet when Hana arrives?",
+          "a": "Because Hana arrived at work early today."
+        },
+        {
+          "q": "Who enters the office after Hana?",
+          "a": "Her colleague Jisu enters the office."
+        },
+        {
+          "q": "What do Hana and Jisu review together?",
+          "a": "They look at the prepared presentation materials together."
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "level": "A1",
+      "title": {
+        "ko": "감기 조심하세요",
+        "en": "Take Care with Colds"
+      },
+      "lines": [
+        {
+          "ko": "지수는 아침부터 목이 따가워요.",
+          "en": "Jisu has a stinging sore throat from the morning."
+        },
+        {
+          "ko": "기침도 조금씩 나오기 시작해요.",
+          "en": "Coughing also begins to emerge little by little."
+        },
+        {
+          "ko": "지수는 따뜻한 물을 마셔요.",
+          "en": "Jisu drinks some warm water."
+        },
+        {
+          "ko": "옷을 입고 병원으로 가요.",
+          "en": "She puts on clothes and heads to the clinic."
+        },
+        {
+          "ko": "접수처에서 이름을 말했어요.",
+          "en": "She stated her name at the reception desk."
+        },
+        {
+          "ko": "의사 선생님이 목을 살펴봐요.",
+          "en": "The doctor examines her throat."
+        },
+        {
+          "ko": "목이 많이 빨갛게 부었어요.",
+          "en": "Your throat is quite red and swollen."
+        },
+        {
+          "ko": "선생님이 약을 처방해 주었어요.",
+          "en": "The doctor prescribed medicine for her."
+        },
+        {
+          "ko": "지수는 아래층 약국에 들러요.",
+          "en": "Jisu stops by the pharmacy downstairs."
+        },
+        {
+          "ko": "약사와 인사하고 약을 받아요.",
+          "en": "She greets the pharmacist and receives the medication."
+        },
+        {
+          "ko": "집으로 돌아와 따뜻하게 쉬어요.",
+          "en": "She returns home and rests warmly."
+        },
+        {
+          "ko": "내일은 몸이 나으면 좋겠어요.",
+          "en": "She hopes she will feel better tomorrow."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "목",
+          "en": "throat, neck"
+        },
+        {
+          "ko": "기침",
+          "en": "cough"
+        },
+        {
+          "ko": "병원",
+          "en": "hospital, clinic"
+        },
+        {
+          "ko": "의사",
+          "en": "doctor"
+        },
+        {
+          "ko": "살펴보다",
+          "en": "to examine, to look closely"
+        },
+        {
+          "ko": "약국",
+          "en": "pharmacy"
+        },
+        {
+          "ko": "약사",
+          "en": "pharmacist"
+        },
+        {
+          "ko": "쉬다",
+          "en": "to rest"
+        }
+      ],
+      "check": [
+        {
+          "q": "What symptoms does Jisu have in the morning?",
+          "a": "She has a sore throat and coughing."
+        },
+        {
+          "q": "What does the doctor say after examining Jisu's throat?",
+          "a": "The doctor says that her throat is red and swollen."
+        },
+        {
+          "q": "Where does Jisu pick up her prescribed medicine?",
+          "a": "She picks up her medicine at the pharmacy downstairs."
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "level": "A1",
+      "title": {
+        "ko": "온 가족 청소하는 날",
+        "en": "Whole Family Cleaning Day"
+      },
+      "lines": [
+        {
+          "ko": "일요일 아침에 모두 일어났어요.",
+          "en": "Everyone woke up on Sunday morning."
+        },
+        {
+          "ko": "오늘은 온 가족 청소 날이에요.",
+          "en": "Today is the whole family's cleaning day."
+        },
+        {
+          "ko": "아버지가 먼저 청소기를 돌려요.",
+          "en": "The father first runs the vacuum cleaner."
+        },
+        {
+          "ko": "어머니는 높은 곳 먼지를 털어요.",
+          "en": "The mother dusts off dust from high places."
+        },
+        {
+          "ko": "민수는 걸레를 물에 빨아요.",
+          "en": "Minsu rinses the cleaning rag in water."
+        },
+        {
+          "ko": "거실 바닥을 깨끗이 닦아요.",
+          "en": "He wipes the living room floor cleanly."
+        },
+        {
+          "ko": "구석구석 깨끗하게 닦았어요.",
+          "en": "He wiped every corner cleanly."
+        },
+        {
+          "ko": "온 집안이 반짝반짝 빛나요.",
+          "en": "The whole house sparkles and shines."
+        },
+        {
+          "ko": "청소가 드디어 모두 끝났어요.",
+          "en": "The cleaning is finally completely finished."
+        },
+        {
+          "ko": "어머니가 달콤한 수박을 잘라요.",
+          "en": "The mother slices some sweet watermelon."
+        },
+        {
+          "ko": "다 함께 거실에 둘러앉아요.",
+          "en": "Everyone sits around together in the living room."
+        },
+        {
+          "ko": "시원한 과일을 맛있게 먹어요.",
+          "en": "They enjoy eating the cool fruit delightfully."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "일요일",
+          "en": "Sunday"
+        },
+        {
+          "ko": "가족",
+          "en": "family"
+        },
+        {
+          "ko": "청소기",
+          "en": "vacuum cleaner"
+        },
+        {
+          "ko": "먼지",
+          "en": "dust"
+        },
+        {
+          "ko": "걸레",
+          "en": "cleaning rag, cloth"
+        },
+        {
+          "ko": "바닥",
+          "en": "floor"
+        },
+        {
+          "ko": "닦다",
+          "en": "to wipe, to clean"
+        },
+        {
+          "ko": "수박",
+          "en": "watermelon"
+        }
+      ],
+      "check": [
+        {
+          "q": "What special chore does the family do on Sunday morning?",
+          "a": "They do house cleaning together."
+        },
+        {
+          "q": "What task does Minsu do during cleaning?",
+          "a": "He rinses the rag and wipes the floor."
+        },
+        {
+          "q": "What snack does the family eat together after cleaning?",
+          "a": "They eat sweet cool watermelon together."
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "level": "A1",
+      "title": {
+        "ko": "어디에서 만나요?",
+        "en": "Where Do We Meet?"
+      },
+      "lines": [
+        {
+          "ko": "하나는 오늘 지수와 약속했어요.",
+          "en": "Hana made plans with Jisu today."
+        },
+        {
+          "ko": "오후 두 시에 만나기로 했어요.",
+          "en": "They decided to meet at two in the afternoon."
+        },
+        {
+          "ko": "하나는 도서관 정문에 도착했어요.",
+          "en": "Hana arrived at the front gate of the library."
+        },
+        {
+          "ko": "시계를 보니 두 시 정각이에요.",
+          "en": "Looking at the watch, it is exactly two o'clock."
+        },
+        {
+          "ko": "하지만 지수가 보이지 않아요.",
+          "en": "However, Jisu is nowhere to be seen."
+        },
+        {
+          "ko": "하나는 주머니에서 전화를 꺼내요.",
+          "en": "Hana pulls her phone out of her pocket."
+        },
+        {
+          "ko": "지수에게 전화를 걸었어요.",
+          "en": "She made a phone call to Jisu."
+        },
+        {
+          "ko": "지수야, 너 지금 어디에 있어?",
+          "en": "Jisu, where are you right now?"
+        },
+        {
+          "ko": "지수가 웃으며 대답해요.",
+          "en": "Jisu answers with a chuckle."
+        },
+        {
+          "ko": "나는 도서관 후문에 있어.",
+          "en": "I am at the back gate of the library."
+        },
+        {
+          "ko": "하나는 뒤쪽으로 빠르게 걸어가요.",
+          "en": "Hana walks quickly towards the back."
+        },
+        {
+          "ko": "둘은 서로를 보고 활짝 웃어요.",
+          "en": "The two see each other and smile broadly."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "약속하다",
+          "en": "to make an appointment, to promise"
+        },
+        {
+          "ko": "도서관",
+          "en": "library"
+        },
+        {
+          "ko": "정문",
+          "en": "front gate, main entrance"
+        },
+        {
+          "ko": "정각",
+          "en": "on the dot, sharp (time)"
+        },
+        {
+          "ko": "주머니",
+          "en": "pocket"
+        },
+        {
+          "ko": "전화",
+          "en": "telephone, phone call"
+        },
+        {
+          "ko": "후문",
+          "en": "back gate, rear entrance"
+        },
+        {
+          "ko": "웃다",
+          "en": "to laugh, to smile"
+        }
+      ],
+      "check": [
+        {
+          "q": "What time did Hana and Jisu agree to meet?",
+          "a": "They agreed to meet at two in the afternoon."
+        },
+        {
+          "q": "Where was Hana waiting at first?",
+          "a": "She was waiting at the front gate of the library."
+        },
+        {
+          "q": "Where was Jisu actually waiting?",
+          "a": "Jisu was waiting at the back gate of the library."
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "level": "A1",
+      "title": {
+        "ko": "매콤한 떡볶이",
+        "en": "Spicy Tteokbokki"
+      },
+      "lines": [
+        {
+          "ko": "학교 수업이 끝났어요.",
+          "en": "School classes finished."
+        },
+        {
+          "ko": "지수는 민수와 함께 걸어요.",
+          "en": "Jisu walks together with Minsu."
+        },
+        {
+          "ko": "근처 분식집에 들어갔어요.",
+          "en": "They entered a nearby snack bar."
+        },
+        {
+          "ko": "빨간 떡볶이를 주문해요.",
+          "en": "They order red tteokbokki."
+        },
+        {
+          "ko": "따뜻한 어묵도 함께 시켰어요.",
+          "en": "They also ordered warm fish cakes."
+        },
+        {
+          "ko": "음식이 식탁에 금방 나와요.",
+          "en": "The food comes out quickly to the table."
+        },
+        {
+          "ko": "떡볶이가 조금 매워요.",
+          "en": "The tteokbokki is a little spicy."
+        },
+        {
+          "ko": "지수는 물을 많이 마셔요.",
+          "en": "Jisu drinks a lot of water."
+        },
+        {
+          "ko": "민수가 어묵 국물을 건네요.",
+          "en": "Minsu hands over the fish cake broth."
+        },
+        {
+          "ko": "이 국물을 같이 마셔.",
+          "en": "Drink this soup together with it."
+        },
+        {
+          "ko": "매운맛이 금방 가라앉았어요.",
+          "en": "The spicy feeling soon settled down."
+        },
+        {
+          "ko": "둘은 기분 좋게 웃어요.",
+          "en": "The two smile in good spirits."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "수업",
+          "en": "class, lesson"
+        },
+        {
+          "ko": "분식집",
+          "en": "snack bar, casual restaurant"
+        },
+        {
+          "ko": "떡볶이",
+          "en": "spicy stir-fried rice cakes"
+        },
+        {
+          "ko": "어묵",
+          "en": "fish cake"
+        },
+        {
+          "ko": "식탁",
+          "en": "dining table"
+        },
+        {
+          "ko": "맵다",
+          "en": "to be spicy"
+        },
+        {
+          "ko": "국물",
+          "en": "soup, broth"
+        },
+        {
+          "ko": "웃다",
+          "en": "to smile, to laugh"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where do Jisu and Minsu go after school?",
+          "a": "They go to a nearby snack bar."
+        },
+        {
+          "q": "What dishes do they order?",
+          "a": "They order spicy tteokbokki and warm fish cakes."
+        },
+        {
+          "q": "What does Minsu hand to Jisu when the food is spicy?",
+          "a": "Minsu hands her warm fish cake broth."
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "level": "A1",
+      "title": {
+        "ko": "귀여운 강아지 콩이",
+        "en": "The Cute Puppy Kongi"
+      },
+      "lines": [
+        {
+          "ko": "하나는 작은 강아지를 키워요.",
+          "en": "Hana raises a small puppy."
+        },
+        {
+          "ko": "강아지 이름은 콩이에요.",
+          "en": "The puppy's name is Kongi."
+        },
+        {
+          "ko": "콩이가 꼬리를 신나게 흔들어요.",
+          "en": "Kongi wags its tail excitedly."
+        },
+        {
+          "ko": "하나는 산책 줄을 챙겨요.",
+          "en": "Hana packs the walking leash."
+        },
+        {
+          "ko": "집 앞 공원으로 걸어가요.",
+          "en": "They walk to the park in front of the house."
+        },
+        {
+          "ko": "공원에 초록 풀이 가득해요.",
+          "en": "The park is full of green grass."
+        },
+        {
+          "ko": "하나가 빨간 공을 던져요.",
+          "en": "Hana throws a red ball."
+        },
+        {
+          "ko": "콩이가 빠르게 달려가요.",
+          "en": "Kongi runs forward fast."
+        },
+        {
+          "ko": "공을 물고 다시 돌아와요.",
+          "en": "It bites the ball and returns."
+        },
+        {
+          "ko": "콩이야, 정말 잘했어.",
+          "en": "Kongi, you did really well."
+        },
+        {
+          "ko": "둘은 집으로 돌아왔어요.",
+          "en": "The two returned home."
+        },
+        {
+          "ko": "하나는 콩이 발을 닦아줘요.",
+          "en": "Hana wipes Kongi's paws clean."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "강아지",
+          "en": "puppy, small dog"
+        },
+        {
+          "ko": "키우다",
+          "en": "to raise, to bring up"
+        },
+        {
+          "ko": "꼬리",
+          "en": "tail"
+        },
+        {
+          "ko": "흔들다",
+          "en": "to shake, to wag"
+        },
+        {
+          "ko": "산책",
+          "en": "walk, stroll"
+        },
+        {
+          "ko": "공원",
+          "en": "park"
+        },
+        {
+          "ko": "던지다",
+          "en": "to throw"
+        },
+        {
+          "ko": "닦다",
+          "en": "to wipe, to clean"
+        }
+      ],
+      "check": [
+        {
+          "q": "What is the name of Hana's pet puppy?",
+          "a": "The puppy's name is Kongi."
+        },
+        {
+          "q": "What toy does Hana throw in the park?",
+          "a": "Hana throws a red ball."
+        },
+        {
+          "q": "What does Hana do for Kongi after returning home?",
+          "a": "Hana wipes Kongi's paws clean."
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "level": "A1",
+      "title": {
+        "ko": "민수의 기타 연습",
+        "en": "Minsu's Guitar Practice"
+      },
+      "lines": [
+        {
+          "ko": "민수는 음악을 정말 좋아해요.",
+          "en": "Minsu really likes music."
+        },
+        {
+          "ko": "방에서 갈색 기타를 꺼내요.",
+          "en": "He takes out a brown guitar from his room."
+        },
+        {
+          "ko": "의자에 바르게 앉았어요.",
+          "en": "He sat properly on a chair."
+        },
+        {
+          "ko": "악보를 보면 줄을 튕겨요.",
+          "en": "Looking at the sheet music, he plucks the strings."
+        },
+        {
+          "ko": "처음에는 소리가 이상했어요.",
+          "en": "At first, the sound was strange."
+        },
+        {
+          "ko": "손가락 끝이 조금 아파요.",
+          "en": "The tips of his fingers hurt a little."
+        },
+        {
+          "ko": "그래도 천천히 다시 연습해요.",
+          "en": "Still, he practices again slowly."
+        },
+        {
+          "ko": "손가락 위치를 조심스럽게 바꿔요.",
+          "en": "He carefully changes finger positions."
+        },
+        {
+          "ko": "맑고 고운 소리가 나요.",
+          "en": "A clear and beautiful sound comes out."
+        },
+        {
+          "ko": "좋아하는 노래를 한 줄 쳤어요.",
+          "en": "He played one line of his favorite song."
+        },
+        {
+          "ko": "민수는 가슴이 벅차올라요.",
+          "en": "Minsu's heart swells with joy."
+        },
+        {
+          "ko": "매일 조금씩 더 연습할래요.",
+          "en": "He wants to practice a little more every day."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "음악",
+          "en": "music"
+        },
+        {
+          "ko": "기타",
+          "en": "guitar"
+        },
+        {
+          "ko": "의자",
+          "en": "chair"
+        },
+        {
+          "ko": "악보",
+          "en": "sheet music, musical score"
+        },
+        {
+          "ko": "손가락",
+          "en": "finger"
+        },
+        {
+          "ko": "연습하다",
+          "en": "to practice"
+        },
+        {
+          "ko": "노래",
+          "en": "song"
+        },
+        {
+          "ko": "소리",
+          "en": "sound"
+        }
+      ],
+      "check": [
+        {
+          "q": "What musical instrument does Minsu practice in his room?",
+          "a": "He practices the brown guitar."
+        },
+        {
+          "q": "Why did his fingers hurt at first?",
+          "a": "Because he was pressing and plucking guitar strings."
+        },
+        {
+          "q": "What does Minsu plan to do every day?",
+          "a": "He plans to practice a little more every day."
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "level": "A1",
+      "title": {
+        "ko": "시원한 여름 바다",
+        "en": "The Cool Summer Sea"
+      },
+      "lines": [
+        {
+          "ko": "지수는 가족과 바다에 왔어요.",
+          "en": "Jisu came to the sea with her family."
+        },
+        {
+          "ko": "파란 파도가 하얗게 부서져요.",
+          "en": "Blue waves break into white foam."
+        },
+        {
+          "ko": "모래사장에 신발을 벗고 서요.",
+          "en": "She takes off her shoes and stands on the sandy beach."
+        },
+        {
+          "ko": "부드러운 모래가 발을 감싸요.",
+          "en": "Soft sand wraps around her feet."
+        },
+        {
+          "ko": "지수는 모래 위를 걸어요.",
+          "en": "Jisu walks on top of the sand."
+        },
+        {
+          "ko": "예쁜 조개껍데기를 여러 개 찾았어요.",
+          "en": "She found several pretty seashells."
+        },
+        {
+          "ko": "손바닥 위에 조개를 올려요.",
+          "en": "She places the shells on her palm."
+        },
+        {
+          "ko": "햇빛 아래에서 반짝여요.",
+          "en": "They sparkle under the sunlight."
+        },
+        {
+          "ko": "시원한 바닷바람이 얼굴을 스쳐요.",
+          "en": "The cool sea breeze brushes past her face."
+        },
+        {
+          "ko": "아버지가 사진기를 들어요.",
+          "en": "The father holds a camera."
+        },
+        {
+          "ko": "가족 모두 함께 환하게 웃어요.",
+          "en": "The whole family smiles brightly together."
+        },
+        {
+          "ko": "잊지 못할 즐거운 추억이에요.",
+          "en": "It is an unforgettable, enjoyable memory."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "바다",
+          "en": "sea, ocean"
+        },
+        {
+          "ko": "파도",
+          "en": "wave"
+        },
+        {
+          "ko": "모래",
+          "en": "sand"
+        },
+        {
+          "ko": "조개",
+          "en": "seashell, clam"
+        },
+        {
+          "ko": "손바닥",
+          "en": "palm (of hand)"
+        },
+        {
+          "ko": "햇빛",
+          "en": "sunlight"
+        },
+        {
+          "ko": "사진기",
+          "en": "camera"
+        },
+        {
+          "ko": "추억",
+          "en": "memory"
+        }
+      ],
+      "check": [
+        {
+          "q": "With whom did Jisu go to the sea?",
+          "a": "She went to the sea with her family."
+        },
+        {
+          "q": "What did Jisu find on the sandy beach?",
+          "a": "She found several pretty seashells."
+        },
+        {
+          "q": "What does the father do to capture the moment?",
+          "a": "The father takes pictures with a camera."
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "level": "A1",
+      "title": {
+        "ko": "주말의 조용한 도서관",
+        "en": "The Quiet Library on the Weekend"
+      },
+      "lines": [
+        {
+          "ko": "하나는 토요일 오후에 도서관에 가요.",
+          "en": "Hana goes to the library on Saturday afternoon."
+        },
+        {
+          "ko": "도서관 안은 아주 조용해요.",
+          "en": "Inside the library, it is very quiet."
+        },
+        {
+          "ko": "사람들은 조용히 책을 읽어요.",
+          "en": "People read books quietly."
+        },
+        {
+          "ko": "하나는 여행 책 코너로 걸어가요.",
+          "en": "Hana walks to the travel book corner."
+        },
+        {
+          "ko": "책장에 책이 가득 꽂혀 있어요.",
+          "en": "The bookshelves are full of books."
+        },
+        {
+          "ko": "예쁜 사진이 담긴 책을 골라요.",
+          "en": "She chooses a book containing pretty photos."
+        },
+        {
+          "ko": "재미있는 그림책도 한 권 찾았어요.",
+          "en": "She also found one interesting picture book."
+        },
+        {
+          "ko": "책을 들고 안내대로 가요.",
+          "en": "Holding the books, she goes to the information desk."
+        },
+        {
+          "ko": "회원 카드를 직원에게 보여줘요.",
+          "en": "She shows her membership card to the staff."
+        },
+        {
+          "ko": "직원이 책을 빠르게 빌려주었어요.",
+          "en": "The staff quickly lent the books to her."
+        },
+        {
+          "ko": "하나는 소중하게 가방에 넣어요.",
+          "en": "Hana carefully puts them into her bag."
+        },
+        {
+          "ko": "집에서 재미있게 읽을 생각이에요.",
+          "en": "She plans to enjoy reading them at home."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "도서관",
+          "en": "library"
+        },
+        {
+          "ko": "조용하다",
+          "en": "to be quiet"
+        },
+        {
+          "ko": "여행",
+          "en": "travel, trip"
+        },
+        {
+          "ko": "책장",
+          "en": "bookshelf"
+        },
+        {
+          "ko": "그림책",
+          "en": "picture book"
+        },
+        {
+          "ko": "안내대",
+          "en": "information desk, counter"
+        },
+        {
+          "ko": "회원",
+          "en": "member"
+        },
+        {
+          "ko": "빌리다",
+          "en": "to borrow, to lend"
+        }
+      ],
+      "check": [
+        {
+          "q": "When does Hana visit the library?",
+          "a": "She visits the library on Saturday afternoon."
+        },
+        {
+          "q": "Which section does Hana walk to first?",
+          "a": "She walks to the travel book corner."
+        },
+        {
+          "q": "What does Hana show to the staff to borrow the books?",
+          "a": "She shows her membership card."
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "level": "A2",
+      "title": {
+        "ko": "깜빡 잊은 서류",
+        "en": "The Forgotten Document"
+      },
+      "lines": [
+        {
+          "ko": "민수는 아침 일찍 회사에 도착했어요.",
+          "en": "Minsu arrived at work early in the morning."
+        },
+        {
+          "ko": "그런데 가방 안에 중요한 회의 서류가 없었어요.",
+          "en": "However, the important meeting document was not in his bag."
+        },
+        {
+          "ko": "집 책상 위에 서류를 깜빡 두고 왔어요.",
+          "en": "He inadvertently left the document on his desk at home."
+        },
+        {
+          "ko": "회의 시간이 가까워져서 민수는 가슴이 두근거렸어요.",
+          "en": "Because the meeting time approached, Minsu's heart pounded."
+        },
+        {
+          "ko": "하지만 어제 저녁에 컴퓨터에 저장한 파일이 생각났어요.",
+          "en": "However, he remembered the file saved on the computer yesterday evening."
+        },
+        {
+          "ko": "민수는 인터넷 저장소에 빠르게 접속했어요.",
+          "en": "Minsu quickly accessed the internet storage."
+        },
+        {
+          "ko": "다행히 보고서 파일이 그대로 들어 있었어요.",
+          "en": "Fortunately, the report file was right there."
+        },
+        {
+          "ko": "민수는 회의실에서 문서를 다시 준비했어요.",
+          "en": "Minsu prepared the document again in the meeting room."
+        },
+        {
+          "ko": "회의가 시작되기 전에 준비를 모두 마쳤어요.",
+          "en": "Before the meeting began, he finished all preparations."
+        },
+        {
+          "ko": "발표가 끝난 후에 팀장님이 칭찬을 해 주었어요.",
+          "en": "After the presentation was over, the team leader praised him."
+        },
+        {
+          "ko": "큰 실수를 할 뻔했지만 무사히 넘겼어요.",
+          "en": "He almost made a big mistake, but handled it safely."
+        },
+        {
+          "ko": "민수는 가슴을 쓸어내리며 안도의 한숨을 쉬었어요.",
+          "en": "Minsu stroked his chest and let out a sigh of relief."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "서류",
+          "en": "document, papers"
+        },
+        {
+          "ko": "회의",
+          "en": "meeting, conference"
+        },
+        {
+          "ko": "깜빡하다",
+          "en": "to forget momentarily, to slip one's mind"
+        },
+        {
+          "ko": "저장소",
+          "en": "storage, repository"
+        },
+        {
+          "ko": "보고서",
+          "en": "report"
+        },
+        {
+          "ko": "회의실",
+          "en": "meeting room"
+        },
+        {
+          "ko": "발표",
+          "en": "presentation"
+        },
+        {
+          "ko": "한숨",
+          "en": "sigh"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why was Minsu worried when he arrived at the office?",
+          "a": "Because the important meeting document was missing from his bag."
+        },
+        {
+          "q": "Where did Minsu find the saved report file?",
+          "a": "He found it safely in the internet storage."
+        },
+        {
+          "q": "What happened after Minsu finished his presentation?",
+          "a": "The team leader complimented and praised him."
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "level": "A2",
+      "title": {
+        "ko": "지수의 안과 방문",
+        "en": "Jisu's Visit to the Eye Clinic"
+      },
+      "lines": [
+        {
+          "ko": "요즘 지수는 눈이 자주 뻑뻑하고 아팠어요.",
+          "en": "Lately, Jisu's eyes frequently felt stiff and painful."
+        },
+        {
+          "ko": "그래서 수업이 끝난 후에 동네 안과를 찾아갔어요.",
+          "en": "Therefore, after class was over, she visited a neighborhood eye clinic."
+        },
+        {
+          "ko": "의사 선생님이 여러 기계로 눈을 꼼꼼하게 검사했어요.",
+          "en": "The doctor thoroughly examined her eyes with several machines."
+        },
+        {
+          "ko": "검사가 끝난 후에 의사 선생님이 부드럽게 설명해 주었어요.",
+          "en": "After the examination finished, the doctor kindly explained."
+        },
+        {
+          "ko": "어두운 방에서 휴대전화를 너무 오래 보았기 때문이에요.",
+          "en": "It was because she looked at her phone in a dark room for too long."
+        },
+        {
+          "ko": "지수는 부끄러워서 얼굴이 조금 붉어졌어요.",
+          "en": "Because she felt embarrassed, Jisu's face turned slightly red."
+        },
+        {
+          "ko": "선생님은 인공눈물을 처방하고 눈 운동법도 알려주었어요.",
+          "en": "The doctor prescribed artificial tears and taught eye exercise methods."
+        },
+        {
+          "ko": "지수는 약국에서 안약을 산 후에 집으로 돌아왔어요.",
+          "en": "Jisu returned home after buying eye drops at the pharmacy."
+        },
+        {
+          "ko": "집에 오자마자 따뜻한 수건으로 눈을 덮었어요.",
+          "en": "As soon as she got home, she covered her eyes with a warm towel."
+        },
+        {
+          "ko": "눈의 피로가 조금씩 풀리는 기분이 들었어요.",
+          "en": "She felt that the eye fatigue was loosening up little by little."
+        },
+        {
+          "ko": "이제부터는 밤에 불을 끄고 스마트폰을 보지 않을 거예요.",
+          "en": "From now on, she will not look at her smartphone with the lights turned off at night."
+        },
+        {
+          "ko": "지수는 건강한 눈을 위해 일찍 잠자리에 들었어요.",
+          "en": "Jisu went to bed early for healthy eyes."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "안과",
+          "en": "eye clinic, ophthalmology"
+        },
+        {
+          "ko": "검사하다",
+          "en": "to examine, to test"
+        },
+        {
+          "ko": "어둡다",
+          "en": "to be dark"
+        },
+        {
+          "ko": "인공눈물",
+          "en": "artificial tears"
+        },
+        {
+          "ko": "운동법",
+          "en": "exercise routine, workout method"
+        },
+        {
+          "ko": "수건",
+          "en": "towel"
+        },
+        {
+          "ko": "피로",
+          "en": "fatigue, tiredness"
+        },
+        {
+          "ko": "잠자리",
+          "en": "bed, sleeping place"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Jisu visit the neighborhood eye clinic?",
+          "a": "Because her eyes were frequently dry, stiff, and painful."
+        },
+        {
+          "q": "According to the doctor, what was the cause of Jisu's eye discomfort?",
+          "a": "She looked at her smartphone for too long in a dark room."
+        },
+        {
+          "q": "What resolution did Jisu make for her eye health?",
+          "a": "She resolved not to look at her phone in the dark at night."
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "level": "A2",
+      "title": {
+        "ko": "새집으로 이사하는 날",
+        "en": "Moving Day to a New House"
+      },
+      "lines": [
+        {
+          "ko": "오늘은 하나가 학교 근처 집으로 이사하는 날이에요.",
+          "en": "Today is the day Hana moves to a house near school."
+        },
+        {
+          "ko": "아침 일찍 이삿짐을 실은 작은 트럭이 도착했어요.",
+          "en": "Early in the morning, a small truck loaded with moving luggage arrived."
+        },
+        {
+          "ko": "상자가 많아서 혼자 나르기에는 너무 힘들었어요.",
+          "en": "Because there were many boxes, carrying them alone was too exhausting."
+        },
+        {
+          "ko": "다행히 친한 친구 민수와 지수가 도와주러 왔어요.",
+          "en": "Fortunately, close friends Minsu and Jisu came to help."
+        },
+        {
+          "ko": "친구들과 함께 상자를 방 안으로 열심히 날랐어요.",
+          "en": "Together with friends, she carried the boxes into the room diligently."
+        },
+        {
+          "ko": "짐을 다 옮긴 후에 상자를 열어 물건을 정리했어요.",
+          "en": "After moving all luggage, they opened boxes and arranged things."
+        },
+        {
+          "ko": "옷을 옷장에 넣고 책도 책장에 바르게 꽂았어요.",
+          "en": "They put clothes in the closet and put books neatly on shelves."
+        },
+        {
+          "ko": "청소까지 모두 끝내고 나니 배가 아주 고팠어요.",
+          "en": "After finishing cleaning as well, everyone was very hungry."
+        },
+        {
+          "ko": "이삿날에는 역시 짜장면이 최고라서 중국집에 주문했어요.",
+          "en": "Since black bean noodles are indeed best on moving day, they ordered from a Chinese restaurant."
+        },
+        {
+          "ko": "바닥에 신문지를 깔고 다 함께 둘러앉아서 먹었어요.",
+          "en": "They spread newspapers on the floor and sat around together to eat."
+        },
+        {
+          "ko": "땀을 흘린 후에 먹는 음식이 정말 꿀맛이었어요.",
+          "en": "The food eaten after sweating was truly sweet as honey."
+        },
+        {
+          "ko": "친구들의 따뜻한 도움 덕분에 행복하게 이사를 마쳤어요.",
+          "en": "Thanks to friends' warm help, she finished moving happily."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "이사하다",
+          "en": "to move (houses)"
+        },
+        {
+          "ko": "이삿짐",
+          "en": "moving luggage, household goods"
+        },
+        {
+          "ko": "트럭",
+          "en": "truck"
+        },
+        {
+          "ko": "상자",
+          "en": "box"
+        },
+        {
+          "ko": "정리하다",
+          "en": "to organize, to arrange"
+        },
+        {
+          "ko": "옷장",
+          "en": "closet, wardrobe"
+        },
+        {
+          "ko": "짜장면",
+          "en": "black bean sauce noodles"
+        },
+        {
+          "ko": "신문지",
+          "en": "newspaper"
+        }
+      ],
+      "check": [
+        {
+          "q": "Who came to help Hana with moving today?",
+          "a": "Her close friends Minsu and Jisu came to help."
+        },
+        {
+          "q": "What food did they order after finishing the cleaning?",
+          "a": "They ordered black bean noodles from a Chinese restaurant."
+        },
+        {
+          "q": "Where did they sit together to eat their meal?",
+          "a": "They sat around together on newspapers spread across the floor."
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "level": "A2",
+      "title": {
+        "ko": "달콤한 팬케이크 굽기",
+        "en": "Baking Sweet Pancakes"
+      },
+      "lines": [
+        {
+          "ko": "일요일 아침에 민수는 동생에게 특별한 간식을 만들어주고 싶었어요.",
+          "en": "On Sunday morning, Minsu wanted to make a special snack for his sibling."
+        },
+        {
+          "ko": "그래서 주방에서 달콤한 팬케이크를 굽기로 결정했어요.",
+          "en": "Therefore, he decided to bake sweet pancakes in the kitchen."
+        },
+        {
+          "ko": "넓은 그릇에 밀가루와 우유, 계란을 넣고 잘 섞었어요.",
+          "en": "He put flour, milk, and eggs into a wide bowl and mixed well."
+        },
+        {
+          "ko": "프라이팬을 달군 후에 반죽을 조심스럽게 부었어요.",
+          "en": "After heating the frying pan, he carefully poured the batter."
+        },
+        {
+          "ko": "하지만 불이 세서 첫 빵이 까맣게 탔어요.",
+          "en": "However, because the fire was strong, the first pancake burned black."
+        },
+        {
+          "ko": "민수는 실망했지만 포기하지 않고 가스 불을 약하게 줄였어요.",
+          "en": "Minsu was disappointed but did not give up and lowered the stove flame."
+        },
+        {
+          "ko": "탄 프라이팬을 닦고 다음 반죽을 다시 올렸어요.",
+          "en": "He wiped the burned pan and put the next batter on again."
+        },
+        {
+          "ko": "이번에는 거품이 올라올 때까지 천천히 기다렸다가 뒤집었어요.",
+          "en": "This time, he waited slowly until bubbles rose, then flipped it over."
+        },
+        {
+          "ko": "노릇노릇하고 예쁜 황금색 팬케이크가 완벽하게 구워졌어요.",
+          "en": "A nicely browned, pretty golden pancake was baked perfectly."
+        },
+        {
+          "ko": "접시에 올린 후에 달콤한 꿀과 딸기를 얹었어요.",
+          "en": "After placing it on a plate, he topped it with sweet honey and strawberries."
+        },
+        {
+          "ko": "동생이 한 입 먹고 나서 최고라고 엄지를 올렸어요.",
+          "en": "After eating one bite, his sibling raised a thumbs-up saying it's the best."
+        },
+        {
+          "ko": "비록 실패가 있었지만 끝까지 노력해서 정말 뿌듯했어요.",
+          "en": "Although there was a failure, he was truly proud for trying until the end."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "간식",
+          "en": "snack"
+        },
+        {
+          "ko": "주방",
+          "en": "kitchen"
+        },
+        {
+          "ko": "반죽",
+          "en": "batter, dough"
+        },
+        {
+          "ko": "타다",
+          "en": "to burn"
+        },
+        {
+          "ko": "거품",
+          "en": "bubble, foam"
+        },
+        {
+          "ko": "뒤집다",
+          "en": "to flip over, to turn inside out"
+        },
+        {
+          "ko": "딸기",
+          "en": "strawberry"
+        },
+        {
+          "ko": "뿌듯하다",
+          "en": "to be proud, to feel fulfilled"
+        }
+      ],
+      "check": [
+        {
+          "q": "For whom did Minsu decide to make sweet pancakes?",
+          "a": "He decided to make them for his younger sibling."
+        },
+        {
+          "q": "What went wrong with the first pancake?",
+          "a": "The first pancake burned black because the heat was too strong."
+        },
+        {
+          "q": "What toppings did Minsu place on top of the finished pancake?",
+          "a": "He placed sweet honey and strawberries on top."
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "level": "A2",
+      "title": {
+        "ko": "잃어버린 지갑",
+        "en": "The Lost Wallet"
+      },
+      "lines": [
+        {
+          "ko": "지수는 친구 하나와 카페에서 즐겁게 이야기를 나누었어요.",
+          "en": "Jisu chatted delightfully with her friend Hana at a cafe."
+        },
+        {
+          "ko": "한 시간 동안 대화한 후에 자리에서 일어났어요.",
+          "en": "After talking for an hour, they stood up from their seats."
+        },
+        {
+          "ko": "버스 정류장에 도착해서야 지갑이 없다는 사실을 알았어요.",
+          "en": "Only upon arriving at the bus stop did she realize her wallet was missing."
+        },
+        {
+          "ko": "지갑 안에 신분증과 교통카드가 들어 있어서 너무 당황했어요.",
+          "en": "Because her ID and transit card were inside the wallet, she panicked greatly."
+        },
+        {
+          "ko": "지수는 서둘러 조금 전에 있던 카페로 정신없이 뛰어갔어요.",
+          "en": "Jisu hurriedly ran back in a rush to the cafe she was at earlier."
+        },
+        {
+          "ko": "카페 문을 열고 들어가서 떨리는 목소리로 직원에게 물어보았어요.",
+          "en": "Entering through the cafe door, she asked the staff in a trembling voice."
+        },
+        {
+          "ko": "다행히 어떤 친절한 손님이 바닥에서 주워 맡겨두었다고 했어요.",
+          "en": "Fortunately, they said a kind customer picked it up from the floor and turned it in."
+        },
+        {
+          "ko": "직원이 서랍에서 분홍색 지갑을 꺼내어 확인해 주었어요.",
+          "en": "The staff took out the pink wallet from the drawer and checked it for her."
+        },
+        {
+          "ko": "지갑 속 내용물이 하나도 빠짐없이 그대로 들어 있었어요.",
+          "en": "Every single item inside the wallet was intact without anything missing."
+        },
+        {
+          "ko": "지수는 안도하며 직원에게 진심으로 감사 인사를 했어요.",
+          "en": "Jisu felt relieved and sincerely expressed her thanks to the staff."
+        },
+        {
+          "ko": "다음부터는 자리에서 일어나기 전에 주변을 꼭 확인하기로 다짐했어요.",
+          "en": "She resolved to definitely check around before getting up from a seat next time."
+        },
+        {
+          "ko": "세상에는 따뜻하고 정직한 사람들이 많아서 마음이 훈훈해졌어요.",
+          "en": "Because there are many warm and honest people in the world, her heart felt warm."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "지갑",
+          "en": "wallet, purse"
+        },
+        {
+          "ko": "정류장",
+          "en": "bus stop, station"
+        },
+        {
+          "ko": "신분증",
+          "en": "identification card, ID"
+        },
+        {
+          "ko": "당황하다",
+          "en": "to be flustered, to panic"
+        },
+        {
+          "ko": "줍다",
+          "en": "to pick up"
+        },
+        {
+          "ko": "서랍",
+          "en": "drawer"
+        },
+        {
+          "ko": "내용물",
+          "en": "contents"
+        },
+        {
+          "ko": "다짐하다",
+          "en": "to resolve, to promise oneself"
+        }
+      ],
+      "check": [
+        {
+          "q": "Where was Jisu when she noticed that her wallet was missing?",
+          "a": "She noticed it after arriving at the bus stop."
+        },
+        {
+          "q": "Who had found the wallet and turned it in to the cafe counter?",
+          "a": "A kind customer found it on the floor and handed it in."
+        },
+        {
+          "q": "What color was Jisu's lost wallet?",
+          "a": "Her lost wallet was pink."
+        }
+      ]
+    },
+    {
+      "no": 21,
+      "level": "A2",
+      "title": {
+        "ko": "설레는 기차 여행",
+        "en": "An Exciting Train Journey"
+      },
+      "lines": [
+        {
+          "ko": "민수는 설레는 마음으로 기차역에 도착했어요.",
+          "en": "Minsu arrived at the train station with an excited heart."
+        },
+        {
+          "ko": "표를 확인하고 기차 좌석에 편하게 앉았어요.",
+          "en": "He checked his ticket and sat comfortably in his train seat."
+        },
+        {
+          "ko": "기차가 천천히 출발하자 도심이 멀어졌어요.",
+          "en": "As the train departed slowly, the downtown moved away."
+        },
+        {
+          "ko": "창밖으로 푸른 들판과 맑은 강이 지나갔어요.",
+          "en": "Green fields and a clear river passed by outside the window."
+        },
+        {
+          "ko": "기차 여행을 위해 삶은 달걀을 꺼냈어요.",
+          "en": "He took out boiled eggs for the train trip."
+        },
+        {
+          "ko": "달걀 껍데기를 까서 시원한 음료와 먹었어요.",
+          "en": "He peeled the eggshell and ate it with a cool drink."
+        },
+        {
+          "ko": "배가 부르고 기분 좋아서 노래를 흥얼거렸어요.",
+          "en": "Because he was full and felt good, he hummed a song."
+        },
+        {
+          "ko": "두 시간 후에 목적지 도착 방송이 나왔어요.",
+          "en": "After two hours, an arrival announcement came out."
+        },
+        {
+          "ko": "민수는 짐을 챙겨 서둘러 출구로 나갔어요.",
+          "en": "Minsu packed his luggage and hurriedly went to the exit."
+        },
+        {
+          "ko": "개찰구 밖에서 할머니가 손을 흔들며 계셨어요.",
+          "en": "Outside the ticket gate, his grandmother stood waving her hand."
+        },
+        {
+          "ko": "민수는 반가운 마음에 할머니 품으로 뛰어갔어요.",
+          "en": "Gladly, Minsu ran into his grandmother's arms."
+        },
+        {
+          "ko": "할머니 손을 잡고 행복하게 시골집으로 향했어요.",
+          "en": "Holding his grandmother's hand, he happily headed to the countryside house."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "기차역",
+          "en": "train station"
+        },
+        {
+          "ko": "좌석",
+          "en": "seat"
+        },
+        {
+          "ko": "들판",
+          "en": "field, plain"
+        },
+        {
+          "ko": "달걀",
+          "en": "egg"
+        },
+        {
+          "ko": "껍데기",
+          "en": "shell, husk"
+        },
+        {
+          "ko": "목적지",
+          "en": "destination"
+        },
+        {
+          "ko": "개찰구",
+          "en": "ticket barrier, turnstile"
+        },
+        {
+          "ko": "시골집",
+          "en": "countryside house"
+        }
+      ],
+      "check": [
+        {
+          "q": "What snack did Minsu eat while riding the train?",
+          "a": "He ate boiled eggs with a cool drink."
+        },
+        {
+          "q": "How long did it take for the train to arrive near the destination?",
+          "a": "It took about two hours."
+        },
+        {
+          "q": "Who was waiting outside the ticket gate to welcome Minsu?",
+          "a": "His grandmother was waiting there."
+        }
+      ]
+    },
+    {
+      "no": 22,
+      "level": "A2",
+      "title": {
+        "ko": "첫눈과 꼬마 눈사람",
+        "en": "The First Snow and the Little Snowman"
+      },
+      "lines": [
+        {
+          "ko": "지수는 아침에 일어나서 방 창문을 열었어요.",
+          "en": "Jisu woke up in the morning and opened the room window."
+        },
+        {
+          "ko": "밤새 하얀 눈이 내려서 온 세상이 하얬어요.",
+          "en": "White snow fell overnight, making the whole world white."
+        },
+        {
+          "ko": "올해 첫눈이라서 지수는 너무 신나고 설렜어요.",
+          "en": "Because it was the first snow of the year, Jisu was excited and thrilled."
+        },
+        {
+          "ko": "지수는 두꺼운 외투를 입고 하나에게 전화했어요.",
+          "en": "Jisu put on a thick coat and called Hana."
+        },
+        {
+          "ko": "두 사람은 동네 공원 벤치에서 만났어요.",
+          "en": "The two met at a bench in the neighborhood park."
+        },
+        {
+          "ko": "장갑 낀 손으로 눈을 모아 뭉쳤어요.",
+          "en": "With gloved hands, they gathered snow and clumped it together."
+        },
+        {
+          "ko": "눈이 차가웠지만 만드는 재미에 추위를 잊었어요.",
+          "en": "Although the snow was cold, they forgot the cold due to the fun of making it."
+        },
+        {
+          "ko": "큰 눈 덩어리 위에 작은 눈을 얹었어요.",
+          "en": "On top of the large snowball, they placed a smaller one."
+        },
+        {
+          "ko": "마른 나뭇가지로 눈사람의 양팔을 만들었어요.",
+          "en": "With dry twigs, they made both arms for the snowman."
+        },
+        {
+          "ko": "주머니 속 도토리로 눈과 단추를 붙였어요.",
+          "en": "With acorns from the pocket, they attached eyes and buttons."
+        },
+        {
+          "ko": "완성된 귀여운 눈사람을 보며 손뼉을 쳤어요.",
+          "en": "Looking at the completed cute snowman, they clapped their hands."
+        },
+        {
+          "ko": "차가운 겨울 공기 속에서도 마음은 따뜻했어요.",
+          "en": "Even in the cold winter air, their hearts were warm."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "첫눈",
+          "en": "first snow of the year"
+        },
+        {
+          "ko": "밤새",
+          "en": "all night long, overnight"
+        },
+        {
+          "ko": "외투",
+          "en": "coat, overcoat"
+        },
+        {
+          "ko": "장갑",
+          "en": "gloves, mittens"
+        },
+        {
+          "ko": "추위",
+          "en": "coldness, the cold"
+        },
+        {
+          "ko": "눈사람",
+          "en": "snowman"
+        },
+        {
+          "ko": "나뭇가지",
+          "en": "tree branch, twig"
+        },
+        {
+          "ko": "도토리",
+          "en": "acorn"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why was Jisu very excited when she opened the window?",
+          "a": "Because white snow had fallen overnight."
+        },
+        {
+          "q": "Where did Jisu and Hana meet in the neighborhood?",
+          "a": "They met at a park bench."
+        },
+        {
+          "q": "What items did they use to make the snowman's arms and eyes?",
+          "a": "They used fallen dry twigs and acorns."
+        }
+      ]
+    },
+    {
+      "no": 23,
+      "level": "A2",
+      "title": {
+        "ko": "두 바퀴로 달리는 기쁨",
+        "en": "The Joy of Running on Two Wheels"
+      },
+      "lines": [
+        {
+          "ko": "민수는 오늘 두 발 자전거를 배우기로 했어요.",
+          "en": "Today, Minsu decided to learn how to ride a two-wheeled bicycle."
+        },
+        {
+          "ko": "보조 바퀴가 없는 자전거라서 조금 두려웠어요.",
+          "en": "Because it was a bicycle without training wheels, he was a little scared."
+        },
+        {
+          "ko": "안전모와 보호대를 착용한 후에 운동장으로 나갔어요.",
+          "en": "After wearing a helmet and pads, he went out to the sports ground."
+        },
+        {
+          "ko": "아버지가 자전거 안장 뒤쪽을 단단하게 잡았어요.",
+          "en": "His father held the rear of the bicycle saddle firmly."
+        },
+        {
+          "ko": "페달을 밟을 때마다 자전거가 심하게 흔들렸어요.",
+          "en": "Every time he stepped on the pedals, the bicycle shook severely."
+        },
+        {
+          "ko": "균형을 잡기 어려워서 넘어질 뻔했어요.",
+          "en": "Because keeping balance was difficult, he almost fell."
+        },
+        {
+          "ko": "아버지는 앞을 보고 페달을 계속 밟으라고 응원했어요.",
+          "en": "His father cheered him on to look ahead and keep pedaling."
+        },
+        {
+          "ko": "민수는 용기를 내어 힘차게 발을 굴렀어요.",
+          "en": "Minsu took courage and pumped his feet vigorously."
+        },
+        {
+          "ko": "어느 순간 자전거가 앞으로 부드럽게 나아갔어요.",
+          "en": "At a certain moment, the bicycle smoothly advanced forward."
+        },
+        {
+          "ko": "뒤를 돌아보니 아버지가 손을 놓고 서 계셨어요.",
+          "en": "When he looked back, his father was standing with hands released."
+        },
+        {
+          "ko": "혼자 달릴 수 있어서 기쁨의 탄성이 터졌어요.",
+          "en": "Because he could ride alone, an exclamation of joy burst out."
+        },
+        {
+          "ko": "민수는 바람을 느끼며 신나게 운동장을 돌았어요.",
+          "en": "Feeling the breeze, Minsu excitedly circled the sports ground."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "자전거",
+          "en": "bicycle, bike"
+        },
+        {
+          "ko": "안전모",
+          "en": "safety helmet"
+        },
+        {
+          "ko": "보호대",
+          "en": "protective gear, pad"
+        },
+        {
+          "ko": "안장",
+          "en": "saddle, bike seat"
+        },
+        {
+          "ko": "균형",
+          "en": "balance"
+        },
+        {
+          "ko": "응원하다",
+          "en": "to cheer, to encourage"
+        },
+        {
+          "ko": "용기",
+          "en": "courage"
+        },
+        {
+          "ko": "운동장",
+          "en": "sports ground, playground"
+        }
+      ],
+      "check": [
+        {
+          "q": "What safety gear did Minsu wear before practicing?",
+          "a": "He wore a safety helmet and protective pads."
+        },
+        {
+          "q": "Who helped Minsu by holding the bicycle saddle?",
+          "a": "His father helped by holding the saddle."
+        },
+        {
+          "q": "What did Minsu see when he looked back while riding smoothly?",
+          "a": "He saw his father standing far away after letting go."
+        }
+      ]
+    },
+    {
+      "no": 24,
+      "level": "A2",
+      "title": {
+        "ko": "시험이 끝난 날",
+        "en": "The Day the Exams Ended"
+      },
+      "lines": [
+        {
+          "ko": "마지막 시험 종이 울리자 교실에서 환호했어요.",
+          "en": "When the final exam bell rang, students cheered in the classroom."
+        },
+        {
+          "ko": "일주일 동안 도서관에서 공부하느라 피곤했어요.",
+          "en": "They were tired from studying in the library for a week."
+        },
+        {
+          "ko": "하지만 시험이 무사히 끝나서 마음이 홀가분했어요.",
+          "en": "However, because exams ended safely, their minds felt light and free."
+        },
+        {
+          "ko": "하나와 지수는 나오며 서로의 어깨를 토닥였어요.",
+          "en": "Hana and Jisu patted each other's shoulders coming out."
+        },
+        {
+          "ko": "두 사람은 스트레스를 풀려고 노래방으로 향했어요.",
+          "en": "The two headed to a singing room to relieve stress."
+        },
+        {
+          "ko": "방에 들어가자마자 신나는 노래를 여러 곡 예약했어요.",
+          "en": "As soon as they entered, they reserved several exciting songs."
+        },
+        {
+          "ko": "탬버린을 흔들며 노래를 부르니 피로가 사라졌어요.",
+          "en": "Shaking the tambourine and singing, their fatigue vanished."
+        },
+        {
+          "ko": "화면에 높은 점수가 나오자 둘은 웃었어요.",
+          "en": "When high scores appeared on screen, both laughed."
+        },
+        {
+          "ko": "한 시간 신나게 놀고 시원한 음료를 마셨어요.",
+          "en": "After playing excitedly for an hour, they drank cool beverages."
+        },
+        {
+          "ko": "힘든 시험 기간을 잘 버텨서 대견했어요.",
+          "en": "They felt proud for enduring the tough exam period well."
+        },
+        {
+          "ko": "오늘 저녁에는 돌아가서 걱정 없이 잘 거예요.",
+          "en": "Tonight, they will return home and sleep without worries."
+        },
+        {
+          "ko": "두 사람은 서로에게 수고했다고 인사하며 헤어졌어요.",
+          "en": "The two parted, greeting each other with well-done wishes."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "시험",
+          "en": "exam, test"
+        },
+        {
+          "ko": "환호하다",
+          "en": "to cheer, to shout with joy"
+        },
+        {
+          "ko": "홀가분하다",
+          "en": "to feel lighthearted, unburdened"
+        },
+        {
+          "ko": "어깨",
+          "en": "shoulder"
+        },
+        {
+          "ko": "예약하다",
+          "en": "to reserve, to book"
+        },
+        {
+          "ko": "점수",
+          "en": "score, grade"
+        },
+        {
+          "ko": "기간",
+          "en": "period, term"
+        },
+        {
+          "ko": "대견하다",
+          "en": "to be proud of (someone), admirable"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why were the students very tired before the exams ended?",
+          "a": "Because they studied late in the library for a week."
+        },
+        {
+          "q": "Where did Hana and Jisu go to relieve their exam stress?",
+          "a": "They went to a nearby singing room."
+        },
+        {
+          "q": "What did they plan to do tonight after going home?",
+          "a": "They planned to sleep soundly without any worries."
+        }
+      ]
+    },
+    {
+      "no": 25,
+      "level": "A2",
+      "title": {
+        "ko": "어머니를 위한 부드러운 선물",
+        "en": "A Gentle Gift for Mother"
+      },
+      "lines": [
+        {
+          "ko": "이번 주말은 어머니 생신이라서 시장에 갔어요.",
+          "en": "Since this weekend is mother's birthday, she went to the market."
+        },
+        {
+          "ko": "목을 감싸줄 부드러운 스카프를 사기로 했어요.",
+          "en": "She decided to buy a soft scarf that would wrap around the neck."
+        },
+        {
+          "ko": "골목 안쪽에 자리 잡은 옷 가게로 들어갔어요.",
+          "en": "She entered a clothing store located inside the alley."
+        },
+        {
+          "ko": "매장 벽면에는 고운 스카프들이 줄지어 걸렸어요.",
+          "en": "Fine scarves hung in rows on the store wall."
+        },
+        {
+          "ko": "가게 사장님이 다가와서 친절하게 추천해 주셨어요.",
+          "en": "The store owner approached and kindly recommended options."
+        },
+        {
+          "ko": "분홍색 스카프를 만져보았지만 조금 아쉬웠어요.",
+          "en": "She touched the pink scarf, but felt slightly unsatisfied."
+        },
+        {
+          "ko": "그때 한쪽에서 연보라색 실크 스카프가 보였어요.",
+          "en": "Just then, a light purple silk scarf caught her eyes on one side."
+        },
+        {
+          "ko": "어머니가 가장 좋아하는 색이라서 바로 골랐어요.",
+          "en": "Because it was mother's favorite color, she picked it right away."
+        },
+        {
+          "ko": "계산을 마친 후에 사장님께 포장을 부탁했어요.",
+          "en": "After finishing payment, she asked the owner for gift wrapping."
+        },
+        {
+          "ko": "사장님은 정성스럽게 예쁜 금색 리본을 묶어주셨어요.",
+          "en": "The owner meticulously tied a pretty golden ribbon."
+        },
+        {
+          "ko": "정성 담긴 상자를 들고 나오는 발걸음이 가벼웠어요.",
+          "en": "Holding the box filled with devotion, her steps walking out were light."
+        },
+        {
+          "ko": "선물을 받고 웃으실 어머니 모습을 떠올렸어요.",
+          "en": "She thought of her mother smiling upon receiving the gift."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "생신",
+          "en": "birthday (honorific form)"
+        },
+        {
+          "ko": "스카프",
+          "en": "scarf"
+        },
+        {
+          "ko": "골목",
+          "en": "alley, lane"
+        },
+        {
+          "ko": "매장",
+          "en": "store, shop"
+        },
+        {
+          "ko": "추천하다",
+          "en": "to recommend"
+        },
+        {
+          "ko": "선택하다",
+          "en": "to choose, to select"
+        },
+        {
+          "ko": "포장",
+          "en": "wrapping, packaging"
+        },
+        {
+          "ko": "리본",
+          "en": "ribbon"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Jisu go to the clothing store in the market?",
+          "a": "She went to buy a birthday gift for her mother."
+        },
+        {
+          "q": "What color scarf did Jisu finally choose for her mother?",
+          "a": "She chose a light purple silk scarf."
+        },
+        {
+          "q": "What color ribbon did the owner tie on the gift box?",
+          "a": "The owner tied a pretty golden ribbon."
+        }
+      ]
+    },
+    {
+      "no": 26,
+      "level": "A2",
+      "title": {
+        "ko": "비 오는 날의 따뜻한 만두",
+        "en": "Warm Dumplings on a Rainy Day"
+      },
+      "lines": [
+        {
+          "ko": "비가 내리는 일요일에 온 가족이 모였어요.",
+          "en": "On a rainy Sunday, the whole family gathered."
+        },
+        {
+          "ko": "어머니가 미리 신선한 야채로 만두소를 만드셨어요.",
+          "en": "The mother had made dumpling filling with fresh vegetables in advance."
+        },
+        {
+          "ko": "만두피를 손바닥에 올리고 물을 살짝 묻혔어요.",
+          "en": "They placed dumpling skins on their palms and dabbed water lightly."
+        },
+        {
+          "ko": "민수는 숟가락으로 만두소를 듬뿍 떠서 얹었어요.",
+          "en": "Minsu scooped filling with a spoon and placed it on top."
+        },
+        {
+          "ko": "속이 너무 많아서 만두피가 찢어지고 말았어요.",
+          "en": "Because there was too much filling, the dumpling skin tore."
+        },
+        {
+          "ko": "아버지가 웃으며 속을 조절하는 법을 알려주셨어요.",
+          "en": "Smiling, his father taught how to adjust the filling."
+        },
+        {
+          "ko": "몇 번 연습하자 예쁜 반달 만두를 만들었어요.",
+          "en": "After practicing a few times, he made pretty half-moon dumplings."
+        },
+        {
+          "ko": "빚은 만두들을 찜기에 넣고 센 불로 쪘어요.",
+          "en": "They put the shaped dumplings into the steamer and steamed over high heat."
+        },
+        {
+          "ko": "잠시 후에 주방 가득 따뜻한 김이 피어올랐어요.",
+          "en": "After a moment, warm steam rose throughout the kitchen."
+        },
+        {
+          "ko": "잘 익은 만두를 간장에 찍어 맛있게 먹었어요.",
+          "en": "They dipped the well-cooked dumplings in soy sauce and ate delightfully."
+        },
+        {
+          "ko": "직접 빚어서 먹으니까 산 것보다 훨씬 맛있었어요.",
+          "en": "Because they made them by hand, it was much more delicious than store-bought ones."
+        },
+        {
+          "ko": "가족들의 정겨운 이야기와 함께 오후를 보냈어요.",
+          "en": "They spent the afternoon with warm family conversations."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "만두",
+          "en": "dumpling"
+        },
+        {
+          "ko": "만두소",
+          "en": "dumpling filling"
+        },
+        {
+          "ko": "만두피",
+          "en": "dumpling skin, wrapper"
+        },
+        {
+          "ko": "찢어지다",
+          "en": "to tear, to be ripped"
+        },
+        {
+          "ko": "조절하다",
+          "en": "to adjust, to regulate"
+        },
+        {
+          "ko": "찜기",
+          "en": "steamer"
+        },
+        {
+          "ko": "간장",
+          "en": "soy sauce"
+        },
+        {
+          "ko": "정겹다",
+          "en": "warm, affectionate"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Minsu's first dumpling skin tear?",
+          "a": "Because he put in too much filling with his spoon."
+        },
+        {
+          "q": "What shape of dumplings did Minsu make after practicing?",
+          "a": "He made pretty half-moon shaped dumplings."
+        },
+        {
+          "q": "What did the family dip their cooked dumplings into?",
+          "a": "They dipped them lightly into soy sauce."
+        }
+      ]
+    },
+    {
+      "no": 27,
+      "level": "A2",
+      "title": {
+        "ko": "하나의 작은 베란다 텃밭",
+        "en": "Hana's Little Veranda Garden"
+      },
+      "lines": [
+        {
+          "ko": "하나는 지난 주말에 방울토마토 모종을 샀어요.",
+          "en": "Last weekend, Hana bought a cherry tomato seedling."
+        },
+        {
+          "ko": "흙 담은 화분에 모종을 심고 물을 주었어요.",
+          "en": "She planted the seedling in a pot filled with soil and watered it."
+        },
+        {
+          "ko": "화분을 햇빛이 잘 드는 베란다 창가에 두었어요.",
+          "en": "She placed the flowerpot on the sunny veranda windowsill."
+        },
+        {
+          "ko": "하나는 아침마다 베란다로 가서 흙을 살폈어요.",
+          "en": "Every morning, Hana went to the veranda to examine the soil."
+        },
+        {
+          "ko": "흙이 마를 때마다 분무기로 물을 골고루 주었어요.",
+          "en": "Whenever the soil dried, she evenly sprayed water with a spray bottle."
+        },
+        {
+          "ko": "며칠 지나자 줄기가 굵어지고 새 잎이 돋았어요.",
+          "en": "After a few days, the stem thickened and new leaves sprouted."
+        },
+        {
+          "ko": "마침내 줄기 사이에 노란 꽃이 활짝 피었어요.",
+          "en": "Finally, a yellow flower bloomed wide between the stems."
+        },
+        {
+          "ko": "꽃이 진 자리에는 작고 둥근 열매가 맺혔어요.",
+          "en": "In the spot where the flower fell, a small round fruit formed."
+        },
+        {
+          "ko": "열매를 발견한 하나는 신기해서 미소가 번졌어요.",
+          "en": "Discovering the fruit, Hana felt amazed and a smile spread."
+        },
+        {
+          "ko": "정성으로 식물을 돌보는 일이 참 보람찼어요.",
+          "en": "Caring for the plant with devotion was truly rewarding."
+        },
+        {
+          "ko": "열매가 빨갛게 익으면 수확해서 샐러드를 만들래요.",
+          "en": "When the fruit turns red, she will harvest it to make a salad."
+        },
+        {
+          "ko": "생명의 신비를 배우며 식물에게 다정하게 인사해요.",
+          "en": "Learning the mystery of life, she sweetly greets the plant."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "모종",
+          "en": "seedling, young plant"
+        },
+        {
+          "ko": "화분",
+          "en": "flowerpot"
+        },
+        {
+          "ko": "베란다",
+          "en": "veranda, balcony"
+        },
+        {
+          "ko": "분무기",
+          "en": "spray bottle, mister"
+        },
+        {
+          "ko": "줄기",
+          "en": "stem, stalk"
+        },
+        {
+          "ko": "열매",
+          "en": "fruit, berry"
+        },
+        {
+          "ko": "보람차다",
+          "en": "to be rewarding, fruitful"
+        },
+        {
+          "ko": "수확하다",
+          "en": "to harvest"
+        }
+      ],
+      "check": [
+        {
+          "q": "What plant seedling did Hana buy to grow on her veranda?",
+          "a": "She bought a cherry tomato seedling."
+        },
+        {
+          "q": "What color flower bloomed between the plant stems?",
+          "a": "A yellow flower bloomed wide."
+        },
+        {
+          "q": "What does Hana plan to make when the tomatoes turn red?",
+          "a": "She plans to harvest them and make a fresh salad."
+        }
+      ]
+    },
+    {
+      "no": 28,
+      "level": "A2",
+      "title": {
+        "ko": "따뜻한 보호소 봉사활동",
+        "en": "Warm Animal Shelter Volunteering"
+      },
+      "lines": [
+        {
+          "ko": "민수와 지수는 주말에 동물 보호소를 찾았어요.",
+          "en": "Minsu and Jisu visited an animal shelter on the weekend."
+        },
+        {
+          "ko": "보호소 안에는 보살핌을 기다리는 유기견들이 있었어요.",
+          "en": "Inside the shelter, there were abandoned dogs waiting for care."
+        },
+        {
+          "ko": "두 사람은 장화를 신고 견사로 걸어 이동했어요.",
+          "en": "The two put on rain boots and walked to the dog kennels."
+        },
+        {
+          "ko": "호스와 솔을 들고 바닥을 깨끗하게 닦았어요.",
+          "en": "Holding hoses and brushes, they wiped the floors clean."
+        },
+        {
+          "ko": "청소 후에 강아지들에게 물과 사료를 주었어요.",
+          "en": "After cleaning, they gave water and food to the dogs."
+        },
+        {
+          "ko": "오후에는 보호소 마당에서 강아지들을 산책시켰어요.",
+          "en": "In the afternoon, they walked the dogs in the shelter yard."
+        },
+        {
+          "ko": "낯가림이 심하던 작은 강아지가 민수에게 다가왔어요.",
+          "en": "A small dog that was very shy approached Minsu."
+        },
+        {
+          "ko": "민수가 머리를 쓰다듬자 강아지가 꼬리를 흔들었어요.",
+          "en": "When Minsu stroked its head, the dog wagged its tail."
+        },
+        {
+          "ko": "다시 마음을 여는 모습에 가슴이 뭉클했어요.",
+          "en": "Seeing it open its heart again, their hearts felt deeply touched."
+        },
+        {
+          "ko": "몸은 땀에 젖었지만 마음에는 따뜻함이 가득했어요.",
+          "en": "Although bodies were soaked in sweat, hearts were full of warmth."
+        },
+        {
+          "ko": "두 사람은 다음 달에도 꼭 다시 돕겠다고 약속했어요.",
+          "en": "The two promised to definitely help again next month."
+        },
+        {
+          "ko": "집으로 가면서 둘은 생명을 아끼는 법을 배웠어요.",
+          "en": "Heading home, both learned how to cherish life."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "보호소",
+          "en": "shelter"
+        },
+        {
+          "ko": "유기견",
+          "en": "abandoned dog, rescue dog"
+        },
+        {
+          "ko": "장화",
+          "en": "rain boots, rubber boots"
+        },
+        {
+          "ko": "사료",
+          "en": "pet food, animal feed"
+        },
+        {
+          "ko": "낯가림",
+          "en": "shyness with strangers"
+        },
+        {
+          "ko": "쓰다듬다",
+          "en": "to stroke, to pet"
+        },
+        {
+          "ko": "뭉클하다",
+          "en": "to be touched, choked up"
+        },
+        {
+          "ko": "생명",
+          "en": "life"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Minsu and Jisu visit the animal shelter on the weekend?",
+          "a": "They visited to volunteer and spend their weekend meaningfully."
+        },
+        {
+          "q": "What tasks did they do inside the dog kennels?",
+          "a": "They scrubbed the floors and refilled fresh water and food."
+        },
+        {
+          "q": "What promise did the two make before leaving for home?",
+          "a": "They promised to come back and help again next month."
+        }
+      ]
+    },
+    {
+      "no": 29,
+      "level": "A2",
+      "title": {
+        "ko": "반대로 달린 버스",
+        "en": "The Bus That Ran in the Opposite Direction"
+      },
+      "lines": [
+        {
+          "ko": "하나는 지수 집에 가려고 버스 정류장에 갔어요.",
+          "en": "Hana went to the bus stop to go to Jisu's house."
+        },
+        {
+          "ko": "때마침 타야 할 버스가 정류장으로 들어왔어요.",
+          "en": "Just then, the bus she had to take arrived at the stop."
+        },
+        {
+          "ko": "놓치지 않으려고 서둘러 달려가서 버스에 탔어요.",
+          "en": "In order not to miss it, she hurriedly ran and boarded the bus."
+        },
+        {
+          "ko": "카드를 찍고 안도하며 창가 빈자리에 앉았어요.",
+          "en": "Tapping her card, she felt relieved and sat in an empty window seat."
+        },
+        {
+          "ko": "그런데 출발 후에 창밖을 보니 풍경이 낯설었어요.",
+          "en": "However, looking outside after departure, the scenery was unfamiliar."
+        },
+        {
+          "ko": "노선도를 자세히 확인하고 나서야 반대 방향임을 알았어요.",
+          "en": "Only after checking the route map closely did she realize it was the opposite direction."
+        },
+        {
+          "ko": "급하게 타느라 정류장 방향을 제대로 확인하지 못했어요.",
+          "en": "Because she boarded in a hurry, she failed to check the stop direction properly."
+        },
+        {
+          "ko": "하나는 당황했지만 바로 다음 정류장에서 벨을 눌렀어요.",
+          "en": "Hana was flustered, but pressed the bell at the very next stop."
+        },
+        {
+          "ko": "버스에서 내려 횡단보도를 건너 반대편으로 갔어요.",
+          "en": "She got off the bus, crossed the crosswalk, and went to the opposite side."
+        },
+        {
+          "ko": "지도로 방향을 꼼꼼히 확인하고 올바른 버스를 탔어요.",
+          "en": "Checking the direction thoroughly with maps, she took the right bus."
+        },
+        {
+          "ko": "조금 늦었지만 지수에게 상황을 전화로 미리 알렸어요.",
+          "en": "Although she was a bit late, she notified Jisu by phone in advance."
+        },
+        {
+          "ko": "앞으로는 대중교통을 탈 때 방향을 확인하기로 다짐했어요.",
+          "en": "She resolved to check the direction when taking public transit from now on."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "정류장",
+          "en": "bus stop"
+        },
+        {
+          "ko": "빈자리",
+          "en": "empty seat, vacancy"
+        },
+        {
+          "ko": "풍경",
+          "en": "scenery, landscape"
+        },
+        {
+          "ko": "낯설다",
+          "en": "to be unfamiliar, strange"
+        },
+        {
+          "ko": "노선도",
+          "en": "route map"
+        },
+        {
+          "ko": "횡단보도",
+          "en": "pedestrian crosswalk"
+        },
+        {
+          "ko": "대중교통",
+          "en": "public transportation"
+        },
+        {
+          "ko": "다짐하다",
+          "en": "to resolve, to make up one's mind"
+        }
+      ],
+      "check": [
+        {
+          "q": "Why did Hana hurriedly board the bus without checking closely?",
+          "a": "Because she saw the bus approaching and did not want to miss it."
+        },
+        {
+          "q": "How did Hana realize that she was on the wrong bus?",
+          "a": "She noticed unfamiliar scenery and checked the route map inside."
+        },
+        {
+          "q": "What did Hana do after getting off at the next stop?",
+          "a": "She crossed the pedestrian crosswalk to the opposite stop and took the right bus."
+        }
+      ]
+    },
+    {
+      "no": 30,
+      "level": "A2",
+      "title": {
+        "ko": "둥근 보름달과 달콤한 송편",
+        "en": "The Round Full Moon and Sweet Songpyeon"
+      },
+      "lines": [
+        {
+          "ko": "가을 추석 명절을 맞아 친척들이 할머니 댁에 모였어요.",
+          "en": "Greeting the autumn Chuseok holiday, relatives gathered at grandmother's house."
+        },
+        {
+          "ko": "마루에 모여 앉아서 다 함께 송편을 빚었어요.",
+          "en": "Sitting gathered on the wooden floor, they shaped songpyeon together."
+        },
+        {
+          "ko": "하얀 쌀 반죽과 쑥 반죽이 그릇에 담겼어요.",
+          "en": "White rice dough and mugwort dough were placed in bowls."
+        },
+        {
+          "ko": "반죽을 동그랗게 굴린 후에 가운데 홈을 팠어요.",
+          "en": "After rolling dough round, they dug a groove in the center."
+        },
+        {
+          "ko": "고소한 깨와 설탕을 채우고 반달 모양으로 오므렸어요.",
+          "en": "Filling it with sesame and sugar, they closed it into half-moon shapes."
+        },
+        {
+          "ko": "예쁜 송편을 빚으면 좋은 아이를 낳는대요.",
+          "en": "They say making pretty songpyeon leads to having good children."
+        },
+        {
+          "ko": "깨끗한 솔잎을 찜기 바닥에 깔고 송편을 쪘어요.",
+          "en": "Laying clean pine needles on the steamer floor, they steamed songpyeon."
+        },
+        {
+          "ko": "솔향기가 배어 나온 송편은 쫄깃하고 달콤했어요.",
+          "en": "Songpyeon permeated with pine scent was chewy and sweet."
+        },
+        {
+          "ko": "식사 후에 마당에 나가니 큰 보름달이 떴어요.",
+          "en": "Going out to the yard after dinner, a big full moon was up."
+        },
+        {
+          "ko": "환한 달을 보며 간절하게 소원을 빌었어요.",
+          "en": "Looking at the bright moon, they made earnest wishes."
+        },
+        {
+          "ko": "민수는 온 가족이 아프지 않고 건강하기를 기도했어요.",
+          "en": "Minsu prayed for the whole family to stay healthy without getting sick."
+        },
+        {
+          "ko": "가족이 나누는 따뜻한 정 덕분에 마음이 풍요로웠어요.",
+          "en": "Thanks to the warm affection shared by family, hearts felt rich."
+        }
+      ],
+      "vocab": [
+        {
+          "ko": "추석",
+          "en": "Korean Thanksgiving Day, Chuseok"
+        },
+        {
+          "ko": "친척",
+          "en": "relative, extended family"
+        },
+        {
+          "ko": "송편",
+          "en": "half-moon shaped rice cake"
+        },
+        {
+          "ko": "반죽",
+          "en": "dough"
+        },
+        {
+          "ko": "솔잎",
+          "en": "pine needles"
+        },
+        {
+          "ko": "보름달",
+          "en": "full moon"
+        },
+        {
+          "ko": "소원",
+          "en": "wish, desire"
+        },
+        {
+          "ko": "풍요롭다",
+          "en": "to be rich, abundant"
+        }
+      ],
+      "check": [
+        {
+          "q": "For which traditional holiday did the relatives gather at grandmother's house?",
+          "a": "They gathered for the autumn Chuseok holiday."
+        },
+        {
+          "q": "What did they lay on the bottom of the steamer when cooking songpyeon?",
+          "a": "They laid clean washed pine needles."
+        },
+        {
+          "q": "What wish did Minsu make while looking at the full moon?",
+          "a": "He prayed for his entire family to always stay healthy without getting sick."
+        }
+      ]
+    }
+  ]
+}
