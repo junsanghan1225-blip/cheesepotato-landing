@@ -24,9 +24,12 @@ const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
 /* --digital : 파는 PDF(전자책) — 종이책 자리표시(출판사 신고번호 · ISBN · 발행일 · 바코드)를 빼고 「디지털판」으로 적는다(운영자 2026-10-18 「책 PDF 최종」). */
-const DIGITAL = args.includes('--digital');
+const DIGITAL = args.includes('--digital') || args.includes('--kdp');
 /* --epub : 같은 내용으로 ePub 3(글자가 화면에 맞게 흐르는 판)도 한 부 — 예스24 · 아마존 같은 전자책 판매처용. 찾아보기 · 메모(쪽 번호 · 인쇄 줄)는 빼고 구매자 혜택 쪽은 넣는다. */
-const EPUB = args.includes('--epub');
+/* --kdp : 아마존 KDP 전용 ePub(2026-10-28 KDP 거절 「책이 Kindle 앱 밖의 도구(브라우저 · 종이)가 필요한 상호작용형」). 책 틀의 kdp 칸으로 제목 · 머리말 · 쓰는 법을 바꾸고,
+   QR · 웹 안내 · 독자 혜택 · 쓰기 줄을 빼고, 연습은 문제 옆에 정답을 바로 보여 준다 — Kindle 안에서 읽기만으로 끝나는 책. */
+const KDP = args.includes('--kdp');
+const EPUB = args.includes('--epub') || KDP;
 /* --fxl : 쪽 그대로 보이는 고정형 ePub(쪽마다 그림 한 장) — PDF 와 같은 디자인이 필요한 전자책 판매처용. 글이 흐르는 ePub 와 달리 글자 크기 · 검색이 안 된다. */
 const FXL = args.includes('--fxl');
 const EPUBVER = args.includes('--ver') ? args[args.indexOf('--ver') + 1] : '';   // 판권면에 「파일 버전」 한 줄 — 어느 파일을 열었는지 구분하려고
@@ -34,6 +37,17 @@ const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
 const B = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${bookId}.json`), 'utf8'));
+if (KDP) {
+  if (!B.kdp) throw new Error(`${bookId}: 책 틀에 kdp 칸이 없다(제목 · 부제 · 머리말 · 쓰는 법 · 저자의 말 — KDP 판 글)`);
+  if (B.kdp.coverLevel) B.coverLevel = { ...B.coverLevel, ...B.kdp.coverLevel };
+  for (const k of ['title', 'sub', 'series', 'preface', 'howto', 'authorNote', 'authorBio']) if (B.kdp[k]) B[k] = B.kdp[k];
+  delete B.bonus; B.web = ''; B.noQr = true;
+  /* 쓰기 · 연필 같은 말을 KDP 판 글로 바꾼다(책 틀 kdp.replace — 원문 그대로를 찾아 바꿈). 하나라도 못 찾으면 틀린 것이라 멈춘다. */
+  const pairs = Object.entries(B.kdp.replace || {}), used = new Set();
+  const walk = (v) => typeof v === 'string' ? pairs.reduce((t, [a, b]) => (t.includes(a) ? (used.add(a), t.split(a).join(b)) : t), v) : Array.isArray(v) ? v.map(walk) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, k === 'kdp' ? x : walk(x)])) : v;
+  for (const k of Object.keys(B)) if (k !== 'kdp') B[k] = walk(B[k]);
+  const miss = pairs.filter(([a]) => !used.has(a)); if (miss.length) throw new Error(`kdp.replace 에서 못 찾은 글: ${miss.map(([a]) => a.slice(0, 40)).join(' | ')}`);
+}
 const THEME = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : (B.theme || 'brand');
 const CLASSIC = THEME === 'classic';
 /* 레벨별 시리즈 색 · 마스코트(표지 · 부 속표지 · 대화 표지가 같이 쓴다) */
@@ -129,7 +143,7 @@ const unitUrl = (u) => {
   return `${SITE_URL}${page}?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id)}`;
 };
 const unitQr = (u) => {
-  if (u.id === 'fs-guide' || B.noQr) return '';   // 계획표 쪽은 연습 쪽이 따로 없다
+  if (KDP || u.id === 'fs-guide' || B.noQr) return '';   // 계획표 쪽은 연습 쪽이 따로 없다
   const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
   const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
   const shown = url.split('?')[0].replace('https://', '');
@@ -329,7 +343,7 @@ const lookalike = (u) => {
 const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-/.test(u.id);
 /* 책 ↔ 앱 점검 칸 — 단원 끝에 「책에서 풀기 → 단원 처음 QR 로 앱 점검 → 점수 적기 → 복습 날짜」 흐름을 한눈에(운영자 2026-10-24 「책을 하면서 앱까지 같이」). 보너스 연습이 있는 단원에만 붙는다. */
-const appCheck = (u) => !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
+const appCheck = (u) => KDP || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
 const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check · 나의 점검</h4>
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
@@ -345,6 +359,7 @@ const mistakeLog = (n) => Array.from({ length: n }, (_, i) => `<div class="blk p
 
 /* 독자 전용 코스 쪽(bonus/<책 id>/ — 진행률 · 연속 학습 · 틀린 문제 노트 · 부 챌린지)으로 가는 QR. 보너스 자료가 있는 책만. */
 const courseQr = () => {
+  if (KDP) return '';
   if (!fs.existsSync(path.join(ROOT, `bonus/${B.id}/index.html`))) return '';
   const url = `${SITE_URL}/bonus/${B.id}/?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=course`;
   const q = qrLib(0, 'M'); q.addData(url); q.make();
@@ -368,7 +383,7 @@ function howPage() {
 const GUIDE = [
   ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit · the backbone of each unit.'],
   ['ref', '참고 · Note', '규칙이 어떻게 움직이는지 풀어 쓴 설명입니다.', 'A short explanation of how the pattern works.'],
-  ['practice', '연습 · Practice', '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', 'Write on the line, then check the Answer Key at the back.'],
+  ['practice', '연습 · Practice', KDP ? '문제 아래 정답을 가리고 풀어 본 뒤 확인합니다.' : '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', KDP ? 'Cover the answer below each question, try it, then check.' : 'Write on the line, then check the Answer Key at the back.'],
   ['tip', 'TIP · 팁', '더 자연스럽게 말하는 요령, 알아 두면 편한 규칙.', 'A handy shortcut or a more natural way to say it.'],
   ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions · read these before you practise.'],
   ['pattern', 'PATTERN · 문형', '자주 쓰는 문장 틀. 점선 상자 자리에 내 낱말을 갈아 끼우세요.', 'A sentence frame. Swap your own word into the dashed slot.'],
@@ -521,7 +536,7 @@ const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam],
 function partPage(p) {
   const many = p.sheets.length > 10;   // 단어장처럼 단원이 많으면 짧게 쓰고 두 줄로 나눠 부 표지 밖으로 넘치지 않게
   const list = p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(many ? s.title.en.split(' · ')[0] : s.title.en)}`; }).join('<br>');
-  if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>KOREAN WORKBOOK SERIES</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list${many ? ' mc' : ''}">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
+  if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'}</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list${many ? ' mc' : ''}">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
 <div class="list${many ? ' mc' : ''}">${list}</div></div>`;
 }
@@ -626,7 +641,7 @@ function unitBlock(u) {
     if (s.type === 'mcq') return `<div class="sec mqs">${sr(si)}${secLabel(s)}${mcqHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr" style="--qw:${qw(s.items)}">${s.items.map((x) => `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
+    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? '<div class="hint">Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.</div>' : s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '')).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="kans">→ ${esc(x.a)}</span></li>` : `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
   }).join('\n');
   if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${appCheck(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
@@ -698,7 +713,7 @@ function indexBlock(entries) {
 const reviewSheet = () => `<div class="blk plain rv"><h2>Review checklist · 검수 체크표</h2><div class="k">한 단원씩 훑고 ○ / ✕ 를 적으세요. 고칠 곳은 빨간 출처(예: greetings-self-introduction · §2)와 번호로 알려 주시면 됩니다.</div><table><thead><tr><th>Unit</th><th>사실 Facts</th><th>오타 Typos</th><th>번역 English</th><th>난이도 Level</th><th>정답 Answers</th><th>메모 Notes</th></tr></thead><tbody>${units.map((u) => `<tr><td>${String(u.no).padStart(2, '0')} ${esc(u.title.en)}</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td></td></tr>`).join('')}</tbody></table></div>`;
 /* 책 구매자 혜택 — docs/books/<id>.json 의 bonus {code, days}. 메모 첫 쪽 맨 위에 QR + 코드 + 눌러지는 주소 */
 const bonusBox = () => {
-  if (!B.bonus) return '';
+  if (KDP || !B.bonus) return '';
   const url = `${SITE_URL}/?bk=${B.bonus.code}&utm_source=book&utm_medium=bonus&utm_campaign=${encodeURIComponent(B.id)}`;
   const q = qrLib(0, 'M'); q.addData(url); q.make();
   return `<div class="qrb uq"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Reader bonus · Pro free for ${B.bonus.days} days</b><small>이 책을 사신 분께 드리는 선물이에요. QR을 찍거나 아래 주소를 열고 로그인하면 Pro ${B.bonus.days}일이 열려요. 코드 ${esc(B.bonus.code)} (한 계정에 한 번)${B.bonus.app ? ' 앱을 쓰신다면 앱의 더보기 · 내 책 코스 · 책 코드 칸에 코드를 넣어도 돼요.' : ''}</small><a href="${esc(url)}">${esc(url.split('&utm')[0].replace('https://', ''))}</a></div></div>`;
@@ -970,7 +985,7 @@ const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ell
 .lvc .r3{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(92px + var(--b));height:2px;background:#fff}
 .lvc .au{position:absolute;left:62px;right:calc(62px + var(--b));bottom:calc(50px + var(--b));display:flex;justify-content:space-between;font-size:15px;font-weight:700}.lvc .au small{font-size:11px;letter-spacing:.24em;font-weight:500;color:${LVG[0]}}
 .front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
-const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>KOREAN WORKBOOK SERIES</span><span>한국어 워크북 시리즈</span></div><div class="r1"></div>
+const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'}</span><span>${KDP ? '한국어 학습 시리즈' : '한국어 워크북 시리즈'}</span></div><div class="r1"></div>
 <div class="tt"><div class="a">${esc(LV.title[0])}</div><h1${LV.h1 ? ` style="font-size:${LV.h1}px"` : ''}>${esc(LV.title[1])}</h1>${LV.title[2] ? `<div class="c">${esc(LV.title[2])}</div>` : ''}</div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
 <div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
 const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
@@ -1064,7 +1079,7 @@ document.querySelectorAll('.pldc').forEach((d) => { const cells = [...d.querySel
     const r = await px.evaluate(() => ({ title: ((document.querySelector('.ttl h2, h2, h1') || {}).textContent || '').trim(), body: [...document.body.childNodes].map((n) => new XMLSerializer().serializeToString(n)).join('') }));
     const file = `c_${k}.xhtml`;
     const body = r.body.replace(/\n?<dt>ISBN<\/dt><dd>[^<]*\(PDF\)<\/dd>\n<dt>Price · 정가<\/dt><dd>[^<]*<\/dd>/, '' /* 한국 ISBN 은 PDF 판에만 붙는다 — ePub(KDP 등)에는 쓰지 않는다 */).replace(/ style="page:[^"]*"/g, '').replace(/ style="break-inside:avoid"/g, '').replace('Digital edition (PDF) · 디지털판(PDF) · print it at home or at a print shop · 집이나 인쇄소에서 인쇄해 쓰세요', 'Digital edition (ePub) · 디지털판(ePub)');   // 글꼴을 책에 넣지 않으므로 「Typeset in Pretendard」 줄도 ePub 에서는 뺀다
-    const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소를 눌러도 돼요\./g, 'QR 그림을 눌러도 열려요.').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
+    const bodyKo = body.replace('<dt>Web</dt>', EPUBVER ? `<dt>File version · 파일 버전</dt><dd>ePub ${EPUBVER}</dd><dt>Web</dt>` : '<dt>Web</dt>').replace(/PDF판은 아래 주소를 눌러도 돼요\./g, 'QR 그림을 눌러도 열려요.').replace('<p>Typeset in Pretendard (SIL Open Font License 1.1).</p>', '').replace('<dt>Web</dt><dd></dd>', '').replace(/>([^<>]*[가-힣][^<>]*)</g, '><span lang="ko" xml:lang="ko">$1</span><');   // 한글 덩어리에 언어 표시 — 전자책 기기가 한글 글꼴 · 줄 맞춤을 제대로 고르게   // 판권면의 「PDF · 인쇄해 쓰세요」 는 PDF 판 글 — ePub 에서는 맞지 않아 바꾼다
     fs.writeFileSync(O(file), `<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en"><head><meta charset="utf-8"/><title>${xesc(title0 || r.title || B.title.en)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>${bodyKo}</body></html>`);
     chap.push({ id: k, file, title: title0 || r.title || k, svg: /<svg[\s>]/.test(body) });
   }
@@ -1100,7 +1115,7 @@ h2{page-break-before:auto}
 table{font-size:.92em;margin:.5em 0 .9em}th,td{border:0;border-bottom:1px solid #e4ddd0;padding:.45em .5em}th{background:transparent;border-bottom:2px solid ${ACC};font-weight:700}tr:last-child td{border-bottom:0}
 .sec{margin:1.5em 0 .6em}.sec h3{border-bottom:1px solid #d8cfc0;font-size:1.08em}.sec h3 small{color:#8a8278;font-weight:400;font-size:.8em}
 .note,.hint,.bx{border-radius:0 4px 4px 0;font-size:.95em}.bx .tt,.note{line-height:1.6}
-ol.pr li{border-bottom:1px solid #ece6da}small{color:#8a8278}
+ol.pr li{border-bottom:1px solid #ece6da}ol.pr.kdp li.kq{display:block}ol.pr.kdp .kans{display:block;margin:.1em 0 .1em 1.2em;color:${ACC};font-weight:700}small{color:#8a8278}
 .flow .fs{display:block;margin:.4em 0}.flow .ar{display:none}
 .sec h3 em.lab{display:inline;white-space:nowrap;padding:.05em .45em}.pd .ptp span{display:inline;margin-right:.7em}
 .plg>div{margin:.3em 0 .5em}.plk b{font-size:.95em}.plk small{display:inline;margin-left:.4em}.pll{border-bottom:1px solid #cfc6b6;height:1.7em;margin:.1em 0 .5em}
