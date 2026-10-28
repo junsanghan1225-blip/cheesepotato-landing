@@ -3198,7 +3198,7 @@
       "lines": [
         {
           "ko": "하나는 맑은 토요일에 카메라를 들고 식물원에 갔어요.",
-          "en": "Hana went to the botanical garden with a camera on a clear Saturday."
+          "en": "On a clear Saturday, Hana took her camera to the botanical garden."
         },
         {
           "ko": "초록빛 나무와 알록달록한 꽃들이 정원을 가득 채웠어요.",
@@ -3206,15 +3206,15 @@
         },
         {
           "ko": "시원한 나무 그늘을 걸으며 셔터를 부지런히 눌렀어요.",
-          "en": "Walking in the cool tree shade, she pressed the shutter diligently."
+          "en": "Walking in the cool shade of the trees, she pressed the shutter diligently."
         },
         {
           "ko": "바람에 흔들리는 작은 들꽃이 렌즈 속에서 반짝였어요.",
-          "en": "Small wild flowers swaying in the wind sparkled inside the lens."
+          "en": "Small wildflowers swaying in the wind sparkled inside the lens."
         },
         {
           "ko": "연못가로 다가가니 커다란 수련 잎이 둥둥 떠 있었어요.",
-          "en": "Approaching the pond, large water lily leaves were floating."
+          "en": "Approaching the pond, she saw large water lily leaves floating on the water."
         },
         {
           "ko": "수련 꽃잎 위에 조용히 앉아 있는 잠자리를 발견했어요.",
@@ -3234,7 +3234,7 @@
         },
         {
           "ko": "벤치에 앉아서 찍은 사진들을 하나씩 찬찬히 감상했어요.",
-          "en": "Sitting on a bench, she slowly enjoyed the taken photos one by one."
+          "en": "Sitting on a bench, she slowly enjoyed the photos she took one by one."
         },
         {
           "ko": "자연의 아름다운 순간을 간직할 수 있어서 행복했어요.",
@@ -3312,7 +3312,7 @@
         },
         {
           "ko": "불판 위에 도톰한 삼겹살을 올리자 지글지글 소리가 났어요.",
-          "en": "Putting thick pork belly on the grill, a sizzling sound came out."
+          "en": "Putting thick pork belly on the grill, a sizzling sound filled the air."
         },
         {
           "ko": "민수는 노릇노릇하게 익은 고기를 먹기 좋게 잘랐어요.",
@@ -3324,15 +3324,15 @@
         },
         {
           "ko": "동료들과 시원한 음료 잔을 부딪치며 서로를 격려했어요.",
-          "en": "Clinking cool drink glasses with colleagues, they encouraged each other."
+          "en": "Clinking cold glasses with colleagues, they encouraged each other."
         },
         {
           "ko": "바쁜 일정 때문에 힘들었던 일들을 웃으며 이야기했어요.",
-          "en": "They talked with laughter about tough times caused by busy schedules."
+          "en": "They talked with laughter about tough times during their busy week."
         },
         {
           "ko": "팀장님이 민수의 노력을 칭찬하자 마음이 뿌듯해졌어요.",
-          "en": "When the team leader praised Minsu's efforts, he felt proud."
+          "en": "When the team leader praised Minsu's efforts, he felt deeply proud."
         },
         {
           "ko": "고기를 다 먹고 나서 구수한 된장찌개도 함께 나누었어요.",
@@ -3354,7 +3354,7 @@
       "vocab": [
         {
           "ko": "회식",
-          "en": "company dinner, team get-together"
+          "en": "company dinner, team dinner"
         },
         {
           "ko": "삼겹살",
@@ -3366,7 +3366,7 @@
         },
         {
           "ko": "쌈장",
-          "en": "seasoned soybean paste"
+          "en": "seasoned soybean paste, ssamjang"
         },
         {
           "ko": "격려하다",
@@ -3378,7 +3378,7 @@
         },
         {
           "ko": "협력하다",
-          "en": "to cooperate, collaborate"
+          "en": "to cooperate, to collaborate"
         },
         {
           "ko": "팀워크",
@@ -3387,7 +3387,7 @@
       ],
       "check": [
         {
-          "q": "Why did the team members go to a meat restaurant on Friday?",
+          "q": "Why did the team members go to a restaurant on Friday?",
           "a": "To celebrate the successful conclusion of their project."
         },
         {
@@ -3414,11 +3414,11 @@
         },
         {
           "ko": "치과가 조금 무서웠지만 참고 예약 시간에 맞춰 갔어요.",
-          "en": "Although the dentist was scary, she endured and went on appointment time."
+          "en": "Although the dentist was scary, she was brave and arrived on time for her appointment."
         },
         {
           "ko": "대기실에 앉아 있으니 기계 돌아가는 소리가 들렸어요.",
-          "en": "Sitting in the waiting room, she heard machine running sounds."
+          "en": "Sitting in the waiting room, she heard the sound of dental tools running."
         },
         {
           "ko": "차례가 되어 진료실 의자에 긴장하며 누웠어요.",
@@ -3430,11 +3430,11 @@
         },
         {
           "ko": "작은 충치가 하나 있지만 치료는 금방 끝난다고 하셨어요.",
-          "en": "He said there was one small cavity, but treatment would finish quickly."
+          "en": "The dentist said there was one small cavity, but treatment would finish quickly."
         },
         {
           "ko": "긴장한 지수를 위해 선생님이 치료 과정을 설명해 주셨어요.",
-          "en": "For nervous Jisu, the dentist explained the treatment process."
+          "en": "For nervous Jisu, the dentist kindly explained the treatment process."
         },
         {
           "ko": "아프지 않게 조심스럽게 충치를 치료하고 깔끔하게 메웠어요.",
@@ -3442,7 +3442,7 @@
         },
         {
           "ko": "걱정했던 것보다 훨씬 아프지 않아서 다행이었어요.",
-          "en": "She was relieved because it was far less painful than she worried."
+          "en": "She was relieved because it was far less painful than she had feared."
         },
         {
           "ko": "간호사 선생님이 올바른 칫솔질 방법을 자세히 알려주셨어요.",
@@ -3468,7 +3468,7 @@
         },
         {
           "ko": "진료실",
-          "en": "consultation room, examination room"
+          "en": "examination room"
         },
         {
           "ko": "충치",
@@ -3516,7 +3516,7 @@
       "lines": [
         {
           "ko": "민수 가족은 주말을 맞아 맑은 숲속 캠핑장으로 떠났어요.",
-          "en": "Greeting the weekend, Minsu's family left for a clear forest campsite."
+          "en": "For the weekend, Minsu's family left for a quiet forest campsite."
         },
         {
           "ko": "나무 그늘 아래에 돗자리를 펴고 텐트를 세우기 시작했어요.",
@@ -3528,7 +3528,7 @@
         },
         {
           "ko": "힘을 합쳐 완성한 큰 텐트를 보며 다들 감탄했어요.",
-          "en": "Looking at the large tent completed by joining forces, everyone admired it."
+          "en": "Looking at the large tent completed by working together, everyone admired it."
         },
         {
           "ko": "해가 저물자 캠핑장 주변이 은은한 어둠으로 물들었어요.",
@@ -3536,7 +3536,7 @@
         },
         {
           "ko": "아버지가 화로에 장작을 넣고 따뜻한 모닥불을 피웠어요.",
-          "en": "His father put firewood into the brazier and lit a warm campfire."
+          "en": "His father put firewood into the pit and lit a warm campfire."
         },
         {
           "ko": "꼬치에 꽂은 마시멜로를 불 위에 올려 노릇하게 구웠어요.",
@@ -3548,7 +3548,7 @@
         },
         {
           "ko": "숯불 속에 넣어 둔 호일에 싼 감자도 꺼냈어요.",
-          "en": "They also took out potatoes wrapped in foil placed in the embers."
+          "en": "They also took out potatoes wrapped in foil from the glowing embers."
         },
         {
           "ko": "온 가족이 불 주위에 둘러앉아 옛날이야기를 나누었어요.",
@@ -3556,7 +3556,7 @@
         },
         {
           "ko": "밤하늘을 올려다보니 셀 수 없이 많은 별이 반짝였어요.",
-          "en": "Looking up at the night sky, countless stars sparkled."
+          "en": "Looking up at the night sky, countless stars sparkled above them."
         },
         {
           "ko": "자연 속에서 가족과 함께 보낸 평화로운 밤이었어요.",
@@ -3600,10 +3600,10 @@
       "check": [
         {
           "q": "Where did Minsu's family go for the weekend?",
-          "a": "They went to a clear campsite in the forest."
+          "a": "They went to a campsite in the forest."
         },
         {
-          "q": "What snacks did they roast over the campfire and charcoal embers?",
+          "q": "What snacks did they roast over the campfire and embers?",
           "a": "They roasted marshmallows and potatoes wrapped in foil."
         },
         {
@@ -3626,7 +3626,7 @@
         },
         {
           "ko": "하나는 필통을 열었지만 중요한 색연필 세트를 깜빡했어요.",
-          "en": "Hana opened her pencil case, but forgot her important colored pencils."
+          "en": "Hana opened her pencil case, but realized she had forgotten her colored pencils."
         },
         {
           "ko": "숙제 준비물을 챙기지 못해서 하나는 어쩔 줄 몰랐어요.",
@@ -3728,7 +3728,7 @@
       "lines": [
         {
           "ko": "오늘은 민수 어머니의 생신이라서 아침 일찍 일어났어요.",
-          "en": "Today is Minsu's mother's birthday, so he woke up early."
+          "en": "Because today was his mother's birthday, Minsu woke up early in the morning."
         },
         {
           "ko": "어머니를 위해 따뜻한 생일 미역국을 직접 끓이기로 결심했어요.",
@@ -3752,7 +3752,7 @@
         },
         {
           "ko": "물을 넉넉히 붓고 센 불에서 보글보글 끓이기 시작했어요.",
-          "en": "Pouring generous water, he began boiling it bubbling over high heat."
+          "en": "Pouring in generous water, he began boiling it over high heat."
         },
         {
           "ko": "국물이 뽀얗게 우러나도록 약한 불로 오랫동안 정성껏 끓였어요.",
@@ -3802,7 +3802,7 @@
         },
         {
           "ko": "밥상",
-          "en": "dining table, served meal"
+          "en": "dining table, meal"
         },
         {
           "ko": "정성",
@@ -3838,15 +3838,15 @@
         },
         {
           "ko": "목적지에 도착하자마자 요금을 결제하고 서둘러 차에서 내렸어요.",
-          "en": "As soon as she arrived at destination, she paid and hurriedly got out."
+          "en": "As soon as she arrived at her destination, she paid and hurriedly got out."
         },
         {
           "ko": "건물 안으로 들어와서야 손에 우산이 없다는 것을 알았어요.",
-          "en": "Only after entering the building did she realize no umbrella was in hand."
+          "en": "Only after entering the building did she realize she was not holding her umbrella."
         },
         {
           "ko": "택시 뒷좌석에 새로 산 장우산을 깜빡 두고 내렸어요.",
-          "en": "She had inadvertently left her newly bought long umbrella on the taxi back seat."
+          "en": "She had accidentally left her newly bought long umbrella on the taxi back seat."
         },
         {
           "ko": "지수는 당황했지만 주머니 속 영수증을 침착하게 꺼냈어요.",
@@ -3858,7 +3858,7 @@
         },
         {
           "ko": "떨리는 마음으로 전화를 걸자 친절한 기사님이 전화를 받으셨어요.",
-          "en": "Calling with a nervous heart, the kind driver answered the phone."
+          "en": "With her heart racing, she called, and the friendly driver answered the phone."
         },
         {
           "ko": "기사님은 뒷좌석에서 우산을 발견했다며 돌아오겠다고 말씀하셨어요.",
@@ -3940,11 +3940,11 @@
       "lines": [
         {
           "ko": "상쾌한 일요일 아침에 하나와 민수는 등산로 입구에서 만났어요.",
-          "en": "On a refreshing Sunday morning, Hana and Minsu met at the trail entrance."
+          "en": "On a crisp Sunday morning, Hana and Minsu met at the trail entrance."
         },
         {
           "ko": "가벼운 등산복을 입고 천천히 숲길을 걷기 시작했어요.",
-          "en": "Wearing light hiking clothes, they began walking slowly along the forest path."
+          "en": "Wearing light hiking clothes, they began walking along the forest path."
         },
         {
           "ko": "흙길을 지나자 가파른 나무 계단이 끝없이 이어졌어요.",
@@ -3952,7 +3952,7 @@
         },
         {
           "ko": "다리가 점점 무거워지고 숨이 가쁘게 차올랐어요.",
-          "en": "Legs grew heavier and breath rose short and panting."
+          "en": "Their legs grew heavier, and they were soon out of breath."
         },
         {
           "ko": "포기하고 싶었지만 둘은 서로 손을 잡아주며 격려했어요.",
@@ -3960,15 +3960,15 @@
         },
         {
           "ko": "시원한 약수터에서 목을 축이고 잠시 땀을 식혔어요.",
-          "en": "At a cool mineral spring, they quenched thirst and cooled their sweat."
+          "en": "At a cool mineral spring, they quenched their thirst and cooled off."
         },
         {
           "ko": "힘을 내어 다시 발걸음을 옮기자 하늘이 트이기 시작했어요.",
-          "en": "Taking heart and moving steps again, the sky began opening up."
+          "en": "Taking heart and stepping forward again, the sky began opening up."
         },
         {
           "ko": "마침내 두 사람은 시원한 바람이 부는 정상에 도착했어요.",
-          "en": "Finally, the two arrived at the windy peak where cool breezes blew."
+          "en": "Finally, the two arrived at the peak where cool breezes blew."
         },
         {
           "ko": "발아래로 펼쳐진 도시의 아름다운 풍경에 탄성이 나왔어요.",
@@ -3984,7 +3984,7 @@
         },
         {
           "ko": "둘은 뿌듯한 마음을 안고 조심스럽게 산을 내려왔어요.",
-          "en": "Embracing proud feelings, the two carefully climbed down the mountain."
+          "en": "Embracing proud feelings, the two carefully walked down the mountain."
         }
       ],
       "vocab": [
@@ -4058,7 +4058,7 @@
         },
         {
           "ko": "비를 맞지 않는 처마 밑에 그릇을 조심스럽게 놓았어요.",
-          "en": "She placed the bowls carefully under eaves that avoided rain."
+          "en": "She placed the bowls carefully under the eaves out of the rain."
         },
         {
           "ko": "고양이는 경계하며 물러섰지만 지수가 멀어지자 다가와 먹었어요.",
@@ -4156,7 +4156,7 @@
         },
         {
           "ko": "따뜻한 카페에 둘러앉아 지난 일 년을 함께 돌아보았어요.",
-          "en": "Sitting around a warm cafe, they looked back on the past year together."
+          "en": "Sitting together in a warm cafe, they looked back on the past year."
         },
         {
           "ko": "서로의 성장과 추억을 나누며 즐거운 대화가 이어졌어요.",
@@ -4168,11 +4168,11 @@
         },
         {
           "ko": "탁자 위에 예쁜 편지지를 펴고 정성스럽게 글을 썼어요.",
-          "en": "Spreading pretty letter paper on the table, they wrote with devotion."
+          "en": "Spreading pretty letter paper on the table, they wrote with care."
         },
         {
           "ko": "민수는 외국어 공부와 건강을 위해 꾸준히 운동하겠다고 적었어요.",
-          "en": "Minsu wrote that he would study foreign languages and exercise consistently."
+          "en": "Minsu wrote that he would study foreign languages and exercise regularly."
         },
         {
           "ko": "지수는 새 취미를 배우고 여행을 많이 가고 싶었어요.",
