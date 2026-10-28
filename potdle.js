@@ -105,7 +105,7 @@ function pdlDraw() {
     </div>
     <div class="pdl-grid" id="pdlGrid">${rows.join('')}</div>
     <div class="pdl-mid">
-      ${G.hint || G.done ? `<p class="pdl-hint">💡 ${esc(mean(G.w))}</p>` : `<button type="button" class="pdl-hbtn" data-pdl="hint">💡 ${esc(t('뜻 보기', 'Show meaning'))}</button>`}
+      ${G.hint || G.done ? `<p class="pdl-hint">${esc(mean(G.w))}</p>` : `<button type="button" class="pdl-hbtn" data-pdl="hint">${esc(t('뜻 보기', 'Show meaning'))}</button>`}
     </div>
     ${G.done ? pdlEnd(st) : `<div class="pdl-kb" id="pdlKb">${KEYS.map((row, ri) => `<div class="pdl-kr">${ri === 2 ? `<button type="button" class="pdl-k wide" data-pdl="enter">${esc(t('확인', 'Enter'))}</button>` : ''}${row.map((k) => `<button type="button" class="pdl-k ${best[k] || ''}" data-k="${k}">${k}</button>`).join('')}${ri === 2 ? `<button type="button" class="pdl-k wide" data-pdl="back" aria-label="${esc(t('지우기', 'Delete'))}">${esc(t('지우기', 'Del'))}</button>` : ''}</div>`).join('')}</div>`}`;
 }
