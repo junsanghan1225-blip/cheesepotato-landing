@@ -8,7 +8,7 @@
 ## 하는 중
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
-| KDP 이야기 책 영어 번역 다듬기(40편, 영어만) | `antigravity-kdp-polish-task.md` | `ag/kdp-polish-N` | 4 | 0 | 0 | 2026-10-28 지시문 만듦 — 안티에 「1~10번」부터 보내기. 검사 `node tools/check-kdp-polish.mjs` |
+| KDP 이야기 책 영어 번역 다듬기(40편, 영어만) | `antigravity-kdp-polish-task.md` | `ag/kdp-polish-N` | 4 | 1 | 1 | 2026-10-28 1묶음(1~10번) 검토해 넣음 — 다음은 「11~20번」. 4묶음 다 오면 ePub 다시 만들기. 검사 `node tools/check-kdp-polish.mjs` |
 | KDP 전용 새 책 1 「Korean Short Stories for Beginners」 이야기(40편) | `antigravity-kdp-stories-task.md` | `ag/kdp-stories-N` | 4 | 4 | 4 | 2026-10-28 **40편 모두 넣음**(31~40 은 280~300자, 검사 이상 없음). 다음: 영어 번역 다듬기 · `tools/build-kdp-original.mjs`(ePub) |
 | 책 6권 최종 검수(검수 글 `--review` 로 만든 표) | `antigravity-book-review-task.md` | (표만 받음) | 6 | 5 | 5 | 2026-10-25 조사 · 쓰기 · 단어장 1·2·3 검수표 반영 끝. **첫걸음 검수표는 아직** — 오면 반영. |
 | TOPIK I 읽기 모의고사 검수(문항 400 · 유형별 풀이 방법 · 근거 · 선지 이유) | `antigravity-book-review-task.md`(모의고사 절) | (표만 받음) | 1 | 0 | 0 | 2026-10-26 1차 검수표 반영(17곳) → 같은 날 2차 전수 검수: **전 회 · 유형 안내 8종 이상 없음, 기출 복제 없음, 출판 가능**(운영자가 결과 표를 붙여 줌). 더 줄 일 없음. |
