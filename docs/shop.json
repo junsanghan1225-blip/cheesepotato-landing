@@ -3996,8 +3996,8 @@
     }
    ],
    "trim": "B5 (182 × 257 mm)",
-   "pages": "530쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "pages": "528쪽 (PDF · 속지 기준)",
+   "status": "on",
    "price": "9.90",
    "coverImg": "/assets/books/topik1-vocab/cover.jpg",
    "page": {
@@ -4592,6 +4592,10 @@
       "97"
      ],
      [
+      "ISBN",
+      "979-11-222407-0-2 (PDF)"
+     ],
+     [
       "Published · 발행",
       "2026.11.10"
      ],
@@ -4662,7 +4666,11 @@
       }
      ]
     ]
-   }
+   },
+   "sample": {
+    "pages": 26
+   },
+   "polar": "https://buy.polar.sh/polar_cl_yhuGrtInsncqCxDjqTEFevfP4aS1ADpIqUkgN1kH1Af"
   },
   {
    "id": "korean-idioms",
@@ -4717,7 +4725,7 @@
    ],
    "trim": "B5 (182 × 257 mm)",
    "pages": "204쪽 (PDF · 속지 기준)",
-   "status": "planned",
+   "status": "on",
    "price": "9.90",
    "coverImg": "/assets/books/korean-idioms/cover.jpg",
    "page": {
@@ -5051,6 +5059,10 @@
       "30"
      ],
      [
+      "ISBN",
+      "979-11-222407-9-5 (PDF)"
+     ],
+     [
       "Published · 발행",
       "2026.11.10"
      ],
@@ -5111,7 +5123,11 @@
       }
      ]
     ]
-   }
+   },
+   "sample": {
+    "pages": 28
+   },
+   "polar": "https://buy.polar.sh/polar_cl_1t8VR1SUo5WlVuorGwdv3LiZ5K4JtPtDEc8Nj1nhFdj"
   }
  ],
  "publisher": {

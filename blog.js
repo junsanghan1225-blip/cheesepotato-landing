@@ -415,7 +415,7 @@ export const BLOG_POSTS = [
       },
       {
         "t": "p",
-        "text": "A full workbook with 449 idioms, proverbs and four-character idioms is in preparation: 30 units, each with meanings, literal translations, example sentences and writing practice."
+        "text": "A full workbook with 449 idioms, proverbs and four-character idioms is now available: 30 units, each with meanings, literal translations, example sentences and writing practice. Every book has a free sample."
       },
       {
         "t": "link",
@@ -649,7 +649,7 @@ export const BLOG_POSTS = [
       },
       {
         "t": "h",
-        "text": "Coming soon"
+        "text": "Also in the shop"
       },
       {
         "t": "list",
@@ -922,11 +922,11 @@ export const BLOG_POSTS = [
       },
       {
         "t": "h",
-        "text": "Coming next"
+        "text": "Next in the series"
       },
       {
         "t": "p",
-        "text": "A companion book for Questions 53 and 54 is in preparation: 100 questions with a model answer, scoring criteria and three sample answers (high, middle and low score) with the reasons for each score."
+        "text": "A companion book for Questions 53 and 54 is now available: 100 questions with a model answer, scoring criteria and three sample answers (high, middle and low score) with the reasons for each score."
       },
       {
         "t": "link",
