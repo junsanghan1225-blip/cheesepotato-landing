@@ -13,11 +13,12 @@
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (list) {
         if (!list || !list.length) return;
+        sec.hidden = false;
         var avg = list.reduce(function (a, x) { return a + x.rating; }, 0) / list.length;
         var line = avg.toFixed(1) + ' · ' + list.length + (list.length === 1 ? ' review' : ' reviews');
         var put = function (el) { if (!el) return; el.textContent = ''; var s = document.createElement('span'); s.className = 'stars'; s.textContent = stars(Math.round(avg)); el.appendChild(s); el.appendChild(document.createTextNode(' ' + line)); };
         put(sec.querySelector('[data-rv-sum]'));
-        var hero = document.querySelector('[data-rv-hero]'); if (hero) { hero.textContent = ''; var s2 = document.createElement('span'); s2.className = 'stars'; s2.textContent = stars(Math.round(avg)); hero.appendChild(s2); hero.appendChild(document.createTextNode(' ' + line)); }
+        var hero = document.querySelector('[data-rv-hero]'); if (hero) { hero.hidden = false; hero.textContent = ''; var s2 = document.createElement('span'); s2.className = 'stars'; s2.textContent = stars(Math.round(avg)); hero.appendChild(s2); hero.appendChild(document.createTextNode(' ' + line)); }
         var box = sec.querySelector('[data-rv-list]');
         list.forEach(function (x) {
           var d = document.createElement('div'); d.className = 'rv-item';
