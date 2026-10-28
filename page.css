@@ -32,7 +32,7 @@ li::marker { color:var(--orange); }
 hr { border:none; border-top:1px solid var(--line-2); margin:44px 0; }
 blockquote { margin:18px 0; padding:14px 18px; background:var(--tint); border-left:3px solid var(--orange); border-radius:0 10px 10px 0; font-size:14.5px; color:var(--ink-2); word-break:keep-all; }
 
-.tw { overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+.tw { overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
 table { border-collapse:collapse; width:100%; min-width:420px; }
 th, td { padding:12px 14px; text-align:left; font-size:14px; border-bottom:1px solid var(--line-2); word-break:keep-all; }
 th { background:var(--tint); color:var(--ink); font-weight:700; font-size:12.5px; letter-spacing:.02em; white-space:nowrap; }
@@ -44,23 +44,23 @@ tr:last-child td { border-bottom:none; }
 @media (prefers-reduced-motion: reduce) { * { transition-duration:.001ms !important; } }
 /* 손으로 쓴 쪽의 공통 모양(소개 · 무료 도구 쪽, 2026-10-10) — teacher.html 과 같은 결 */
 .btns { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 8px; }
-.btn { display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:12px 22px; border-radius:12px; font-weight:700; text-decoration:none; font-size:15.5px; border:0; cursor:pointer; }
+.btn { display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:12px 22px; border-radius:8px; font-weight:700; text-decoration:none; font-size:15.5px; border:0; cursor:pointer; }
 .btn.main { background:#C4551C; color:#fff !important; }
 .btn.sub { background:var(--surface); color:var(--ink) !important; border:1px solid var(--line); }
 .btn:hover { filter:brightness(1.05); }
 .note { font-size:13.5px; color:var(--ink-3); }
 .lead { font-size:17px; color:var(--ink-2); }
 .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:22px 0; }
-.stats div { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+.stats div { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
 .stats b { display:block; font-size:26px; font-weight:800; color:var(--ink); letter-spacing:-.03em; line-height:1.2; }
 .stats span { font-size:13px; color:var(--ink-3); }
-.box { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:20px; margin:22px 0; }
+.box { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px; margin:22px 0; }
 .box label { display:block; font-size:13.5px; font-weight:700; color:var(--ink); margin-bottom:6px; }
-.box input { width:100%; font:inherit; font-size:17px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--ink); }
+.box input { width:100%; font:inherit; font-size:17px; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); }
 .out { margin-top:16px; }
 .out .big { font-size:clamp(40px,10vw,64px); font-weight:800; color:var(--ink); letter-spacing:-.02em; line-height:1.15; word-break:keep-all; }
 .out .sub { font-size:15px; color:var(--ink-3); }
-.next { margin-top:40px; padding:20px; border-radius:16px; background:var(--tint); }
+.next { margin-top:40px; padding:20px; border-radius:10px; background:var(--tint); }
 .next h3 { margin-top:0; }
 .ft { margin-top:56px; font-size:13px; color:var(--ink-3); }
 .ft a { color:var(--ink-3); }
@@ -68,20 +68,20 @@ tr:last-child td { border-bottom:none; }
 .box .tw table { min-width:0; }
 .box .tw th { white-space:normal; width:42%; }
 .seal { margin-top:18px; }
-.seal .after { margin-top:16px; padding:16px 18px; border-radius:14px; background:var(--tint); border:1px solid var(--line); }
+.seal .after { margin-top:16px; padding:16px 18px; border-radius:8px; background:var(--tint); border:1px solid var(--line); }
 .seal .after b { color:var(--ink); font-size:16px; }
 .seal .after p { margin:6px 0 4px; font-size:14.5px; }
-.seal img { display:block; width:min(270px,70vw); height:auto; border-radius:14px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+.seal img { display:block; width:min(270px,70vw); height:auto; border-radius:8px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.08); }
 ol { margin:14px 0 14px 4px; padding-left:20px; }
 ol li::marker { color:var(--orange-deep); font-weight:700; }
 /* 만들기 도구 — 띠 카드 · 속담 포춘쿠키(2026-10-10) */
 .zd-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:6px; margin-top:14px; }
-.zd-grid button { display:flex; flex-direction:column; align-items:center; gap:2px; padding:8px 2px; border:1px solid var(--line); border-radius:12px; background:#fff; font:inherit; font-size:12.5px; font-weight:700; color:var(--ink-2); cursor:pointer; }
+.zd-grid button { display:flex; flex-direction:column; align-items:center; gap:2px; padding:8px 2px; border:1px solid var(--line); border-radius:8px; background:#fff; font:inherit; font-size:12.5px; font-weight:700; color:var(--ink-2); cursor:pointer; }
 .zd-grid button span { font-size:26px; line-height:1.1; }
 .zd-grid button.on { border-color:var(--orange-deep); background:var(--tint); color:var(--orange-deep); }
 .zd-head { display:flex; align-items:center; gap:16px; }
 .zd-em { font-size:clamp(56px,14vw,84px); line-height:1; }
-.zd-say { margin:14px 0 6px; padding:14px 16px; border-radius:12px; background:var(--tint); }
+.zd-say { margin:14px 0 6px; padding:14px 16px; border-radius:8px; background:var(--tint); }
 .zd-say b { display:block; font-size:20px; color:var(--orange-deep); }
 .zd-say span { font-size:14px; color:var(--ink-3); }
 .pv-cookie { display:block; margin:6px auto 0; width:160px; height:160px; border:0; border-radius:50%; background:var(--tint); font-size:92px; line-height:160px; cursor:pointer; transition:transform .25s; }
@@ -96,12 +96,12 @@ ol li::marker { color:var(--orange-deep); font-weight:700; }
 .pv-ex small { display:block; color:var(--ink-3); }
 @media (max-width:420px) { .zd-grid { grid-template-columns:repeat(4, 1fr); } }
 .mk-g { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
-.mk-g button { padding:8px 14px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
+.mk-g button { padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:#fff; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
 .mk-g button.on { background:var(--orange-deep); border-color:var(--orange-deep); color:#fff; }
 .mk-mean { margin:8px 0 6px; font-size:20px; font-weight:800; color:var(--orange-deep); }
 .mk-hj { display:flex; gap:8px; flex-wrap:wrap; }
-.mk-hj span { display:flex; flex-direction:column; align-items:center; min-width:96px; padding:10px 12px; border-radius:12px; background:var(--tint); font-size:13.5px; color:var(--ink-2); }
+.mk-hj span { display:flex; flex-direction:column; align-items:center; min-width:96px; padding:10px 12px; border-radius:8px; background:var(--tint); font-size:13.5px; color:var(--ink-2); }
 .mk-hj span b { font-size:30px; color:var(--ink); line-height:1.2; }
 .mk-hj span small { color:var(--ink-3); }
 .mk-hj span.native { min-width:0; align-items:flex-start; }
-.wd-tag { display:inline-block; padding:4px 10px; border-radius:999px; background:var(--tint); color:var(--orange-deep); font-weight:800; font-size:12.5px; }
+.wd-tag { display:inline-block; padding:4px 10px; border-radius:8px; background:var(--tint); color:var(--orange-deep); font-weight:800; font-size:12.5px; }

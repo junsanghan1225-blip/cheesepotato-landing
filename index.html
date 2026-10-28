@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=6d7788ad" async></script>
+<script src="gtm.js?v=577d38a8" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=6d7788ad">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=6d7788ad">
+<link rel="stylesheet" href="vendor/pretendard.css?v=577d38a8">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=577d38a8">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=6d7788ad" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=6d7788ad"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=577d38a8" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=577d38a8"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -185,7 +185,7 @@
   --line:  rgba(var(--ink-rgb),.11);
   --line-2:rgba(var(--ink-rgb),.06);
 
-  --r-s: 8px; --r: 12px; --r-l: 18px; --r-xl: 26px;
+  --r-s: 5px; --r: 8px; --r-l: 10px; --r-xl: 12px;
   --max: 1200px;
   --gut: 22px;
 
@@ -395,7 +395,7 @@ a:hover { color:var(--orange-mid); }
 .nudge-txt { font-size:13.5px; font-weight:600; color:var(--ink-2); flex:1 1 auto; word-break:keep-all; }
 .nudge-go {
   font:inherit; font-size:13px; font-weight:700; color:#fff; background:var(--orange);
-  border:none; border-radius:999px; padding:7px 16px; cursor:pointer; white-space:nowrap;
+  border:none; border-radius:8px; padding:7px 16px; cursor:pointer; white-space:nowrap;
 }
 .nudge-go:hover { background:var(--orange-deep); }
 .nudge-x {
@@ -456,7 +456,7 @@ a:hover { color:var(--orange-mid); }
   display:flex; flex-direction:column;
   background:var(--surface-2);
   border-left:1px solid var(--line);
-  box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
   /* 닫혀 있을 때 visibility 까지 감추지 않으면 화면 밖 버튼에
      탭 키가 들어간다. */
   transform:translateX(100%); visibility:hidden;
@@ -584,7 +584,7 @@ a:hover { color:var(--orange-mid); }
   display:inline; font-size:15px; font-weight:500; line-height:1.3; letter-spacing:-.01em;
 }
 .side-list .nav-ico {
-  flex:0 0 auto; width:34px; height:34px; border-radius:10px;
+  flex:0 0 auto; width:34px; height:34px; border-radius:7px;
   display:inline-flex; align-items:center; justify-content:center;
   font-size:16px;
   background:var(--surface); border:1px solid var(--line-2);
@@ -663,13 +663,13 @@ body.nav-open { overflow:hidden; }
 /* 아주 옅은 온기 — 있는지 모를 정도로만. */
 .hero::before {
   content:''; position:absolute; inset:0;
-  background:radial-gradient(110% 80% at 82% 8%, rgba(255,145,77,.14), transparent 62%);
+  background:none;
   pointer-events:none;
 }
 .hero-in { position:relative; max-width:var(--max); margin:0 auto; }
 
 .hero-logo {
-  width:56px; height:56px; border-radius:14px; object-fit:cover;
+  width:56px; height:56px; border-radius:8px; object-fit:cover;
   display:block; margin-bottom:24px;
   border:1px solid var(--line);
 }
@@ -732,7 +732,7 @@ body.nav-open { overflow:hidden; }
 .hm-trust { list-style:none; padding:0; margin:10px 0 0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:13px; color:var(--ink-3); }
 .hm-trust li::before { content:'✓ '; color:var(--green); font-weight:700; }
 .hm-today { margin-top:26px; }
-.hm-quiz { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:18px; box-shadow:0 22px 48px -30px rgba(var(--ink-rgb),.35); }
+.hm-quiz { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:18px; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); }
 .hm-quiz-k { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:13px; }
 .hm-quiz-k b { color:var(--orange-deep); letter-spacing:.02em; }
 .hm-quiz-k span { color:var(--ink-3); font-size:12px; }
@@ -740,7 +740,7 @@ body.nav-open { overflow:hidden; }
 .hm-quiz-p { border:1.5px solid var(--ink); border-radius:8px; padding:10px 13px; margin:10px 0; font-size:15px; line-height:1.7; white-space:pre-wrap; word-break:keep-all; }
 .hm-quiz-q { font-weight:700; font-size:15px; margin:0 0 8px; word-break:keep-all; }
 .hm-quiz-o { display:grid; gap:7px; }
-.hm-quiz-o button { font:inherit; font-size:14.5px; text-align:left; display:flex; gap:9px; align-items:baseline; padding:9px 12px; border-radius:10px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
+.hm-quiz-o button { font:inherit; font-size:14.5px; text-align:left; display:flex; gap:9px; align-items:baseline; padding:9px 12px; border-radius:7px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
 .hm-quiz-o button i { font-style:normal; font-weight:800; color:var(--orange-deep); }
 .hm-quiz-o button:hover { border-color:rgba(255,145,77,.6); }
 .hm-quiz-o button.ok { border-color:var(--green); background:color-mix(in srgb, var(--green) 10%, var(--surface)); }
@@ -766,7 +766,7 @@ html[data-lv] .hm-paths .hm-doors { display:grid; }
 html[data-path] .hm-paths { display:none; }
 html[data-path][data-path-open] .hm-paths { display:block; }
 html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * var(--gut)); margin:14px auto 0; padding:0 var(--gut); box-sizing:border-box; }
-.hm-mp { padding:18px; border-radius:22px; color:#fff; background:linear-gradient(135deg, #B58656, #8A5F36); border-radius:var(--r-xl); box-shadow:none; }
+.hm-mp { padding:18px; border-radius:12px; color:#fff; background:linear-gradient(135deg, #B58656, #8A5F36); border-radius:var(--r-xl); box-shadow:none; }
 .hm-mp-top { display:flex; align-items:center; gap:12px; }
 .hm-mp-ic { width:52px; height:52px; flex:none; border-radius:16px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:28px; overflow:hidden; }
 .hm-mp-ic img, .hm-mp-ic svg { width:44px; height:44px; }
@@ -775,11 +775,11 @@ html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * va
 .hm-mp-bar { height:10px; border-radius:999px; background:rgba(255,255,255,.2); margin:14px 0 6px; overflow:hidden; } .hm-mp-bar i { display:block; height:100%; border-radius:999px; background:#FFD23F; }
 .hm-mp-sum { margin:0 0 12px; font-size:13px; opacity:.85; }
 .hm-mp-pred { margin:-6px 0 12px; font-size:13px; font-weight:800; }
-.hm-mp-next { display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border:none; border-radius:16px; background:#fff; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+.hm-mp-next { display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border:none; border-radius:10px; background:#fff; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
 .hm-mp-next > span:first-child { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
 .hm-mp-next small { font-size:12px; font-weight:800; color:var(--orange); } .hm-mp-next b { font-size:17px; font-weight:800; word-break:keep-all; } .hm-mp-next em { font-style:normal; font-size:12.5px; color:var(--ink-3); }
-.hm-mp-go { flex:none; padding:10px 14px; border-radius:999px; background:#FFD23F; color:#4A3300; font-weight:900; font-size:14px; white-space:nowrap; }
-.hm-mp-done { margin:0; padding:12px; border-radius:14px; background:rgba(255,255,255,.15); }
+.hm-mp-go { flex:none; padding:10px 14px; border-radius:8px; background:#FFD23F; color:#4A3300; font-weight:900; font-size:14px; white-space:nowrap; }
+.hm-mp-done { margin:0; padding:12px; border-radius:8px; background:rgba(255,255,255,.15); }
 .hm-mp-other { margin-top:10px; background:none; border:none; color:#FFE699; font:inherit; font-size:13.5px; font-weight:700; text-decoration:underline; cursor:pointer; padding:4px 0; }
 @media (max-width: 420px) { .hm-mp-next { flex-wrap:wrap; } .hm-mp-go { width:100%; text-align:center; } }
 
@@ -787,13 +787,14 @@ html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * va
 .hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
 .hm-tour .hm-paths-h { padding:0; margin:20px 0 10px; }
 html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오늘 공부」 하나로 — 기능 칸은 메뉴 「더 보기」에 */
-.hm-tour-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
-@media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(4, 1fr); } }
-.hm-tour-t { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:14px; border-radius:18px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; text-align:left; cursor:pointer; transition:transform .15s, border-color .15s; }
-.hm-tour-t:hover { transform:translateY(-2px); border-color:var(--orange); }
-.hm-tour-ic { font-size:24px; line-height:1; margin-bottom:4px; }
-.hm-tour-t b { font-size:15.5px; font-weight:800; }
-.hm-tour-t span:not(.hm-tour-ic) { font-size:12.5px; color:var(--ink-3); line-height:1.4; word-break:keep-all; }
+.hm-tour-grid { display:grid; grid-template-columns:1fr; gap:0; border-top:1.5px solid var(--ink); counter-reset:tour; }
+@media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(2, 1fr); column-gap:36px; } }
+/* 워크북 차례처럼 — 번호 · 제목 · 한 줄 설명, 얇은 줄만(운영자 2026-10-28 「AI 티를 줄이고 우리 스타일로」) */
+.hm-tour-t { display:grid; grid-template-columns:34px 1fr; column-gap:6px; align-items:baseline; padding:14px 2px; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; color:var(--ink); font:inherit; text-align:left; cursor:pointer; counter-increment:tour; }
+.hm-tour-t::before { content:counter(tour, decimal-leading-zero); grid-row:1 / span 2; font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.hm-tour-t:hover b { color:var(--orange-text, var(--orange-deep)); text-decoration:underline; text-underline-offset:3px; }
+.hm-tour-t b { font-size:16px; font-weight:800; }
+.hm-tour-t span { font-size:13px; color:var(--ink-3); line-height:1.45; word-break:keep-all; grid-column:2; }
 /* 첫 화면 「책 코너」(2026-10-27, tools/build-home-books.mjs 가 마크업을 만든다) — 폰은 가로로 밀어 보기(칸 안에서만 스크롤), PC 는 여섯 칸 */
 .hm-books { padding-top:28px; padding-bottom:8px; }
 .hm-books .label { color:var(--orange-text, var(--orange-deep)); }
@@ -806,15 +807,15 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-bk-ko { font-size:12px; color:var(--ink-3); line-height:1.35; word-break:keep-all; }
 .hm-bk-buy, .hm-bk-soon { font-style:normal; font-size:12.5px; font-weight:800; margin-top:2px; }
 .hm-bk-buy { color:var(--orange-deep); }
-.hm-bk-px { background:var(--tint); color:var(--ink); padding:1px 8px; border-radius:99px; }
+.hm-bk-px { background:var(--tint); color:var(--ink); padding:1px 8px; border-radius:8px; }
 .hm-bk-soon { color:var(--ink-3); }
 .hm-bk-row-soon .hm-bk img { opacity:.88; filter:saturate(.75); }
 .hm-books-h { margin:20px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:4px 0 0; }
 .hm-bk-link { color:var(--ink-2); font-weight:700; font-size:14px; }
-.hm-bundle { margin:4px 0 6px; padding:10px 14px; border:1px dashed var(--orange); border-radius:12px; background:var(--tint); font-size:14px; } .hm-bundle a { color:var(--ink); text-decoration:none; } .hm-bundle s { color:var(--ink-3); }
+.hm-bundle { margin:4px 0 6px; padding:10px 14px; border:1px dashed var(--orange); border-radius:8px; background:var(--tint); font-size:14px; } .hm-bundle a { color:var(--ink); text-decoration:none; } .hm-bundle s { color:var(--ink-3); }
 .hm-post-row { display:grid; grid-template-columns:1fr; gap:10px; margin-top:10px; }
-.hm-post { display:flex; flex-direction:column; gap:6px; padding:14px; border:1px solid var(--line); border-radius:16px; background:var(--surface); color:var(--ink); text-decoration:none; min-width:0; }
+.hm-post { display:flex; flex-direction:column; gap:6px; padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); text-decoration:none; min-width:0; }
 .hm-post:hover { border-color:var(--orange); }
 .hm-post-tag { font-size:11px; font-weight:800; color:var(--orange-deep); }
 .hm-post b { font-size:15px; line-height:1.35; overflow-wrap:anywhere; }
@@ -827,9 +828,9 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (min-width:900px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
 .hero-ask h1 em { font-style:normal; color:var(--orange-hero, var(--orange)); }
 .hero-ask .hero-badge::first-letter { color:var(--green); }
-.hm-rec { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:20px; box-shadow:0 22px 48px -30px rgba(var(--ink-rgb),.35); display:grid; gap:10px; }
+.hm-rec { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:20px; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); display:grid; gap:10px; }
 .hm-rec-h { font-size:14px; color:var(--ink-2); }
-.hm-rec-main, .hm-rec-row { display:grid; grid-template-columns:44px minmax(0,1fr) auto; gap:12px; align-items:center; width:100%; text-align:left; font:inherit; color:var(--ink); cursor:pointer; text-decoration:none; border-radius:16px; box-sizing:border-box; }
+.hm-rec-main, .hm-rec-row { display:grid; grid-template-columns:44px minmax(0,1fr) auto; gap:12px; align-items:center; width:100%; text-align:left; font:inherit; color:var(--ink); cursor:pointer; text-decoration:none; border-radius:10px; box-sizing:border-box; }
 .hm-rec-main { min-height:72px; padding:14px 16px; border:none; background:var(--ink); color:var(--surface); }
 .hm-rec-main b { font-size:18px; } .hm-rec-main small { display:block; font-size:13px; opacity:.8; }
 .hm-rec-row { min-height:60px; padding:10px 12px; border:1px solid var(--line); background:transparent; }
@@ -838,7 +839,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-rec-ic { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:var(--orange); font-size:22px; }
 .hm-rec-ic.s { background:var(--tint); }
 .hm-rec .hero-link { justify-self:start; }
-.hero-app { display:inline-flex; align-items:center; gap:6px; margin-top:6px; padding:9px 14px; min-height:44px; border:1px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink); font-size:14px; font-weight:700; text-decoration:none; }
+.hero-app { display:inline-flex; align-items:center; gap:6px; margin-top:6px; padding:9px 14px; min-height:44px; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); font-size:14px; font-weight:700; text-decoration:none; }
 .hero-app:hover { border-color:var(--orange); }
 /* 첫 화면 위쪽 「맞는 순서로」(2026-10-08) — 큰 단추 하나 + 길 카드 넷이 비스듬히 쌓인 그림 */
 .hero-steps h1 { letter-spacing:-.03em; }
@@ -847,15 +848,15 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-acts::before { content:''; flex-basis:100%; order:1; height:0; margin-top:-10px; }
 .hero-acts .hero-go { order:0; }
 .hero-acts .hero-how { order:2; }
-.hero-go { min-height:56px; padding:14px 26px; border:none; border-radius:16px; background:var(--ink); color:var(--surface); font:inherit; font-size:17px; font-weight:800; cursor:pointer; }
+.hero-go { min-height:56px; padding:14px 26px; border:none; border-radius:10px; background:var(--ink); color:var(--surface); font:inherit; font-size:17px; font-weight:800; cursor:pointer; }
 .hero-go:hover { filter:brightness(1.12); }
-.hero-how { display:inline-flex; align-items:center; min-height:56px; padding:14px 22px; border-radius:16px; background:var(--tint); color:var(--ink); font-weight:700; text-decoration:none; }
+.hero-how { display:inline-flex; align-items:center; min-height:56px; padding:14px 22px; border-radius:10px; background:var(--tint); color:var(--ink); font-weight:700; text-decoration:none; }
 .hero-fine { margin:12px 0 0; font-size:13.5px; color:var(--ink-2); }
 .hero-trust { display:inline-block; margin:8px 0 0; font-size:13px; font-weight:600; color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line); word-break:keep-all; }
 .hero-trust:hover { color:var(--ink); border-color:var(--ink-2); }
 .hero-steps .hero-link { margin-top:8px; }
 .hs-stack { display:grid; gap:12px; padding:8px 4px; }
-.hs-card { display:grid; grid-template-columns:52px minmax(0,1fr); gap:14px; align-items:center; width:100%; padding:14px 18px; border:none; border-radius:20px; text-align:left; font:inherit; color:#1B1512; cursor:pointer; box-shadow:0 18px 30px -22px rgba(0,0,0,.45); transition:transform .15s; }
+.hs-card { display:grid; grid-template-columns:52px minmax(0,1fr); gap:14px; align-items:center; width:100%; padding:14px 18px; border:none; border-radius:12px; text-align:left; font:inherit; color:#1B1512; cursor:pointer; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); transition:transform .15s; }
 .hs-card:hover { transform:translateY(-2px) rotate(0deg) !important; }
 /* 우리 색(크림 · 감자 · 주황 · 치즈) — 기초에서 고급으로 갈수록 진해진다(운영자 「우리 웹사이트에 어울리는 색으로」) */
 .hs-card.c1 { background:#F6E7CC; } .hs-card.c2 { background:#FFD9B8; } .hs-card.c3 { background:#FFB27A; } .hs-card.c4 { background:#FFDF7A; }
@@ -867,21 +868,21 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hs-bar i { display:block; height:100%; border-radius:99px; background:#C4551C; }
 @media (min-width:900px) {
   .hs-stack { padding:18px 24px; }
-  .hs-card.c1 { transform:rotate(-2deg); } .hs-card.c2 { transform:rotate(1.5deg) translateX(18px); }
-  .hs-card.c3 { transform:rotate(-1deg) translateX(-6px); } .hs-card.c4 { transform:rotate(2deg) translateX(14px); }
+  .hs-card.c1 { transform:none; } .hs-card.c2 { transform:none; }
+  .hs-card.c3 { transform:none; } .hs-card.c4 { transform:none; }
 }
 @media (max-width:899px) { .hs-stack { grid-template-columns:1fr 1fr; gap:10px; } .hs-card { grid-template-columns:40px minmax(0,1fr); gap:10px; padding:12px; }
   .hs-ic { width:40px; height:40px; } .hs-ic .lvl-ic { width:32px; height:32px; } .hs-t b { font-size:16px; margin-bottom:4px; } .hs-t small { font-size:11px; white-space:normal; line-height:1.25; } }
-.hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 14px 34px -26px rgba(var(--ink-rgb),.4); position:relative; }
+.hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); position:relative; }
 .hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
 .hm-paths .hm-door-t { padding-right:40px; }
-.hm-banner { display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:linear-gradient(120deg, var(--tint), var(--surface)); box-sizing:border-box; }
+.hm-banner { display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:var(--surface); box-sizing:border-box; }
 @media (min-width:900px) { .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
-.hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; color:#fff; background:#C4551C; padding:4px 10px; border-radius:99px; }
+.hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; color:#fff; background:#C4551C; padding:4px 10px; border-radius:8px; }
 .hm-banner-t b { display:block; font-size:22px; letter-spacing:-.02em; }
 .hm-banner-t span { font-size:14px; color:var(--ink-2); word-break:keep-all; }
-.hm-banner-card { display:grid; gap:4px; padding:12px 16px; border-radius:12px; background:var(--surface); border:1px solid var(--line); transform:rotate(-2deg); justify-self:start; }
+.hm-banner-card { display:grid; gap:4px; padding:12px 16px; border-radius:8px; background:var(--surface); border:1px solid var(--line); justify-self:start; }
 .hm-banner-card i { font-size:13px; color:var(--ink-2); } .hm-banner-card b { color:var(--orange-deep); }
 .hm-banner-go { font-weight:800; color:var(--orange-text, var(--orange-deep)); }
 /* 첫 화면 세 덩어리(2026-10-06) — 히어로는 한 단, 큰 단추 하나(폰은 화면 폭 · 56px), 회원가입은 글자 단추로 */
@@ -965,14 +966,14 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-stack .front {
   position:absolute; inset:0; background:var(--surface);
   border:1px solid var(--line); border-radius:var(--r-l);
-  padding:22px; box-shadow:0 22px 48px -28px rgba(var(--ink-rgb),.3);
+  padding:22px; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
   cursor:pointer; text-align:left; width:100%; font:inherit; color:inherit;
   transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s;
 }
 @media (hover:hover) {
   .hero-stack .front:hover {
     transform:translateY(-4px);
-    box-shadow:0 30px 56px -28px rgba(var(--ink-rgb),.36);
+    box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
     border-color:rgba(255,145,77,.45);
   }
 }
@@ -1071,7 +1072,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
 .way-em {
   width:46px; height:46px; display:grid; place-items:center;
   font-size:21px; line-height:1; margin-bottom:16px;
-  background:var(--tint); border:1px solid var(--line-2); border-radius:14px;
+  background:var(--tint); border:1px solid var(--line-2); border-radius:8px;
   transition:transform .2s cubic-bezier(.22,1,.36,1), border-color .2s;
 }
 .way-t {
@@ -1088,7 +1089,7 @@ button.btn-primary, button.btn-ghost { font-family:inherit; }
   align-self:flex-start; margin-top:auto;
   display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.06em;
   color:var(--orange-deep); background:#FFF4EA;
-  border:1px solid rgba(255,138,61,.28); border-radius:999px; padding:4px 11px;
+  border:1px solid rgba(255,138,61,.28); border-radius:8px; padding:4px 11px;
 }
 
 /* ══ 첫 화면 덜어 내기 (운영자 결정 2026-09-30) ══════════════════
@@ -1118,7 +1119,7 @@ html[data-lv] .hm-intro { display:none; }
 .hm-plan-ic { width:44px; height:44px; display:block; margin-bottom:4px; } .hm-plan-ic svg { width:100%; height:100%; }
 .hm-plan b { font-size:14px; font-weight:800; } .hm-plan em { font-style:normal; font-size:17px; font-weight:800; letter-spacing:-.02em; } .hm-plan small { font-size:11.5px; color:var(--ink-3); line-height:1.35; }
 .hm-pro-list { margin:16px 0 0; padding:0 0 0 20px; line-height:1.9; font-size:15px; }
-.hm-pro-btn { margin-top:16px; border:1.5px solid var(--ink); background:transparent; color:var(--ink); border-radius:999px; padding:11px 20px; font:inherit; font-weight:700; cursor:pointer; }
+.hm-pro-btn { margin-top:16px; border:1.5px solid var(--ink); background:transparent; color:var(--ink); border-radius:8px; padding:11px 20px; font:inherit; font-weight:700; cursor:pointer; }
 .hm-fine { font-size:12.5px; color:var(--ink-3); margin-top:14px; line-height:1.6; }
 
 /* ══ TOPIK 표 ══════════════════════════════════════════════════
@@ -1187,7 +1188,7 @@ html[data-lv] .hm-intro { display:none; }
   position:absolute; left:50%; transform:translateX(-50%);
   width:max-content; max-width:170px; text-align:center;
   background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-s);
-  box-shadow:0 10px 24px -12px rgba(0,0,0,.3);
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
   padding:10px 13px; display:flex; flex-direction:column; gap:3px;
 }
 /* 말풍선 꼬리 — 역 쪽을 가리키는 작은 삼각형. */
@@ -1254,7 +1255,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 }
 .wb-card-tag {
   display:inline-block; font-size:11px; font-weight:700; letter-spacing:.06em;
-  color:var(--orange-deep); background:#FFF4EA; border-radius:999px; padding:3px 10px;
+  color:var(--orange-deep); background:#FFF4EA; border-radius:8px; padding:3px 10px;
 }
 .wb-card-word { font-size:30px; font-weight:700; color:var(--ink); letter-spacing:-.03em; margin-top:14px; }
 .wb-card-mean { font-size:14px; color:var(--ink-3); margin-top:5px; }
@@ -1367,11 +1368,11 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 }
 .dl-section::before {
   content:''; position:absolute; inset:0;
-  background:radial-gradient(90% 120% at 50% 0%, rgba(255,145,77,.16), transparent 60%);
+  background:none;
   pointer-events:none;
 }
 .dl-logo-wrap { position:relative; }
-.dl-logo { width:54px; height:54px; border-radius:14px; object-fit:cover; margin:0 auto 26px; display:block; border:1px solid rgba(255,255,255,.16); }
+.dl-logo { width:54px; height:54px; border-radius:8px; object-fit:cover; margin:0 auto 26px; display:block; border:1px solid rgba(255,255,255,.16); }
 .dl-title {
   position:relative; color:#FBF8F1;
   font-size:clamp(26px, 5.4vw, 34px); font-weight:700;
@@ -1430,7 +1431,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 .nt-cat-pop {
   position:fixed; z-index:98; width:min(252px, calc(100vw - 24px));
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
-  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); padding:10px;
 }
 .nt-cat-pop[hidden] { display:none; }
 .nt-cat-pop-name {
@@ -1470,7 +1471,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 .nb-link-pop {
   position:fixed; z-index:99; width:min(280px, calc(100vw - 24px));
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
-  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); padding:10px;
 }
 .nb-link-pop[hidden] { display:none; }
 .nb-link-pop-input {
@@ -1499,7 +1500,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
   position:fixed; z-index:99; width:min(380px, calc(100vw - 24px));
   max-height:min(70vh, 480px); display:flex; flex-direction:column;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
-  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:10px;
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); padding:10px;
 }
 .nt-gr-pop[hidden] { display:none; }
 .nt-gr-pop-h { display:flex; align-items:center; gap:6px; margin-bottom:8px; flex:none; }
@@ -1522,7 +1523,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 .nt-help-pop {
   position:fixed; z-index:98; width:min(300px, calc(100vw - 24px));
   background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
-  box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:14px 16px;
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); padding:14px 16px;
 }
 .nt-help-pop[hidden] { display:none; }
 .nt-help-t { font-size:14px; font-weight:700; color:var(--ink); margin-bottom:9px; }
@@ -1541,7 +1542,7 @@ body.nt-full-open { overflow:hidden; }
 .nb-emo {
   position:fixed; z-index:97; width:min(320px, calc(100vw - 24px)); max-height:min(58vh, 340px);
   overflow-y:auto; background:var(--surface); border:1px solid var(--line);
-  border-radius:var(--r); box-shadow:0 18px 44px -18px rgba(var(--ink-rgb),.42); padding:8px;
+  border-radius:var(--r); box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); padding:8px;
 }
 .nb-emo[hidden] { display:none; }
 
@@ -1627,7 +1628,7 @@ body.nt-full-open { overflow:hidden; }
   height:82vh; height:82dvh; max-height:82vh; max-height:82dvh; display:flex; flex-direction:column;
   background:var(--surface-2); border-radius:var(--r-xl) var(--r-xl) 0 0;
   border-top:1px solid var(--line);
-  box-shadow:0 -20px 50px -20px rgba(var(--ink-rgb),.35);
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
   transform:translateY(100%); visibility:hidden;
   transition:transform .34s cubic-bezier(.32,.72,0,1), visibility .34s;
   overscroll-behavior:contain;
@@ -1641,7 +1642,7 @@ body.hlp-open { overflow:hidden; }
     left:auto; top:0; bottom:0; height:100dvh; max-height:none;
     width:min(400px, 92vw);
     border-radius:0; border-top:none; border-left:1px solid var(--line);
-    box-shadow:-30px 0 60px -34px rgba(var(--ink-rgb),.4);
+    box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
     transform:translateX(100%);
   }
   .hlp-panel.on { transform:none; }
@@ -1654,8 +1655,8 @@ body.hlp-open { overflow:hidden; }
    지문 안에 넣으면 첫 줄에서 잘리고, 스크롤에 딸려 흐른다. */
 .rd-g-pop {
   position:fixed; z-index:60; width:max-content; max-width:min(300px, calc(100vw - 24px));
-  background:var(--ink-bg); color:#fff; border-radius:12px; padding:11px 13px 10px;
-  box-shadow:0 10px 30px rgba(var(--ink-rgb),.24); word-break:keep-all;
+  background:var(--ink-bg); color:#fff; border-radius:8px; padding:11px 13px 10px;
+  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); word-break:keep-all;
 }
 .rd-g-pop[hidden] { display:none; }
 .rd-g-name { font-size:14px; font-weight:700; letter-spacing:-.02em; }
@@ -1666,7 +1667,7 @@ body.hlp-open { overflow:hidden; }
    바탕이 고정이면 글자도 고정이어야 한다. */
 .rd-g-go {
   margin-top:9px; font:inherit; font-size:12px; font-weight:600; cursor:pointer;
-  color:#1B1512; background:#fff; border:0; border-radius:999px; padding:5px 11px;
+  color:#1B1512; background:#fff; border:0; border-radius:8px; padding:5px 11px;
 }
 .rd-g-go:hover { background:#FFE9D6; }
 /* 꼬리. 말풍선이 어느 낱말을 가리키는지 이것 하나로 안다. */
@@ -1692,7 +1693,7 @@ body.hlp-open { overflow:hidden; }
 .tq-wp-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .tq-wp-tag {
   font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:#FFD9B8; background:rgba(255,255,255,.13); border-radius:999px; padding:2px 8px;
+  color:#FFD9B8; background:rgba(255,255,255,.13); border-radius:8px; padding:2px 8px;
 }
 .tq-wp-tag[hidden] { display:none; }
 /* 눌러 표시한 낱말.
@@ -1854,7 +1855,7 @@ body.hlp-open { overflow:hidden; }
   .game-card { padding:24px; }
 
   /* 스피드 퀴즈 — 좁은 화면 */
-  .qz-choice { padding:15px 16px; font-size:15px; border-radius:16px; }
+  .qz-choice { padding:15px 16px; font-size:15px; border-radius:10px; }
 }
 
 /* ══ Clozemaster Vibe · 레트로 빈칸 게임 ══════════════════════ */
@@ -1936,7 +1937,7 @@ body.hlp-open { overflow:hidden; }
 @keyframes cgFade { from { opacity: 0; } to { opacity: 1; } }
 .cg-card {
   background: var(--surface); border-radius: var(--r-xl); width: 100%; max-width: 460px;
-  padding: 26px 24px 20px; box-shadow: 0 18px 48px rgba(var(--ink-rgb),.22);
+  padding: 26px 24px 20px; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
   max-height: 86vh; overflow-y: auto; animation: cgUp .2s cubic-bezier(.22,.9,.3,1);
 }
 @keyframes cgUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -2278,7 +2279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="hero-fine" data-en="Free · no sign-up needed · about 3 minutes">무료 · 가입 없이 바로 · 3분쯤</p>
       <!-- 책 입구(운영자 2026-10-27 「책이 첫 화면에 안 보인다」) — 책 코너(#hmBooks)는 한참 아래라 첫 화면에 한 줄 -->
-      <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="📘 PDF workbooks, each with a free sample →">📘 PDF 워크북 · 책마다 무료 샘플 →</a>
+      <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="PDF workbooks, each with a free sample →">PDF 워크북 · 책마다 무료 샘플 →</a>
       <!-- 믿음 한 줄(운영자 2026-10-10) — 누가 만들었는지. 숫자는 about.html 과 같이 고친다. -->
       <a class="hero-trust" href="about.html" data-en="Made by a Korean teacher · 1,700+ one-to-one lessons · 1,370 original TOPIK questions →">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 1,370 →</a>
       <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
@@ -2318,14 +2319,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hm-tour" aria-labelledby="hmTourH">
     <p class="hm-paths-h" id="hmTourH" data-en="Everything you can do here">치즈감자로 할 수 있는 것</p>
     <div class="hm-tour-grid">
-      <button class="hm-tour-t" type="button" data-go="levelTest"><span class="hm-tour-ic" aria-hidden="true">🧭</span><b data-en="3-min level test">3분 레벨테스트</b><span data-en="Find your level and the path that fits">내 레벨과 맞는 길 찾기</span></button>
-      <button class="hm-tour-t" type="button" data-go="courses"><span class="hm-tour-ic" aria-hidden="true">📚</span><b data-en="Courses">코스</b><span data-en="From Hangul to advanced, lesson by lesson">한글부터 고급까지 레슨으로</span></button>
-      <button class="hm-tour-t" type="button" data-go="glossary"><span class="hm-tour-ic" aria-hidden="true">🔤</span><b data-en="Words &amp; idioms">단어 · 사자성어</b><span data-en="10 a day, review, idioms with quizzes">하루 10개 · 복습 · 사자성어 퀴즈</span></button>
-      <button class="hm-tour-t" type="button" data-go="topik"><span class="hm-tour-ic" aria-hidden="true">🧀</span><b data-en="TOPIK prep">TOPIK 준비</b><span data-en="Mock tests, practice by type, AI writing scores">모의고사 · 유형 연습 · AI 쓰기 채점</span></button>
-      <button class="hm-tour-t" type="button" data-go="games"><span class="hm-tour-ic" aria-hidden="true">🎮</span><b data-en="Word games">단어 게임</b><span data-en="Word potatoes · Potato Wordle · initials quiz">단어 감자 · 오늘의 감자들 · 초성 퀴즈</span></button>
-      <button class="hm-tour-t" type="button" data-go="convo"><span class="hm-tour-ic" aria-hidden="true">🗣️</span><b data-en="Speaking">회화 · 발음</b><span data-en="Real-life scenes and AI pronunciation check">실생활 장면 · AI 발음 진단</span></button>
-      <button class="hm-tour-t" type="button" data-go="translate"><span class="hm-tour-ic" aria-hidden="true">✍️</span><b data-en="Writing">쓰기 · 번역</b><span data-en="Translate line by line · grammar worksheets (PDF)">한 줄씩 번역 · 문법 학습지 PDF</span></button>
-      <button class="hm-tour-t" type="button" data-go="class"><span class="hm-tour-ic" aria-hidden="true">🏫</span><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
+      <button class="hm-tour-t" type="button" data-go="levelTest"><b data-en="3-min level test">3분 레벨테스트</b><span data-en="Find your level and the path that fits">내 레벨과 맞는 길 찾기</span></button>
+      <button class="hm-tour-t" type="button" data-go="courses"><b data-en="Courses">코스</b><span data-en="From Hangul to advanced, lesson by lesson">한글부터 고급까지 레슨으로</span></button>
+      <button class="hm-tour-t" type="button" data-go="glossary"><b data-en="Words &amp; idioms">단어 · 사자성어</b><span data-en="10 a day, review, idioms with quizzes">하루 10개 · 복습 · 사자성어 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="topik"><b data-en="TOPIK prep">TOPIK 준비</b><span data-en="Mock tests, practice by type, AI writing scores">모의고사 · 유형 연습 · AI 쓰기 채점</span></button>
+      <button class="hm-tour-t" type="button" data-go="games"><b data-en="Word games">단어 게임</b><span data-en="Word potatoes · Potato Wordle · initials quiz">단어 감자 · 오늘의 감자들 · 초성 퀴즈</span></button>
+      <button class="hm-tour-t" type="button" data-go="convo"><b data-en="Speaking">회화 · 발음</b><span data-en="Real-life scenes and AI pronunciation check">실생활 장면 · AI 발음 진단</span></button>
+      <button class="hm-tour-t" type="button" data-go="translate"><b data-en="Writing">쓰기 · 번역</b><span data-en="Translate line by line · grammar worksheets (PDF)">한 줄씩 번역 · 문법 학습지 PDF</span></button>
+      <button class="hm-tour-t" type="button" data-go="class"><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
     </div>
   </section>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
@@ -4415,9 +4416,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=6d7788ad"></script>
-<script type="module" src="app.module.js?v=6d7788ad"></script>
+<script src="app.js?v=577d38a8"></script>
+<script type="module" src="app.module.js?v=577d38a8"></script>
 
-<script src="analytics.js?v=6d7788ad" defer></script>
+<script src="analytics.js?v=577d38a8" defer></script>
 </body>
 </html>
