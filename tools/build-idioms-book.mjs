@@ -131,6 +131,7 @@ const out = {
 };
 out.published = '2026.11.10';   // ISBN 신청서 발행일 = 판권지 발행(tools/check-isbn.mjs)
 out.sub.ko = out.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 신청서 부제목
+out.isbn = '979-11-222407-9-5'; out.isbnPrice = '9.9달러';   // 2026-10-28 승인(바코드 EPS 받음 — 공식 PDF 는 아직)
 fs.writeFileSync(path.join(ROOT, `docs/books/${ID}.json`), JSON.stringify(out, null, 1) + '\n');
 fs.writeFileSync(path.join(ROOT, `docs/bonus/${ID}.json`), JSON.stringify({ _note: '책 QR 보너스 연습(게임) — tools/build-idioms-book.mjs 가 표현 자료에서 만든다(손으로 고치지 않는다)', book: ID, game: true, maxCards: 15, units: bonus }, null, 1) + '\n');
 console.log(`필수 관용 표현: ${N}개 · ${U}단원 · 부 ${parts.map((p) => p.units.length).join('/')} → docs/books/${ID}.json`);

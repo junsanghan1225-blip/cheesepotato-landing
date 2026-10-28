@@ -104,11 +104,12 @@ const ROWS = [
   ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '하루 20번 (로그인)', '<b>하루 100번</b>'],
   ['TOPIK 약점 리포트 · 합격 계획표', 'TOPIK weak-spot report · exam plan', '가장 약한 유형 하나', '<b>전체 리포트 + 계획표</b>'],
   ['TOPIK 모의고사 인쇄본(PDF · 문제지 · 답안지 · 정답)', 'Printable TOPIK mock exams (PDF · paper, answer sheet, key)', '제1 · 2회', '<b>전 회차</b>'],
+  ['우리 책 PDF 전체 — 구독하는 동안 내려받기(연간 요금제)', 'All our PDF workbooks to download while you subscribe (Yearly plan)', '따로 구매', '<b>연간 구독에 포함</b>'],
   ['앞으로 나올 Pro 기능', 'Every Pro feature we add next', '—', '✓'],
 ];
 const EN_CELL = { '1회차': 'Round 1', '하루 2번 (로그인)': '2 a day (signed in)', '하루 20번 (로그인)': '20 a day (signed in)', '가장 약한 유형 하나': 'Your weakest type', '<b>전체 리포트 + 계획표</b>': '<b>Full report + plan</b>', '<b>하루 100번</b>': '<b>100 a day</b>',
   '<b>전 회차 + 회차별 성적 추이</b>': '<b>Every round + score history</b>', '<b>하루 30번</b>': '<b>30 a day</b>',
-  '<b>하루 더 많이</b>': '<b>More each day</b>', '제1 · 2회': 'Rounds 1–2', '<b>전 회차</b>': '<b>Every round</b>' };
+  '<b>하루 더 많이</b>': '<b>More each day</b>', '제1 · 2회': 'Rounds 1–2', '<b>전 회차</b>': '<b>Every round</b>', '따로 구매': 'Sold separately', '<b>연간 구독에 포함</b>': '<b>Included with Yearly</b>' };
 const table = (en) => `<table class="cmp"><thead><tr><th></th><th>${en ? 'Free' : '무료'}</th><th class="pro">Pro</th></tr></thead><tbody>` +
   ROWS.map(([ko, e, f, p]) => `<tr><th>${en ? e : ko}</th><td>${en ? (EN_CELL[f] || f) : f}</td><td class="pro">${en ? (EN_CELL[p] || p) : p}</td></tr>`).join('') +
   '</tbody></table>';
@@ -118,7 +119,7 @@ const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구�
 <p class="trust">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 1,370 · <a href="/about.html">만든 사람 · 원칙</a></p>
 <p>치즈감자는 <strong>대부분 무료</strong>입니다. 시험 준비를 끝까지 하고 싶을 때 <strong>치즈감자 Pro</strong> 를 더하세요.</p>
 <div class="plans">
-  <div class="plan best"><span class="tag">추천 · Best value</span>1년 · Yearly<b>${PRICE.yearly}</b>한 달 $3.25꼴 · 35% 싸요<br><small>매년 자동 갱신 · billed yearly</small></div>
+  <div class="plan best"><span class="tag">추천 · Best value</span>1년 · Yearly<b>${PRICE.yearly}</b>한 달 $3.25꼴 · 35% 싸요 · 📘 책 PDF 전체 포함<br><small>매년 자동 갱신 · billed yearly</small></div>
   <div class="plan">한 달 · Monthly<b>${PRICE.monthly}</b>부담 없이 한 달부터<br><small>매달 자동 갱신 · billed monthly</small></div>
   <div class="plan">시험 패스 · Exam Pass<b>${PRICE.pass}</b>${PRICE.passMonths}개월 동안 Pro · 한 번 결제<br><small>자동 갱신 없음 · one-time, no renewal</small></div>
 </div>

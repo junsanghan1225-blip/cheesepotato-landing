@@ -42,6 +42,7 @@ const book = {
   innerLevel: { bg: '#12704F', bg2: '#0B4A33' },
 };
 book.sub.ko = book.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 신청서 부제목(tools/check-isbn.mjs)
+book.isbn = '979-11-222407-0-2'; book.isbnPrice = '9.9달러';   // 2026-10-28 승인(바코드 EPS 받음 — 공식 PDF 는 아직)
 fs.writeFileSync(P('docs/books/topik1-vocab.json'), JSON.stringify(book, null, 1) + '\n');
 fs.writeFileSync(P('docs/bonus/topik1-vocab.json'), JSON.stringify({ _note: '책 QR 보너스 연습(게임) — tools/build-topik1-vocab-all.mjs 가 단어장 자료에서 만든다(손으로 고치지 않는다)', book: 'topik1-vocab', game: true, maxCards: 20, units: { ...ba.units, ...bb.units } }, null, 1) + '\n');
 for (const f of ['docs/books/topik1-vocab-1.json', 'docs/books/topik1-vocab-2.json', 'docs/bonus/topik1-vocab-1.json', 'docs/bonus/topik1-vocab-2.json']) fs.rmSync(P(f), { force: true });
