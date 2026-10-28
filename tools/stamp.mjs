@@ -27,6 +27,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 /* 자국을 찍을 파일. 브라우저가 주소로 받아 가는 것만 넣는다. */
 const ASSETS = [
   'download.js',   /* 낱말 · 문법 내려받기 문(/download/) */
+  'bookflip.js',  /* 책 쪽 표지 → 미리보기 쪽 넘기기 */
   'reviews.js',    /* 책 쪽 별점 · 리뷰, 감사 쪽 리뷰 쓰기(db/add_book_reviews.sql) */
   'subscribe.js',  /* 책 쪽 · 학습지 쪽 이메일 받기 칸(db/add_email_leads.sql) */
   'podcast.js',   /* 팟캐스트 올리기 쪽(운영자 전용) — 브라우저가 옛 파일을 들고 있으면 새 표지가 안 보인다 */
