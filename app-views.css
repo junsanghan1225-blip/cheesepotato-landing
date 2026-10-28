@@ -3985,7 +3985,7 @@ a.gp-use-src:hover { color:var(--orange); }
 
 /* ── EPS-TOPIK (app.module.js 맨 끝) ──────────────────────────── */
 .eps-kick { font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--orange-deep); }
-.eps-h { font-size:22px; font-weight:800; color:var(--ink); margin:6px 0 10px; letter-spacing:-.02em; word-break:keep-all; }
+.eps-h { font-size:22px; font-weight:800; color:var(--ink); margin:22px 0 10px; letter-spacing:-.02em; word-break:keep-all; }
 .eps-facts { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
 .eps-facts span { font-size:13px; font-weight:700; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:5px 12px; }
 .eps-sub { font-size:16px; font-weight:800; color:var(--ink); margin:28px 0 12px; }
@@ -5842,7 +5842,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-note { max-width:760px; margin:8px auto 16px; padding:12px 16px; border-radius:8px; background:var(--tint); border:1.5px solid #FFC94D; color:var(--ink); font-weight:600; text-align:center; word-break:keep-all; }
 .up-head { text-align:center; margin:8px 0 22px; }
 .up-kicker { font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-deep, #C4551C); }
-.up-h { font-size:clamp(24px, 4.4vw, 34px); font-weight:800; letter-spacing:-.03em; color:var(--ink); margin:6px 0 14px; word-break:keep-all; }
+.up-h { font-size:clamp(24px, 4.4vw, 34px); font-weight:800; letter-spacing:-.03em; color:var(--ink); margin:22px 0 14px; word-break:keep-all; }
 .up-toggle { display:inline-flex; gap:4px; padding:4px; border-radius:999px; background:var(--surface); border:1px solid var(--line); }
 .up-toggle button { min-height:40px; padding:6px 18px; border:0; border-radius:999px; background:transparent; font:inherit; font-weight:700; color:var(--ink-2); cursor:pointer; }
 .up-toggle button.on { background:var(--ink); color:var(--bg, #fff); }
@@ -6189,7 +6189,7 @@ a.lt-chip:hover { border-color:var(--orange); }
 .pa-all { margin-top:14px; }
 .pa-all > summary { cursor:pointer; list-style:none; padding:14px 16px; border:1px solid var(--line); border-radius:var(--r-l); font-weight:700; color:var(--ink-2); text-align:center; }
 .pa-all > summary::-webkit-details-marker { display:none; }
-.pa-allc { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:4px; }
+.pa-allc { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px; }
 .pa-allc-row { display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:10px; align-items:center; width:100%; text-align:left; padding:10px 12px; border:none; border-radius:var(--r); background:transparent; color:var(--ink); font:inherit; font-size:14px; cursor:pointer; }
 .pa-allc-row.now { background:var(--tint); font-weight:700; }
 .pa-allc-row svg { width:22px; height:22px; display:block; }
@@ -7704,3 +7704,5 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .rd-rec-chip { flex:none; font-size:12px; font-weight:800; color:var(--orange-deep); background:var(--tint); border:1px solid var(--orange); border-radius:8px; padding:3px 10px; }
 /* 탭 글자가 좁은 폰에서 단추 밖으로 넘치지 않게 — 줄을 바꾼다(2026-10-27 잘림 점검) */
 .tq-tabs button { white-space:normal; line-height:1.25; overflow-wrap:anywhere; }
+/* 이야기 만들기의 모드 · 과제 이모지 아이콘은 숨긴다 — 글 이름만으로 충분하다(운영자 2026-10-28 「AI 티」) */
+.wv-mode-ic, .wv-task-ic { display:none; }
