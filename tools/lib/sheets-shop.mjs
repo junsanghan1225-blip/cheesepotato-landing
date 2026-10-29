@@ -103,7 +103,7 @@ function bundlesHtml() {
     const ks = b.books.map((id) => SHOP.books.find((k) => k.id === id));
     const sum = ks.reduce((a, k) => a + parseFloat(k.price), 0);
     const off = Math.round((1 - parseFloat(b.price) / sum) * 100);
-    return `<div class="shop-card"><div class="shop-pk" style="width:auto;height:auto;flex-direction:row;gap:6px;padding:8px;background:var(--tint)">${ks.map((k) => `<img src="${esc(k.coverImg)}" alt="" width="70" height="99" loading="lazy" style="width:70px;height:auto;border-radius:2px 5px 5px 2px;box-shadow:0 4px 10px rgba(0,0,0,.18)">`).join('')}</div>
+    return `<div class="shop-card"><div class="shop-pk" style="width:auto;height:auto;flex:0 0 auto;align-self:center;flex-direction:row;gap:8px;padding:14px;background:var(--tint);border-radius:8px">${ks.map((k) => `<img src="${esc(k.coverImg)}" alt="" width="92" height="130" loading="lazy" style="width:92px;height:auto;border-radius:2px 5px 5px 2px;box-shadow:0 3px 8px rgba(0,0,0,.16)">`).join('')}</div>
   <div class="shop-body"><h3>${esc(b.title.en)}</h3><p class="bk-ko">${esc(b.title.ko)}</p><p>${esc(b.sub.en)}</p>
     <p class="shop-price">$${esc(b.price)} <small>· <s>$${sum.toFixed(2)}</s> · save ${off}% · ${ks.length} PDF downloads</small></p>
     ${buy(b.polar, b.price, 'Buy the bundle')}</div></div>\n`;
