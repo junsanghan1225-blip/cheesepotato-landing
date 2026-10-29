@@ -7729,3 +7729,15 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .tq-tabs button { white-space:normal; line-height:1.25; overflow-wrap:anywhere; }
 /* 이야기 만들기의 모드 · 과제 이모지 아이콘은 숨긴다 — 글 이름만으로 충분하다(운영자 2026-10-28 「AI 티」) */
 .wv-mode-ic, .wv-task-ic { display:none; }
+
+/* 이모지를 뺀 자리가 비면 접는다(운영자 2026-10-29 「이모지 빼기로 한 거 아니야」) */
+.claw-over-emoji:empty, .lf-ic:empty, .ex-say:empty, .ls-done-big:empty, .lt-teach-e:empty { display:none; }
+
+/* 책 안내 상자 — 정적 쪽(.bkbox)과 같은 모양 */
+.bk-next { margin:22px 0 0; text-align:left; }
+.bk-next-h { margin:0 0 8px; font-size:13px; font-weight:700; color:var(--ink-3); }
+.bkbox { display:flex; gap:14px; align-items:center; margin:0 0 8px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); text-decoration:none; color:var(--ink); }
+.bkbox:hover { border-color:var(--ink); }
+.bkbox b { display:block; font-size:15px; }
+.bkbox small { display:block; color:var(--ink-3); font-size:13px; line-height:1.6; margin-top:3px; }
+.bkbox em { font-style:normal; font-weight:700; font-size:13px; margin-top:6px; display:block; }

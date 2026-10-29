@@ -816,7 +816,7 @@ function twPage(it) {
       `<div class="fact"><span>${esc(d)}</span></div>`).join('') + '</div>' : '',
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
-    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">✍️ 이 문항 직접 써 보고 AI 점수 받기 →<span>Write this task yourself and get an AI score — free</span></a>`,
+    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">이 문항 직접 써 보기 →<span>Write this task yourself — length and register checked as you type (AI scoring is Pro)</span></a>`,
     '<details class="more tw-ans"><summary>정답 · 채점 포인트 보기 — 먼저 써 본 뒤에 열어 보세요 · Model answer &amp; scoring (try first)</summary>',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
     /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
@@ -884,6 +884,13 @@ const bookSteps = (ids, head, from = '') => `<h2>${head}</h2>` + ids.map((id) =>
   if (!b) throw new Error('shop.json 에 없는 책: ' + id);
   return `<a class="bkbox" href="/shop/${id}/?utm_source=hub&amp;utm_medium=page${from ? `&amp;utm_content=${from}` : ''}"><span><b>${esc(b.title.en)}</b><small>${esc(b.sub.en)} · PDF $${esc(b.price)}<br>${esc(b.sub.ko || '')}</small><em>책 보기 · See the book →</em></span></a>`;
 }).join('');
+/* 쓰기 모음 쪽에서 쓰기 안내 글로 — 「토픽 쓰기 연습」 검색(2026-10-29 구글 노출이 반으로 줄었다)에서 들어온 사람이 번호마다 어떻게 쓰는지 바로 읽고, 글들 사이의 안쪽 연결도 생긴다. 글 제목 · 요약은 blog.js 에서 가져와 어긋나지 않는다. */
+const TW_GUIDES = ['topik-writing-score-tips', 'topik-writing-51-52-english', 'topik-writing-53-template', 'topik-writing-53-english', 'topik-writing-54-structure', 'topik-writing-54-structure-english', 'topik-mistakes-to-avoid-english'];
+const twGuides = () => '<h2>쓰기 안내 글 · Writing guides</h2><ul class="pts">' + TW_GUIDES.map((id) => {
+  const p = BLOG_POSTS.find((x) => x.id === id);
+  if (!p) throw new Error('blog.js 에 없는 글: ' + id);
+  return `<li><a href="/blog/${esc(p.id)}.html"${p.lang === 'en' ? ' hreflang="en"' : ''}>${esc(p.title)}</a><br><small>${esc(clip(p.excerpt || '', 110))}</small></li>`;
+}).join('') + '</ul>';
 const twBook = () => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '쓰고 나서 · 책으로 이어서 (Next step: the books)');
 
 function twSections(items) {
@@ -899,13 +906,14 @@ function twHub(items) {
 
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
-    '<h1>TOPIK II 쓰기 — 쓰면 바로 AI 채점</h1>',
+    '<h1>TOPIK II 쓰기 연습 — 모범답안과 AI 채점(Pro)</h1>',
     `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
-    `${items.length} original TOPIK II writing tasks — write, get an AI score, compare with the model answer.</p>`,
-    hubCtas(['/#learn/topik/II/writing', '✍️ AI 채점으로 바로 써 보기', 'Write now and get an AI score — free']),
+    `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
+    hubCtas(['/#learn/topik/II/writing', '바로 써 보기', 'Write now — model answers are free, AI scoring is Pro']),
     hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
+    twGuides(),
     twBook(),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
@@ -1015,7 +1023,7 @@ function trHub() {
       '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
       `${total} original TOPIK I/II reading practice questions, each with the answer explained.</p>`,
     hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['바로 채점 · Instant check', '고르면 정답 · 해설'], ['모의고사 · Mock tests', '시간 재고 회차별'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
-    hubCtas(['/#learn/topik/I/reading', '📖 읽기 연습 바로 시작', 'Start reading practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
+    hubCtas(['/#learn/topik/I/reading', '읽기 연습 바로 시작', 'Start reading practice — free'], ['/?lt=1&utm_source=hub', '내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
     bookSteps(['topik1-reading-mock'], '풀고 나서 · 책으로 이어서 (Next step: the book)'),
     hubNext('/topik-reading/'),
@@ -1114,7 +1122,7 @@ function tlHub() {
       '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
       `${total} original TOPIK I/II listening practice questions with transcripts and answers explained.</p>`,
     hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['대본 · Transcripts', '고른 뒤에 열려요'], ['소리 · Audio', '들으며 바로 풀기'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
-    hubCtas(['/#learn/topik/I/listening', '🎧 듣기 연습 바로 시작', 'Start listening practice — free'], ['/?lt=1&utm_source=hub', '🧭 내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
+    hubCtas(['/#learn/topik/I/listening', '듣기 연습 바로 시작', 'Start listening practice — free'], ['/?lt=1&utm_source=hub', '내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
     sections,
     bookSteps(['topik2-vocab-1000'], '듣기에 나오는 낱말 · 책으로 이어서 (Next step: the book)'),
     hubNext('/topik-listening/'),
@@ -3068,48 +3076,48 @@ function localeHome(code) {
 /* 언어별 TOPIK 모음 쪽 /vi/topik-writing/ … (운영자 2026-10-09 「2번 해줘」) — 유형 이름 · 문항 목록은 한국어 모음 쪽과 같은 것(시험 그대로
    한국어 + 영어), 제목 · 소개 · 얻는 것 · 단추만 그 나라 말. 글은 여기 표에 — 화면 번역 사전에 없는 검색용 문장이라서. */
 const HUB_L = {
-  vi: { home: 'Trang chủ', lt: '🧭 Kiểm tra trình độ TOPIK trong 3 phút', note: 'Tên dạng câu hỏi để bằng tiếng Hàn (kèm tiếng Anh) — đúng như trong đề thi. Chọn một câu để xem đáp án và giải thích.',
+  vi: { home: 'Trang chủ', lt: 'Kiểm tra trình độ TOPIK trong 3 phút', note: 'Tên dạng câu hỏi để bằng tiếng Hàn (kèm tiếng Anh) — đúng như trong đề thi. Chọn một câu để xem đáp án và giải thích.',
     writing: { name: 'TOPIK viết', h1: (n) => `Luyện viết TOPIK II — ${n} đề (câu 51–54)`, title: (n) => `Luyện viết TOPIK II ${n} đề — câu 51·52·53·54 | CheesePotato`,
       lead: 'Đề luyện viết theo đúng dạng câu 51–54. Mỗi đề có bài mẫu, tiêu chí chấm và lỗi hay bị trừ điểm.<br><b>Không phải đề thi thật — đều là đề tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} đề luyện viết TOPIK II câu 51–54 kèm bài mẫu và tiêu chí chấm. Đề tự biên soạn, không phải đề thi thật.`,
-      why: (n) => [[`${n} đề`, 'Đúng dạng câu 51–54'], ['AI chấm điểm', 'Miễn phí 2 lần/ngày (đăng nhập)'], ['Bài mẫu', 'Tiêu chí chấm · lỗi trừ điểm'], ['Xem đề miễn phí', 'Mở trình duyệt là luyện']], go: '✍️ Viết ngay và được AI chấm điểm' },
+      why: (n) => [[`${n} đề`, 'Đúng dạng câu 51–54'], ['AI chấm điểm', 'Chấm AI dành cho gói Pro'], ['Bài mẫu', 'Tiêu chí chấm · lỗi trừ điểm'], ['Xem đề miễn phí', 'Mở trình duyệt là luyện']], go: 'Viết ngay và được AI chấm điểm' },
     reading: { name: 'TOPIK đọc', h1: (n) => `Luyện đọc TOPIK — ${n} câu`, title: (n) => `Luyện đọc TOPIK ${n} câu — TOPIK I · II | CheesePotato`,
       lead: 'Câu luyện đọc TOPIK I · II theo từng dạng, mỗi câu có đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} câu luyện đọc TOPIK I · II theo dạng, có đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
-      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Chấm ngay', 'Chọn xong là có đáp án · giải thích'], ['Thi thử', 'Tính giờ theo từng đề'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '📖 Bắt đầu luyện đọc' },
+      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Chấm ngay', 'Chọn xong là có đáp án · giải thích'], ['Thi thử', 'Tính giờ theo từng đề'], ['10 câu/ngày', 'Không cần đăng nhập']], go: 'Bắt đầu luyện đọc' },
     listening: { name: 'TOPIK nghe', h1: (n) => `Luyện nghe TOPIK — ${n} câu`, title: (n) => `Luyện nghe TOPIK ${n} câu — TOPIK I · II | CheesePotato`,
       lead: 'Câu luyện nghe TOPIK I · II theo từng dạng, có kịch bản, đáp án và giải thích.<br><b>Không phải đề thi thật — đều là câu tự biên soạn theo đúng dạng.</b>',
       desc: (n) => `${n} câu luyện nghe TOPIK I · II theo dạng, có kịch bản, đáp án và giải thích. Câu tự biên soạn, không phải đề thi thật.`,
-      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Kịch bản', 'Hiện ra sau khi chọn đáp án'], ['Âm thanh', 'Vừa nghe vừa làm'], ['10 câu/ngày', 'Không cần đăng nhập']], go: '🎧 Bắt đầu luyện nghe' } },
-  ja: { home: 'ホーム', lt: '🧭 TOPIKレベルを3分でチェック', note: '問題形式の名前は試験と同じ韓国語（英語つき）で表示しています。問題を1つ選ぶと正解と解説が見られます。',
+      why: (n) => [[`${n} câu`, 'TOPIK I · II theo dạng'], ['Kịch bản', 'Hiện ra sau khi chọn đáp án'], ['Âm thanh', 'Vừa nghe vừa làm'], ['10 câu/ngày', 'Không cần đăng nhập']], go: 'Bắt đầu luyện nghe' } },
+  ja: { home: 'ホーム', lt: 'TOPIKレベルを3分でチェック', note: '問題形式の名前は試験と同じ韓国語（英語つき）で表示しています。問題を1つ選ぶと正解と解説が見られます。',
     writing: { name: 'TOPIK 書取り', h1: (n) => `TOPIK II 書取り練習問題 ${n}問（51〜54番）`, title: (n) => `TOPIK II 書取り練習問題${n}問 — 51・52・53・54番 | チーズポテト`,
       lead: '51〜54番の形式で実際に書いて練習する問題です。各問題に模範解答・採点ポイント・よくある減点の理由があります。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
       desc: (n) => `TOPIK II 書取り51〜54番の練習問題${n}問。模範解答と採点基準つき。過去問ではないオリジナル問題です。`,
-      why: (n) => [[`${n}問`, '51〜54番の形式どおり'], ['AI採点', '無料で1日2回（ログイン時）'], ['模範解答', '採点ポイント・減点理由'], ['問題は無料', 'ブラウザですぐ練習']], go: '✍️ 書いてすぐAI採点' },
+      why: (n) => [[`${n}問`, '51〜54番の形式どおり'], ['AI採点', 'AI採点はProで利用'], ['模範解答', '採点ポイント・減点理由'], ['問題は無料', 'ブラウザですぐ練習']], go: '書いてすぐAI採点' },
     reading: { name: 'TOPIK 読解', h1: (n) => `TOPIK 読解練習問題 ${n}問`, title: (n) => `TOPIK 読解練習問題${n}問 — TOPIK I・II | チーズポテト`,
       lead: 'TOPIK I・IIの読解を形式別に練習できます。各問題に正解と解説があります。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
       desc: (n) => `TOPIK I・II 読解の形式別練習問題${n}問。正解と解説つき。過去問ではないオリジナル問題です。`,
-      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['すぐ採点', '選ぶと正解・解説'], ['模試', '時間を計って回ごとに'], ['1日10問', 'ログインなしで']], go: '📖 読解練習をはじめる' },
+      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['すぐ採点', '選ぶと正解・解説'], ['模試', '時間を計って回ごとに'], ['1日10問', 'ログインなしで']], go: '読解練習をはじめる' },
     listening: { name: 'TOPIK 聞取り', h1: (n) => `TOPIK 聞取り練習問題 ${n}問`, title: (n) => `TOPIK 聞取り練習問題${n}問 — TOPIK I・II | チーズポテト`,
       lead: 'TOPIK I・IIの聞取りを形式別に練習できます。台本・正解・解説つき。<br><b>過去問ではなく、同じ形式で新しく作ったオリジナル問題です。</b>',
       desc: (n) => `TOPIK I・II 聞取りの形式別練習問題${n}問。台本・正解・解説つき。過去問ではないオリジナル問題です。`,
-      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['台本', '答えを選んだあとに表示'], ['音声', '聞きながらすぐ解く'], ['1日10問', 'ログインなしで']], go: '🎧 聞取り練習をはじめる' } },
+      why: (n) => [[`${n}問`, 'TOPIK I・II 形式別'], ['台本', '答えを選んだあとに表示'], ['音声', '聞きながらすぐ解く'], ['1日10問', 'ログインなしで']], go: '聞取り練習をはじめる' } },
 };
 /* 영어 모음 쪽 /en/topik-writing/ … (운영자 2026-10-11 「TOPIK 쪽 노출 더 늘리자」) — Search Console: 「topik 쓰기 연습 문제」 같은 TOPIK 검색은 클릭률이 17~26% 인데 노출이 아주 적다.
    세계에서 TOPIK 을 찾는 사람 대부분이 영어로 찾는다 — 한국어 모음 쪽만 있던 자리에 영어 제목 · 소개를 둔다(문항 목록은 같은 것). */
-HUB_L.en = { home: 'Home', lt: '🧭 Find my TOPIK level in 3 minutes', note: 'Question type names are shown in Korean (with English), exactly as on the exam. Pick a question to see the answer and explanation.',
+HUB_L.en = { home: 'Home', lt: 'Find my TOPIK level in 3 minutes', note: 'Question type names are shown in Korean (with English), exactly as on the exam. Pick a question to see the answer and explanation.',
   writing: { name: 'TOPIK Writing', h1: (n) => `TOPIK II Writing Practice — ${n} Questions (Q51–54) with Model Answers`, title: (n) => `TOPIK II Writing Practice: ${n} Questions (51–54) with Model Answers | CheesePotato`,
     lead: 'Practice questions in the exact format of TOPIK II writing questions 51–54 — notice blanks, explanatory-text blanks, describing data, and the essay. Every question has a model answer, scoring points and the common reasons points are lost.<br><b>Original questions, not past papers — written to match the real format.</b>',
     desc: (n) => `${n} TOPIK II writing practice questions for Q51–54, each with a model answer, scoring criteria and common point deductions. Original questions, not past papers. Free.`,
-    why: (n) => [[`${n} questions`, 'Q51–54, exact format'], ['AI scoring', 'Free: 2 a day (sign in)'], ['Model answers', 'Scoring points · common mistakes'], ['Browse free', 'Practise right in your browser']], go: '✍️ Write one and get an AI score' },
+    why: (n) => [[`${n} questions`, 'Q51–54, exact format'], ['AI scoring', 'AI scoring is a Pro feature'], ['Model answers', 'Scoring points · common mistakes'], ['Browse free', 'Practise right in your browser']], go: 'Write one and get an AI score' },
   reading: { name: 'TOPIK Reading', h1: (n) => `TOPIK Reading Practice — ${n} Questions (TOPIK I & II)`, title: (n) => `TOPIK Reading Practice: ${n} Questions with Answers (TOPIK I & II) | CheesePotato`,
     lead: 'TOPIK I and II reading questions by type, each with the answer and an explanation. A wrong answer tells you why right away.<br><b>Original questions, not past papers — written to match the real format.</b>',
     desc: (n) => `${n} TOPIK I and II reading practice questions by type, with answers and explanations. Original questions, not past papers. Free.`,
-    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Instant check', 'Pick an answer → explanation'], ['Mock exams', 'Timed, round by round'], ['10 a day', 'No sign-up needed']], go: '📖 Start reading practice' },
+    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Instant check', 'Pick an answer → explanation'], ['Mock exams', 'Timed, round by round'], ['10 a day', 'No sign-up needed']], go: 'Start reading practice' },
   listening: { name: 'TOPIK Listening', h1: (n) => `TOPIK Listening Practice — ${n} Questions with Transcripts`, title: (n) => `TOPIK Listening Practice: ${n} Questions with Transcripts (TOPIK I & II) | CheesePotato`,
     lead: 'TOPIK I and II listening questions by type, with transcripts, answers and explanations.<br><b>Original questions, not past papers — written to match the real format.</b>',
     desc: (n) => `${n} TOPIK I and II listening practice questions by type, with transcripts, answers and explanations. Original questions, not past papers. Free.`,
-    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Transcripts', 'Shown after you answer'], ['Audio', 'Listen and answer on the spot'], ['10 a day', 'No sign-up needed']], go: '🎧 Start listening practice' } };
+    why: (n) => [[`${n} questions`, 'TOPIK I & II by type'], ['Transcripts', 'Shown after you answer'], ['Audio', 'Listen and answer on the spot'], ['10 a day', 'No sign-up needed']], go: 'Start listening practice' } };
 const HUB_KIND = { writing: '/topik-writing/', reading: '/topik-reading/', listening: '/topik-listening/' };
 function hubHreflang(url) {
   return '\n' + [['ko', url], ['en', `/en${url}`], ['vi', `/vi${url}`], ['ja', `/ja${url}`], ['x-default', `/en${url}`]]
