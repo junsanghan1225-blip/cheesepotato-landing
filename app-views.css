@@ -6284,10 +6284,11 @@ a.lt-chip:hover { border-color:var(--orange); }
 .blk-keys { font-size:13px !important; color:var(--ink-3) !important; margin-top:12px !important; }
 .blk-wait { text-align:center; color:var(--ink-2); padding:40px 0; }
 
-.blk-top { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.blk-top { display:flex; align-items:center; gap:6px; margin-bottom:8px; }
 .blk-score { font-size:26px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; min-width:60px; }
 .blk-stage { flex:1; font-size:13px; font-weight:700; color:var(--ink-3); }
-.blk-snd { background:none; border:1px solid var(--line); border-radius:8px; padding:5px 10px; cursor:pointer; font-size:16px; }
+.blk-snd { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:6px 9px; cursor:pointer; font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap; }
+.blk-snd.off { color:var(--ink-3); text-decoration:line-through; }
 .blk-board {
   position:relative; overflow:hidden; height:clamp(260px, calc(100svh - 360px), 460px);
   border-radius:var(--r-l); border:2px solid var(--line);
@@ -6335,7 +6336,7 @@ a.lt-chip:hover { border-color:var(--orange); }
 .blk-miss li:first-child { border-top:none; }
 .blk-miss b { font-size:16px; }
 .blk-miss span { color:var(--ink-2); font-size:14px; }
-.blk-say { background:none; border:none; cursor:pointer; font-size:16px; padding:0; }
+.blk-say { background:none; border:none; cursor:pointer; font-size:13px; font-weight:700; text-decoration:underline; color:var(--ink-2); padding:0; }
 .blk-end-btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
 /* 재미 요소(운영자 2026-10-07 「게임 같은 재미」) — 품사 색 · 콤보 · 피버 · 폭탄 · 터짐 · 흔들림 · 위험 · 등급.
    움직임을 꺼 둔 사람(prefers-reduced-motion)에게는 흔들림 · 조각을 안 보인다(word-blocks.js calm). */
@@ -6366,7 +6367,7 @@ a.lt-chip:hover { border-color:var(--orange); }
 .blk-combo.on { color:var(--orange); animation:blkBeat .5s; }
 .blk-combo.fever { color:#E2362B; } .blk-combo.fever i { background:linear-gradient(90deg, #FF5A3C, #FFB21E); animation:blkBeat .6s infinite; }
 @keyframes blkBeat { 50% { transform:scale(1.12); } }
-.blk-bomb { display:flex; align-items:center; gap:3px; border:1.5px solid var(--line); background:var(--surface); border-radius:8px; padding:4px 10px; font-size:16px; cursor:pointer; color:var(--ink); }
+.blk-bomb { display:flex; align-items:center; gap:5px; border:1.5px solid var(--line); background:var(--surface); border-radius:8px; padding:6px 10px; font-size:13px; font-weight:700; white-space:nowrap; cursor:pointer; color:var(--ink); }
 .blk-bomb b { font-size:13px; }
 .blk-bomb:not(:disabled) { border-color:#E2362B; background:#FFF0EC; animation:blkBeat 1.2s infinite; }
 .blk-bomb:disabled { opacity:.45; cursor:default; }
@@ -6497,6 +6498,7 @@ a.lt-chip:hover { border-color:var(--orange); }
 .chs-other { margin:0 0 4px; font-size:13px; color:var(--ink-2); }
 .chs-word { background:none; border:none; cursor:pointer; font:inherit; color:var(--ink); padding:0 6px; }
 .chs-word b { font-size:26px; }
+.chs-word .chs-say { font-size:12px; font-weight:700; color:var(--ink-3); text-decoration:underline; }
 .chs-mean { display:block; color:var(--ink-2); font-size:15px; margin-top:2px; }
 .chs-form { display:flex; gap:8px; margin-top:12px; }
 .chs-form input { flex:1; min-width:0; font:inherit; font-size:20px; padding:12px 14px; border-radius:var(--r); border:2px solid var(--line); background:var(--surface); color:var(--ink); }

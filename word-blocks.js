@@ -206,10 +206,10 @@ async function blkStart() {
     <div class="blk-top">
       <div class="blk-sc"><span class="blk-score" id="blkScore">0</span><small id="blkBest"></small></div>
       <div class="blk-combo" id="blkCombo"></div>
-      <button type="button" class="blk-bomb" data-blk="hint" id="blkHint">💡<b id="blkHintN">${HINTS}</b></button>
-      <button type="button" class="blk-snd" data-blk="shuffle" aria-label="${esc(t('섞기', 'Shuffle'))}">🔀</button>
-      <button type="button" class="blk-snd" data-blk="pause" aria-label="${esc(t('멈춤', 'Pause'))}">⏸</button>
-      <button type="button" class="blk-snd" data-blk="sound" aria-pressed="${G.sound}">${G.sound ? '🔊' : '🔇'}</button>
+      <button type="button" class="blk-bomb" data-blk="hint" id="blkHint">${esc(t('힌트', 'Hint'))}<b id="blkHintN">${HINTS}</b></button>
+      <button type="button" class="blk-snd" data-blk="shuffle" aria-label="${esc(t('섞기', 'Shuffle'))}">${esc(t('섞기', 'Shuffle'))}</button>
+      <button type="button" class="blk-snd" data-blk="pause" aria-label="${esc(t('멈춤', 'Pause'))}">${esc(t('멈춤', 'Pause'))}</button>
+      <button type="button" class="blk-snd${G.sound ? '' : ' off'}" data-blk="sound" aria-pressed="${G.sound}">${esc(t('소리', 'Sound'))}</button>
     </div>
     <div class="pot-time"><i id="potBar"></i><span id="potTime"></span></div>
     <div class="pot-board" id="blkBoard" style="--cols:${cols};--rows:${rows}">
@@ -266,7 +266,7 @@ function potShuffle(free) {
     G.cells = shuffle(G.cells);
     if (potMoves().length) break;
   }
-  if (!free) { G.left = Math.max(1, G.left - SHUFFLE_COST); blkBanner(D.t(`🔀 섞기 −${SHUFFLE_COST}초`, `🔀 Shuffle −${SHUFFLE_COST}s`), 'boom', 700); }
+  if (!free) { G.left = Math.max(1, G.left - SHUFFLE_COST); blkBanner(D.t(`섞기 −${SHUFFLE_COST}초`, `Shuffle −${SHUFFLE_COST}s`), 'boom', 700); }
   sfx.shuffle();
   potDraw(true); blkMeta();
 }
@@ -275,7 +275,7 @@ function blkMeta() {
   const { t, esc } = D;
   if (!$('blkBoard') || !$('blkScore')) return;   // 판이 사라진 뒤(게임을 나감)에 불리면 그냥 둔다 — Clarity 「null is not an object」
   $('blkScore').textContent = String(G.score);
-  $('blkBest').textContent = G.best ? (G.beat ? t('🏆 신기록 중!', '🏆 New record!') : t(`최고 ${G.best}`, `Best ${G.best}`)) : '';
+  $('blkBest').textContent = G.best ? (G.beat ? t('신기록 중!', 'New record!') : t(`최고 ${G.best}`, `Best ${G.best}`)) : '';
   const m = mult(G.combo);
   const cb = $('blkCombo');
   cb.className = `blk-combo${G.combo >= 2 ? ' on' : ''}${m === 4 ? ' fever' : ''}`;
@@ -362,14 +362,14 @@ function potPop(a, b) {
   blkToast(`${w.h} = ${mean(w)}`, 'ok');
   els.forEach((el) => el?.classList.add('gone'));
   G.cells[a] = null; G.cells[b] = null;
-  if (G.combo === 5) blkBanner(D.t('🔥 콤보 5! 점수 3배', '🔥 Combo 5! 3× points'), 'fever', 900);
-  if (G.best && !G.beat && G.score > G.best) { G.beat = true; blkBanner(D.t('🏆 최고 기록 돌파!', '🏆 New best score!'), 'up'); }
+  if (G.combo === 5) blkBanner(D.t('콤보 5! 점수 3배', 'Combo 5! 3× points'), 'fever', 900);
+  if (G.best && !G.beat && G.score > G.best) { G.beat = true; blkBanner(D.t('최고 기록 돌파!', 'New best score!'), 'up'); }
   blkMeta();
   setTimeout(() => {
     if (!G || G.over) return;
     if (G.cells.every((c) => !c)) {
       G.left += CLEAR_BONUS; G.score += 50;
-      sfx.clear(); blkBanner(D.t(`🥔 다 캤다! +${CLEAR_BONUS}초 · +50`, `🥔 Cleared! +${CLEAR_BONUS}s · +50`), 'up', 1100);
+      sfx.clear(); blkBanner(D.t(`다 캤다! +${CLEAR_BONUS}초 · +50`, `Cleared! +${CLEAR_BONUS}s · +50`), 'up', 1100);
       setTimeout(() => { if (G && !G.over) { potDeal(); blkMeta(); } }, 700);
       return;
     }
@@ -443,17 +443,17 @@ function blkPause() {
   if (!G || G.over || G.hold && !G.paused) return;
   const { t, esc } = D;
   G.paused = !G.paused;
-  if (G.paused) $('blkBoard').insertAdjacentHTML('beforeend', `<div class="blk-paused"><b>⏸ ${esc(t('잠깐 멈춤', 'Paused'))}</b><button type="button" class="pt-next" data-blk="pause">${esc(t('▶ 이어서 하기', '▶ Resume'))}</button></div>`);
+  if (G.paused) $('blkBoard').insertAdjacentHTML('beforeend', `<div class="blk-paused"><b>${esc(t('잠깐 멈춤', 'Paused'))}</b><button type="button" class="pt-next" data-blk="pause">${esc(t('이어서 하기', 'Resume'))}</button></div>`);
   else document.querySelector('.blk-paused')?.remove();
 }
 
 /* 등급 — 캔 짝 수와 정확도. */
 function blkGrade() {
   const acc = G.tries ? G.pairs / G.tries : 0;
-  if (G.pairs >= 30 && acc >= 0.9) return ['S', '🏆'];
-  if (G.pairs >= 20 && acc >= 0.8) return ['A', '🥇'];
-  if (G.pairs >= 10 && acc >= 0.65) return ['B', '🥈'];
-  return ['C', '🥉'];
+  if (G.pairs >= 30 && acc >= 0.9) return ['S', ''];
+  if (G.pairs >= 20 && acc >= 0.8) return ['A', ''];
+  if (G.pairs >= 10 && acc >= 0.65) return ['B', ''];
+  return ['C', ''];
 }
 
 function blkOver() {
@@ -470,22 +470,22 @@ function blkOver() {
   D.root.innerHTML = `
     <div class="blk-end">
       ${rec ? `<div class="blk-confetti" aria-hidden="true">${Array.from({ length: 40 }, (_, i) => `<s style="left:${(i * 37) % 100}%;--d:${(i % 7) * 0.15}s;--c:${i % 5}"></s>`).join('')}</div>` : ''}
-      <p class="pot-end-h">⏰ ${esc(t('시간 끝!', 'Time’s up!'))}</p>
-      <div class="blk-grade g-${gr}"><span>${gi}</span><b>${gr}</b></div>
+      <p class="pot-end-h">${esc(t('시간 끝!', 'Time’s up!'))}</p>
+      <div class="blk-grade g-${gr}"><b>${gr}</b></div>
       <div class="blk-end-score"><b id="blkEndN">0</b><span>${esc(t('점', 'pts'))}</span></div>
-      <p class="blk-end-sub">${rec ? esc(t('🏆 새 최고 기록!', '🏆 New best!')) : had ? esc(t(`최고 ${had}점`, `Best ${had}`)) : ''}</p>
+      <p class="blk-end-sub">${rec ? esc(t('새 최고 기록!', 'New best!')) : had ? esc(t(`최고 ${had}점`, `Best ${had}`)) : ''}</p>
       <div class="blk-stats">
         <div><b>${G.pairs}</b><small>${esc(t('캔 감자 짝', 'Pairs'))}</small></div>
         <div><b>${acc}%</b><small>${esc(t('정확도', 'Accuracy'))}</small></div>
         <div><b>${G.maxCombo}</b><small>${esc(t('최대 콤보', 'Best combo'))}</small></div>
-        <div><b>${G.boards - 1}</b><small>${esc(t('🥔 다 캔 판', '🥔 Boards'))}</small></div>
+        <div><b>${G.boards - 1}</b><small>${esc(t('다 캔 판', 'Boards'))}</small></div>
       </div>
       ${miss.length ? `
       <h3>${esc(t(`다시 볼 낱말 ${miss.length}개`, `${miss.length} words to review`))}</h3>
-      <ul class="blk-miss">${miss.map((w) => `<li><button type="button" class="blk-say" data-blk-say="${esc(w.h)}" aria-label="${esc(t('듣기', 'Listen'))}">🔊</button><b>${esc(w.h)}</b><span>${esc(mean(w))}</span></li>`).join('')}</ul>
-      <button type="button" class="pt-next" data-blk="save">${esc(t('📒 내 단어장에 모두 담기', '📒 Save all to my wordbook'))}</button>` : `<p>${esc(t('틀린 짝이 없어요. 대단해요!', 'No wrong pairs. Amazing!'))}</p>`}
+      <ul class="blk-miss">${miss.map((w) => `<li><button type="button" class="blk-say" data-blk-say="${esc(w.h)}" aria-label="${esc(t('듣기', 'Listen'))}">${esc(t('듣기', 'Listen'))}</button><b>${esc(w.h)}</b><span>${esc(mean(w))}</span></li>`).join('')}</ul>
+      <button type="button" class="pt-next" data-blk="save">${esc(t('내 단어장에 모두 담기', 'Save all to my wordbook'))}</button>` : `<p>${esc(t('틀린 짝이 없어요. 대단해요!', 'No wrong pairs. Amazing!'))}</p>`}
       <div class="blk-end-btns">
-        <button type="button" class="pt-next" data-blk="start">${esc(t('🔁 한 판 더', '🔁 Play again'))}</button>
+        <button type="button" class="pt-next" data-blk="start">${esc(t('한 판 더', 'Play again'))}</button>
         <button type="button" class="pt-next blk-ghost" data-blk="setup">${esc(t('난이도 바꾸기', 'Change level'))}</button>
       </div>
     </div>`;
@@ -539,7 +539,7 @@ export function blkBind(root) {
     else if (a === 'hint') potHint();
     else if (a === 'shuffle' && G && !G.over && !G.hold) potShuffle(false);
     else if (a === 'pause') blkPause();
-    else if (a === 'sound' && G) { G.sound = !G.sound; write(SOUND_KEY, G.sound ? 'on' : 'off'); b.textContent = G.sound ? '🔊' : '🔇'; b.setAttribute('aria-pressed', G.sound); }
+    else if (a === 'sound' && G) { G.sound = !G.sound; write(SOUND_KEY, G.sound ? 'on' : 'off'); b.classList.toggle('off', !G.sound); b.setAttribute('aria-pressed', G.sound); }
     else if (a === 'save' && G) {
       D.save([...G.missed.values()].map((w) => ({ word: w.h, meaning: mean(w), tag: w.p || null, vocab_id: w.i || w.h, source: 'blocks' })), b);
     }
