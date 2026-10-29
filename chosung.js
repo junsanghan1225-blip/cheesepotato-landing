@@ -62,8 +62,8 @@ export function chsSetup() {
       <div class="blk-lvs" role="radiogroup" aria-label="${esc(t('난이도', 'Level'))}">
         ${LEVELS.map((L) => `<button type="button" role="radio" class="blk-lv${L.id === lv ? ' on' : ''}" aria-checked="${L.id === lv}" data-chs-lv="${L.id}"><b>${esc(t(L.ko, L.en))}</b><small>${esc(t(L.dko, L.den))}</small></button>`).join('')}
       </div>
-      <button type="button" class="pt-next blk-go" data-chs="start">${esc(t('▶ 시작하기', '▶ Start'))}</button>
-      <p class="blk-keys">${esc(t('한국어 자판이 필요해요 · 같은 초성의 다른 낱말도 정답', 'You need a Korean keyboard · other words with the same initials count too'))}${best ? ` · ${esc(t(`🏆 최고 ${best}점`, `🏆 Best ${best}`))}` : ''}</p>
+      <button type="button" class="pt-next blk-go" data-chs="start">${esc(t('시작하기', 'Start'))}</button>
+      <p class="blk-keys">${esc(t('한국어 자판이 필요해요 · 같은 초성의 다른 낱말도 정답', 'You need a Korean keyboard · other words with the same initials count too'))}${best ? ` · ${esc(t(`최고 ${best}점`, `Best ${best}`))}` : ''}</p>
     </div>`;
 }
 
@@ -116,9 +116,9 @@ function chsNext() {
   G.done = false; G.hint = 0; G.t0 = performance.now();
   $('chsTiles').innerHTML = [...initials(w.h)].map((c, k) => `<span style="--d:${k * 70}ms">${c}</span>`).join('');
   $('chsPos').textContent = t(`${w.p || ''} · ${w.h.length}글자`, `${w.p || ''} · ${w.h.length} syllables`);
-  $('chsH1').innerHTML = `<small>${esc(t('뜻', 'Meaning'))}</small><b>${G.lv.mean === 0 ? esc(mean(w)) : '🔒'}</b>`;
+  $('chsH1').innerHTML = `<small>${esc(t('뜻', 'Meaning'))}</small><b>${G.lv.mean === 0 ? esc(mean(w)) : '?'}</b>`;
   $('chsH1').classList.toggle('open', G.lv.mean === 0);
-  $('chsH2').innerHTML = `<small>${esc(t('첫 글자', 'First syllable'))}</small><b>🔒</b>`;
+  $('chsH2').innerHTML = `<small>${esc(t('첫 글자', 'First syllable'))}</small><b>?</b>`;
   $('chsH2').classList.remove('open');
   if (G.lv.mean === 0) G.hint = 1;
   $('chsRes').classList.add('hidden');
@@ -170,7 +170,7 @@ function chsReveal(ok, ans) {
   const other = ok && ans !== w.h;
   $('chsRes').innerHTML = `${ok ? `<p class="chs-ok">${esc(t(`정답! +${pts}`, `Correct! +${pts}`))}</p>` : `<p class="chs-no">${esc(t('아쉬워요', 'So close'))}</p>`}
     ${other ? `<p class="chs-other">${esc(t(`「${ans}」도 정답 — 원래 답은`, `“${ans}” works too — the planned word was`))}</p>` : ''}
-    <button type="button" class="chs-word" data-chs-say="${esc(w.h)}"><b>${esc(w.h)}</b> 🔊</button><span class="chs-mean">${esc(mean(w))}</span>`;
+    <button type="button" class="chs-word" data-chs-say="${esc(w.h)}"><b>${esc(w.h)}</b> <small class="chs-say">${esc(t('듣기', 'Listen'))}</small></button><span class="chs-mean">${esc(mean(w))}</span>`;
   $('chsRes').classList.remove('hidden');
   $('chsIn').disabled = true; $('chsForm').classList.remove('bad');
   $('chsSkip').classList.add('hidden'); $('chsNext').classList.remove('hidden');
@@ -189,11 +189,11 @@ function chsOver() {
     <div class="blk-end">
       <p class="pot-end-h">${esc(t(`${G.qs.length}문제 중 ${G.right}개`, `${G.right} of ${G.qs.length}`))}</p>
       <div class="blk-end-score"><b>${G.score}</b><span>${esc(t('점', 'pts'))}</span></div>
-      <p class="blk-end-sub">${rec ? esc(t('🏆 새 최고 기록!', '🏆 New best!')) : had ? esc(t(`최고 ${had}점`, `Best ${had}`)) : ''}</p>
-      <ul class="blk-miss">${G.log.map(({ w, ok }) => `<li><button type="button" class="blk-say" data-chs-say="${esc(w.h)}" aria-label="${esc(t('듣기', 'Listen'))}">🔊</button><span class="chs-ini">${initials(w.h)}</span><b>${esc(w.h)}</b><span>${esc(mean(w))}</span><i>${ok ? '✅' : '❌'}</i></li>`).join('')}</ul>
-      ${G.missed.length ? `<button type="button" class="pt-next" data-chs="save">${esc(t(`📒 못 맞힌 ${G.missed.length}개 단어장에 담기`, `📒 Save ${G.missed.length} missed words`))}</button>` : ''}
+      <p class="blk-end-sub">${rec ? esc(t('새 최고 기록!', 'New best!')) : had ? esc(t(`최고 ${had}점`, `Best ${had}`)) : ''}</p>
+      <ul class="blk-miss">${G.log.map(({ w, ok }) => `<li><button type="button" class="blk-say" data-chs-say="${esc(w.h)}" aria-label="${esc(t('듣기', 'Listen'))}">${esc(t('듣기', 'Listen'))}</button><span class="chs-ini">${initials(w.h)}</span><b>${esc(w.h)}</b><span>${esc(mean(w))}</span><i>${ok ? '✅' : '❌'}</i></li>`).join('')}</ul>
+      ${G.missed.length ? `<button type="button" class="pt-next" data-chs="save">${esc(t(`못 맞힌 ${G.missed.length}개 단어장에 담기`, `Save ${G.missed.length} missed words`))}</button>` : ''}
       <div class="blk-end-btns">
-        <button type="button" class="pt-next" data-chs="start">${esc(t('🔁 한 판 더', '🔁 Play again'))}</button>
+        <button type="button" class="pt-next" data-chs="start">${esc(t('한 판 더', 'Play again'))}</button>
         <button type="button" class="pt-next blk-ghost" data-chs="setup">${esc(t('난이도 바꾸기', 'Change level'))}</button>
       </div>
     </div>`;

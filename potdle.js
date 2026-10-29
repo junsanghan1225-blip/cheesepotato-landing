@@ -99,7 +99,7 @@ function pdlDraw() {
   const st = read(STATS_KEY, { played: 0, wins: 0, streak: 0, best: 0, dist: [0, 0, 0, 0, 0, 0] });
   D.root.innerHTML = `
     <div class="pdl-head">
-      <h2>🥔 ${esc(G.practice ? t('오늘의 감자들 · 연습', 'Potato Wordle · practice') : t(`오늘의 감자들 #${G.day}`, `Potato Wordle #${G.day}`))}</h2>
+      <h2>${esc(G.practice ? t('오늘의 감자들 · 연습', 'Potato Wordle · practice') : t(`오늘의 감자들 #${G.day}`, `Potato Wordle #${G.day}`))}</h2>
       <p>${esc(t('두 글자 낱말을 자모 다섯 개로 맞혀요 · 6번 기회', 'Guess the 2-syllable word in 5 jamo · 6 tries'))}</p>
       <p class="pdl-legend"><span class="pdl-c g">ㄱ</span>${esc(t('자리까지 맞음', 'right spot'))} <span class="pdl-c y">ㅏ</span>${esc(t('있지만 다른 자리', 'in the word'))} <span class="pdl-c x">ㅎ</span>${esc(t('없음', 'not in it'))}</p>
     </div>
@@ -115,16 +115,16 @@ function pdlEnd(st) {
   const n = G.rows.length;
   const dist = st.dist.map((v, i) => `<div class="pdl-bar"><span>${i + 1}</span><i style="width:${Math.max(6, (v / Math.max(1, ...st.dist)) * 100)}%"${G.win && i + 1 === n && !G.practice ? ' class="me"' : ''}>${v}</i></div>`).join('');
   return `<div class="pdl-end">
-    <p class="pdl-res">${G.win ? esc(t(`🎉 ${n}번 만에 맞혔어요!`, `🎉 Got it in ${n}!`)) : esc(t('아쉬워요 — 정답은', 'So close — the word was'))}</p>
-    <button type="button" class="chs-word" data-pdl-say="${esc(G.w.h)}"><b>${esc(G.w.h)}</b> 🔊</button><span class="chs-mean">${esc(mean(G.w))}</span>
+    <p class="pdl-res">${G.win ? esc(t(`${n}번 만에 맞혔어요!`, `Got it in ${n}!`)) : esc(t('아쉬워요 — 정답은', 'So close — the word was'))}</p>
+    <button type="button" class="chs-word" data-pdl-say="${esc(G.w.h)}"><b>${esc(G.w.h)}</b> <small class="chs-say">${esc(t('듣기', 'Listen'))}</small></button><span class="chs-mean">${esc(mean(G.w))}</span>
     <div class="pdl-share">
-      <button type="button" class="pt-next" data-pdl="share">${esc(t('📤 결과 공유하기', '📤 Share result'))}</button>
-      <button type="button" class="pt-next blk-ghost" data-pdl="save">${esc(t('📒 단어장에 담기', '📒 Save word'))}</button>
+      <button type="button" class="pt-next" data-pdl="share">${esc(t('결과 공유하기', 'Share result'))}</button>
+      <button type="button" class="pt-next blk-ghost" data-pdl="save">${esc(t('단어장에 담기', 'Save word'))}</button>
     </div>
     ${G.practice ? '' : `<div class="pdl-stats"><div><b>${st.played}</b><small>${esc(t('플레이', 'Played'))}</small></div><div><b>${st.played ? Math.round((st.wins / st.played) * 100) : 0}%</b><small>${esc(t('성공', 'Win %'))}</small></div><div><b>${st.streak}</b><small>${esc(t('연속', 'Streak'))}</small></div><div><b>${st.best}</b><small>${esc(t('최고 연속', 'Max'))}</small></div></div>
     <div class="pdl-dist">${dist}</div>
     <p class="pdl-next">${esc(t('다음 감자는 한국 시간 자정에 나와요', 'A new potato drops at midnight Korea time'))}</p>`}
-    <button type="button" class="pt-next blk-ghost" data-pdl="practice">${esc(t('🔁 연습 한 판(무작위 낱말)', '🔁 Practice round (random word)'))}</button>
+    <button type="button" class="pt-next blk-ghost" data-pdl="practice">${esc(t('연습 한 판(무작위 낱말)', 'Practice round (random word)'))}</button>
   </div>`;
 }
 

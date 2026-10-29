@@ -556,10 +556,10 @@ export function wordsInit(D) {
     let best = 0; try { best = parseInt(localStorage.getItem('cp_pot_best') || '0', 10) || 0; } catch (e) {}
     return `<button type="button" class="wd-pot" data-act="hgame" data-k="blocks">
       <span class="wd-pot-art" aria-hidden="true"><i class="ko">사과</i><i class="en">apple</i><i class="ko">학교</i></span>
-      <span class="wd-pot-txt"><small>${esc(t('🎮 오늘의 게임', '🎮 Game of the day'))}</small><b>${esc(t('단어 감자', 'Word potatoes'))}</b>
+      <span class="wd-pot-txt"><small>${esc(t('오늘의 게임', 'Game of the day'))}</small><b>${esc(t('단어 감자', 'Word potatoes'))}</b>
         <span>${esc(t('낱말 감자와 뜻 감자를 네모로 묶어 캐요 · 2분', 'Box a word potato with its meaning · 2 minutes'))}</span>
-        ${best ? `<em>${esc(t(`🏆 내 최고 ${best}점`, `🏆 My best ${best}`))}</em>` : ''}</span>
-      <span class="wd-pot-go">${esc(t('▶ 바로 하기', '▶ Play'))}</span>
+        ${best ? `<em>${esc(t(`내 최고 ${best}점`, `My best ${best}`))}</em>` : ''}</span>
+      <span class="wd-pot-go">${esc(t('바로 하기', 'Play'))}</span>
     </button>`;
   }
   function homeGames() {
