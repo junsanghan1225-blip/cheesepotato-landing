@@ -394,6 +394,7 @@ function pointPage(cat, p, prev, next) {
        직접 문장을 써 보는 곳은 앱이다. */
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
+    bookSteps(['particles-workbook', 'first-steps-workbook'], '이 표현을 연습하고 나서 · 책으로 이어서 (Next step: the workbooks)', 'sentence'),
     WS_SET.has(p.id) ? `<a class="cta" href="/worksheet/${esc(p.id)}.html">인쇄용 학습지 받기 · 연습 + 정답<span>Free printable worksheet (PDF) for ${esc(p.name)}</span></a>` : '',
     `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
       `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
@@ -878,10 +879,10 @@ const hubNext = (skip, n = 6) => '<h2>치즈감자에서 함께 · Also free her
 
 /* 글 쪽 아래 「다음 걸음」 책 안내(운영자 2026-10-28 「글 쪽에 다음 걸음 넣어줘」 — 글 쪽은 평균 11~48초만 머물고 책 · 앱으로 이어지지 않았다). 책 이름 · 가격은 docs/shop.json 에서 가져와 어긋나지 않게 한다. */
 const SHOPJ = JSON.parse(readFileSync(join(ROOT, 'docs/shop.json'), 'utf8'));
-const bookSteps = (ids, head) => `<h2>${head}</h2>` + ids.map((id) => {
+const bookSteps = (ids, head, from = '') => `<h2>${head}</h2>` + ids.map((id) => {
   const b = SHOPJ.books.find((x) => x.id === id);
   if (!b) throw new Error('shop.json 에 없는 책: ' + id);
-  return `<a class="bkbox" href="/shop/${id}/?utm_source=hub&amp;utm_medium=page"><span><b>${esc(b.title.en)}</b><small>${esc(b.sub.en)} · PDF $${esc(b.price)}<br>${esc(b.sub.ko || '')}</small><em>책 보기 · See the book →</em></span></a>`;
+  return `<a class="bkbox" href="/shop/${id}/?utm_source=hub&amp;utm_medium=page${from ? `&amp;utm_content=${from}` : ''}"><span><b>${esc(b.title.en)}</b><small>${esc(b.sub.en)} · PDF $${esc(b.price)}<br>${esc(b.sub.ko || '')}</small><em>책 보기 · See the book →</em></span></a>`;
 }).join('');
 const twBook = () => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '쓰고 나서 · 책으로 이어서 (Next step: the books)');
 
@@ -1496,6 +1497,7 @@ function vocabPage(w, prev, next) {
       conj.map(([k, v]) => `<div><b>${esc(v)}</b><span title="${esc(CONJ_NAME[k][1])}">${CONJ_NAME[k][0]}</span></div>`).join('') + '</div>' : '',
     quiz,
     LT_CTA,
+    bookSteps([isT2(w) ? 'topik2-vocab-1000' : 'topik1-vocab'], `이 낱말을 공부했다면 · 책으로 이어서 (Next step: the ${isT2(w) ? 'TOPIK II' : 'TOPIK I'} vocabulary book)`, 'dict'),
     same.length ? `<h2>같은 주제 낱말 <small>More ${esc(tpName?.en || '')} words</small></h2><ul class="pts">` +
       same.map((x) => `<li><a href="${dictHref(x.h)}">${esc(x.h)}</a></li>`).join('') + '</ul>' +
       (tp ? `<p class="note"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 · All ${esc(tp.en)} words →</a></p>` : '') : '',
