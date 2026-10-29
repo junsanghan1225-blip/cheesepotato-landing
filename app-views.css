@@ -7741,3 +7741,9 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .bkbox b { display:block; font-size:15px; }
 .bkbox small { display:block; color:var(--ink-3); font-size:13px; line-height:1.6; margin-top:3px; }
 .bkbox em { font-style:normal; font-weight:700; font-size:13px; margin-top:6px; display:block; }
+
+/* 선물 링크로 왔는데 로그인 전 — 아래에 한 줄 */
+.bk-hint { position:fixed; left:12px; right:12px; bottom:14px; z-index:1500; display:flex; align-items:center; gap:10px; max-width:560px; margin:0 auto; padding:12px 14px; border:1px solid var(--ink); border-radius:8px; background:var(--surface); color:var(--ink); font-size:14px; line-height:1.5; box-shadow:0 2px 10px rgba(0,0,0,.14); }
+.bk-hint span { flex:1; word-break:keep-all; }
+.bk-hint-go { flex:none; padding:8px 14px; border:0; border-radius:8px; background:var(--ink); color:var(--bg); font:inherit; font-weight:700; cursor:pointer; }
+.bk-hint-x { flex:none; border:0; background:none; color:var(--ink-3); font-size:16px; cursor:pointer; }
