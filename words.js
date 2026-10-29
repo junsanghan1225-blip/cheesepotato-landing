@@ -499,7 +499,12 @@ export function wordsInit(D) {
     const hr = new Date().getHours();
     const hello = hr < 5 || hr >= 18 ? t('좋은 저녁이에요!', 'Good evening!') : hr < 12 ? t('좋은 아침이에요!', 'Good morning!') : t('좋은 오후예요!', 'Good afternoon!');
     const dueLine = d.length ? `<button type="button" class="wd-due" data-act="review"><span>${esc(t('① 오늘 복습', '① Review today'))}</span><b>${caps().rev && d.length > caps().rev ? caps().rev : d.length}${caps().rev && d.length > caps().rev ? `<small> / ${d.length}</small>` : ''}</b><em>${esc(t('먼저 하기 →', 'Do first →'))}</em></button>` : '';
-    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>${potHero()}${dueLine}</div>`;
+    if (!path) return `<div class="wd-today"><div class="wd-hello"><p class="wd-hello-k">${esc(hello)}</p></div>
+      <div class="wd-day wd-first"><span class="wd-day-k">${esc(t('처음이라면', 'New here?'))}</span>
+        <b class="wd-choose-t">${esc(t('쉬운 낱말 10개부터 바로 시작해요', 'Start with 10 easy words'))}</b>
+        <div class="wd-day-btns"><button type="button" class="wd-day-go" data-act="session" data-topic="gen" data-n="0">${esc(t('바로 시작', 'Start now'))}</button>
+          <button type="button" class="wd-more wd-path-x" data-act="pathchange">${esc(t('레벨테스트로 내 길 찾기', 'Find my path with the level test'))}</button></div></div>
+      ${dueLine}${potHero()}</div>`;
     const list = listFor(path.topic), ss = sessionsOf(path.topic), n = nextSession(path.topic);
     const ws = n == null ? [] : ss[n];
     const got = ws.filter((w) => learned(idOf(w))).length;
@@ -507,7 +512,6 @@ export function wordsInit(D) {
     const pathName = topicName(path.topic), doneAll = list.filter((x) => learned(idOf(x))).length;
     const tops = TOPICS.map((tp) => [tp, listFor(tp.id)]).filter(([, l]) => l.length).sort((a, b) => b[1].length - a[1].length).slice(0, 4);
     return `<div class="wd-today">
-      ${potHero()}
       <div class="wd-hello">
         <p class="wd-hello-k">${esc(hello)}</p>
         <p class="wd-hello-p">${esc(t('내 길', 'My path'))} <b>${esc(pathName)}</b><small> · ${doneAll.toLocaleString()} / ${list.length.toLocaleString()} ${esc(t('낱말', 'words'))}</small>
@@ -525,6 +529,7 @@ export function wordsInit(D) {
         </div>
         <div class="wd-day-rest">${ws.map((x) => `<button type="button" class="${learned(idOf(x)) ? 'ok' : x === w ? 'on' : ''}" data-word="${esc(x.h)}">${esc(x.h)}</button>`).join('')}</div>
       </div>` : `<div class="wd-day"><span class="wd-day-k">${esc(pathName)}</span><b class="wd-choose-t">${esc(t('이 길의 낱말을 다 봤어요!', 'You have seen every word on this path!'))}</b></div>`}
+      ${potHero()}
       <div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('둘러보기 — 주제', 'Explore — topics'))}</h3><button type="button" class="wd-more" data-tab="learn">${esc(t('모두 보기', 'See all'))}${ico('chev')}</button></div>
       <div class="wd-themes">${tops.map(([tp, l]) => {
         const g = l.filter((x) => learned(idOf(x))).length, [ic, h] = look(tp.id);
