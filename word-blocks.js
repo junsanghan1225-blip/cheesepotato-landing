@@ -23,6 +23,15 @@ const LEVELS = [
   { id: 'mid', ko: '보통', en: 'Medium', dko: '감자 L3~L5 · TOPIK I 낱말', den: 'Potato L3–L5 · TOPIK I words', v: [3, 5] },
   { id: 'hard', ko: '어려움', en: 'Hard', dko: '감자 L6~L7 · TOPIK II 낱말', den: 'Potato L6–L7 · TOPIK II words', v: [6, 7] },
 ];
+const MODE_KEY = 'cp_blk_mode', TOPIC_KEY = 'cp_blk_topic', TLV_KEY = 'cp_blk_tlv';
+/* 낱말 범위 세 갈래(운영자 2026-10-29 「TOPIK I 말고 주제 선택해서」) — 레벨별(예전 그대로) · 주제별(큰 주제 19개) · 내 단어장 */
+const MODES = [
+  { id: 'level', ko: '레벨별', en: 'By level' },
+  { id: 'topic', ko: '주제별', en: 'By topic' },
+  { id: 'mine', ko: '내 단어장', en: 'My words' },
+];
+const TLVS = [{ id: 'all', ko: '전체', en: 'All', v: [1, 7] }, ...LEVELS.map((L) => ({ id: L.id, ko: L.ko, en: L.en, v: L.v }))];
+const MINE_MIN = 20, POOL_MIN = 40, DISTINCT_MIN = 30;
 const mult = (c) => (c >= 8 ? 4 : c >= 5 ? 3 : c >= 3 ? 2 : 1);
 
 const read = (k, d) => { try { return localStorage.getItem(k) ?? d; } catch (e) { return d; } };
@@ -30,6 +39,17 @@ const write = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const mean = (w) => (w.s || w.e || '').split(/[;/(]/)[0].trim();
 const $ = (id) => document.getElementById(id);
+const playable = (w) => mean(w) && mean(w).length <= 14 && w.h.length <= 5;   // 감자에 들어가는 길이
+const distinct = (a) => new Set(a.map((w) => mean(w).toLowerCase())).size;
+const inTopic = (w, id) => (w.t || []).some((x) => x.split('/')[0] === id);
+const tlvOf = (id) => TLVS.find((x) => x.id === id) || TLVS[0];
+const topicPool = (words, id, tlv) => words.filter((w) => playable(w) && inTopic(w, id) && w.v >= tlv.v[0] && w.v <= tlv.v[1]);
+const modeOf = () => { const m = read(MODE_KEY, 'level'); return MODES.some((x) => x.id === m) ? m : 'level'; };
+/* 최고 점수는 갈래마다 따로 — 레벨별은 예전 키 그대로(기존 기록을 잃지 않는다) */
+const bestKeyOf = (mode, topic) => (mode === 'topic' ? `${BEST_KEY}_t_${topic}` : mode === 'mine' ? `${BEST_KEY}_mine` : BEST_KEY);
+let CACHE = null;      // { words(TOPIK I + II), topics } — 주제 갈래를 처음 열 때 한 번만 받는다
+const loadAll = async () => CACHE || (CACHE = { words: await D.vocab(true), topics: await D.topics() });
+let panelTok = 0;
 const calm = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let D = null;          // deps: { root, t, esc, say, save, track, vocab() }
@@ -69,8 +89,7 @@ export function blkStop() { if (tick) clearInterval(tick); tick = 0; if (G && !G
 export function blkSetup() {
   blkStop(); G = null;
   const { t, esc } = D;
-  const lv = read(LV_KEY, 'easy');
-  const best = parseInt(read(BEST_KEY, '0'), 10) || 0;
+  const mode = modeOf();
   D.root.innerHTML = `
     <div class="blk-intro">
       <div class="pot-demo" aria-hidden="true"><span class="pot ko"><b>사과</b></span><span class="pot en"><b>apple</b></span><span class="pot ko"><b>학교</b></span></div>
@@ -81,12 +100,75 @@ export function blkSetup() {
         <li><b>2</b>${esc(t('빨리 이어 맞히면 콤보 — 점수 2배 · 3배 · 4배', 'Quick chains = combo: 2× · 3× · 4× points'))}</li>
         <li><b>3</b>${esc(t('판을 다 비우면 +10초 · 틀린 짝은 −3초', 'Clear the board +10s · wrong pair −3s'))}</li>
       </ul>
-      <div class="blk-lvs" role="radiogroup" aria-label="${esc(t('난이도', 'Level'))}">
-        ${LEVELS.map((L) => `<button type="button" role="radio" class="blk-lv${L.id === lv ? ' on' : ''}" aria-checked="${L.id === lv}" data-blk-lv="${L.id}"><b>${esc(t(L.ko, L.en))}</b><small>${esc(t(L.dko, L.den))}</small></button>`).join('')}
+      <div class="blk-modes" role="tablist" aria-label="${esc(t('낱말 범위', 'Words'))}">
+        ${MODES.map((m) => `<button type="button" role="tab" class="blk-mode${m.id === mode ? ' on' : ''}" aria-selected="${m.id === mode}" data-blk-mode="${m.id}">${esc(t(m.ko, m.en))}</button>`).join('')}
       </div>
-      <button type="button" class="pt-next blk-go" data-blk="start">${esc(t('시작하기', 'Start'))}</button>
-      <p class="blk-keys">${best ? esc(t(`최고 기록 ${best}점`, `Best score ${best}`)) : ''}</p>
+      <div class="blk-panel" id="blkPanel"></div>
+      <button type="button" class="pt-next blk-go" data-blk="start" id="blkGo">${esc(t('시작하기', 'Start'))}</button>
+      <p class="blk-keys" id="blkKeys"></p>
     </div>`;
+  blkPanel();
+}
+
+/* 고른 갈래의 아래 칸 — 레벨 3칸 / 주제 목록 + 난이도 / 내 단어장 안내. 시작 단추와 최고 점수 줄도 여기서 맞춘다. */
+async function blkPanel() {
+  const { t, esc } = D, tok = ++panelTok, mode = modeOf();
+  const box = $('blkPanel'), go = $('blkGo'), keys = $('blkKeys');
+  if (!box) return;
+  const best = (k) => { const n = parseInt(read(k, '0'), 10) || 0; return n ? esc(t(`최고 기록 ${n}점`, `Best score ${n}`)) : ''; };
+  const ready = (ok, msg) => { go.disabled = !ok; keys.innerHTML = msg || ''; };
+  if (mode === 'level') {
+    const lv = read(LV_KEY, 'easy');
+    box.innerHTML = `<div class="blk-lvs" role="radiogroup" aria-label="${esc(t('난이도', 'Level'))}">
+      ${LEVELS.map((L) => `<button type="button" role="radio" class="blk-lv${L.id === lv ? ' on' : ''}" aria-checked="${L.id === lv}" data-blk-lv="${L.id}"><b>${esc(t(L.ko, L.en))}</b><small>${esc(t(L.dko, L.den))}</small></button>`).join('')}
+    </div>`;
+    return ready(true, best(BEST_KEY));
+  }
+  ready(false, '');
+  box.innerHTML = `<p class="blk-wait">${esc(t('낱말을 불러오는 중…', 'Loading words…'))}</p>`;
+  if (mode === 'topic') {
+    let C; try { C = await loadAll(); } catch (e) { C = null; }
+    if (tok !== panelTok) return;
+    if (!C) { box.innerHTML = `<p class="blk-wait">${esc(t('낱말을 못 불러왔어요. 잠시 뒤 다시 해 주세요.', 'Could not load words. Please try again shortly.'))}</p>`; return; }
+    const tlv = tlvOf(read(TLV_KEY, 'all'));
+    const rows = C.topics.map((tp) => ({ tp, n: topicPool(C.words, tp.id, tlv).length })).filter((r) => r.n >= DISTINCT_MIN);
+    let cur = read(TOPIC_KEY, '');
+    if (!rows.some((r) => r.tp.id === cur)) cur = rows[0]?.tp.id || '';
+    write(TOPIC_KEY, cur);
+    const all = cur ? topicPool(C.words, cur, TLVS[0]).length : 0, here = cur ? topicPool(C.words, cur, tlv).length : 0;
+    box.innerHTML = `
+      <div class="blk-lvs blk-tlvs" role="radiogroup" aria-label="${esc(t('난이도', 'Level'))}">
+        ${TLVS.map((L) => `<button type="button" role="radio" class="blk-lv${L.id === tlv.id ? ' on' : ''}" aria-checked="${L.id === tlv.id}" data-blk-tlv="${L.id}"><b>${esc(t(L.ko, L.en))}</b></button>`).join('')}
+      </div>
+      <ol class="blk-topics" aria-label="${esc(t('주제', 'Topic'))}">
+        ${rows.map((r, i) => `<li><button type="button" class="blk-tp${r.tp.id === cur ? ' on' : ''}" aria-pressed="${r.tp.id === cur}" data-blk-topic="${esc(r.tp.id)}"><span class="no">${i + 1}</span><b>${esc(t(r.tp.ko, r.tp.en))}</b><small>${r.n.toLocaleString()}</small></button></li>`).join('')}
+      </ol>
+      ${here < POOL_MIN && all >= POOL_MIN ? `<p class="blk-note">${esc(t('이 난이도에는 낱말이 적어서 다른 난이도도 섞어요.', 'Few words at this level, so other levels are mixed in.'))}</p>` : ''}`;
+    return ready(!!cur, cur ? best(bestKeyOf('topic', cur)) : '');
+  }
+  /* 내 단어장 */
+  let rows = [], signed = true;
+  try { const r = await D.mine(); rows = r.rows; signed = r.signedIn; } catch (e) {}
+  if (tok !== panelTok) return;
+  const pool = mineWords(rows), n = distinct(pool);
+  const ok = n >= MINE_MIN;
+  box.innerHTML = `<p class="blk-mine">${esc(ok
+    ? t(`내 단어장 낱말 ${n}개로 해요. 틀린 낱말은 끝나고 다시 볼 수 있어요.`, `Playing with ${n} words from your list. Missed words are shown again at the end.`)
+    : t(`내 단어장에 낱말이 ${MINE_MIN}개 이상 있어야 해요 (지금 ${n}개). 「단어」에서 낱말을 담아 보세요.${signed ? '' : ' 로그인하면 계정에 저장돼요.'}`, `You need at least ${MINE_MIN} saved words (you have ${n}). Add words from the Words tab.${signed ? '' : ' Sign in to keep them on your account.'}`))}</p>`;
+  ready(ok, ok ? best(bestKeyOf('mine')) : '');
+}
+
+/* 담아 둔 낱말 → 게임 낱말. 우리 낱말 자료에 없어도 낱말 · 뜻만 있으면 감자가 된다. */
+function mineWords(rows) {
+  const seen = new Set(), out = [];
+  for (const r of rows || []) {
+    const h = String(r.word || '').trim(), e = String(r.meaning || '').trim();
+    if (!h || !e || seen.has(h)) continue;
+    seen.add(h);
+    const w = { h, e, s: e, p: r.tag || '', i: r.vocab_id || h };
+    if (playable(w)) out.push(w);
+  }
+  return out;
 }
 
 /* 판 크기 — 폰은 4칸 × 6줄(12쌍), 넓은 화면은 6칸 × 5줄(15쌍). 글자가 감자 안에 들어가야 한다. */
@@ -94,19 +176,32 @@ const shape = () => (D.root.clientWidth >= 560 ? [6, 5] : [4, 6]);
 
 async function blkStart() {
   const { t, esc } = D;
+  const mode = modeOf();
   const lv = LEVELS.find((L) => L.id === read(LV_KEY, 'easy')) || LEVELS[0];
+  const topic = read(TOPIC_KEY, '');
   D.root.innerHTML = `<p class="blk-wait">${esc(t('낱말을 불러오는 중…', 'Loading words…'))}</p>`;
-  let all = [];
-  try { all = await D.vocab(lv.id === 'hard'); } catch (e) {}
-  const pool = all.filter((w) => w.v >= lv.v[0] && w.v <= lv.v[1] && mean(w) && mean(w).length <= 14 && w.h.length <= 5);
-  if (pool.length < 40) { D.root.innerHTML = `<p class="blk-wait">${esc(t('낱말을 못 불러왔어요. 잠시 뒤 다시 해 주세요.', 'Could not load words. Please try again shortly.'))}</p>`; return; }
+  let pool = [];
+  try {
+    if (mode === 'topic') {
+      const C = await loadAll(), tlv = tlvOf(read(TLV_KEY, 'all'));
+      pool = topicPool(C.words, topic, tlv);
+      if (pool.length < POOL_MIN || distinct(pool) < DISTINCT_MIN) pool = topicPool(C.words, topic, TLVS[0]);   // 이 난이도에 낱말이 적으면 다른 난이도도 섞는다
+    } else if (mode === 'mine') {
+      pool = mineWords((await D.mine()).rows);
+    } else {
+      pool = (await D.vocab(lv.id === 'hard')).filter((w) => w.v >= lv.v[0] && w.v <= lv.v[1] && playable(w));
+    }
+  } catch (e) {}
+  const need = mode === 'mine' ? MINE_MIN : mode === 'topic' ? DISTINCT_MIN : POOL_MIN;
+  if (distinct(pool) < need || (mode === 'level' && pool.length < POOL_MIN)) { D.root.innerHTML = `<p class="blk-wait">${esc(t('낱말을 못 불러왔거나 낱말이 모자라요. 다른 갈래로 다시 해 주세요.', 'Could not load enough words. Please try another set.'))}</p><p class="blk-wait"><button type="button" class="pt-next" data-blk="setup">${esc(t('돌아가기', 'Back'))}</button></p>`; return; }
   const [cols, rows] = shape();
   G = {
-    lv, pool, deck: shuffle(pool), cols, rows, cells: [], left: TIME, score: 0, pairs: 0, tries: 0, combo: 0, maxCombo: 0, lastAt: 0,
+    lv, mode, topic, bestKey: bestKeyOf(mode, topic), pool, deck: shuffle(pool), cols, rows, cells: [], left: TIME, score: 0, pairs: 0, tries: 0, combo: 0, maxCombo: 0, lastAt: 0,
     boards: 0, hints: HINTS, missed: new Map(), paused: false, hold: true, over: false,
-    best: parseInt(read(BEST_KEY, '0'), 10) || 0, beat: false, sound: read(SOUND_KEY, 'on') !== 'off',
+    best: parseInt(read(bestKeyOf(mode, topic), '0'), 10) || 0, beat: false, sound: read(SOUND_KEY, 'on') !== 'off',
   };
   D.track('단어블록시작');
+  if (mode !== 'level') { D.track(mode === 'topic' ? '단어블록_주제' : '단어블록_내단어'); if (mode === 'topic') D.track(`단어블록_주제_${topic}`); }
   D.root.innerHTML = `
     <div class="blk-top">
       <div class="blk-sc"><span class="blk-score" id="blkScore">0</span><small id="blkBest"></small></div>
@@ -133,7 +228,7 @@ async function blkStart() {
 /* 새 판 — 칸 수의 절반만큼 낱말을 뽑아 낱말 감자 · 뜻 감자를 섞어 깐다. 같은 뜻이 둘 있으면 헷갈리므로 뜻이 겹치지 않게. */
 function potDeal() {
   const n = (G.cols * G.rows) / 2, pick = [], seen = new Set();
-  while (pick.length < n) {
+  for (let guard = 0; pick.length < n && guard < 2000; guard++) {
     if (!G.deck.length) G.deck = shuffle(G.pool);
     const w = G.deck.pop(), m = mean(w).toLowerCase();
     if (seen.has(m) || seen.has(w.h)) continue;
@@ -366,7 +461,7 @@ function blkOver() {
   G.over = true; blkStop();
   const { t, esc } = D;
   const had = G.best, rec = G.score > had;
-  if (rec) write(BEST_KEY, String(G.score));
+  if (rec) write(G.bestKey, String(G.score));
   D.track('단어블록끝');
   const miss = [...G.missed.values()];
   const [gr, gi] = blkGrade();
@@ -434,6 +529,9 @@ export function blkBind(root) {
       root.querySelectorAll('.blk-lv').forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-checked', on); });
       return;
     }
+    if (b.dataset.blkMode) { write(MODE_KEY, b.dataset.blkMode); root.querySelectorAll('.blk-mode').forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); }); blkPanel(); return; }
+    if (b.dataset.blkTlv) { write(TLV_KEY, b.dataset.blkTlv); blkPanel(); return; }
+    if (b.dataset.blkTopic) { write(TOPIC_KEY, b.dataset.blkTopic); blkPanel(); return; }
     if (b.dataset.blkSay) return D.say(b.dataset.blkSay);
     const a = b.dataset.blk;
     if (a === 'start') blkStart();
