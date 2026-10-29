@@ -1,0 +1,341 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 18.97,
+     "sessionsWithoutMetricPercentage": 81.03,
+     "pagesViews": 11,
+     "subTotal": 26
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 5.17,
+     "sessionsWithoutMetricPercentage": 94.83,
+     "pagesViews": 8,
+     "subTotal": 8
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 72.82
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 58,
+     "totalBotSessionCount": 62,
+     "distinctUserCount": 43,
+     "pagesPerSessionPercentage": 1.9310344827586208
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 435,
+     "activeTime": 297
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 39
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 7
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Firefox",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 40
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 13
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 5
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 31
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 10
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 8
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 4
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 23
+    },
+    {
+     "name": "Turkey",
+     "sessionsCount": 6
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Mongolia",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Brazil",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Japan",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Iran, Islamic Republic of",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Italy",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Latvia",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 33
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "\"slowly\" in Korean — 천천히 (cheoncheonhi) with examples | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Korean First Steps Workbook — Everykoreans | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Negation & Tenses (Free PDF) | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Polite Present Tense: -아요 / -어요 / 해요 (Free PDF) | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "\"car\" in Korean — 차 (cha) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"glad\" in Korean — 반갑다 (bangapda) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"meeting\" in Korean — 회의 (hoeui) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"rule\" in Korean — 규칙 (gyuchik) with examples | CheesePotato",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 12
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 9
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "chatgpt.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 33
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 5
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/slowly.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/negation-tenses-worksheet/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/polite-present-worksheet/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/shop/first-steps-workbook/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/blog/topik-levels-explained-english.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/bonus/topik2-vocab-1000/",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/bonus/topik2-vocab-1000/tv-01/",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/demonstratives-worksheet/",
+     "visitsCount": 1
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
