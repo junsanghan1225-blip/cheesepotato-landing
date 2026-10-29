@@ -181,3 +181,4 @@
 - 2026-10-28 KDP 오리지널 책 1 ePub 만듦(`node tools/build-kdp-original.mjs short-stories --out <폴더>` → ePub 0.2MB · 표지 JPEG 1600×2560 · 복붙표). 영어 번역 다듬기 · Kindle 화면 확인은 운영자 올리기 전에.
 - 2026-10-28 KDP 이야기 책의 영어 번역 다듬기 안티 지시문 `antigravity-kdp-polish-task.md` (영어만 고침, 한국어 · 구조는 검사 `tools/check-kdp-polish.mjs` 가 막음).
 - 2026-10-28 KDP 시리즈 2권(A2~B1 이야기 40편) 지시문 만듦 — 새 파일 `docs/kdp-orig/short-stories-2.json`, 영어 규칙(과거 시제 · 주어 · 직역투 금지)을 처음부터 적용, 책 1과 낱말 · 주제 겹침 없이.
+- 2026-10-29 예스24 디지털 콘텐츠 공급 계약 전자서명 완료(계약일 10-27) — B2C 70% · 계약 2년(자동연장 1년) · 가격은 출판사가 정함. 요약 `docs/ops/yes24-contract.md`(원본 PDF 는 저장소에 넣지 않음). KDP Select 책은 예스24 에 같은 내용을 올리지 않는다.
