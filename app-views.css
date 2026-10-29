@@ -6333,7 +6333,7 @@ a.lt-chip:hover { border-color:var(--orange); }
 .blk-row.flash { background:var(--red); }
 .blk-rules { list-style:none; padding:0; margin:0 auto 16px; max-width:420px; text-align:left; display:grid; gap:6px; }
 .blk-rules li { display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink-2); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:8px 12px; word-break:keep-all; }
-.blk-rules b { font-size:18px; flex:none; }
+.blk-rules b { flex:none; display:inline-grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--ink); color:var(--bg); font-size:13px; font-weight:700; line-height:1; }
 .blk-top { gap:8px; }
 .blk-sc { display:flex; flex-direction:column; line-height:1.05; min-width:70px; }
 .blk-sc small { font-size:11px; font-weight:700; color:var(--ink-3); }
