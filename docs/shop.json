@@ -1,5 +1,5 @@
 {
- "_note": "상점(/shop/) 상품 목록: 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러(운영자 2026-10-17), 단어장 시리즈는 6.90 달러(2026-10-25). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다, Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다.",
+ "_note": "상점(/shop/) 상품 목록: 운영자 2026-10-17 「상점 페이지부터」 · 「1인 출판 온라인 서점 페이지」. 책 계획은 docs/plans/books.md. 고치면 node tools/build-sheets.mjs. 책 가격은 PDF 9.90 달러(운영자 2026-10-17), 단어장 시리즈는 6.90 달러(2026-10-25). 학습지 묶음 · 낱장 가격은 Claude 제안값. polar 가 비어 있으면 「준비 중」 단추만 보인다, Polar 대시보드에서 상품(파일 다운로드 혜택)을 만들고 buy.polar.sh 링크를 붙이면 「사기」 단추가 켜진다. 학습지 쪽(/<id>-worksheet/)은 무료 그대로 두고, 파는 것은 인쇄용 PDF 파일(학습지 + 정답지)이다. 문법 학습지 묶음 셋(grammar-beginner · intermediate · advanced, 각 9.90 은 Claude 제안값 — 가격 · Polar 상품은 운영자가 정한다)은 worksheet/list.json 의 단계(초급 112 · 중급 93 · 고급 85)로 목록이 나오고, PDF 는 node tools/build-ws-bundle.mjs <단계>.",
  "currency": "USD",
  "singlePrice": "1.99",
  "singles": {},
@@ -30,6 +30,51 @@
     "ko": "이어 주는 말 · 높임 · 불규칙 · 말투: 정답지 포함"
    },
    "price": "7.99",
+   "polar": ""
+  },
+  {
+   "id": "grammar-beginner",
+   "level": "A1",
+   "ws": "beginner",
+   "title": {
+    "en": "Korean Grammar Worksheets · Beginner (112)",
+    "ko": "문법 학습지 묶음 · 초급 112장"
+   },
+   "sub": {
+    "en": "112 printable beginner grammar worksheets: explanation, examples, practice, and a separate answer-key section.",
+    "ko": "초급 문법 112개: 설명 · 예문 · 연습, 정답은 맨 뒤 정답 모음"
+   },
+   "price": "9.90",
+   "polar": ""
+  },
+  {
+   "id": "grammar-intermediate",
+   "level": "A2",
+   "ws": "intermediate",
+   "title": {
+    "en": "Korean Grammar Worksheets · Intermediate (93)",
+    "ko": "문법 학습지 묶음 · 중급 93장"
+   },
+   "sub": {
+    "en": "93 printable intermediate grammar worksheets: explanation, examples, practice, and a separate answer-key section.",
+    "ko": "중급 문법 93개: 설명 · 예문 · 연습, 정답은 맨 뒤 정답 모음"
+   },
+   "price": "9.90",
+   "polar": ""
+  },
+  {
+   "id": "grammar-advanced",
+   "level": "B1",
+   "ws": "advanced",
+   "title": {
+    "en": "Korean Grammar Worksheets · Advanced (85)",
+    "ko": "문법 학습지 묶음 · 고급 85장"
+   },
+   "sub": {
+    "en": "85 printable advanced grammar worksheets: explanation, examples, practice, and a separate answer-key section.",
+    "ko": "고급 문법 85개: 설명 · 예문 · 연습, 정답은 맨 뒤 정답 모음"
+   },
+   "price": "9.90",
    "polar": ""
   },
   {

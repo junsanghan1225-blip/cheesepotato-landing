@@ -30,7 +30,12 @@ function bookAd(w) {
   return `<aside class="bk-ad no-print"><img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995" loading="lazy"><div><b class="bk-ad-h">PART OF A BOOK · 책으로 보기</b><p>This worksheet is one of the units in <a href="${base}"><b>${esc(k.title.en)}</b></a> — more practice, a study plan and an answer key for every unit, as one PDF.</p><div class="btns">${k.sample ? `<a class="btn main" href="${base}#sample" data-ev="책클릭" data-ev-from="학습지-${esc(w.id)}">Free sample</a>` : ''}<a class="btn sub" href="${base}" data-ev="책클릭" data-ev-from="학습지-${esc(w.id)}">See the book · $${esc(k.price)}</a></div></div></aside>\n`;
 }
 
-const packSheets = (p) => sheets.filter((w) => p.level === 'all' || w.level === p.level);
+/* 문법 학습지 묶음(p.ws = beginner · intermediate · advanced) — 목록은 worksheet/list.json(build-worksheets 가 만든다). 학습지 쪽은 /worksheet/<id>.html */
+const GRAM = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'worksheet/list.json'), 'utf8')); } catch (e) { return []; } })();
+const packSheets = (p) => p.ws
+  ? GRAM.filter((x) => x.l === p.ws).map((x) => ({ id: x.id, href: `/worksheet/${x.id}.html`, title: { en: x.n, ko: x.c }, level: p.ws }))
+  : sheets.filter((w) => p.level === 'all' || w.level === p.level);
+const WS_LV = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 /* 책 목차 — 워크북은 그 급 학습지 제목이 곧 단원(자료에서 바로), 나머지는 shop.json 의 toc */
 const bookToc = (k) => k.sheets ? sheets.filter((w) => w.level === k.sheets).map((w, i) => ({ en: `Unit ${i + 1}. ${w.title.en}`, ko: w.title.ko, u: `/${w.id}-worksheet/` })) : (k.toc || []);
 const buy = (url, price, label) => url
@@ -71,7 +76,7 @@ const SHOP_CSS = `<style>
 .bk-toc{counter-reset:none;padding-left:0;list-style:none}.bk-toc li{padding:9px 0;border-top:1px solid var(--line)}.bk-toc small{display:block;color:var(--ink-3)}
 .shop-card{display:flex;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:18px 0}
 .shop-pk{flex:0 0 110px;height:150px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:#C4551C}
-.shop-pk.lv-A2{background:#2F6FDB}.shop-pk.lv-all{background:#1F1F1F}.shop-pk b{font-size:40px;line-height:1}.shop-pk small{opacity:.85;margin-top:6px}
+.shop-pk.lv-A2,.shop-pk.lv-intermediate{background:#2F6FDB}.shop-pk.lv-advanced{background:#2E7D5B}.shop-pk.lv-all{background:#1F1F1F}.shop-pk b{font-size:40px;line-height:1}.shop-pk small{opacity:.85;margin-top:6px}
 .shop-body{flex:1;min-width:0}.shop-body h3{margin:0}.shop-price{font-size:22px;font-weight:800;margin:10px 0}.shop-price small{font-size:13px;font-weight:500;color:var(--ink-3)}
 .shop-soon{opacity:.6;cursor:default}
 .shop-body details{margin-top:12px}.shop-body ul{margin:8px 0 0;padding-left:18px;columns:2;font-size:14px}
@@ -108,11 +113,11 @@ function shopPage() {
   const books = SHOP.books.map((k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`).join('\n');
   const packs = SHOP.packs.map((p) => {
     const ws = packSheets(p);
-    return `<div class="shop-card"><div class="shop-pk lv-${esc(p.level)}"><b>${ws.length}</b><small>${esc(p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></div>
+    return `<div class="shop-card"><div class="shop-pk lv-${esc(p.ws || p.level)}"><b>${ws.length}</b><small>${esc(p.ws ? WS_LV[p.ws] : p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></div>
   <div class="shop-body"><h3>${esc(p.title.en)}</h3><p class="bk-ko">${esc(p.title.ko)}</p><p>${esc(p.sub.en)}</p>
     <p class="shop-price">$${esc(p.price)} <small>· ${ws.length} sheets + answer keys · PDF download</small></p>
     ${buy(p.polar, p.price, 'Buy the pack')}
-    <details><summary>What is inside (${ws.length})</summary><ul>${ws.map((w) => `<li><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a> · ${esc(w.title.ko)}</li>`).join('')}</ul></details></div></div>`;
+    <details><summary>What is inside (${ws.length})</summary><ul>${ws.map((w) => `<li><a href="${esc(w.href || `/${w.id}-worksheet/`)}">${esc(w.title.en)}</a> · ${esc(w.title.ko)}</li>`).join('')}</ul></details></div></div>`;
   }).join('\n');
   const singles = sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${buy(SHOP.singles?.[w.id], SHOP.singlePrice, 'PDF')}</div>`).join('\n');
   return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
