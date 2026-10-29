@@ -1,6 +1,6 @@
 // 운영자에게 보내는 「복사판」 HTML 을 한 장으로 모은다(운영자 2026-10-27 「html 판이 너무 많아 하나에 모아줘」).
 //   node tools/copy-hub.mjs <나가는 파일.html> [그림 폴더(홍보 그림, tools/social-cards.mjs 가 만든 곳)]
-// 탭: 쓰레드 글 · 교사 글 · KDP · 쿠팡 · ISBN 신청 · 판매처 글(예스24 등). 탭마다 기존 생성 도구를 그대로 불러 그 결과를 안에 넣는다 —
+// 탭: 쓰레드 글 · 교사 글 · KDP · 쿠팡 · ISBN 신청 · 선물 · 소개 요청 · 판매처 글(예스24 등). 탭마다 기존 생성 도구를 그대로 불러 그 결과를 안에 넣는다 —
 // 칸 · 복사 단추는 각 도구가 만든 그대로. 생성물은 운영자에게 보내는 용도라 저장소에 올리지 않는다.
 import fs from 'node:fs';
 import os from 'node:os';
@@ -20,6 +20,7 @@ const tabs = [
   ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c'],
   ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd'],
   ['ISBN 신청', () => run('python3', ['tools/isbn-html.py', path.join(tmp, 'e.html')]), 'e'],
+  ['선물 · 소개 요청', () => run('node', ['tools/gift-html.mjs', path.join(tmp, 'g.html')]), 'g'],
   ['판매처 글(예스24 등)', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f'],
 ];
 /* 안쪽 쪽은 클립보드를 직접 못 쓰는 브라우저가 있어(파일로 연 쪽) 「복사」 글을 바깥 쪽에 넘겨 거기서 복사한다 */
