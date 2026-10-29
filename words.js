@@ -538,6 +538,7 @@ export function wordsInit(D) {
           <span class="wd-meta">${esc(t(`${l.length}개 · ${Math.round((g / l.length) * 100)}%`, `${l.length} words · ${Math.round((g / l.length) * 100)}%`))}</span></button>`;
       }).join('')}</div>
       ${homeGames()}
+      ${D.bookBox ? D.bookBox(['topik1-vocab', 'topik2-vocab-1000'], 'words', t('낱말을 종이로도 공부하고 싶다면', 'Want the words on paper too?')) : ''}
     </div>`;
   }
   /* 게임으로 공부(운영자 2026-10-07 「밑에 게임 학습도 — 학습하고 있는 단어로 바로」): 오늘 외우는 세션 낱말로 바로 판을 연다.
