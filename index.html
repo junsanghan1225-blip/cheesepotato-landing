@@ -2081,16 +2081,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="side-item side-solo" type="button" data-open="learn/sentence">
       <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
     </button>
-    <button class="side-item side-solo" type="button" data-open="learn/translate">
-      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
-    </button>
-    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
-    <button class="side-item side-solo" type="button" id="topikBtn" data-open="learn/topik">
-      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
-    </button>
     <button class="side-item side-solo" type="button" data-open="learn/class">
       <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
     </button>
+
+        <a class="nav-link" href="shop/" aria-label="책 서점 열기">
+      <span class="nav-ico" data-ic="books">📚</span><span class="nav-txt" data-en="Books">책</span>
+    </a>
 
     <!-- 더 보기 — 길 밖의 것. 처음에는 접혀 있다(sideMark 가 지금 자리가 안에 있으면 펼친다). -->
     <div class="side-group" data-group="more">
@@ -2158,19 +2155,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-nav-to="gcChosung">
           <span class="side-item-ico" data-ic="bolt">ㅊ</span><span data-en="Initial-consonant quiz">초성 퀴즈</span>
         </button>
-       </div>
-      </div>
-    </div>
-
-    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「디지털 콘텐츠 생성 — 사이드바에 따로」). 손으로 쓴 쪽으로 간다. -->
-    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「사이드바에 따로」 → 「거추장스러우니 접게」). 「더 보기」처럼 처음엔 접혀 있다.
-         아이콘은 위 [data-ic] 목록에 있는 이름만(없는 이름은 까만 동그라미로 보인다). 손으로 쓴 쪽으로 간다. -->
-    <div class="side-group" data-group="make">
-      <button class="nav-link side-parent" type="button" aria-expanded="false" aria-controls="sideSubMake">
-        <span class="nav-ico" data-ic="open">✨</span><span class="nav-txt" data-en="Make &amp; share">만들기</span>
-      </button>
-      <div class="side-sub" id="sideSubMake">
-       <div class="side-sub-in" role="group" aria-label="만들기" data-en-aria="Make &amp; share">
+        <div class="side-sub-h" data-en="Practice more">연습 더</div>
+    <button class="side-item" type="button" data-open="learn/translate">
+      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
+    </button>
+    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
+    <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
+      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
+    </button>
+        <div class="side-sub-h" data-en="Make &amp; share">만들기</div>
         <a class="side-item" href="korean-name/" aria-label="내 이름 도장 만들기" data-en-aria="Make my Korean name seal">
           <span class="side-item-ico" data-ic="star">🔴</span><span data-en="My name seal">내 이름 도장</span>
         </a>
@@ -2195,19 +2188,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="side-item" href="korean-age/" aria-label="한국 나이 계산기" data-en-aria="Korean age calculator">
           <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Korean age">한국 나이</span>
         </a>
+        <div class="side-sub-h" data-en="Account &amp; more">계정 · 기타</div>
+    <button class="side-item" id="sideProBtn" type="button" aria-label="구독 · Pro">
+      <span class="side-item-ico" data-ic="star">⭐</span><span data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
+    </button>
+    <button class="side-item" id="dashBtn" type="button" aria-label="대시보드 열기">
+      <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Dashboard">대시보드</span>
+    </button>
+    <button class="side-item" id="libBtn" type="button" aria-label="인쇄 자료 열기">
+      <span class="side-item-ico" data-ic="file">📄</span><span data-en="Printables">인쇄 자료</span>
+    </button>
+    <a class="side-item" href="blog/" aria-label="블로그 열기">
+      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Blog">블로그</span>
+    </a>
+    <button class="side-item" type="button" data-open="learn/eps">
+      <span class="side-item-ico" data-ic="work">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
+    </button>
        </div>
       </div>
     </div>
 
-    <div class="side-sec-h" data-en="Books &amp; articles">책 · 글</div>
-    <a class="nav-link" href="shop/" aria-label="책 서점 열기">
-      <span class="nav-ico" data-ic="books">📚</span><span class="nav-txt" data-en="Books">책</span>
-    </a>
-    <a class="nav-link" href="blog/" aria-label="블로그 열기">
-      <span class="nav-ico" data-ic="pen">✍️</span><span class="nav-txt" data-en="Blog">블로그</span>
-    </a>
-
-    <div class="side-sec-h" data-en="My activity">내 활동</div>
+    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「디지털 콘텐츠 생성 — 사이드바에 따로」). 손으로 쓴 쪽으로 간다. -->
+    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「사이드바에 따로」 → 「거추장스러우니 접게」). 「더 보기」처럼 처음엔 접혀 있다.
+         아이콘은 위 [data-ic] 목록에 있는 이름만(없는 이름은 까만 동그라미로 보인다). 손으로 쓴 쪽으로 간다. -->
     <!-- 로그인/계정. 머리띠의 authBtn 이 폰에서는 숨으므로 여기가 유일한
          길이다. 아이콘·이름은 로그인 상태가 바뀔 때 authBtn 과 함께
          맞춘다(app.module.js paintAuthNav) — 손잡이만 여기 것, 동작은
@@ -2217,22 +2220,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
     <!-- 구독 · Pro — 내 구독 상태(요금제 · 다음 결제일 · 해지 예약)를 바로 보는 자리(운영자 요청 2026-10-04).
          누르면 구독 창(app.module.js proOpen). 오른쪽 작은 딱지는 proPaintAccount 가 「Pro」 · 「무료」로 맞춘다. -->
-    <button class="nav-link" id="sideProBtn" type="button" aria-label="구독 · Pro">
-      <span class="nav-ico" data-ic="star">⭐</span><span class="nav-txt" data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
-    </button>
     <!-- 「내 단어장」은 단어(배우기 맨 위)에 합쳤다 — 단어 화면의 탭이자, 거기서 「단어장 전체 열기」로 들어간다. -->
-    <button class="nav-link" id="dashBtn" type="button" aria-label="대시보드 열기">
-      <span class="nav-ico" data-ic="chart">📊</span><span class="nav-txt" data-en="Dashboard">대시보드</span>
-    </button>
-    <button class="nav-link" id="libBtn" type="button" aria-label="인쇄 자료 열기">
-      <span class="nav-ico" data-ic="file">📄</span><span class="nav-txt" data-en="Printables">인쇄 자료</span>
-    </button>
 
     <!-- 한국 취업(EPS)은 메뉴 맨 밑(운영자 결정 2026-09-30) — 따로 선 갈래라 배우기 · TOPIK 사이에 끼우지 않는다. -->
-    <div class="side-sec-h" data-en="Work in Korea">한국 취업</div>
-    <button class="side-item side-solo" type="button" data-open="learn/eps">
-      <span class="side-item-ico" data-ic="work">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
-    </button>
   </div>
 
   <div class="side-foot">
