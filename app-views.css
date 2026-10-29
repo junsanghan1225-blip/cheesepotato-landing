@@ -7767,3 +7767,7 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .ac-code { display:flex; gap:8px; margin:10px 0 0; }
 .ac-code input { flex:1; min-width:0; padding:9px 10px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; font-size:14px; letter-spacing:.04em; text-transform:uppercase; }
 .ac-code .pt-ghost { flex:none; padding:9px 14px; font-size:13.5px; }
+
+/* 레벨 테스트 영역 안내 — 어두운 화면에서 제목이 까맣게 묻히던 것(운영자 2026-10-30), 이모지를 뺀 빈 칸은 접는다 */
+.lt-intro h3 { color:var(--ink); }
+.lt-intro-ic:empty { display:none; }
