@@ -627,7 +627,7 @@ export function wordsInit(D) {
         <b>${esc(t('내 길 · ', 'My path · '))}${esc(path ? topicName(path.topic) : t(`${trackName(S.track)} 필수`, `${trackName(S.track)} essentials`))}</b>
         <span class="wd-meta">${esc(t(`${pl.length.toLocaleString()}개 · 세션 ${Math.ceil(pl.length / SESSION)} · 로드맵 보기`, `${pl.length.toLocaleString()} words · ${Math.ceil(pl.length / SESSION)} sessions · open the map`))}</span>${bar(pg, pl.length)}</button>
       <h3 class="wd-h3">${esc(t('둘러보기', 'Explore'))}</h3>
-      <div class="wd-tsearch"><span aria-hidden="true">🔍</span><input type="search" id="wdTopicQ" autocomplete="off" placeholder="${esc(t('주제 찾기 — 예: 감정, 학용품, 전자기기, 정치', 'Find a topic — e.g. emotions, school supplies, devices'))}"></div>
+      <div class="wd-tsearch"><input type="search" id="wdTopicQ" autocomplete="off" placeholder="${esc(t('주제 찾기 — 예: 감정, 학용품, 전자기기, 정치', 'Find a topic — e.g. emotions, school supplies, devices'))}"></div>
       <div class="wd-tres" id="wdTopicRes"></div>
       ${purps ? `<div class="wd-group" role="group" aria-label="${esc(t('보기', 'View'))}">
         <button type="button" class="wd-chip${byGoal || byLv ? '' : ' on'}" data-act="group" data-group="topic">${esc(t('주제별', 'By topic'))}</button>
@@ -988,7 +988,7 @@ export function wordsInit(D) {
         <button type="button" class="wd-btn ghost" data-act="add" data-h="${esc(w.h)}">${esc(t('+ 내 단어장', '+ My wordbook'))}</button>
       </div>
       <div class="wd-w2-bar">
-        <button type="button" class="wd-w2-pron" data-act="pron" data-h="${esc(w.h)}">🎤 ${esc(t('발음 연습', 'Pronounce'))}</button>
+        <button type="button" class="wd-w2-pron" data-act="pron" data-h="${esc(w.h)}">${esc(t('발음 연습', 'Pronounce'))}</button>
         ${nextH ? `<button type="button" class="wd-w2-next" data-word="${esc(nextH)}">${esc(t('다음 낱말', 'Next word'))} →</button>` : ''}
       </div>
     </div>`;
@@ -1398,7 +1398,7 @@ export function wordsInit(D) {
     const lvs = [...new Set(EXPR.filter((x) => x.ty === xs.ty).map((x) => x.lv))].sort();
     return `<div class="wd-x">
       <div class="wd-x-hero"><b>${esc(t(...X_BACK[xs.ty]))} <small>${n(xs.ty)}</small></b><span>${esc(t(...X_DESC[xs.ty]))}</span>
-        ${n(xs.ty) >= 4 ? `<button type="button" class="wd-day-go" data-act="xquiz">${esc(t('🎯 퀴즈 10문제', '🎯 10-question quiz'))}${ico('arrow')}</button>` : ''}</div>
+        ${n(xs.ty) >= 4 ? `<button type="button" class="wd-day-go" data-act="xquiz">${esc(t('퀴즈 10문제', '10-question quiz'))}${ico('arrow')}</button>` : ''}</div>
       ${n(xs.ty) ? `<div class="wd-group wd-x-lv">${[0, ...lvs].map((L) => `<button type="button" class="wd-chip${xs.lv === L ? ' on' : ''}" data-act="xlv" data-k="${L}">${L ? `L${L}` : esc(t('모든 레벨', 'All levels'))}</button>`).join('')}</div>
       <input class="wd-x-q" id="wdXQ" type="search" autocomplete="off" value="${esc(xs.q)}" placeholder="${esc(t('찾기 — 일석이조 · two birds · 一石', 'Search — 일석이조, two birds, 一石'))}" aria-label="${esc(t('표현 찾기', 'Search idioms'))}">
       <div class="wd-x-list" id="wdXList">${xListHtml(list)}</div>`
@@ -1430,10 +1430,10 @@ export function wordsInit(D) {
       <h3 class="wd-h3">${esc(t('예문', 'Examples'))}</h3>
       <div class="wd-x-ex">${x.ex.map(([k, e]) => `<div><p>${esc(k).split(esc(x.h)).join(`<mark>${esc(x.h)}</mark>`)} <button type="button" class="dict-say" data-say="${esc(k)}" aria-label="${esc(t('듣기', 'Play'))}">${icon}</button></p><small>${esc(e)}</small></div>`).join('')}</div>
       ${x.dl ? `<h3 class="wd-h3">${esc(t('대화로 보기', 'In a conversation'))}</h3><div class="wd-x-dl">${x.dl.map(([who, line]) => `<p><b>${esc(who)}</b>${esc(line)}</p>`).join('')}</div>` : ''}
-      ${x.note ? `<p class="wd-x-note">💡 ${esc(x.note)}</p>` : ''}
+      ${x.note ? `<p class="wd-x-note">${esc(x.note)}</p>` : ''}
       ${rel(x.syn, t('비슷한 표현', 'Similar'))}${rel(x.ant, t('반대 표현', 'Opposite'))}
       ${x.wd?.length ? `<div class="wd-relrow"><em>${esc(t('같이 보면 좋은 낱말', 'Related words'))}</em><div>${x.wd.map((h) => `<button type="button" class="wd-chip" data-word="${esc(h)}">${esc(h)}</button>`).join('')}</div></div>` : ''}
-      <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xsave" data-k="${esc(x.id)}">${esc(t('📒 내 단어장에 담기', '📒 Save to my wordbook'))}</button></div>
+      <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xsave" data-k="${esc(x.id)}">${esc(t('내 단어장에 담기', 'Save to my wordbook'))}</button></div>
     </div>`;
   }
   /* 퀴즈 10문제 — 둘을 번갈아: ① 표현 → 뜻 고르기 ② 예문 빈칸 → 표현 고르기(예문 속 표현을 ___ 로). 오답 보기는 같은 갈래에서. */
@@ -1454,8 +1454,8 @@ export function wordsInit(D) {
     const Q = xs.quiz, q = Q.qs[Q.i];
     if (!q) {
       return `<div class="wd-x-end"><p class="wd-x-score"><b>${Q.right}</b> / ${Q.qs.length}</p>
-        ${Q.miss.length ? `<h3 class="wd-h3">${esc(t('다시 볼 표현', 'Review these'))}</h3><div class="wd-x-list">${xListHtml(Q.miss)}</div>` : `<p>${esc(t('다 맞혔어요! 🎉', 'Perfect! 🎉'))}</p>`}
-        <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xquiz">${esc(t('🔁 다시 하기', '🔁 Again'))}</button><button type="button" class="wd-btn ghost" data-act="xqend">${esc(t('목록으로', 'Back to list'))}</button></div></div>`;
+        ${Q.miss.length ? `<h3 class="wd-h3">${esc(t('다시 볼 표현', 'Review these'))}</h3><div class="wd-x-list">${xListHtml(Q.miss)}</div>` : `<p>${esc(t('다 맞혔어요!', 'Perfect!'))}</p>`}
+        <div class="wd-x-btns"><button type="button" class="wd-btn" data-act="xquiz">${esc(t('다시 하기', 'Again'))}</button><button type="button" class="wd-btn ghost" data-act="xqend">${esc(t('목록으로', 'Back to list'))}</button></div></div>`;
     }
     const ask = q.kind === 'fill'
       ? `<p class="wd-x-qk">${esc(t('빈칸에 알맞은 표현은?', 'Which idiom fits the blank?'))}</p><p class="wd-x-qs">${esc(q.ex.split(q.x.h).join('＿＿＿＿'))}</p>`

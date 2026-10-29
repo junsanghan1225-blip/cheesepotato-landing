@@ -7729,3 +7729,6 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .tq-tabs button { white-space:normal; line-height:1.25; overflow-wrap:anywhere; }
 /* 이야기 만들기의 모드 · 과제 이모지 아이콘은 숨긴다 — 글 이름만으로 충분하다(운영자 2026-10-28 「AI 티」) */
 .wv-mode-ic, .wv-task-ic { display:none; }
+
+/* 이모지를 뺀 자리가 비면 접는다(운영자 2026-10-29 「이모지 빼기로 한 거 아니야」) */
+.claw-over-emoji:empty, .lf-ic:empty, .ex-say:empty, .ls-done-big:empty, .lt-teach-e:empty { display:none; }
