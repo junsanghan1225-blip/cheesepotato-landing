@@ -7759,3 +7759,6 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .cs-row small { font-size:11.5px; line-height:1.45; }
 .cs-note { margin:2px 0 8px; font-size:11.5px; }
 .cs-btns .pt-next, .cs-btns .pt-ghost { padding:9px 12px; font-size:13.5px; }
+.cs-btns { justify-content:space-between; }
+.cs-btns .pt-ghost { flex:1 1 40%; }
+.cs-btns .cs-later { flex:1 1 100%; text-align:center; padding:4px; }
