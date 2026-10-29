@@ -46,7 +46,7 @@
   **선생님 편의**(운영자 2026-10-07 「다른 플랫폼처럼」 — 넷 다): 「오늘 챙길 학생」(`clsCareHtml` 기한 지남 · 3일 기록 없음 · 막 끝낸 것) · 숙제 묶음(목록에 담기) · 「다시 내기」 · 매주 반복(N주 치 한 번에) · 숙제 코멘트(`db/add_class_feedback.sql`, 학생 끝낸 숙제에 💬) · 학생 리포트 PDF(`clsStuPrint`). 반 이름 바꾸기. 숙제 고르기는 검색 한 칸(`clsCatalog` · `clsPickResults` — 레슨 · 문법 · TOPIK 쓰기 · 읽기 · 단어, 종류 칩 · 최근 숙제 · Enter 로 맨 위 고르기 · 단어 횟수 −/+).
 
 
-## 7. 강의 영상 — ⏸ 2026-10-30 메뉴 · 목록에서 뺌(운영자 「강의 영상은 빼자」, 주소는 남김)
+## 7. 강의 영상
 - **강의 영상**(운영자 결정 2026-10-03): 유튜브 「일부 공개」 + 사이트 `#learn/lectures`(`app.module.js` lecDraw, 표 `db/add_lectures.sql`).
   운영자만 「강의 올리기」(유튜브 링크 + 제목). 플레이어는 youtube-nocookie(CSP frame-src · img-src i.ytimg.com). 운영자 순서 `docs/ops/lectures.md`.
 
