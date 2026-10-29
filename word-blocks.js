@@ -77,15 +77,15 @@ export function blkSetup() {
       <h2>${esc(t('단어 감자', 'Word potatoes'))}</h2>
       <p>${esc(t('갈색 감자는 한국어, 노란 감자는 뜻이에요. 짝이 맞는 감자 둘만 들어가게 네모로 쓱 묶으면 터져요. 2분 동안 몇 개나 캘 수 있을까요?', 'Brown potatoes are Korean words, golden ones are meanings. Drag a box around exactly one matching pair to pop it. How many can you dig up in 2 minutes?'))}</p>
       <ul class="blk-rules">
-        <li><b>🥔</b>${esc(t('네모 안에 다른 감자가 끼면 안 돼요 — 멀리 있는 짝은 사이 감자부터 치워요', 'No other potato may be inside the box — clear the ones in between first'))}</li>
-        <li><b>🔥</b>${esc(t('빨리 이어 맞히면 콤보 — 점수 2배 · 3배 · 4배', 'Quick chains = combo: 2× · 3× · 4× points'))}</li>
-        <li><b>⏱</b>${esc(t('판을 다 비우면 +10초 · 틀린 짝은 −3초', 'Clear the board +10s · wrong pair −3s'))}</li>
+        <li><b>1</b>${esc(t('네모 안에 다른 감자가 끼면 안 돼요 — 멀리 있는 짝은 사이 감자부터 치워요', 'No other potato may be inside the box — clear the ones in between first'))}</li>
+        <li><b>2</b>${esc(t('빨리 이어 맞히면 콤보 — 점수 2배 · 3배 · 4배', 'Quick chains = combo: 2× · 3× · 4× points'))}</li>
+        <li><b>3</b>${esc(t('판을 다 비우면 +10초 · 틀린 짝은 −3초', 'Clear the board +10s · wrong pair −3s'))}</li>
       </ul>
       <div class="blk-lvs" role="radiogroup" aria-label="${esc(t('난이도', 'Level'))}">
         ${LEVELS.map((L) => `<button type="button" role="radio" class="blk-lv${L.id === lv ? ' on' : ''}" aria-checked="${L.id === lv}" data-blk-lv="${L.id}"><b>${esc(t(L.ko, L.en))}</b><small>${esc(t(L.dko, L.den))}</small></button>`).join('')}
       </div>
-      <button type="button" class="pt-next blk-go" data-blk="start">${esc(t('▶ 시작하기', '▶ Start'))}</button>
-      <p class="blk-keys">${best ? esc(t(`🏆 최고 ${best}점`, `🏆 Best ${best}`)) : ''}</p>
+      <button type="button" class="pt-next blk-go" data-blk="start">${esc(t('시작하기', 'Start'))}</button>
+      <p class="blk-keys">${best ? esc(t(`최고 기록 ${best}점`, `Best score ${best}`)) : ''}</p>
     </div>`;
 }
 
