@@ -9,6 +9,7 @@
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
+import { parseTwData, twChartSvg } from './lib/tw-chart.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import { logoSvg } from './brand-logo.mjs';
@@ -74,10 +75,11 @@ const bankSheet = (id) => {
 };
 /* 유형 묶음 「g51-recruit」 = B.groups 에 적은 문항 id 들(유형별로 나눈 책, 운영자 2026-10-18 「유형별로 나누고 유형마다 안내를」) */
 const grpNo = {};   // 유형 묶음 안 문제 번호는 책 순서대로 이어서(51번 1~50) — 계획표 · 정답과 같은 번호
+const workedItem = (q) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/extras.json'), 'utf8'))[q]?.worked?.item; } catch { return undefined; } };   // EXTRAS 는 아래에서 만들어져서 여기선 직접 읽는다
 const groupSheet = (id) => {
   const g = B.groups[id]; grpNo[g.q] = grpNo[g.q] || 0;
   return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
-    return { type: 'writing', raw: x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+    return { type: 'writing', raw: iid === workedItem(g.q) ? { ...x, _ref: true } : x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
 };
 const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
 const sheetBase = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
@@ -180,6 +182,8 @@ ${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT 
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 /* ㉠ ㉡ 는 글꼴에 없어 그림 글자(이모지)로 떨어진다 — 동그라미 글자로 직접 그린다 */
 .cm{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .12em}
+/* 그린(svg) 동그라미 글자는 아래 모의고사 쪽 .cm 의 4.8mm · 테두리 규칙을 받으면 본문보다 커진다 — 글자 크기에 맞춘다 */
+svg.cm{width:1.14em!important;height:1.14em!important;border:0!important;border-radius:0!important;vertical-align:-.2em!important;margin:0 .1em!important}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-break:keep-all}
@@ -282,7 +286,7 @@ let secNo = '';
 /* 치즈(난이도) · 감자(빈출도) 아이콘 — 채운 것 · 빈 것 */
 const cheeseIc = (on) => `<svg class="ic" viewBox="0 0 16 16"><path d="M1.5 12.5H14.5V6L1.5 3.5Z" fill="${on ? '#F2B632' : '#fff'}" stroke="${on ? '#B8841B' : '#cfc7b8'}" stroke-width="1" stroke-linejoin="round"/>${on ? '<circle cx="5" cy="9.4" r="1.3" fill="#D99A1E"/><circle cx="10" cy="8.2" r="1" fill="#D99A1E"/><circle cx="12" cy="11" r=".8" fill="#D99A1E"/>' : ''}</svg>`;
 const potatoIc = (on) => `<svg class="ic" viewBox="0 0 16 16"><ellipse cx="8" cy="8.6" rx="6.6" ry="5.1" transform="rotate(-12 8 8.6)" fill="${on ? '#C99A5B' : '#fff'}" stroke="${on ? '#8A6330' : '#cfc7b8'}" stroke-width="1"/>${on ? '<circle cx="6" cy="7.6" r=".7" fill="#4a3318"/><circle cx="10" cy="7" r=".7" fill="#4a3318"/><path d="M6.6 10q1.4 1 2.8 0" fill="none" stroke="#4a3318" stroke-width=".7" stroke-linecap="round"/>' : ''}</svg>`;
-const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || LAB[s.type]} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 /* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
 const tagHtml = (arr) => arr.map((t) => `<span class="tg">${esc(t.trim())}</span>`).join('');
@@ -290,7 +294,9 @@ const tagsOr = (c) => (typeof c === 'string' && c.startsWith('#') ? tagHtml(c.sp
 const EN_TAIL = /^(.*?\S)\s+\(([^()]*[A-Za-z][^()]*)\)\s*$/;
 /* 한글이 하나도 없는 문제(영어 지시 · 「한국어로 쓰기」)는 한 줄이 아니라 넓은 줄에 쓰게 한다 */
 const isOpen = (q) => !/_{3}/.test(q) && (q.match(/[가-힣]/g) || []).length <= 3 && (q.match(/[A-Za-z]/g) || []).length >= 15;
+const isRewrite = (q) => !/_{3}/.test(q) && /→\s*$/.test(q) && !isOpen(q);   // 「문장 → 」고쳐 쓰기 문항: 줄이 오른쪽 구석에 떠 있지 않게 문제 아래 한 줄 전체로(운영자 2026-10-30 「얘는 왜 아직도 이래」)
 const qLine = (q) => {
+  if (isRewrite(q)) return `<span class="q">${esc(q)}</span><span class="tl"></span>`;
   if (isOpen(q)) return `<span class="q">${esc(q.replace(/\s*→\s*$/, ''))}</span><span class="tl"></span>`;
   const m = EN_TAIL.exec(q), ko = m ? m[1] : q;
   const body = (ko.includes('___') ? esc(ko.replace(/\s*→\s*$/, '')).replace(/_{3,}/g, '<span class="bl"></span>') : esc(ko));
@@ -302,7 +308,7 @@ const qLine = (q) => {
     ? `<span class="q">${txt}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
     : `<span class="q">${txt}</span><span class="ln"></span>`;
 };
-const liCls = (q) => [isOpen(q) ? 'open' : '', /_{3}/.test(q) ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
+const liCls = (q) => [isOpen(q) || isRewrite(q) ? 'open' : '', /_{3}/.test(q) ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
 
 function titlePage() {
   return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${logoSvg({ fg: '#14264A', one: true, height: '5mm' })}</span></div></div>`;
@@ -349,7 +355,7 @@ const lookalike = (u) => {
 const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-/.test(u.id);
 /* 책 ↔ 앱 점검 칸 — 단원 끝에 「책에서 풀기 → 단원 처음 QR 로 앱 점검 → 점수 적기 → 복습 날짜」 흐름을 한눈에(운영자 2026-10-24 「책을 하면서 앱까지 같이」). 보너스 연습이 있는 단원에만 붙는다. */
-const appCheck = (u) => KDP || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
+const appCheck = (u) => KDP || YES24 || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
 const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check · 나의 점검</h4>
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
@@ -442,7 +448,7 @@ function qScorePage(p) {
   const pt = TWM.TW_QS.find((x) => x.q === q)?.pt;
   const smp = TWM.TW_ITEMS.find((x) => x.id === e.worked?.item)?.samples || [];
   const AREA = { content: '내용', structure: '구성', language: '언어' };
-  const ladder = smp.length ? `<h3 class="gh">Sample scores · 예시 답안 점수 <small style="font-weight:500;color:#5a6780">(${esc(e.worked.item)})</small></h3><div class="lad">${smp.map((sm) => `<div class="rw"><b>${esc(sm.level)}</b><div class="bar"><span style="width:${Math.round(sm.total / pt * 100)}%"></span></div><em>${sm.total}<small>/${pt}</small></em></div><div class="why">${Object.entries(sm.scores || {}).map(([k, v]) => `${AREA[k] || k} ${v}`).join(' · ')} · ${esc(sm.why)}</div>`).join('')}</div>` : '';
+  const ladder = smp.length ? `<h3 class="gh" style="break-before:page">Sample scores · 예시 답안 점수 <small style="font-weight:500;color:#5a6780">(${esc(e.worked.item)})</small></h3><div class="lad">${smp.map((sm) => `<div class="ls"><div class="rw"><b>${esc(sm.level)}</b><div class="bar"><span style="width:${Math.round(sm.total / pt * 100)}%"></span></div><em>${sm.total}<small>/${pt}</small></em></div><div class="why">${Object.entries(sm.scores || {}).map(([k, v]) => `${AREA[k] || k} ${v}`).join(' · ')} · ${esc(sm.why)}</div>${sm.text ? `<div class="smp ${sm.level === '상' ? 'ok' : 'no'}"><b>${sm.level === '상' ? '이렇게 쓰세요 · Write like this' : '이렇게 쓰면 안 돼요 · Don\'t write like this'}</b>${esc(sm.text)}</div>` : ''}</div>`).join('')}</div>` : '';
   return `<div class="blk plain gd"><h2>How Question ${q} is scored</h2><div class="k">${q}번 채점 기준</div>
 <div class="total"><div class="big">${pt}<small>pts · 점</small></div><p>${esc(e.scoring.en)}<small>${esc(e.scoring.ko)}</small></p></div>
 <div class="sc3" style="--n:${e.criteria.length}">${e.criteria.map((c) => `<div class="sc"><h4>${esc(c.k.en)}<small>${esc(c.k.ko)}</small></h4><div class="hi"><i>✓</i><div>${bi(c.hi)}</div></div><div class="lo"><i>✗</i><div>${bi(c.lo)}</div></div></div>`).join('')}</div>${ladder}</div>`;
@@ -453,11 +459,22 @@ function qWorkedPage(p) {
   const task = x.blanks ? `<div class="wp">${esc(x.passage)}</div>` : `<div class="wp">${esc(x.passage)}</div>${x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}`;
   const ans = x.blanks ? x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')
     : `<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
-  const an = (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
+  // 채점 기준은 표로: 점수 | 답 | 이유(운영자 2026-10-30 「표 형태가 더 직관적」). 글이 「점수: “답” / “답”, 이유.」 꼴이 아니면 예전 목록으로
+  const anRow = (a) => {
+    const [le, re] = [a.en.split(/:\s(.*)/s), a.ko.split(/:\s(.*)/s)];
+    const m = /^((?:“[^”]+”(?:\s*\/\s*)?)+),?\s*(.*)$/s.exec(le[1] || ''), k = /^((?:‘[^’]+’(?:\s*\/\s*)?)+),?\s*(.*)$/s.exec(re[1] || '');
+    return m && k ? { le: le[0], lk: re[0], ans: m[1].replace(/[“”]/g, ''), why: bi({ en: m[2].replace(/\.$/, ''), ko: k[2].replace(/\.$/, '') }) } : null;
+  };
+  const rows = (e.analysis || []).map(anRow);
+  const anTable = rows.length && rows.every(Boolean)
+    ? `<table class="anl"><thead><tr><th>점수 · Score</th><th>답 · Answer</th><th>이유 · Why</th></tr></thead><tbody>${rows.map((r) => `<tr><th>${esc(r.le)}<small>${esc(r.lk)}</small></th><td class="aa">${esc(r.ans)}</td><td>${r.why}</td></tr>`).join('')}</tbody></table>`
+    : (e.analysis || []).length && (e.analysis || []).every((a) => /:\s/.test(a.en) && /:\s/.test(a.ko))
+      ? `<table class="anl"><thead><tr><th>점수 · Score</th><th>설명 · Why</th></tr></thead><tbody>${e.analysis.map((a) => { const le = a.en.split(/:\s(.*)/s), lk = a.ko.split(/:\s(.*)/s); return `<tr><th>${esc(le[0])}<small>${esc(lk[0])}</small></th><td>${bi({ en: le[1], ko: lk[1] })}</td></tr>`; }).join('')}</tbody></table>` : '';
+  const an = anTable || (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
     || (x.samples || []).map((sm) => `<li><b>${esc(sm.level)} · ${sm.total}점</b>: ${esc(sm.why)}</li>`).join('');
   const h3 = (t) => `<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">${t}</h3>`;
-  const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${e.steps.map((st) => `<li>${bi(st)}</li>`).join('')}</ol>`;
-  const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>` : ''}`;
+  const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol class="stp">${e.steps.map((st, i) => `<li><b class="sn">STEP ${i + 1}</b><span class="sb">${bi(st)}</span></li>`).join('')}</ol>`;
+  const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}${anTable ? an : `<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>`}` : ''}`;
   const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이: ${esc(x.title)}</div>`;
   /* 53 · 54번은 모범답안이 길어 한 쪽에 안 들어간다 — 문제 · 풀이 순서 / 모범답안 · 분석으로 두 쪽 */
   return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
@@ -480,14 +497,22 @@ function fmExam() {
 <div class="bx tip">${legend('tip')}<div class="tt">${f.areas.map((a) => `${esc(a.en)}<br><small style="color:#5a6780">${esc(a.ko)}</small>`).join('<br>')}</div></div>
 ${qrBox()}</div>`;
 }
+/* 계획표 칸 종류: 아이콘 + 영어 한 단어로 한눈에(이모지 대신 선 그림, 운영자 2026-10-30 「글자 밖에 없는 느낌」) */
+const PIC = { w: '<path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/>', r: '<path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-7"/><path d="M20 5v12h-7"/>', v: '<path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/>', c: '<path d="M5 12.5l4.5 4.5L19 7"/>', t: '<circle cx="12" cy="13" r="7"/><path d="M12 9v4l3 2M9 3h6"/>' };
+const planKind = (d) => { const k = /분/.test(d) ? ['t', 'Timed'] : /안내|예시/.test(d) ? ['r', 'Read'] : /점검/.test(d) ? ['c', 'Check'] : /틀린|복습/.test(d) ? ['v', 'Review'] : ['w', 'Write']; return { c: 'pk' + k[0], en: k[1], i: `<svg viewBox="0 0 24 24">${PIC[k[0]]}</svg>` }; };
 function fmPlan() {
-  const pl = FRONT.plan[B.front]; const out = [];
-  for (let i = 0; i < pl.weeks.length; i += 4) {
-    const grp = pl.weeks.slice(i, i + 4);
-    out.push(`<div class="blk plain gd fm">${i === 0 ? fmHead(pl.title.en, pl.title.ko) + `<p class="lead">${bi2(pl.sub)}</p>` : fmHead(pl.title.en + ' (cont.)', pl.title.ko + ' (이어서)')}
-<div class="wk">${grp.map((w, j) => `<div class="wc2 c${(i + j) % 4}"><h4>${bi2(w.t)}</h4>${w.d.map((d, k) => `<div class="dy"><i></i><b>D${k + 1}</b><span>${esc(d)}</span></div>`).join('')}</div>`).join('')}</div>${i === 0 ? '' : ''}</div>`);
-  }
-  return out.join('\n');
+  /* 계획표는 표 한 장으로(운영자 2026-10-30 「조금 더 organized」): 주 · 초점 · 하루(D1~D5) 칸. 체크 칸은 전자책이라 뺐다 */
+  const pl = FRONT.plan[B.front];
+  const sp = (o) => { const [a, ...r] = o.en.split(' · '), [b, ...q] = o.ko.split(' · '); return { w: a, wk: b, f: r.join(' · '), fk: q.join(' · ') }; };
+  let prev = '';
+  const rows = pl.weeks.map((w) => {
+    const t = sp(w.t), ph = (t.f.match(/^Q\d\d/) || [''])[0];
+    const band = ph && ph !== prev ? `<tr class="ph"><td colspan="7">${esc(ph.replace('Q', 'Question '))}</td></tr>` : '';
+    prev = ph || prev;
+    return `${band}<tr><th class="w">${esc(t.w)}<small>${esc(t.wk)}</small></th><td class="f"><b>${esc(t.f)}</b><small>${esc(t.fk)}</small></td>${w.d.map((d) => { const k = planKind(d); return `<td class="pk ${k.c}"><span class="pi">${k.i}<em>${k.en}</em></span>${esc(d)}</td>`; }).join('')}</tr>`;
+  }).join('');
+  return `<div class="blk plain gd fm">${fmHead(pl.title.en, pl.title.ko)}<p class="lead">${bi2(pl.sub)}</p>
+<table class="plt"><thead><tr><th>주 · Week</th><th>초점 · Focus</th>${[1, 2, 3, 4, 5].map((n) => `<th>D${n}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table><div class="plg2">${[['w', 'Write'], ['r', 'Read'], ['v', 'Review'], ['c', 'Check'], ['t', 'Timed']].map(([c, n]) => `<span class="pk${c}"><svg viewBox="0 0 24 24">${PIC[c]}</svg>${n}</span>`).join('')}</div></div>`;
 }
 const goji = (text, cols) => {
   const ch = [...text]; const cells = [];
@@ -552,12 +577,60 @@ function exampleHtml(s) {
   if (x.blanks) return `<div class="wp">${esc(x.passage)}</div>${x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')}`;
   return `${s.showData && x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
 }
+/* 53 · 54번 쓰는 칸은 원고지처럼 한 글자씩(운영자 2026-10-30 「원고지 스타일로」). 100자마다 오른쪽에 글자 수 */
+const wgrid = (max) => { const per = max > 400 ? 27 : 25, rows = Math.ceil(max / per); return `<div class="gw" style="--n:${per}">${Array.from({ length: rows }, (_, r) => `<div class="gr">${'<span></span>'.repeat(per)}${Math.floor(((r + 1) * per) / 100) > Math.floor((r * per) / 100) ? `<i>${Math.floor(((r + 1) * per) / 100) * 100}</i>` : ''}</div>`).join('')}</div>`; };
 const wlines = (n, per = 30) => `<div class="wg">${Array.from({ length: n }, (_, i) => `<div class="wr">${(i + 1) % 5 === 0 ? `<i>${(i + 1) * per}</i>` : ''}</div>`).join('')}</div>`;
+/* ── 53 · 54번 풀이 순서(안내 쪽) — 예시 문제 하나를 자료 밑줄 → 덩어리 짜기 → 쓰기 → 점검으로 따라간다(운영자 2026-10-30 「좋아 이 모양으로 다」).
+   원본: docs/writing-book/walkthrough.json(유형마다 예시 문항 id · 밑줄 글 · 덩어리 · 해설) + topik-writing.js(문항 글 · 모범답안). 밑줄 글이 모범답안에 없으면 빌드가 멈춘다. */
+let WTC; const wtSpec = () => (WTC ||= (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/walkthrough.json'), 'utf8')); } catch { return {}; } })());
+function walkHtml(uid) {
+  const sp = wtSpec()[uid]; if (!sp) return { a: '', b: '' };
+  const x = TW.find((t) => t.id === sp.item); if (!x) throw new Error(`walkthrough ${uid}: 없는 문항 ${sp.item}`);
+  const k54 = sp.kind === '54';
+  for (const arr of Object.values(sp.marks)) for (const str of arr) if (!x.model.includes(str)) throw new Error(`walkthrough ${uid}: 「${str}」가 모범답안에 없다`);
+  for (const b of sp.bold || []) if (!x.model.includes(b)) throw new Error(`walkthrough ${uid}: 굵게 「${b}」가 모범답안에 없다`);
+  const hl = (text, withMarks) => {
+    const iv = [];
+    if (withMarks) for (const [k, arr] of Object.entries(sp.marks)) for (const str of arr) { const i = text.indexOf(str); if (i >= 0) iv.push([i, i + str.length, k]); }
+    iv.sort((a, b) => a[0] - b[0]);
+    const bold = (t) => { let h = esc(t); for (const b of sp.bold || []) h = h.replace(esc(b), `<b>${esc(b)}</b>`); return h; };
+    let out = '', pos = 0;
+    for (const [a, b, k] of iv) { if (a < pos) continue; out += bold(text.slice(pos, a)) + `<u class="u${k}">${esc(text.slice(a, b))}</u>`; pos = b; }
+    return out + bold(text.slice(pos));
+  };
+  const chip = (k) => `<span class="g${k}">${k}</span>`;
+  const U = (k, t) => `<u class="u${k}">${esc(t)}</u>`;
+  const st = (n, ko, en) => `<div class="st"><i>${n}</i><h2>${esc(ko)}<small>${esc(en)}</small></h2></div>`;
+  const dataRows = k54
+    ? x.tasks.map((t, i) => `<div>${chip(sp.rows[i][0])}<em>${esc(sp.rows[i][1])}</em><span>${U(sp.rows[i][0], t)}</span></div>`).join('')
+    : x.data.map((line, i) => { const [k, lb] = sp.rows[i]; const vals = line.split(' · ').map((p) => { const c = p.indexOf(': '); return U(k, c < 0 ? p : p.slice(c + 2)); }).join(' · '); return `<div>${chip(k)}<em>${esc(lb)}</em><span>${vals}</span></div>`; }).join('');
+  const cards = sp.step2.cards.map((c, i) => `<div class="card"><h3><span>${c.n}</span>${esc(c.t)}</h3><div class="src">${c.src.map(chip).join('')}</div><p>${esc(c.f).replace(/〔[^〕]*〕/g, (m) => `<span class="bk">${m}</span>`).replace(new RegExp((c.b || []).map((b) => esc(b).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') || '$^', 'g'), (m) => `<b>${m}</b>`)}</p></div>`).join('');
+  const units2 = k54 ? x.model.split(/\n\s*\n/) : x.model.split(/(?<=\.)\s+/);
+  const rowsHtml = sp.groups.map((g, i) => {
+    const txt = k54 ? units2[g.p] : g.s.map((j) => units2[j]).join(' ');
+    return `<div class="wrw"><b>${'①②③④'[i]}</b><div><span class="t">${hl(txt, true)}</span><span class="w">${esc(g.w)}</span></div></div>`;
+  }).join('');
+  const n = x.model.replace(/\n/g, '').length, inRange = n >= x.min && n <= x.max;
+  const chks = [['글자 수', `${x.min}~${x.max}자${inRange ? ` · ${n}자 ✓` : ` · ${n}자`}`], ...sp.checks].map(([b, t]) => `<div><b>${esc(b)}</b>${esc(t)}</div>`).join('');
+  const a = `<div class="wt2 wt2a"><div class="wh">EXAMPLE · 예시 문제 · ${esc(sp.step1.en)} · 풀이 순서</div>
+<div class="q"><b>QUESTION · 예시 문제 (${esc(x.id)})</b>${esc(x.passage)}</div>
+${st(1, sp.step1.ko, sp.step1.en)}<div class="data">${dataRows}</div><div class="note">${esc(sp.step1.note)}</div>
+${st(2, sp.step2.ko, sp.step2.en)}<div class="flow" style="--n:${sp.step2.cards.length}">${cards}</div><div class="note">${esc(sp.step2.note)}</div></div>`;
+  const b = `<div class="blk plain gd wt2">${st(3, '쓰기', 'Write · 밑줄 색 = 자료(질문)의 어느 부분인지')}${rowsHtml}<div class="note">모범답안 ${n}자 · Model answer</div>
+${st(4, '점검하기', 'Check')}<div class="chk" style="--n:${sp.checks.length + 1}">${chks}</div></div>`;
+  return { a, b };
+}
+/* 문제마다 스스로 점검(운영자 2026-10-30 「문제마다 점검표, 몇 자 썼는지 셀프로 확인」): 글자 수 칸 + 과제 칸 */
+const selfCheckBox = (x) => `<div class="sck"><div class="scn"><b>몇 자? · Count</b><span class="scl"></span>자 <small>${x.min}~${x.max}자 (띄어쓰기 포함)</small></div><ul>${[...x.tasks, ...(x.q === 54 ? ['문단을 나누었다'] : []), '-(느)ㄴ다체로 끝까지 썼다', '제목을 쓰지 않았다'].map((t) => `<li><i></i>${esc(t)}</li>`).join('')}</ul></div>`;
 function writingHtml(x) {
+  /* 풀이 예시로 이미 보여 준 문항은 같은 글을 또 싣지 않는다(운영자 2026-10-30 「같은 페이지 반복 이상해」) — 번호와 정답은 그대로 */
+  if (x._ref) return `<div class="wref"><b>풀이 예시 · Worked example</b> 이 문제는 앞의 「풀이 예시」에서 단계별로 풀었어요. · This question was solved step by step in the worked example earlier in the book.</div>`;
   const cond = x.cond ? `<div class="wc">${esc(x.cond)}</div>` : '';
   if (x.q <= 52) return `<div class="wp">${esc(x.passage)}</div>${cond}${x.blanks.map((b) => KDP ? `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>` : `<div class="wl"><b>${esc(b.mark)}</b><span class="wln"></span></div>`).join('')}`;
-  const data = x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
-  return `<div class="wp">${esc(x.passage)}</div>${data}<ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wlines(Math.ceil(x.max / 30))}`;
+  /* 53번 자료는 시험처럼 그래프로(숫자는 줄글에 있는 것만 — tools/lib/tw-chart.mjs, 검사 check-tw-charts). 못 읽으면 예전 목록 */
+  const twp = x.data && x.q === 53 ? parseTwData(x.data) : null;
+  const data = twp ? `<p class="wd-m">${esc(x.data[0])}</p>${twChartSvg(twp, { acc: ACC, tint: TINT })}` : x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
+  return `<div class="twq" style="break-inside:avoid"><div class="wp">${esc(x.passage)}</div>${data}</div><ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${B.front === '5354' ? wlines(Math.ceil(x.max / 40), 40).replace('class="wg"', 'class="wg wg2"') + selfCheckBox(x) + `<p class="wnote">원고지는 맨 뒤 정답 끝의 「원고지 양식」에 쓰세요. · Write on the answer-grid form at the very end of the book.</p>` : wgrid(x.max)}`;
 }
 /* 객관식 모의고사 문항(TOPIK I 읽기 모의고사): 짝 지문은 한 번만 보이고, 보기는 ①~④. 정답 · 풀이는 정답 쪽에 */
 const CIRC = ['①', '②', '③', '④'];
@@ -595,13 +668,16 @@ const omrHtml = (s) => {
 };
 const qw = (items) => { const m = Math.max(...items.filter((x) => !/_{3}/.test(x.q)).map((x) => [...x.q].length), 0); return m <= 12 ? '34%' : m <= 22 ? '48%' : m <= 34 ? '60%' : '72%'; };
 function unitBlock(u) {
-  const secs = u.sections;
+  /* 풀이 순서 쪽(walkthrough)이 있는 안내 단원은 예전 「글의 틀 · 읽는 법」 두 칸을 대신한다 */
+  const secs = wtSpec()[u.id] ? u.sections.filter((s, i) => !(i < 2 && (s.type === 'flow' || s.type === 'text'))) : u.sections;
   const open = `<div class="blk uo ${unitCss(u)}" style="page:unitopen"><div class="band"></div><div class="pn">PART ${u.part.no} · ${esc(u.part.title.en.toUpperCase())}</div><div class="no">UNIT ${String(u.no).padStart(2, '0')}</div>
 <div class="ttl"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3><p class="sub">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p></div>
 <div class="in"><b>IN THIS UNIT · 이 단원에서</b><ol>${secs.map((s) => `<li>${esc(s.title.en)}${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</li>`).join('')}</ol></div></div>`;
   if (CLASSIC) {
     const head = `<div class="uh"><div class="un">UNIT ${String(u.no).padStart(2, '0')} &nbsp;·&nbsp; PART ${u.part.no} ${esc(u.part.title.en.toUpperCase())}</div><div class="ut"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3></div></div><p class="us">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p>`;
-    u._head = head;
+    /* 실전 문제 단원은 첫 쪽에 이 단원의 문제 목록을 둔다 — 구역을 나누고 빈 쪽을 줄인다(운영자 2026-10-30 「실전문제 · 예시 문제로 정확히 나누자」) */
+    const ws = B.front === '5354' ? u.sections.filter((x) => x.type === 'writing') : [];
+    u._head = head + (ws.length ? `<div class="pcl"><div class="pct">PRACTICE · 실전 문제 <small>${ws.length}문제</small></div><ol>${ws.map((x) => `<li>${esc(x.title.en.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol><p>풀이 예시로 이미 풀어 본 문제는 문제 쪽에 「풀이 예시」로 표시했어요. · The question marked “Worked example” was solved in the guide.</p></div>` : '');
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const body = secs.map((s, si) => {
@@ -647,11 +723,11 @@ function unitBlock(u) {
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
     if (s.type === 'mcq') return `<div class="sec mqs">${sr(si)}${secLabel(s)}${mcqHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
-    if (s.type === 'writing') return `<div class="sec wq">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}</div>`;
+    if (s.type === 'writing') return `<div class="sec wq${s.raw._ref ? ' wqref' : ''}">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
+    return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${liCls(x.q) ? ` class="${liCls(x.q)}"` : ''}>${qLine(x.q)}</li>`).join('')}</ol>`}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
   }).join('\n');
-  if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${unitQr(u)}${appCheck(u)}${body}${lookalike(u)}${selfCheck(u)}</div>`;
-  return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${body}${lookalike(u)}${selfCheck(u)}${unitQr(u)}</div>`;
+  if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${u._head}${walkHtml(u.id).a ? '' : unitQr(u)}${appCheck(u)}${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}</div>`;
+  return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}${walkHtml(u.id).a ? '' : unitQr(u)}</div>`;
 }
 const dialogueOpener = (u) => {
   const o = u.opener; if (!o) return '';
@@ -665,7 +741,12 @@ function answersBlock() {
     for (const s of u.sections.filter((x) => x.type === 'writing')) {
       const x = s.raw;
       if (x.q <= 52) h += `<div class="set a wa"><b>${esc(s.title.en)}</b> ${x.blanks.map((b) => `${esc(b.mark)} ${b.answers.map(esc).join(' / ')}`).join(' &nbsp;·&nbsp; ')}<small>${x.blanks.map((b) => esc(b.point)).join(' ')}</small><small class="dd">감점 · ${x.deduct.map(esc).join(' · ')}</small></div>`;
-      else h += `<div class="set a wa"><b>${esc(s.title.en)}</b><p class="mdl">${esc(x.model).replace(/\n+/g, ' ¶ ')}</p><small>채점 · ${Object.entries(x.points).map(([k, v]) => `${{ content: '내용', structure: '구성', language: '언어' }[k] || k}: ${esc(v)}`).join(' / ')}</small>${(x.samples || []).map((m) => `<small class="sm"><i>${esc(m.level)} ${m.total}점</i> ${esc(m.text).replace(/\n+/g, ' ¶ ')} — ${esc(m.why)}</small>`).join('')}<small class="dd">감점 · ${(x.deduct || []).map(esc).join(' · ')}</small></div>`;
+      else {
+        /* 53 · 54번 답지: 문제마다 상 · 중 · 하 답안을 그대로, 점수 · 이유 · 감점 포인트와 함께(운영자 2026-10-30 「답지도 상중하로 꼼꼼하게」) */
+        const pt = TWM.TW_QS.find((t) => t.q === x.q)?.pt || 0, AR = { content: '내용', structure: '구성', language: '언어' };
+        const sm = x.samples || [], tone = { 상: 'hi', 중: 'mid', 하: 'lo' };
+        h += `<div class="akq"><h4><b>${esc(s.title.en)}</b><em>${pt}점 만점</em></h4><p class="akc">${Object.entries(x.points).map(([k, v]) => `<span><b>${AR[k] || k}</b> ${esc(v)}</span>`).join('')}</p>${sm.map((m, k) => `<div class="akr ${tone[m.level] || ''}"><div class="akh"><b>${esc(m.level)}</b><span>${k === 0 ? '모범답안 · 이렇게 쓰세요' : '이렇게 쓰면 안 돼요'}</span><em>${m.total}<small>/${pt}</small></em><small>${Object.entries(m.scores || {}).map(([a, v]) => `${AR[a] || a} ${v}`).join(' · ')}</small></div><p class="akt">${esc(k === 0 ? x.model : m.text).replace(/\n+/g, ' ¶ ')}</p><p class="akw">${esc(m.why)}</p></div>`).join('')}<p class="akd"><b>감점 포인트</b> ${(x.deduct || []).map(esc).join(' · ')}</p></div>`;
+      }
     }
     for (const s of u.sections.filter((x) => x.type === 'mcq')) {
       const TN = B.methods ? Object.fromEntries(B.methods.flatMap((m) => [[m.type, m.name.ko]])) : {};
@@ -681,8 +762,11 @@ function answersBlock() {
     }
     h += '</div>';
   }
-  return h + '</div>';
+  return h + '</div>' + (B.front === '5354' ? gojiForms() : '');
 }
+/* 53 · 54번 원고지 연습 양식: 정답 끝에 한 번만(운영자 2026-10-30 「원고지 맨 뒤로」). 필요한 만큼 인쇄해 쓰게 한다. 시험 답안지와 칸 수가 같다는 뜻은 아니다 */
+const wform = (per, rows) => `<div class="gw gform" style="--n:${per}">${Array.from({ length: rows }, (_, r) => `<div class="gr">${'<span></span>'.repeat(per)}${Math.floor(((r + 1) * per) / 100) > Math.floor((r * per) / 100) ? `<i>${Math.floor(((r + 1) * per) / 100) * 100}</i>` : ''}</div>`).join('')}</div>`;
+const gojiForms = () => [['Question 53 · 53번', 20, 15, '200~300자'], ['Question 54 · 54번', 24, 30, '600~700자']].map(([t, per, rows, n]) => `<div class="blk plain gd"><h2>Answer grid · 원고지 양식</h2><div class="k">${t} · ${n} · 연습용 양식이에요. 필요한 만큼 인쇄해서 쓰세요. · Practice form. Print as many as you need. &nbsp; 이름 · Name ________ &nbsp; 날짜 · Date ________</div>${wform(per, rows)}</div>`).join('');
 /* 찾아보기 — 표의 한국어 낱말(첫 낱말 칸)과 뜻을 모아 가나다 순으로. 「읽기 팁」 칸은 뺀다. */
 const INI = ['ㄱ', 'ㄱ', 'ㄴ', 'ㄷ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅂ', 'ㅅ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
 const ini = (w) => INI[Math.floor((w.charCodeAt(0) - 0xac00) / 588)];
@@ -733,7 +817,12 @@ const CLASSIC_CSS = `
 .bx .tt{white-space:pre-line}.wans{flex:1;font-size:9.6pt;color:#1f3a68;padding-bottom:.6mm;border-bottom:.25mm solid #c5cfdf}
 .wp{border:.25mm solid #b9c3d6;background:#f6f8fc;padding:3mm 3.6mm;font-size:9.6pt;line-height:1.8;margin:1mm 0 2mm}.wc{font-size:8pt;color:#5a6780;margin:0 0 1.6mm}
 .wl{display:flex;align-items:flex-end;gap:2.4mm;margin:2.4mm 0}.wl b{color:${ACC};font-size:11pt}.wln{flex:1;border-bottom:.25mm solid #8e9ab0;height:7mm}
-.wd{margin:0 0 2mm 5mm;padding:0;font-size:9pt;line-height:1.55;color:#2a3550}.wt{margin:0 0 2mm 6mm;padding:0;font-size:9pt;line-height:1.55}
+.ls{break-inside:avoid}.akq{margin:0 0 4mm;padding:2.4mm 3mm;border:.25mm solid #c9c2d8;border-radius:1.4mm;background:#fff}.akq h4{break-after:avoid;display:flex;justify-content:space-between;align-items:baseline;font-size:9.4pt;margin-bottom:1mm}.akq h4 em{font-style:normal;font-size:7.6pt;color:#5a6780}.akc{display:flex;gap:3mm;font-size:6.8pt;color:#5a6780;line-height:1.35;margin-bottom:1.6mm}.akc span{flex:1}.akc b{color:#3a2f66}.akr{break-inside:avoid;margin:0 0 1.6mm;padding:1.4mm 2mm;border-left:1.1mm solid #b9b2c9;background:#faf9fc}.akr.hi{border-color:#2a7a6a;background:#f2f9f6}.akr.mid{border-color:#c98a2e;background:#fcf7ee}.akr.lo{border-color:#b0452a;background:#fbf3f0}.akh{display:flex;align-items:baseline;gap:2mm;font-size:7.4pt}.akh>b{font-size:9pt}.akh span{flex:1;font-weight:700;color:#3a2f66}.akh em{font:800 9pt 'Pretendard Variable';font-style:normal}.akh em small{font-size:6.6pt;color:#5a6780}.akh>small{font-size:6.6pt;color:#5a6780}.akt{margin:.8mm 0;font-size:7.8pt;line-height:1.5;color:#1d1a17}.akw{font-size:7pt;line-height:1.4;color:#5a6780}.akd{font-size:6.8pt;line-height:1.4;color:#5a6780}.akd b{color:#a8431f;margin-right:1.2mm}.smp{margin:1mm 0 3.2mm 9mm;padding:1.8mm 2.6mm;border:.25mm solid #c9c2d8;border-radius:1.2mm;font-size:8.4pt;line-height:1.6;color:#2a2622;background:#fff}.smp b{display:block;font-size:7.4pt;margin-bottom:.8mm;color:#3a2f66}.smp.no{border-style:dashed;background:#faf7f4}.smp.no b{color:#a8431f}.pcl{margin:5mm 0 0;padding:3mm 4mm;border:.3mm solid #c9c2d8;border-radius:2mm;background:#faf9fc}.pct{font-weight:800;font-size:10pt;color:#3a2f66;letter-spacing:.04em;margin-bottom:2mm}.pct small{font-weight:500;color:#5a6780;margin-left:2mm}.pcl ol{margin:0;padding-left:5mm;columns:2;column-gap:6mm;font-size:8.6pt;line-height:1.7}.pcl p{margin:2mm 0 0;font-size:7.6pt;color:#5a6780}.wt2a{margin-top:2mm}.wt2a .q{margin-bottom:1.4mm;padding:.8mm 3mm}.wt2a .st{margin:2.8mm 0 1.6mm}.wt2a .data div{padding:1.3mm 3.4mm}.wt2a .card{padding:1.8mm 2.6mm}.wt2a .note{margin-top:1.2mm}.wt2 .wh{font-size:7pt;letter-spacing:.14em;color:#8a7f72;margin-bottom:3mm;text-transform:uppercase}.wt2 .q{border-left:1.2mm solid #3a2f66;padding:1.2mm 3.4mm;background:#f6f4fa;font-size:9pt;margin-bottom:3mm}.wt2 .q b{display:block;font-size:7pt;color:#3a2f66;letter-spacing:.06em}.wt2 .st{display:flex;align-items:center;gap:3mm;margin:4.4mm 0 2.4mm}.wt2 .st i{font:800 14pt/1 'Pretendard Variable';font-style:normal;color:#fff;background:#3a2f66;width:8.6mm;height:8.6mm;border-radius:2mm;display:flex;align-items:center;justify-content:center}.wt2 .st h2{margin:0;font-size:11.4pt;line-height:1.2;border:0;padding:0}.wt2 .st h2 small{display:block;font-size:7.8pt;font-weight:500;color:#5a6780}
+.wt2 .data{border:.3mm solid #c9c2d8;border-radius:2mm;overflow:hidden}.wt2 .data div{display:flex;align-items:center;gap:3mm;padding:2.1mm 3.4mm;border-top:.25mm solid #e6e1ef;line-height:1.5;font-size:9.2pt}.wt2 .data div:first-child{border-top:0}.wt2 .data em{font-style:normal;width:20mm;flex:none;color:#5a6780;font-size:8pt}.wt2 .note{font-size:8pt;color:#5a6780;margin-top:1.8mm}
+.wt2 .flow{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:4mm}.wt2 .card{border:.3mm solid #c9c2d8;border-radius:2mm;padding:2.4mm 2.8mm;position:relative;background:#fff}.wt2 .card:not(:last-child):after{content:'→';position:absolute;right:-4.2mm;top:50%;transform:translateY(-50%);color:#3a2f66;font-weight:800;font-size:10pt}.wt2 .card h3{margin:0 0 1mm;font-size:9.6pt}.wt2 .card h3 span{color:#3a2f66;margin-right:1mm}.wt2 .card .src{display:flex;gap:1mm;margin-bottom:1.4mm;min-height:5mm}.wt2 .card p{margin:0;font-size:8.2pt;line-height:1.7}.wt2 .card b{color:#3a2f66}.wt2 .bk{color:#8a93a6}
+.wt2 .wrw{display:grid;grid-template-columns:8mm 1fr;gap:3mm;align-items:start;margin:0 0 2.6mm;padding:2.6mm 3.2mm;border:.3mm solid #c9c2d8;border-radius:2mm;break-inside:avoid}.wt2 .wrw>b{font:800 13pt/1 'Pretendard Variable';color:#3a2f66}.wt2 .wrw .t{display:block;font-size:9.6pt;line-height:2}.wt2 .wrw .w{display:block;margin-top:1mm;font-size:8pt;color:#5a6780;line-height:1.5}
+.wt2 .chk{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:3mm}.wt2 .chk div{border:.3mm solid #c9c2d8;border-radius:2mm;padding:2.2mm 2.8mm;font-size:8.2pt;line-height:1.5}.wt2 .chk b{display:block;font-size:7pt;color:#3a2f66;letter-spacing:.05em}
+.wt2 .uA{text-decoration:underline;text-decoration-color:#2f6fb0;text-decoration-thickness:.7mm;text-underline-offset:1.1mm;text-decoration-skip-ink:none}.wt2 .gA{background:#2f6fb0;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:4.8mm;height:4.8mm;border-radius:50%;font:800 7.2pt/1 'Pretendard Variable';flex:none}.wt2 .uB{text-decoration:underline;text-decoration-color:#2a7a6a;text-decoration-thickness:.7mm;text-underline-offset:1.1mm;text-decoration-skip-ink:none}.wt2 .gB{background:#2a7a6a;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:4.8mm;height:4.8mm;border-radius:50%;font:800 7.2pt/1 'Pretendard Variable';flex:none}.wt2 .uC{text-decoration:underline;text-decoration-color:#c2701d;text-decoration-thickness:.7mm;text-underline-offset:1.1mm;text-decoration-skip-ink:none}.wt2 .gC{background:#c2701d;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:4.8mm;height:4.8mm;border-radius:50%;font:800 7.2pt/1 'Pretendard Variable';flex:none}.wt2 .uD{text-decoration:underline;text-decoration-color:#8a4fb0;text-decoration-thickness:.7mm;text-underline-offset:1.1mm;text-decoration-skip-ink:none}.wt2 .gD{background:#8a4fb0;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:4.8mm;height:4.8mm;border-radius:50%;font:800 7.2pt/1 'Pretendard Variable';flex:none}.wt2 .uE{text-decoration:underline;text-decoration-color:#b0452a;text-decoration-thickness:.7mm;text-underline-offset:1.1mm;text-decoration-skip-ink:none}.wt2 .gE{background:#b0452a;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:4.8mm;height:4.8mm;border-radius:50%;font:800 7.2pt/1 'Pretendard Variable';flex:none}.wg2 .wr{height:6.4mm}.sck{margin:1.4mm 0 1mm;padding:2mm 3mm;border:.25mm solid #c9c2d8;border-radius:1.4mm;background:#faf9fc;break-inside:avoid}.scn{display:flex;align-items:baseline;gap:2mm;font-size:8.4pt;margin-bottom:1.2mm}.scn b{color:#3a2f66}.scl{display:inline-block;width:20mm;border-bottom:.3mm solid #8e9ab0;height:4.4mm}.scn small{color:#5a6780;font-size:7.2pt;margin-left:2mm}.sck ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.8mm 4mm;font-size:7.8pt;line-height:1.35}.sck li{display:flex;gap:1.6mm;align-items:flex-start}.sck li i{flex:none;width:3.2mm;height:3.2mm;border:.3mm solid #3a2f66;border-radius:.6mm;margin-top:.3mm}.sec.wq{break-inside:avoid}.wnote{margin:1mm 0 0;font-size:7.8pt;color:#5a6780}.gw{margin:1mm 0 3mm;padding-right:7mm;break-inside:avoid}.gr{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr)}.gr span{aspect-ratio:1;border:.2mm solid #8e9ab0;margin:0 -.1mm -.2mm 0}.gr i{position:absolute;left:calc(100% + 1.2mm);bottom:0;font-size:6.4pt;font-style:normal;color:#8a93a6;line-height:1}.wref{margin:0 0 3mm;padding:2.2mm 3mm;border:.25mm dashed #b9b2c9;border-radius:1.2mm;font-size:8.8pt;line-height:1.5;color:#5a5348}.wref b{color:#3a2f66;margin-right:1.5mm}.wd-m{margin:0 0 1.4mm;font-size:8.6pt;color:#5a5348}.twc{break-inside:avoid}.wd{margin:0 0 2mm 5mm;padding:0;font-size:9pt;line-height:1.55;color:#2a3550}.wt{margin:0 0 2mm 6mm;padding:0;font-size:9pt;line-height:1.55}
 .wg{margin-top:2mm}.wr{position:relative;border-bottom:.22mm solid #8e9ab0;height:8mm}.wr i{position:absolute;right:0;top:1mm;font-size:6.4pt;color:#8a93a6;font-style:normal}
 .wq{break-inside:avoid}.wa{font-size:8.2pt;line-height:1.55;border-top:.2mm solid #d6dce8;padding-top:1.4mm;margin-top:1.4mm}.wa small{display:block;font-size:7.2pt;color:#5a6780}.wa .sm i{font-style:normal;font-weight:800;color:${ACC};margin-right:1.4mm}.wa .mdl{margin:.6mm 0 1mm}.wa .dd{color:#9a6a50}
 
@@ -772,7 +861,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .tbar{display:flex;gap:.8mm;margin-top:1.6mm}.tbar span{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2mm 0;border-radius:1.4mm;background:${ACC};color:#fff;font-size:8pt;min-width:9mm}.tbar span:nth-child(odd){opacity:.86}.tbar span:last-child{background:#7a8aa6}.tbar b{font-size:10pt}
 .uq{margin:0 0 3mm;padding:1.5mm 3mm;gap:3mm;break-inside:avoid}.uq .qr svg{width:14mm;height:14mm}.uq b{font-size:8.5pt}.uq small{font-size:7pt;margin:.3mm 0}.uq a{display:block;margin-top:1mm;font-size:7pt;color:${ACC};text-decoration:none;word-break:break-all}
 .qrb{display:flex;gap:4mm;align-items:center;margin-top:5mm;padding:3mm 4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT}}.qrb .qr svg{width:22mm;height:22mm;display:block}.qrb b{display:block;font-size:10pt;color:${ACC}}.qrb small{display:block;font-size:8pt;color:#44506a;margin:.8mm 0}.qrb span{font-size:8pt;font-weight:700;color:${ACC}}
-.wk{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;margin-top:2mm}.wc2{border-radius:2mm;overflow:hidden;border:.3mm solid var(--wc,#1F3A68);background:#fff}.wc2 h4{background:var(--wc,#1F3A68);color:#fff;padding:2mm 2.6mm;font-size:8.6pt;line-height:1.3}.wc2 h4 small{display:block;font-size:7.2pt;font-weight:500;opacity:.85}.wc2 .dy{display:flex;align-items:center;gap:1.8mm;padding:1.8mm 2.4mm;border-top:.2mm solid #e3e8f0;font-size:8pt}.wc2 .dy i{flex:none;width:3.6mm;height:3.6mm;border:.35mm solid var(--wc,#1F3A68);border-radius:.8mm}.wc2 .dy b{flex:none;width:6mm;color:var(--wc,#1F3A68);font-size:7.6pt}.wc2.c0{--wc:#1F3A68}.wc2.c1{--wc:#2a7a6a}.wc2.c2{--wc:#a8641e}.wc2.c3{--wc:#7a3d8a}
+.plt td.pk{position:relative;padding-top:1.2mm}.plt .pi{display:flex;align-items:center;gap:1mm;margin-bottom:.8mm;font-size:6.4pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.plt .pi em{font-style:normal}.plt svg,.plg2 svg{width:3.2mm;height:3.2mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}.pkw{color:#3a2f66;background:#f4f1fa}.pkr{color:#1F3A68;background:#eef3fa}.pkv{color:#8a5316;background:#fbf3e8}.pkc{color:#1f6a5a;background:#ecf6f2}.pkt{color:#6b2f7a;background:#f6eef8}.plt td.pk{color:#222}.plt td.pkw .pi{color:#3a2f66}.plt td.pkr .pi{color:#1F3A68}.plt td.pkv .pi{color:#8a5316}.plt td.pkc .pi{color:#1f6a5a}.plt td.pkt .pi{color:#6b2f7a}.plg2{display:flex;gap:4mm;margin-top:3mm;font-size:7.4pt;font-weight:700}.plg2 span{display:flex;align-items:center;gap:1.2mm;padding:.8mm 2mm;border-radius:1mm}.plt{width:100%;border-collapse:collapse;table-layout:fixed;min-width:0;margin-top:3mm;font-size:8.2pt;line-height:1.4}.plt th,.plt td{border:.25mm solid #c9c2d8;padding:2mm 1.8mm;vertical-align:top;text-align:left}.plt thead th{background:#efecf6;color:#3a2f66;font-size:7.6pt}.plt thead th:nth-child(1){width:19mm}.plt thead th:nth-child(2){width:31mm}.plt th.w{background:#f7f5fb;color:#3a2f66;font-weight:800}.plt td.f b{display:block}.plt small{display:block;font-size:7pt;font-weight:500;color:#5a6780}.plt tr.ph td{background:#3a2f66;color:#fff;font-weight:800;font-size:7.6pt;letter-spacing:.06em;padding:1.2mm 2mm}.plt tbody tr:not(.ph){height:16mm}.wk{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;margin-top:2mm}.wc2{border-radius:2mm;overflow:hidden;border:.3mm solid var(--wc,#1F3A68);background:#fff}.wc2 h4{background:var(--wc,#1F3A68);color:#fff;padding:2mm 2.6mm;font-size:8.6pt;line-height:1.3}.wc2 h4 small{display:block;font-size:7.2pt;font-weight:500;opacity:.85}.wc2 .dy{display:flex;align-items:center;gap:1.8mm;padding:1.8mm 2.4mm;border-top:.2mm solid #e3e8f0;font-size:8pt}.wc2 .dy i{flex:none;width:3.6mm;height:3.6mm;border:.35mm solid var(--wc,#1F3A68);border-radius:.8mm}.wc2 .dy b{flex:none;width:6mm;color:var(--wc,#1F3A68);font-size:7.6pt}.wc2.c0{--wc:#1F3A68}.wc2.c1{--wc:#2a7a6a}.wc2.c2{--wc:#a8641e}.wc2.c3{--wc:#7a3d8a}
 .rl{padding-left:5mm;display:flex;flex-direction:column;gap:2mm;font-size:9pt;line-height:1.45}.rl li::marker{color:${ACC};font-weight:800}.rl small{display:block;font-size:7.8pt;color:#5a6780}
 .gj{display:grid;grid-template-columns:repeat(var(--c),10mm);width:max-content;border-left:.25mm solid #7a8aa6;border-top:.25mm solid #7a8aa6;margin:1.6mm 0}.gj i{width:10mm;height:10mm;border-right:.25mm solid #7a8aa6;border-bottom:.25mm solid #7a8aa6;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12pt;color:#111}.gj i.dd{font-size:10pt;letter-spacing:-.2mm}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:3mm}.two table{font-size:8.2pt}.two td.to b{color:${ACC}}
@@ -795,6 +884,11 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nth-child(4){width:27%}table.ctx td:last-child{white-space:nowrap}
 .tg{display:inline-block;padding:.2mm 2mm;margin:0 1mm .5mm 0;border-radius:99px;background:${TINT};border:.25mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:700;line-height:1.5;white-space:nowrap}
 .pr .q .en .cx{display:block;margin-top:.6mm}
+.anl{width:100%;border-collapse:collapse;font-size:9pt;line-height:1.45;table-layout:fixed;min-width:0}.anl th,.anl td{border:.25mm solid #c9c2d8;padding:1.3mm 2mm;text-align:left;vertical-align:top}.anl thead th{background:#efecf6;font-size:7.8pt;color:#3a2f66}.anl tbody th{width:27mm;font-weight:800;color:#3a2f66;background:#f7f5fb}.anl small{display:block;font-weight:600;color:#5a6780;font-size:8pt}.anl thead th:first-child{width:27mm}.anl thead th:nth-child(2):not(:last-child){width:38mm}.anl .aa{font-weight:700}
+/* 풀이 순서: 단계마다 번호표를 달고 쪽 사이에서 끊기지 않게(운영자 2026-10-30 「풀이 순서도 명확하게」) */
+.stp{list-style:none;margin:0 0 2mm;padding:0;font-size:9.4pt;line-height:1.55}.stp li{display:grid;grid-template-columns:15mm 1fr;column-gap:2.5mm;align-items:start;padding:1.2mm 0;border-top:.2mm solid #d9d3e6;break-inside:avoid}.stp li:first-child{border-top:0}.stp .sn{font-size:7.4pt;font-weight:800;letter-spacing:.06em;color:#fff;background:${ACC};border-radius:1mm;padding:.5mm 0;text-align:center;margin-top:.6mm}
+/* 전자책 연습의 미니 정답: 문제 바로 아래에 두면 눈에 먼저 들어와서, 쪽 아래에 작게 거꾸로(180도) 둔다(운영자 2026-10-30) */
+.yrev{margin-top:3mm;padding:1.2mm 2.4mm;border:.25mm dashed #b9b2c9;border-radius:1mm;font-size:7pt;line-height:1.5;color:#6b6460;transform:rotate(180deg);text-align:left}
 .la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
 .pr li.fill,.pr li.two{align-items:start}.pr li.two .ln{align-self:end}.pr li.two.fill{grid-template-columns:6mm 1fr}.pr .q .ko{display:block}.pr .q .en{display:block;margin-top:.5mm;font-size:8.2pt;color:#6d655c;line-height:1.35}
 .pr.th li{display:block;position:relative;padding:1.4mm 0 1mm 6mm;min-height:0}.pr.th li:before{position:absolute;left:0;top:1.6mm}.pr.th .q{display:block}.pr.th .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
