@@ -180,6 +180,8 @@ ${units.map((u) => `@page ${unitCss(u)}:right{@top-right{content:${cssStr(`UNIT 
 @page unitopen{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 /* ㉠ ㉡ 는 글꼴에 없어 그림 글자(이모지)로 떨어진다 — 동그라미 글자로 직접 그린다 */
 .cm{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.2em;margin:0 .12em}
+/* 그린(svg) 동그라미 글자는 아래 모의고사 쪽 .cm 의 4.8mm · 테두리 규칙을 받으면 본문보다 커진다 — 글자 크기에 맞춘다 */
+svg.cm{width:1.14em!important;height:1.14em!important;border:0!important;border-radius:0!important;vertical-align:-.2em!important;margin:0 .1em!important}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-break:keep-all}
