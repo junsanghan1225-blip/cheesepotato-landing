@@ -79,7 +79,7 @@ const workedItem = (q) => { try { return JSON.parse(fs.readFileSync(path.join(RO
 const groupSheet = (id) => {
   const g = B.groups[id]; grpNo[g.q] = grpNo[g.q] || 0;
   return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
-    return { type: 'writing', raw: iid === workedItem(g.q) ? { ...x, _ref: true } : x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+    return { type: 'writing', raw: iid === workedItem(g.q) ? { ...x, _ref: true } : x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }).filter((sec) => !sec.raw._ref) };   // 풀이 예시로 푼 문항은 실전 문제에서 뺀다(번호는 그대로 — 계획표의 번호와 맞추려고)
 };
 const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
 const sheetBase = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
@@ -677,7 +677,7 @@ function unitBlock(u) {
     const head = `<div class="uh"><div class="un">UNIT ${String(u.no).padStart(2, '0')} &nbsp;·&nbsp; PART ${u.part.no} ${esc(u.part.title.en.toUpperCase())}</div><div class="ut"><h2>${esc(u.title.ko)}</h2><h3>${esc(u.title.en)}</h3></div></div><p class="us">${esc(u.sub.en)}<small>${esc(u.sub.ko)}</small></p>`;
     /* 실전 문제 단원은 첫 쪽에 이 단원의 문제 목록을 둔다 — 구역을 나누고 빈 쪽을 줄인다(운영자 2026-10-30 「실전문제 · 예시 문제로 정확히 나누자」) */
     const ws = B.front === '5354' ? u.sections.filter((x) => x.type === 'writing') : [];
-    u._head = head + (ws.length ? `<div class="pcl"><div class="pct">PRACTICE · 실전 문제 <small>${ws.length}문제</small></div><ol>${ws.map((x) => `<li>${esc(x.title.en.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol><p>풀이 예시로 이미 풀어 본 문제는 문제 쪽에 「풀이 예시」로 표시했어요. · The question marked “Worked example” was solved in the guide.</p></div>` : '');
+    u._head = head + (ws.length ? `<div class="pcl"><div class="pct">PRACTICE · 실전 문제 <small>${ws.length}문제</small></div><ol start="${parseInt(ws[0].title.en, 10) || 1}">${ws.map((x) => `<li>${esc(x.title.en.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>${(parseInt(ws[0].title.en, 10) || 1) > 1 ? '<p>1번은 앞의 안내 쪽에서 예시 문제로 풀었어요. · Question 1 was solved as the example in the guide pages.</p>' : ''}</div>` : '');
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const body = secs.map((s, si) => {
