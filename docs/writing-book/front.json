@@ -329,8 +329,8 @@
     "ko": "4주 계획표"
    },
    "sub": {
-    "en": "Five days a week, about 30 minutes a day. Tick each day when it is done.",
-    "ko": "주 5일, 하루 30분 안팎. 끝낼 때마다 칸에 체크하세요."
+    "en": "Five days a week, about 30 minutes a day. Each box is one day.",
+    "ko": "주 5일, 하루 30분 안팎. 칸 하나가 하루예요."
    },
    "weeks": [
     {
