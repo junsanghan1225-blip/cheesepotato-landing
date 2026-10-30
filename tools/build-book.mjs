@@ -292,7 +292,9 @@ const tagsOr = (c) => (typeof c === 'string' && c.startsWith('#') ? tagHtml(c.sp
 const EN_TAIL = /^(.*?\S)\s+\(([^()]*[A-Za-z][^()]*)\)\s*$/;
 /* 한글이 하나도 없는 문제(영어 지시 · 「한국어로 쓰기」)는 한 줄이 아니라 넓은 줄에 쓰게 한다 */
 const isOpen = (q) => !/_{3}/.test(q) && (q.match(/[가-힣]/g) || []).length <= 3 && (q.match(/[A-Za-z]/g) || []).length >= 15;
+const isRewrite = (q) => !/_{3}/.test(q) && /→\s*$/.test(q) && !isOpen(q);   // 「문장 → 」고쳐 쓰기 문항: 줄이 오른쪽 구석에 떠 있지 않게 문제 아래 한 줄 전체로(운영자 2026-10-30 「얘는 왜 아직도 이래」)
 const qLine = (q) => {
+  if (isRewrite(q)) return `<span class="q">${esc(q)}</span><span class="tl"></span>`;
   if (isOpen(q)) return `<span class="q">${esc(q.replace(/\s*→\s*$/, ''))}</span><span class="tl"></span>`;
   const m = EN_TAIL.exec(q), ko = m ? m[1] : q;
   const body = (ko.includes('___') ? esc(ko.replace(/\s*→\s*$/, '')).replace(/_{3,}/g, '<span class="bl"></span>') : esc(ko));
@@ -304,7 +306,7 @@ const qLine = (q) => {
     ? `<span class="q">${txt}</span><span class="ln" style="visibility:hidden;min-width:0"></span>`
     : `<span class="q">${txt}</span><span class="ln"></span>`;
 };
-const liCls = (q) => [isOpen(q) ? 'open' : '', /_{3}/.test(q) ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
+const liCls = (q) => [isOpen(q) || isRewrite(q) ? 'open' : '', /_{3}/.test(q) ? 'fill' : '', EN_TAIL.test(q) ? 'two' : ''].filter(Boolean).join(' ');
 
 function titlePage() {
   return `<div class="blk plain"><div class="tp"><span class="ser">${esc(B.series.en)}</span><h1>${esc(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><span class="by">${esc(B.author.ko)} · ${esc(B.author.en)}</span><span class="pub">${logoSvg({ fg: '#14264A', one: true, height: '5mm' })}</span></div></div>`;
