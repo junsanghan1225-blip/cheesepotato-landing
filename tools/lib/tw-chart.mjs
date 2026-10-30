@@ -74,7 +74,7 @@ function changePanel(c, kind, acc, X, Y, W, H) {
 }
 
 const SHADES = (acc) => [acc, '#7d70b5', '#b5accf', '#d8d3e8'];
-function causeBody(g, kind, acc, X, Y, W) {
+function causeBody(g, kind, acc, X, Y, W, compact = false) {
   const items = g.items, mx = Math.max(...items.map((i) => i.pct)), sh = SHADES(acc), sum = items.reduce((a, i) => a + i.pct, 0);
   let k = kind;
   if (k === 1 && !(items.length >= 3 && sum <= 100)) k = 0;   // 원그래프는 전체 100% 이내일 때만
@@ -82,7 +82,7 @@ function causeBody(g, kind, acc, X, Y, W) {
   let b = '', y = Y + 36;
   if (k === 4) { // 순위 표(시험지의 표 칸처럼)
     const cw = g.ranked ? 40 : 0, tx = X + 14, tw = W - 28;
-    items.forEach((it, i) => { const ln = wrap(it.label, 14), h = Math.max(30, ln.length * 13 + 10);
+    items.forEach((it, i) => { const ln = wrap(it.label, compact ? 22 : 14), h = Math.max(compact ? 24 : 30, ln.length * 13 + (compact ? 6 : 10));
       b += `<rect x="${tx}" y="${y}" width="${tw}" height="${h}" fill="${i === 0 ? '#f4f1fa' : '#fff'}" stroke="#8e8aa0"/>`;
       if (g.ranked) b += `<line x1="${tx + cw}" y1="${y}" x2="${tx + cw}" y2="${y + h}" stroke="#8e8aa0"/>` + T(tx + cw / 2, y + h / 2 + 4, `${i + 1}위`, { a: 'middle', s: 11, w: 800, c: acc });
       b += `<line x1="${tx + tw - 52}" y1="${y}" x2="${tx + tw - 52}" y2="${y + h}" stroke="#8e8aa0"/>` + ln.map((l, j) => T(tx + cw + (tw - cw - 52) / 2, y + h / 2 - (ln.length - 1) * 6.5 + 4 + j * 13, l, { a: 'middle', s: 10.5 })).join('') + T(tx + tw - 26, y + h / 2 + 4, `${it.pct}%`, { a: 'middle', s: 11.5, w: 800 });
@@ -90,7 +90,7 @@ function causeBody(g, kind, acc, X, Y, W) {
     y += 6;
   } else if (k === 0) { // 가로 막대 + 순위 동그라미
     items.forEach((it, i) => {
-      const ln = wrap(it.label, 11), h = Math.max(30, ln.length * 13 + 8), w = Math.max(10, (it.pct / mx) * 96);
+      const ln = wrap(it.label, compact ? 18 : 11), h = Math.max(compact ? 22 : 30, ln.length * 13 + 8), w = Math.max(10, (it.pct / mx) * 96);
       b += g.ranked ? `<circle cx="${X + 18}" cy="${y + h / 2}" r="9" fill="${i === 0 ? acc : '#8e8aa0'}"/>${T(X + 18, y + h / 2 + 4, i + 1, { a: 'middle', s: 10.5, w: 800, c: '#fff' })}` : '';
       b += ln.map((l, j) => T(X + (g.ranked ? 34 : 14), y + h / 2 - (ln.length - 1) * 6.5 + 4 + j * 13, l, { s: 10.5 })).join('');
       b += `<rect x="${X + 150}" y="${y + h / 2 - 8}" width="${w}" height="16" rx="2" fill="${i === 0 ? acc : '#b9b2c9'}"/>` + T(X + 150 + w + 6, y + h / 2 + 4, `${it.pct}%`, { s: 11.5, w: 800 });
@@ -121,16 +121,16 @@ function causeBody(g, kind, acc, X, Y, W) {
 
 export function twChartSvg(p, { acc = '#4a2c8a', tint = '#efecf6', variant = 0 } = {}) {
   const W = 560, PL = 232, PR = 316, gap = 12, c = p.change;
-  const ck = variant % 4, rk = variant % 5;
+  const ck = variant % 4, multi = p.groups.length > 1, rk = multi ? (variant % 5 === 4 ? 4 : 0) : variant % 5;   // 칸이 둘이면 작게(한 쪽에 안 들어가는 것을 막는다)
   // 오른쪽 칸들(원인 · 이유 …)
   let y = 0; const right = [];
   for (const g of p.groups) {
-    const r = causeBody(g, rk, acc, PL + gap, y, PR);
-    const h = Math.max(r.h + 4, 96);
+    const r = causeBody(g, rk, acc, PL + gap, y, PR, multi);
+    const h = Math.max(r.h + 4, multi ? 78 : 96);
     right.push({ g, r, y, h }); y += h + 10;
   }
-  const H = Math.max(y - 10, 210);
-  const rp = right.map(({ g, y: yy, h }) => { const rr = causeBody(g, rk, acc, PL + gap, yy, PR); return panel(PL + gap, yy, PR, h, g.head || '이유', acc, rr.b); }).join('');
+  const H = Math.max(y - 10, multi ? 180 : 210);
+  const rp = right.map(({ g, y: yy, h }) => { const rr = causeBody(g, rk, acc, PL + gap, yy, PR, multi); return panel(PL + gap, yy, PR, h, g.head || '이유', acc, rr.b); }).join('');
   const lp = changePanel(c, ck, acc, 0, 0, PL, H);
   // 위쪽 안내(● 조사 기관 / ● 조사 대상) + 바깥 틀
   const info = p.meta.split(' · ').map((m) => m.replace(/:\s*/, ' : ')), HI = 12 + info.length * 19;
