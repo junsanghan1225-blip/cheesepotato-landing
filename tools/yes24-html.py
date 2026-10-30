@@ -33,6 +33,7 @@ for no, bid in IDS:
     body.append(f'<section id="b{no}"><h2>{no}. {e(title)}</h2>'
         + field('*도서명', title) + field('부제', sub) + field('*저자', author)
         + field('*발매일', day, '직접 입력 · 책 판권쪽 발행일은 2026.11.10(ISBN 신청 날짜)') + field('*ISBN', isbn, '숫자 13자리')
+        + field('컨텐츠 관리 ID', f'EK-EB-{no}-{bid}', '우리가 정한 책 관리 번호 · 필수 아님')
         + field('*정가', str(price), '*판매가도 같은 숫자 · 10원 단위') + field('*판매가', str(price))
         + field('*상품소개', intro, '', True) + field('저자소개', box(sec, '저자소개'), '', True) + field('목차', box(sec, '목차'), '', True)
         + field('출판사서평', review, '', True)
