@@ -109,7 +109,7 @@ const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:
 .ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-@media(max-width:600px){.ws-p{padding:16px}.ws-line{min-width:60px}.ws-t{width:100%;table-layout:fixed}.ws-t td:first-child{width:38%}.ws-t td:nth-child(2){width:8%}.ws-t td{padding:6px 4px}.ws-top{flex-direction:column;gap:4px}.ws-p h1{font-size:24px;overflow-wrap:anywhere}}
+@media(max-width:600px){.ws-p{padding:16px}.ws-t{table-layout:fixed;width:100%;min-width:0}.ws-t td:first-child{width:36%;overflow-wrap:anywhere}.ws-t td:nth-child(2){width:9%}.ws-line{min-width:0}.ws-top{flex-direction:column;gap:4px}.ws-p h1{font-size:24px;overflow-wrap:anywhere}}
 @media print{@page{size:A4;margin:12mm}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro{display:none!important}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:26px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}`;
 
 /* 받을 때 파일 이름(.docx · PDF 저장)의 앞부분 — Cheesepotato_Grammar_<번호(두 자리)>_<이름>. numbers-worksheet.js 가 읽는다 */

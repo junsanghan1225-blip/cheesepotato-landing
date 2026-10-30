@@ -74,7 +74,7 @@ const page = `<!DOCTYPE html>
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
-<style>.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
+<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
 </head>
 <body>
 <header class="hd"><div class="hd-in">
@@ -142,7 +142,7 @@ const gpage = `<!DOCTYPE html>
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
-<style>.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:640px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
+<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:640px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
 </head>
 <body>
 <header class="hd"><div class="hd-in">
