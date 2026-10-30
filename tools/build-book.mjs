@@ -683,7 +683,7 @@ function unitBlock(u) {
   const kcount = {};
   const body = secs.map((s, si) => {
     /* 쓰기 책: 번호는 종류마다 따로(연습 1-1 · 연습 1-2, 핵심 정리 1-1 …), 실전 문제는 문제 번호 그대로(운영자 2026-10-30 「번호 정리 제대로」) */
-    if (B.front) { const lb = s.type === 'writing' ? '실전 문제' : LAB[s.type]; kcount[lb] = (kcount[lb] || 0) + 1; secNo = s.type === 'writing' ? String(parseInt(s.title.en, 10) || kcount[lb]) : `${u.no}-${kcount[lb]}`; }
+    if (B.front) { const lb = s.type === 'writing' ? '실전 문제' : s.type === 'text' ? (() => { const kk = CLASSIC ? kindOf(u, si, s) : 'ref'; return kk === 'tip' || kk === 'warn' ? '팁 · 주의' : kk === 'ref' ? LAB.text : BLK[kk][1]; })() : LAB[s.type]; kcount[lb] = (kcount[lb] || 0) + 1; secNo = s.type === 'writing' ? String(parseInt(s.title.en, 10) || kcount[lb]) : `${u.no}-${kcount[lb]}`; }
     else secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
@@ -691,7 +691,7 @@ function unitBlock(u) {
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
-      if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
+      if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, B.front && (k === 'tip' || k === 'warn') ? '팁 · 주의' : BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
       return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
     }
     /* 낱말 목록(운영자 2026-10-25 「단어장 형식 · 난이도는 치즈로 빈출도는 감자로」): 낱말마다 번호 · 큰 낱말 · 뜻 · 예문 · 치즈(급) · 감자(자주 나오는 정도) */
