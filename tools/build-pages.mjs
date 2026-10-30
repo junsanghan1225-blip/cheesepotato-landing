@@ -1570,6 +1570,7 @@ function vocabListPage(vs, tp, list) {
   });
 }
 const VL_CSS = '.vl{width:100%;border-collapse:collapse;margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}' +
+  '@media(max-width:600px){.vl{display:block;overflow-x:auto;max-width:100%}}' +
   '.vl th,.vl td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:15px;vertical-align:top}' +
   '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}' +
   '@media(max-width:560px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px}}.note{font-size:13px;color:var(--dim)}';
