@@ -55,5 +55,7 @@ export function twChartSvg(p, { acc = '#4a2c8a', tint = '#efecf6' } = {}) {
     });
     y += 6;
   }
-  return `<svg class="twc" viewBox="0 0 ${W} ${y + 4}" role="img" aria-label="${esc(c.label)}" width="100%" style="background:${tint};border:.25mm solid #c9c2d8;border-radius:1.4mm;padding:3mm 4mm;box-sizing:border-box;max-width:150mm;display:block;margin:0 0 3mm">${out.join('')}</svg>`;
+  const H = y + 4;
+  // 바깥 상자에서 꾸미고 svg 는 가로 · 세로 비율을 분명히 준다(비율이 없으면 인쇄 때 높이를 못 재서 쪽 나눔이 틀어진다)
+  return `<div class="twc" style="background:${tint};border:.25mm solid #c9c2d8;border-radius:1.4mm;padding:3mm 4mm;box-sizing:border-box;max-width:128mm;margin:0 0 3mm;break-inside:avoid"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.label)}" style="display:block;width:100%;height:auto;aspect-ratio:${W}/${H}">${out.join('')}</svg></div>`;
 }
