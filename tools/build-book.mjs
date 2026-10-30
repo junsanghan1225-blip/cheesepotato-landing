@@ -476,9 +476,9 @@ function qWorkedPage(p) {
   const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol class="stp">${e.steps.map((st, i) => `<li><b class="sn">STEP ${i + 1}</b><span class="sb">${bi(st)}</span></li>`).join('')}</ol>`;
   const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}${anTable ? an : `<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>`}` : ''}`;
   const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이: ${esc(x.title)}</div>`;
-  /* 53 · 54번은 모범답안이 길어 한 쪽에 안 들어간다 — 문제 · 풀이 순서 / 모범답안 · 분석으로 두 쪽 */
+  /* 53 · 54번: 풀이 순서는 안내 쪽(walkthrough)에 있으니 여기엔 문제 · 모범답안 · 분석만 한 쪽에(운영자 2026-10-30 「2번으로」) */
   return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
-    : `<div class="blk plain gd">${head}${task}${stepsHtml}</div><div class="blk plain gd"><h2>Worked example · Question ${q} <small style="font-weight:500;color:#5a6780">(continued · 이어서)</small></h2>${ansHtml}</div>`;
+    : `<div class="blk plain gd">${head}${task}<p class="wnote">풀이 순서는 앞의 안내 쪽에서 단계별로 따라가 보세요. · Follow the steps in the guide pages before this one.</p>${ansHtml}</div>`;
 }
 /* ── 쓰기 책 앞부분(B.front = "5152" | "5354") — 시험 소개 · 계획표 · 원고지 · 말→글 · 자가 점검표 + QR(운영자 2026-10-18 「앞에 넣어줘 · 예쁘게」). 자료 docs/writing-book/front.json · qr.json */
 const FRONT = B.front ? JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/front.json'), 'utf8')) : null;
