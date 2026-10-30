@@ -24,7 +24,11 @@ const args = process.argv.slice(2);
 const bookId = args.find((a) => !a.startsWith('--'));
 const REVIEW = args.includes('--review');
 /* --digital : 파는 PDF(전자책) — 종이책 자리표시(출판사 신고번호 · ISBN · 발행일 · 바코드)를 빼고 「디지털판」으로 적는다(운영자 2026-10-18 「책 PDF 최종」). */
-const DIGITAL = args.includes('--digital') || args.includes('--kdp');
+/* --yes24 --krw 9,900 : 예스24 용 파일(운영자 2026-10-30 「원화로 바꾸자」) — 정가를 원화로 판권쪽 · 뒷표지에 찍는다(달러 정가는 Polar · KDP 판). 예스24 가 DRM 을 직접 씌우므로 이 파일에는 보호(protect-pdf)를 걸지 않는다. */
+const YES24 = args.includes('--yes24');
+const KRW = YES24 && args.includes('--krw') ? args[args.indexOf('--krw') + 1] : '';
+if (YES24 && !/^\d{1,3}(,\d{3})*$/.test(KRW)) { console.error('쓰는 법: --yes24 --krw 9,900'); process.exit(1); }
+const DIGITAL = args.includes('--digital') || args.includes('--kdp') || YES24;
 /* --epub : 같은 내용으로 ePub 3(글자가 화면에 맞게 흐르는 판)도 한 부 — 예스24 · 아마존 같은 전자책 판매처용. 찾아보기 · 메모(쪽 번호 · 인쇄 줄)는 빼고 구매자 혜택 쪽은 넣는다. */
 /* --kdp : 아마존 KDP 전용 ePub(2026-10-28 KDP 거절 「책이 Kindle 앱 밖의 도구(브라우저 · 종이)가 필요한 상호작용형」). 책 틀의 kdp 칸으로 제목 · 머리말 · 쓰는 법을 바꾸고,
    QR · 웹 안내 · 독자 혜택 · 쓰기 줄을 빼고, 연습은 문제 옆에 정답을 바로 보여 준다 — Kindle 안에서 읽기만으로 끝나는 책. */
@@ -38,6 +42,7 @@ const outDir = path.resolve(ROOT, args.includes('--out') ? args[args.indexOf('--
 if (!bookId) { console.error('사용: node tools/build-book.mjs <책 id> [--out 폴더]   (책 틀: docs/books/<id>.json)'); process.exit(1); }
 
 const B = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${bookId}.json`), 'utf8'));
+if (YES24) { B.isbnPrice = `${KRW}원`; if (B.back) B.back.price = `정가 ${KRW}원`; }   // 예스24판 — 정가를 원화로
 if (KDP) {
   if (!B.kdp) throw new Error(`${bookId}: 책 틀에 kdp 칸이 없다(제목 · 부제 · 머리말 · 쓰는 법 · 저자의 말 — KDP 판 글)`);
   if (B.kdp.coverLevel) B.coverLevel = { ...B.coverLevel, ...B.kdp.coverLevel };
