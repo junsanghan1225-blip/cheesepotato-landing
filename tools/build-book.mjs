@@ -9,6 +9,7 @@
    - 목차의 쪽 번호는 블록(속표지 · 각 단원 …)을 따로 찍어 쪽수를 세어 더한 값이다(PDF 안의 /Type /Page 수).
    만든 PDF 는 파는 파일이라 저장소에 두지 않는다(out 기본값 books-out/ 은 .gitignore). 문장은 전부 우리 학습지(창작) — 기출 아님.
    브라우저는 smoke.mjs 처럼 PLAYWRIGHT_PATH · CHROMIUM_PATH 로 바꿀 수 있다. */
+import { parseTwData, twChartSvg } from './lib/tw-chart.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import { logoSvg } from './brand-logo.mjs';
@@ -74,10 +75,11 @@ const bankSheet = (id) => {
 };
 /* 유형 묶음 「g51-recruit」 = B.groups 에 적은 문항 id 들(유형별로 나눈 책, 운영자 2026-10-18 「유형별로 나누고 유형마다 안내를」) */
 const grpNo = {};   // 유형 묶음 안 문제 번호는 책 순서대로 이어서(51번 1~50) — 계획표 · 정답과 같은 번호
+const workedItem = (q) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/writing-book/extras.json'), 'utf8'))[q]?.worked?.item; } catch { return undefined; } };   // EXTRAS 는 아래에서 만들어져서 여기선 직접 읽는다
 const groupSheet = (id) => {
   const g = B.groups[id]; grpNo[g.q] = grpNo[g.q] || 0;
   return { id, title: g.title, sub: g.sub, sections: g.items.map((iid, i) => { const x = TW.find((t) => t.id === iid); if (!x) throw new Error('없는 문항 ' + iid);
-    return { type: 'writing', raw: x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
+    return { type: 'writing', raw: iid === workedItem(g.q) ? { ...x, _ref: true } : x, title: { en: `${++grpNo[g.q]}. ${x.title}`, ko: '' }, items: [{ q: x.title, a: x.blanks ? x.blanks.map((b) => `${b.mark} ${b.answers[0]}`).join(' ') : x.model }] }; }) };
 };
 const partQ = (p) => { for (const u of p.units) { const m = /^w(\d\d):/.exec(u) || /^g(\d\d)-/.exec(u); if (m) return Number(m[1]); } return NaN; };
 const sheetBase = (id) => B.inline?.[id] ? B.inline[id] : /^g\d\d-/.test(id) ? groupSheet(id) : /^w\d\d:\d+$/.test(id) ? bankSheet(id) : JSON.parse(fs.readFileSync(path.join(ROOT, `docs/worksheets/${id}.json`), 'utf8'));
@@ -567,12 +569,18 @@ function exampleHtml(s) {
   if (x.blanks) return `<div class="wp">${esc(x.passage)}</div>${x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')}`;
   return `${s.showData && x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
 }
+/* 53 · 54번 쓰는 칸은 원고지처럼 한 글자씩(운영자 2026-10-30 「원고지 스타일로」). 100자마다 오른쪽에 글자 수 */
+const wgrid = (max) => { const per = max > 400 ? 30 : 20, rows = Math.ceil(max / per); return `<div class="gw" style="--n:${per}">${Array.from({ length: rows }, (_, r) => `<div class="gr">${'<span></span>'.repeat(per)}${Math.floor(((r + 1) * per) / 100) > Math.floor((r * per) / 100) ? `<i>${Math.floor(((r + 1) * per) / 100) * 100}</i>` : ''}</div>`).join('')}</div>`; };
 const wlines = (n, per = 30) => `<div class="wg">${Array.from({ length: n }, (_, i) => `<div class="wr">${(i + 1) % 5 === 0 ? `<i>${(i + 1) * per}</i>` : ''}</div>`).join('')}</div>`;
 function writingHtml(x) {
+  /* 풀이 예시로 이미 보여 준 문항은 같은 글을 또 싣지 않는다(운영자 2026-10-30 「같은 페이지 반복 이상해」) — 번호와 정답은 그대로 */
+  if (x._ref) return `<div class="wref"><b>풀이 예시 · Worked example</b> 이 문제는 앞의 「풀이 예시」에서 단계별로 풀었어요. · This question was solved step by step in the worked example earlier in the book.</div>`;
   const cond = x.cond ? `<div class="wc">${esc(x.cond)}</div>` : '';
   if (x.q <= 52) return `<div class="wp">${esc(x.passage)}</div>${cond}${x.blanks.map((b) => KDP ? `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>` : `<div class="wl"><b>${esc(b.mark)}</b><span class="wln"></span></div>`).join('')}`;
-  const data = x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
-  return `<div class="wp">${esc(x.passage)}</div>${data}<ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wlines(Math.ceil(x.max / 30))}`;
+  /* 53번 자료는 시험처럼 그래프로(숫자는 줄글에 있는 것만 — tools/lib/tw-chart.mjs, 검사 check-tw-charts). 못 읽으면 예전 목록 */
+  const twp = x.data && x.q === 53 ? parseTwData(x.data) : null;
+  const data = twp ? `<p class="wd-m">${esc(x.data[0])}</p>${twChartSvg(twp, { acc: ACC, tint: TINT })}` : x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
+  return `<div class="twq" style="break-inside:avoid"><div class="wp">${esc(x.passage)}</div>${data}</div><ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${wgrid(x.max)}`;
 }
 /* 객관식 모의고사 문항(TOPIK I 읽기 모의고사): 짝 지문은 한 번만 보이고, 보기는 ①~④. 정답 · 풀이는 정답 쪽에 */
 const CIRC = ['①', '②', '③', '④'];
@@ -748,7 +756,7 @@ const CLASSIC_CSS = `
 .bx .tt{white-space:pre-line}.wans{flex:1;font-size:9.6pt;color:#1f3a68;padding-bottom:.6mm;border-bottom:.25mm solid #c5cfdf}
 .wp{border:.25mm solid #b9c3d6;background:#f6f8fc;padding:3mm 3.6mm;font-size:9.6pt;line-height:1.8;margin:1mm 0 2mm}.wc{font-size:8pt;color:#5a6780;margin:0 0 1.6mm}
 .wl{display:flex;align-items:flex-end;gap:2.4mm;margin:2.4mm 0}.wl b{color:${ACC};font-size:11pt}.wln{flex:1;border-bottom:.25mm solid #8e9ab0;height:7mm}
-.wd{margin:0 0 2mm 5mm;padding:0;font-size:9pt;line-height:1.55;color:#2a3550}.wt{margin:0 0 2mm 6mm;padding:0;font-size:9pt;line-height:1.55}
+.sec.wq{break-inside:avoid}.gw{margin:1mm 0 3mm;padding-right:8mm;break-inside:avoid}.gr{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr)}.gr span{aspect-ratio:1;border:.2mm solid #8e9ab0;margin:0 -.1mm -.2mm 0}.gr i{position:absolute;left:calc(100% + 1.2mm);bottom:0;font-size:6.4pt;font-style:normal;color:#8a93a6;line-height:1}.wref{margin:0 0 3mm;padding:2.2mm 3mm;border:.25mm dashed #b9b2c9;border-radius:1.2mm;font-size:8.8pt;line-height:1.5;color:#5a5348}.wref b{color:#3a2f66;margin-right:1.5mm}.wd-m{margin:0 0 1.4mm;font-size:8.6pt;color:#5a5348}.twc{break-inside:avoid}.wd{margin:0 0 2mm 5mm;padding:0;font-size:9pt;line-height:1.55;color:#2a3550}.wt{margin:0 0 2mm 6mm;padding:0;font-size:9pt;line-height:1.55}
 .wg{margin-top:2mm}.wr{position:relative;border-bottom:.22mm solid #8e9ab0;height:8mm}.wr i{position:absolute;right:0;top:1mm;font-size:6.4pt;color:#8a93a6;font-style:normal}
 .wq{break-inside:avoid}.wa{font-size:8.2pt;line-height:1.55;border-top:.2mm solid #d6dce8;padding-top:1.4mm;margin-top:1.4mm}.wa small{display:block;font-size:7.2pt;color:#5a6780}.wa .sm i{font-style:normal;font-weight:800;color:${ACC};margin-right:1.4mm}.wa .mdl{margin:.6mm 0 1mm}.wa .dd{color:#9a6a50}
 
