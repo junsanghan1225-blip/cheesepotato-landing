@@ -680,8 +680,11 @@ function unitBlock(u) {
     u._head = head + (ws.length ? `<div class="pcl"><div class="pct">PRACTICE · 실전 문제 <small>${ws.length}문제</small></div><ol start="${parseInt(ws[0].title.en, 10) || 1}">${ws.map((x) => `<li>${esc(x.title.en.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>${(parseInt(ws[0].title.en, 10) || 1) > 1 ? '<p>1번은 앞의 안내 쪽에서 예시 문제로 풀었어요. · Question 1 was solved as the example in the guide pages.</p>' : ''}</div>` : '');
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
+  const kcount = {};
   const body = secs.map((s, si) => {
-    secNo = `${u.no}-${si + 1}`;
+    /* 쓰기 책: 번호는 종류마다 따로(연습 1-1 · 연습 1-2, 핵심 정리 1-1 …), 실전 문제는 문제 번호 그대로(운영자 2026-10-30 「번호 정리 제대로」) */
+    if (B.front) { const lb = s.type === 'writing' ? '실전 문제' : LAB[s.type]; kcount[lb] = (kcount[lb] || 0) + 1; secNo = s.type === 'writing' ? String(parseInt(s.title.en, 10) || kcount[lb]) : `${u.no}-${kcount[lb]}`; }
+    else secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
       return `<div class="sec"${s.rows.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
