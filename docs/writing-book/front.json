@@ -60,8 +60,8 @@
    "ko": "말 → 글: 시험 답안다운 말로"
   },
   "intro": {
-   "en": "Everyday speech loses points in 52, 53 and 54. Swap the left for the right.",
-   "ko": "일상 말투는 52 · 53 · 54번에서 점수를 잃습니다. 왼쪽을 오른쪽으로 바꾸세요."
+   "en": "Everyday speech can lose points when it does not match the style of the text. Swap the left for the right.",
+   "ko": "일상 말투는 글의 문체와 맞지 않으면 점수를 잃을 수 있습니다. 왼쪽을 오른쪽으로 바꾸세요."
   },
   "words": [
    [
@@ -148,7 +148,7 @@
    ],
    [
     "-는 것 같아요",
-    "-는 것으로 보인다 · -는 것으로 나타났다"
+    "-는 것으로 보인다 · -는 것으로 나타났다 (자료가 있을 때)"
    ],
    [
     "-고 싶어요",
@@ -156,7 +156,7 @@
    ],
    [
     "-니까 · -아서 (이유)",
-    "-기 때문이다 · -(으)로 인해"
+    "-기 때문에 · -(으)므로 (문장 끝은 -기 때문이다)"
    ],
    [
     "-잖아요",
