@@ -455,11 +455,22 @@ function qWorkedPage(p) {
   const task = x.blanks ? `<div class="wp">${esc(x.passage)}</div>` : `<div class="wp">${esc(x.passage)}</div>${x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}`;
   const ans = x.blanks ? x.blanks.map((b) => `<div class="wl"><b>${esc(b.mark)}</b><span class="wans">${b.answers.slice(0, 2).map(esc).join(' &nbsp;/&nbsp; ')}</span></div>`).join('')
     : `<div class="wp" style="white-space:pre-line">${esc(x.model)}</div>`;
-  const an = (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
+  // 채점 기준은 표로: 점수 | 답 | 이유(운영자 2026-10-30 「표 형태가 더 직관적」). 글이 「점수: “답” / “답”, 이유.」 꼴이 아니면 예전 목록으로
+  const anRow = (a) => {
+    const [le, re] = [a.en.split(/:\s(.*)/s), a.ko.split(/:\s(.*)/s)];
+    const m = /^((?:“[^”]+”(?:\s*\/\s*)?)+),?\s*(.*)$/s.exec(le[1] || ''), k = /^((?:‘[^’]+’(?:\s*\/\s*)?)+),?\s*(.*)$/s.exec(re[1] || '');
+    return m && k ? { le: le[0], lk: re[0], ans: m[1].replace(/[“”]/g, ''), why: bi({ en: m[2].replace(/\.$/, ''), ko: k[2].replace(/\.$/, '') }) } : null;
+  };
+  const rows = (e.analysis || []).map(anRow);
+  const anTable = rows.length && rows.every(Boolean)
+    ? `<table class="anl"><thead><tr><th>점수 · Score</th><th>답 · Answer</th><th>이유 · Why</th></tr></thead><tbody>${rows.map((r) => `<tr><th>${esc(r.le)}<small>${esc(r.lk)}</small></th><td class="aa">${esc(r.ans)}</td><td>${r.why}</td></tr>`).join('')}</tbody></table>`
+    : (e.analysis || []).length && (e.analysis || []).every((a) => /:\s/.test(a.en) && /:\s/.test(a.ko))
+      ? `<table class="anl"><thead><tr><th>점수 · Score</th><th>설명 · Why</th></tr></thead><tbody>${e.analysis.map((a) => { const le = a.en.split(/:\s(.*)/s), lk = a.ko.split(/:\s(.*)/s); return `<tr><th>${esc(le[0])}<small>${esc(lk[0])}</small></th><td>${bi({ en: le[1], ko: lk[1] })}</td></tr>`; }).join('')}</tbody></table>` : '';
+  const an = anTable || (e.analysis || []).map((a) => `<li>${bi(a)}</li>`).join('')
     || (x.samples || []).map((sm) => `<li><b>${esc(sm.level)} · ${sm.total}점</b>: ${esc(sm.why)}</li>`).join('');
   const h3 = (t) => `<h3 style="font-size:10.4pt;margin:3mm 0 1.4mm;color:#1f3a68">${t}</h3>`;
-  const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol style="margin:0 0 2mm;padding-left:5mm;font-size:9.4pt;line-height:1.55">${e.steps.map((st) => `<li>${bi(st)}</li>`).join('')}</ol>`;
-  const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>` : ''}`;
+  const stepsHtml = `${h3('Step by step · 풀이 순서')}<ol class="stp">${e.steps.map((st, i) => `<li><b class="sn">STEP ${i + 1}</b><span class="sb">${bi(st)}</span></li>`).join('')}</ol>`;
+  const ansHtml = `${h3('Model answer · 모범답안')}${ans}${an ? `${h3('Answer analysis · 답안 분석')}${anTable ? an : `<ul style="margin:0;padding-left:5mm;font-size:9.2pt;line-height:1.55">${an}</ul>`}` : ''}`;
   const head = `<h2>Worked example · Question ${q}</h2><div class="k">${q}번 예시 풀이: ${esc(x.title)}</div>`;
   /* 53 · 54번은 모범답안이 길어 한 쪽에 안 들어간다 — 문제 · 풀이 순서 / 모범답안 · 분석으로 두 쪽 */
   return x.blanks ? `<div class="blk plain gd">${head}${task}${stepsHtml}${ansHtml}</div>`
@@ -797,6 +808,9 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nth-child(4){width:27%}table.ctx td:last-child{white-space:nowrap}
 .tg{display:inline-block;padding:.2mm 2mm;margin:0 1mm .5mm 0;border-radius:99px;background:${TINT};border:.25mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:700;line-height:1.5;white-space:nowrap}
 .pr .q .en .cx{display:block;margin-top:.6mm}
+.anl{width:100%;border-collapse:collapse;font-size:9pt;line-height:1.45;table-layout:fixed;min-width:0}.anl th,.anl td{border:.25mm solid #c9c2d8;padding:1.3mm 2mm;text-align:left;vertical-align:top}.anl thead th{background:#efecf6;font-size:7.8pt;color:#3a2f66}.anl tbody th{width:27mm;font-weight:800;color:#3a2f66;background:#f7f5fb}.anl small{display:block;font-weight:600;color:#5a6780;font-size:8pt}.anl thead th:first-child{width:27mm}.anl thead th:nth-child(2):not(:last-child){width:38mm}.anl .aa{font-weight:700}
+/* 풀이 순서: 단계마다 번호표를 달고 쪽 사이에서 끊기지 않게(운영자 2026-10-30 「풀이 순서도 명확하게」) */
+.stp{list-style:none;margin:0 0 2mm;padding:0;font-size:9.4pt;line-height:1.55}.stp li{display:grid;grid-template-columns:15mm 1fr;column-gap:2.5mm;align-items:start;padding:1.2mm 0;border-top:.2mm solid #d9d3e6;break-inside:avoid}.stp li:first-child{border-top:0}.stp .sn{font-size:7.4pt;font-weight:800;letter-spacing:.06em;color:#fff;background:${ACC};border-radius:1mm;padding:.5mm 0;text-align:center;margin-top:.6mm}
 .pr li .yans{grid-column:1/-1;display:block;font-size:7.2pt;line-height:1.3;color:#6b6460;padding:.3mm 0 0 9mm}.pr li.open .yans{padding-left:0}
 .la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
 .pr li.fill,.pr li.two{align-items:start}.pr li.two .ln{align-self:end}.pr li.two.fill{grid-template-columns:6mm 1fr}.pr .q .ko{display:block}.pr .q .en{display:block;margin-top:.5mm;font-size:8.2pt;color:#6d655c;line-height:1.35}
