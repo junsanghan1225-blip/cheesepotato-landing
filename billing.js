@@ -65,6 +65,8 @@ const bonusPro = () => bonusUntil > Date.now();
 export const isPro = () => classPro || subPro() || bonusPro();
 /* 구독 · 반 없이 초대 보너스로만 Pro 인가 — 끝나는 날(ms)을 돌려준다, 아니면 0 */
 export const proBonusUntil = () => (bonusPro() && !classPro && !subPro() ? bonusUntil : 0);
+/* 보너스(선물 · 초대)의 끝나는 날 그대로(ms) — 끝난 뒤에도 남는다. 만료 안내가 쓴다. 0 이면 보너스를 받은 적 없음 */
+export const proBonusRaw = () => bonusUntil;
 export const proInfo = () => sub;
 /* 구독 없이 반 학생이라 Pro 인가 — 계정 칸에 「반 학생이라 무료」를 보이고, 결제 단추를 내밀지 않게 */
 export const proByClass = () => classPro && !subPro();
