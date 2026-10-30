@@ -4,7 +4,7 @@
    칸: 도서명 · 부제 · 저자 · 발매일 · ISBN · 정가/판매가 · 상품소개 · 저자소개 · 목차 · 출판사서평 + 올릴 파일 이름. 글의 출처는 listing-html.py 와 같다(docs/ops/isbn-forms.md · docs/shop.json).
    정가는 원 단위가 아닌 10원 단위, 할인은 최대 10%(양식 안내). 생성물은 저장소에 올리지 않는다. """
 import re, sys, json, html
-out = sys.argv[1]; day = sys.argv[2] if len(sys.argv) > 2 else '20261030'
+out = sys.argv[1]; day = sys.argv[2] if len(sys.argv) > 2 else '20261110'
 e = html.escape
 forms = open('docs/ops/isbn-forms.md', encoding='utf8').read()
 shop = {b['id']: b for b in json.load(open('docs/shop.json', encoding='utf8'))['books']}
