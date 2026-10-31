@@ -202,8 +202,8 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A: Match the room with its typical item or furniture",
-        "ko": "방에 어울리는 물건이나 가구를 골라요"
+        "en": "Practice A: Choose the typical item for each room",
+        "ko": "방에 어울리는 물건을 골라요"
       },
       "items": [
         {

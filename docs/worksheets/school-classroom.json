@@ -202,33 +202,33 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice A: Match the teacher instruction with its English meaning",
-        "ko": "선생님 말씀의 뜻을 알맞게 연결해요"
+        "en": "Practice A: Say it in Korean (teacher's instructions)",
+        "ko": "선생님 말씀을 한국어로 써요"
       },
       "items": [
         {
-          "q": "책을 펴세요 →",
-          "a": "Please open your book"
+          "q": "Please open your book →",
+          "a": "책을 펴세요"
         },
         {
-          "q": "칠판을 보세요 →",
-          "a": "Please look at the board"
+          "q": "Please look at the board →",
+          "a": "칠판을 보세요"
         },
         {
-          "q": "잘 들으세요 →",
-          "a": "Please listen carefully"
+          "q": "Please listen carefully →",
+          "a": "잘 들으세요"
         },
         {
-          "q": "따라 읽으세요 →",
-          "a": "Please read after me"
+          "q": "Please read after me →",
+          "a": "따라 읽으세요"
         },
         {
-          "q": "공책에 쓰세요 →",
-          "a": "Please write in your notebook"
+          "q": "Please write in your notebook →",
+          "a": "공책에 쓰세요"
         },
         {
-          "q": "책을 덮으세요 →",
-          "a": "Please close your book"
+          "q": "Please close your book →",
+          "a": "책을 덮으세요"
         }
       ]
     },

@@ -213,8 +213,8 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice D: Match question and logical answer",
-        "ko": "질문에 어울리는 대답을 골라요"
+        "en": "Practice D: Choose the logical answer to each question",
+        "ko": "질문에 알맞은 대답을 골라요"
       },
       "items": [
         {
