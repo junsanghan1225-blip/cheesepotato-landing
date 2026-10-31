@@ -235,7 +235,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 0,
           "entries": [
             {
               "ko": "금연",
@@ -651,7 +651,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 20,
           "entries": [
             {
               "ko": "신경",
@@ -1067,7 +1067,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 40,
           "entries": [
             {
               "ko": "떨리다",
@@ -1483,7 +1483,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 60,
           "entries": [
             {
               "ko": "찜질",
@@ -1899,7 +1899,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 80,
           "entries": [
             {
               "ko": "도망가다",
@@ -2315,7 +2315,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 100,
           "entries": [
             {
               "ko": "가득하다",
@@ -2731,7 +2731,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 120,
           "entries": [
             {
               "ko": "살짝",
@@ -3147,7 +3147,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 140,
           "entries": [
             {
               "ko": "송이",
@@ -3563,7 +3563,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 160,
           "entries": [
             {
               "ko": "쭉",
@@ -3979,7 +3979,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 180,
           "entries": [
             {
               "ko": "체크무늬",
@@ -4395,7 +4395,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 200,
           "entries": [
             {
               "ko": "민속놀이",
@@ -4811,7 +4811,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 220,
           "entries": [
             {
               "ko": "양산",
@@ -5227,7 +5227,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 240,
           "entries": [
             {
               "ko": "스타킹",
@@ -5643,7 +5643,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 260,
           "entries": [
             {
               "ko": "저축",
@@ -6059,7 +6059,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 280,
           "entries": [
             {
               "ko": "슈퍼",
@@ -6475,7 +6475,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 300,
           "entries": [
             {
               "ko": "앞날",
@@ -6891,7 +6891,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 320,
           "entries": [
             {
               "ko": "반달",
@@ -7307,7 +7307,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 340,
           "entries": [
             {
               "ko": "이미지",
@@ -7723,7 +7723,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 360,
           "entries": [
             {
               "ko": "밉다",
@@ -8139,7 +8139,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 380,
           "entries": [
             {
               "ko": "즐거움",
@@ -8555,7 +8555,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 400,
           "entries": [
             {
               "ko": "식사량",
@@ -8971,7 +8971,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 420,
           "entries": [
             {
               "ko": "당근",
@@ -9387,7 +9387,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 440,
           "entries": [
             {
               "ko": "해물",
@@ -9803,7 +9803,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 460,
           "entries": [
             {
               "ko": "저러다",
@@ -10219,7 +10219,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 480,
           "entries": [
             {
               "ko": "저울",
@@ -10635,7 +10635,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 500,
           "entries": [
             {
               "ko": "탁자",
@@ -11051,7 +11051,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 520,
           "entries": [
             {
               "ko": "이웃집",
@@ -11467,7 +11467,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 540,
           "entries": [
             {
               "ko": "풍선",
@@ -11883,7 +11883,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 560,
           "entries": [
             {
               "ko": "곰",
@@ -12299,7 +12299,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 580,
           "entries": [
             {
               "ko": "야경",
@@ -12715,7 +12715,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 600,
           "entries": [
             {
               "ko": "사나이",
@@ -13131,7 +13131,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 620,
           "entries": [
             {
               "ko": "부친",
@@ -13547,7 +13547,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 640,
           "entries": [
             {
               "ko": "자매",
@@ -13963,7 +13963,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 660,
           "entries": [
             {
               "ko": "전문가",
@@ -14379,7 +14379,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 680,
           "entries": [
             {
               "ko": "빗다",
@@ -14795,7 +14795,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 700,
           "entries": [
             {
               "ko": "기말시험",
@@ -15211,7 +15211,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 720,
           "entries": [
             {
               "ko": "불어",
@@ -15627,7 +15627,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 740,
           "entries": [
             {
               "ko": "실종",
@@ -16043,7 +16043,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 760,
           "entries": [
             {
               "ko": "설문",
@@ -16459,7 +16459,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 780,
           "entries": [
             {
               "ko": "뵈다",
@@ -16875,7 +16875,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 800,
           "entries": [
             {
               "ko": "근데",
@@ -17291,7 +17291,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 820,
           "entries": [
             {
               "ko": "이성",
@@ -17699,7 +17699,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 840,
           "entries": [
             {
               "ko": "파일",
@@ -18115,7 +18115,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 860,
           "entries": [
             {
               "ko": "안내판",
@@ -18531,7 +18531,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 880,
           "entries": [
             {
               "ko": "좌회전",
@@ -18947,7 +18947,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 900,
           "entries": [
             {
               "ko": "교통편",
@@ -19363,7 +19363,7 @@
             "en": "Words",
             "ko": "낱말"
           },
-          "from": null,
+          "from": 920,
           "entries": [
             {
               "ko": "중형차",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* 책 공장 — 책 한 권을 같은 순서로 찍어 낸다(운영자 2026-10-31 「공장처럼 일정하게」).
    node tools/book-factory.mjs <책 id> [--krw 13,900] [--out 폴더]      한 권
-   node tools/book-factory.mjs --all [--out 폴더]                        장부(docs/ops/book-ledger.json)의 모든 책
+   node tools/book-factory.mjs --all [--out 폴더]   (--skip-build: 이미 만든 PDF 로 검사 · 포장만)                        장부(docs/ops/book-ledger.json)의 모든 책
    순서: ① 책 PDF 만들기(예스24판) → ② 최종 검수 자동 검사(tools/check-book-pdf.mjs) → ③ 표지 1500px JPG → ④ ISBN 이름으로 모아 zip → ⑤ 검수 보고서 · 장부 갱신.
    FAIL 이 있으면 zip 을 만들지 않고 멈춘다(고쳐서 다시). 결과물은 저장소에 올리지 않는다(books-out/factory/). */
 import fs from 'node:fs';
@@ -24,13 +24,15 @@ function make(id, krwArg) {
   const B = JSON.parse(fs.readFileSync(path.join(ROOT, `docs/books/${id}.json`), 'utf8'));
   const isbn = B.isbn.replace(/-/g, ''), dir = path.join(OUT, id); fs.mkdirSync(dir, { recursive: true });
   console.log(`\n■ ${id} (${B.title.ko}) — 정가 ${krw}원`);
-  console.log('① 책 PDF 만들기…');
-  execFileSync('node', [path.join(ROOT, 'tools/build-book.mjs'), id, '--digital', '--yes24', '--krw', krw, '--out', dir], { stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 1 << 28 });
   const book = path.join(dir, id), pdf = path.join(book, 'interior.pdf');
+  if (args.includes('--skip-build') && fs.existsSync(pdf)) console.log('① 이미 만든 PDF 를 쓴다(--skip-build)');
+  else { console.log('① 책 PDF 만들기…'); execFileSync('node', [path.join(ROOT, 'tools/build-book.mjs'), id, '--digital', '--yes24', '--krw', krw, '--out', dir], { stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 1 << 28 }); }
   console.log('② 최종 검수 자동 검사…');
   const r = checkBookPdf(id, pdf, { krw });
   for (const [s, n, d] of r.res) if (s !== 'PASS') console.log(`   ${s} ${n} — ${d}`);
   fs.writeFileSync(path.join(dir, '검수보고서.md'), reportMd(id, r));
+  /* 예스24 PDF e북은 독자 필기가 쪽 좌표에 붙는다 — 이미 올린 책은 쪽수 · 쪽 순서가 같을 때만 파일 교체 가능, 아니면 개정판으로 별도 등록(운영자 2026-10-31) */
+  if (L.registered && L.registered.pages !== r.pages && !args.includes('--revision')) r.res.push(['FAIL', '예스24 파일 교체', `올린 파일은 ${L.registered.pages}쪽(${L.registered.ver}), 이번 파일은 ${r.pages}쪽 — 교체 불가, 개정판으로 별도 등록해야 한다(개정판이면 --revision)`]), r.failed++;
   L.qa = r.failed ? 'FAIL' : r.warned ? `통과(주의 ${r.warned})` : '통과'; L.pages = r.pages; L.date = date;
   if (r.failed) { fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 1) + '\n'); throw new Error(`${id}: 검사 FAIL ${r.failed}개 — 고친 뒤 다시 돌린다(${path.join(dir, '검수보고서.md')})`); }
   console.log('③ 표지 · 파일 모으기…');

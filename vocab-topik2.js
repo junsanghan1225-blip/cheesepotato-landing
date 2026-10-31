@@ -316,7 +316,7 @@ export const VOCAB = [
 {"h":"냉방","p":"명사","l":3,"e":"air conditioning; cooling","s":"air conditioning / cooling","t":["home/furniture","daily/weather","home/appliances"],"u":["topik2","life"],"r":{"ant":["난방"]},"v":6,"j":"冷房"},
 {"h":"높아지다","p":"동사","l":3,"e":"to get higher; to rise","s":"to get higher / rise","t":["concepts/change"],"u":["topik2"],"r":{"ant":["낮아지다"]},"v":6},
 {"h":"사회","p":"명사","l":3,"e":"society; community","s":"society / hosting","t":["society/issues","people/address"],"u":["topik2"],"v":6,"j":"社會"},
-{"h":"올","p":"명사","l":3,"e":"this year","s":"this year","t":["daily/time"],"u":["topik2","life"],"r":{"syn":["올해"]},"v":6},
+{"h":"올","p":"명사","l":3,"e":"this year; short for 올해","s":"this year","t":["daily/time"],"u":["topik2","life"],"r":{"syn":["올해"]},"v":6},
 {"h":"체험","p":"명사","l":3,"e":"experience; hands-on activity","s":"experience / hands-on","t":["culture/tradition","school/school-life"],"u":["topik2","kculture","life","travel"],"r":{"syn":["경험"]},"v":6,"j":"體驗"},
 {"h":"테이프","p":"명사","l":3,"e":"tape","s":"tape","t":["home/furniture","daily/shopping","school/supplies"],"u":["topik2","life"],"v":6},
 {"h":"가능성","p":"명사","l":4,"e":"possibility; potential","s":"possibility / potential","t":["concepts/degree","talk/opinions"],"u":["topik2"],"r":{"ant":["불가능성"]},"v":6,"j":"可能性"},
