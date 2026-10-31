@@ -891,7 +891,9 @@ const twGuides = () => '<h2>쓰기 안내 글 · Writing guides</h2><ul class="p
   if (!p) throw new Error('blog.js 에 없는 글: ' + id);
   return `<li><a href="/blog/${esc(p.id)}.html"${p.lang === 'en' ? ' hreflang="en"' : ''}>${esc(p.title)}</a><br><small>${esc(clip(p.excerpt || '', 110))}</small></li>`;
 }).join('') + '</ul>';
-const twBook = () => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '쓰고 나서 · 책으로 이어서 (Next step: the books)');
+const twBook = (from = '') => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '쓰고 나서 · 책으로 이어서 (Next step: the books)', from);
+/* 쓰기 모음 쪽 맨 위 책 안내(운영자 2026-10-31 「1번 만들어줘」 — 검색에서 오는 사람이 가장 책을 살 가능성이 큰 쪽이라 위로 올렸다) */
+const twBookTop = () => bookSteps(['topik2-writing-51-52', 'topik2-writing-53-54'], '책으로 풀어 보기 · Practice with the workbooks (PDF)', 'tw_top');
 
 function twSections(items) {
   return TW_QS.map((g) => {
@@ -911,10 +913,11 @@ function twHub(items) {
     `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
     hubCtas(['/#learn/topik/II/writing', '바로 써 보기', 'Write now — model answers are free, AI scoring is Pro']),
     hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
+    twBookTop(),
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
     twGuides(),
-    twBook(),
+    twBook('tw_end'),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
   ].join('\n');
