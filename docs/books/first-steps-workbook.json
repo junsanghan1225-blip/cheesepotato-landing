@@ -1326,12 +1326,38 @@
           ]
         },
         {
-          "type": "text",
+          "type": "habits",
           "title": {
-            "en": "Four habits that work",
-            "ko": "효과 보는 습관 네 가지"
+            "en": "How to use this book: four habits",
+            "ko": "이 책, 이렇게 쓰세요"
           },
-          "text": "1. Say first, then write. Saying makes the sound natural; writing fixes the spelling.\n2. Use pencil. You will want to do the page again.\n3. Look up unknown words in the Index at the back. It tells you which unit they are in.\n4. After each part, take its mini test and be honest with your score.\n1. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n2. 연필로 쓰세요. 다시 풀고 싶어집니다.\n3. 모르는 낱말은 뒤쪽 찾아보기에서 찾으세요. 어느 단원에 있는지 알려 줍니다.\n4. 부가 끝나면 미니 테스트를 풀고 점수를 솔직하게 적으세요."
+          "hint": "Same order every day: say it, write it, check it. One unit a day is enough.",
+          "items": [
+            [
+              "먼저 말하고, 그다음 쓰세요",
+              "Say first, then write",
+              "각 단원의 낱말과 대화를 소리 내어 두세 번 읽은 다음 연습 문제를 쓰세요. 입으로 해 본 낱말은 손으로 쓸 때 철자가 덜 헷갈립니다.",
+              "단원을 시작할 때, 연습 문제를 풀기 전에"
+            ],
+            [
+              "연필로 쓰세요",
+              "Use pencil",
+              "답을 지우개로 지우고 며칠 뒤에 다시 풀어 보세요. 같은 쪽을 두 번 푸는 것이 이 책이 권하는 복습입니다.",
+              "틀린 문제가 있을 때, 그리고 1주일 뒤 복습할 때"
+            ],
+            [
+              "모르는 낱말은 찾아보기에서 찾으세요",
+              "Look it up in the Index",
+              "책 맨 뒤 찾아보기에 낱말이 어느 단원에 있는지 적혀 있습니다. 그 단원으로 돌아가 예문과 함께 다시 읽으세요.",
+              "읽다가 모르는 낱말이 나왔을 때"
+            ],
+            [
+              "부가 끝나면 미니 테스트를 푸세요",
+              "Take the mini test",
+              "한 부를 마칠 때마다 미니 테스트를 풀고, 점수를 솔직하게 책에 적으세요. 점수가 낮은 단원은 표만 다시 읽어도 좋습니다.",
+              "한 부(Part)를 끝낸 날"
+            ]
+          ]
         }
       ]
     },
