@@ -19,7 +19,14 @@ const bb = JSON.parse(fs.readFileSync(P('docs/bonus/topik1-vocab-2.json'), 'utf8
 const inline = { ...a.inline, ...b.inline };
 const ids = [...Object.keys(a.inline), ...Object.keys(b.inline)];
 const lvOf = (id) => Number(inline[id].sections[0].entries[0].lv);
-const parts = [1, 2].map((l) => ({ title: { en: `Level ${l} words`, ko: `${l}급 낱말` }, units: ids.filter((id) => lvOf(id) === l) })).filter((p) => p.units.length);
+/* 한 부 = 한 급 안에서 단원 15개 안팎 — 부 표지에 단원 목록이 다 들어가야 한다(운영자 2026-10-31 「나누자」: 1급 43단원을 한 부로 했더니 목록이 표지 밖으로 넘쳤다) */
+const wc = (id) => inline[id].sections[0].entries.length, startOf = {}; { let n = 0; for (const id of ids) { startOf[id] = n + 1; n += wc(id); } }
+const parts = [];
+for (const l of [1, 2]) {
+  const lu = ids.filter((id) => lvOf(id) === l); if (!lu.length) continue;
+  const k = Math.ceil(lu.length / 15), size = Math.ceil(lu.length / k);
+  for (let i = 0; i < lu.length; i += size) { const chunk = lu.slice(i, i + size), a = startOf[chunk[0]], z = startOf[chunk[chunk.length - 1]] + wc(chunk[chunk.length - 1]) - 1; parts.push({ title: { en: `Level ${l} words ${a}-${z}`, ko: `${l}급 낱말 ${a}~${z}` }, units: chunk }); }
+}
 const N = ids.reduce((s, id) => s + inline[id].sections[0].entries.length, 0), U = ids.length;
 const book = {
   ...a,
