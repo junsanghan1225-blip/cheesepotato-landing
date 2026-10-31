@@ -29,7 +29,7 @@
     const bar = document.querySelector('.nw-bar') || document.querySelector('.ws-bar') || document.body.firstElementChild;
     (bar && bar.parentNode ? bar.parentNode : document.body).insertBefore(box, bar ? bar.nextSibling : document.body.firstChild);
   };
-  const printAs = (kind) => { inAppNote('print'); document.title = fname(kind); window.print(); };
+  const printAs = (kind) => { inAppNote('print'); trk('worksheet_action', { what: kind === 'Answers' ? 'answer_print' : 'print', worksheet: fileBase(), in_app: inApp ? 1 : 0 }); document.title = fname(kind); window.print(); };
   const go = (ans) => { body.classList.toggle('show-ans', ans); printAs(ans ? 'Answers' : 'Worksheet'); };
   document.getElementById('nwPrint')?.addEventListener('click', () => go(false));
   document.getElementById('nwAns')?.addEventListener('click', () => go(true));
@@ -94,7 +94,7 @@
     return out;
   }
   function docx(sel, name) {
-    inAppNote('word');
+    inAppNote('word'); trk('worksheet_action', { what: /Answers/.test(name) ? 'answer_word' : 'word', worksheet: fileBase(), in_app: inApp ? 1 : 0 });
     const papers = [...document.querySelectorAll(sel)];
     if (!papers.length) return;
     const xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' +
