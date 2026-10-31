@@ -2003,5 +2003,16 @@
         "everyday Korean words for beginners"
       ]
     }
+  },
+  "overrides": {
+    "family-terms": {
+      "0": {
+        "type": "family",
+        "title": {
+          "en": "Immediate Family Members",
+          "ko": "가족 호칭"
+        }
+      }
+    }
   }
 }
