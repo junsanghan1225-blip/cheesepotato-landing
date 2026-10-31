@@ -230,7 +230,8 @@
           "q": "Please close your book →",
           "a": "책을 덮으세요"
         }
-      ]
+      ],
+      "hint": "Write what the teacher says in Korean. · 선생님이 하는 말을 한국어로 써요."
     },
     {
       "type": "practice",
