@@ -31,6 +31,8 @@ function make(id, krwArg) {
   const r = checkBookPdf(id, pdf, { krw });
   for (const [s, n, d] of r.res) if (s !== 'PASS') console.log(`   ${s} ${n} — ${d}`);
   fs.writeFileSync(path.join(dir, '검수보고서.md'), reportMd(id, r));
+  /* 예스24 PDF e북은 독자 필기가 쪽 좌표에 붙는다 — 이미 올린 책은 쪽수 · 쪽 순서가 같을 때만 파일 교체 가능, 아니면 개정판으로 별도 등록(운영자 2026-10-31) */
+  if (L.registered && L.registered.pages !== r.pages && !args.includes('--revision')) r.res.push(['FAIL', '예스24 파일 교체', `올린 파일은 ${L.registered.pages}쪽(${L.registered.ver}), 이번 파일은 ${r.pages}쪽 — 교체 불가, 개정판으로 별도 등록해야 한다(개정판이면 --revision)`]), r.failed++;
   L.qa = r.failed ? 'FAIL' : r.warned ? `통과(주의 ${r.warned})` : '통과'; L.pages = r.pages; L.date = date;
   if (r.failed) { fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 1) + '\n'); throw new Error(`${id}: 검사 FAIL ${r.failed}개 — 고친 뒤 다시 돌린다(${path.join(dir, '검수보고서.md')})`); }
   console.log('③ 표지 · 파일 모으기…');
