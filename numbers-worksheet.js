@@ -7,7 +7,29 @@
   const fileBase = () => document.querySelector('meta[name="ws-file"]')?.content || (location.pathname.replace(/\/+$/, '').split('/').pop() || 'worksheet').replace(/\.html$/, '');
   const fname = (kind, ext) => `${fileBase()}_${kind}${ext || ''}`;
   const oldTitle = document.title;
-  const printAs = (kind) => { document.title = fname(kind); window.print(); };
+  /* 앱 안 브라우저(쓰레드 · 인스타 · 페이스북 · 카톡 · 틱톡 · 웹뷰)는 인쇄와 내려받기를 막는 일이 많다 — 쓰레드에서 온 사람이 PDF · 워드 단추를 여러 번 눌러도 안 됐다(Clarity 2026-10-31).
+     막혔는지는 앱이 알려 주지 않으니, 앱 안 브라우저로 보이면 단추를 누를 때 「브라우저에서 열어 주세요」를 알려 준다(그래도 인쇄 · 내려받기는 그대로 시도한다). */
+  const inApp = /Instagram|FBAN|FBAV|FB_IAB|Barcelona|Threads|KAKAOTALK|NAVER\(inapp|\bLine\/|TikTok|musical_ly|; wv\)/i.test(navigator.userAgent);
+  const trk = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, extra)); } catch (e) {} try { window.clarity && window.clarity('event', ev); } catch (e) {} };
+  let warned = false;
+  const inAppNote = (what) => {
+    trk('worksheet_inapp_notice', { what });
+    if (!inApp || warned) return;
+    warned = true;
+    const box = document.createElement('div');
+    Object.assign(box.style, { margin: '10px 0', padding: '12px 14px', border: '1px solid #c9b79c', borderRadius: '8px', background: '#fff8ea', color: '#2a2218', fontSize: '14px', lineHeight: '1.55' });
+    box.className = 'no-print';
+    const en = document.createElement('div'), ko = document.createElement('div'), btn = document.createElement('button');
+    en.textContent = 'Printing and downloads often do not work inside this app. Open this page in Chrome or Safari: tap ⋯ (or the share icon) → “Open in browser”.';
+    ko.textContent = '이 앱 안에서는 인쇄 · 내려받기가 막힐 수 있어요. 오른쪽 위 ⋯(또는 공유 버튼) → 「브라우저에서 열기」로 열어 주세요.';
+    btn.type = 'button'; btn.textContent = 'Copy link · 링크 복사';
+    Object.assign(btn.style, { marginTop: '8px', padding: '7px 12px', border: '1px solid #2a2218', borderRadius: '6px', background: '#fff', font: 'inherit', cursor: 'pointer' });
+    btn.addEventListener('click', () => { try { navigator.clipboard.writeText(location.href).then(() => { btn.textContent = 'Copied · 복사했어요'; }); } catch (e) { btn.textContent = location.href; } });
+    box.append(en, ko, btn);
+    const bar = document.querySelector('.nw-bar') || document.querySelector('.ws-bar') || document.body.firstElementChild;
+    (bar && bar.parentNode ? bar.parentNode : document.body).insertBefore(box, bar ? bar.nextSibling : document.body.firstChild);
+  };
+  const printAs = (kind) => { inAppNote('print'); document.title = fname(kind); window.print(); };
   const go = (ans) => { body.classList.toggle('show-ans', ans); printAs(ans ? 'Answers' : 'Worksheet'); };
   document.getElementById('nwPrint')?.addEventListener('click', () => go(false));
   document.getElementById('nwAns')?.addEventListener('click', () => go(true));
@@ -72,6 +94,7 @@
     return out;
   }
   function docx(sel, name) {
+    inAppNote('word');
     const papers = [...document.querySelectorAll(sel)];
     if (!papers.length) return;
     const xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' +
