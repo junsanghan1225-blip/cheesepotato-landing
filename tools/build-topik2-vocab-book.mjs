@@ -24,13 +24,17 @@ if (!CFG) throw new Error('권은 1 또는 2');
 const N_WORDS = CFG.n || 1000, PER = 20;
 /* 1,000개: 많이 나오는 순으로 뽑은 뒤, 책 안에서는 급 → 많이 나오는 순 */
 const picked = [...all].sort((a, b) => (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko')).filter((w, i) => !CFG.lv3 || (i >= 2000 && w.level === 3 && w.examples.length >= 2)).slice(CFG.lv3 ? 0 : CFG.offset, CFG.lv3 ? N_WORDS : CFG.offset + N_WORDS)
-  .sort((a, b) => (a.level - b.level) || String(a.topics?.[0] || '~').localeCompare(String(b.topics?.[0] || '~')) || (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko'));
+  /* 2026-10-31 운영자 「배치를 다양하게 · 많이 쓰는 것도 난이도 있는 것도」: 1 · 2권은 급이 아니라 주제로 먼저 묶어, 한 단원에 3~6급 · 빈출 상 · 하가 섞인다(전에는 급 순이라 단원마다 한 급수였다). 3권은 3급뿐이라 그대로 */
+  .sort((a, b) => (CFG.lv3 ? a.level - b.level : 0) || String(a.topics?.[0] || '~').localeCompare(String(b.topics?.[0] || '~')) || (CFG.lv3 ? 0 : a.level - b.level) || (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko'));
 if (picked.length < N_WORDS) throw new Error(`낱말이 ${picked.length}개뿐`);
 
 const POS = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'adverb', 관형사: 'determiner', '의존 명사': 'bound noun', 수사: 'numeral', 대명사: 'pronoun', 감탄사: 'interjection', 조사: 'particle' };
 /* 빈출도 감자 1~5: 시리즈 모든 권이 같은 눈금(우리 TOPIK II 낱말 목록에서 나오는 횟수 freq: 30 이상 5개 · 12 이상 4개 · 6 이상 3개 · 3 이상 2개 · 그 아래 1개).
    1권은 2~5개, 2권은 1~2개가 많다. 한 단원 안에 여러 단계가 섞이도록 단원은 주제로 묶는다 */
 const fq = (f) => (f <= 0 ? 0 : f >= 30 ? 5 : f >= 12 ? 4 : f >= 6 ? 3 : f >= 3 ? 2 : 1);
+/* 안티가 교사 눈으로 판단한 빈출도(docs/vocab-judge/topik2.json, 지시 antigravity-vocab-judge-task.md) — 우리 자료에서 나온 횟수가 거의 없는 낱말(감자 1개 이하)만 이 값으로 채운다 */
+const JUDGE = fs.existsSync(path.join(ROOT, 'docs/vocab-judge/topik2.json')) ? rd('docs/vocab-judge/topik2.json') : {};
+const fqOf = (w) => { const n = fq(w.freq); return n <= 1 && JUDGE[w.head] ? Math.max(n, JUDGE[w.head].fq) : n; };
 const first = (en) => String(en).split(';')[0].trim();
 const pick = (arr, f) => arr.filter((_, i) => f(i));
 const LV_KO = { 3: '3급', 4: '4급', 5: '5급', 6: '6급' };
@@ -87,10 +91,10 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   const ws = picked.slice(u * PER, u * PER + PER);
   const no = u + 1, id = `${CFG.prefix}-${String(no).padStart(2, '0')}`;
   const lvs = [...new Set(ws.map((w) => w.level))];
-  const lvKo = lvs.map((l) => LV_KO[l]).join('·'), lvEn = lvs.map((l) => `Level ${l}`).join(' / ');
+  const lvKo = lvs.length > 2 ? `${LV_KO[Math.min(...lvs)]}~${LV_KO[Math.max(...lvs)]}` : lvs.map((l) => LV_KO[l]).join('·'), lvEn = lvs.length > 2 ? `Levels ${Math.min(...lvs)}-${Math.max(...lvs)}` : lvs.map((l) => `Level ${l}`).join(' / ');
   const exOf = (w) => (w.examples && w.examples[0]) || null;
   const secs = [];
-  secs.push({ type: 'vocab', title: { en: 'Words', ko: '낱말' }, from: (CFG.offset || 0) + u * PER, entries: ws.map((w) => ({ ko: w.head, pos: POS[w.pos] || w.pos, en: w.en, ex: exOf(w), lv: w.level, fq: fq(w.freq) })) });
+  secs.push({ type: 'vocab', title: { en: 'Words', ko: '낱말' }, from: (CFG.offset || 0) + u * PER, entries: ws.map((w) => ({ ko: w.head, pos: POS[w.pos] || w.pos, en: w.en, ex: exOf(w), lv: w.level, fq: fqOf(w) })) });
   const firsts = ws.map((w) => first(w.en));
   /* 단원 점검(Checkup): 짝짓기 5 + 빈칸 4(낱말 상자). 빈칸 문장은 책에 실린 첫 예문이 아니라 둘째 예문 */
   const clozeW = ws.filter((w) => ['명사', '부사'].includes(w.pos) && w.head.length >= 2 && w.examples[1] && w.examples[1].ko.split(w.head).length === 2).slice(0, 4);
@@ -122,7 +126,7 @@ for (let u = 0; u < N_WORDS / PER; u++) {
 
 /* 부 = 급. 단원 첫 낱말의 급으로 가른다 */
 const partNames = { 3: { en: 'Level 3 words', ko: '3급 낱말' }, 4: { en: 'Level 4 words', ko: '4급 낱말' }, 5: { en: 'Level 5 words', ko: '5급 낱말' }, 6: { en: 'Level 6 words', ko: '6급 낱말' } };
-const parts = CFG.lv3 ? [0, 1, 2, 3].map((k) => { const ids = unitsOf.slice(k * 12, k * 12 + 12).map((x) => x.id); const a = k * 12 * PER + 1, b = Math.min((k * 12 + ids.length) * PER, N_WORDS); return { title: { en: `Words ${a}-${b}`, ko: `낱말 ${a}~${b}` }, units: ids }; }).filter((p) => p.units.length) : [3, 4, 5, 6].map((l) => ({ title: partNames[l], units: unitsOf.filter((x) => x.lv === l).map((x) => x.id) })).filter((p) => p.units.length);
+const PU = Math.ceil(unitsOf.length / 4), parts = true ? [0, 1, 2, 3].map((k) => { const ids = unitsOf.slice(k * PU, k * PU + PU).map((x) => x.id); const a = k * PU * PER + 1, b = Math.min((k * PU + ids.length) * PER, N_WORDS); return { title: { en: `Words ${a}-${b}`, ko: `낱말 ${a}~${b}` }, units: ids }; }).filter((p) => p.units.length) : [3, 4, 5, 6].map((l) => ({ title: partNames[l], units: unitsOf.filter((x) => x.lv === l).map((x) => x.id) })).filter((p) => p.units.length);
 
 const book = {
   _note: `책 한 권의 틀: tools/build-topik2-vocab-book.mjs ${VOL} 이 만든다(손으로 고치지 않는다). node tools/build-book.mjs ${CFG.id}. 낱말 · 뜻 · 예문은 vocab/data/topik2.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.`,
@@ -133,10 +137,10 @@ const book = {
   levelTag: 'VOCAB', level: 'TOPIK II', trim: base.trim,
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
   preface: {
-    en: [VOL === 3 ? 'This is the third book of the series: the level-3 words of the TOPIK II word list on everykoreans.com that are not in Book 1 or Book 2. Most of them did not show up in our TOPIK II texts yet, so their potato marks are empty. Each unit has 20 words grouped by topic, an example sentence for each, and short writing practice.' : VOL === 1 ? 'These are the 1,000 words that appear most often in the TOPIK II word list we use on everykoreans.com, arranged from level 3 to level 6. Each unit has 20 words, an example sentence for each, and short writing practice.' : 'This is the second book of the series: the words ranked 1,001 to 2,000 by how often they appear in the TOPIK II word list we use on everykoreans.com, arranged from level 3 to level 6. Book 1 has the 1,000 most frequent words. Each unit has 20 words, an example sentence for each, and short writing practice.',
+    en: [VOL === 3 ? 'This is the third book of the series: the level-3 words of the TOPIK II word list on everykoreans.com that are not in Book 1 or Book 2. Most of them did not show up in our TOPIK II texts yet, so their potato marks are empty. Each unit has 20 words grouped by topic, an example sentence for each, and short writing practice.' : VOL === 1 ? 'These are the 1,000 words that appear most often in the TOPIK II word list we use on everykoreans.com, grouped by topic, so each unit mixes levels 3 to 6 and common and rare words. Each unit has 20 words, an example sentence for each, and short writing practice.' : 'This is the second book of the series: the words ranked 1,001 to 2,000 by how often they appear in the TOPIK II word list we use on everykoreans.com, grouped by topic, so each unit mixes levels 3 to 6 and common and rare words. Book 1 has the 1,000 most frequent words. Each unit has 20 words, an example sentence for each, and short writing practice.',
       'Read the table aloud, then cover the English and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.',
       `You do not have to memorize ${N_WORDS.toLocaleString('en-US')} words in one go. One unit a day is a calm pace: ${N_WORDS / PER} units, about ${['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][Math.round(N_WORDS / PER / 7)]} weeks.`],
-    ko: [VOL === 3 ? '이 책은 시리즈의 세 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록 가운데 1권과 2권에 없는 3급 낱말을 모았습니다. 대부분은 우리 TOPIK II 자료에서 아직 나온 적이 없어서 감자 표시가 비어 있습니다. 단원마다 주제로 묶은 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : VOL === 1 ? '이 책은 everykoreans.com 의 TOPIK II 낱말 목록에서 가장 자주 나오는 낱말 1,000개를 3급부터 6급까지 차례로 모은 것입니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : '이 책은 시리즈의 두 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록에서 자주 나오는 순으로 1,001번째부터 2,000번째까지의 낱말을 3급부터 6급까지 차례로 모았습니다. 가장 자주 나오는 1,000개는 1권에 있습니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.',
+    ko: [VOL === 3 ? '이 책은 시리즈의 세 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록 가운데 1권과 2권에 없는 3급 낱말을 모았습니다. 대부분은 우리 TOPIK II 자료에서 아직 나온 적이 없어서 감자 표시가 비어 있습니다. 단원마다 주제로 묶은 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : VOL === 1 ? '이 책은 everykoreans.com 의 TOPIK II 낱말 목록에서 가장 자주 나오는 낱말 1,000개를 주제별로 묶어서 한 단원에 3~6급과 자주 나오는 낱말 · 드문 낱말이 섞여 있습니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : '이 책은 시리즈의 두 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록에서 자주 나오는 순으로 1,001번째부터 2,000번째까지의 낱말을 주제별로 묶어서 한 단원에 3~6급과 자주 나오는 낱말 · 드문 낱말이 섞여 있습니다. 가장 자주 나오는 1,000개는 1권에 있습니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.',
       '표를 소리 내 읽고, 영어를 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.',
       `${N_WORDS.toLocaleString('en-US')}개를 한 번에 외울 필요는 없습니다. 하루 한 단원이면 ${N_WORDS / PER}단원, 약 ${Math.round(N_WORDS / PER / 7)}주입니다.`],
   },
