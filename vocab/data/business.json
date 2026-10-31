@@ -1,0 +1,6602 @@
+[
+  {
+    "id": "bw-001",
+    "unit": 1,
+    "head": "첫인사",
+    "pos": "명사",
+    "en": "first greeting, initial introduction",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "첫인사를 나누며 서로 명함을 교환했습니다.",
+        "We exchanged business cards while greeting each other for the first time."
+      ],
+      [
+        "새 부서에 가서 떨리는 마음으로 첫인사를 드렸어요.",
+        "I went to my new department and gave my first greeting with nervous excitement."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새로 오신 분과 첫인사는 나누셨나요?"
+      ],
+      [
+        "B",
+        "Did you share an initial introduction with the newcomer?"
+      ]
+    ],
+    "note": "네, 아침 회의 때 인사드렸습니다.",
+    "polite_alt": "Yes, I introduced myself during the morning meeting.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-002",
+    "unit": 1,
+    "head": "명함",
+    "pos": "명사",
+    "en": "business card",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "처음 뵙겠습니다. 제 명함 먼저 드리겠습니다.",
+        "Nice to meet you. Let me give you my business card first."
+      ],
+      [
+        "미팅 가기 전에 명함이 충분히 있는지 확인하세요.",
+        "Please check if you have enough business cards before heading to the meeting."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "명함을 어디에 두었는지 깜빡했네요."
+      ],
+      [
+        "B",
+        "I forgot where I put my business cards."
+      ]
+    ],
+    "note": "여기 서랍 안에 여분이 있으니 챙겨 가세요.",
+    "polite_alt": "There are extras in this drawer, so please take some.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-003",
+    "unit": 1,
+    "head": "소속",
+    "pos": "명사",
+    "en": "affiliation, department",
+    "lv": 3,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "본인의 소속과 이름을 명확하게 밝혀 주세요.",
+        "Please state your affiliation and name clearly."
+      ],
+      [
+        "저는 기획팀 소속으로 이번 프로젝트를 맡았습니다.",
+        "I am affiliated with the planning team and managing this project."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "어느 팀 소속이신가요?"
+      ],
+      [
+        "B",
+        "Which team do you belong to?"
+      ]
+    ],
+    "note": "마케팅팀 소속 김민수 대리입니다.",
+    "polite_alt": "I am Assistant Manager Minsu Kim from the marketing team.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-004",
+    "unit": 1,
+    "head": "직함",
+    "pos": "명사",
+    "en": "title, job title",
+    "lv": 3,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "상대방의 직함을 정확히 확인하고 불러야 실수가 없어요.",
+        "You should check and use the other party's exact job title to avoid mistakes."
+      ],
+      [
+        "명함에 적힌 직함을 보니 팀장님이시네요.",
+        "Looking at the title on your card, you are the team leader."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이분의 직함이 과장님 맞으신가요?"
+      ],
+      [
+        "B",
+        "Is this person's title Manager?"
+      ]
+    ],
+    "note": "네, 지난달에 과장으로 승진하셨습니다.",
+    "polite_alt": "Yes, he was promoted to Manager last month.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-005",
+    "unit": 1,
+    "head": "부임",
+    "pos": "명사",
+    "en": "taking up a new post, appointment",
+    "lv": 3,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "새 지사장님이 다음 주 월요일에 정식으로 부임하십니다.",
+        "The new branch manager will officially take up his post next Monday."
+      ],
+      [
+        "해외 지사로 부임하게 되어 인사드립니다.",
+        "I am greeting you as I have been appointed to an overseas branch."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새 팀장님은 언제 부임하시나요?"
+      ],
+      [
+        "B",
+        "When will the new team leader take office?"
+      ]
+    ],
+    "note": "다음 주 본사 발령 후 바로 부임하십니다.",
+    "polite_alt": "He will assume his post right after next week's headquarters appointment.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-006",
+    "unit": 1,
+    "head": "동료",
+    "pos": "명사",
+    "en": "colleague, coworker",
+    "lv": 1,
+    "register": "casual",
+    "situation": "greeting",
+    "examples": [
+      [
+        "입사 동기이자 좋은 동료들과 함께 일하게 되어 든든합니다.",
+        "I feel reassured to work with my joining cohort and great coworkers."
+      ],
+      [
+        "새로운 직장에서 동료들과 원만하게 지내고 싶어요.",
+        "I want to get along well with my colleagues in the new workplace."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "옆자리에 계신 분이 새로 오신 동료인가요?"
+      ],
+      [
+        "B",
+        "Is the person sitting next to you the new colleague?"
+      ]
+    ],
+    "note": "네, 오늘부터 저희 팀에서 함께 근무합니다.",
+    "polite_alt": "Yes, he will be working with our team starting today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-007",
+    "unit": 1,
+    "head": "담당자",
+    "pos": "명사",
+    "en": "person in charge, representative",
+    "lv": 2,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "이번 신규 프로젝트의 실무 담당자를 소개해 드리겠습니다.",
+        "Let me introduce the working-level person in charge of this new project."
+      ],
+      [
+        "계약 관련 문의는 법무팀 담당자에게 직접 전달해 주세요.",
+        "Please forward any contract-related inquiries directly to the legal team representative."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "홍보 업무 담당자가 누구신가요?"
+      ],
+      [
+        "B",
+        "Who is the person in charge of public relations?"
+      ]
+    ],
+    "note": "이쪽의 박 대리가 홍보 업무를 담당하고 있습니다.",
+    "polite_alt": "Assistant Manager Park here handles PR duties.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-008",
+    "unit": 1,
+    "head": "인사이동",
+    "pos": "명사",
+    "en": "personnel reshuffle, staff transfer",
+    "lv": 3,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "연말 인사이동으로 인해 팀 내 업무 분장이 새로워졌습니다.",
+        "Due to the year-end personnel reshuffle, tasks within the team were reassigned."
+      ],
+      [
+        "정기 인사이동 명단이 사내 게시판에 공지되었습니다.",
+        "The regular staff transfer list has been posted on the company bulletin board."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 인사이동 때 다른 지사로 가시나요?"
+      ],
+      [
+        "B",
+        "Are you moving to another branch during this personnel reshuffle?"
+      ]
+    ],
+    "note": "아니요, 저는 본사 기획실에 그대로 남게 되었습니다.",
+    "polite_alt": "No, I am staying in the headquarters planning office.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-009",
+    "unit": 1,
+    "head": "악수",
+    "pos": "명사",
+    "en": "handshake",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "미팅이 끝난 뒤 환하게 웃으며 서로 악수를 나누었습니다.",
+        "After the meeting ended, we smiled brightly and shook hands."
+      ],
+      [
+        "손윗사람이 먼저 손을 내밀었을 때 가볍게 악수하는 것이 좋습니다.",
+        "It is good practice to shake hands lightly when a senior extends their hand first."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "반갑게 악수를 청해 주셔서 감사했습니다."
+      ],
+      [
+        "B",
+        "Thank you for welcoming me with a warm handshake."
+      ]
+    ],
+    "note": "저희야말로 뵙게 되어 영광이었습니다.",
+    "polite_alt": "We are the ones honored to meet you.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-010",
+    "unit": 1,
+    "head": "인사드리다",
+    "pos": "동사",
+    "en": "to pay one's respects, to greet (formal)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "이번에 새로 입사하게 되어 팀원분들께 인사드립니다.",
+        "Having joined the company recently, I am greeting the team members."
+      ],
+      [
+        "출근하자마자 팀장님께 먼저 밝게 인사드렸어요.",
+        "As soon as I arrived at work, I greeted the team leader brightly first."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "대표님께 정식으로 인사드렸습니까?"
+      ],
+      [
+        "B",
+        "Did you formally greet the CEO?"
+      ]
+    ],
+    "note": "네, 아침 조회 시간에 인사드렸습니다.",
+    "polite_alt": "Yes, I greeted him during the morning meeting.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-011",
+    "unit": 1,
+    "head": "소개하다",
+    "pos": "동사",
+    "en": "to introduce",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "greeting",
+    "examples": [
+      [
+        "오늘 저희 팀에 새로 합류한 지수 씨를 소개하겠습니다.",
+        "I would like to introduce Jisu, who joined our team today."
+      ],
+      [
+        "거래처 임원분들께 저희 회사의 주력 제품을 소개했어요.",
+        "I introduced our company's flagship product to the client executives."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새 파트너사를 회의에서 소개해 주실 수 있나요?"
+      ],
+      [
+        "B",
+        "Could you introduce the new partner company in the meeting?"
+      ]
+    ],
+    "note": "네, 회의 시작 직후에 간단히 소개하겠습니다.",
+    "polite_alt": "Yes, I will introduce them briefly right after the meeting starts.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-012",
+    "unit": 1,
+    "head": "환영하다",
+    "pos": "동사",
+    "en": "to welcome",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "새로운 가족이 되신 신입 사원 여러분을 진심으로 환영합니다.",
+        "We sincerely welcome all the new recruits who have become part of our family."
+      ],
+      [
+        "파트너사의 방문을 전 직원이 따뜻하게 환영했습니다.",
+        "All employees warmly welcomed the visit from our partner company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새 팀원을 환영하는 자리를 마련할까요?"
+      ],
+      [
+        "B",
+        "Shall we arrange a small gathering to welcome the new team member?"
+      ]
+    ],
+    "note": "좋습니다. 점심 식사를 함께하며 환영해 줍시다.",
+    "polite_alt": "Sounds great. Let's welcome them over lunch.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-013",
+    "unit": 1,
+    "head": "배정받다",
+    "pos": "동사",
+    "en": "to be assigned, to be allocated",
+    "lv": 2,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "연수 과정을 마치고 드디어 영업팀으로 자리를 배정받았습니다.",
+        "After finishing training, I was finally assigned to the sales team."
+      ],
+      [
+        "사내 업무용 노트북과 개인 사물함을 새로 배정받았어요.",
+        "I was newly allocated a company laptop and a personal locker."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "어느 부서로 배정받으셨나요?"
+      ],
+      [
+        "B",
+        "Which department were you assigned to?"
+      ]
+    ],
+    "note": "해외 마케팅을 담당하는 글로벌팀으로 배정받았습니다.",
+    "polite_alt": "I was assigned to the global team in charge of overseas marketing.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-014",
+    "unit": 1,
+    "head": "적응하다",
+    "pos": "동사",
+    "en": "to adapt, to adjust",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "greeting",
+    "examples": [
+      [
+        "선배님들의 친절한 도움 덕분에 새 업무에 빠르게 적응하고 있습니다.",
+        "Thanks to the kind help of senior colleagues, I am adapting quickly to the new work."
+      ],
+      [
+        "새로운 근무 환경에 적응하는 데 시간이 조금 걸렸어요.",
+        "It took a little time to adjust to the new work environment."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새 팀 분위기에는 잘 적응하고 계신가요?"
+      ],
+      [
+        "B",
+        "Are you adjusting well to the new team atmosphere?"
+      ]
+    ],
+    "note": "네, 팀원분들이 많이 챙겨주셔서 큰 문제 없습니다.",
+    "polite_alt": "Yes, the team members take good care of me, so everything is fine.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-015",
+    "unit": 1,
+    "head": "원만하다",
+    "pos": "형용사",
+    "en": "to be smooth, harmonious, amicable",
+    "lv": 3,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "팀원들과의 원만한 인간관계가 업무 효율을 높여 줍니다.",
+        "Harmonious interpersonal relationships with team members enhance work efficiency."
+      ],
+      [
+        "신규 파트너사와 원만한 협력 관계를 유지하고 있습니다.",
+        "We maintain smooth cooperative relations with our new partner company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "부서 간 소통이 원만하게 이루어지고 있나요?"
+      ],
+      [
+        "B",
+        "Is communication between departments proceeding smoothly?"
+      ]
+    ],
+    "note": "네, 정기 협의 덕분에 아주 원만합니다.",
+    "polite_alt": "Yes, thanks to regular consultations, it is very smooth.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-016",
+    "unit": 1,
+    "head": "처음 뵙겠습니다",
+    "pos": "표현",
+    "en": "Nice to meet you (first time)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "처음 뵙겠습니다. 전략기획팀 박민수 과장입니다.",
+        "Nice to meet you. I am Manager Minsu Park from the strategic planning team."
+      ],
+      [
+        "처음 뵙겠습니다. 귀사에 방문하게 되어 무척 뜻깊습니다.",
+        "Pleased to meet you. It is very meaningful to visit your esteemed company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "처음 뵙겠습니다. 마케팅 담당자 지수입니다."
+      ],
+      [
+        "B",
+        "Nice to meet you. I am Jisu in charge of marketing."
+      ]
+    ],
+    "note": "반갑습니다. 말씀 많이 들었습니다.",
+    "polite_alt": "Pleasure to meet you. I have heard a lot about you.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-017",
+    "unit": 1,
+    "head": "잘 부탁드립니다",
+    "pos": "표현",
+    "en": "I look forward to working with you",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "앞으로 부족한 점이 많겠지만 잘 부탁드립니다.",
+        "I still have much to learn, but I look forward to working with you."
+      ],
+      [
+        "이번 분기 프로젝트도 성공적으로 끝낼 수 있도록 잘 부탁드립니다.",
+        "I count on your support so we can successfully conclude this quarter's project."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘부터 한 팀으로 일하게 된 김민수입니다. 잘 부탁드립니다."
+      ],
+      [
+        "B",
+        "I am Minsu Kim, joining you as a teammate starting today. I look forward to working with you."
+      ]
+    ],
+    "note": "환영합니다, 민수 씨. 서로 도우며 즐겁게 일해 봐요.",
+    "polite_alt": "Welcome, Minsu. Let's support each other and enjoy working together.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-018",
+    "unit": 1,
+    "head": "말씀 많이 들었습니다",
+    "pos": "표현",
+    "en": "I have heard so much about you",
+    "lv": 2,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "부장님께 말씀 많이 들었습니다. 업무 능력이 대단하시다고요.",
+        "I have heard a lot about you from the director. He said your work capabilities are outstanding."
+      ],
+      [
+        "소문으로 말씀 많이 들었는데 이렇게 직접 뵙게 되어 반갑습니다.",
+        "I have heard so much about you, and I am glad to meet you in person like this."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "해외영업팀 이 대리입니다."
+      ],
+      [
+        "B",
+        "I am Assistant Manager Lee from the overseas sales team."
+      ]
+    ],
+    "note": "아, 지수 씨에게 말씀 많이 들었습니다. 반갑습니다.",
+    "polite_alt": "Ah, I have heard a lot about you from Jisu. Pleasure to meet you.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-019",
+    "unit": 1,
+    "head": "앞으로 자주 뵙겠습니다",
+    "pos": "표현",
+    "en": "I look forward to seeing you often",
+    "lv": 2,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "협력 관계가 시작되었으니 앞으로 자주 뵙겠습니다.",
+        "Now that our partnership has begun, I look forward to seeing you often."
+      ],
+      [
+        "같은 층에서 근무하게 되었으니 앞으로 자주 뵙겠습니다.",
+        "Since we work on the same floor, I look forward to seeing you frequently."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "매주 정기 회의 때 뵙게 되겠군요."
+      ],
+      [
+        "B",
+        "It looks like we will be meeting during our weekly regular sessions."
+      ]
+    ],
+    "note": "네, 앞으로 자주 뵙겠습니다. 언제든 연락 주세요.",
+    "polite_alt": "Yes, I look forward to seeing you often. Please contact me anytime.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-020",
+    "unit": 1,
+    "head": "좋은 하루 보내십시오",
+    "pos": "표현",
+    "en": "Have a wonderful day",
+    "lv": 1,
+    "register": "formal",
+    "situation": "greeting",
+    "examples": [
+      [
+        "오늘 미팅 수고 많으셨습니다. 좋은 하루 보내십시오.",
+        "Thank you for your hard work in today's meeting. Have a wonderful day."
+      ],
+      [
+        "출근길에 로비에서 마주친 임원분께 좋은 하루 보내시라고 인사했어요.",
+        "I wished the executive a great day when I ran into him in the lobby on the way in."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 논의는 여기까지 하겠습니다."
+      ],
+      [
+        "B",
+        "That concludes our discussion for today."
+      ]
+    ],
+    "note": "감사합니다. 팀장님도 좋은 하루 보내십시오.",
+    "polite_alt": "Thank you. Have a great day as well, Team Leader.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-021",
+    "unit": 2,
+    "head": "내선번호",
+    "pos": "명사",
+    "en": "extension number",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "담당자 자리로 바로 연결하시려면 내선번호 삼번을 눌러 주세요.",
+        "To connect directly to the representative, please press extension number three."
+      ],
+      [
+        "자리 이동 후 사내 메신저 프로필에 새 내선번호를 업데이트했습니다.",
+        "After moving desks, I updated my new extension number on the company messenger profile."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "김 과장님 내선번호가 어떻게 되나요?"
+      ],
+      [
+        "B",
+        "What is Manager Kim's extension number?"
+      ]
+    ],
+    "note": "사내 전화번호부에서 검색하시면 바로 확인하실 수 있습니다.",
+    "polite_alt": "You can check it right away by searching the internal telephone directory.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-022",
+    "unit": 2,
+    "head": "통화",
+    "pos": "명사",
+    "en": "phone conversation, call",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "팀장님께서 지금 다른 거래처와 중요한 통화 중이십니다.",
+        "The team leader is currently on an important phone call with another client."
+      ],
+      [
+        "외출 중에 고객사로부터 긴급한 통화 요청이 들어왔어요.",
+        "While I was out of the office, an urgent call request came in from a client company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "잠시 통화 가능하신가요?"
+      ],
+      [
+        "B",
+        "Do you have a moment to talk on the phone?"
+      ]
+    ],
+    "note": "네, 지금 말씀하셔도 괜찮습니다.",
+    "polite_alt": "Yes, it is fine to talk right now.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-023",
+    "unit": 2,
+    "head": "부재중",
+    "pos": "명사",
+    "en": "out of office, away from desk",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "오후 회의 참석으로 인해 담당자가 현재 부재중입니다.",
+        "The representative is currently away from his desk due to attending an afternoon meeting."
+      ],
+      [
+        "외근 중에 휴대전화로 부재중 전화 세 통이 찍혀 있었어요.",
+        "While on an outside visit, three missed calls were recorded on my mobile phone."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이 대리님 자리에 계신가요?"
+      ],
+      [
+        "B",
+        "Is Assistant Manager Lee at his desk?"
+      ]
+    ],
+    "note": "지금 잠시 부재중이신데, 메모 남겨 드릴까요?",
+    "polite_alt": "He is away from his desk at the moment. Shall I take a message?",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-024",
+    "unit": 2,
+    "head": "메모",
+    "pos": "명사",
+    "en": "message, memo",
+    "lv": 1,
+    "register": "casual",
+    "situation": "phone",
+    "examples": [
+      [
+        "전화 주셨다는 내용을 메모로 남겨 책상 위에 올려두었습니다.",
+        "I left a memo on his desk letting him know that you called."
+      ],
+      [
+        "통화 중에 전달받은 미팅 장소와 시간을 메모장에 꼼꼼히 적었어요.",
+        "During the call, I carefully wrote down the meeting place and time in my memo pad."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "급한 용무인데 메모를 전달해 주실 수 있나요?"
+      ],
+      [
+        "B",
+        "It is an urgent matter. Could you deliver a message to him?"
+      ]
+    ],
+    "note": "네, 복귀하시는 대로 메모 바로 전달하겠습니다.",
+    "polite_alt": "Yes, I will pass along the memo as soon as he returns.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-025",
+    "unit": 2,
+    "head": "용건",
+    "pos": "명사",
+    "en": "business, purpose of call",
+    "lv": 2,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "어떤 용건으로 전화 주셨는지 여쭈어보아도 되겠습니까?",
+        "May I ask the purpose of your call?"
+      ],
+      [
+        "바쁘신 줄 알지만 긴급한 계약 관련 용건이 있어 연락드렸습니다.",
+        "I know you are busy, but I contacted you regarding urgent contract business."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "용건을 남겨주시면 확인 후 바로 전화드리도록 하겠습니다."
+      ],
+      [
+        "B",
+        "If you leave your purpose of calling, we will call you back right after checking."
+      ]
+    ],
+    "note": "내일 견적서 발송 일정에 대해 문의드리려고 했습니다.",
+    "polite_alt": "I was calling to inquire about tomorrow's quotation schedule.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-026",
+    "unit": 2,
+    "head": "연락처",
+    "pos": "명사",
+    "en": "contact information, phone number",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "통화가 끝나면 담당자의 휴대전화 연락처를 문자로 보내드리겠습니다.",
+        "When the call finishes, I will text you the representative's mobile contact number."
+      ],
+      [
+        "추후 일정 조율을 위해 명함에 적힌 연락처로 다시 전화드릴게요.",
+        "I will call you back at the contact number on your card to coordinate future schedules."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "담당자분 연락처를 메모해 둘 수 있을까요?"
+      ],
+      [
+        "B",
+        "Could I write down the representative's contact number?"
+      ]
+    ],
+    "note": "네, 공일공에 일이삼사 사오육칠입니다.",
+    "polite_alt": "Yes, it is 010-1234-4567.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-027",
+    "unit": 2,
+    "head": "혼선",
+    "pos": "명사",
+    "en": "confusion, crossed lines",
+    "lv": 2,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "전화 통화 중에 잡음이 심해 혼선이 빚어졌습니다.",
+        "During the call, heavy noise caused crossed lines and confusion."
+      ],
+      [
+        "일정 전달 과정에서 혼선이 없도록 다시 한번 확인해 주세요.",
+        "Please double-check so there is no confusion in conveying the schedule."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "전화 감도가 왜 이렇게 안 좋을까요?"
+      ],
+      [
+        "B",
+        "Why is the phone connection quality so poor?"
+      ]
+    ],
+    "note": "선로에 일시적인 혼선이 생긴 것 같습니다.",
+    "polite_alt": "It seems there is a temporary crossed line on the network.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-028",
+    "unit": 2,
+    "head": "수화기",
+    "pos": "명사",
+    "en": "receiver (of a phone)",
+    "lv": 2,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "통화를 마친 후 정중하게 인사를 건네고 수화기를 내려놓았습니다.",
+        "After finishing the call, I politely said goodbye and placed down the receiver."
+      ],
+      [
+        "상대방이 먼저 끊는 것을 확인한 뒤에 수화기를 조심스럽게 놓아야 해요.",
+        "You should check that the other party has hung up first before gently placing down the receiver."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "중요한 통화는 끝났나요?"
+      ],
+      [
+        "B",
+        "Is your important phone conversation over?"
+      ]
+    ],
+    "note": "네, 방금 수화기를 내려놓고 정리 중입니다.",
+    "polite_alt": "Yes, I just put down the receiver and am organizing notes.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-029",
+    "unit": 2,
+    "head": "연결하다",
+    "pos": "동사",
+    "en": "to connect, to transfer (call)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "담당 부서인 재무팀으로 바로 전화를 연결해 드리겠습니다.",
+        "I will connect your call right away to the finance team, the responsible department."
+      ],
+      [
+        "잠시만 기다려 주시면 담당자를 연결해 드리겠습니다.",
+        "Please hold on for a moment and I will connect you to the representative."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "기획팀 박 과장님 통화 가능하신가요?"
+      ],
+      [
+        "B",
+        "Is Manager Park of the planning team available to talk?"
+      ]
+    ],
+    "note": "네, 자리 확인 후 바로 연결해 드리겠습니다.",
+    "polite_alt": "Yes, let me check his desk and connect you right away.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-030",
+    "unit": 2,
+    "head": "바꿔주다",
+    "pos": "동사",
+    "en": "to put someone on the phone",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "해외영업팀 담당자분 좀 전화로 바꿔주시겠습니까?",
+        "Could you please put the overseas sales representative on the phone?"
+      ],
+      [
+        "통화 중이시던 과장님을 옆자리 팀장님께 바꿔드렸어요.",
+        "I handed the phone over to the team leader next to me from the manager who was on the call."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "인사팀 최 대리님 계시면 좀 바꿔주세요."
+      ],
+      [
+        "B",
+        "If Assistant Manager Choi of HR is there, please put him on the line."
+      ]
+    ],
+    "note": "네, 잠시만 기다려 주십시오.",
+    "polite_alt": "Yes, please hold for a moment.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-031",
+    "unit": 2,
+    "head": "걸려오다",
+    "pos": "동사",
+    "en": "to ring in, to receive a call",
+    "lv": 2,
+    "register": "casual",
+    "situation": "phone",
+    "examples": [
+      [
+        "점심시간 직전에 해외 지사에서 긴급 전화가 걸려왔습니다.",
+        "Right before lunchtime, an urgent call rang in from our overseas branch."
+      ],
+      [
+        "회의 진행 중에 중요한 고객사로부터 전화가 걸려왔어요.",
+        "While the meeting was in progress, a call came in from an important client."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오전에 저한테 걸려온 전화가 있었나요?"
+      ],
+      [
+        "B",
+        "Were there any calls for me this morning?"
+      ]
+    ],
+    "note": "네, 거래처 김 과장님이 두 번 전화하셨습니다.",
+    "polite_alt": "Yes, Manager Kim from our client called twice.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-032",
+    "unit": 2,
+    "head": "다시 걸다",
+    "pos": "동사",
+    "en": "to call back",
+    "lv": 1,
+    "register": "casual",
+    "situation": "phone",
+    "examples": [
+      [
+        "지금 회의실에 들어가야 해서 십 분 뒤에 다시 걸겠습니다.",
+        "I have to step into a conference room now, so I will call you back in ten minutes."
+      ],
+      [
+        "통화 연결이 매끄럽지 않으니 끊고 제가 다시 걸게요.",
+        "The connection is not smooth, so let me hang up and call you right back."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "팀장님 통화가 언제쯤 끝나실까요?"
+      ],
+      [
+        "B",
+        "Around when will the team leader finish his phone call?"
+      ]
+    ],
+    "note": "오 분 정도 걸릴 듯하니 제가 확인 후 다시 걸도록 하겠습니다.",
+    "polite_alt": "It seems like it will take about five minutes, so I will check and call you back.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-033",
+    "unit": 2,
+    "head": "남기다",
+    "pos": "동사",
+    "en": "to leave (a message)",
+    "lv": 2,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "외근 중이시라면 용건과 연락처를 메모로 남겨드릴까요?",
+        "If he is out on business, shall I leave your message and contact number for him?"
+      ],
+      [
+        "통화가 어려우시니 중요한 세부 사항은 문자로 남기겠습니다.",
+        "Since talking on the phone is difficult, I will leave the important details via text message."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "급한 용건인데 메시지를 남겨도 될까요?"
+      ],
+      [
+        "B",
+        "It is an urgent matter. May I leave a message?"
+      ]
+    ],
+    "note": "네, 말씀해 주시면 복귀하시는 대로 전해 드리겠습니다.",
+    "polite_alt": "Yes, please tell me and I will relay it as soon as he returns.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-034",
+    "unit": 2,
+    "head": "끊다",
+    "pos": "동사",
+    "en": "to hang up",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "통화가 끝나면 상대방이 먼저 끊은 것을 확인하고 조용히 끊으세요.",
+        "When the call finishes, check that the other party hung up first and then hang up quietly."
+      ],
+      [
+        "급한 다른 호출이 와서 아쉽게 전화를 먼저 끊었습니다.",
+        "Another urgent page came in, so I had to hang up first with regret."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "용건은 모두 전달되셨나요?"
+      ],
+      [
+        "B",
+        "Was all your business conveyed?"
+      ]
+    ],
+    "note": "네, 확인 끝났으니 여기서 끊겠습니다.",
+    "polite_alt": "Yes, everything is confirmed, so I will hang up here.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-035",
+    "unit": 2,
+    "head": "잘 들리다",
+    "pos": "형용사",
+    "en": "to be heard clearly",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "주변 소음 때문에 말씀하시는 내용이 잘 들리지 않습니다.",
+        "Due to surrounding noise, what you are saying is not heard clearly."
+      ],
+      [
+        "이제 감도가 좋아져서 목소리가 아주 또렷하고 잘 들립니다.",
+        "Now the reception has improved, so your voice is very clear and heard well."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "제 목소리 잘 들리시나요?"
+      ],
+      [
+        "B",
+        "Can you hear my voice clearly?"
+      ]
+    ],
+    "note": "네, 아주 크고 깨끗하게 잘 들립니다.",
+    "polite_alt": "Yes, I can hear you very loudly and clearly.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-036",
+    "unit": 2,
+    "head": "전화 갈음하다",
+    "pos": "동사",
+    "en": "to substitute by phone (instead of visiting)",
+    "lv": 3,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "직접 찾아뵙지 못하고 전화로 인사를 갈음하게 되어 송구스럽습니다.",
+        "I am terribly sorry to substitute our greeting with a phone call rather than visiting you in person."
+      ],
+      [
+        "급한 상황이라 먼저 전화로 감사 인사를 갈음합니다.",
+        "Due to the urgent situation, I first substitute my gratitude with this phone call."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "직접 방문하지 않아도 괜찮으실까요?"
+      ],
+      [
+        "B",
+        "Would it be alright without visiting in person?"
+      ]
+    ],
+    "note": "네, 바쁘실 텐데 이번에는 전화로 갈음하셔도 충분합니다.",
+    "polite_alt": "Yes, you must be busy, so substituting with a phone call is plenty this time.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-037",
+    "unit": 2,
+    "head": "전화 받았습니다",
+    "pos": "표현",
+    "en": "Hello, speaking (answering call)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "감사합니다. 기획팀 김민수 대리 전화 받았습니다.",
+        "Thank you. This is Assistant Manager Minsu Kim from the planning team speaking."
+      ],
+      [
+        "좋은 아침입니다. 고객지원센터 이지수 전화 받았습니다.",
+        "Good morning. This is Jisu Lee from the customer support center speaking."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "마케팅팀 박 과장님 자리 맞나요?"
+      ],
+      [
+        "B",
+        "Is this Manager Park's desk in the marketing team?"
+      ]
+    ],
+    "note": "네, 박 과장 전화 받았습니다. 말씀하십시오.",
+    "polite_alt": "Yes, Manager Park speaking. Please go ahead.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-038",
+    "unit": 2,
+    "head": "잠시만 기다려 주십시오",
+    "pos": "표현",
+    "en": "Please hold on for a moment",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "담당자 자리 확인 후 연결해 드릴 테니 잠시만 기다려 주십시오.",
+        "I will check the representative's desk and connect you, so please hold on for a moment."
+      ],
+      [
+        "관련 서류를 시스템에서 찾는 중이니 잠시만 기다려 주십시오.",
+        "I am retrieving the relevant document from the system, so please hold for a second."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "견적서 총금액이 어떻게 되나요?"
+      ],
+      [
+        "B",
+        "What is the total amount on the quotation?"
+      ]
+    ],
+    "note": "파일을 여는 중입니다. 잠시만 기다려 주십시오.",
+    "polite_alt": "I am opening the file. Please hold on for a moment.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-039",
+    "unit": 2,
+    "head": "통화 중이십니다",
+    "pos": "표현",
+    "en": "He/She is on another line",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "죄송하지만 과장님께서 지금 다른 거래처와 통화 중이십니다.",
+        "I am sorry, but the manager is currently on another line with a client."
+      ],
+      [
+        "팀장님이 다른 전화로 통화 중이신데 메모를 남겨드릴까요?",
+        "The team leader is on another call. Would you like to leave a message?"
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "혹시 부장님 지금 통화 가능하신가요?"
+      ],
+      [
+        "B",
+        "Is the director available to take a call right now?"
+      ]
+    ],
+    "note": "죄송합니다. 현재 타 부서와 중요한 통화 중이십니다.",
+    "polite_alt": "I apologize. He is currently on an important phone call with another department.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-040",
+    "unit": 2,
+    "head": "전화 잘못 걸었습니다",
+    "pos": "표현",
+    "en": "You have dialed the wrong number",
+    "lv": 1,
+    "register": "formal",
+    "situation": "phone",
+    "examples": [
+      [
+        "죄송하지만 전화 잘못 걸었습니다. 여기는 회계팀이 아닙니다.",
+        "I am sorry, but you have dialed the wrong number. This is not the accounting team."
+      ],
+      [
+        "번호를 다시 확인해 보셔야 할 것 같습니다. 전화 잘못 거셨습니다.",
+        "It seems you need to check the number again. You have reached the wrong number."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "거기 물류창고 관리부 맞습니까?"
+      ],
+      [
+        "B",
+        "Is this the logistics warehouse management division?"
+      ]
+    ],
+    "note": "아닙니다. 번호를 잘못 누르신 것 같습니다.",
+    "polite_alt": "No, it is not. It seems you have dialed the wrong number.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-041",
+    "unit": 3,
+    "head": "수신자",
+    "pos": "명사",
+    "en": "recipient, addressee",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "메일을 발송하기 전에 수신자 주소가 올바른지 다시 확인하세요.",
+        "Please double-check that the recipient address is correct before sending the email."
+      ],
+      [
+        "공문서의 수신자 항목에 거래처 대표이사 직함을 정확히 적었습니다.",
+        "I accurately wrote the client CEO's title in the recipient field of the official document."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이 메일의 수신자가 누구로 지정되어 있나요?"
+      ],
+      [
+        "B",
+        "Who is designated as the recipient of this email?"
+      ]
+    ],
+    "note": "파트너사 프로젝트 총괄 담당자입니다.",
+    "polite_alt": "It is the overall project representative at our partner company.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-042",
+    "unit": 3,
+    "head": "참조",
+    "pos": "명사",
+    "en": "CC (carbon copy), reference",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "업무 진행 상황을 공유하기 위해 팀장님을 참조에 넣었습니다.",
+        "I included the team leader in CC to share the work progress."
+      ],
+      [
+        "참조에 포함된 담당자분들도 첨부 파일을 꼭 확인해 주십시오.",
+        "Representatives included in the CC should also be sure to check the attached file."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 메일에 유관 부서도 참조로 추가할까요?"
+      ],
+      [
+        "B",
+        "Shall I add the related departments to CC on this email?"
+      ]
+    ],
+    "note": "네, 디자인팀과 개발팀 팀장님을 참조로 넣어 주세요.",
+    "polite_alt": "Yes, please add the design and development team leaders to CC.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-043",
+    "unit": 3,
+    "head": "첨부파일",
+    "pos": "명사",
+    "en": "attached file, attachment",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "상세 견적서와 상품 소개서는 첨부파일로 함께 묶어 보냈습니다.",
+        "The detailed quotation and product catalog were bundled and sent as attached files."
+      ],
+      [
+        "대용량 첨부파일은 다운로드 유효 기간이 있으니 서둘러 확인하세요.",
+        "Large attachments have a download expiration period, so please check them promptly."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보내주신 첨부파일이 열리지 않는데 다시 보내주실 수 있나요?"
+      ],
+      [
+        "B",
+        "The attached file you sent won't open. Could you resend it?"
+      ]
+    ],
+    "note": "보안 설정을 해제한 최신 파일로 다시 첨부하여 발송하겠습니다.",
+    "polite_alt": "I will reattach and send the latest file with security settings removed.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-044",
+    "unit": 3,
+    "head": "본문",
+    "pos": "명사",
+    "en": "body (of an email/text)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "이메일 본문에 미팅 안건과 회의실 위치를 상세히 적었습니다.",
+        "I detailed the meeting agenda and conference room location in the email body."
+      ],
+      [
+        "긴 설명은 본문보다 별도 기획서 파일로 정리하는 것이 깔끔합니다.",
+        "Long explanations are cleaner when organized in a separate proposal file rather than the email body."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "핵심 내용이 메일 본문에 잘 드러나 있나요?"
+      ],
+      [
+        "B",
+        "Are the key points clearly shown in the body of the email?"
+      ]
+    ],
+    "note": "네, 글머리 기호로 알기 쉽게 요약해 두었습니다.",
+    "polite_alt": "Yes, I summarized them in easy-to-read bullet points.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-045",
+    "unit": 3,
+    "head": "말머리",
+    "pos": "명사",
+    "en": "tag in subject line, bracket header",
+    "lv": 2,
+    "register": "casual",
+    "situation": "email",
+    "examples": [
+      [
+        "메일 제목 앞에 「긴급」이나 「공지」 같은 말머리를 달아 주세요.",
+        "Please put a tag like [Urgent] or [Notice] in brackets at the front of the email subject."
+      ],
+      [
+        "사내 메일은 부서명 말머리를 붙여야 수신자가 쉽게 분류합니다.",
+        "Company emails should include the department tag so recipients can categorize them easily."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "메일함이 복잡해서 찾기 어려운데 말머리를 달면 좋을까요?"
+      ],
+      [
+        "B",
+        "My inbox is crowded and hard to navigate. Would adding tags help?"
+      ]
+    ],
+    "note": "네, 프로젝트명 말머리를 통일해서 사용하면 정리가 훨씬 편합니다.",
+    "polite_alt": "Yes, standardizing project name tags makes organizing much easier.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-046",
+    "unit": 3,
+    "head": "답장",
+    "pos": "명사",
+    "en": "reply, response",
+    "lv": 1,
+    "register": "casual",
+    "situation": "email",
+    "examples": [
+      [
+        "오전에 보낸 제안서에 대해 고객사로부터 긍정적인 답장이 왔습니다.",
+        "A positive reply arrived from the client regarding the proposal sent this morning."
+      ],
+      [
+        "외근 중이라 즉시 답장을 드리지 못해 정말 죄송합니다.",
+        "I am very sorry for not being able to reply immediately as I was out of the office."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "거래처에 보낸 확인 요청 메일에 답장이 왔나요?"
+      ],
+      [
+        "B",
+        "Did a reply come in for the confirmation request sent to the client?"
+      ]
+    ],
+    "note": "방금 검토 완료했다는 답장을 확인했습니다.",
+    "polite_alt": "I just confirmed a reply stating that their review is complete.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-047",
+    "unit": 3,
+    "head": "회신",
+    "pos": "명사",
+    "en": "formal reply, response",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "일정 확정을 위해 내일 정오까지 검토 결과를 회신해 주시기 바랍니다.",
+        "Please send your reply with review results by tomorrow noon to confirm the schedule."
+      ],
+      [
+        "보내주신 문의 사항에 대한 공식 회신 공문을 발송했습니다.",
+        "We have sent an official response letter addressing your submitted inquiries."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회신 기한이 언제까지로 정해져 있습니까?"
+      ],
+      [
+        "B",
+        "When is the deadline for sending a reply?"
+      ]
+    ],
+    "note": "이번 주 금요일 오후 다섯 시까지 회신 주시면 됩니다.",
+    "polite_alt": "You may reply by this Friday at five in the afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-048",
+    "unit": 3,
+    "head": "사내 메신저",
+    "pos": "명사",
+    "en": "internal messenger, workplace chat",
+    "lv": 2,
+    "register": "casual",
+    "situation": "email",
+    "examples": [
+      [
+        "빠른 소통을 위해 긴급한 요청은 사내 메신저로 먼저 공유해 주세요.",
+        "For swift communication, please share urgent requests via the internal messenger first."
+      ],
+      [
+        "중요한 의사결정 사항은 메신저 대화보다 정식 이메일로 남겨야 합니다.",
+        "Important decision-making matters should be preserved in formal emails rather than messenger chats."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "자리 비우실 때는 사내 메신저 상태를 자리비움으로 바꿔두세요."
+      ],
+      [
+        "B",
+        "When away from your desk, please set your status to Away on the internal messenger."
+      ]
+    ],
+    "note": "네, 회의실 가기 전에 상태 메시지를 변경하겠습니다.",
+    "polite_alt": "Yes, I will change the status message before heading to the meeting room.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-049",
+    "unit": 3,
+    "head": "서명",
+    "pos": "명사",
+    "en": "email signature block",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "이메일 하단 서명에 부서와 직통 전화번호, 회사 주소를 기재했습니다.",
+        "I listed my department, direct phone number, and office address in the email signature block."
+      ],
+      [
+        "신입 사원은 표준 규격에 맞추어 메일 서명을 자동 등록해야 합니다.",
+        "New employees must automatically register their email signature according to standard company guidelines."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "서명란에 홈페이지 링크도 걸려 있나요?"
+      ],
+      [
+        "B",
+        "Is there a homepage link attached in the signature area as well?"
+      ]
+    ],
+    "note": "네, 회사 공식 웹사이트와 안내 책자 링크가 포함되어 있습니다.",
+    "polite_alt": "Yes, links to the company official website and brochures are included.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-050",
+    "unit": 3,
+    "head": "송부하다",
+    "pos": "동사",
+    "en": "to send, to deliver (formal)",
+    "lv": 3,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "요청하신 월간 실적 보고서 최종본을 첨부하여 송부합니다.",
+        "I am attaching and sending the final version of the requested monthly performance report."
+      ],
+      [
+        "수정된 계약서 초안을 검토용으로 금일 중 송부해 드리겠습니다.",
+        "I will deliver the revised draft contract today for your review."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "요청한 자료를 언제쯤 받아볼 수 있을까요?"
+      ],
+      [
+        "B",
+        "Around when can I expect to receive the requested materials?"
+      ]
+    ],
+    "note": "데이터 정리 후 오늘 퇴근 전까지 이메일로 송부하겠습니다.",
+    "polite_alt": "After organizing the data, I will send them by email before leaving work today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-051",
+    "unit": 3,
+    "head": "전달하다",
+    "pos": "동사",
+    "en": "to forward, to relay",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "파트너사에서 보내온 주요 피드백을 팀원들에게 메일로 전달했습니다.",
+        "I forwarded the major feedback sent by the partner company to team members by email."
+      ],
+      [
+        "고객의 소중한 건의 사항을 유관 개발 부서에 신속히 전달하겠습니다.",
+        "I will promptly relay the customer's valuable suggestions to the relevant development department."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "팀장님 지시 사항을 외근 중인 대리님께 전달했나요?"
+      ],
+      [
+        "B",
+        "Did you relay the team leader's instructions to the assistant manager on business outside?"
+      ]
+    ],
+    "note": "네, 모바일 메신저로 핵심 내용 전달 완료했습니다.",
+    "polite_alt": "Yes, I finished relaying the key points via mobile messenger.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-052",
+    "unit": 3,
+    "head": "누락되다",
+    "pos": "동사",
+    "en": "to be omitted, to be missing",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "발송된 메일에서 중요한 견적서 첨부 파일이 누락되었습니다.",
+        "An important quotation attachment was omitted from the sent email."
+      ],
+      [
+        "명단 정리 과정에서 일부 거래처 연락처가 누락되지 않도록 주의하세요.",
+        "Be careful that some client contacts are not missed during the list compilation process."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보내주신 자료에 지난달 실적 수치가 누락된 것 같습니다."
+      ],
+      [
+        "B",
+        "It appears that last month's performance figures were omitted from the materials you sent."
+      ]
+    ],
+    "note": "죄송합니다. 즉시 확인 후 누락된 내용을 채워 재발송하겠습니다.",
+    "polite_alt": "I apologize. I will check immediately and resend with the missing details filled in.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-053",
+    "unit": 3,
+    "head": "확인하다",
+    "pos": "동사",
+    "en": "to check, to confirm",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "메일로 보내드린 일정표를 확인하시고 가능 여부를 알려주세요.",
+        "Please check the schedule sent by email and let us know your availability."
+      ],
+      [
+        "방금 수신된 계약서 최종본의 서명란을 꼼꼼하게 확인했습니다.",
+        "I carefully confirmed the signature fields of the final contract version just received."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오전에 요청드린 수정 사항 확인하셨습니까?"
+      ],
+      [
+        "B",
+        "Have you checked the revisions requested this morning?"
+      ]
+    ],
+    "note": "네, 확인 후 기획서에 모두 반영해 두었습니다.",
+    "polite_alt": "Yes, after checking, I reflected all of them in the proposal.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-054",
+    "unit": 3,
+    "head": "재전송하다",
+    "pos": "동사",
+    "en": "to resend, to retransmit",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "시스템 오류로 메일 발송이 실패하여 방금 다시 재전송했습니다.",
+        "Mail transmission failed due to a system error, so I have just resent it."
+      ],
+      [
+        "파일이 손상되었다고 하셔서 압축을 푼 상태로 재전송해 드렸습니다.",
+        "Since you said the file was corrupted, I resent it in an uncompressed state."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "메일이 아직 도착하지 않은 것 같은데요."
+      ],
+      [
+        "B",
+        "It seems the email has not arrived yet."
+      ]
+    ],
+    "note": "스팸함 확인 부탁드리며, 지금 바로 재전송하겠습니다.",
+    "polite_alt": "Please check your spam folder, and I will resend it right now.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-055",
+    "unit": 3,
+    "head": "상세하다",
+    "pos": "형용사",
+    "en": "to be detailed, elaborate",
+    "lv": 2,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "프로젝트 추진 배경과 세부 일정은 첨부 파일에 상세하게 적혀 있습니다.",
+        "The project background and detailed schedule are elaborated in the attachment."
+      ],
+      [
+        "고객의 요구 사항을 상세히 분석하여 맞춤형 견적을 제안했습니다.",
+        "We analyzed customer requirements in detail and proposed a tailored quotation."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "설명이 부족한 부분은 없으신가요?"
+      ],
+      [
+        "B",
+        "Is there any area where the explanation is insufficient?"
+      ]
+    ],
+    "note": "보내주신 설명서가 매우 상세하여 이해하기 쉬웠습니다.",
+    "polite_alt": "The guide you sent was very detailed, so it was easy to understand.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-056",
+    "unit": 3,
+    "head": "확인 부탁드립니다",
+    "pos": "표현",
+    "en": "Please check / confirm",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "수정된 기획안 파일을 첨부하였으니 검토 후 확인 부탁드립니다.",
+        "I attached the revised planning file, so please review and confirm."
+      ],
+      [
+        "내일 회의 안건을 메일 본문에 정리해 드렸으니 확인 부탁드립니다.",
+        "I summarized tomorrow's meeting agenda in the email body, so please check it."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보내주신 메일 잘 받았습니다."
+      ],
+      [
+        "B",
+        "I received your email in good order."
+      ]
+    ],
+    "note": "첨부된 일정표 확인 부탁드립니다. 변동 사항 있으시면 말씀해 주세요.",
+    "polite_alt": "Please check the attached schedule. If there are changes, let me know.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-057",
+    "unit": 3,
+    "head": "회신 기다리겠습니다",
+    "pos": "표현",
+    "en": "I look forward to your reply",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "제안 내용에 대해 검토해 보시고 긍정적인 회신 기다리겠습니다.",
+        "Please review the proposal details, and I look forward to your positive reply."
+      ],
+      [
+        "일정 조율이 필요하오니 편하신 시간에 빠른 회신 기다리겠습니다.",
+        "Schedule coordination is needed, so I look forward to your prompt reply at your convenience."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "자료 검토에는 이틀 정도 걸릴 예정입니다."
+      ],
+      [
+        "B",
+        "Reviewing the materials will take about two days."
+      ]
+    ],
+    "note": "네, 충분히 검토하신 후 편하게 회신 기다리겠습니다.",
+    "polite_alt": "Yes, take your time to review thoroughly, and I will look forward to your reply.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-058",
+    "unit": 3,
+    "head": "첨부 파일 참조 바랍니다",
+    "pos": "표현",
+    "en": "Please refer to the attached file",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "세부 견적 금액과 품목 리스트는 첨부 파일 참조 바랍니다.",
+        "Please refer to the attached file for detailed quotation amounts and item lists."
+      ],
+      [
+        "행사 장소 약도와 오시는 길은 첨부 파일 참조 바랍니다.",
+        "Please refer to the attached file for the event map and directions."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회의 자료는 어디서 볼 수 있나요?"
+      ],
+      [
+        "B",
+        "Where can I view the meeting materials?"
+      ]
+    ],
+    "note": "메일에 함께 묶어 보냈으니 첨부 파일 참조 바랍니다.",
+    "polite_alt": "I bundled them with the email, so please refer to the attached file.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-059",
+    "unit": 3,
+    "head": "문의 사항 있으시면 연락 주십시오",
+    "pos": "표현",
+    "en": "Please contact me if you have any questions",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "내용 중 궁금한 점이나 추가 문의 사항 있으시면 언제든 연락 주십시오.",
+        "If you have any questions or additional inquiries regarding the content, please feel free to contact me."
+      ],
+      [
+        "계약 조건과 관련하여 문의 사항 있으시면 연락 주시기 바랍니다.",
+        "Please contact us if you have any inquiries regarding contract conditions."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보내주신 기획서 검토를 시작하겠습니다."
+      ],
+      [
+        "B",
+        "We will begin reviewing the proposal you sent."
+      ]
+    ],
+    "note": "네, 읽어보시다가 문의 사항 있으시면 언제든 연락 주십시오.",
+    "polite_alt": "Yes, if you have any questions while reading through it, please contact me anytime.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-060",
+    "unit": 3,
+    "head": "메일 잘 받았습니다",
+    "pos": "표현",
+    "en": "Thank you, I have received your email",
+    "lv": 1,
+    "register": "formal",
+    "situation": "email",
+    "examples": [
+      [
+        "보내주신 견적서 메일 잘 받았습니다. 검토 후 연락드리겠습니다.",
+        "I have safely received your quotation email. I will contact you after review."
+      ],
+      [
+        "일정 공유 메일 잘 받았습니다. 안내해 주신 시간에 참석하겠습니다.",
+        "Thank you, I received the schedule sharing email. I will attend at the notified time."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "방금 메일 발송해 드렸습니다."
+      ],
+      [
+        "B",
+        "I have just sent the email to you."
+      ]
+    ],
+    "note": "네, 메일 잘 받았습니다. 신속하게 확인해 주셔서 감사합니다.",
+    "polite_alt": "Yes, I have received the email. Thank you for checking so promptly.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-061",
+    "unit": 4,
+    "head": "안건",
+    "pos": "명사",
+    "en": "agenda item, topic",
+    "lv": 2,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "오늘 주간 회의의 주요 안건은 신제품 출시 일정 조율입니다.",
+        "The main agenda item for today's weekly meeting is coordinating the new product launch schedule."
+      ],
+      [
+        "추가로 논의하고 싶은 안건이 있으시면 사전에 말씀해 주세요.",
+        "If you have additional agenda items you wish to discuss, please let us know in advance."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 회의에서 다룰 핵심 안건이 무엇인가요?"
+      ],
+      [
+        "B",
+        "What is the key agenda item to be addressed in this meeting?"
+      ]
+    ],
+    "note": "하반기 마케팅 예산 배분이 가장 중요한 안건입니다.",
+    "polite_alt": "Allocating the second-half marketing budget is the most important agenda item.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-062",
+    "unit": 4,
+    "head": "회의록",
+    "pos": "명사",
+    "en": "meeting minutes",
+    "lv": 2,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "회의가 끝나면 제가 회의록을 정리해서 전원에게 공유하겠습니다.",
+        "After the meeting ends, I will write up the minutes and share them with everyone."
+      ],
+      [
+        "회의록에 기록된 결정 사항을 바탕으로 실무를 진행해 주세요.",
+        "Please proceed with working tasks based on the decision items recorded in the minutes."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 회의록은 누가 작성하나요?"
+      ],
+      [
+        "B",
+        "Who will be writing the minutes for today's meeting?"
+      ]
+    ],
+    "note": "이번 회의록은 제가 맡아서 정리하겠습니다.",
+    "polite_alt": "I will take charge and organize the minutes for this meeting.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-063",
+    "unit": 4,
+    "head": "발언권",
+    "pos": "명사",
+    "en": "right to speak, the floor",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "의장에게 발언권을 얻은 후 의견을 말씀해 주시기 바랍니다.",
+        "Please state your opinion after obtaining the floor from the chair."
+      ],
+      [
+        "팀원 모두가 골고루 발언권을 가질 수 있도록 진행해 주세요.",
+        "Please facilitate the meeting so all team members can have an equal chance to speak."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "질문이 있는데 말씀드려도 되겠습니까?"
+      ],
+      [
+        "B",
+        "I have a question. May I speak?"
+      ]
+    ],
+    "note": "네, 발언권을 얻으셨으니 편하게 말씀하십시오.",
+    "polite_alt": "Yes, you have the floor, so please speak freely.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-064",
+    "unit": 4,
+    "head": "의견",
+    "pos": "명사",
+    "en": "opinion, view",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "meeting",
+    "examples": [
+      [
+        "이번 홍보 시안에 대해 다른 좋은 의견이 있으신가요?",
+        "Do you have any other good opinions regarding this promotional draft?"
+      ],
+      [
+        "다양한 부서의 솔직한 의견을 수렴하여 최종안을 마련했습니다.",
+        "We prepared the final plan by gathering candid opinions from diverse departments."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "방금 발표된 계획에 대해 어떻게 생각하십니까?"
+      ],
+      [
+        "B",
+        "What do you think about the plan just presented?"
+      ]
+    ],
+    "note": "제 개인적인 의견으로는 일정을 조금 늦추는 편이 안전해 보입니다.",
+    "polite_alt": "In my personal opinion, postponing the schedule slightly seems safer.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-065",
+    "unit": 4,
+    "head": "합의",
+    "pos": "명사",
+    "en": "consensus, agreement",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "두 시간 동안 치열하게 토론한 끝에 전원 합의에 도달했습니다.",
+        "After two hours of fierce discussion, we reached a unanimous consensus."
+      ],
+      [
+        "부서 간 원만한 합의가 이루어져 사업이 급물살을 타게 되었어요.",
+        "Harmonious agreement between departments was reached, giving strong momentum to the project."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "가격 조건에 대해 상대방과 합의를 보셨나요?"
+      ],
+      [
+        "B",
+        "Did you reach an agreement with the other party regarding pricing conditions?"
+      ]
+    ],
+    "note": "네, 상호 양보를 통해 원만하게 합의했습니다.",
+    "polite_alt": "Yes, we reached an amicable agreement through mutual concessions.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-066",
+    "unit": 4,
+    "head": "의사결정",
+    "pos": "명사",
+    "en": "decision-making",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "시장 변화가 빠를수록 경영진의 신속한 의사결정이 필요합니다.",
+        "As market changes accelerate, swift decision-making by management is required."
+      ],
+      [
+        "현장 실무자의 목소리가 의사결정 과정에 적극 반영되어야 합니다.",
+        "The voices of frontline workers should be actively reflected in the decision-making process."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "최종 의사결정은 언제쯤 내려지나요?"
+      ],
+      [
+        "B",
+        "Around when will the final decision-making take place?"
+      ]
+    ],
+    "note": "다음 주 임원 정례 회의에서 최종 의사결정이 이루어질 예정입니다.",
+    "polite_alt": "Final decision-making is scheduled to occur at next week's regular executive session.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-067",
+    "unit": 4,
+    "head": "화상회의",
+    "pos": "명사",
+    "en": "video conference, virtual meeting",
+    "lv": 2,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "지방 지사와의 원활한 소통을 위해 매주 화상회의를 진행합니다.",
+        "We hold a video conference every week for smooth communication with regional branches."
+      ],
+      [
+        "화상회의 시작 십 분 전에 마이크와 웹캠 상태를 점검하세요.",
+        "Please test your microphone and webcam condition ten minutes before the video conference starts."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 오후 미팅은 대면으로 진행하나요?"
+      ],
+      [
+        "B",
+        "Will this afternoon's meeting be conducted in person?"
+      ]
+    ],
+    "note": "아니요, 출장자가 많아서 화상회의 링크로 접속하시면 됩니다.",
+    "polite_alt": "No, since many are on business trips, you can join via the video conference link.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-068",
+    "unit": 4,
+    "head": "발표자료",
+    "pos": "명사",
+    "en": "presentation materials, slides",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "회의 시작 전에 참석자 전원에게 발표자료를 한 부씩 배부했습니다.",
+        "Before the meeting started, I distributed a copy of the presentation materials to each attendee."
+      ],
+      [
+        "발표자료에 핵심 수치 그래프를 추가하여 시각적 효과를 높였어요.",
+        "We enhanced the visual impact by adding key metric charts to the presentation materials."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "발표자료 준비는 다 끝났나요?"
+      ],
+      [
+        "B",
+        "Are your presentation slides all ready?"
+      ]
+    ],
+    "note": "네, 최종 검토를 마치고 화면에 띄워 두었습니다.",
+    "polite_alt": "Yes, after completing final review, I have projected them on screen.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-069",
+    "unit": 4,
+    "head": "참석자",
+    "pos": "명사",
+    "en": "attendee, participant",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "회의실 입구에서 출석부에 서명하고 참석자 명단을 확인해 주세요.",
+        "Please sign the sign-in sheet at the meeting room entrance and check the attendee list."
+      ],
+      [
+        "주요 참석자분들이 모두 착석하셨으므로 회의를 시작하겠습니다.",
+        "Since all key attendees are seated, we will begin the meeting."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 세미나에 예상 참석자가 몇 명인가요?"
+      ],
+      [
+        "B",
+        "How many attendees are expected at today's seminar?"
+      ]
+    ],
+    "note": "사전 등록 기준으로 약 오십 명의 참석자가 모일 예정입니다.",
+    "polite_alt": "Based on pre-registration, approximately fifty attendees are expected to gather.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-070",
+    "unit": 4,
+    "head": "주재하다",
+    "pos": "동사",
+    "en": "to preside over, to chair",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "대표이사님께서 직접 신규 사업 전략 회의를 주재하셨습니다.",
+        "The CEO personally presided over the new business strategy meeting."
+      ],
+      [
+        "부서 간 이견을 조율하기 위해 본부장님이 특별 회의를 주재할 예정입니다.",
+        "The division head is scheduled to chair a special meeting to reconcile departmental differences."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 주간 회의는 누가 주재하시나요?"
+      ],
+      [
+        "B",
+        "Who is presiding over today's weekly meeting?"
+      ]
+    ],
+    "note": "팀장님 출장 중이셔서 수석 매니저님이 회의를 주재하십니다.",
+    "polite_alt": "Because the team leader is on a business trip, the senior manager will chair the meeting.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-071",
+    "unit": 4,
+    "head": "발표하다",
+    "pos": "동사",
+    "en": "to present, to announce",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "준비한 신규 서비스 기획안을 차분한 목소리로 발표했습니다.",
+        "I presented the prepared new service proposal in a calm and steady voice."
+      ],
+      [
+        "각 팀별로 이번 분기 목표 달성 현황을 차례대로 발표하세요.",
+        "Let each team present their quarterly target achievement status in turn."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "발표 순서가 어떻게 정해졌나요?"
+      ],
+      [
+        "B",
+        "How has the presentation order been set?"
+      ]
+    ],
+    "note": "기획팀이 먼저 발표하고 마케팅팀이 이어서 발표합니다.",
+    "polite_alt": "The planning team presents first, followed by the marketing team.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-072",
+    "unit": 4,
+    "head": "조율하다",
+    "pos": "동사",
+    "en": "to coordinate, to mediate",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "일정 충돌을 방지하기 위해 각 부서의 의견을 신중하게 조율했습니다.",
+        "We carefully coordinated the opinions of each department to prevent scheduling conflicts."
+      ],
+      [
+        "프로젝트 납기일을 맞추기 위해 외주 업체와 세부 일정을 조율 중입니다.",
+        "We are coordinating detailed schedules with external vendors to meet the project deadline."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "부서 간 입장 차이가 큰데 해결 방법이 있을까요?"
+      ],
+      [
+        "B",
+        "There is a big gap between departments. Is there a way to resolve it?"
+      ]
+    ],
+    "note": "실무 회의를 열어서 서로 양보할 수 있는 지점을 조율해 봅시다.",
+    "polite_alt": "Let's hold a working-level meeting to mediate areas where we can reach compromises.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-073",
+    "unit": 4,
+    "head": "정리하다",
+    "pos": "동사",
+    "en": "to summarize, to wrap up",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "meeting",
+    "examples": [
+      [
+        "지금까지 나온 주요 논의 사항을 세 가지 핵심 포인트로 정리하겠습니다.",
+        "I will summarize the key discussion points raised so far into three main points."
+      ],
+      [
+        "회의가 끝나기 전에 각자 맡을 실행 과제를 다시 한번 정리해 봅시다.",
+        "Before concluding the meeting, let's wrap up each person's action items once again."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 회의 결론을 한마디로 정리해 주시겠습니까?"
+      ],
+      [
+        "B",
+        "Could you summarize today's meeting conclusion in a sentence?"
+      ]
+    ],
+    "note": "기존 계획대로 추진하되 예산만 일부 절감하기로 정리되었습니다.",
+    "polite_alt": "It is summarized that we proceed as originally planned, trimming only part of the budget.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-074",
+    "unit": 4,
+    "head": "연기하다",
+    "pos": "동사",
+    "en": "to postpone, to adjourn",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "핵심 참석자의 긴급 출장으로 인해 회의를 다음 주 월요일로 연기했습니다.",
+        "Due to an urgent business trip by a key attendee, we postponed the meeting to next Monday."
+      ],
+      [
+        "충분한 자료 검토를 위해 최종 결정을 며칠간 연기하기로 합의했습니다.",
+        "We agreed to adjourn the final decision for a few days for sufficient document review."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 예정된 기획 회의가 그대로 진행되나요?"
+      ],
+      [
+        "B",
+        "Will today's scheduled planning meeting proceed as planned?"
+      ]
+    ],
+    "note": "아니요, 자료 보완이 필요하여 내일 오후로 연기되었습니다.",
+    "polite_alt": "No, it was postponed to tomorrow afternoon as data supplementary work is needed.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-075",
+    "unit": 4,
+    "head": "효율적이다",
+    "pos": "형용사",
+    "en": "to be efficient, productive",
+    "lv": 2,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "안건 중심의 짧은 회의 진행이 업무 시간 관리에 훨씬 효율적입니다.",
+        "Agenda-driven brief meeting facilitation is far more efficient for managing working hours."
+      ],
+      [
+        "사전 자료 배포를 통해 회의 시간을 효율적으로 단축할 수 있었어요.",
+        "We were able to efficiently shorten meeting duration through prior material distribution."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "매일 아침 회의를 여는 것이 필요할까요?"
+      ],
+      [
+        "B",
+        "Is it necessary to hold a meeting every morning?"
+      ]
+    ],
+    "note": "스탠드업 미팅으로 십 분만 진행하는 것이 훨씬 효율적입니다.",
+    "polite_alt": "Keeping it to ten minutes as a standup meeting is far more efficient.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-076",
+    "unit": 4,
+    "head": "회의 시작하겠습니다",
+    "pos": "표현",
+    "en": "Let's begin the meeting",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "참석자분들 모두 자리에 앉아 주십시오. 지금부터 회의 시작하겠습니다.",
+        "Please take your seats, everyone. We will begin the meeting now."
+      ],
+      [
+        "시간이 되었으므로 삼분기 정기 실적 회의 시작하겠습니다.",
+        "Since it is time, we will begin the third-quarter regular performance meeting."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "모두 모이신 것 같네요."
+      ],
+      [
+        "B",
+        "It looks like everyone has gathered."
+      ]
+    ],
+    "note": "네, 자료 확인하셨으면 바로 회의 시작하겠습니다.",
+    "polite_alt": "Yes, if you have reviewed the materials, let's begin the meeting right away.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-077",
+    "unit": 4,
+    "head": "의견 있으시면 말씀해 주십시오",
+    "pos": "표현",
+    "en": "Please speak up if you have any opinions",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "발표 내용에 대해 추가 질문이나 다른 의견 있으시면 말씀해 주십시오.",
+        "If you have additional questions or other opinions on the presentation, please speak up."
+      ],
+      [
+        "수정안에 대해 자유롭게 의견 있으시면 가감 없이 말씀해 주십시오.",
+        "Please feel free to speak up without hesitation if you have opinions on the revised proposal."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "설명은 여기까지입니다."
+      ],
+      [
+        "B",
+        "That concludes my explanation."
+      ]
+    ],
+    "note": "좋은 발표 감사드립니다. 다른 분들 의견 있으시면 말씀해 주십시오.",
+    "polite_alt": "Thank you for the great presentation. If others have opinions, please speak up.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-078",
+    "unit": 4,
+    "head": "이 부분에 대해 짚고 넘어가겠습니다",
+    "pos": "표현",
+    "en": "Let me touch upon this point",
+    "lv": 3,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "다음 안건으로 넘어가기 전에 이 부분에 대해 명확히 짚고 넘어가겠습니다.",
+        "Before moving to the next item, let me touch upon this point clearly."
+      ],
+      [
+        "예산 초과 위험이 있으므로 이 부분에 대해 먼저 짚고 넘어가겠습니다.",
+        "Since there is a risk of budget overrun, let me address this point first."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "다음 슬라이드로 넘어갈까요?"
+      ],
+      [
+        "B",
+        "Shall we move to the next slide?"
+      ]
+    ],
+    "note": "잠시만요, 중요한 수치가 있어서 이 부분에 대해 짚고 넘어가겠습니다.",
+    "polite_alt": "Hold on a second, there is an important figure, so let me point this out first.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-079",
+    "unit": 4,
+    "head": "회의는 이것으로 마치겠습니다",
+    "pos": "표현",
+    "en": "That concludes our meeting",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "긴 시간 동안 수고 많으셨습니다. 오늘 회의는 이것으로 마치겠습니다.",
+        "Thank you for your hard work over this long session. That concludes today's meeting."
+      ],
+      [
+        "결정된 사항은 메일로 공유해 드릴 테니 회의는 이것으로 마치겠습니다.",
+        "The decided items will be shared via email, so that concludes our meeting."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "더 논의할 사항이 없으신가요?"
+      ],
+      [
+        "B",
+        "Are there no further items to discuss?"
+      ]
+    ],
+    "note": "네, 충분히 협의되었습니다. 회의는 이것으로 마치겠습니다.",
+    "polite_alt": "Yes, we discussed sufficiently. That concludes our meeting.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-080",
+    "unit": 4,
+    "head": "회의록 정리해서 공유하겠습니다",
+    "pos": "표현",
+    "en": "I will organize and share the minutes",
+    "lv": 1,
+    "register": "formal",
+    "situation": "meeting",
+    "examples": [
+      [
+        "오늘 논의된 실행 과제들을 포함하여 회의록 정리해서 공유하겠습니다.",
+        "I will organize and share the minutes, including the action items discussed today."
+      ],
+      [
+        "퇴근 전까지 오늘 회의록 정리해서 전 부서에 공유하겠습니다.",
+        "I will compile and share today's meeting minutes to all departments before leaving work."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 나온 중요한 결정 사항은 어떻게 전달하나요?"
+      ],
+      [
+        "B",
+        "How will the important decisions made today be communicated?"
+      ]
+    ],
+    "note": "제가 오늘 안으로 회의록 정리해서 공유하겠습니다.",
+    "polite_alt": "I will write up and share the minutes within today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-081",
+    "unit": 5,
+    "head": "보고서",
+    "pos": "명사",
+    "en": "report",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "분기별 영업 실적을 요약한 보고서를 작성하여 팀장님께 제출했습니다.",
+        "I wrote a report summarizing quarterly sales performance and submitted it to the team leader."
+      ],
+      [
+        "보고서 작성 시 수치 근거를 명확하게 밝혀야 신뢰를 얻을 수 있습니다.",
+        "When writing a report, you must state numerical evidence clearly to gain credibility."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "지난주 시장 조사 결과 보고서는 언제 나오나요?"
+      ],
+      [
+        "B",
+        "When will last week's market survey result report be ready?"
+      ]
+    ],
+    "note": "오늘 오후 세 시까지 최종 보고서를 완성하여 올리겠습니다.",
+    "polite_alt": "I will finalize and submit the report by 3 PM today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-082",
+    "unit": 5,
+    "head": "진행 상황",
+    "pos": "명사",
+    "en": "progress, current status",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "프로젝트의 진행 상황을 매주 월요일 주간 회의 때 공유하고 있습니다.",
+        "We share project progress every Monday during our weekly meeting."
+      ],
+      [
+        "외주 업체의 개발 진행 상황을 현장 방문을 통해 직접 점검했습니다.",
+        "We personally inspected the external vendor's development progress through an on-site visit."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "현재 인테리어 공사의 진행 상황이 어떤가요?"
+      ],
+      [
+        "B",
+        "What is the current progress on the interior construction?"
+      ]
+    ],
+    "note": "예정 공정률의 팔십 퍼센트를 달성하여 순조로운 진행 상황을 보이고 있습니다.",
+    "polite_alt": "We have achieved 80% of scheduled milestones, showing smooth progress.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-083",
+    "unit": 5,
+    "head": "지침",
+    "pos": "명사",
+    "en": "guideline, directive",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "개인정보 보호를 위해 강화된 사내 보안 지침을 철저히 준수해야 합니다.",
+        "To protect personal data, strengthened company security guidelines must be thoroughly observed."
+      ],
+      [
+        "신규 입사자 교육 과정에 대한 운영 지침이 인사팀으로부터 전달되었습니다.",
+        "Operational guidelines for the new hire training program have been delivered from the HR team."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장비 정산 기준은 어디서 확인할 수 있습니까?"
+      ],
+      [
+        "B",
+        "Where can I check the standards for business trip expense settlement?"
+      ]
+    ],
+    "note": "사내 포털 규정집의 경비 처리 지침을 참고하시면 됩니다.",
+    "polite_alt": "You may refer to the expense processing guidelines in the company portal rulebook.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-084",
+    "unit": 5,
+    "head": "결재",
+    "pos": "명사",
+    "en": "approval, sign-off",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "기안서를 작성한 후 부서장님의 전자 결재를 득해야 예산이 집행됩니다.",
+        "After drafting the proposal, approval from the division head must be obtained to execute the budget."
+      ],
+      [
+        "긴급한 안건이어서 팀장님께 대면으로 결재를 요청드렸습니다.",
+        "Because it was an urgent matter, I requested in-person sign-off from the team leader."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "작성하신 지출 결의서 결재가 났나요?"
+      ],
+      [
+        "B",
+        "Has your expenditure voucher received sign-off?"
+      ]
+    ],
+    "note": "방금 결재가 승인되어 회계팀으로 이관되었습니다.",
+    "polite_alt": "Sign-off was just approved and transferred to the accounting team.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-085",
+    "unit": 5,
+    "head": "기안",
+    "pos": "명사",
+    "en": "drafting a proposal, initial plan",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "신규 장비 도입을 위해 품의서 기안을 올리고 승인을 기다리고 있습니다.",
+        "I submitted an internal proposal draft for new equipment adoption and am waiting for approval."
+      ],
+      [
+        "기안 작성 시 사업 타당성과 비용 효과를 설득력 있게 제시해야 합니다.",
+        "When drafting a proposal, project feasibility and cost-effectiveness must be convincingly presented."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 행사 기안은 누가 담당했습니까?"
+      ],
+      [
+        "B",
+        "Who was in charge of drafting the proposal for this event?"
+      ]
+    ],
+    "note": "총무팀 박 대리가 기안을 맡아 작성했습니다.",
+    "polite_alt": "Assistant Manager Park of the general affairs team drafted the proposal.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-086",
+    "unit": 5,
+    "head": "성과",
+    "pos": "명사",
+    "en": "achievement, outcome, result",
+    "lv": 2,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "팀원들의 헌신적인 노력 덕분에 올 한 해 뛰어난 사업 성과를 거두었습니다.",
+        "Thanks to the dedicated efforts of team members, we achieved outstanding business results this year."
+      ],
+      [
+        "정량적 성과 지표를 바탕으로 연말 부서 평가가 공정하게 진행됩니다.",
+        "Year-end department evaluations proceed fairly based on quantitative performance indicators."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 신제품 출시 캠페인의 성과가 어떻습니까?"
+      ],
+      [
+        "B",
+        "How were the outcomes of this new product launch campaign?"
+      ]
+    ],
+    "note": "초기 목표 대비 백오십 퍼센트의 매출 성과를 달성했습니다.",
+    "polite_alt": "We achieved 150% in sales performance compared to initial targets.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-087",
+    "unit": 5,
+    "head": "보완점",
+    "pos": "명사",
+    "en": "areas for improvement, shortcomings to remedy",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "보고서 초안을 검토하신 부장님께서 몇 가지 보완점을 지적해 주셨습니다.",
+        "The director reviewed the draft report and pointed out several areas for improvement."
+      ],
+      [
+        "시범 서비스 운영 중에 발견된 보완점을 개선하여 정식 출시를 준비하겠습니다.",
+        "We will improve the shortcomings identified during the pilot service to prepare for official launch."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 시연회 피드백에서 나온 주요 보완점이 무엇인가요?"
+      ],
+      [
+        "B",
+        "What were the main areas for improvement from today's demo feedback?"
+      ]
+    ],
+    "note": "사용자 인터페이스의 직관성을 높여야 한다는 보완점이 있었습니다.",
+    "polite_alt": "There was a suggestion that the intuitiveness of the user interface needs enhancement.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-088",
+    "unit": 5,
+    "head": "이행",
+    "pos": "명사",
+    "en": "implementation, fulfillment",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "계약서에 명시된 의무 사항의 성실한 이행을 상대 회사에 강력히 촉구했습니다.",
+        "We strongly urged the partner firm for faithful fulfillment of obligations specified in the contract."
+      ],
+      [
+        "감사 지적 사항에 대한 개선 계획 이행 결과를 분기별로 보고해야 합니다.",
+        "Implementation results of audit improvement plans must be reported quarterly."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "안전 점검 지침의 이행 상태는 양호한가요?"
+      ],
+      [
+        "B",
+        "Is the implementation status of safety inspection guidelines satisfactory?"
+      ]
+    ],
+    "note": "네, 전 사업장에서 지침을 철저히 이행하고 있습니다.",
+    "polite_alt": "Yes, all worksites are thoroughly fulfilling the guidelines.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-089",
+    "unit": 5,
+    "head": "피드백",
+    "pos": "명사",
+    "en": "feedback",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "report",
+    "examples": [
+      [
+        "고객 설문조사를 통해 접수된 생생한 피드백을 제품 개선에 반영했습니다.",
+        "We reflected the vivid feedback received through customer surveys in product improvements."
+      ],
+      [
+        "발표가 끝난 후 팀장님께서 즉각적인 피드백을 주셔서 큰 도움이 되었어요.",
+        "After the presentation ended, the team leader gave immediate feedback, which was of great help."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "기획안에 대한 부장님 피드백은 받으셨나요?"
+      ],
+      [
+        "B",
+        "Did you receive the director's feedback on your proposal?"
+      ]
+    ],
+    "note": "네, 예산 항목을 좀 더 구체화하라는 피드백을 받았습니다.",
+    "polite_alt": "Yes, I received feedback advising me to make the budget breakdown more specific.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-090",
+    "unit": 5,
+    "head": "보고하다",
+    "pos": "동사",
+    "en": "to report",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "오전에 현장에서 발생한 장비 고장 상황을 본부에 즉시 보고했습니다.",
+        "I immediately reported the equipment malfunction incident from the field to headquarters this morning."
+      ],
+      [
+        "매주 금요일 퇴근 전까지 주간 업무 실적을 팀장님께 보고해야 합니다.",
+        "You must report your weekly work performance to the team leader every Friday before leaving work."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "거래처 미팅 결과는 누구에게 보고하면 될까요?"
+      ],
+      [
+        "B",
+        "To whom should I report the results of the client meeting?"
+      ]
+    ],
+    "note": "우선 파트장님께 구두로 간략히 보고한 후 서면 보고서를 올리세요.",
+    "polite_alt": "First report briefly in person to your unit leader, and then submit a written report.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-091",
+    "unit": 5,
+    "head": "지시하다",
+    "pos": "동사",
+    "en": "to instruct, to order",
+    "lv": 2,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "부장님께서 이번 분기 판매 촉진 프로모션을 적극 기획하라고 지시하셨습니다.",
+        "The director instructed us to proactively plan promotional campaigns for this quarter."
+      ],
+      [
+        "사내 안전 관리팀은 전 직원에게 비상 대피 훈련 참가를 지시했습니다.",
+        "The workplace safety management team directed all employees to participate in emergency evacuation drills."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 추가 예산 배정은 어디서 지시한 사항인가요?"
+      ],
+      [
+        "B",
+        "Where was this additional budget allocation directed from?"
+      ]
+    ],
+    "note": "경영기획실에서 긴급 지침으로 지시한 사항입니다.",
+    "polite_alt": "It was instructed as an urgent directive from the management planning office.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-092",
+    "unit": 5,
+    "head": "검토하다",
+    "pos": "동사",
+    "en": "to review, to examine",
+    "lv": 2,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "보내주신 제안서의 타당성과 수익성을 면밀하게 검토하고 있습니다.",
+        "We are closely reviewing the feasibility and profitability of the proposal you sent."
+      ],
+      [
+        "법무팀에서 계약 조항의 법적 위험 요소를 다각도로 검토했습니다.",
+        "The legal team examined the legal risk factors of the contract clauses from multiple angles."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "제가 올린 기획안 검토는 끝나셨습니까?"
+      ],
+      [
+        "B",
+        "Have you completed reviewing the proposal I submitted?"
+      ]
+    ],
+    "note": "네, 거의 다 검토했으니 오늘 오후에 의견을 드리겠습니다.",
+    "polite_alt": "Yes, I have almost finished reviewing it, so I will give you my comments this afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-093",
+    "unit": 5,
+    "head": "반영하다",
+    "pos": "동사",
+    "en": "to reflect, to incorporate",
+    "lv": 2,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "현장 직원들의 현실적인 고충 사항을 새 사규에 적극 반영했습니다.",
+        "We actively incorporated the practical grievances of field staff into the new company bylaws."
+      ],
+      [
+        "고객의 개선 요구를 차기 소프트웨어 업데이트에 우선 반영할 예정입니다.",
+        "We plan to prioritize customer improvement requests in the next software update."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "어제 회의에서 나온 수정 의견이 문서에 반영되었나요?"
+      ],
+      [
+        "B",
+        "Were the revision comments from yesterday's meeting incorporated into the document?"
+      ]
+    ],
+    "note": "네, 지적해 주신 수치들을 수정본에 빠짐없이 반영했습니다.",
+    "polite_alt": "Yes, I reflected all the indicated numbers in the revised draft without omission.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-094",
+    "unit": 5,
+    "head": "공유하다",
+    "pos": "동사",
+    "en": "to share (information/data)",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "report",
+    "examples": [
+      [
+        "새로 갱신된 업무 매뉴얼을 팀 공용 드라이브에 올려 공유했습니다.",
+        "I uploaded the newly updated operation manual to the shared team drive to share it."
+      ],
+      [
+        "거래처와의 미팅 결과를 유관 부서 팀원들과 실시간으로 공유하고 있어요.",
+        "I am sharing the client meeting outcomes with relevant department members in real time."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 프로젝트 일정표를 전사에 공유해 주실 수 있나요?"
+      ],
+      [
+        "B",
+        "Could you share this project schedule across the entire company?"
+      ]
+    ],
+    "note": "네, 정리되는 대로 사내 메일로 신속히 공유하겠습니다.",
+    "polite_alt": "Yes, as soon as it is organized, I will promptly share it via internal email.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-095",
+    "unit": 5,
+    "head": "철저하다",
+    "pos": "형용사",
+    "en": "to be thorough, meticulous",
+    "lv": 3,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "고객 정보 유출을 막기 위해 전 직원의 철저한 보안 의식이 요구됩니다.",
+        "To prevent customer data leaks, thorough security awareness from all employees is required."
+      ],
+      [
+        "보고서 작성 전에 원자재 가격 변동에 대한 철저한 사전 조사가 선행되었어요.",
+        "A thorough preliminary investigation of raw material price fluctuations preceded the report writing."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 행사 준비 상태는 어떻습니까?"
+      ],
+      [
+        "B",
+        "How is the preparation state for this event?"
+      ]
+    ],
+    "note": "체크리스트를 기반으로 철저하게 점검하여 빈틈없이 준비했습니다.",
+    "polite_alt": "We inspected thoroughly against our checklist and prepared without any gaps.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-096",
+    "unit": 5,
+    "head": "보고드리겠습니다",
+    "pos": "표현",
+    "en": "I will report to you",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "금일 진행된 외부 감사 수검 결과를 부장님께 간략히 보고드리겠습니다.",
+        "I will briefly report the results of today's external audit inspection to the director."
+      ],
+      [
+        "오후 현장 점검을 마치고 사무실 복귀 후 바로 보고드리겠습니다.",
+        "After finishing the afternoon site inspection, I will report to you immediately upon returning to the office."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "김 대리, 지난달 해외 시장 매출 현황 파악되었나?"
+      ],
+      [
+        "B",
+        "Assistant Manager Kim, have you determined last month's overseas sales status?"
+      ]
+    ],
+    "note": "네, 데이터 취합 완료되었습니다. 지금 바로 보고드리겠습니다.",
+    "polite_alt": "Yes, data aggregation is complete. I will report to you right now.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-097",
+    "unit": 5,
+    "head": "말씀하신 대로 처리했습니다",
+    "pos": "표현",
+    "en": "I processed it as you instructed",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "지시해 주신 서류 보완 작업을 마쳤으며 말씀하신 대로 처리했습니다.",
+        "I finished supplementing the documents as directed, and processed it exactly as you instructed."
+      ],
+      [
+        "거래처 담당자에게 전화하여 말씀하신 대로 일정 변경을 처리했습니다.",
+        "I called the client representative and processed the schedule change as you instructed."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오전에 지시한 오류 수정 건은 어떻게 되었나요?"
+      ],
+      [
+        "B",
+        "What happened with the error fix matter I instructed this morning?"
+      ]
+    ],
+    "note": "담당 엔지니어와 협의하여 말씀하신 대로 신속히 처리했습니다.",
+    "polite_alt": "I consulted with the responsible engineer and handled it promptly as you instructed.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-098",
+    "unit": 5,
+    "head": "지시 사항 확인했습니다",
+    "pos": "표현",
+    "en": "I have confirmed the instructions",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "메일로 전달해 주신 신규 지침과 세부 지시 사항 확인했습니다.",
+        "I have confirmed the new guidelines and detailed instructions delivered via email."
+      ],
+      [
+        "회의 중 공유된 대표이사님 지시 사항 확인했습니다. 바로 착수하겠습니다.",
+        "I have confirmed the CEO's instructions shared during the meeting. I will begin work immediately."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "내일까지 마케팅 예산안 수정해서 보고하세요."
+      ],
+      [
+        "B",
+        "Revise the marketing budget proposal and report by tomorrow."
+      ]
+    ],
+    "note": "네, 팀장님 지시 사항 확인했습니다. 일정에 맞춰 올리겠습니다.",
+    "polite_alt": "Yes, I have confirmed your instructions, Team Leader. I will submit it on schedule.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-099",
+    "unit": 5,
+    "head": "특이 사항은 없습니다",
+    "pos": "표현",
+    "en": "There are no unusual issues",
+    "lv": 2,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "야간 서버 모니터링 결과 시스템 오류나 특이 사항은 없습니다.",
+        "As a result of overnight server monitoring, there are no system errors or unusual issues."
+      ],
+      [
+        "물류 입출고 현황을 전수 점검했으나 별다른 특이 사항은 없습니다.",
+        "We fully inspected logistics warehouse inflows and outflows, but found no unusual issues."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 생산 라인 가동 상태는 어떤가요?"
+      ],
+      [
+        "B",
+        "How is the operation status of the production line today?"
+      ]
+    ],
+    "note": "전 라인 정상 가동 중이며 현재까지 특이 사항은 없습니다.",
+    "polite_alt": "All lines are operating normally, and there are no unusual issues to date.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-100",
+    "unit": 5,
+    "head": "검토 후 피드백 부탁드립니다",
+    "pos": "표현",
+    "en": "Please review and give feedback",
+    "lv": 1,
+    "register": "formal",
+    "situation": "report",
+    "examples": [
+      [
+        "사업 기획서 초안을 문서함에 올려두었으니 검토 후 피드백 부탁드립니다.",
+        "I uploaded the draft business proposal to the repository, so please review and provide feedback."
+      ],
+      [
+        "수정된 홍보 포스터 디자인 시안입니다. 검토 후 피드백 부탁드립니다.",
+        "Here is the revised promotional poster draft. Please review and share your feedback."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "자료 작성이 모두 끝났습니다."
+      ],
+      [
+        "B",
+        "The compilation of materials has completely finished."
+      ]
+    ],
+    "note": "고생 많으셨습니다. 꼼꼼히 검토 후 내일 오전까지 피드백 드리겠습니다.",
+    "polite_alt": "Thank you for your hard work. I will review thoroughly and give feedback by tomorrow morning.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-101",
+    "unit": 6,
+    "head": "마감일",
+    "pos": "명사",
+    "en": "deadline, due date",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "제안서 제출 마감일이 이번 주 금요일 오후 여섯 시까지입니다.",
+        "The proposal submission deadline is this Friday at six in the evening."
+      ],
+      [
+        "마감일을 지키기 위해 팀원들 모두 주말 전까지 야근을 자처했습니다.",
+        "To meet the deadline, all team members volunteered to work overtime before the weekend."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보고서 마감일이 언제까지인가요?"
+      ],
+      [
+        "B",
+        "When is the deadline for the report?"
+      ]
+    ],
+    "note": "내일 정오가 마감일이니 오전 중에 꼭 마무리해 주세요.",
+    "polite_alt": "Tomorrow noon is the due date, so please wrap it up during the morning.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-102",
+    "unit": 6,
+    "head": "납기",
+    "pos": "명사",
+    "en": "delivery date, time of delivery",
+    "lv": 3,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "부품 공급 업체의 생산 지연으로 인해 납기를 맞추기 빠듯해졌습니다.",
+        "Due to production delays at the parts supplier, meeting the delivery date has become tight."
+      ],
+      [
+        "철저한 품질 검사 후 계약된 납기에 맞추어 완제품을 납품했습니다.",
+        "After thorough quality inspection, we delivered the finished goods on the contracted delivery date."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 주문의 납기 일정이 어떻게 됩니까?"
+      ],
+      [
+        "B",
+        "What is the delivery date schedule for this order?"
+      ]
+    ],
+    "note": "다음 달 십오 일까지 고객사 물류창고에 입고하기로 약정되었습니다.",
+    "polite_alt": "It is agreed to be stocked at the client's warehouse by the 15th of next month.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-103",
+    "unit": 6,
+    "head": "미팅",
+    "pos": "명사",
+    "en": "business meeting, appointment",
+    "lv": 1,
+    "register": "casual",
+    "situation": "schedule",
+    "examples": [
+      [
+        "내일 오전 열 시에 주요 거래처와의 제품 품평회 미팅이 잡혀 있습니다.",
+        "A product evaluation meeting with our key client is scheduled for tomorrow at 10 AM."
+      ],
+      [
+        "오후 미팅 장소가 본사 대회의실에서 인근 카페로 변경되었습니다.",
+        "The afternoon meeting location changed from the headquarters boardroom to a nearby cafe."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 오후에 외부 미팅 일정이 있으신가요?"
+      ],
+      [
+        "B",
+        "Do you have any external meeting schedules this afternoon?"
+      ]
+    ],
+    "note": "네, 두 시에 파트너사와 신규 협력 미팅이 예정되어 있습니다.",
+    "polite_alt": "Yes, a new partnership meeting is scheduled at 2 PM with our partner firm.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-104",
+    "unit": 6,
+    "head": "약속",
+    "pos": "명사",
+    "en": "appointment, promise",
+    "lv": 1,
+    "register": "casual",
+    "situation": "schedule",
+    "examples": [
+      [
+        "중요한 비즈니스 약속에는 최소 십 분 전에 도착하는 것이 기본 매너입니다.",
+        "Arriving at least ten minutes early for an important business appointment is basic etiquette."
+      ],
+      [
+        "갑작스러운 사내 비상 회의로 인해 부득이하게 저녁 약속을 취소했어요.",
+        "Due to an unexpected internal emergency meeting, I inevitably canceled my dinner appointment."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 주 목요일에 시간 괜찮으신가요?"
+      ],
+      [
+        "B",
+        "Do you have time this Thursday?"
+      ]
+    ],
+    "note": "죄송합니다. 그날은 이미 다른 선약이 있어서 어렵습니다.",
+    "polite_alt": "I apologize. I already have another prior appointment on that day, so it will be difficult.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-105",
+    "unit": 6,
+    "head": "선약",
+    "pos": "명사",
+    "en": "prior engagement, previous appointment",
+    "lv": 2,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "초대해 주셔서 감사하지만 그날 이미 선약이 있어서 참석이 어렵습니다.",
+        "Thank you for inviting me, but I have a prior engagement on that day, so attending is difficult."
+      ],
+      [
+        "먼저 잡힌 선약을 배려하여 회의 시간을 오후 늦게로 조정했습니다.",
+        "Considering pre-existing appointments, we adjusted the meeting time to late afternoon."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "금요일 저녁 부서 회식에 함께하실 수 있나요?"
+      ],
+      [
+        "B",
+        "Can you join the department dinner on Friday evening?"
+      ]
+    ],
+    "note": "죄송합니다. 오래전에 잡아둔 선약이 있어 먼저 양해를 구합니다.",
+    "polite_alt": "I am sorry. I ask for your understanding as I have a prior appointment scheduled long ago.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-106",
+    "unit": 6,
+    "head": "변동",
+    "pos": "명사",
+    "en": "change, fluctuation",
+    "lv": 2,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "비행기 출발 지연으로 인해 전체 출장 일정에 일부 변동이 생겼습니다.",
+        "Due to flight departure delays, some changes occurred in the overall business trip schedule."
+      ],
+      [
+        "환율 변동에 따라 원자재 수입 단가를 재조정할 필요가 있습니다.",
+        "We need to readjust raw material import unit prices according to exchange rate fluctuations."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "프로젝트 계획에 변동 사항이 있나요?"
+      ],
+      [
+        "B",
+        "Are there any changes to the project plan?"
+      ]
+    ],
+    "note": "네, 고객사 요청으로 납기 일정에 약간의 변동이 생겼습니다.",
+    "polite_alt": "Yes, slight changes have occurred in the delivery schedule due to client requests.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-107",
+    "unit": 6,
+    "head": "차질",
+    "pos": "명사",
+    "en": "setback, hitch, disruption",
+    "lv": 2,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "주요 부품의 공급 중단으로 전체 생산 일정에 큰 차질이 빚어졌습니다.",
+        "Supply suspension of key parts caused a major setback to the entire production schedule."
+      ],
+      [
+        "철저한 사전 준비 덕분에 행사 진행에 아무런 차질도 없었습니다.",
+        "Thanks to thorough advance preparation, there was no disruption in the event proceedings."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "업무 진행에 차질이 생기지 않도록 미리 대비책을 세웁시다."
+      ],
+      [
+        "B",
+        "Let's establish contingency plans in advance so there will be no setbacks in work progress."
+      ]
+    ],
+    "note": "네, 예비 인력을 즉시 배치하여 공백을 메우겠습니다.",
+    "polite_alt": "Yes, we will immediately deploy backup staff to fill the gap.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-108",
+    "unit": 6,
+    "head": "조율",
+    "pos": "명사",
+    "en": "coordination, fine-tuning",
+    "lv": 2,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "양사 간 이해관계가 달라 계약 조건에 대한 추가 조율이 필요합니다.",
+        "Because the interests of both companies differ, additional coordination on contract terms is required."
+      ],
+      [
+        "임원진의 바쁜 일정을 조율하여 정기 전략 워크숍 날짜를 확정했습니다.",
+        "We coordinated the busy schedules of executives to confirm the regular strategy workshop date."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "미팅 일시 조율은 어떻게 진행되고 있나요?"
+      ],
+      [
+        "B",
+        "How is the coordination of the meeting date and time proceeding?"
+      ]
+    ],
+    "note": "양측 담당자들의 가능한 시간대를 취합하여 조율 중입니다.",
+    "polite_alt": "We are in the process of coordinating by compiling available time slots of representatives on both sides.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-109",
+    "unit": 6,
+    "head": "시한",
+    "pos": "명사",
+    "en": "time limit, cutoff date",
+    "lv": 3,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "정부 지원 사업 신청 시한이 내일 자정으로 임박했습니다.",
+        "The cutoff date for applying to the government support program is approaching tomorrow midnight."
+      ],
+      [
+        "법적 분쟁을 방지하기 위해 정해진 계약 갱신 시한을 반드시 지켜야 합니다.",
+        "To prevent legal disputes, the designated contract renewal time limit must strictly be observed."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "서류 제출 시한이 언제까지로 못 박혀 있나요?"
+      ],
+      [
+        "B",
+        "When is the document submission deadline firmly set for?"
+      ]
+    ],
+    "note": "금주 금요일 오후 다섯 시가 최종 접수 시한입니다.",
+    "polite_alt": "This Friday at 5 PM is the final intake time limit.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-110",
+    "unit": 6,
+    "head": "조정하다",
+    "pos": "동사",
+    "en": "to adjust, to reschedule",
+    "lv": 2,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "갑작스러운 출장으로 인해 면담 일정을 다음 주 화요일로 조정했습니다.",
+        "Due to a sudden business trip, I adjusted the interview schedule to next Tuesday."
+      ],
+      [
+        "예산 한도에 맞추어 마케팅 집행 항목의 우선순위를 재조정해야 합니다.",
+        "We must readjust the priorities of marketing execution items according to budget caps."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회의 시간을 조금 앞당겨서 조정할 수 있을까요?"
+      ],
+      [
+        "B",
+        "Could we adjust the meeting time slightly earlier?"
+      ]
+    ],
+    "note": "네, 오전 열한 시로 조정하면 모두 참석 가능할 것 같습니다.",
+    "polite_alt": "Yes, if we adjust it to 11 AM, it seems everyone can attend.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-111",
+    "unit": 6,
+    "head": "확정하다",
+    "pos": "동사",
+    "en": "to finalize, to confirm",
+    "lv": 3,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "모든 참석자의 동의를 얻어 신제품 발표회 날짜를 다음 달 십 일로 확정했습니다.",
+        "With the agreement of all attendees, we finalized the new product showcase date for the 10th of next month."
+      ],
+      [
+        "이사회의 최종 승인을 거쳐 내년도 사업 계획을 확정했습니다.",
+        "Through final board approval, we confirmed the next year's business plan."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "최종 미팅 장소가 확정되었습니까?"
+      ],
+      [
+        "B",
+        "Has the final meeting location been confirmed?"
+      ]
+    ],
+    "note": "네, 본사 구층 대회의실로 장소를 확정했습니다.",
+    "polite_alt": "Yes, we confirmed the venue as the 9th-floor main conference room of headquarters.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-112",
+    "unit": 6,
+    "head": "앞당기다",
+    "pos": "동사",
+    "en": "to move up, to advance (time)",
+    "lv": 2,
+    "register": "neutral",
+    "situation": "schedule",
+    "examples": [
+      [
+        "고객사의 조기 납품 요청에 따라 출고 일정을 사흘 앞당겼습니다.",
+        "Per the client's early delivery request, we moved up the shipment schedule by three days."
+      ],
+      [
+        "비 예보가 있어서 야외 촬영 일정을 하루 앞당겨 진행하기로 했어요.",
+        "Because rain was forecast, we decided to move up the outdoor filming schedule by a day."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오후 미팅 시간을 한 시간 정도 앞당길 수 있을까요?"
+      ],
+      [
+        "B",
+        "Could we move up the afternoon meeting time by about an hour?"
+      ]
+    ],
+    "note": "네, 앞선 일정이 일찍 끝나니 한 시간 앞당겨 만납시다.",
+    "polite_alt": "Yes, since my previous schedule finishes early, let's meet an hour earlier.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-113",
+    "unit": 6,
+    "head": "늦추다",
+    "pos": "동사",
+    "en": "to delay, to push back",
+    "lv": 2,
+    "register": "neutral",
+    "situation": "schedule",
+    "examples": [
+      [
+        "부품 수급에 차질이 생겨 제품 출시 시점을 한 달 늦추기로 결정했습니다.",
+        "Because parts supply hit a snag, we decided to push back the product launch timing by a month."
+      ],
+      [
+        "충분한 검토 시간을 확보하기 위해 보고서 제출 기한을 늦췄습니다.",
+        "To secure sufficient review time, we delayed the report submission deadline."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "미팅 시간을 삼십 분 정도 늦출 수 있을까요?"
+      ],
+      [
+        "B",
+        "Could we push back the meeting time by about thirty minutes?"
+      ]
+    ],
+    "note": "차가 많이 막히시나요? 그럼 천천히 늦춰서 뵙겠습니다.",
+    "polite_alt": "Is traffic heavy? Then let's push it back and meet without rushing.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-114",
+    "unit": 6,
+    "head": "취소하다",
+    "pos": "동사",
+    "en": "to cancel",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "태풍 경보로 인해 예정되어 있던 야외 홍보 행사를 전면 취소했습니다.",
+        "Due to a typhoon warning, we completely canceled the scheduled outdoor promotional event."
+      ],
+      [
+        "계약 조건에 중대한 위반이 발견되어 계약 체결을 즉시 취소했습니다.",
+        "Because a critical violation of contract conditions was found, we immediately canceled the contract signing."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁 미팅은 그대로 진행됩니까?"
+      ],
+      [
+        "B",
+        "Is this evening's meeting proceeding as planned?"
+      ]
+    ],
+    "note": "상대방 측 사정으로 인해 부득이하게 취소되었습니다.",
+    "polite_alt": "It was inevitably canceled due to circumstances on the other party's side.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-115",
+    "unit": 6,
+    "head": "임박하다",
+    "pos": "형용사",
+    "en": "to be imminent, to draw near",
+    "lv": 3,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "납품 마감 시한이 코앞으로 임박하여 공장 직원들이 전원 비상 근무 중입니다.",
+        "Because the delivery deadline is drawing imminent, all factory workers are on emergency shifts."
+      ],
+      [
+        "결전의 날이 임박함에 따라 팀 내 긴장감이 최고조에 달했습니다.",
+        "As the crucial day drew near, tension within the team reached its peak."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "제출 기한이 얼마나 남았습니까?"
+      ],
+      [
+        "B",
+        "How much time is left before the submission deadline?"
+      ]
+    ],
+    "note": "마감 시한이 임박했으니 서둘러 결재를 올려주십시오.",
+    "polite_alt": "The deadline is imminent, so please hurry and submit for approval.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-116",
+    "unit": 6,
+    "head": "일정 확인 부탁드립니다",
+    "pos": "표현",
+    "en": "Please check the schedule",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "다음 주에 진행될 정기 감사 세부 일정을 보내드리니 일정 확인 부탁드립니다.",
+        "I am sending the detailed schedule for next week's regular audit, so please check the schedule."
+      ],
+      [
+        "고객사 방문 일정이 캘린더에 등록되었습니다. 일정 확인 부탁드립니다.",
+        "The client visit schedule has been registered on the calendar. Please check the schedule."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "다음 달 워크숍 날짜가 공유되었나요?"
+      ],
+      [
+        "B",
+        "Has next month's workshop date been shared?"
+      ]
+    ],
+    "note": "네, 사내 메일로 안내장을 보냈으니 일정 확인 부탁드립니다.",
+    "polite_alt": "Yes, an invitation was sent via company email, so please check the schedule.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-117",
+    "unit": 6,
+    "head": "편하신 시간 말씀해 주십시오",
+    "pos": "표현",
+    "en": "Please let me know a time convenient for you",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "프로젝트 협의차 방문하고자 하오니 편하신 시간 말씀해 주십시오.",
+        "I would like to visit to discuss the project, so please let me know a time convenient for you."
+      ],
+      [
+        "전화로 상담 도와드릴 테니 통화 편하신 시간 말씀해 주시기 바랍니다.",
+        "I will assist you with consultation over the phone, so please let me know when it is convenient to talk."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "언제 찾아뵙고 인사드리면 좋을까요?"
+      ],
+      [
+        "B",
+        "When would it be good to visit and greet you?"
+      ]
+    ],
+    "note": "다음 주 화요일이나 목요일 오후 중에 편하신 시간 말씀해 주십시오.",
+    "polite_alt": "Please let me know a time convenient for you during next Tuesday or Thursday afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-118",
+    "unit": 6,
+    "head": "그때 뵙겠습니다",
+    "pos": "표현",
+    "en": "See you then",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "그럼 내일 오후 세 시 본사 로비에서 뵙겠습니다. 좋은 하루 보내세요.",
+        "Then I will see you at 3 PM tomorrow in the headquarters lobby. Have a great day."
+      ],
+      [
+        "약속 장소와 시간 확인했습니다. 다음 주 월요일 그때 뵙겠습니다.",
+        "I confirmed the appointment location and time. See you then next Monday."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "그럼 금요일 두 시에 방문하시는 걸로 확정할까요?"
+      ],
+      [
+        "B",
+        "Then shall we confirm your visit for Friday at two o'clock?"
+      ]
+    ],
+    "note": "네, 일정 비워두겠습니다. 그때 뵙겠습니다.",
+    "polite_alt": "Yes, I will keep the schedule open. See you then.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-119",
+    "unit": 6,
+    "head": "일정이 겹치다",
+    "pos": "표현",
+    "en": "schedules overlap, have a conflict",
+    "lv": 1,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "같은 시간대에 두 개의 중요한 미팅 일정이 겹쳐서 난감합니다.",
+        "I am in a bind because two important meeting schedules overlap at the same time."
+      ],
+      [
+        "부서 간 회의 시간이 겹치지 않도록 회의실 예약 현황을 먼저 점검하세요.",
+        "Please check meeting room reservation status first so departmental meeting times do not conflict."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "목요일 오후 세 시 미팅 참석 가능하신가요?"
+      ],
+      [
+        "B",
+        "Can you attend the meeting on Thursday at 3 PM?"
+      ]
+    ],
+    "note": "죄송합니다. 그 시간에 외부 거래처 미팅과 일정이 겹칩니다.",
+    "polite_alt": "I apologize. My schedule overlaps with an external client meeting at that time.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-120",
+    "unit": 6,
+    "head": "일정 변경 양해 부탁드립니다",
+    "pos": "표현",
+    "en": "Please excuse the schedule change",
+    "lv": 3,
+    "register": "formal",
+    "situation": "schedule",
+    "examples": [
+      [
+        "임원진 긴급 소집으로 미팅이 연기되었으니 일정 변경 양해 부탁드립니다.",
+        "The meeting was postponed due to an emergency executive convocation, so please excuse the schedule change."
+      ],
+      [
+        "불가피한 사정으로 방문 시간을 늦추게 되어 일정 변경 양해 부탁드립니다.",
+        "Due to unavoidable circumstances, we had to delay our visit time, so we ask for your understanding regarding the schedule change."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 미팅 시간이 늦춰졌다고 들었습니다."
+      ],
+      [
+        "B",
+        "I heard today's meeting time has been pushed back."
+      ]
+    ],
+    "note": "갑작스럽게 변동되어 죄송합니다. 일정 변경 너그럽게 양해 부탁드립니다.",
+    "polite_alt": "I am sorry for the sudden change. Please generously excuse our schedule change.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-121",
+    "unit": 7,
+    "head": "출장",
+    "pos": "명사",
+    "en": "business trip",
+    "lv": 1,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "다음 주에 해외 지사 기술 지원을 위해 삼박 사일간 출장을 떠납니다.",
+        "Next week, I am leaving on a four-day, three-night business trip for overseas branch technical support."
+      ],
+      [
+        "출장 복귀 후에는 주요 미팅 내용과 성과를 담은 출장 복명서를 작성해야 해요.",
+        "After returning from a business trip, you must write a trip report containing key meeting details and outcomes."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "박 과장님 자리에 안 계신가요?"
+      ],
+      [
+        "B",
+        "Is Manager Park not at his desk?"
+      ]
+    ],
+    "note": "네, 오늘부터 사흘간 지방 공장 출장 중이십니다.",
+    "polite_alt": "Yes, he is on a three-day business trip to the regional factory starting today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-122",
+    "unit": 7,
+    "head": "출장비",
+    "pos": "명사",
+    "en": "business trip expenses, per diem",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "교통비와 숙박비 영수증을 첨부하여 총무팀에 출장비 정산을 신청했습니다.",
+        "I applied for business trip expense settlement with the general affairs team, attaching receipts for transportation and lodging."
+      ],
+      [
+        "회사 규정에 따라 직급별로 출장비 일당 지급 기준이 정해져 있습니다.",
+        "Per diem payout standards for trip expenses are determined by rank according to company regulations."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장비 가지급금은 언제 입금되나요?"
+      ],
+      [
+        "B",
+        "When will the advance payment for trip expenses be deposited?"
+      ]
+    ],
+    "note": "출장 출발일 이틀 전까지 급여 계좌로 입금될 예정입니다.",
+    "polite_alt": "It is scheduled to be deposited into your salary account up to two days before departure.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-123",
+    "unit": 7,
+    "head": "여비",
+    "pos": "명사",
+    "en": "travel expenses, travel allowance",
+    "lv": 3,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "사내 여비 규정에 명시된 실비 정산 한도를 초과하지 않도록 유의하세요.",
+        "Be careful not to exceed the actual expense reimbursement ceiling specified in the internal travel rules."
+      ],
+      [
+        "장거리 해외 파견 시에는 기본 여비 외에 체재비가 추가로 지원됩니다.",
+        "For long-distance overseas dispatches, living stipends are supported in addition to basic travel expenses."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 출장의 여비 산정 내역서를 확인하셨습니까?"
+      ],
+      [
+        "B",
+        "Have you confirmed the travel expense estimate sheet for this business trip?"
+      ]
+    ],
+    "note": "네, 항공료와 숙박 기준액에 맞추어 산정 완료되었습니다.",
+    "polite_alt": "Yes, estimation has been completed according to airfare and lodging baseline amounts.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-124",
+    "unit": 7,
+    "head": "숙소",
+    "pos": "명사",
+    "en": "lodging, accommodation",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "trip",
+    "examples": [
+      [
+        "거래처 사무실과 도보로 이동 가능한 가까운 거리에 숙소를 예약했습니다.",
+        "We reserved lodging within walking distance of the client's office."
+      ],
+      [
+        "출장지 숙소에 도착하자마자 와이파이 연결 상태와 업무 환경을 확인했어요.",
+        "As soon as I arrived at the trip lodging, I checked the Wi-Fi connection and working environment."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장 기간 머물 숙소는 정하셨나요?"
+      ],
+      [
+        "B",
+        "Have you decided on the accommodation where you will stay during the trip?"
+      ]
+    ],
+    "note": "네, 전시장 인근 비즈니스호텔로 숙소를 잡았습니다.",
+    "polite_alt": "Yes, I booked lodging at a business hotel near the exhibition center.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-125",
+    "unit": 7,
+    "head": "교통편",
+    "pos": "명사",
+    "en": "means of transportation",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "trip",
+    "examples": [
+      [
+        "공항에서 전시장까지 이동하는 대중교통편이 아주 편리하게 잘 되어 있습니다.",
+        "Public transportation from the airport to the exhibition center is very convenient and well established."
+      ],
+      [
+        "기차역에서 행사장으로 갈 마땅한 교통편이 없어서 택시를 이용했습니다.",
+        "Because there was no suitable transportation from the train station to the venue, we took a taxi."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "부산 지사로 갈 때 어떤 교통편을 이용하시나요?"
+      ],
+      [
+        "B",
+        "Which transportation do you use when going to the Busan branch?"
+      ]
+    ],
+    "note": "시간을 아끼기 위해 고속철도 교통편을 주로 이용합니다.",
+    "polite_alt": "We mainly use high-speed rail transportation to save time.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-126",
+    "unit": 7,
+    "head": "환승",
+    "pos": "명사",
+    "en": "transfer (transit)",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "trip",
+    "examples": [
+      [
+        "지하철 환승 통로가 복잡하여 갈아탈 때 표지판을 주의 깊게 보아야 합니다.",
+        "The subway transfer passageway is crowded, so you should watch the signs carefully when changing lines."
+      ],
+      [
+        "해외 출장 시 직항편이 매진되어 어쩔 수 없이 경유지에서 환승했습니다.",
+        "On the overseas trip, direct flights were sold out, so I inevitably transferred at a layover hub."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "공항철도로 환승하려면 어디서 내려야 하나요?"
+      ],
+      [
+        "B",
+        "Where do I have to get off to transfer to the airport railroad?"
+      ]
+    ],
+    "note": "다음 역인 서울역에서 내리시면 바로 환승하실 수 있습니다.",
+    "polite_alt": "If you get off at the next station, Seoul Station, you can transfer immediately.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-127",
+    "unit": 7,
+    "head": "영수증",
+    "pos": "명사",
+    "en": "receipt",
+    "lv": 1,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "출장 경비 정산을 위해 택시 요금과 식대 결제 영수증을 반드시 챙기세요.",
+        "Be sure to collect taxi fares and meal payment receipts for trip expense settlement."
+      ],
+      [
+        "카드 전표나 전자 영수증을 스캔하여 지출 결의서에 첨부했습니다.",
+        "I scanned card slips or electronic receipts and attached them to the expenditure voucher."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "법인카드로 결제한 영수증은 어디에 제출합니까?"
+      ],
+      [
+        "B",
+        "Where do I submit receipts paid with the corporate card?"
+      ]
+    ],
+    "note": "모바일 전표 관리 시스템에 영수증 사진을 등록하시면 됩니다.",
+    "polite_alt": "You can register photos of the receipts in the mobile slip management system.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-128",
+    "unit": 7,
+    "head": "복명서",
+    "pos": "명사",
+    "en": "trip report, mission debrief report",
+    "lv": 3,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "출장을 마치고 귀사한 직원은 삼일 이내에 출장 복명서를 제출해야 합니다.",
+        "Employees returning to office after a trip must submit a mission debrief report within three days."
+      ],
+      [
+        "복명서에 기재된 현지 거래처 상담 내역을 임원 보고용으로 요약했습니다.",
+        "I summarized the local client consultation details listed in the trip report for executive briefing."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장 복명서 양식이 따로 지정되어 있나요?"
+      ],
+      [
+        "B",
+        "Is there a designated template for the business trip report?"
+      ]
+    ],
+    "note": "사내 전자결재 시스템의 표준 복명서 서식을 활용하시면 됩니다.",
+    "polite_alt": "You may utilize the standard debrief template in the company e-approval system.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-129",
+    "unit": 7,
+    "head": "동행",
+    "pos": "명사",
+    "en": "accompanying, travelling together",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "이번 일본 거래처 기술 실사에는 엔지니어 두 명이 동행할 예정입니다.",
+        "Two engineers are scheduled to accompany us on this technical audit of our Japanese client."
+      ],
+      [
+        "경험 많은 팀장님과의 동행 덕분에 첫 해외 상담을 무사히 마쳤습니다.",
+        "Thanks to accompanying our experienced team leader, I finished my first overseas consultation safely."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "공항까지 혼자 가시나요?"
+      ],
+      [
+        "B",
+        "Are you going to the airport alone?"
+      ]
+    ],
+    "note": "아니요, 마케팅팀 박 대리와 동행하기로 했습니다.",
+    "polite_alt": "No, I decided to travel together with Assistant Manager Park from marketing.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-130",
+    "unit": 7,
+    "head": "이동하다",
+    "pos": "동사",
+    "en": "to move, to travel (to a place)",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "trip",
+    "examples": [
+      [
+        "오전 회의를 마친 후 거래처 공장이 위치한 산업단지로 신속히 이동했습니다.",
+        "After finishing the morning meeting, we quickly moved to the industrial park where the client factory is located."
+      ],
+      [
+        "퇴근 시간대에는 교통 체증이 심하니 지하철로 이동하는 편이 낫습니다.",
+        "Traffic congestion is heavy during evening rush hour, so it is better to travel by subway."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "다음 미팅 장소로 언제 이동할까요?"
+      ],
+      [
+        "B",
+        "When shall we move to the next meeting venue?"
+      ]
+    ],
+    "note": "이동 시간을 감안하여 삼십 분 일찍 출발합시다.",
+    "polite_alt": "Factoring in travel time, let's depart thirty minutes early.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-131",
+    "unit": 7,
+    "head": "예약하다",
+    "pos": "동사",
+    "en": "to book, to reserve",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "trip",
+    "examples": [
+      [
+        "출장 일정이 확정되자마자 왕복 고속철도 승차권과 호텔을 예약했습니다.",
+        "As soon as the trip schedule was finalized, I booked round-trip bullet train tickets and hotel."
+      ],
+      [
+        "손님 접대를 위해 시내 중심가에 위치한 조용한 한정식집을 예약해 두었어요.",
+        "I reserved a quiet traditional Korean restaurant downtown to entertain our guests."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "항공권 예약은 완료되었습니까?"
+      ],
+      [
+        "B",
+        "Has the flight ticket reservation been completed?"
+      ]
+    ],
+    "note": "네, 여행사를 통해 출장자 전원의 항공권을 예약해 두었습니다.",
+    "polite_alt": "Yes, through the travel agency, I have booked flight tickets for all travelers.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-132",
+    "unit": 7,
+    "head": "방문하다",
+    "pos": "동사",
+    "en": "to visit",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "신규 설비 도입 현황을 직접 확인하기 위해 파트너사 생산 공장을 방문했습니다.",
+        "We visited the partner company's manufacturing plant to directly inspect new facility installations."
+      ],
+      [
+        "명절을 앞두고 오랜 거래처들을 차례대로 방문하여 감사의 인사를 전했어요.",
+        "Ahead of the holidays, we visited long-standing clients in turn to express our gratitude."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "거래처 본사에는 언제 방문하실 예정인가요?"
+      ],
+      [
+        "B",
+        "When are you planning to visit the client's headquarters?"
+      ]
+    ],
+    "note": "다음 주 수요일 오후 두 시에 방문하기로 협의되었습니다.",
+    "polite_alt": "It has been arranged that we visit next Wednesday at two in the afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-133",
+    "unit": 7,
+    "head": "정산하다",
+    "pos": "동사",
+    "en": "to settle, to balance accounts",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "출장 중에 법인카드로 결제한 숙박비와 교통비를 시스템에 등록하여 정산했습니다.",
+        "I settled lodging and transit expenses paid with the corporate card by logging them into the system."
+      ],
+      [
+        "프로젝트가 최종 종료된 후 관련 운영 경비를 빠짐없이 정산해야 합니다.",
+        "After the project concludes, related operating expenses must be fully settled without omission."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장비 정산 기한이 언제까지인가요?"
+      ],
+      [
+        "B",
+        "When is the deadline to settle business trip expenses?"
+      ]
+    ],
+    "note": "귀사 후 일주일 이내에 영수증을 첨부하여 정산하셔야 합니다.",
+    "polite_alt": "You must settle by attaching receipts within one week after returning to the office.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-134",
+    "unit": 7,
+    "head": "복귀하다",
+    "pos": "동사",
+    "en": "to return to office, to come back",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "오후 외근을 마친 후 밀린 서류 작업을 처리하기 위해 사무실로 복귀했습니다.",
+        "After finishing the afternoon outside meeting, I returned to the office to process backlogged paperwork."
+      ],
+      [
+        "휴가에서 복귀한 팀원들이 활기찬 모습으로 아침 회의에 참석했습니다.",
+        "Team members returning from leave attended the morning meeting looking energetic."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장에서 언제 회사로 복귀하시나요?"
+      ],
+      [
+        "B",
+        "When will you return to the company from your business trip?"
+      ]
+    ],
+    "note": "금요일 늦은 오후에 본사로 복귀할 예정입니다.",
+    "polite_alt": "I plan to return to headquarters late Friday afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-135",
+    "unit": 7,
+    "head": "혼잡하다",
+    "pos": "형용사",
+    "en": "to be congested, crowded",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "출퇴근 시간대에는 환승역 승강장이 대단히 혼잡하므로 안전에 유의하세요.",
+        "Transfer station platforms are extremely congested during rush hours, so pay attention to safety."
+      ],
+      [
+        "연휴 전날이라 고속도로가 매우 혼잡하여 이동에 세 시간이 더 걸렸습니다.",
+        "Because it was the eve of the holiday, the highway was very congested, taking three extra hours to travel."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "공항 검색대는 지금 어떤가요?"
+      ],
+      [
+        "B",
+        "How is the airport security checkpoint right now?"
+      ]
+    ],
+    "note": "출국 승객이 몰려 매우 혼잡하니 일찍 수속을 밟으십시오.",
+    "polite_alt": "Departure passengers are crowding and it is very congested, so please go through procedures early.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-136",
+    "unit": 7,
+    "head": "출장 잘 다녀오십시오",
+    "pos": "표현",
+    "en": "Have a safe and successful business trip",
+    "lv": 1,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "해외 지사 방문 일정 무사히 마치시고 출장 잘 다녀오십시오.",
+        "Complete your overseas branch itinerary safely and have a successful business trip."
+      ],
+      [
+        "장거리 이동에 건강 유의하시고 출장 잘 다녀오시기를 바랍니다.",
+        "Take care of your health on the long journey, and I hope you have a great business trip."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "그럼 저는 내일 아침 비행기로 출발하겠습니다."
+      ],
+      [
+        "B",
+        "Then I will depart on tomorrow morning's flight."
+      ]
+    ],
+    "note": "네, 팀장님. 성과 풍성히 거두시고 출장 잘 다녀오십시오.",
+    "polite_alt": "Yes, Team Leader. Achieve great results and have a safe and successful business trip.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-137",
+    "unit": 7,
+    "head": "무사히 도착했습니다",
+    "pos": "표현",
+    "en": "I have arrived safely",
+    "lv": 1,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "팀장님, 부산 지사 숙소에 방금 무사히 도착했습니다. 내일 아침 뵙겠습니다.",
+        "Team Leader, I have just arrived safely at the Busan branch lodging. See you tomorrow morning."
+      ],
+      [
+        "현지 공항에 연착 없이 무사히 도착하여 짐을 찾았습니다.",
+        "I arrived safely at the local airport without delay and picked up my luggage."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "출장지에는 잘 도착하셨나요?"
+      ],
+      [
+        "B",
+        "Did you arrive safely at your trip destination?"
+      ]
+    ],
+    "note": "네, 염려해 주신 덕분에 제시간에 무사히 도착했습니다.",
+    "polite_alt": "Yes, thanks to your concern, I arrived safely on time.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-138",
+    "unit": 7,
+    "head": "복귀 후 보고드리겠습니다",
+    "pos": "표현",
+    "en": "I will report after returning to the office",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "현지 미팅에서 협의된 세부 조율안은 서울 복귀 후 보고드리겠습니다.",
+        "The detailed coordination proposals agreed upon in the local meeting will be reported after I return to Seoul."
+      ],
+      [
+        "구두로 먼저 결과 알려드렸으며 정식 문서는 복귀 후 보고드리겠습니다.",
+        "I first relayed results verbally, and formal documents will be reported after I return to office."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "거래처 반응은 어땠나요?"
+      ],
+      [
+        "B",
+        "How was the client's reaction?"
+      ]
+    ],
+    "note": "매우 긍정적이었습니다. 정리해서 복귀 후 상세히 보고드리겠습니다.",
+    "polite_alt": "It was very positive. I will organize and report to you in detail after returning.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-139",
+    "unit": 7,
+    "head": "길이 많이 막힙니다",
+    "pos": "표현",
+    "en": "Traffic is very heavy",
+    "lv": 1,
+    "register": "casual",
+    "situation": "trip",
+    "examples": [
+      [
+        "비가 와서 도로에 차가 몰려 지금 올림픽대로 길이 많이 막힙니다.",
+        "Because of rain, cars are crowding the road and traffic is very heavy on Olympic Boulevard."
+      ],
+      [
+        "퇴근 시간대 정체로 길이 많이 막히니 십 분 정도 늦을 것 같습니다.",
+        "Traffic is very heavy due to rush-hour congestion, so I think I will be about ten minutes late."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "어디쯤 오고 계신가요?"
+      ],
+      [
+        "B",
+        "Around where are you coming?"
+      ]
+    ],
+    "note": "사고가 났는지 고속도로 진입로에서 길이 많이 막힙니다.",
+    "polite_alt": "Traffic is very heavy at the highway entrance ramp, perhaps due to an accident.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-140",
+    "unit": 7,
+    "head": "자리 비우게 되었습니다",
+    "pos": "표현",
+    "en": "I will be away from my desk/office",
+    "lv": 2,
+    "register": "formal",
+    "situation": "trip",
+    "examples": [
+      [
+        "금주 목요일부터 이틀간 외부 세미나 참석으로 자리를 비우게 되었습니다.",
+        "I will be away from my desk for two days starting this Thursday to attend an external seminar."
+      ],
+      [
+        "지방 출장 일정으로 인해 내일 하루 부서 자리를 비우게 되었습니다.",
+        "Due to a regional trip schedule, I will be away from my office desk all day tomorrow."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "내일 업무 처리는 어떻게 되나요?"
+      ],
+      [
+        "B",
+        "How will tomorrow's work processing be handled?"
+      ]
+    ],
+    "note": "출장으로 자리를 비우게 되었습니다. 긴급 건은 이 대리에게 위임해 두었습니다.",
+    "polite_alt": "I will be away from my desk due to a trip. Urgent matters have been delegated to Assistant Manager Lee.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-141",
+    "unit": 8,
+    "head": "회식",
+    "pos": "명사",
+    "en": "company dinner, get-together",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "dinner",
+    "examples": [
+      [
+        "분기 마감을 무사히 끝내고 팀원들의 노고를 격려하기 위해 저녁에 회식을 했습니다.",
+        "After successfully closing the quarter, we had a company dinner in the evening to appreciate the team's hard work."
+      ],
+      [
+        "요즘은 술을 강요하지 않고 맛있는 음식을 즐기는 문화로 회식이 바뀌고 있어요.",
+        "These days, company dinners are shifting toward enjoying good food rather than forcing alcohol."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁에 부서 전체 회식 있는 거 아시죠?"
+      ],
+      [
+        "B",
+        "You know there is a full department dinner this evening, right?"
+      ]
+    ],
+    "note": "네, 업무 일찍 마무리하고 식당으로 이동하겠습니다.",
+    "polite_alt": "Yes, I will wrap up work early and head over to the restaurant.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-142",
+    "unit": 8,
+    "head": "건배사",
+    "pos": "명사",
+    "en": "toast, toast speech",
+    "lv": 2,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "팀장님께서 팀의 화합과 신규 프로젝트 성공을 기원하는 멋진 건배사를 해주셨습니다.",
+        "The team leader gave a wonderful toast wishing for team harmony and new project success."
+      ],
+      [
+        "신입 사원 환영 회식 자리에서 돌아가며 짧은 건배사를 한마디씩 나눴어요.",
+        "At the new hire welcome dinner, everyone took turns sharing a brief toast."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 회식 오프닝 건배사는 누가 맡기로 했나요?"
+      ],
+      [
+        "B",
+        "Who was designated to give the opening toast for today's dinner?"
+      ]
+    ],
+    "note": "이번 프로젝트를 성공적으로 이끈 김 대리가 건배사를 하기로 했습니다.",
+    "polite_alt": "Assistant Manager Kim, who led this project to success, will give the toast.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-143",
+    "unit": 8,
+    "head": "접대",
+    "pos": "명사",
+    "en": "business entertainment, entertaining clients",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "중요한 해외 바이어와의 신뢰 형성을 위해 격조 높은 전통 한정식집에서 접대를 마련했습니다.",
+        "To build trust with key overseas buyers, we arranged business entertainment at an upscale traditional Korean restaurant."
+      ],
+      [
+        "고객사 접대 시에는 청탁금지법 등 사내 윤리 규정을 철저히 준수해야 합니다.",
+        "When entertaining clients, internal ethics guidelines such as anti-graft laws must be strictly observed."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁 접대 일정 참석자는 확정되었습니까?"
+      ],
+      [
+        "B",
+        "Have the attendees for this evening's client entertainment schedule been confirmed?"
+      ]
+    ],
+    "note": "네, 영업본부장님과 실무 담당자 두 명이 함께 참석하기로 했습니다.",
+    "polite_alt": "Yes, the head of the sales division and two working-level staff will attend together.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-144",
+    "unit": 8,
+    "head": "식순",
+    "pos": "명사",
+    "en": "program, order of proceedings",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "송년 만찬 행사의 원활한 진행을 위해 사회자용 식순 카드를 준비했습니다.",
+        "We prepared a program card for the emcee for the smooth running of the year-end banquet."
+      ],
+      [
+        "환영사, 축사, 만찬으로 이어지는 식순을 전광판 화면에 띄워 두었습니다.",
+        "The program sequence, progressing from welcoming remarks and congratulations to banquet, was projected on the screen."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 창립기념식 식순이 어떻게 됩니까?"
+      ],
+      [
+        "B",
+        "What is the order of proceedings for today's founding anniversary ceremony?"
+      ]
+    ],
+    "note": "우수 사원 포상 후 케이크 커팅식과 만찬 식순으로 이어집니다.",
+    "polite_alt": "After rewarding outstanding employees, it leads to the cake-cutting ceremony and banquet.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-145",
+    "unit": 8,
+    "head": "주류",
+    "pos": "명사",
+    "en": "alcoholic beverages, drinks",
+    "lv": 2,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "만찬 행사에서는 와인과 맥주를 포함한 다양한 주류와 음료가 제공되었습니다.",
+        "A variety of alcoholic beverages and drinks, including wine and beer, were served at the banquet."
+      ],
+      [
+        "개인 사정으로 주류를 마시지 못하는 분들을 위해 무알코올 음료를 따로 비치했어요.",
+        "We separately stocked non-alcoholic beverages for those who cannot drink alcohol due to personal reasons."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회식 자리에서 주류 주문은 어떻게 할까요?"
+      ],
+      [
+        "B",
+        "How shall we handle ordering alcoholic beverages at the dinner?"
+      ]
+    ],
+    "note": "취향에 맞게 소주, 맥주, 음료수를 골고루 주문해 둡시다.",
+    "polite_alt": "Let's order a balanced mix of soju, beer, and soft drinks to suit different preferences.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-146",
+    "unit": 8,
+    "head": "귀가",
+    "pos": "명사",
+    "en": "going home, returning home",
+    "lv": 2,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "늦은 시간까지 회식이 이어지지 않도록 아홉 시 전에 귀가하는 것을 권장합니다.",
+        "We recommend returning home before nine so the company dinner does not drag on late."
+      ],
+      [
+        "술을 마신 직원은 대리운전 기사를 호출하거나 대중교통으로 안전하게 귀가해야 합니다.",
+        "Employees who drank alcohol must call a designated driver or return home safely by public transit."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회식 끝나고 귀가 교통편은 괜찮으신가요?"
+      ],
+      [
+        "B",
+        "Is your transportation for going home alright after the company dinner?"
+      ]
+    ],
+    "note": "네, 지하철 막차 시간 전에 맞춰서 귀가하겠습니다.",
+    "polite_alt": "Yes, I will return home in time before the last subway train.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-147",
+    "unit": 8,
+    "head": "분위기",
+    "pos": "명사",
+    "en": "atmosphere, ambiance",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "dinner",
+    "examples": [
+      [
+        "선배들이 편안하게 말을 건네주어 회식 분위기가 아주 화기애애했습니다.",
+        "Because senior colleagues spoke comfortably, the dinner atmosphere was very friendly and cheerful."
+      ],
+      [
+        "조용하고 아늑한 분위기의 식당을 골라 진솔한 대화를 나눌 수 있었어요.",
+        "We picked a restaurant with a quiet and cozy atmosphere, allowing us to share sincere conversations."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새로 부임하신 팀장님 회식 분위기는 어땠나요?"
+      ],
+      [
+        "B",
+        "How was the atmosphere at the dinner with the newly appointed team leader?"
+      ]
+    ],
+    "note": "유머 감각이 있으셔서 팀 전체 분위기가 아주 밝아졌습니다.",
+    "polite_alt": "He has a great sense of humor, so the entire team's atmosphere became very bright.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-148",
+    "unit": 8,
+    "head": "자리",
+    "pos": "명사",
+    "en": "gathering, seat, occasion",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "dinner",
+    "examples": [
+      [
+        "바쁘신 와중에도 이렇게 뜻깊은 자리에 참석해 주셔서 대단히 감사합니다.",
+        "Thank you very much for attending such a meaningful occasion despite your busy schedule."
+      ],
+      [
+        "부서 간 보이지 않는 벽을 허물기 위해 비공식적인 소통의 자리를 마련했습니다.",
+        "We arranged an informal communication gathering to break down invisible walls between departments."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁 식사 자리가 몇 시로 예약되었습니까?"
+      ],
+      [
+        "B",
+        "What time has this evening's dining occasion been reserved for?"
+      ]
+    ],
+    "note": "여섯 시 반에 식당 룸으로 예약 자리가 잡혀 있습니다.",
+    "polite_alt": "A reserved table in a private dining room is set for six-thirty.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-149",
+    "unit": 8,
+    "head": "음주운전",
+    "pos": "명사",
+    "en": "drunk driving, driving under the influence",
+    "lv": 2,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "회사에서는 음주운전 근절을 위해 엄격한 징계 규정을 시행하고 있습니다.",
+        "The company enforces strict disciplinary regulations to eradicate drunk driving."
+      ],
+      [
+        "회식 자리에서 술을 한 모금이라도 마셨다면 절대 운전대를 잡아서는 안 됩니다.",
+        "If you drank even a single sip of alcohol at the dinner, you must never take the steering wheel."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "차를 가져오셨는데 귀가는 어떻게 하시나요?"
+      ],
+      [
+        "B",
+        "You brought your car. How are you going home?"
+      ]
+    ],
+    "note": "음주운전 예방을 위해 대리운전을 불러서 가겠습니다.",
+    "polite_alt": "To prevent drunk driving, I will call a designated driver to go home.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-150",
+    "unit": 8,
+    "head": "모시다",
+    "pos": "동사",
+    "en": "to escort, to treat, to host (honorific)",
+    "lv": 2,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "오늘 저녁에는 저희가 정성껏 준비한 식당으로 대표님을 모시겠습니다.",
+        "This evening, we will escort the CEO to the restaurant that we have prepared with care."
+      ],
+      [
+        "멀리서 찾아오신 귀한 손님들을 고급 한옥 식당으로 모셨습니다.",
+        "We hosted our precious guests who traveled from afar at an upscale traditional Hanok restaurant."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁 거래처 분들은 어디로 모실까요?"
+      ],
+      [
+        "B",
+        "Where shall we take the client representatives for dinner tonight?"
+      ]
+    ],
+    "note": "호텔 일식당 조용한 개별실로 모시도록 예약해 두었습니다.",
+    "polite_alt": "I have reserved a quiet private room at the hotel Japanese restaurant to host them.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-151",
+    "unit": 8,
+    "head": "참석하다",
+    "pos": "동사",
+    "en": "to attend, to participate",
+    "lv": 1,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "연말 부서 송년 회식에 전 팀원이 빠짐없이 전원 참석했습니다.",
+        "All team members attended the year-end department dinner without anyone missing."
+      ],
+      [
+        "건강상의 이유로 술자리에 끝까지 참석하지 못하고 일찍 일어났습니다.",
+        "Due to health reasons, I could not attend the drinks until the end and left early."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 신입 사원 환영회에 참석하실 수 있습니까?"
+      ],
+      [
+        "B",
+        "Can you attend today's new employee welcome gathering?"
+      ]
+    ],
+    "note": "네, 외근 일정을 서둘러 마치고 반드시 참석하겠습니다.",
+    "polite_alt": "Yes, I will wrap up my outside schedule quickly and definitely attend.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-152",
+    "unit": 8,
+    "head": "사양하다",
+    "pos": "동사",
+    "en": "to decline politely",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "권해주신 술잔을 정중히 사양하고 대신 따뜻한 차를 마셨습니다.",
+        "I politely declined the offered drink and sipped warm tea instead."
+      ],
+      [
+        "선배님의 식사 대접 호의를 거듭 사양하기 어려워 감사히 받았습니다.",
+        "It was difficult to repeatedly decline the senior colleague's generous offer of a meal, so I accepted with gratitude."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "술을 전혀 못 드시나요?"
+      ],
+      [
+        "B",
+        "Can you not drink alcohol at all?"
+      ]
+    ],
+    "note": "네, 체질상 술이 맞지 않아 부득이하게 사양하겠습니다.",
+    "polite_alt": "Yes, alcohol does not agree with my constitution, so I will politely decline.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-153",
+    "unit": 8,
+    "head": "권하다",
+    "pos": "동사",
+    "en": "to offer, to recommend",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "dinner",
+    "examples": [
+      [
+        "상대방의 주량을 배려하지 않고 무리하게 음주를 권해서는 안 됩니다.",
+        "You must not forcefully press drinks without considering the other person's drinking capacity."
+      ],
+      [
+        "대표님께서 귀한 음식이라며 테이블 위의 특선 요리를 먼저 권하셨습니다.",
+        "The CEO first offered the special dish on the table, saying it was a rare delicacy."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "어떤 메뉴를 주문하면 좋을까요?"
+      ],
+      [
+        "B",
+        "Which menu item would be good to order?"
+      ]
+    ],
+    "note": "이 식당의 대표 메뉴인 불고기 정식을 권해 드립니다.",
+    "polite_alt": "I recommend the bulgogi set menu, which is this restaurant's signature dish.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-154",
+    "unit": 8,
+    "head": "어울리다",
+    "pos": "동사",
+    "en": "to mingle, to socialize, to suit",
+    "lv": 1,
+    "register": "casual",
+    "situation": "dinner",
+    "examples": [
+      [
+        "회식을 통해 평소 대화할 기회가 적었던 타 부서 동료들과 자연스럽게 어울렸습니다.",
+        "Through the dinner, I naturally mingled with colleagues from other departments with whom I rarely had a chance to talk."
+      ],
+      [
+        "신입 사원들이 선배들과 스스럼없이 어울릴 수 있도록 편안한 자리를 만들었어요.",
+        "We created a relaxed atmosphere so new hires could socialize comfortably with senior staff."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 저녁 회식 분위기가 참 좋네요."
+      ],
+      [
+        "B",
+        "The company dinner atmosphere is really great tonight."
+      ]
+    ],
+    "note": "네, 팀원들이 허물없이 잘 어울려서 무척 보기 좋습니다.",
+    "polite_alt": "Yes, it is wonderful to see team members mingling so openly and well.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-155",
+    "unit": 8,
+    "head": "화기애애하다",
+    "pos": "형용사",
+    "en": "to be harmonious, cheerful, convivial",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "격식을 차리지 않고 자유롭게 담소를 나누며 화기애애한 분위기 속에서 만찬을 마쳤습니다.",
+        "We finished the banquet in a convivial atmosphere, chatting freely without stiff formality."
+      ],
+      [
+        "새로 영입된 팀원의 재치 있는 입담 덕분에 식사 자리가 시종일관 화기애애했어요.",
+        "Thanks to the newly recruited teammate's witty banter, the dining table was cheerful from start to finish."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 거래처와의 만찬 분위기는 어땠나요?"
+      ],
+      [
+        "B",
+        "How was the atmosphere at the dinner with the client today?"
+      ]
+    ],
+    "note": "서로 덕담을 주고받으며 무척 화기애애하게 진행되었습니다.",
+    "polite_alt": "It proceeded very harmoniously, with both sides exchanging warm compliments.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-156",
+    "unit": 8,
+    "head": "건배를 제의하겠습니다",
+    "pos": "표현",
+    "en": "I propose a toast",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "참석자 여러분, 모두 잔을 채워 주십시오. 제가 건배를 제의하겠습니다.",
+        "Attendees, please fill your glasses. I would like to propose a toast."
+      ],
+      [
+        "저희 팀의 올 한 해 눈부신 도약과 건강을 위하여 건배를 제의하겠습니다.",
+        "For our team's brilliant leap forward and good health this year, I propose a toast."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "팀장님, 한 말씀 부탁드립니다."
+      ],
+      [
+        "B",
+        "Team Leader, please share a few words."
+      ]
+    ],
+    "note": "네, 자리를 빛내주신 여러분께 감사드리며 건배를 제의하겠습니다.",
+    "polite_alt": "Yes, thanking everyone who graced this seat, I propose a toast.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-157",
+    "unit": 8,
+    "head": "많이 드십시오",
+    "pos": "표현",
+    "en": "Please enjoy the food / Eat plenty",
+    "lv": 1,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "음식이 입에 맞으실지 모르겠습니다. 사양하지 마시고 많이 드십시오.",
+        "I wonder if the food suits your palate. Please don't be shy and enjoy plenty."
+      ],
+      [
+        "오늘 회식을 위해 특별히 준비한 요리들이니 편하게 많이 드십시오.",
+        "These dishes were specially prepared for today's dinner, so please eat plenty comfortably."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "음식이 정말 정갈하고 맛있어 보입니다."
+      ],
+      [
+        "B",
+        "The food looks truly neat and delicious."
+      ]
+    ],
+    "note": "입맛에 맞으신다니 다행입니다. 부족하면 더 주문할 테니 많이 드십시오.",
+    "polite_alt": "I am glad it suits your taste. We will order more if it is not enough, so please eat plenty.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-158",
+    "unit": 8,
+    "head": "오늘 정말 즐거웠습니다",
+    "pos": "표현",
+    "en": "I had a wonderful time today",
+    "lv": 1,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "좋은 자리 마련해 주셔서 감사드리며 오늘 정말 즐거웠습니다.",
+        "Thank you for arranging such a wonderful gathering. I had a truly delightful time today."
+      ],
+      [
+        "동료들과 깊은 이야기를 나눌 수 있어서 오늘 정말 즐거웠습니다.",
+        "I had a truly wonderful time today being able to share deep conversations with colleagues."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "바쁘신 와중에 함께해 주셔서 감사했습니다."
+      ],
+      [
+        "B",
+        "Thank you for joining us despite your busy schedule."
+      ]
+    ],
+    "note": "초대해 주셔서 감사했습니다. 오늘 덕분에 정말 즐거웠습니다.",
+    "polite_alt": "Thank you for the invitation. Thanks to you, I had a truly wonderful time today.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-159",
+    "unit": 8,
+    "head": "다음 차수는 사양하겠습니다",
+    "pos": "표현",
+    "en": "I will pass on the next round",
+    "lv": 3,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "내일 이른 아침 출장 일정이 있어 다음 차수는 사양하겠습니다.",
+        "I have an early morning business trip tomorrow, so I will pass on the next round."
+      ],
+      [
+        "몸 상태가 조금 좋지 않아 이번에는 다음 차수를 사양하고 먼저 일어나겠습니다.",
+        "I am feeling a bit unwell, so I will pass on the next round this time and head out first."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이차로 맥주 한잔 더 하러 갈 건데 같이 가실래요?"
+      ],
+      [
+        "B",
+        "We are going for a second round of beers. Would you like to join?"
+      ]
+    ],
+    "note": "마음은 굴뚝같지만 선약이 있어 다음 차수는 사양하겠습니다.",
+    "polite_alt": "I would love to, but I have a prior appointment, so I must pass on the next round.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-160",
+    "unit": 8,
+    "head": "조심히 들어가십시오",
+    "pos": "표현",
+    "en": "Please get home safely",
+    "lv": 1,
+    "register": "formal",
+    "situation": "dinner",
+    "examples": [
+      [
+        "밤이 늦었으니 귀갓길 발걸음 조심히 들어가십시오. 내일 뵙겠습니다.",
+        "It is late at night, so please get home safely. See you tomorrow."
+      ],
+      [
+        "오늘 과음하지 마시고 택시 안전하게 타시고 조심히 들어가십시오.",
+        "Don't overdrink tonight, take a taxi safely, and please get home safe."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 회식 자리 즐거웠습니다. 먼저 일어나 보겠습니다."
+      ],
+      [
+        "B",
+        "I enjoyed today's company dinner. I will get going first."
+      ]
+    ],
+    "note": "네, 고생 많으셨습니다. 밤길 어두우니 조심히 들어가십시오.",
+    "polite_alt": "Yes, great work today. The night road is dark, so please get home safely.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-161",
+    "unit": 9,
+    "head": "이력서",
+    "pos": "명사",
+    "en": "resume, CV",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "지원자는 학력과 경력 사항을 시간 순서대로 이력서에 정확히 기재해야 합니다.",
+        "Applicants must accurately state their educational background and career history on their resume in chronological order."
+      ],
+      [
+        "서류 전형 접수를 위해 사진이 부착된 국문 이력서를 시스템에 등록했습니다.",
+        "I registered a Korean resume with photo attached into the system for the document screening process."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "경력직 지원 서류에 어떤 항목이 포함되나요?"
+      ],
+      [
+        "B",
+        "Which items are included in experienced candidate application documents?"
+      ]
+    ],
+    "note": "이력서와 경력 기술서, 포트폴리오를 함께 제출하셔야 합니다.",
+    "polite_alt": "You must submit a resume, career description, and portfolio together.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-162",
+    "unit": 9,
+    "head": "자기소개서",
+    "pos": "명사",
+    "en": "cover letter, personal statement",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "자기소개서에는 지원 동기와 직무 관련 성공 경험을 진솔하게 담아냈습니다.",
+        "In my personal statement, I sincerely incorporated my application motive and job-related success experiences."
+      ],
+      [
+        "인사팀 서류 평가관들은 자기소개서의 구체적인 문제 해결 사례를 주의 깊게 검토합니다.",
+        "HR document evaluators carefully examine specific problem-solving examples in cover letters."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "자기소개서 문항이 몇 개인가요?"
+      ],
+      [
+        "B",
+        "How many prompts are there in the personal statement?"
+      ]
+    ],
+    "note": "지원 동기와 입사 후 포부를 묻는 세 개 문항으로 구성되어 있습니다.",
+    "polite_alt": "It consists of three prompts asking about motivation for applying and post-hire aspirations.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-163",
+    "unit": 9,
+    "head": "면접관",
+    "pos": "명사",
+    "en": "interviewer",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "면접관들의 날카로운 직무 질문에도 당황하지 않고 침착하게 답변했습니다.",
+        "Even at the interviewers' sharp job-related questions, he answered calmly without flustering."
+      ],
+      [
+        "경영진 면접관 세 분이 지원자의 직무 적합성과 인성을 다각도로 평가했어요.",
+        "Three executive interviewers evaluated candidates' job fitness and character from multiple perspectives."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "면접장에 들어가면 누구를 먼저 바라봐야 하나요?"
+      ],
+      [
+        "B",
+        "Whom should I look at first when entering the interview room?"
+      ]
+    ],
+    "note": "가운데 앉아 계신 주 면접관과 눈을 맞추며 바르게 인사하세요.",
+    "polite_alt": "Make eye contact with the lead interviewer seated in the center and greet politely.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-164",
+    "unit": 9,
+    "head": "지원 동기",
+    "pos": "명사",
+    "en": "motive for applying, reason for application",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "귀사의 글로벌 시장 개척 비전에 깊이 공감하여 지원 동기를 갖게 되었습니다.",
+        "I developed a motive for applying because I deeply resonated with your vision for global market expansion."
+      ],
+      [
+        "면접 첫 질문으로 우리 회사에 지원한 지원 동기를 명확하게 밝혀 주십시오.",
+        "As the first interview question, please clearly state your motive for applying to our company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "지원 동기를 어떻게 설명해야 좋은 인상을 줄까요?"
+      ],
+      [
+        "B",
+        "How should I explain my application motive to leave a good impression?"
+      ]
+    ],
+    "note": "자신의 직무 역량이 회사의 성장에 어떻게 기여할 수 있는지를 강조하세요.",
+    "polite_alt": "Emphasize how your job competencies can contribute to company growth.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-165",
+    "unit": 9,
+    "head": "직무 역량",
+    "pos": "명사",
+    "en": "job competency, professional capability",
+    "lv": 3,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "다양한 실무 프로젝트 경험을 통해 검증된 직무 역량을 집중적으로 어필했습니다.",
+        "I focused on showcasing proven job competencies gained through diverse practical project experiences."
+      ],
+      [
+        "신입 사원이라도 현업에 즉시 투입될 수 있는 기초 직무 역량을 갖추어야 합니다.",
+        "Even new hires must possess fundamental job competencies to be deployed to work immediately."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 채용에서 가장 중요하게 평가하는 요소는 무엇입니까?"
+      ],
+      [
+        "B",
+        "What is the most importantly evaluated factor in this recruitment?"
+      ]
+    ],
+    "note": "실무에 즉각 활용 가능한 데이터 분석 직무 역량입니다.",
+    "polite_alt": "It is data analysis job competency that can be immediately applied to practical tasks.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-166",
+    "unit": 9,
+    "head": "포부",
+    "pos": "명사",
+    "en": "aspiration, ambition",
+    "lv": 3,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "입사 후 포부로 글로벌 시장 점유율 일위를 달성하겠다는 당찬 포부를 밝혔습니다.",
+        "In post-hire aspirations, he declared a bold ambition to achieve top global market share."
+      ],
+      [
+        "면접관은 지원자가 장기적인 성장 포부를 가지고 있는지 확인하고 싶어 합니다.",
+        "Interviewers want to see whether candidates possess long-term growth aspirations."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "입사 후 십 년 뒤 본인의 모습을 어떻게 그리고 계신가요?"
+      ],
+      [
+        "B",
+        "How do you picture yourself ten years after joining the company?"
+      ]
+    ],
+    "note": "해외 지사 사업을 총괄하는 핵심 리더로 성장하겠다는 포부를 가지고 있습니다.",
+    "polite_alt": "I have the aspiration to grow into a core leader overseeing overseas branch operations.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-167",
+    "unit": 9,
+    "head": "합격",
+    "pos": "명사",
+    "en": "passing (an exam/interview), acceptance",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "치열한 경쟁을 뚫고 최종 면접에 합격했다는 소식을 문자로 전달받았습니다.",
+        "I received news via text message that I passed the final interview through fierce competition."
+      ],
+      [
+        "서류 전형 합격자에 한하여 실무진 면접 일정을 개별 안내해 드립니다.",
+        "Practical interview schedules are individually notified only to document screening acceptance candidates."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "최종 합격자 발표가 언제 공지됩니까?"
+      ],
+      [
+        "B",
+        "When will the final acceptance announcement be posted?"
+      ]
+    ],
+    "note": "이번 주 금요일 오후 두 시에 채용 홈페이지를 통해 발표됩니다.",
+    "polite_alt": "It will be announced via the recruitment portal this Friday at 2 PM.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-168",
+    "unit": 9,
+    "head": "채용 공고",
+    "pos": "명사",
+    "en": "job posting, recruitment announcement",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "하반기 대졸 신입 사원 정기 채용 공고가 회사 채용 사이트에 게시되었습니다.",
+        "The second-half regular recruitment announcement for college graduate new hires has been posted on the careers site."
+      ],
+      [
+        "채용 공고에 명시된 필수 자격 요건과 우대 사항을 꼼꼼하게 대조해 보았어요.",
+        "I meticulously matched mandatory qualifications and preferred criteria specified in the job posting."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "마케팅 부서 추가 채용 공고가 올라왔나요?"
+      ],
+      [
+        "B",
+        "Has an additional recruitment posting for the marketing department been uploaded?"
+      ]
+    ],
+    "note": "네, 경력 삼 년 이상의 실무자 채용 공고가 방금 등록되었습니다.",
+    "polite_alt": "Yes, a job posting for practitioners with over three years of experience was just registered.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-169",
+    "unit": 9,
+    "head": "수습기간",
+    "pos": "명사",
+    "en": "probationary period, probation",
+    "lv": 3,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "신규 입사자는 사내 규정에 따라 삼 개월간의 수습기간을 거치게 됩니다.",
+        "New employees undergo a three-month probationary period in accordance with company regulations."
+      ],
+      [
+        "수습기간 동안 선배 멘토의 밀착 지도를 받으며 사내 시스템을 익혔습니다.",
+        "During the probationary period, I learned company systems under the close guidance of a senior mentor."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "수습기간 중에도 급여가 정상 지급됩니까?"
+      ],
+      [
+        "B",
+        "Is salary paid normally during the probationary period?"
+      ]
+    ],
+    "note": "네, 근로계약서에 정해진 기준에 따라 백 퍼센트 전액 지급됩니다.",
+    "polite_alt": "Yes, it is paid 100% in full according to criteria set in the employment contract.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-170",
+    "unit": 9,
+    "head": "지원하다",
+    "pos": "동사",
+    "en": "to apply for (a job)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "평소 동경하던 혁신 기술 기업의 연구 개발 부서에 주저 없이 지원했습니다.",
+        "I applied without hesitation to the R&D department of the tech firm I had always admired."
+      ],
+      [
+        "마감 시한 직전에는 지원자가 몰려 서버가 느려질 수 있으니 미리 지원하세요.",
+        "Servers may slow down right before deadline due to surging applicants, so please apply early."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번 공개 채용에 지원하셨습니까?"
+      ],
+      [
+        "B",
+        "Did you apply for this open recruitment?"
+      ]
+    ],
+    "note": "네, 어젯밤에 서류 작성을 마치고 최종 지원 완료했습니다.",
+    "polite_alt": "Yes, I finished writing documents last night and finalized my application.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-171",
+    "unit": 9,
+    "head": "평가하다",
+    "pos": "동사",
+    "en": "to evaluate, to assess",
+    "lv": 2,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "면접관들은 지원자의 전문 지식뿐 아니라 팀워크와 소통 능력도 높이 평가했습니다.",
+        "Interviewers evaluated candidates' teamwork and communication skills highly, not just technical knowledge."
+      ],
+      [
+        "실기 테스트 결과를 다각적으로 공정하게 평가하여 최종 합격자를 선발했습니다.",
+        "We selected final successful candidates by fairly evaluating practical test results from multiple angles."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "지원자의 면접 태도는 어떻게 평가되었나요?"
+      ],
+      [
+        "B",
+        "How was the candidate's interview attitude evaluated?"
+      ]
+    ],
+    "note": "자신감 넘치고 예의 바른 태도로 면접관들로부터 매우 우수한 평가를 받았습니다.",
+    "polite_alt": "With a confident and polite attitude, she received very superior assessments from interviewers.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-172",
+    "unit": 9,
+    "head": "답변하다",
+    "pos": "동사",
+    "en": "to answer, to respond (formal)",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "면접관의 까다로운 상황 대처 질문에 자신의 경험을 들어 조리 있게 답변했습니다.",
+        "In response to the interviewer's tricky situational question, he answered coherently citing his experience."
+      ],
+      [
+        "질문의 핵심을 정확히 파악한 후 두괄식으로 간결하게 답변하는 연습을 했습니다.",
+        "I practiced answering concisely in a bottom-line-first manner after accurately grasping the core of questions."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "마지막 질문에 대해 어떻게 답변하셨습니까?"
+      ],
+      [
+        "B",
+        "How did you respond to the final question?"
+      ]
+    ],
+    "note": "회사의 장기 비전과 제 커리어 목표의 연결고리를 강조하며 답변했습니다.",
+    "polite_alt": "I answered by emphasizing the link between the company's long-term vision and my career goals.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-173",
+    "unit": 9,
+    "head": "경청하다",
+    "pos": "동사",
+    "en": "to listen attentively",
+    "lv": 2,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "면접관의 질문을 끝까지 주의 깊게 경청한 후 차분하게 말을 시작했습니다.",
+        "After listening attentively to the interviewer's question until the end, she calmly began speaking."
+      ],
+      [
+        "상대방의 의견을 진지하게 경청하는 자세는 훌륭한 협업의 기초가 됩니다.",
+        "An attitude of listening earnestly to the other party's opinion forms the foundation of great collaboration."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "면접 중에 다른 지원자가 말할 때는 어떻게 해야 하나요?"
+      ],
+      [
+        "B",
+        "What should I do when another candidate speaks during the group interview?"
+      ]
+    ],
+    "note": "시선을 가볍게 두고 경청하는 태도를 보여주는 것이 좋은 인상을 줍니다.",
+    "polite_alt": "Gently directing your gaze and showing an attentive listening attitude leaves a favorable impression.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-174",
+    "unit": 9,
+    "head": "채용하다",
+    "pos": "동사",
+    "en": "to recruit, to hire",
+    "lv": 2,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "사업 영역 확장에 맞추어 글로벌 역량을 갖춘 외국인 인재를 대거 채용했습니다.",
+        "Per our business expansion, we hired a large number of foreign talents with global capabilities."
+      ],
+      [
+        "공정하고 투명한 절차를 통해 실력 있는 신입 사원들을 채용하기로 결정했습니다.",
+        "We decided to recruit capable new hires through fair and transparent procedures."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "올해 신규 인력 채용 계획이 어떻게 됩니까?"
+      ],
+      [
+        "B",
+        "What is the new talent recruitment plan for this year?"
+      ]
+    ],
+    "note": "개발과 마케팅 분야를 중심으로 전년 대비 이십 퍼센트 더 채용할 계획입니다.",
+    "polite_alt": "We plan to recruit 20% more compared to last year, centering on development and marketing fields.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-175",
+    "unit": 9,
+    "head": "유능하다",
+    "pos": "형용사",
+    "en": "to be competent, capable",
+    "lv": 2,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "새로 영입된 팀장은 글로벌 프로젝트를 성공적으로 이끌 만큼 매우 유능합니다.",
+        "The newly recruited team leader is very competent, enough to lead global projects to success."
+      ],
+      [
+        "유능한 인재를 유치하기 위해 회사는 업계 최고 수준의 복지 혜택을 제공합니다.",
+        "To attract capable talent, the company provides industry-leading welfare benefits."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이번에 입사한 신입 사원들은 어떤가요?"
+      ],
+      [
+        "B",
+        "How are the new hires who joined this time?"
+      ]
+    ],
+    "note": "기본 소양이 탄탄하고 학습 속도가 빨라 아주 유능해 보입니다.",
+    "polite_alt": "Their fundamentals are solid and learning pace is quick, so they look very capable.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-176",
+    "unit": 9,
+    "head": "자기소개 부탁드립니다",
+    "pos": "표현",
+    "en": "Please introduce yourself",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "긴장 푸시고 일 분 동안 자신의 강점을 중심으로 자기소개 부탁드립니다.",
+        "Please relax and introduce yourself in one minute, focusing on your strengths."
+      ],
+      [
+        "면접 시작에 앞서 준비해 오신 간단한 자기소개 부탁드립니다.",
+        "Ahead of starting the interview, please give the brief self-introduction you prepared."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "면접관님들 앞에 앉았습니다."
+      ],
+      [
+        "B",
+        "I have sat down before the interviewers."
+      ]
+    ],
+    "note": "환영합니다. 편안한 마음으로 일 분 자기소개 부탁드립니다.",
+    "polite_alt": "Welcome. With a relaxed mind, please introduce yourself in one minute.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-177",
+    "unit": 9,
+    "head": "입사하게 된다면",
+    "pos": "표현",
+    "en": "If I am hired / If I join the company",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "제가 귀사에 입사하게 된다면 열정적인 자세로 팀의 목표 달성에 기여하겠습니다.",
+        "If I am hired by your esteemed company, I will contribute to achieving team goals with a passionate attitude."
+      ],
+      [
+        "만약 입사하게 된다면 선배님들께 적극적으로 배우며 빠르게 실무를 익히겠습니다.",
+        "If I join the company, I will actively learn from senior colleagues and master practical skills quickly."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "입사 후 어떤 역할을 맡고 싶으신가요?"
+      ],
+      [
+        "B",
+        "What role would you like to take on after joining the company?"
+      ]
+    ],
+    "note": "입사하게 된다면 해외 시장 조사 업무부터 꼼꼼히 완수하고 싶습니다.",
+    "polite_alt": "If I am hired, I would like to meticulously carry out overseas market research duties first.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-178",
+    "unit": 9,
+    "head": "최선을 다하겠습니다",
+    "pos": "표현",
+    "en": "I will do my utmost best",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "어떤 어려운 과제가 주어지더라도 포기하지 않고 최선을 다하겠습니다.",
+        "No matter what difficult challenge is given, I will not give up and do my utmost best."
+      ],
+      [
+        "기회를 주신다면 회사와 함께 성장하는 든든한 인재가 되도록 최선을 다하겠습니다.",
+        "If given the opportunity, I will do my utmost best to become a solid asset growing with the company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "마지막으로 하고 싶은 말이 있습니까?"
+      ],
+      [
+        "B",
+        "Is there anything you would like to say as final remarks?"
+      ]
+    ],
+    "note": "귀사에서 제 역량을 발휘할 수 있도록 맡은 바에 최선을 다하겠습니다.",
+    "polite_alt": "I will do my utmost best in my assigned duties so I can demonstrate my capabilities at your firm.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-179",
+    "unit": 9,
+    "head": "결과는 개별 통보해 드리겠습니다",
+    "pos": "표현",
+    "en": "Results will be notified individually",
+    "lv": 3,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "오늘 면접 수고 많으셨으며 최종 합격 결과는 개별 통보해 드리겠습니다.",
+        "Thank you for your hard work in today's interview. Final acceptance results will be notified individually."
+      ],
+      [
+        "면접 심사 결과를 정리하여 다음 주 화요일까지 이메일로 개별 통보해 드리겠습니다.",
+        "We will compile the interview review results and notify you individually via email by next Tuesday."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "면접 결과는 언제 어떻게 알 수 있나요?"
+      ],
+      [
+        "B",
+        "When and how will we know the interview results?"
+      ]
+    ],
+    "note": "전형 결과는 금주 금요일 중으로 문자와 메일로 개별 통보해 드리겠습니다.",
+    "polite_alt": "Screening results will be notified individually via text and email within this Friday.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-180",
+    "unit": 9,
+    "head": "면접에 응해 주셔서 감사합니다",
+    "pos": "표현",
+    "en": "Thank you for attending the interview",
+    "lv": 1,
+    "register": "formal",
+    "situation": "interview",
+    "examples": [
+      [
+        "바쁘신 와중에 오늘 저희 회사 면접에 응해 주셔서 대단히 감사합니다.",
+        "Thank you very much for attending our company interview today amidst your busy schedule."
+      ],
+      [
+        "궂은 날씨에도 시간 맞춰 면접에 응해 주셔서 감사드립니다. 조심히 돌아가세요.",
+        "Thank you for attending the interview on time despite the bad weather. Please return home safely."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "면접 질문은 모두 끝났습니다."
+      ],
+      [
+        "B",
+        "All interview questions are concluded."
+      ]
+    ],
+    "note": "네, 경청해 주셔서 감사합니다. 면접에 응해 주셔서 감사합니다.",
+    "polite_alt": "Yes, thank you for listening attentively. Thank you for attending our interview.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-181",
+    "unit": 10,
+    "head": "사무용품",
+    "pos": "명사",
+    "en": "office supplies, stationery",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "총무팀에서는 매월 초 각 부서별로 필요한 사무용품 신청을 일괄 접수합니다.",
+        "At the beginning of each month, the general affairs team collects office supply requests from each department in batches."
+      ],
+      [
+        "볼펜, 포스트잇, 복사용지 등 기본적인 사무용품은 탕비실 캐비닛에 보관되어 있어요.",
+        "Basic office supplies such as ballpoint pens, sticky notes, and copy paper are stored in the pantry cabinet."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "새로 필요한 사무용품이 있으신가요?"
+      ],
+      [
+        "B",
+        "Are there any office supplies you newly need?"
+      ]
+    ],
+    "note": "네, 서류 정리를 위한 클리어 파일과 스테이플러 심이 필요합니다.",
+    "polite_alt": "Yes, I need clear file folders and stapler pins for document organization.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-182",
+    "unit": 10,
+    "head": "복합기",
+    "pos": "명사",
+    "en": "multi-function printer, copier",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "회의 자료 백 부를 인쇄하기 위해 삼층 공용 복합기로 이동했습니다.",
+        "I moved to the 3rd-floor shared multi-function printer to print one hundred copies of meeting materials."
+      ],
+      [
+        "복합기에 종이 걸림 오류가 발생했을 때는 덮개를 열고 조심스럽게 용지를 꺼내세요.",
+        "When a paper jam error occurs in the multi-function printer, open the cover and carefully remove the paper."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "보고서 컬러 출력이 필요합니다."
+      ],
+      [
+        "B",
+        "I need a color printout of the report."
+      ]
+    ],
+    "note": "복도 중앙에 있는 대형 복합기에서 컬러 출력 옵션을 선택하시면 됩니다.",
+    "polite_alt": "You can select the color printing option on the large multi-function printer in the center of the hallway.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-183",
+    "unit": 10,
+    "head": "탕비실",
+    "pos": "명사",
+    "en": "pantry, office kitchenette",
+    "lv": 1,
+    "register": "casual",
+    "situation": "office",
+    "examples": [
+      [
+        "점심 식사 후 동료들과 탕비실에 모여 커피를 내리고 담소를 나누었습니다.",
+        "After lunch, we gathered with colleagues in the pantry, brewed coffee, and chatted."
+      ],
+      [
+        "탕비실 냉장고에 개인 음료를 보관할 때는 반드시 이름 라벨을 붙여야 합니다.",
+        "When storing personal drinks in the pantry refrigerator, you must affix a name label."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "따뜻한 녹차 한잔 드시겠어요?"
+      ],
+      [
+        "B",
+        "Would you like a cup of warm green tea?"
+      ]
+    ],
+    "note": "네, 감사합니다. 제가 탕비실에 가서 바로 타 오겠습니다.",
+    "polite_alt": "Yes, thank you. I will go to the office pantry and brew it right away.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-184",
+    "unit": 10,
+    "head": "사물함",
+    "pos": "명사",
+    "en": "locker, personal storage box",
+    "lv": 1,
+    "register": "casual",
+    "situation": "office",
+    "examples": [
+      [
+        "외투와 개인 소지품은 사무실 복도에 마련된 개인 사물함에 보관해 주세요.",
+        "Please store your coat and personal belongings in the personal locker arranged in the office corridor."
+      ],
+      [
+        "퇴근 시에는 보안을 위해 사물함 문을 반드시 잠그고 비밀번호를 확인하세요.",
+        "When leaving work, be sure to lock your locker door and verify your passcode for security."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "제 배정 사물함 위치가 어디인가요?"
+      ],
+      [
+        "B",
+        "Where is the location of my assigned locker?"
+      ]
+    ],
+    "note": "휴게실 입구 우측에 있는 십이 번 사물함을 사용하시면 됩니다.",
+    "polite_alt": "You can use locker number twelve on the right side of the lounge entrance.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-185",
+    "unit": 10,
+    "head": "소모품",
+    "pos": "명사",
+    "en": "consumables, office supplies",
+    "lv": 2,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "프린터 토너와 복사용지 같은 사무 소모품의 재고가 바닥나서 긴급 발주했습니다.",
+        "Stock of office consumables like printer toner and copy paper ran out, so we placed an emergency order."
+      ],
+      [
+        "예산 절감을 위해 사내 소모품을 아껴 쓰고 재활용하는 운동을 펼치고 있어요.",
+        "To reduce budget, we are conducting a campaign to economize and recycle company consumables."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "토너 카트리지 여분이 남아 있나요?"
+      ],
+      [
+        "B",
+        "Are there spare toner cartridges left?"
+      ]
+    ],
+    "note": "소모품 창고 선반 두 번째 칸에 새 토너 두 개가 비치되어 있습니다.",
+    "polite_alt": "Two new toners are stocked on the second shelf of the consumables storage room.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-186",
+    "unit": 10,
+    "head": "문서 세단기",
+    "pos": "명사",
+    "en": "paper shredder",
+    "lv": 2,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "개인정보가 적힌 이면지와 파기 서류는 문서 세단기에 넣어 즉시 갈아야 합니다.",
+        "Scratch paper and discarded documents containing personal info must be put into the paper shredder and shredded immediately."
+      ],
+      [
+        "문서 세단기 통이 가득 차면 비닐봉지를 교체하고 주변을 깨끗이 정리하세요.",
+        "When the paper shredder bin is full, replace the plastic bag and tidy the surroundings cleanly."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "지난 프로젝트 출력물은 어떻게 버리나요?"
+      ],
+      [
+        "B",
+        "How do I discard past project printouts?"
+      ]
+    ],
+    "note": "보안 규정에 따라 복합기 옆 문서 세단기를 이용하여 파쇄해 주십시오.",
+    "polite_alt": "Please shred them using the paper shredder next to the printer in accordance with security rules.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-187",
+    "unit": 10,
+    "head": "명찰",
+    "pos": "명사",
+    "en": "name badge, employee ID card",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "office",
+    "examples": [
+      [
+        "사옥 출입과 식당 이용을 위해 출근 시에는 항상 목에 사원증 명찰을 패용해야 합니다.",
+        "To enter the office building and use the cafeteria, you must always wear your employee ID name badge around your neck when coming to work."
+      ],
+      [
+        "신규 입사자 교육 첫날에 가슴에 다는 임시 플라스틱 명찰을 배부받았습니다.",
+        "On the first day of new hire training, I received a temporary plastic name badge to clip to my chest."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "외부 방문객은 출입증 명찰을 어디서 받습니까?"
+      ],
+      [
+        "B",
+        "Where do outside visitors receive their visitor badge?"
+      ]
+    ],
+    "note": "일층 안내 데스크에서 신분증을 맡기시고 방문증 명찰을 수령하시면 됩니다.",
+    "polite_alt": "You can leave your ID at the first-floor reception desk and receive a visitor badge.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-188",
+    "unit": 10,
+    "head": "비품",
+    "pos": "명사",
+    "en": "fixtures, office equipment, furnishings",
+    "lv": 2,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "신설 부서의 원활한 업무 환경 조성을 위해 사무용 책상과 의자 등 기본 비품을 배치했습니다.",
+        "We deployed basic fixtures such as office desks and chairs to build a smooth working environment for the new department."
+      ],
+      [
+        "매년 정기 자산 실사를 통해 사내에 등록된 모든 전자기기와 사무 비품을 점검합니다.",
+        "Through annual regular asset audits, we inspect all electronic devices and office fixtures registered in the company."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "부서 공용 비품이 고장 났을 때는 어떻게 하나요?"
+      ],
+      [
+        "B",
+        "What should we do when shared departmental equipment breaks down?"
+      ]
+    ],
+    "note": "사내 자산 관리 시스템에 비품 수리 요청서를 접수하시면 됩니다.",
+    "polite_alt": "You can register an equipment repair request in the company asset management system.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-189",
+    "unit": 10,
+    "head": "이면지",
+    "pos": "명사",
+    "en": "scrap paper, one-sided paper",
+    "lv": 1,
+    "register": "casual",
+    "situation": "office",
+    "examples": [
+      [
+        "사내 자원 절약을 위해 단순 확인용 문서는 이면지를 활용하여 출력하고 있습니다.",
+        "To save company resources, we print documents for simple verification using one-sided scrap paper."
+      ],
+      [
+        "이면지 수거함에 스테이플러 침이 남아 있지 않은지 확인 후 종이를 넣어 주세요.",
+        "Please check that no stapler pins remain before putting paper into the scrap paper recycling bin."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "메모할 종이가 마땅치 않네요."
+      ],
+      [
+        "B",
+        "There is no suitable paper to take notes on."
+      ]
+    ],
+    "note": "복사기 옆 이면지 상자에서 깨끗한 백면을 골라 쓰시면 됩니다.",
+    "polite_alt": "You can pick clean blank sides from the scrap paper box next to the copier and use them.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-190",
+    "unit": 10,
+    "head": "출력하다",
+    "pos": "동사",
+    "en": "to print out",
+    "lv": 1,
+    "register": "neutral",
+    "situation": "office",
+    "examples": [
+      [
+        "오후 회의에 참석할 인원수만큼 발표자료를 미리 출력해 두었습니다.",
+        "I printed out the presentation slides in advance according to the number of attendees for the afternoon meeting."
+      ],
+      [
+        "전자 서명 대신 친필 서명이 필요하여 계약서 최종본을 종이로 출력했습니다.",
+        "Because handwritten signatures were required instead of electronic signatures, I printed the final contract on paper."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "기획안 파일 출력 부탁드려도 될까요?"
+      ],
+      [
+        "B",
+        "May I ask you to print out the proposal file?"
+      ]
+    ],
+    "note": "네, 양면 흑백으로 세 부 출력해 드리겠습니다.",
+    "polite_alt": "Yes, I will print three double-sided black-and-white copies for you.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-191",
+    "unit": 10,
+    "head": "스캔하다",
+    "pos": "동사",
+    "en": "to scan",
+    "lv": 1,
+    "register": "casual",
+    "situation": "office",
+    "examples": [
+      [
+        "서명이 완료된 종이 계약서를 복합기로 스캔하여 PDF 파일로 보관했습니다.",
+        "I scanned the signed paper contract with the multi-function printer and archived it as a PDF file."
+      ],
+      [
+        "출장 영수증 원본을 모바일 앱으로 선명하게 스캔하여 증빙으로 올렸어요.",
+        "I clearly scanned original trip receipts with the mobile app and submitted them as proof."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "신분증 사본을 메일로 보내야 하는데 어떻게 하죠?"
+      ],
+      [
+        "B",
+        "I need to send a copy of my ID by email. What should I do?"
+      ]
+    ],
+    "note": "복합기 스캔 기능을 이용해 본인 이메일 주소로 바로 전송하시면 됩니다.",
+    "polite_alt": "You can use the copier scanning feature to send it directly to your own email address.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-192",
+    "unit": 10,
+    "head": "비치하다",
+    "pos": "동사",
+    "en": "to equip, to furnish, to keep available",
+    "lv": 3,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "회의실 입구 선반에 방문객을 위한 안내 책자와 필기도구를 가지런히 비치했습니다.",
+        "We neatly furnished brochures and writing instruments for visitors on the meeting room entrance shelf."
+      ],
+      [
+        "직원들의 건강 관리를 위해 각 층 복도마다 손 소독제와 구급상자를 비치해 두었어요.",
+        "For employee health management, we kept hand sanitizers and first aid kits available in each floor's hallway."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "사무용품 여분은 어디에 있습니까?"
+      ],
+      [
+        "B",
+        "Where are the extra office supplies?"
+      ]
+    ],
+    "note": "탕비실 우측 벽면 수납장에 종류별로 비치해 두었습니다.",
+    "polite_alt": "We have furnished them by category in the storage cabinet on the right wall of the pantry.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-193",
+    "unit": 10,
+    "head": "파쇄하다",
+    "pos": "동사",
+    "en": "to shred, to destroy (documents)",
+    "lv": 3,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "유효 기간이 지난 고객 상담 기록지는 기밀 유출 방지를 위해 전량 파쇄했습니다.",
+        "Expired customer consultation record sheets were entirely shredded to prevent confidential leaks."
+      ],
+      [
+        "중요 기획 문서는 보안 관리 지침에 따라 관리자의 입회하에 안전하게 파쇄해야 합니다.",
+        "Important planning documents must be safely shredded in the presence of a supervisor per security guidelines."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "이 서류들은 그냥 쓰레기통에 버려도 되나요?"
+      ],
+      [
+        "B",
+        "Can these documents simply be thrown into the trash can?"
+      ]
+    ],
+    "note": "개인정보가 포함되어 있으니 반드시 세단기로 파쇄하셔야 합니다.",
+    "polite_alt": "Because personal data is included, you must shred them using the document shredder.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-194",
+    "unit": 10,
+    "head": "발주하다",
+    "pos": "동사",
+    "en": "to place an order (supplies/goods)",
+    "lv": 2,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "부서 내 복사용지와 필기구 재고가 부족하여 총무팀 시스템을 통해 새로 발주했습니다.",
+        "Stock of copy paper and writing instruments ran low, so we placed an order newly via the general affairs system."
+      ],
+      [
+        "인쇄 업체에 분기 사보 이천 부의 제작과 인쇄를 정식으로 발주했습니다.",
+        "We officially placed an order with the printing firm for the production of two thousand copies of the quarterly company newsletter."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "커피 원두가 다 떨어졌는데 어떻게 하나요?"
+      ],
+      [
+        "B",
+        "We have completely run out of coffee beans. What should we do?"
+      ]
+    ],
+    "note": "제가 오늘 오후에 정기 소모품과 함께 묶어서 발주하겠습니다.",
+    "polite_alt": "I will place an order bundled together with regular consumables this afternoon.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-195",
+    "unit": 10,
+    "head": "구비되다",
+    "pos": "동사",
+    "en": "to be equipped, to be provided",
+    "lv": 3,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "새로 단장한 대회의실에는 최신 화상회의 시스템과 무선 마이크가 완벽히 구비되어 있습니다.",
+        "The newly refurbished main boardroom is fully equipped with the latest video conferencing system and wireless microphones."
+      ],
+      [
+        "모든 업무 좌석에는 듀얼 모니터와 인체공학 의자가 표준 비품으로 구비되어 있어요.",
+        "All work desks are equipped with dual monitors and ergonomic chairs as standard fixtures."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "회의실에 프로젝터 연결 케이블이 구비되어 있나요?"
+      ],
+      [
+        "B",
+        "Are projector connection cables provided in the meeting room?"
+      ]
+    ],
+    "note": "네, 테이블 중앙 콘센트 상자 안에 모든 규격의 케이블이 구비되어 있습니다.",
+    "polite_alt": "Yes, cables of all standards are equipped inside the center outlet box on the table.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-196",
+    "unit": 10,
+    "head": "사무용품 신청해 주십시오",
+    "pos": "표현",
+    "en": "Please submit your office supply requests",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "이번 달 필요한 필기구와 소모품 목록을 취합 중이니 사무용품 신청해 주십시오.",
+        "We are compiling the list of writing tools and consumables needed this month, so please submit your supply requests."
+      ],
+      [
+        "정기 구매 마감이 내일 오후이므로 필요한 사무용품 신청해 주시기 바랍니다.",
+        "Because regular purchase deadline is tomorrow afternoon, please submit your office supply requests."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "복사용지가 거의 다 떨어졌습니다."
+      ],
+      [
+        "B",
+        "Copy paper has almost completely run out."
+      ]
+    ],
+    "note": "네, 품의 올릴 예정이니 다른 필요한 것과 함께 사무용품 신청해 주십시오.",
+    "polite_alt": "Yes, I will submit an internal order, so please request it along with other office supplies you need.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-197",
+    "unit": 10,
+    "head": "복합기 용지가 걸렸습니다",
+    "pos": "표현",
+    "en": "Paper is jammed in the printer",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "인쇄 중 경고음이 울려 확인해 보니 삼층 복합기 용지가 걸렸습니다.",
+        "An alarm sounded during printing, and checking revealed that paper was jammed in the 3rd-floor printer."
+      ],
+      [
+        "출력 명령을 내렸는데 종이가 나오지 않고 복합기 용지가 걸렸습니다.",
+        "I issued a print command, but paper didn't come out and paper was jammed in the printer."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "인쇄가 갑자기 멈췄는데 무슨 일인가요?"
+      ],
+      [
+        "B",
+        "Why did the printing suddenly stop?"
+      ]
+    ],
+    "note": "급지함 쪽에서 복합기 용지가 걸렸습니다. 제가 빼 드리겠습니다.",
+    "polite_alt": "Paper is jammed in the feed tray. I will pull it out for you.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-198",
+    "unit": 10,
+    "head": "회의실 예약해 두었습니다",
+    "pos": "표현",
+    "en": "I have reserved the meeting room",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "오후 두 시 팀 전략 미팅을 위해 사층 대회의실 예약해 두었습니다.",
+        "For the 2 PM team strategy meeting, I have reserved the 4th-floor main conference room."
+      ],
+      [
+        "프로젝터와 화상 장비가 갖춰진 삼층 중회의실로 회의실 예약해 두었습니다.",
+        "I have reserved the 3rd-floor medium conference room equipped with projector and video gear."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 미팅 어디서 진행하나요?"
+      ],
+      [
+        "B",
+        "Where are we holding today's meeting?"
+      ]
+    ],
+    "note": "사내 인트라넷을 통해 삼층 비 회의실 예약해 두었습니다.",
+    "polite_alt": "I have reserved Meeting Room 3B via the internal intranet.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-199",
+    "unit": 10,
+    "head": "사원증 태그해 주십시오",
+    "pos": "표현",
+    "en": "Please tap your employee ID card",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "보안 구역 출입 시 단말기 센서에 사원증 태그해 주십시오.",
+        "When entering the security zone, please tap your employee badge on the terminal sensor."
+      ],
+      [
+        "복합기 사용 전 본인 인증을 위해 리더기에 사원증 태그해 주시기 바랍니다.",
+        "Please tap your employee ID on the reader for user authentication before using the copier."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "사무실 문이 잠겨 있는데 어떻게 열어야 하나요?"
+      ],
+      [
+        "B",
+        "The office door is locked. How do I open it?"
+      ]
+    ],
+    "note": "손잡이 위 센서에 사원증 태그해 주시면 잠금이 해제됩니다.",
+    "polite_alt": "If you tap your employee ID card on the sensor above the handle, it will unlock.",
+    "src": "창작 예문"
+  },
+  {
+    "id": "bw-200",
+    "unit": 10,
+    "head": "자리 정리 부탁드립니다",
+    "pos": "표현",
+    "en": "Please tidy up your desk/seat",
+    "lv": 1,
+    "register": "formal",
+    "situation": "office",
+    "examples": [
+      [
+        "회의가 끝난 후 사용하신 컵과 유인물을 챙겨 자리 정리 부탁드립니다.",
+        "After the meeting ends, please take your cups and handouts and tidy up your seat."
+      ],
+      [
+        "클린 데스크 정책에 따라 퇴근 전 서류가 남지 않도록 자리 정리 부탁드립니다.",
+        "In accordance with the clean desk policy, please tidy up your desk so no documents remain before leaving."
+      ]
+    ],
+    "dialog": [
+      [
+        "A",
+        "오늘 야근 마치고 먼저 일어나겠습니다."
+      ],
+      [
+        "B",
+        "I will get going first after finishing overtime today."
+      ]
+    ],
+    "note": "수고 많으셨습니다. 컴퓨터 끄시고 자리 정리 부탁드립니다.",
+    "polite_alt": "Great work today. Please shut down your PC and tidy up your desk.",
+    "src": "창작 예문"
+  }
+]
