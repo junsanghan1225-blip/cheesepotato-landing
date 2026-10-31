@@ -34,7 +34,9 @@ const T = (x, y, t, o = {}) => `<text x="${x}" y="${y}" text-anchor="${o.a || 's
 
 // 칸(제목 띠 + 테두리 상자) — 시험지 도표처럼
 const panel = (x, y, w, h, title, acc, body) => `<rect x="${x}" y="${y + 11}" width="${w}" height="${h - 11}" rx="9" fill="#fff" stroke="#6e6a82" stroke-width="1.1"/><rect x="${x + 22}" y="${y}" width="${w - 44}" height="23" rx="11.5" fill="${acc}"/>${T(x + w / 2, y + 16, title, { a: 'middle', s: 11.5, w: 800, c: '#fff' })}${body}`;
-const arrow = (x1, y1, x2, y2, bend, acc) => { const mx = (x1 + x2) / 2, my = Math.min(y1, y2) - bend; return `<path d="M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}" fill="none" stroke="#b9b2d8" stroke-width="9" stroke-linecap="round"/><path d="M${x2 - 9} ${y2 - 12} L${x2 + 3} ${y2 + 1} L${x2 - 13} ${y2 + 4} Z" fill="#b9b2d8"/>`; };
+/* 곡선 화살표: 가는 선 + 끝 방향에 맞춘 삼각 화살촉(운영자 2026-10-31 「화살표가 너무 뭉툭」) */
+const head = (x, y, dx, dy, c, size = 9) => { const l = Math.hypot(dx, dy) || 1, ux = dx / l, uy = dy / l, px = -uy, py = ux; return `<path d="M${x} ${y} L${x - ux * size + px * size * 0.55} ${y - uy * size + py * size * 0.55} L${x - ux * size - px * size * 0.55} ${y - uy * size - py * size * 0.55} Z" fill="${c}"/>`; };
+const arrow = (x1, y1, x2, y2, bend, acc) => { const mx = (x1 + x2) / 2, my = Math.min(y1, y2) - bend, c = '#8f84c4'; return `<path d="M${x1} ${y1} Q${mx} ${my} ${x2 - (x2 - mx) * 0.06} ${y2 - (y2 - my) * 0.06}" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/>${head(x2, y2, x2 - mx, y2 - my, c)}`; };
 const pill = (x, y, t, acc) => { const w = Math.max(50, t.length * 8.4 + 18); return `<rect x="${x - w / 2}" y="${y - 12}" width="${w}" height="22" rx="11" fill="#fff" stroke="${acc}" stroke-width="1.4"/>${T(x, y + 3, t, { a: 'middle', s: 11, w: 800, c: acc })}`; };
 
 function changePanel(c, kind, acc, X, Y, W, H) {
@@ -66,7 +68,7 @@ function changePanel(c, kind, acc, X, Y, W, H) {
     const r1 = 16 + 30 * Math.sqrt(c.v1 / mx), r2 = 16 + 30 * Math.sqrt(c.v2 / mx), cy = Y + 112;
     b += `<circle cx="${xa}" cy="${cy}" r="${r1}" fill="#e6e1ef" stroke="#8e8aa0" stroke-width="1.2"/><circle cx="${xb}" cy="${cy}" r="${r2}" fill="${acc}"/>`;
     b += T(xa, cy + 4, c.t1, { a: 'middle', s: 12, w: 800 }) + T(xb, cy + 4, c.t2, { a: 'middle', s: 12, w: 800, c: '#fff' });
-    b += `<path d="M${xa + r1 + 5} ${cy} L${xb - r2 - 7} ${cy}" stroke="#b9b2d8" stroke-width="7" stroke-linecap="round"/><path d="M${xb - r2 - 6} ${cy - 9} L${xb - r2 + 5} ${cy} L${xb - r2 - 6} ${cy + 9} Z" fill="#b9b2d8"/>`;
+    b += `<path d="M${xa + r1 + 6} ${cy} L${xb - r2 - 10} ${cy}" stroke="#8f84c4" stroke-width="3" stroke-linecap="round"/>${head(xb - r2 - 3, cy, 1, 0, '#8f84c4')}`;
   }
   b += T(xa, base + 17, `${c.y1}년`, { a: 'middle', s: 11, w: 700 }) + T(xb, base + 17, `${c.y2}년`, { a: 'middle', s: 11, w: 700 });
   if (note) b += pill(X + W / 2, Y + 46, note, acc);
