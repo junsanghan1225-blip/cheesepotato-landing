@@ -217,3 +217,4 @@
 - 2026-10-31 책 공장 세팅: `tools/book-factory.mjs`(책 한 권 → PDF · 최종 검수 자동 검사 · 표지 · zip, FAIL 이면 멈춤) · `tools/check-book-pdf.mjs`(출판사식 프리플라이트) · 장부 `docs/ops/book-ledger.json`(정가 · 판 번호 · 검사 결과). 출판사 공정과의 짝은 `docs/plans/books.md` 8-라. 시리즈 다섯 갈래는 운영자 확정 대기.
 - 2026-10-31 책 시리즈 다섯 갈래 확정(첫걸음 · TOPIK II 쓰기 · TOPIK 단어장 · TOPIK 모의고사 · 표현). 공장은 단어장 시리즈(TOPIK II 1·2·3 · TOPIK I)부터 뽑는다.
 - 2026-10-31 예스24 올린 뒤 파일 교체 규칙: 쪽수 · 순서 · 판형이 같을 때만 교체, 아니면 개정판으로 별도 등록. 장부 `registered` 와 쪽수가 다르면 공장이 막는다. 쓰기 53~54 는 최종 v1.18(220쪽)로 올림.
+- 2026-10-31 Polar 판매 PDF 교체(운영자 「토큰 줬잖아」): 쓰기 51~52(상품 d9151127) · 53~54(128e86d9)를 예스24 최종본과 같은 속(가격만 달러)으로 `tools/polar-publish.mjs --apply --update` 로 바꿈. 노드에서 `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt` 가 있어야 api.polar.sh 에 닿는다. 파일 이름은 `에브리코리안즈_도서최종본_<책 번호>_…_PDF판_v4.0_20261031.pdf`. 달러판 만들기: `node tools/build-book.mjs <id> --digital --usd`.
