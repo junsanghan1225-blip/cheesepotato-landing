@@ -81,7 +81,10 @@
       "units": [
         "fs-guide",
         "hangul-alphabet",
+        "hangul-vowels",
+        "hangul-tense",
         "hangul-batchim",
+        "hangul-reading",
         "fd-1",
         "ft-1"
       ]
@@ -1169,55 +1172,88 @@
           ]
         },
         {
-          "type": "table",
+          "type": "weeks",
           "title": {
             "en": "Eight-week plan",
             "ko": "8주 계획"
           },
-          "cols": [
-            "Week · 주",
-            "Topics · 주제",
-            "Goal · 목표"
-          ],
-          "rows": [
+          "hint": "Eight weeks, one block per week. Colour a circle each time you finish a round.",
+          "weeks": [
             [
               "1",
-              "Hangul letters · Batchim · Mini test 1",
+              [
+                "Hangul letters",
+                "Batchim",
+                "Mini test 1"
+              ],
               "Read and write any Hangul syllable"
             ],
             [
               "2",
-              "Greetings · Is / is not, have / do not have · This, that · Basic particles",
+              [
+                "Greetings",
+                "Is / is not, have / do not have",
+                "This, that",
+                "Basic particles"
+              ],
               "Say who you are and point at things"
             ],
             [
               "3",
-              "Question words · Polite present · Basic verbs · Mini test 2",
+              [
+                "Question words",
+                "Polite present",
+                "Basic verbs",
+                "Mini test 2"
+              ],
               "Ask and answer simple questions"
             ],
             [
               "4",
-              "Numbers · Days and dates · Family · Places",
+              [
+                "Numbers",
+                "Days and dates",
+                "Family",
+                "Places"
+              ],
               "Count, give dates, talk about family and places"
             ],
             [
               "5",
-              "Colors and shapes · House · School · Mini test 3",
+              [
+                "Colors and shapes",
+                "House",
+                "School",
+                "Mini test 3"
+              ],
               "Describe your room and your class"
             ],
             [
               "6",
-              "Food · Shopping · Directions",
+              [
+                "Food",
+                "Shopping",
+                "Directions"
+              ],
               "Order, buy and ask the way"
             ],
             [
               "7",
-              "Weather · Hobbies · Health · Mini test 4",
+              [
+                "Weather",
+                "Hobbies",
+                "Health",
+                "Mini test 4"
+              ],
               "Talk about weather, hobbies and aches"
             ],
             [
               "8",
-              "Negation and tenses · Mini test 5 · Redo your misses",
+              [
+                "Negation and tenses",
+                "Mini test 5",
+                "Redo your misses"
+              ],
               "Say it in the past, the future and the negative"
             ]
           ]
@@ -1918,6 +1954,731 @@
           "ko": "수업이 끝난 뒤"
         }
       }
+    },
+    "hangul-vowels": {
+      "id": "hangul-vowels",
+      "title": {
+        "en": "Hangul Vowels & the Syllable Chart",
+        "ko": "모음과 글자표"
+      },
+      "sub": {
+        "en": "21 vowels and the chart that lets you read any syllable.",
+        "ko": "모음 21개와 글자표"
+      },
+      "sections": [
+        {
+          "type": "cards",
+          "title": {
+            "en": "The 10 basic vowels",
+            "ko": "기본 모음 10개"
+          },
+          "hint": "Vertical vowels sit on the right of the consonant, horizontal vowels go below.",
+          "cols": 5,
+          "items": [
+            {
+              "big": "ㅏ",
+              "name": "a",
+              "ex": [
+                "아기",
+                "baby"
+              ]
+            },
+            {
+              "big": "ㅑ",
+              "name": "ya",
+              "ex": [
+                "야구",
+                "baseball"
+              ]
+            },
+            {
+              "big": "ㅓ",
+              "name": "eo",
+              "ex": [
+                "어머니",
+                "mother"
+              ]
+            },
+            {
+              "big": "ㅕ",
+              "name": "yeo",
+              "ex": [
+                "여자",
+                "woman"
+              ]
+            },
+            {
+              "big": "ㅗ",
+              "name": "o",
+              "ex": [
+                "오이",
+                "cucumber"
+              ]
+            },
+            {
+              "big": "ㅛ",
+              "name": "yo",
+              "ex": [
+                "요리",
+                "cooking"
+              ]
+            },
+            {
+              "big": "ㅜ",
+              "name": "u",
+              "ex": [
+                "우유",
+                "milk"
+              ]
+            },
+            {
+              "big": "ㅠ",
+              "name": "yu",
+              "ex": [
+                "유리",
+                "glass"
+              ]
+            },
+            {
+              "big": "ㅡ",
+              "name": "eu",
+              "ex": [
+                "그림",
+                "picture"
+              ]
+            },
+            {
+              "big": "ㅣ",
+              "name": "i",
+              "ex": [
+                "이",
+                "tooth"
+              ]
+            }
+          ],
+          "tip": "ㅏ ㅓ ㅣ는 자음 오른쪽에, ㅗ ㅜ ㅡ는 자음 아래에 써요. 가 · 거 · 기 / 고 · 구 · 그."
+        },
+        {
+          "type": "cards",
+          "title": {
+            "en": "The 11 compound vowels",
+            "ko": "겹모음 11개"
+          },
+          "hint": "Two vowels slide together into one sound.",
+          "cols": 4,
+          "items": [
+            {
+              "big": "ㅐ",
+              "name": "ae",
+              "ex": [
+                "배",
+                "pear"
+              ]
+            },
+            {
+              "big": "ㅔ",
+              "name": "e",
+              "ex": [
+                "네",
+                "yes"
+              ]
+            },
+            {
+              "big": "ㅒ",
+              "name": "yae",
+              "ex": [
+                "얘기",
+                "talk"
+              ]
+            },
+            {
+              "big": "ㅖ",
+              "name": "ye",
+              "ex": [
+                "시계",
+                "clock"
+              ]
+            },
+            {
+              "big": "ㅘ",
+              "name": "wa",
+              "ex": [
+                "과일",
+                "fruit"
+              ]
+            },
+            {
+              "big": "ㅙ",
+              "name": "wae",
+              "ex": [
+                "왜",
+                "why"
+              ]
+            },
+            {
+              "big": "ㅚ",
+              "name": "oe",
+              "ex": [
+                "외국",
+                "foreign country"
+              ]
+            },
+            {
+              "big": "ㅝ",
+              "name": "wo",
+              "ex": [
+                "뭐",
+                "what"
+              ]
+            },
+            {
+              "big": "ㅞ",
+              "name": "we",
+              "ex": [
+                "웨이터",
+                "waiter"
+              ]
+            },
+            {
+              "big": "ㅟ",
+              "name": "wi",
+              "ex": [
+                "위",
+                "above"
+              ]
+            },
+            {
+              "big": "ㅢ",
+              "name": "ui",
+              "ex": [
+                "의사",
+                "doctor"
+              ]
+            }
+          ],
+          "tip": "ㅐ와 ㅔ는 소리가 거의 같아요. 쓸 때는 단어를 통째로 외워요. ㅐ and ㅔ sound almost the same; learn them inside words."
+        },
+        {
+          "type": "chart",
+          "title": {
+            "en": "Syllable chart",
+            "ko": "글자표: 읽으면서 외워요"
+          },
+          "hint": "Read each row aloud from left to right: 가 갸 거 겨 고 교 구 규 그 기.",
+          "consonants": "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ",
+          "vowels": "ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣ",
+          "tip": "한 줄은 같은 자음, 한 칸은 하나의 소리예요. 이 표를 소리 내어 읽을 수 있으면 한글 읽기의 절반은 끝!"
+        },
+        {
+          "type": "blocks",
+          "title": {
+            "en": "Practice A: Build the syllable",
+            "ko": "모음을 바꿔 글자를 만들어요"
+          },
+          "hint": "Put the consonant and the vowel together. Write the syllable in the empty box.",
+          "items": [
+            {
+              "parts": [
+                "ㄱ",
+                "ㅐ"
+              ],
+              "a": "개"
+            },
+            {
+              "parts": [
+                "ㄴ",
+                "ㅔ"
+              ],
+              "a": "네"
+            },
+            {
+              "parts": [
+                "ㅇ",
+                "ㅘ"
+              ],
+              "a": "와"
+            },
+            {
+              "parts": [
+                "ㅇ",
+                "ㅟ"
+              ],
+              "a": "위"
+            },
+            {
+              "parts": [
+                "ㅁ",
+                "ㅓ"
+              ],
+              "a": "머"
+            },
+            {
+              "parts": [
+                "ㅅ",
+                "ㅜ"
+              ],
+              "a": "수"
+            },
+            {
+              "parts": [
+                "ㅂ",
+                "ㅏ"
+              ],
+              "a": "바"
+            },
+            {
+              "parts": [
+                "ㅈ",
+                "ㅣ"
+              ],
+              "a": "지"
+            }
+          ]
+        },
+        {
+          "type": "matchlines",
+          "title": {
+            "en": "Practice B: Match vowel and word",
+            "ko": "모음과 낱말을 연결해요"
+          },
+          "hint": "Write the letter of the word that contains the vowel.",
+          "pairs": [
+            [
+              "ㅗ",
+              "오이"
+            ],
+            [
+              "ㅜ",
+              "우유"
+            ],
+            [
+              "ㅓ",
+              "어머니"
+            ],
+            [
+              "ㅑ",
+              "야구"
+            ],
+            [
+              "ㅢ",
+              "의사"
+            ]
+          ],
+          "order": [
+            2,
+            4,
+            0,
+            3,
+            1
+          ]
+        }
+      ]
+    },
+    "hangul-tense": {
+      "id": "hangul-tense",
+      "title": {
+        "en": "Plain, Strong & Tense Consonants",
+        "ko": "된소리와 거센소리"
+      },
+      "sub": {
+        "en": "One letter, three sounds: ㄱ ㅋ ㄲ.",
+        "ko": "한 글자 세 소리"
+      },
+      "sections": [
+        {
+          "type": "cards",
+          "title": {
+            "en": "The 5 tense consonants",
+            "ko": "된소리 5개"
+          },
+          "hint": "Say them tight and without a puff of air.",
+          "cols": 5,
+          "items": [
+            {
+              "big": "ㄲ",
+              "name": "쌍기역",
+              "sound": "kk",
+              "ex": [
+                "꿈",
+                "dream"
+              ]
+            },
+            {
+              "big": "ㄸ",
+              "name": "쌍디귿",
+              "sound": "tt",
+              "ex": [
+                "딸",
+                "daughter"
+              ]
+            },
+            {
+              "big": "ㅃ",
+              "name": "쌍비읍",
+              "sound": "pp",
+              "ex": [
+                "빵",
+                "bread"
+              ]
+            },
+            {
+              "big": "ㅆ",
+              "name": "쌍시옷",
+              "sound": "ss",
+              "ex": [
+                "쌀",
+                "rice"
+              ]
+            },
+            {
+              "big": "ㅉ",
+              "name": "쌍지읒",
+              "sound": "jj",
+              "ex": [
+                "짜장면",
+                "jajangmyeon"
+              ]
+            }
+          ],
+          "tip": "같은 글자를 두 번 쓰면 된소리예요. 목에 힘을 주고 소리를 짧게 내요. Double the letter = tense sound."
+        },
+        {
+          "type": "cards",
+          "title": {
+            "en": "Three sounds, three meanings",
+            "ko": "세 소리를 구분해요"
+          },
+          "hint": "Read the three words in each card. Only the first consonant changes.",
+          "cols": 3,
+          "items": [
+            {
+              "big": "달 · 탈 · 딸",
+              "name": "ㄷ · ㅌ · ㄸ",
+              "sound": "moon · mask · daughter"
+            },
+            {
+              "big": "불 · 풀 · 뿔",
+              "name": "ㅂ · ㅍ · ㅃ",
+              "sound": "fire · grass · horn"
+            },
+            {
+              "big": "자다 · 차다 · 짜다",
+              "name": "ㅈ · ㅊ · ㅉ",
+              "sound": "sleep · kick · salty"
+            }
+          ]
+        },
+        {
+          "type": "matchlines",
+          "title": {
+            "en": "Practice A: Match word and meaning",
+            "ko": "낱말과 뜻을 연결해요"
+          },
+          "hint": "Write the letter of the meaning.",
+          "pairs": [
+            [
+              "달",
+              "moon"
+            ],
+            [
+              "딸",
+              "daughter"
+            ],
+            [
+              "불",
+              "fire"
+            ],
+            [
+              "풀",
+              "grass"
+            ],
+            [
+              "빵",
+              "bread"
+            ]
+          ],
+          "order": [
+            2,
+            4,
+            0,
+            3,
+            1
+          ]
+        },
+        {
+          "type": "blocks",
+          "mode": "say",
+          "title": {
+            "en": "Practice B: Read and copy",
+            "ko": "읽고 따라 써요"
+          },
+          "hint": "Read each word aloud. Write it once in the empty box.",
+          "items": [
+            {
+              "parts": [
+                "꿈"
+              ],
+              "a": "꿈"
+            },
+            {
+              "parts": [
+                "딸"
+              ],
+              "a": "딸"
+            },
+            {
+              "parts": [
+                "빵"
+              ],
+              "a": "빵"
+            },
+            {
+              "parts": [
+                "쌀"
+              ],
+              "a": "쌀"
+            },
+            {
+              "parts": [
+                "짜장면"
+              ],
+              "a": "짜장면"
+            },
+            {
+              "parts": [
+                "뿔"
+              ],
+              "a": "뿔"
+            }
+          ]
+        }
+      ]
+    },
+    "hangul-reading": {
+      "id": "hangul-reading",
+      "title": {
+        "en": "Read Real Korean",
+        "ko": "진짜 한국어를 읽어요"
+      },
+      "sub": {
+        "en": "Words, signs and menus you can already read.",
+        "ko": "읽을 수 있는 낱말 · 간판 · 메뉴"
+      },
+      "sections": [
+        {
+          "type": "cards",
+          "title": {
+            "en": "First words",
+            "ko": "처음 읽는 낱말"
+          },
+          "hint": "Read each word aloud, then cover the English and check yourself.",
+          "cols": 4,
+          "items": [
+            {
+              "big": "아이",
+              "sound": "child",
+              "cls": "tn"
+            },
+            {
+              "big": "우유",
+              "sound": "milk",
+              "cls": "tn"
+            },
+            {
+              "big": "오이",
+              "sound": "cucumber",
+              "cls": "tn"
+            },
+            {
+              "big": "나무",
+              "sound": "tree",
+              "cls": "tn"
+            },
+            {
+              "big": "모자",
+              "sound": "hat",
+              "cls": "tn"
+            },
+            {
+              "big": "바지",
+              "sound": "pants",
+              "cls": "tn"
+            },
+            {
+              "big": "사과",
+              "sound": "apple",
+              "cls": "tn"
+            },
+            {
+              "big": "고기",
+              "sound": "meat",
+              "cls": "tn"
+            },
+            {
+              "big": "주스",
+              "sound": "juice",
+              "cls": "tn"
+            },
+            {
+              "big": "커피",
+              "sound": "coffee",
+              "cls": "tn"
+            },
+            {
+              "big": "치즈",
+              "sound": "cheese",
+              "cls": "tn"
+            },
+            {
+              "big": "감자",
+              "sound": "potato",
+              "cls": "tn"
+            },
+            {
+              "big": "라디오",
+              "sound": "radio",
+              "cls": "tn"
+            },
+            {
+              "big": "지도",
+              "sound": "map",
+              "cls": "tn"
+            },
+            {
+              "big": "포도",
+              "sound": "grape",
+              "cls": "tn"
+            },
+            {
+              "big": "하늘",
+              "sound": "sky",
+              "cls": "tn"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "title": {
+            "en": "Words you see in Korea",
+            "ko": "한국에서 보이는 말"
+          },
+          "hint": "These foreign words are written in Hangul. Say them and guess the meaning.",
+          "cols": 4,
+          "items": [
+            {
+              "big": "버스",
+              "sound": "bus",
+              "cls": "tn"
+            },
+            {
+              "big": "택시",
+              "sound": "taxi",
+              "cls": "tn"
+            },
+            {
+              "big": "호텔",
+              "sound": "hotel",
+              "cls": "tn"
+            },
+            {
+              "big": "커피숍",
+              "sound": "coffee shop",
+              "cls": "tn"
+            },
+            {
+              "big": "라면",
+              "sound": "ramyeon",
+              "cls": "tn"
+            },
+            {
+              "big": "김치",
+              "sound": "kimchi",
+              "cls": "tn"
+            },
+            {
+              "big": "비빔밥",
+              "sound": "bibimbap",
+              "cls": "tn"
+            },
+            {
+              "big": "아이스크림",
+              "sound": "ice cream",
+              "cls": "tn"
+            }
+          ]
+        },
+        {
+          "type": "picwords",
+          "title": {
+            "en": "Practice A: Read and name",
+            "ko": "그림을 보고 한글로 써요"
+          },
+          "hint": "Look at the picture. Write the word in Hangul.",
+          "items": [
+            {
+              "k": "bus",
+              "a": "버스"
+            },
+            {
+              "k": "taxi",
+              "a": "택시"
+            },
+            {
+              "k": "camera",
+              "a": "카메라"
+            },
+            {
+              "k": "tv",
+              "a": "텔레비전"
+            },
+            {
+              "k": "soccer",
+              "a": "축구"
+            },
+            {
+              "k": "music",
+              "a": "음악"
+            }
+          ]
+        },
+        {
+          "type": "matchlines",
+          "title": {
+            "en": "Practice B: Match word and meaning",
+            "ko": "낱말과 뜻을 연결해요"
+          },
+          "hint": "Write the letter of the meaning.",
+          "pairs": [
+            [
+              "우유",
+              "milk"
+            ],
+            [
+              "사과",
+              "apple"
+            ],
+            [
+              "지도",
+              "map"
+            ],
+            [
+              "하늘",
+              "sky"
+            ],
+            [
+              "치즈",
+              "cheese"
+            ]
+          ],
+          "order": [
+            1,
+            3,
+            0,
+            4,
+            2
+          ]
+        }
+      ]
     }
   },
   "unitCount": 23,
@@ -2756,6 +3517,896 @@
               ]
             ],
             "tip": "아니다는 아니에요! (아니예요 ✗)"
+          }
+        ]
+      }
+    },
+    "hangul-alphabet": {
+      "all": [
+        {
+          "type": "principle",
+          "title": {
+            "en": "How Hangul was designed",
+            "ko": "한글은 이렇게 만들어졌어요"
+          },
+          "hint": "Read the three blocks once. After that, letters stop being random shapes.",
+          "organs": [
+            [
+              "ㄱ",
+              "혀 뿌리",
+              "back of tongue"
+            ],
+            [
+              "ㄴ",
+              "혀 끝",
+              "tongue tip"
+            ],
+            [
+              "ㅁ",
+              "입 모양",
+              "the mouth"
+            ],
+            [
+              "ㅅ",
+              "이 모양",
+              "the teeth"
+            ],
+            [
+              "ㅇ",
+              "목구멍",
+              "the throat"
+            ]
+          ],
+          "chains": [
+            [
+              "ㄱ",
+              "ㅋ"
+            ],
+            [
+              "ㄴ",
+              "ㄷ",
+              "ㅌ"
+            ],
+            [
+              "ㅁ",
+              "ㅂ",
+              "ㅍ"
+            ],
+            [
+              "ㅅ",
+              "ㅈ",
+              "ㅊ"
+            ],
+            [
+              "ㅇ",
+              "ㅎ"
+            ]
+          ],
+          "ctip": "다섯 기본 글자에 획을 더하면 센 소리가 돼요: ㄱ → ㅋ, ㄴ → ㄷ → ㅌ … Add a stroke and the sound gets stronger.",
+          "vtip": "점(ㆍ)이 사람(ㅣ) 오른쪽 · 왼쪽, 땅(ㅡ) 위 · 아래에 붙으면 ㅏ ㅓ ㅗ ㅜ. 획을 하나 더하면 ㅑ ㅕ ㅛ ㅠ. A dot beside the person or above/below the earth gives the four basic vowels.",
+          "layouts": [
+            [
+              [
+                [
+                  "ㄱ",
+                  "c"
+                ],
+                [
+                  "ㅏ",
+                  "v"
+                ]
+              ],
+              "가",
+              "자음 + 세로 모음 · vowel on the right"
+            ],
+            [
+              [
+                [
+                  "ㄱ",
+                  "c w"
+                ],
+                [
+                  "ㅗ",
+                  "v w"
+                ]
+              ],
+              "고",
+              "자음 + 가로 모음 · vowel below"
+            ],
+            [
+              [
+                [
+                  "ㄱ",
+                  "c"
+                ],
+                [
+                  "ㅏ",
+                  "v"
+                ],
+                [
+                  "ㄴ",
+                  "f w"
+                ]
+              ],
+              "간",
+              "받침은 맨 아래 · final consonant at the bottom"
+            ],
+            [
+              [
+                [
+                  "ㅇ",
+                  "c"
+                ],
+                [
+                  "ㅏ",
+                  "v"
+                ]
+              ],
+              "아",
+              "첫 소리가 없으면 ㅇ을 써요 · silent ㅇ"
+            ]
+          ],
+          "ltip": "모든 글자는 첫 자음으로 시작해요. 소리가 없으면 ㅇ을 앞에 써요. Every syllable starts with a consonant; use silent ㅇ when there is none."
+        },
+        {
+          "type": "cards",
+          "title": {
+            "en": "The 14 basic consonants",
+            "ko": "기본 자음 14개"
+          },
+          "hint": "Say the name, then the sound, then the word. Trace each letter in the air.",
+          "cols": 4,
+          "items": [
+            {
+              "big": "ㄱ",
+              "name": "기역",
+              "sound": "g / k",
+              "ex": [
+                "가방",
+                "bag"
+              ]
+            },
+            {
+              "big": "ㄴ",
+              "name": "니은",
+              "sound": "n",
+              "ex": [
+                "나무",
+                "tree"
+              ]
+            },
+            {
+              "big": "ㄷ",
+              "name": "디귿",
+              "sound": "d / t",
+              "ex": [
+                "다리",
+                "leg"
+              ]
+            },
+            {
+              "big": "ㄹ",
+              "name": "리을",
+              "sound": "r / l",
+              "ex": [
+                "라디오",
+                "radio"
+              ]
+            },
+            {
+              "big": "ㅁ",
+              "name": "미음",
+              "sound": "m",
+              "ex": [
+                "모자",
+                "hat"
+              ]
+            },
+            {
+              "big": "ㅂ",
+              "name": "비읍",
+              "sound": "b / p",
+              "ex": [
+                "바지",
+                "pants"
+              ]
+            },
+            {
+              "big": "ㅅ",
+              "name": "시옷",
+              "sound": "s",
+              "ex": [
+                "사과",
+                "apple"
+              ]
+            },
+            {
+              "big": "ㅇ",
+              "name": "이응",
+              "sound": "silent / ng",
+              "ex": [
+                "아이",
+                "child"
+              ]
+            },
+            {
+              "big": "ㅈ",
+              "name": "지읒",
+              "sound": "j",
+              "ex": [
+                "지도",
+                "map"
+              ]
+            },
+            {
+              "big": "ㅊ",
+              "name": "치읓",
+              "sound": "ch",
+              "ex": [
+                "치마",
+                "skirt"
+              ]
+            },
+            {
+              "big": "ㅋ",
+              "name": "키읔",
+              "sound": "k",
+              "ex": [
+                "코",
+                "nose"
+              ]
+            },
+            {
+              "big": "ㅌ",
+              "name": "티읕",
+              "sound": "t",
+              "ex": [
+                "토마토",
+                "tomato"
+              ]
+            },
+            {
+              "big": "ㅍ",
+              "name": "피읖",
+              "sound": "p",
+              "ex": [
+                "포도",
+                "grape"
+              ]
+            },
+            {
+              "big": "ㅎ",
+              "name": "히읗",
+              "sound": "h",
+              "ex": [
+                "하늘",
+                "sky"
+              ]
+            }
+          ],
+          "tip": "ㅇ은 첫소리에서는 소리가 없고(아이 = a-i), 받침에서는 ng 소리가 나요(강 = gang). Initial ㅇ is silent; final ㅇ is ng."
+        },
+        {
+          "type": "blocks",
+          "title": {
+            "en": "Practice A: Build the syllable",
+            "ko": "자음과 모음을 합쳐 글자를 만들어요"
+          },
+          "hint": "Put the consonant and the vowel together. Write the syllable in the empty box.",
+          "items": [
+            {
+              "parts": [
+                "ㄱ",
+                "ㅏ"
+              ],
+              "a": "가"
+            },
+            {
+              "parts": [
+                "ㄴ",
+                "ㅏ"
+              ],
+              "a": "나"
+            },
+            {
+              "parts": [
+                "ㄷ",
+                "ㅓ"
+              ],
+              "a": "더"
+            },
+            {
+              "parts": [
+                "ㅁ",
+                "ㅗ"
+              ],
+              "a": "모"
+            },
+            {
+              "parts": [
+                "ㅂ",
+                "ㅜ"
+              ],
+              "a": "부"
+            },
+            {
+              "parts": [
+                "ㅅ",
+                "ㅣ"
+              ],
+              "a": "시"
+            },
+            {
+              "parts": [
+                "ㅎ",
+                "ㅏ"
+              ],
+              "a": "하"
+            },
+            {
+              "parts": [
+                "ㅈ",
+                "ㅗ"
+              ],
+              "a": "조"
+            }
+          ]
+        },
+        {
+          "type": "matchlines",
+          "title": {
+            "en": "Practice B: Match letter and name",
+            "ko": "글자와 이름을 연결해요"
+          },
+          "hint": "Write the letter of the name that fits each consonant.",
+          "pairs": [
+            [
+              "ㄱ",
+              "기역"
+            ],
+            [
+              "ㅁ",
+              "미음"
+            ],
+            [
+              "ㅅ",
+              "시옷"
+            ],
+            [
+              "ㅇ",
+              "이응"
+            ],
+            [
+              "ㅎ",
+              "히읗"
+            ]
+          ],
+          "order": [
+            3,
+            0,
+            4,
+            2,
+            1
+          ]
+        },
+        5,
+        6
+      ]
+    },
+    "hangul-batchim": {
+      "all": [
+        {
+          "type": "cards",
+          "title": {
+            "en": "The 7 final sounds",
+            "ko": "받침 소리는 일곱 가지"
+          },
+          "hint": "A final consonant (받침) sits at the bottom of the block. Many letters share only 7 sounds.",
+          "cols": 4,
+          "items": [
+            {
+              "big": "ㄱ",
+              "name": "[k]",
+              "sound": "ㄱ ㅋ ㄲ",
+              "ex": [
+                "책",
+                "book"
+              ]
+            },
+            {
+              "big": "ㄴ",
+              "name": "[n]",
+              "sound": "ㄴ",
+              "ex": [
+                "산",
+                "mountain"
+              ]
+            },
+            {
+              "big": "ㄷ",
+              "name": "[t]",
+              "sound": "ㄷ ㅅ ㅆ ㅈ ㅊ ㅌ ㅎ",
+              "ex": [
+                "옷",
+                "clothes"
+              ]
+            },
+            {
+              "big": "ㄹ",
+              "name": "[l]",
+              "sound": "ㄹ",
+              "ex": [
+                "말",
+                "horse"
+              ]
+            },
+            {
+              "big": "ㅁ",
+              "name": "[m]",
+              "sound": "ㅁ",
+              "ex": [
+                "밤",
+                "night"
+              ]
+            },
+            {
+              "big": "ㅂ",
+              "name": "[p]",
+              "sound": "ㅂ ㅍ",
+              "ex": [
+                "밥",
+                "rice"
+              ]
+            },
+            {
+              "big": "ㅇ",
+              "name": "[ng]",
+              "sound": "ㅇ",
+              "ex": [
+                "강",
+                "river"
+              ]
+            }
+          ],
+          "tip": "꽃, 옷, 낮, 밭, 히읗은 모두 [ㄷ] 소리가 나요. Different letters, same final sound."
+        },
+        2,
+        {
+          "type": "blocks",
+          "mode": "say",
+          "title": {
+            "en": "Practice A: How is it really said?",
+            "ko": "소리 나는 대로 써요"
+          },
+          "hint": "The final consonant moves to the next syllable. Write what you hear.",
+          "items": [
+            {
+              "parts": [
+                "한",
+                "국",
+                "어"
+              ],
+              "a": "한구거"
+            },
+            {
+              "parts": [
+                "음",
+                "악"
+              ],
+              "a": "으막"
+            },
+            {
+              "parts": [
+                "집",
+                "에"
+              ],
+              "a": "지베"
+            },
+            {
+              "parts": [
+                "할",
+                "아",
+                "버",
+                "지"
+              ],
+              "a": "하라버지"
+            },
+            {
+              "parts": [
+                "물",
+                "이"
+              ],
+              "a": "무리"
+            },
+            {
+              "parts": [
+                "밥",
+                "을"
+              ],
+              "a": "바블"
+            },
+            {
+              "parts": [
+                "옷",
+                "이"
+              ],
+              "a": "오시"
+            },
+            {
+              "parts": [
+                "앞",
+                "에"
+              ],
+              "a": "아페"
+            }
+          ]
+        },
+        3,
+        6
+      ]
+    },
+    "demonstratives": {
+      "3": {
+        "type": "distscene",
+        "title": {
+          "en": "Practice A: Near, middle, far",
+          "ko": "나 · 너 · 먼 곳에 있는 물건"
+        },
+        "hint": "Look where each thing is. Write 이, 그 or 저.",
+        "items": [
+          {
+            "q": "① ______ 사과가 맛있어요. (나와 가까운 사과)",
+            "a": "이"
+          },
+          {
+            "q": "② ______ 연필이 제 거예요. (너와 가까운 연필)",
+            "a": "그"
+          },
+          {
+            "q": "③ ______ 나무가 커요. (둘 다 먼 나무)",
+            "a": "저"
+          }
+        ]
+      }
+    },
+    "korean-particles": {
+      "5": {
+        "type": "wordorder",
+        "title": {
+          "en": "Practice C: Build the sentence",
+          "ko": "단어 블록으로 문장을 만들어요"
+        },
+        "hint": "Put the word blocks in order and write the sentence. More than one order may work.",
+        "items": [
+          {
+            "words": [
+              "학교에서",
+              "저는",
+              "공부해요"
+            ],
+            "a": "저는 학교에서 공부해요"
+          },
+          {
+            "words": [
+              "커피를",
+              "친구가",
+              "마셔요"
+            ],
+            "a": "친구가 커피를 마셔요"
+          },
+          {
+            "words": [
+              "내일",
+              "부산에",
+              "가요",
+              "저는"
+            ],
+            "a": "저는 내일 부산에 가요"
+          },
+          {
+            "words": [
+              "친구와",
+              "영화를",
+              "봐요",
+              "주말에"
+            ],
+            "a": "주말에 친구와 영화를 봐요"
+          },
+          {
+            "words": [
+              "버스로",
+              "학교에",
+              "가요",
+              "매일"
+            ],
+            "a": "매일 버스로 학교에 가요"
+          }
+        ]
+      }
+    },
+    "question-words": {
+      "6": {
+        "type": "matchlines",
+        "title": {
+          "en": "Practice D: Match question and answer",
+          "ko": "질문과 대답을 연결해요"
+        },
+        "hint": "Write the letter of the answer that fits each question.",
+        "pairs": [
+          [
+            "생일이 언제예요?",
+            "10월 5일이에요"
+          ],
+          [
+            "어디에서 만나요?",
+            "카페에서 만나요"
+          ],
+          [
+            "점심에 뭐 먹었어요?",
+            "비빔밥 먹었어요"
+          ],
+          [
+            "왜 울어요?",
+            "영화가 슬퍼서요"
+          ],
+          [
+            "어떻게 왔어요?",
+            "버스로 왔어요"
+          ]
+        ],
+        "order": [
+          3,
+          0,
+          4,
+          2,
+          1
+        ]
+      }
+    },
+    "basic-verbs-adjectives": {
+      "4": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice A: Name the action",
+          "ko": "그림을 보고 동사를 써요"
+        },
+        "hint": "Look at the picture. Write the verb in dictionary form (-다).",
+        "items": [
+          {
+            "k": "eat",
+            "a": "먹다"
+          },
+          {
+            "k": "drink",
+            "a": "마시다"
+          },
+          {
+            "k": "sleep",
+            "a": "자다"
+          },
+          {
+            "k": "read",
+            "a": "읽다"
+          },
+          {
+            "k": "go",
+            "a": "가다"
+          },
+          {
+            "k": "come",
+            "a": "오다"
+          }
+        ]
+      }
+    },
+    "colors-shapes-opposites": {
+      "3": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice A: Name the color",
+          "ko": "색깔을 보고 이름을 써요"
+        },
+        "hint": "Look at the color. Write the word in Korean.",
+        "items": [
+          {
+            "k": "c:#d9362b",
+            "a": "빨간색"
+          },
+          {
+            "k": "c:#2f6fdb",
+            "a": "파란색"
+          },
+          {
+            "k": "c:#f2c230",
+            "a": "노란색"
+          },
+          {
+            "k": "c:#ffffff",
+            "a": "흰색 / 하얀색"
+          },
+          {
+            "k": "c:#1d1a17",
+            "a": "검은색"
+          },
+          {
+            "k": "c:#2f9e5b",
+            "a": "초록색"
+          }
+        ]
+      },
+      "4": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice B: Name the shape",
+          "ko": "모양을 보고 이름을 써요"
+        },
+        "hint": "Look at the shape. Write the everyday word.",
+        "items": [
+          {
+            "k": "circle",
+            "a": "동그라미"
+          },
+          {
+            "k": "triangle",
+            "a": "세모"
+          },
+          {
+            "k": "square",
+            "a": "네모"
+          },
+          {
+            "k": "star",
+            "a": "별 모양"
+          }
+        ]
+      }
+    },
+    "house-rooms-furniture": {
+      "5": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice C: Name the furniture",
+          "ko": "가구와 가전을 보고 이름을 써요"
+        },
+        "hint": "Look at the picture. Write the word in Korean.",
+        "items": [
+          {
+            "k": "bed",
+            "a": "침대"
+          },
+          {
+            "k": "sofa",
+            "a": "소파"
+          },
+          {
+            "k": "desk",
+            "a": "책상"
+          },
+          {
+            "k": "fridge",
+            "a": "냉장고"
+          },
+          {
+            "k": "tv",
+            "a": "텔레비전"
+          },
+          {
+            "k": "chair",
+            "a": "의자"
+          }
+        ]
+      }
+    },
+    "school-classroom": {
+      "4": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice B: Name the classroom item",
+          "ko": "교실 물건 이름을 써요"
+        },
+        "hint": "Look at the picture. Write the word in Korean.",
+        "items": [
+          {
+            "k": "board",
+            "a": "칠판"
+          },
+          {
+            "k": "desk",
+            "a": "책상"
+          },
+          {
+            "k": "chair",
+            "a": "의자"
+          },
+          {
+            "k": "pencil",
+            "a": "연필"
+          },
+          {
+            "k": "eraser",
+            "a": "지우개"
+          },
+          {
+            "k": "book",
+            "a": "책"
+          }
+        ]
+      }
+    },
+    "hobbies-leisure-sports": {
+      "4": {
+        "type": "picwords",
+        "title": {
+          "en": "Practice B: Name the hobby",
+          "ko": "그림을 보고 취미를 써요"
+        },
+        "hint": "Look at the picture. Write the hobby word in Korean.",
+        "items": [
+          {
+            "k": "soccer",
+            "a": "축구"
+          },
+          {
+            "k": "book",
+            "a": "독서"
+          },
+          {
+            "k": "music",
+            "a": "음악"
+          },
+          {
+            "k": "camera",
+            "a": "사진"
+          },
+          {
+            "k": "swim",
+            "a": "수영"
+          },
+          {
+            "k": "bike",
+            "a": "자전거"
+          }
+        ]
+      },
+      "5": {
+        "type": "weekplan",
+        "title": {
+          "en": "Practice C: My week",
+          "ko": "내 일주일 취미 계획"
+        },
+        "hint": "Write one hobby or activity in each day.",
+        "tasks": [
+          "저는 ___요일에 ______ 을/를 해요.",
+          "제 취미는 ______ 이에요/예요."
+        ]
+      }
+    },
+    "health-hospital": {
+      "3": {
+        "type": "bodymap",
+        "title": {
+          "en": "Practice A: Name the body part",
+          "ko": "몸 그림을 보고 이름을 써요"
+        },
+        "hint": "Write the Korean word for each numbered part.",
+        "items": [
+          {
+            "a": "머리"
+          },
+          {
+            "a": "눈"
+          },
+          {
+            "a": "목"
+          },
+          {
+            "a": "배"
+          },
+          {
+            "a": "손"
+          },
+          {
+            "a": "발"
           }
         ]
       }
