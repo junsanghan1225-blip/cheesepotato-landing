@@ -16,8 +16,8 @@
   },
   "topik2-vocab-1000": {
    "krw": "9,900",
-   "qa": "통과",
-   "pages": 330,
+   "qa": "FAIL",
+   "pages": 328,
    "date": "20261031",
    "ver": 7,
    "registered": {

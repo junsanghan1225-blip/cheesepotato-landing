@@ -16,7 +16,7 @@ const all = rd('vocab/data/topik2.json');
 const VOL = Number(process.argv[2] || 1);
 const CFG = {
   /* 2026-10-31 운영자 「급수로 나눠서 · 3~4급 · 5급 · 6급 따로 · 표지 색도 각각」: 1권 3~4급 · 2권 5급 · 3권 6급, 각각 많이 나오는 순 1,000개. 번호는 책마다 1부터. (책 id 는 ISBN · 장부 · 보너스와 얽혀 있어 그대로 둔다) */
-  1: { id: 'topik2-vocab-1000', prefix: 'tv', levels: [3, 4], name: '3~4급', nameEn: 'levels 3-4', mascot: ['cheese', 4], bg: '#2E9E41', bg2: '#1C6B2B', color: '#2E9E41', tint: '#EAF6EC', next: { en: 'Book 2 covers level 5 and Book 3 covers level 6.', ko: '5급은 2권, 6급은 3권에 있습니다.' } },
+  1: { id: 'topik2-vocab-1000', prefix: 'tv', levels: [3, 4], name: '3~4급', nameEn: 'level 3-4', mascot: ['cheese', 4], bg: '#2E9E41', bg2: '#1C6B2B', color: '#2E9E41', tint: '#EAF6EC', next: { en: 'Book 2 covers level 5 and Book 3 covers level 6.', ko: '5급은 2권, 6급은 3권에 있습니다.' } },
   2: { id: 'topik2-vocab-2000', prefix: 'tw', levels: [5], name: '5급', nameEn: 'level 5', mascot: ['cheese', 5], bg: '#9E9E2E', bg2: '#6B6B1C', color: '#9E9E2E', tint: '#F6F6E4', next: { en: 'Levels 3 and 4 are in Book 1, level 6 in Book 3.', ko: '3~4급은 1권, 6급은 3권에 있습니다.' } },
   3: { id: 'topik2-vocab-lv3', prefix: 'tx', levels: [6], name: '6급', nameEn: 'level 6', mascot: ['cheese', 6], bg: '#5F3811', bg2: '#3F2409', color: '#7A4A1E', tint: '#F4ECE4', next: { en: 'Levels 3 and 4 are in Book 1, level 5 in Book 2.', ko: '3~4급은 1권, 5급은 2권에 있습니다.' } },
 }[VOL];

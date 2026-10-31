@@ -1023,7 +1023,7 @@ if (realTotal !== total && !REVIEW) {
     const at = (re, from = 0) => { const i = pages.findIndex((t, k) => k >= from && re.test(t)); return i < 0 ? null : i + 1; };
     const tocAt = at(/Contents · 목차/) || 1;
     for (const u of units) { const pg = at(new RegExp(`U ?N ?I ?T ?${String(u.no).padStart(2, '0').split('').join(' ?')}(?!\\d)`), tocAt); if (pg) starts.unit[u.no] = pg; }
-    starts.answers = at(/Answer Key/, tocAt) || starts.answers;
+    starts.answers = at(/^\s*Answer Key\s*$/m, tocAt) || at(/Answer Key/, tocAt) || starts.answers;   // 목차가 두 쪽이면 목차 속 「Answer Key 정답 N」 줄을 잘못 찾으니 제목 줄만 본다
     if (!B.compact) starts.memo = at(/Notes\s*·\s*메모/, tocAt) || starts.memo;
     for (const [k] of FRONT_LIST) { const pg = at(k === 'fm1' && B.methods ? /TYPE 1/ : /^$/, tocAt); if (pg && k === 'fm1' && B.methods) starts.front[k] = pg; }
     final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n');
