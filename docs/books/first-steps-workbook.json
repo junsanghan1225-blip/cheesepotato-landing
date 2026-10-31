@@ -744,14 +744,6 @@
               "a": "코알라"
             }
           ]
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "Score it",
-            "ko": "점수 매기기"
-          },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -845,14 +837,6 @@
               "a": "저는 펜이 없어요."
             }
           ]
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "Score it",
-            "ko": "점수 매기기"
-          },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -946,14 +930,6 @@
               "a": "교실이 커요."
             }
           ]
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "Score it",
-            "ko": "점수 매기기"
-          },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -1047,14 +1023,6 @@
               "a": "저는 요리를 좋아해요."
             }
           ]
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "Score it",
-            "ko": "점수 매기기"
-          },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -1148,14 +1116,6 @@
               "a": "토요일에 방을 청소할 거예요."
             }
           ]
-        },
-        {
-          "type": "text",
-          "title": {
-            "en": "Score it",
-            "ko": "점수 매기기"
-          },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the tip and watch-out boxes in this part, then mark your misses. 5 or fewer: redo Practice A to D of the units in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음 부로 가세요. 6~8개면 이 부의 팁과 조심할 것을 다시 읽고 틀린 곳에 표시하세요. 5개 이하면 이 부 단원의 연습 A~D를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
         }
       ]
     },
@@ -1423,26 +1383,11 @@
           ]
         },
         {
-          "type": "practice",
+          "type": "faces",
           "title": {
-            "en": "Did you understand?",
-            "ko": "이해했나요?"
-          },
-          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
-          "items": [
-            {
-              "q": "B는 어디에 가요?",
-              "a": "마트에 가요."
-            },
-            {
-              "q": "B는 무엇을 사요?",
-              "a": "우유하고 라면을 사요."
-            },
-            {
-              "q": "A도 가요?",
-              "a": "네, 저도 가요!"
-            }
-          ]
+            "en": "How was this dialogue?",
+            "ko": "이 대화, 어땠어요?"
+          }
         },
         {
           "type": "practice",
@@ -1563,26 +1508,11 @@
           ]
         },
         {
-          "type": "practice",
+          "type": "faces",
           "title": {
-            "en": "Did you understand?",
-            "ko": "이해했나요?"
-          },
-          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
-          "items": [
-            {
-              "q": "하나는 어디에 살아요?",
-              "a": "이 건물에 살아요."
-            },
-            {
-              "q": "민수는 학생이에요?",
-              "a": "아니요, 회사원이에요."
-            },
-            {
-              "q": "저기 저 남자는 누구예요?",
-              "a": "하나의 친구예요. 이름이 지민이에요."
-            }
-          ]
+            "en": "How was this dialogue?",
+            "ko": "이 대화, 어땠어요?"
+          }
         },
         {
           "type": "practice",
@@ -1703,26 +1633,11 @@
           ]
         },
         {
-          "type": "practice",
+          "type": "faces",
           "title": {
-            "en": "Did you understand?",
-            "ko": "이해했나요?"
-          },
-          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
-          "items": [
-            {
-              "q": "저 소파는 무슨 색이에요?",
-              "a": "파란색이에요."
-            },
-            {
-              "q": "A의 가족은 모두 몇 명이에요?",
-              "a": "모두 네 명이에요."
-            },
-            {
-              "q": "오빠는 어디에 있어요?",
-              "a": "방에 있어요."
-            }
-          ]
+            "en": "How was this dialogue?",
+            "ko": "이 대화, 어땠어요?"
+          }
         },
         {
           "type": "practice",
@@ -1843,26 +1758,11 @@
           ]
         },
         {
-          "type": "practice",
+          "type": "faces",
           "title": {
-            "en": "Did you understand?",
-            "ko": "이해했나요?"
-          },
-          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
-          "items": [
-            {
-              "q": "B는 뭐 주세요?",
-              "a": "라면 두 그릇 주세요."
-            },
-            {
-              "q": "모두 얼마예요?",
-              "a": "구천 원이에요."
-            },
-            {
-              "q": "B는 어떻게 계산해요?",
-              "a": "카드로 계산해요."
-            }
-          ]
+            "en": "How was this dialogue?",
+            "ko": "이 대화, 어땠어요?"
+          }
         },
         {
           "type": "practice",
@@ -1988,26 +1888,11 @@
           ]
         },
         {
-          "type": "practice",
+          "type": "faces",
           "title": {
-            "en": "Did you understand?",
-            "ko": "이해했나요?"
-          },
-          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
-          "items": [
-            {
-              "q": "B는 어제 왜 수업에 안 왔어요?",
-              "a": "아팠어요."
-            },
-            {
-              "q": "B는 내일 수업에 나올 거예요?",
-              "a": "네, 꼭 나올 거예요."
-            },
-            {
-              "q": "B는 오늘 숙제를 했어요?",
-              "a": "아니요, 못 했어요."
-            }
-          ]
+            "en": "How was this dialogue?",
+            "ko": "이 대화, 어땠어요?"
+          }
         },
         {
           "type": "practice",
