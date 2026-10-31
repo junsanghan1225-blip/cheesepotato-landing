@@ -19,21 +19,33 @@
    "qa": "통과",
    "pages": 330,
    "date": "20261031",
-   "ver": 6
+   "ver": 9,
+   "registered": {
+    "ver": "v6",
+    "pages": 330,
+    "date": "2026-10-31",
+    "where": "예스24(등록, eBookCode 4217286 · 4217288)"
+   }
   },
   "topik2-vocab-2000": {
    "krw": "9,900",
    "qa": "통과",
-   "pages": 332,
+   "pages": 328,
    "date": "20261031",
-   "ver": 6
+   "ver": 7,
+   "registered": {
+    "ver": "v6",
+    "pages": 332,
+    "date": "2026-10-31",
+    "where": "예스24(등록, eBookCode 4217286 · 4217288)"
+   }
   },
   "topik2-vocab-lv3": {
    "krw": "9,900",
    "qa": "통과",
-   "pages": 312,
+   "pages": 329,
    "date": "20261031",
-   "ver": 6
+   "ver": 7
   },
   "topik1-reading-mock": {
    "krw": "13,900"

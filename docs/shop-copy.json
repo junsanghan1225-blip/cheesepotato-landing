@@ -172,23 +172,23 @@
  },
  "topik2-vocab-1000": {
   "headline": {
-   "en": "The 1,000 words that come up most, learned by writing.",
-   "ko": "가장 자주 나오는 낱말 1,000개를 쓰면서"
+   "en": "The 1,000 most frequent levels 3–4 words, learned by writing.",
+   "ko": "3~4급 낱말 중 가장 자주 나오는 1,000개를 쓰면서"
   },
   "lead": {
-   "en": "Words 1–1,000 ranked by how often they appear in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6.",
-   "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 순서대로 낱말 1~1,000. 50단원 · 단원마다 20개, 3급에서 6급까지."
+   "en": "The 1,000 most frequent levels 3–4 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Level 5 is in Book 2 and level 6 in Book 3.",
+   "ko": "3~4급 낱말 가운데 우리 TOPIK II 연습 자료에서 자주 나오는 1,000개. 주제별로 묶은 50단원 · 단원마다 20개. 5급은 2권, 6급은 3권에 있어요."
   },
   "features": [
    {
-    "ic": "🔢",
+    "ic": "🎯",
     "t": {
-     "en": "Most useful words first",
-     "ko": "자주 나오는 순서"
+     "en": "Only levels 3–4",
+     "ko": "3~4급 낱말만"
     },
     "d": {
-     "en": "Ranked by frequency in our own TOPIK II practice material (not an official list).",
-     "ko": "우리 TOPIK II 연습 자료 기준 빈도순(공식 목록 아님)"
+     "en": "The book covers levels 3–4 only, so you always know where you are in TOPIK II. Ranked by frequency in our own material (not an official list).",
+     "ko": "3~4급 낱말만 모아서 TOPIK II 에서 내가 어디쯤인지 바로 알 수 있어요(우리 자료 기준 빈도순, 공식 목록 아님)."
     }
    },
    {
@@ -250,7 +250,7 @@
    "Complete beginners who cannot read Hangul yet (start with Korean First Steps)",
    "Anyone looking for a grammar course: this is a vocabulary workbook"
   ],
-  "pick": "you want the most frequent TOPIK II words first",
+  "pick": "you are studying TOPIK II levels 3–4 words",
   "related": [
    "topik2-vocab-1000",
    "topik2-vocab-2000",
@@ -259,23 +259,23 @@
  },
  "topik2-vocab-2000": {
   "headline": {
-   "en": "The next 1,000 words: widen your range.",
-   "ko": "다음 낱말 1,000개로 어휘 폭을 넓히세요"
+   "en": "The 1,000 most frequent level 5 words, learned by writing.",
+   "ko": "5급 낱말 중 가장 자주 나오는 1,000개를 쓰면서"
   },
   "lead": {
-   "en": "Book 2 of the series: words 1,001–2,000 by the same frequency ranking, 20 per unit in 50 units.",
-   "ko": "시리즈 2권: 같은 빈도 순서로 낱말 1,001~2,000. 50단원 · 단원마다 20개."
+   "en": "The 1,000 most frequent level 5 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Levels 3–4 are in Book 1 and level 6 in Book 3.",
+   "ko": "5급 낱말 가운데 우리 TOPIK II 연습 자료에서 자주 나오는 1,000개. 주제별로 묶은 50단원 · 단원마다 20개. 3~4급은 1권, 6급은 3권에 있어요."
   },
   "features": [
    {
-    "ic": "🔢",
+    "ic": "🎯",
     "t": {
-     "en": "Continues Book 1",
-     "ko": "1권에 이어서"
+     "en": "Only level 5",
+     "ko": "5급 낱말만"
     },
     "d": {
-     "en": "Words 1,001–2,000 by frequency in our TOPIK II practice material.",
-     "ko": "우리 TOPIK II 연습 자료 빈도순 낱말 1,001~2,000"
+     "en": "The book covers level 5 only, so you always know where you are in TOPIK II. Ranked by frequency in our own material (not an official list).",
+     "ko": "5급 낱말만 모아서 TOPIK II 에서 내가 어디쯤인지 바로 알 수 있어요(우리 자료 기준 빈도순, 공식 목록 아님)."
     }
    },
    {
@@ -337,7 +337,7 @@
    "Learners who have not started Book 1 and want the most frequent words first",
    "Anyone looking for a grammar course: this is a vocabulary workbook"
   ],
-  "pick": "you finished Book 1 and want a wider range",
+  "pick": "you are studying TOPIK II level 5 words",
   "related": [
    "topik2-vocab-1000",
    "topik2-vocab-2000",
@@ -346,23 +346,23 @@
  },
  "topik2-vocab-lv3": {
   "headline": {
-   "en": "Fill the gaps in level 3: 940 words not in Books 1 and 2.",
-   "ko": "3급의 빈틈 채우기: 1 · 2권에 없는 낱말 940개"
+   "en": "The 1,000 most frequent level 6 words, learned by writing.",
+   "ko": "6급 낱말 중 가장 자주 나오는 1,000개를 쓰면서"
   },
   "lead": {
-   "en": "Book 3 of the series collects 940 level-3 words that are not in Books 1 and 2, 20 per unit in 47 units.",
-   "ko": "시리즈 3권: 1 · 2권에 없는 3급 낱말 940개. 47단원 · 단원마다 20개."
+   "en": "The 1,000 most frequent level 6 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Levels 3–4 are in Book 1 and level 5 in Book 2.",
+   "ko": "6급 낱말 가운데 우리 TOPIK II 연습 자료에서 자주 나오는 1,000개. 주제별로 묶은 50단원 · 단원마다 20개. 3~4급은 1권, 5급은 2권에 있어요."
   },
   "features": [
    {
-    "ic": "🧱",
+    "ic": "🎯",
     "t": {
-     "en": "Only words you have not met",
-     "ko": "새 낱말만"
+     "en": "Only level 6",
+     "ko": "6급 낱말만"
     },
     "d": {
-     "en": "None of these 940 level-3 words is in Book 1 or Book 2.",
-     "ko": "1 · 2권에 없는 3급 낱말 940개"
+     "en": "The book covers level 6 only, so you always know where you are in TOPIK II. Ranked by frequency in our own material (not an official list).",
+     "ko": "6급 낱말만 모아서 TOPIK II 에서 내가 어디쯤인지 바로 알 수 있어요(우리 자료 기준 빈도순, 공식 목록 아님)."
     }
    },
    {
@@ -424,7 +424,7 @@
    "Complete beginners who cannot read Hangul yet (start with Korean First Steps)",
    "Anyone looking for a grammar course: this is a vocabulary workbook"
   ],
-  "pick": "you want the rest of level 3 that is not in Books 1 and 2",
+  "pick": "you are studying TOPIK II level 6 words",
   "related": [
    "topik2-vocab-1000",
    "topik2-vocab-2000",
