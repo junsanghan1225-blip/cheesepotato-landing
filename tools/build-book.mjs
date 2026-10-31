@@ -271,7 +271,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', mcq: '문제', omr: '답안지' };
+const LAB = { flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', dialog: '대화', faces: '점검', mcq: '문제', omr: '답안지' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');

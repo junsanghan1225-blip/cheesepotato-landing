@@ -3,8 +3,8 @@
  "books": {
   "first-steps-workbook": {
    "krw": "13,900",
-   "qa": "통과(주의 1)",
-   "pages": 152,
+   "qa": "FAIL",
+   "pages": 154,
    "date": "20261031",
    "ver": 5
   },
