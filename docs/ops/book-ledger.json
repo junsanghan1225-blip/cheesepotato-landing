@@ -19,21 +19,21 @@
    "qa": "통과",
    "pages": 330,
    "date": "20261031",
-   "ver": 5
+   "ver": 6
   },
   "topik2-vocab-2000": {
    "krw": "9,900",
    "qa": "통과",
    "pages": 332,
    "date": "20261031",
-   "ver": 4
+   "ver": 5
   },
   "topik2-vocab-lv3": {
    "krw": "9,900",
    "qa": "통과",
    "pages": 312,
    "date": "20261031",
-   "ver": 4
+   "ver": 5
   },
   "topik1-reading-mock": {
    "krw": "13,900"
@@ -56,7 +56,7 @@
    "qa": "통과(주의 2)",
    "pages": 622,
    "date": "20261031",
-   "ver": 4
+   "ver": 5
   },
   "korean-idioms": {
    "krw": "13,900"
