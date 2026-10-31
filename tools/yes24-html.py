@@ -25,6 +25,7 @@ for no, bid in IDS:
     fr = json.load(open(f'docs/books/{bid}.json', encoding='utf8')); isbn = fr['isbn'].replace('-', '')
     title = cell(sec, '책제목'); sub = cell(sec, '부제목'); author = cell(sec, '저자명'); price = PRICE.get(bid, 13900)
     feats = ['책 끝에 정답 쪽이 있어 혼자 공부할 수 있습니다.']
+    if bid.startswith('topik2-vocab'): feats.append('꼭 외워야 할 낱말은 박스로 묶고, 가장 자주 나오는 낱말에는 「최다 빈출」 표시를 붙였습니다.')
     if bid not in NO_QR: feats.append('단원마다 QR 코드로 everykoreans.com 의 무료 연습 쪽으로 이어집니다.')
     feats.append('영어와 한국어 두 언어로 설명해 영어권 학습자도, 한국어 교사도 쓸 수 있습니다.')
     intro = box(sec, '책소개') + '\n\n이 책의 특징\n' + '\n'.join('- ' + f for f in feats)
