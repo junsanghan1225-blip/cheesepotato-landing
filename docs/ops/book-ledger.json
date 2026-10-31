@@ -19,7 +19,7 @@
    "qa": "통과",
    "pages": 330,
    "date": "20261031",
-   "ver": 6,
+   "ver": 7,
    "registered": {
     "ver": "v6",
     "pages": 330,
@@ -29,8 +29,8 @@
   },
   "topik2-vocab-2000": {
    "krw": "9,900",
-   "qa": "통과",
-   "pages": 332,
+   "qa": "FAIL",
+   "pages": 328,
    "date": "20261031",
    "ver": 6,
    "registered": {
@@ -42,8 +42,8 @@
   },
   "topik2-vocab-lv3": {
    "krw": "9,900",
-   "qa": "통과",
-   "pages": 312,
+   "qa": "FAIL",
+   "pages": 329,
    "date": "20261031",
    "ver": 6
   },
