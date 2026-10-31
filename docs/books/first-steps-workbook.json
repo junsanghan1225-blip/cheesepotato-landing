@@ -2634,40 +2634,6 @@
           ]
         },
         {
-          "type": "picwords",
-          "title": {
-            "en": "Practice A: Read and name",
-            "ko": "그림을 보고 한글로 써요"
-          },
-          "hint": "Look at the picture. Write the word in Hangul.",
-          "items": [
-            {
-              "k": "bus",
-              "a": "버스"
-            },
-            {
-              "k": "taxi",
-              "a": "택시"
-            },
-            {
-              "k": "camera",
-              "a": "카메라"
-            },
-            {
-              "k": "tv",
-              "a": "텔레비전"
-            },
-            {
-              "k": "soccer",
-              "a": "축구"
-            },
-            {
-              "k": "music",
-              "a": "음악"
-            }
-          ]
-        },
-        {
           "type": "matchlines",
           "title": {
             "en": "Practice B: Match word and meaning",
