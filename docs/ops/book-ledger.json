@@ -19,7 +19,7 @@
    "qa": "통과",
    "pages": 330,
    "date": "20261031",
-   "ver": 9,
+   "ver": 11,
    "registered": {
     "ver": "v6",
     "pages": 330,
@@ -30,9 +30,9 @@
   "topik2-vocab-2000": {
    "krw": "9,900",
    "qa": "통과",
-   "pages": 328,
+   "pages": 332,
    "date": "20261031",
-   "ver": 7,
+   "ver": 10,
    "registered": {
     "ver": "v6",
     "pages": 332,
@@ -43,9 +43,9 @@
   "topik2-vocab-lv3": {
    "krw": "9,900",
    "qa": "통과",
-   "pages": 329,
+   "pages": 332,
    "date": "20261031",
-   "ver": 7
+   "ver": 10
   },
   "topik1-reading-mock": {
    "krw": "13,900"
