@@ -41,9 +41,15 @@
   "topik2-writing-53-54": {
    "krw": "13,900",
    "qa": "통과",
-   "pages": 220,
+   "pages": 234,
    "date": "20261031",
-   "ver": 4
+   "ver": 8,
+   "registered": {
+    "ver": "최종 v1.18",
+    "pages": 220,
+    "date": "2026-10-31",
+    "where": "예스24"
+   }
   },
   "topik1-vocab": {
    "krw": "13,900",
