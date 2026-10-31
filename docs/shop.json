@@ -1950,30 +1950,30 @@
   {
    "id": "topik2-vocab-1000",
    "series": "topik",
-   "color": "#6B3FA0",
+   "color": "#2E9E41",
    "level": "TOPIK II",
    "title": {
     "en": "TOPIK II Vocabulary Workbook 1",
     "ko": "TOPIK II 단어장 워크북 1"
    },
    "sub": {
-    "en": "Words 1-1,000 by how often they appear in TOPIK II, with example sentences and writing practice.",
-    "ko": "TOPIK II 에 자주 나오는 순 1~1,000번째 낱말 · 예문과 쓰기 연습"
+    "en": "The 1,000 most frequent TOPIK II levels 3–4 words, with example sentences and writing practice.",
+    "ko": "TOPIK II 3~4급 낱말 중 자주 나오는 1,000개 · 예문과 쓰기 연습"
    },
    "about": {
-    "en": "The 1,000 words that come up most often in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
-    "ko": "우리 TOPIK II 연습 자료에서 가장 자주 나온 낱말 1,000개를 3급부터 6급까지 20개씩 50단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+    "en": "The 1,000 most frequent levels 3–4 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Each unit has 20 words with part of speech, English meaning and an example sentence, writing practice, a unit checkup and look-alike words. Level 5 is in Book 2 and level 6 in Book 3.",
+    "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 3~4급 낱말 1,000개를 주제별로 묶은 50단원. 단원마다 낱말 20개 · 품사 · 영어 뜻 · 예문 · 쓰기 연습 · 단원 점검 · 헷갈리는 낱말. 5급은 2권, 6급은 3권에 있어요."
    },
    "for": {
     "en": [
-     "TOPIK II (levels 3–6) test takers",
-     "Learners who want the most useful words first",
+     "TOPIK II test takers working on levels 3–4",
+     "Learners who want the most useful words of their level first",
      "Teachers who need word lists with practice"
     ],
     "ko": [
-     "TOPIK II (3~6급) 응시생",
-     "자주 나오는 낱말부터 익히고 싶은 학습자",
-     "연습이 붙은 낱말장이 필요한 선생님"
+     "TOPIK II 3~4급 을 준비하는 수험생",
+     "내 급수의 쓸모 있는 낱말부터 익히고 싶은 학습자",
+     "연습이 붙은 낱말 목록이 필요한 선생님"
     ]
    },
    "toc": [
@@ -2498,30 +2498,30 @@
   {
    "id": "topik2-vocab-2000",
    "series": "topik",
-   "color": "#6B3FA0",
+   "color": "#9E9E2E",
    "level": "TOPIK II",
    "title": {
     "en": "TOPIK II Vocabulary Workbook 2",
     "ko": "TOPIK II 단어장 워크북 2"
    },
    "sub": {
-    "en": "Words 1,001-2,000 by how often they appear in TOPIK II, with example sentences and writing practice.",
-    "ko": "TOPIK II 에 자주 나오는 순 1,001~2,000번째 낱말 · 예문과 쓰기 연습"
+    "en": "The 1,000 most frequent TOPIK II level 5 words, with example sentences and writing practice.",
+    "ko": "TOPIK II 5급 낱말 중 자주 나오는 1,000개 · 예문과 쓰기 연습"
    },
    "about": {
-    "en": "Book 2 of the series: the next 1,000 words, ranked 1,001 to 2,000 by how often they come up in our TOPIK II practice material, 20 per unit in 50 units. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
-    "ko": "시리즈 2권: 우리 TOPIK II 연습 자료에서 자주 나온 순 1,001~2,000번째 낱말을 20개씩 50단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+    "en": "The 1,000 most frequent level 5 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Each unit has 20 words with part of speech, English meaning and an example sentence, writing practice, a unit checkup and look-alike words. Levels 3–4 are in Book 1 and level 6 in Book 3.",
+    "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 5급 낱말 1,000개를 주제별로 묶은 50단원. 단원마다 낱말 20개 · 품사 · 영어 뜻 · 예문 · 쓰기 연습 · 단원 점검 · 헷갈리는 낱말. 3~4급은 1권, 6급은 3권에 있어요."
    },
    "for": {
     "en": [
-     "TOPIK II (levels 3–6) test takers who finished Book 1",
-     "Learners who want to widen their word range",
+     "TOPIK II test takers working on level 5",
+     "Learners who want the most useful words of their level first",
      "Teachers who need word lists with practice"
     ],
     "ko": [
-     "1권을 마친 TOPIK II (3~6급) 응시생",
-     "낱말 범위를 넓히고 싶은 학습자",
-     "연습이 붙은 낱말장이 필요한 선생님"
+     "TOPIK II 5급 을 준비하는 수험생",
+     "내 급수의 쓸모 있는 낱말부터 익히고 싶은 학습자",
+     "연습이 붙은 낱말 목록이 필요한 선생님"
     ]
    },
    "toc": [
@@ -3046,30 +3046,30 @@
   {
    "id": "topik2-vocab-lv3",
    "series": "topik",
-   "color": "#6B3FA0",
+   "color": "#5F3811",
    "level": "TOPIK II",
    "title": {
     "en": "TOPIK II Vocabulary Workbook 3",
     "ko": "TOPIK II 단어장 워크북 3"
    },
    "sub": {
-    "en": "940 level-3 words that are not in Books 1 and 2, with example sentences and writing practice.",
-    "ko": "1 · 2권에 없는 TOPIK II 3급 낱말 940개 · 예문과 쓰기 연습"
+    "en": "The 1,000 most frequent TOPIK II level 6 words, with example sentences and writing practice.",
+    "ko": "TOPIK II 6급 낱말 중 자주 나오는 1,000개 · 예문과 쓰기 연습"
    },
    "about": {
-    "en": "Book 3 of the series: 940 level-3 words that are not in Books 1 and 2, 20 per unit in 47 units. Each unit has 20 words with part of speech, an English meaning, an example sentence with translation, a level mark (cheese) and a frequency mark (potato). Then you write the meaning, write the Korean word and write your own sentence, finish with a unit checkup, and mark your work with the answer key at the back. A QR code opens a free match game for the same 20 words. Look-alike words (synonyms and sound-alikes) are explained at the end of each unit.",
-    "ko": "시리즈 3권: 1 · 2권에 없는 3급 낱말 940개를 20개씩 47단원으로 담았습니다. 단원마다 낱말 20개: 품사 · 영어 뜻 · 번역이 붙은 예문 · 급수(치즈) · 빈출도(감자). 뜻 쓰기 · 한국어 쓰기 · 내 문장 쓰기와 단원 점검을 하고, 뒤쪽 정답으로 직접 채점합니다. QR 로 같은 낱말 20개의 짝 맞추기 게임이 열립니다. 단원 끝에는 헷갈리는 낱말(유의어 · 동음이의어)도 짚어 줍니다."
+    "en": "The 1,000 most frequent level 6 words in our TOPIK II practice material, grouped by topic, 20 per unit in 50 units. Each unit has 20 words with part of speech, English meaning and an example sentence, writing practice, a unit checkup and look-alike words. Levels 3–4 are in Book 1 and level 5 in Book 2.",
+    "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 6급 낱말 1,000개를 주제별로 묶은 50단원. 단원마다 낱말 20개 · 품사 · 영어 뜻 · 예문 · 쓰기 연습 · 단원 점검 · 헷갈리는 낱말. 3~4급은 1권, 5급은 2권에 있어요."
    },
    "for": {
     "en": [
-     "Learners aiming at TOPIK II level 3 and beyond",
-     "Learners who finished Books 1 and 2 and want the rest of level 3",
+     "TOPIK II test takers working on level 6",
+     "Learners who want the most useful words of their level first",
      "Teachers who need word lists with practice"
     ],
     "ko": [
-     "TOPIK II 3급 이상을 준비하는 학습자",
-     "1 · 2권을 마치고 남은 3급 낱말을 채우려는 학습자",
-     "연습이 붙은 낱말장이 필요한 선생님"
+     "TOPIK II 6급 을 준비하는 수험생",
+     "내 급수의 쓸모 있는 낱말부터 익히고 싶은 학습자",
+     "연습이 붙은 낱말 목록이 필요한 선생님"
     ]
    },
    "toc": [

@@ -93,7 +93,7 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   const lvKo = lvs.map((l) => LV_KO[l]).join('·'), lvEn = lvs.map((l) => `Level ${l}`).join(' / ');
   const exOf = (w) => (w.examples && w.examples[0]) || null;
   const secs = [];
-  secs.push({ type: 'vocab', title: { en: 'Words', ko: '낱말' }, from: (CFG.offset || 0) + u * PER, entries: ws.map((w) => ({ ko: w.head, pos: POS[w.pos] || w.pos, en: w.en, ex: exOf(w), lv: w.level, fq: fqOf(w) })) });
+  secs.push({ type: 'vocab', title: { en: 'Words', ko: '낱말' }, from: (CFG.offset || 0) + u * PER, entries: ws.map((w) => ({ ko: w.head, pos: POS[w.pos] || w.pos, en: w.en, ex: exOf(w), lv: w.level, fq: fqOf(w), ...(JUDGE[w.head]?.d ? { d: JUDGE[w.head].d } : {}) })) });
   const firsts = ws.map((w) => first(w.en));
   /* 단원 점검(Checkup): 짝짓기 5 + 빈칸 4(낱말 상자). 빈칸 문장은 책에 실린 첫 예문이 아니라 둘째 예문 */
   const clozeW = ws.filter((w) => ['명사', '부사'].includes(w.pos) && w.head.length >= 2 && w.examples[1] && w.examples[1].ko.split(w.head).length === 2).slice(0, 4);
