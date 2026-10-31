@@ -2013,6 +2013,374 @@
           "ko": "가족 호칭"
         }
       }
+    },
+    "numbers-counters": {
+      "6": {
+        "type": "clock",
+        "title": {
+          "en": "Practice C: Read the clocks",
+          "ko": "시계를 보고 한국어로 써요"
+        },
+        "hint": "Write the time in Korean: 몇 시 몇 분.",
+        "items": [
+          {
+            "h": 3,
+            "m": 15,
+            "a": "세 시 십오 분"
+          },
+          {
+            "h": 7,
+            "m": 30,
+            "a": "일곱 시 삼십 분"
+          },
+          {
+            "h": 10,
+            "m": 45,
+            "a": "열 시 사십오 분"
+          },
+          {
+            "h": 12,
+            "m": 0,
+            "a": "열두 시"
+          }
+        ]
+      },
+      "7": {
+        "type": "pricetags",
+        "title": {
+          "en": "Practice D: Read the price tags",
+          "ko": "가격표를 읽어요"
+        },
+        "hint": "Write the price in Korean with 원. Then write your own age.",
+        "items": [
+          {
+            "n": "3,500원",
+            "a": "삼천오백 원"
+          },
+          {
+            "n": "12,000원",
+            "a": "만 이천 원"
+          },
+          {
+            "n": "45,000원",
+            "a": "사만 오천 원"
+          },
+          {
+            "n": "150,000원",
+            "a": "십오만 원"
+          }
+        ],
+        "me": "나는 ______ 살이에요. (고유어 수: 스물, 서른 …)"
+      }
+    },
+    "days-months-dates": {
+      "5": {
+        "type": "calendar",
+        "title": {
+          "en": "Practice B: My calendar",
+          "ko": "내 달력을 만들어요"
+        },
+        "hint": "Fill in this month. Write the numbers, then answer in Korean.",
+        "tasks": [
+          "오늘은 ___월 ___일 ___요일이에요.",
+          "내 생일은 ___월 ___일이에요. (달력에 ★ 표시)",
+          "다음 주 약속: ___요일에 ______ 이/가 있어요."
+        ]
+      }
+    },
+    "location-places-exist": {
+      "5": {
+        "type": "roommap",
+        "title": {
+          "en": "Practice C: Where is it?",
+          "ko": "그림을 보고 위치를 말해요"
+        },
+        "hint": "Look at the picture. Write the position word: 위, 아래, 옆, 안.",
+        "items": [
+          {
+            "q": "① 책은 책상 ______ 에 있어요.",
+            "a": "위"
+          },
+          {
+            "q": "② 가방은 책상 ______ 에 있어요.",
+            "a": "아래"
+          },
+          {
+            "q": "③ 의자는 책상 ______ 에 있어요.",
+            "a": "옆"
+          },
+          {
+            "q": "④ 고양이는 상자 ______ 에 있어요.",
+            "a": "안"
+          }
+        ]
+      }
+    },
+    "food-ordering-taste": {
+      "5": {
+        "type": "menu",
+        "title": {
+          "en": "Practice C: Order from the menu",
+          "ko": "메뉴판을 보고 주문해요"
+        },
+        "hint": "Use the sample menu. Write the total in Korean, then write your order.",
+        "dishes": [
+          [
+            "비빔밥",
+            "9,000원"
+          ],
+          [
+            "김치찌개",
+            "8,000원"
+          ],
+          [
+            "불고기",
+            "12,000원"
+          ],
+          [
+            "냉면",
+            "8,500원"
+          ],
+          [
+            "콜라",
+            "2,000원"
+          ]
+        ],
+        "items": [
+          {
+            "q": "비빔밥 하나와 콜라 하나는 모두 얼마예요?",
+            "a": "만 천 원이에요"
+          },
+          {
+            "q": "김치찌개 두 개는 모두 얼마예요?",
+            "a": "만 육천 원이에요"
+          },
+          {
+            "q": "불고기 하나와 냉면 하나는 모두 얼마예요?",
+            "a": "이만 오백 원이에요"
+          },
+          {
+            "q": "주문해 보세요: 비빔밥 한 그릇과 콜라 한 잔",
+            "a": "비빔밥 한 그릇하고 콜라 한 잔 주세요"
+          },
+          {
+            "q": "주문해 보세요: 냉면 두 그릇",
+            "a": "냉면 두 그릇 주세요"
+          }
+        ]
+      }
+    },
+    "negation-tenses": {
+      "5": {
+        "type": "timeline",
+        "title": {
+          "en": "Practice C: Yesterday, now, tomorrow",
+          "ko": "어제 · 지금 · 내일"
+        },
+        "hint": "Write the verb in the past, present and future.",
+        "rows": [
+          {
+            "cells": [
+              "학교에 ______",
+              "학교에 ______",
+              "학교에 ______"
+            ],
+            "a": "갔어요 / 가요 / 갈 거예요"
+          },
+          {
+            "cells": [
+              "밥을 ______",
+              "밥을 ______",
+              "밥을 ______"
+            ],
+            "a": "먹었어요 / 먹어요 / 먹을 거예요"
+          },
+          {
+            "cells": [
+              "친구를 ______",
+              "친구를 ______",
+              "친구를 ______"
+            ],
+            "a": "만났어요 / 만나요 / 만날 거예요"
+          }
+        ]
+      }
+    },
+    "greetings-self-introduction": {
+      "3": {
+        "type": "scenes",
+        "title": {
+          "en": "Practice A: What do you say?",
+          "ko": "이럴 때 뭐라고 말해요?"
+        },
+        "hint": "Read each scene. Write what you say in Korean.",
+        "cards": [
+          {
+            "en": "Morning. You meet your teacher.",
+            "a": "안녕하세요"
+          },
+          {
+            "en": "You meet someone for the first time.",
+            "a": "반갑습니다"
+          },
+          {
+            "en": "You step on someone's foot.",
+            "a": "죄송합니다"
+          },
+          {
+            "en": "You leave your friend's house. Your friend stays.",
+            "a": "안녕히 계세요"
+          }
+        ]
+      },
+      "6": {
+        "type": "namecard",
+        "title": {
+          "en": "Practice D: My name card",
+          "ko": "내 명함"
+        },
+        "hint": "Fill in the card with your own information.",
+        "card": "NAME CARD · 명함",
+        "fields": [
+          "이름",
+          "나라",
+          "직업",
+          "한마디: 저는 ______ 이에요/예요."
+        ],
+        "example": [
+          "이름 수피아",
+          "나라 미국",
+          "직업 학생",
+          "저는 학생이에요."
+        ]
+      }
+    },
+    "shopping-prices-clothes": {
+      "3": {
+        "type": "receipt",
+        "title": {
+          "en": "Practice A: Read the receipt",
+          "ko": "영수증을 읽어요"
+        },
+        "hint": "Answer in Korean. Write the prices in Hangul.",
+        "shop": "예시 옷 가게",
+        "lines": [
+          [
+            "티셔츠",
+            "15,000원"
+          ],
+          [
+            "바지",
+            "32,000원"
+          ],
+          [
+            "양말",
+            "3,000원"
+          ]
+        ],
+        "total": "50,000원",
+        "items": [
+          {
+            "q": "티셔츠는 얼마예요?",
+            "a": "만 오천 원이에요"
+          },
+          {
+            "q": "바지는 얼마예요?",
+            "a": "삼만 이천 원이에요"
+          },
+          {
+            "q": "모두 얼마예요?",
+            "a": "오만 원이에요"
+          },
+          {
+            "q": "십만 원을 냈어요. 거스름돈은 얼마예요?",
+            "a": "오만 원이에요"
+          }
+        ]
+      }
+    },
+    "weather-seasons-temperature": {
+      "4": {
+        "type": "forecast",
+        "title": {
+          "en": "Practice B: Read the forecast",
+          "ko": "날씨 예보를 읽어요"
+        },
+        "hint": "Look at the forecast. Answer in Korean.",
+        "days": [
+          {
+            "d": "월",
+            "k": "sun",
+            "t": "영상 20도"
+          },
+          {
+            "d": "화",
+            "k": "cloud",
+            "t": "영상 17도"
+          },
+          {
+            "d": "수",
+            "k": "rain",
+            "t": "영상 12도"
+          },
+          {
+            "d": "목",
+            "k": "snow",
+            "t": "영하 3도"
+          },
+          {
+            "d": "금",
+            "k": "sun",
+            "t": "영상 15도"
+          }
+        ],
+        "items": [
+          {
+            "q": "수요일 날씨는 어때요?",
+            "a": "비가 와요. 영상 십이 도예요"
+          },
+          {
+            "q": "가장 추운 날은 언제예요?",
+            "a": "목요일이에요. 영하 삼 도예요"
+          },
+          {
+            "q": "가장 따뜻한 날은 언제예요?",
+            "a": "월요일이에요. 영상 이십 도예요"
+          },
+          {
+            "q": "우산이 필요한 날은 언제예요?",
+            "a": "수요일이에요"
+          }
+        ]
+      }
+    },
+    "directions-transportation": {
+      "3": {
+        "type": "streetmap",
+        "title": {
+          "en": "Practice A: Give directions",
+          "ko": "지도를 보고 길을 설명해요"
+        },
+        "hint": "You are at the station (여기). Tell a friend how to get to each place. Use 직진, 오른쪽, 왼쪽, 있어요. Answers may vary.",
+        "items": [
+          {
+            "q": "① 병원까지 어떻게 가요?",
+            "a": "직진하세요. 오른쪽에 병원이 있어요"
+          },
+          {
+            "q": "② 은행까지 어떻게 가요?",
+            "a": "직진하세요. 왼쪽에 은행이 있어요"
+          },
+          {
+            "q": "③ 우체국까지 어떻게 가요?",
+            "a": "직진해서 사거리에서 오른쪽으로 가세요"
+          },
+          {
+            "q": "④ 학교까지 어떻게 가요?",
+            "a": "직진해서 사거리에서 왼쪽으로 가세요"
+          }
+        ]
+      }
     }
   }
 }
