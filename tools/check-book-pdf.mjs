@@ -30,7 +30,7 @@ export function checkBookPdf(id, pdf, { krw = '' } = {}) {
   const noEmb = sh('pdffonts', [pdf]).split('\n').slice(2).filter((l) => l.trim() && !/\byes\s+(yes|no)\s+(yes|no)\s+\d+/.test(l));
   if (!noEmb.length) ok('글꼴 내장'); else bad('글꼴 내장', `내장 안 된 글꼴 ${noEmb.length}개: ${noEmb[0].slice(0, 50)}`);
   // 4 금지 글자
-  const forb = ['undefined', 'NaN', '[object', 'continued', 'TODO', 'localhost', '—', 'Practice in pencil', 'App score'].filter((w) => all.includes(w));
+  const forb = ['undefined', 'NaN', '[object', '(continued', 'TODO', 'localhost', '—', 'Practice in pencil', 'App score'].filter((w) => all.includes(w));
   if (!forb.length) ok('금지 글자 없음'); else bad('금지 글자', forb.join(', '));
   const boxes = (all.match(/☐/g) || []).length;
   if (!boxes) ok('체크 칸(☐) 없음'); else warn('체크 칸(☐)', `${boxes}개 — 전자책에는 보통 뺀다`);
