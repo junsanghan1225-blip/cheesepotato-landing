@@ -12,5 +12,6 @@
 | Polar 상품 · 결제 링크 · 감사 쪽 주소 | `tools/polar-publish.mjs` · `polar-bundle.mjs` · `polar-links.mjs` | Polar 토큰 · 환경 시크릿(Node 에 `NODE_USE_ENV_PROXY=1`) | 명령 | `docs/ops/polar-api.md` |
 | 블로그 · 팟캐스트 · 쇼츠 · 분석 · 알림 | `.github/workflows/` 의 blog-* · podcast-post · shorts-post · analytics-daily · daily-reminder · downloads-sync · indexnow | 각 workflow 머리말 참고 | 각 workflow | 각 workflow 머리말 |
 | 이메일 모으기 · 책 리뷰 | `subscribe.js` · `reviews.js` → Supabase(공개 키, 넣기만 가능) | 없음(공개 anon 키) | 켜짐 | `docs/db/` · `docs/ops/reviews.md` |
+| 책 공장(책 PDF · 최종 검수 자동 검사 · 표지 · zip) | `node tools/book-factory.mjs <책 id>` · `--all` / 검사만 `tools/check-book-pdf.mjs` · 장부 `docs/ops/book-ledger.json` | 없음 | 켜짐(손으로 돌림) | `docs/plans/books.md` 8 |
 
 **없는 것(2026-10-27 기준)**: KDP · 예스24 · 쿠팡 올리기(운영자가 화면에서 직접 — 올리기 API 없음) · 구매자별 워터마크.

@@ -1216,57 +1216,48 @@
           "cols": [
             "Week · 주",
             "Topics · 주제",
-            "Goal · 목표",
-            "Done · 완료"
+            "Goal · 목표"
           ],
           "rows": [
             [
               "1",
               "Hangul letters · Batchim · Mini test 1",
-              "Read and write any Hangul syllable",
-              "☐"
+              "Read and write any Hangul syllable"
             ],
             [
               "2",
               "Greetings · Is / is not, have / do not have · This, that · Basic particles",
-              "Say who you are and point at things",
-              "☐"
+              "Say who you are and point at things"
             ],
             [
               "3",
               "Question words · Polite present · Basic verbs · Mini test 2",
-              "Ask and answer simple questions",
-              "☐"
+              "Ask and answer simple questions"
             ],
             [
               "4",
               "Numbers · Days and dates · Family · Places",
-              "Count, give dates, talk about family and places",
-              "☐"
+              "Count, give dates, talk about family and places"
             ],
             [
               "5",
               "Colors and shapes · House · School · Mini test 3",
-              "Describe your room and your class",
-              "☐"
+              "Describe your room and your class"
             ],
             [
               "6",
               "Food · Shopping · Directions",
-              "Order, buy and ask the way",
-              "☐"
+              "Order, buy and ask the way"
             ],
             [
               "7",
               "Weather · Hobbies · Health · Mini test 4",
-              "Talk about weather, hobbies and aches",
-              "☐"
+              "Talk about weather, hobbies and aches"
             ],
             [
               "8",
               "Negation and tenses · Mini test 5 · Redo your misses",
-              "Say it in the past, the future and the negative",
-              "☐"
+              "Say it in the past, the future and the negative"
             ]
           ]
         },

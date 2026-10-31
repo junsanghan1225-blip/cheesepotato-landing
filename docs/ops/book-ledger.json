@@ -1,0 +1,39 @@
+{
+ "_note": "책 공장 장부(운영자 2026-10-31). krw = 예스24 정가(원, 운영자가 정함). ver · date · qa · pages 는 tools/book-factory.mjs 가 찍을 때마다 갱신한다. 쓰기 51~52 · 53~54 는 공장 이전에 손으로 낸 최종 v2.6 · v1.18 이 있고, 공장 첫 판은 v1 부터 새로 센다.",
+ "books": {
+  "first-steps-workbook": {
+   "krw": "13,900",
+   "qa": "통과(주의 1)",
+   "pages": 156,
+   "date": "20261031",
+   "ver": 1
+  },
+  "particles-workbook": {
+   "krw": "13,900"
+  },
+  "topik2-writing-51-52": {
+   "krw": "9,900"
+  },
+  "topik2-vocab-1000": {
+   "krw": "9,900"
+  },
+  "topik2-vocab-2000": {
+   "krw": "9,900"
+  },
+  "topik2-vocab-lv3": {
+   "krw": "9,900"
+  },
+  "topik1-reading-mock": {
+   "krw": "13,900"
+  },
+  "topik2-writing-53-54": {
+   "krw": "13,900"
+  },
+  "topik1-vocab": {
+   "krw": "13,900"
+  },
+  "korean-idioms": {
+   "krw": "13,900"
+  }
+ }
+}
