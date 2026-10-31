@@ -15,15 +15,15 @@ const all = rd('vocab/data/topik2.json');
 
 const VOL = Number(process.argv[2] || 1);
 const CFG = {
-  1: { id: 'topik2-vocab-1000', prefix: 'tv', offset: 0, range: '1~1,000', rangeEn: '1-1,000', mascot: ['cheese', 5] },
-  2: { id: 'topik2-vocab-2000', prefix: 'tw', offset: 1000, range: '1,001~2,000', rangeEn: '1,001-2,000', mascot: ['cheese', 6] },
-  /* 3권(운영자 2026-10-25 「급수별 3권」): 1 · 2권에 없는 3급 낱말. 우리 자료에서 나온 횟수가 거의 0이라 「자주 나오는 순」이 아니라 급 · 주제로 묶는다 */
-  3: { id: 'topik2-vocab-lv3', prefix: 'tx', n: 940, lv3: true, range: '3급 940개', rangeEn: 'level 3, 940 words', mascot: ['cheese', 3] },
+  /* 2026-10-31 운영자 「급수로 나눠서 · 3~4급 · 5급 · 6급 따로 · 표지 색도 각각」: 1권 3~4급 · 2권 5급 · 3권 6급, 각각 많이 나오는 순 1,000개. 번호는 책마다 1부터. (책 id 는 ISBN · 장부 · 보너스와 얽혀 있어 그대로 둔다) */
+  1: { id: 'topik2-vocab-1000', prefix: 'tv', levels: [3, 4], name: '3~4급', nameEn: 'levels 3-4', mascot: ['cheese', 4], bg: '#2E9E41', bg2: '#1C6B2B', color: '#2E9E41', tint: '#EAF6EC', next: { en: 'Book 2 covers level 5 and Book 3 covers level 6.', ko: '5급은 2권, 6급은 3권에 있습니다.' } },
+  2: { id: 'topik2-vocab-2000', prefix: 'tw', levels: [5], name: '5급', nameEn: 'level 5', mascot: ['cheese', 5], bg: '#9E9E2E', bg2: '#6B6B1C', color: '#9E9E2E', tint: '#F6F6E4', next: { en: 'Levels 3 and 4 are in Book 1, level 6 in Book 3.', ko: '3~4급은 1권, 6급은 3권에 있습니다.' } },
+  3: { id: 'topik2-vocab-lv3', prefix: 'tx', levels: [6], name: '6급', nameEn: 'level 6', mascot: ['cheese', 6], bg: '#5F3811', bg2: '#3F2409', color: '#7A4A1E', tint: '#F4ECE4', next: { en: 'Levels 3 and 4 are in Book 1, level 5 in Book 2.', ko: '3~4급은 1권, 5급은 2권에 있습니다.' } },
 }[VOL];
 if (!CFG) throw new Error('권은 1 또는 2');
-const N_WORDS = CFG.n || 1000, PER = 20;
+const N_WORDS = 1000, PER = 20;
 /* 1,000개: 많이 나오는 순으로 뽑은 뒤, 책 안에서는 급 → 많이 나오는 순 */
-const picked = [...all].sort((a, b) => (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko')).filter((w, i) => !CFG.lv3 || (i >= 2000 && w.level === 3 && w.examples.length >= 2)).slice(CFG.lv3 ? 0 : CFG.offset, CFG.lv3 ? N_WORDS : CFG.offset + N_WORDS)
+const picked = [...all].filter((w) => CFG.levels.includes(w.level) && w.examples.length >= 2).sort((a, b) => (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko')).slice(0, N_WORDS)
   .sort((a, b) => (a.level - b.level) || String(a.topics?.[0] || '~').localeCompare(String(b.topics?.[0] || '~')) || (b.freq - a.freq) || a.head.localeCompare(b.head, 'ko'));
 if (picked.length < N_WORDS) throw new Error(`낱말이 ${picked.length}개뿐`);
 
@@ -31,8 +31,8 @@ const POS = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'a
 /* 빈출도 감자 1~5: 시리즈 모든 권이 같은 눈금(우리 TOPIK II 낱말 목록에서 나오는 횟수 freq: 30 이상 5개 · 12 이상 4개 · 6 이상 3개 · 3 이상 2개 · 그 아래 1개).
    1권은 2~5개, 2권은 1~2개가 많다. 한 단원 안에 여러 단계가 섞이도록 단원은 주제로 묶는다 */
 const fq = (f) => (f <= 0 ? 0 : f >= 30 ? 5 : f >= 12 ? 4 : f >= 6 ? 3 : f >= 3 ? 2 : 1);
-/* 안티가 교사 눈으로 판단한 빈출도(docs/vocab-judge/topik2.json, 지시 antigravity-vocab-judge-task.md) — 우리 자료에서 나온 횟수가 거의 없는 낱말(감자 1개 이하)만 이 값으로 채운다. 1 · 2권은 예스24에 올라가서 값이 안 바뀌게 3권만 쓴다 */
-const JUDGE = CFG.lv3 && fs.existsSync(path.join(ROOT, 'docs/vocab-judge/topik2.json')) ? rd('docs/vocab-judge/topik2.json') : {};
+/* 안티가 교사 눈으로 판단한 빈출도(docs/vocab-judge/topik2.json, 지시 antigravity-vocab-judge-task.md) — 우리 자료에서 나온 횟수가 거의 없는 낱말(감자 1개 이하)만 이 값으로 채운다. */
+const JUDGE = fs.existsSync(path.join(ROOT, 'docs/vocab-judge/topik2.json')) ? rd('docs/vocab-judge/topik2.json') : {};
 const fqOf = (w) => { const n = fq(w.freq); return n <= 1 && JUDGE[w.head] ? Math.max(n, JUDGE[w.head].fq) : n; };
 const first = (en) => String(en).split(';')[0].trim();
 const pick = (arr, f) => arr.filter((_, i) => f(i));
@@ -116,7 +116,7 @@ for (let u = 0; u < N_WORDS / PER; u++) {
   secs.push({ type: 'practice', title: { en: 'Your turn', ko: '내 문장 쓰기' }, hint: 'Use each word in a true sentence about your own life. Say it aloud.', items: mine.map((w) => ({ q: `Write a sentence with ${w.head}. →`, a: '(Your own sentence · 내 문장)' })) });
   inline[id] = {
     id, title: { en: `Words ${no} · ${lvEn}`, ko: `낱말 ${no} · ${lvKo}` },
-    sub: CFG.lv3 ? { en: `${PER} level-3 words grouped by topic, with an example sentence for each.`, ko: `주제로 묶은 3급 낱말 ${PER}개와 예문` } : { en: `${PER} words that appear often in TOPIK II, with an example sentence for each.`, ko: `TOPIK II 에 자주 나오는 낱말 ${PER}개와 예문` },
+    sub: { en: `${PER} ${CFG.nameEn} words grouped by topic, with an example sentence for each.`, ko: `주제로 묶은 ${CFG.name} 낱말 ${PER}개와 예문` },
     sections: secs,
   };
   unitsOf.push({ id, lv: ws[0].level });
@@ -125,21 +125,21 @@ for (let u = 0; u < N_WORDS / PER; u++) {
 
 /* 부 = 급. 단원 첫 낱말의 급으로 가른다 */
 const partNames = { 3: { en: 'Level 3 words', ko: '3급 낱말' }, 4: { en: 'Level 4 words', ko: '4급 낱말' }, 5: { en: 'Level 5 words', ko: '5급 낱말' }, 6: { en: 'Level 6 words', ko: '6급 낱말' } };
-const parts = CFG.lv3 ? [0, 1, 2, 3].map((k) => { const ids = unitsOf.slice(k * 12, k * 12 + 12).map((x) => x.id); const a = k * 12 * PER + 1, b = Math.min((k * 12 + ids.length) * PER, N_WORDS); return { title: { en: `Words ${a}-${b}`, ko: `낱말 ${a}~${b}` }, units: ids }; }).filter((p) => p.units.length) : [3, 4, 5, 6].map((l) => ({ title: partNames[l], units: unitsOf.filter((x) => x.lv === l).map((x) => x.id) })).filter((p) => p.units.length);
+const PU = Math.ceil(unitsOf.length / 4), parts = [0, 1, 2, 3].map((k) => { const ids = unitsOf.slice(k * PU, k * PU + PU).map((x) => x.id); const a = k * PU * PER + 1, b = Math.min((k * PU + ids.length) * PER, N_WORDS); return { title: { en: `Words ${a}-${b}`, ko: `낱말 ${a}~${b}` }, units: ids }; }).filter((p) => p.units.length);
 
 const book = {
   _note: `책 한 권의 틀: tools/build-topik2-vocab-book.mjs ${VOL} 이 만든다(손으로 고치지 않는다). node tools/build-book.mjs ${CFG.id}. 낱말 · 뜻 · 예문은 vocab/data/topik2.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.`,
-  id: CFG.id, edition: 'Draft proof · 시안', theme: 'classic', color: '#6B3FA0', tint: '#F3EEFA',
+  id: CFG.id, edition: 'Draft proof · 시안', theme: 'classic', color: CFG.color, tint: CFG.tint,
   series: base.series,
   title: { en: `TOPIK II Vocabulary Workbook ${VOL}`, ko: `TOPIK II 단어장 워크북 ${VOL}` },
-  sub: CFG.lv3 ? { en: `${N_WORDS} level-3 words that are not in Books 1 and 2, 20 per unit, with example sentences and writing practice.`, ko: `1 · 2권에 없는 TOPIK II 3급 낱말 ${N_WORDS}개 · 20개씩 ${N_WORDS / PER}단원 · 예문과 쓰기 연습` } : { en: `Words ${CFG.rangeEn} by how often they appear in TOPIK II, 20 per unit, with example sentences and writing practice.`, ko: `TOPIK II 에 자주 나오는 순 ${CFG.range}번째 낱말 · 20개씩 50단원 · 예문과 쓰기 연습` },
+  sub: { en: `The ${N_WORDS.toLocaleString('en-US')} most frequent TOPIK II words of ${CFG.nameEn}, 20 per unit, with example sentences and writing practice.`, ko: `TOPIK II ${CFG.name} 낱말 중 자주 나오는 1,000개 · 20개씩 50단원 · 예문과 쓰기 연습` },
   levelTag: 'VOCAB', level: 'TOPIK II', trim: base.trim,
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
   preface: {
-    en: [VOL === 3 ? 'This is the third book of the series: the level-3 words of the TOPIK II word list on everykoreans.com that are not in Book 1 or Book 2. Most of them did not show up in our TOPIK II texts yet, so their potato marks are empty. Each unit has 20 words grouped by topic, an example sentence for each, and short writing practice.' : VOL === 1 ? 'These are the 1,000 words that appear most often in the TOPIK II word list we use on everykoreans.com, arranged from level 3 to level 6. Each unit has 20 words, an example sentence for each, and short writing practice.' : 'This is the second book of the series: the words ranked 1,001 to 2,000 by how often they appear in the TOPIK II word list we use on everykoreans.com, arranged from level 3 to level 6. Book 1 has the 1,000 most frequent words. Each unit has 20 words, an example sentence for each, and short writing practice.',
+    en: [`These are the ${N_WORDS.toLocaleString('en-US')} most frequent ${CFG.nameEn} words in the TOPIK II word list we use on everykoreans.com, grouped by topic. ${CFG.next.en} Each unit has 20 words, an example sentence for each, and short writing practice.`,
       'Read the table aloud, then cover the English and test yourself. Write your answers on the lines, check the answer key at the back, and come back a few days later.',
       `You do not have to memorize ${N_WORDS.toLocaleString('en-US')} words in one go. One unit a day is a calm pace: ${N_WORDS / PER} units, about ${['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][Math.round(N_WORDS / PER / 7)]} weeks.`],
-    ko: [VOL === 3 ? '이 책은 시리즈의 세 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록 가운데 1권과 2권에 없는 3급 낱말을 모았습니다. 대부분은 우리 TOPIK II 자료에서 아직 나온 적이 없어서 감자 표시가 비어 있습니다. 단원마다 주제로 묶은 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : VOL === 1 ? '이 책은 everykoreans.com 의 TOPIK II 낱말 목록에서 가장 자주 나오는 낱말 1,000개를 3급부터 6급까지 차례로 모은 것입니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.' : '이 책은 시리즈의 두 번째 책입니다. everykoreans.com 의 TOPIK II 낱말 목록에서 자주 나오는 순으로 1,001번째부터 2,000번째까지의 낱말을 3급부터 6급까지 차례로 모았습니다. 가장 자주 나오는 1,000개는 1권에 있습니다. 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.',
+    ko: [`이 책은 everykoreans.com 의 TOPIK II 낱말 목록에서 ${CFG.name} 낱말 가운데 가장 자주 나오는 ${N_WORDS.toLocaleString('en-US')}개를 주제별로 묶은 것입니다. ${CFG.next.ko} 단원마다 낱말 20개와 낱말마다 예문 하나, 짧은 쓰기 연습이 있습니다.`,
       '표를 소리 내 읽고, 영어를 가리고 스스로 확인하세요. 답은 줄 위에 쓰고, 뒤쪽 정답으로 확인한 뒤 며칠 뒤에 다시 풀어 보세요.',
       `${N_WORDS.toLocaleString('en-US')}개를 한 번에 외울 필요는 없습니다. 하루 한 단원이면 ${N_WORDS / PER}단원, 약 ${Math.round(N_WORDS / PER / 7)}주입니다.`],
   },
@@ -148,10 +148,10 @@ const book = {
     ko: ['낱말과 예문을 소리 내 읽으세요.', '카드로 영어 칸을 가리고 스스로 확인한 뒤, 이번엔 한국어 칸을 가려 보세요.', '답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필을 쓰세요.', '뒤쪽 정답을 확인하고, 틀린 낱말에 표시한 뒤 1일, 3일, 7일 뒤에 다시 풀어 보세요.', '모르는 낱말은 찾아보기에서 찾으세요. 어느 단원에 있는지 알려 줍니다.', '무료 레슨 · 게임 · 학습지: everykoreans.com'],
   },
   bonusUnits: unitsOf.map((x) => x.id),
-  back: { items: [[`${N_WORDS / PER} units · ${N_WORDS / PER}개 단원`, CFG.lv3 ? `${N_WORDS} level-3 words not in Books 1 and 2 · 1 · 2권에 없는 3급 낱말 ${N_WORDS}개` : `TOPIK II words ${CFG.rangeEn}, level 3 to 6 · 3급부터 6급까지 ${CFG.range}번째 낱말`], ['Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말', 'Cheese = level, potato = frequency · 치즈는 급수, 감자는 빈출도'], ['Scan the QR for a match game · QR 로 짝 맞추기 게임', 'Practice the same 20 words on your phone · 같은 낱말 20개를 폰으로']], for: CFG.lv3 ? 'For TOPIK II learners aiming at level 3 and beyond · TOPIK II 3급 이상 준비에' : 'For TOPIK II learners, level 3 to 6 · TOPIK II 3~6급 준비에', price: '정가 6.9달러' },
+  back: { items: [[`${N_WORDS / PER} units · ${N_WORDS / PER}개 단원`, `The ${N_WORDS.toLocaleString('en-US')} most frequent ${CFG.nameEn} words · ${CFG.name} 낱말 중 자주 나오는 ${N_WORDS.toLocaleString('en-US')}개`], ['Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말', 'Cheese = level, potato = frequency · 치즈는 급수, 감자는 빈출도'], ['Scan the QR for a match game · QR 로 짝 맞추기 게임', 'Practice the same 20 words on your phone · 같은 낱말 20개를 폰으로']], for: `For TOPIK II learners, ${CFG.nameEn} · TOPIK II ${CFG.name} 준비에`, price: '정가 6.9달러' },
   parts, noGuide: true, inline, blocks: {}, unitCount: N_WORDS / PER,
   coverAccent: '단어장',
-  coverLevel: { code: 'TOPIK II', name: CFG.lv3 ? '3급' : '3~6급', bg: '#4B2A85', bg2: '#32195E', mascot: CFG.mascot, title: ['TOPIK II', '단어장', `워크북 ${VOL}`], sub: CFG.lv3 ? `1 · 2권에 없는 3급 낱말 ${N_WORDS}개` : `자주 나오는 낱말 ${CFG.range}` },
+  coverLevel: { code: 'TOPIK II', name: CFG.name, bg: CFG.bg, bg2: CFG.bg2, mascot: CFG.mascot, title: ['TOPIK II', '단어장', `워크북 ${VOL}`], sub: `${CFG.name} 자주 나오는 낱말 1,000개` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
 /* 승인된 ISBN(한국서지표준센터 2026-10-27): 1권 979-11-222407-1-9 · 2권 979-11-222407-2-6 · 정가 6.9달러. 3권도 승인(바코드 파일 대기) */

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* 책 표지 색이 서로 겹치지 않는지 본다 — 운영자 2026-10-26 「앞으로 표지는 절대로 안 겹치게」.
    표지 색 = 책 틀(docs/books/<id>.json)의 coverLevel.bg(없으면 color). 두 책의 색 차이(CIELAB ΔE)가 MIN 보다 작으면 겹친다고 본다.
-   예외 = 이미 같은 보라색으로 나간 TOPIK II 책 여섯(LEGACY, 새 책은 넣지 않는다 — 시리즈 색을 통일하자던 옛 결정).
+   예외 = 이미 같은 보라색으로 나간 TOPIK II 책 셋(쓰기)(LEGACY, 새 책은 넣지 않는다 — 시리즈 색을 통일하자던 옛 결정).
    node tools/check-cover-colors.mjs            → 검사(겹치면 실패)
    node tools/check-cover-colors.mjs --suggest  → 지금 쓰는 색과 가장 멀리 떨어진 빈 색 12개 */
 import fs from 'node:fs';
@@ -9,7 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MIN = 22;   // 눈으로 「다른 색」이라고 알아볼 정도(CIELAB ΔE76). 표지 글씨가 같은 크림색이라 어두운 바탕끼리의 차이를 본다
-const LEGACY = new Set(['topik2-vocab-1000', 'topik2-vocab-2000', 'topik2-vocab-lv3', 'topik2-writing-51-52', 'topik2-writing-53-54', 'topik2-writing-eve']);
+const LEGACY = new Set(['topik2-writing-51-52', 'topik2-writing-53-54', 'topik2-writing-eve']);
 const lab = (h) => {
   const n = parseInt(h.slice(1), 16), c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
   const X = (0.4124 * c[0] + 0.3576 * c[1] + 0.1805 * c[2]) / 0.95047, Y = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2], Z = (0.0193 * c[0] + 0.1192 * c[1] + 0.9505 * c[2]) / 1.08883;
