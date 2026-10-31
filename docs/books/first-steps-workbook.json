@@ -4062,59 +4062,14 @@
       }
     },
     "korean-particles": {
-      "5": {
-        "type": "wordorder",
-        "title": {
-          "en": "Practice C: Build the sentence",
-          "ko": "단어 블록으로 문장을 만들어요"
-        },
-        "hint": "Put the word blocks in order and write the sentence. More than one order may work.",
-        "items": [
-          {
-            "words": [
-              "학교에서",
-              "저는",
-              "공부해요"
-            ],
-            "a": "저는 학교에서 공부해요"
-          },
-          {
-            "words": [
-              "커피를",
-              "친구가",
-              "마셔요"
-            ],
-            "a": "친구가 커피를 마셔요"
-          },
-          {
-            "words": [
-              "내일",
-              "부산에",
-              "가요",
-              "저는"
-            ],
-            "a": "저는 내일 부산에 가요"
-          },
-          {
-            "words": [
-              "친구와",
-              "영화를",
-              "봐요",
-              "주말에"
-            ],
-            "a": "주말에 친구와 영화를 봐요"
-          },
-          {
-            "words": [
-              "버스로",
-              "학교에",
-              "가요",
-              "매일"
-            ],
-            "a": "매일 버스로 학교에 가요"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
     },
     "question-words": {
       "6": {
