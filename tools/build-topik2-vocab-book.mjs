@@ -31,9 +31,9 @@ const POS = { 명사: 'noun', 동사: 'verb', 형용사: 'adjective', 부사: 'a
 /* 빈출도 감자 1~5: 시리즈 모든 권이 같은 눈금(우리 TOPIK II 낱말 목록에서 나오는 횟수 freq: 30 이상 5개 · 12 이상 4개 · 6 이상 3개 · 3 이상 2개 · 그 아래 1개).
    1권은 2~5개, 2권은 1~2개가 많다. 한 단원 안에 여러 단계가 섞이도록 단원은 주제로 묶는다 */
 const fq = (f) => (f <= 0 ? 0 : f >= 30 ? 5 : f >= 12 ? 4 : f >= 6 ? 3 : f >= 3 ? 2 : 1);
-/* 안티가 교사 눈으로 판단한 빈출도(docs/vocab-judge/topik2.json, 지시 antigravity-vocab-judge-task.md) — 우리 자료에서 나온 횟수가 거의 없는 낱말(감자 1개 이하)만 이 값으로 채운다. */
+/* 안티가 교사 눈으로 판단한 빈출도(docs/vocab-judge/topik2.json, 「최다 빈출」(감자 5)은 우리 자료에서 실제로 많이 나온 낱말만 — 판단값은 4까지, 지시 antigravity-vocab-judge-task.md) — 우리 자료에서 나온 횟수가 거의 없는 낱말(감자 1개 이하)만 이 값으로 채운다. */
 const JUDGE = fs.existsSync(path.join(ROOT, 'docs/vocab-judge/topik2.json')) ? rd('docs/vocab-judge/topik2.json') : {};
-const fqOf = (w) => { const n = fq(w.freq); return n <= 1 && JUDGE[w.head] ? Math.max(n, JUDGE[w.head].fq) : n; };
+const fqOf = (w) => { const n = fq(w.freq); return n <= 1 && JUDGE[w.head] ? Math.max(n, Math.min(4, JUDGE[w.head].fq)) : n; };
 const first = (en) => String(en).split(';')[0].trim();
 const pick = (arr, f) => arr.filter((_, i) => f(i));
 const LV_KO = { 3: '3급', 4: '4급', 5: '5급', 6: '6급' };
