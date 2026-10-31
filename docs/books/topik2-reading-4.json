@@ -4,14 +4,14 @@
  "published": "2026.11.10",
  "edition": "Draft proof · 시안",
  "theme": "classic",
- "color": "#2E9E9E",
+ "color": "#455F11",
  "tint": "#F4F4F2",
  "series": {
   "en": "TOPIK SERIES",
   "ko": "TOPIK 시리즈"
  },
  "title": {
-  "en": "TOPIK II Reading by Type 4: Order, Insertion & Feeling",
+  "en": "TOPIK II Reading by Type 4: Order & Insertion",
   "ko": "TOPIK II 읽기 유형별 4 · 순서 · 문장 넣기 · 심정"
  },
  "sub": {
@@ -610,8 +610,8 @@
  "coverLevel": {
   "code": "TOPIK II",
   "name": "3~6급",
-  "bg": "#2E9E9E",
-  "bg2": "#1C6B6B",
+  "bg": "#455F11",
+  "bg2": "#2D3F0A",
   "mascot": [
    "cheese",
    6

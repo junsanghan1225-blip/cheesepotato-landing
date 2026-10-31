@@ -54,9 +54,9 @@ for (const t of ORDER_ALL) if (!TYPE_INFO[t]) throw new Error(`설명이 없는 
 
 const BOOKS = [
   { n: 1, name: { ko: '어휘 · 문법', en: 'Vocabulary & Grammar' }, types: ['blank', 'paraphrase'], sub: { ko: '빈칸 채우기 · 비슷한 말 고르기', en: 'Fill-in-the-blank and closest-meaning questions' }, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
-  { n: 2, name: { ko: '주제 · 제목 · 중심 생각', en: 'Topic, Headline & Main Idea' }, types: ['theme', 'headline', 'main'], sub: { ko: '주제 · 신문 제목 · 중심 생각', en: 'Topic, headline and main-idea questions' }, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
+  { n: 2, name: { ko: '주제 · 제목 · 중심 생각', en: 'Topic & Main Idea' }, types: ['theme', 'headline', 'main'], sub: { ko: '주제 · 신문 제목 · 중심 생각', en: 'Topic, headline and main-idea questions' }, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
   { n: 3, name: { ko: '내용 일치', en: 'Same as the Text' }, types: ['detail'], sub: { ko: '글과 같은 내용 고르기', en: 'Choose what matches the text' }, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
-  { n: 4, name: { ko: '순서 · 문장 넣기 · 심정', en: 'Order, Insertion & Feeling' }, types: ['order', 'insert', 'feeling', 'attitude', 'intent'], sub: { ko: '순서 배열 · 문장 넣기 · 심정 · 태도 · 글의 목적', en: 'Order, sentence insertion, feeling, attitude and purpose' }, bg: '#2E9E9E', bg2: '#1C6B6B', mascot: 6, ink: '#2E9E9E' },
+  { n: 4, name: { ko: '순서 · 문장 넣기 · 심정', en: 'Order & Insertion' }, types: ['order', 'insert', 'feeling', 'attitude', 'intent'], sub: { ko: '순서 배열 · 문장 넣기 · 심정 · 태도 · 글의 목적', en: 'Order, sentence insertion, feeling, attitude and purpose' }, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
 ];
 const rangeOf = (set) => { const a = [...set].sort((x, y) => x - y); const out = []; for (let i = 0; i < a.length;) { let j = i; while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++; out.push(j > i ? `${a[i]}~${a[j]}` : `${a[i]}`); i = j + 1; } return out.join(', '); };
 let seed = 20261101; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
