@@ -1,0 +1,357 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 22.45,
+     "sessionsWithoutMetricPercentage": 77.55,
+     "pagesViews": 13,
+     "subTotal": 39
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 10.2,
+     "sessionsWithoutMetricPercentage": 89.8,
+     "pagesViews": 8,
+     "subTotal": 8
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 65.07
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 49,
+     "totalBotSessionCount": 73,
+     "distinctUserCount": 36,
+     "pagesPerSessionPercentage": 1.9591836734693877
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 353,
+     "activeTime": 153
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 23
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 10
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 3
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 3
+    },
+    {
+     "name": "YandexBrowser",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 30
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 15
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 4
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 27
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 13
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 6
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 3
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 25
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Brazil",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Philippines",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Myanmar",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 2
+    },
+    {
+     "name": "China",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Indonesia",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Nigeria",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Pakistan",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 31
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Free Korean Worksheets (Printable PDF) | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "\"alone\" in Korean — 혼자 (honja) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"cafe\" in Korean — 카페 (kape) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"finally\" in Korean — 드디어 (deudieo) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"teacher\" in Korean — 선생님 (seonsaengnim) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"together\" in Korean — 같이 (gati) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"two\" in Korean — 두 (du) and 1 more way to say it | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "-기는 하지만 뜻과 예문 · 문법 정리 — Korean grammar | CheesePotato",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 21
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 7
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "l.threads.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "ph.search.yahoo.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "search.yahoo.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "www.ecosia.org",
+     "sessionsCount": 1
+    },
+    {
+     "name": "yandex.ru",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 31
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 5
+    },
+    {
+     "url": "https://everykoreans.com/worksheets/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/blog/how-to-check-a-korean-workbook-before-you-buy.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EB%81%8C%EC%96%B4%EC%95%88%EB%8B%A4.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%9E%90%EC%98%81%EC%97%85.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%A7%80%EB%B6%88%ED%95%98%EB%8B%A4.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/en/topik-listening/",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/alone.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/cafe.html",
+     "visitsCount": 1
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
