@@ -176,8 +176,8 @@
    "ko": "가장 자주 나오는 낱말 1,000개를 쓰면서"
   },
   "lead": {
-   "en": "Words 1–1,000 ranked by how often they appear in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6.",
-   "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 순서대로 낱말 1~1,000. 50단원 · 단원마다 20개, 3급에서 6급까지."
+   "en": "Words 1–1,000 ranked by how often they appear in our TOPIK II practice material, 20 per unit in 50 units, from level 3 to level 6. Ranked by frequency, not by level: levels 3 to 6 are mixed (inside the book, words are ordered level 3 → 6).",
+   "ko": "우리 TOPIK II 연습 자료에서 자주 나오는 순서대로 낱말 1~1,000. 50단원 · 단원마다 20개, 3급에서 6급까지. 빈출순이라 3~6급이 섞여 있어요(책 안에서는 3급 → 6급 순으로 늘어놓았어요)."
   },
   "features": [
    {
@@ -263,8 +263,8 @@
    "ko": "다음 낱말 1,000개로 어휘 폭을 넓히세요"
   },
   "lead": {
-   "en": "Book 2 of the series: words 1,001–2,000 by the same frequency ranking, 20 per unit in 50 units.",
-   "ko": "시리즈 2권: 같은 빈도 순서로 낱말 1,001~2,000. 50단원 · 단원마다 20개."
+   "en": "Book 2 of the series: words 1,001–2,000 by the same frequency ranking, 20 per unit in 50 units. Ranked by frequency, not by level: levels 3 to 6 are mixed.",
+   "ko": "시리즈 2권: 같은 빈도 순서로 낱말 1,001~2,000. 50단원 · 단원마다 20개. 빈출순이라 3~6급이 섞여 있어요."
   },
   "features": [
    {
