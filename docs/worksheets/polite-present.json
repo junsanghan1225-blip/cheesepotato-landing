@@ -189,6 +189,76 @@
       "note": "Any noun + 하다 follows the same rule: 요리하다 → 요리해요 (to cook)."
     },
     {
+      "type": "table",
+      "title": {
+        "en": "Exceptions in one place",
+        "ko": "예외 한곳에 모아 보기"
+      },
+      "cols": [
+        "Case · 경우",
+        "Dictionary → polite present · 기본형 → 해요체",
+        "Meaning · 뜻"
+      ],
+      "rows": [
+        [
+          "Stem ends in ㅡ · ㅡ로 끝나는 어간",
+          "크다 → 커요 · 쓰다 → 써요 · 바쁘다 → 바빠요 · 예쁘다 → 예뻐요",
+          "big · to write · busy · pretty"
+        ],
+        [
+          "Stem ends in ㅏ · ㅓ (the vowels merge) · ㅏ, ㅓ로 끝남",
+          "가다 → 가요 · 서다 → 서요 · 만나다 → 만나요",
+          "to go · to stand · to meet"
+        ],
+        [
+          "ㅗ + 아 → ㅘ",
+          "오다 → 와요 · 보다 → 봐요",
+          "to come · to see"
+        ],
+        [
+          "ㅜ + 어 → ㅝ",
+          "배우다 → 배워요 · 주다 → 줘요",
+          "to learn · to give"
+        ],
+        [
+          "ㅣ + 어 → ㅕ",
+          "마시다 → 마셔요 · 기다리다 → 기다려요",
+          "to drink · to wait"
+        ],
+        [
+          "Stem ends in ㅐ · ㅔ (just add 요) · ㅐ, ㅔ로 끝남",
+          "보내다 → 보내요 · 지내다 → 지내요",
+          "to send · to spend time"
+        ],
+        [
+          "되다 → 돼요",
+          "되다 → 돼요",
+          "to become"
+        ],
+        [
+          "ㅂ irregular · ㅂ 불규칙",
+          "춥다 → 추워요 · 덥다 → 더워요 · 맵다 → 매워요 · 쉽다 → 쉬워요 · 어렵다 → 어려워요 · 돕다 → 도와요",
+          "cold · hot · spicy · easy · difficult · to help"
+        ],
+        [
+          "ㄷ irregular · ㄷ 불규칙",
+          "듣다 → 들어요 · 걷다 → 걸어요 · 묻다 → 물어요",
+          "to listen · to walk · to ask"
+        ],
+        [
+          "르 irregular · 르 불규칙",
+          "모르다 → 몰라요 · 다르다 → 달라요 · 빠르다 → 빨라요 · 부르다 → 불러요",
+          "not to know · different · fast · to call"
+        ],
+        [
+          "이다 · 아니다",
+          "학생이에요 · 의자예요 · 학생이 아니에요",
+          "to be · not to be"
+        ]
+      ],
+      "note": "Learn the ㅂ · ㄷ · 르 irregulars word by word; these are regular, so do not change them: 입다 → 입어요, 좁다 → 좁아요, 받다 → 받아요, 닫다 → 닫아요. After a vowel use 예요 (의자예요), after a consonant use 이에요 (학생이에요)."
+    },
+    {
       "type": "practice",
       "title": {
         "en": "Practice A: Write the polite present",

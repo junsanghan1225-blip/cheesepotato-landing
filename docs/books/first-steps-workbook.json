@@ -212,7 +212,8 @@
     "numbers-counters:3": "pattern",
     "numbers-counters:4": "pattern",
     "negation-tenses:1": "warn",
-    "negation-tenses:2": "tip"
+    "negation-tenses:2": "tip",
+    "polite-present:5": "warn"
   },
   "patterns": {
     "greetings-self-introduction:2": [
@@ -1310,47 +1311,42 @@
       },
       "sections": [
         {
-          "type": "table",
+          "type": "dialog",
           "title": {
             "en": "The dialogue",
             "ko": "대화"
           },
-          "cols": [
-            "Who · 누구",
-            "Korean · 한국어",
-            "English · 영어"
-          ],
-          "rows": [
-            [
-              "A",
-              "어디 가요?",
-              "Where are you going?"
-            ],
-            [
-              "B",
-              "마트에 가요.",
-              "I'm going to the mart."
-            ],
-            [
-              "A",
-              "우유 사요?",
-              "Are you buying milk?"
-            ],
-            [
-              "B",
-              "네, 우유하고 라면을 사요.",
-              "Yes, I'm buying milk and ramen."
-            ],
-            [
-              "A",
-              "저도 가요!",
-              "I'm going too!"
-            ],
-            [
-              "B",
-              "좋아요, 가요.",
-              "Good, let's go."
-            ]
+          "lines": [
+            {
+              "who": "A",
+              "ko": "어디 가요?",
+              "en": "Where are you going?"
+            },
+            {
+              "who": "B",
+              "ko": "마트에 가요.",
+              "en": "I'm going to the mart."
+            },
+            {
+              "who": "A",
+              "ko": "우유 사요?",
+              "en": "Are you buying milk?"
+            },
+            {
+              "who": "B",
+              "ko": "네, 우유하고 라면을 사요.",
+              "en": "Yes, I'm buying milk and ramen."
+            },
+            {
+              "who": "A",
+              "ko": "저도 가요!",
+              "en": "I'm going too!"
+            },
+            {
+              "who": "B",
+              "ko": "좋아요, 가요.",
+              "en": "Good, let's go."
+            }
           ]
         },
         {
@@ -1430,52 +1426,47 @@
       },
       "sections": [
         {
-          "type": "table",
+          "type": "dialog",
           "title": {
             "en": "The dialogue",
             "ko": "대화"
           },
-          "cols": [
-            "Who · 누구",
-            "Korean · 한국어",
-            "English · 영어"
-          ],
-          "rows": [
-            [
-              "A",
-              "안녕하세요? 저는 하나예요. 이 건물에 살아요.",
-              "Hello. I'm Hana. I live in this building."
-            ],
-            [
-              "B",
-              "반가워요! 저는 민수예요. 저는 저 집에 살아요.",
-              "Nice to meet you! I'm Minsu. I live in that house over there."
-            ],
-            [
-              "A",
-              "학생이에요?",
-              "Are you a student?"
-            ],
-            [
-              "B",
-              "아니요, 회사원이에요. 하나는요?",
-              "No, I work at a company. And you, Hana?"
-            ],
-            [
-              "A",
-              "저는 선생님이에요.",
-              "I'm a teacher."
-            ],
-            [
-              "B",
-              "저기 저 남자는 누구예요?",
-              "Who is that man over there?"
-            ],
-            [
-              "A",
-              "제 친구예요. 이름이 지민이에요.",
-              "My friend. His name is Jimin."
-            ]
+          "lines": [
+            {
+              "who": "A",
+              "ko": "안녕하세요? 저는 하나예요. 이 건물에 살아요.",
+              "en": "Hello. I'm Hana. I live in this building."
+            },
+            {
+              "who": "B",
+              "ko": "반가워요! 저는 민수예요. 저는 저 집에 살아요.",
+              "en": "Nice to meet you! I'm Minsu. I live in that house over there."
+            },
+            {
+              "who": "A",
+              "ko": "학생이에요?",
+              "en": "Are you a student?"
+            },
+            {
+              "who": "B",
+              "ko": "아니요, 회사원이에요. 하나는요?",
+              "en": "No, I work at a company. And you, Hana?"
+            },
+            {
+              "who": "A",
+              "ko": "저는 선생님이에요.",
+              "en": "I'm a teacher."
+            },
+            {
+              "who": "B",
+              "ko": "저기 저 남자는 누구예요?",
+              "en": "Who is that man over there?"
+            },
+            {
+              "who": "A",
+              "ko": "제 친구예요. 이름이 지민이에요.",
+              "en": "My friend. His name is Jimin."
+            }
           ]
         },
         {
@@ -1555,52 +1546,47 @@
       },
       "sections": [
         {
-          "type": "table",
+          "type": "dialog",
           "title": {
             "en": "The dialogue",
             "ko": "대화"
           },
-          "cols": [
-            "Who · 누구",
-            "Korean · 한국어",
-            "English · 영어"
-          ],
-          "rows": [
-            [
-              "A",
-              "우리 집에 오세요!",
-              "Come to my home!"
-            ],
-            [
-              "B",
-              "와, 거실이 커요! 저 소파는 무슨 색이에요?",
-              "Wow, the living room is big! What color is that sofa?"
-            ],
-            [
-              "A",
-              "파란색이에요. 아버지 의자는 창문 옆에 있어요.",
-              "It's blue. My father's chair is next to the window."
-            ],
-            [
-              "B",
-              "형제가 있어요?",
-              "Do you have siblings?"
-            ],
-            [
-              "A",
-              "네, 오빠가 한 명 있어요. 모두 네 명이에요.",
-              "Yes, one older brother. We are four in all."
-            ],
-            [
-              "B",
-              "오빠는 지금 어디예요?",
-              "Where is your older brother now?"
-            ],
-            [
-              "A",
-              "방에 있어요. 오늘은 일요일이에요.",
-              "He's in his room. Today is Sunday."
-            ]
+          "lines": [
+            {
+              "who": "A",
+              "ko": "우리 집에 오세요!",
+              "en": "Come to my home!"
+            },
+            {
+              "who": "B",
+              "ko": "와, 거실이 커요! 저 소파는 무슨 색이에요?",
+              "en": "Wow, the living room is big! What color is that sofa?"
+            },
+            {
+              "who": "A",
+              "ko": "파란색이에요. 아버지 의자는 창문 옆에 있어요.",
+              "en": "It's blue. My father's chair is next to the window."
+            },
+            {
+              "who": "B",
+              "ko": "형제가 있어요?",
+              "en": "Do you have siblings?"
+            },
+            {
+              "who": "A",
+              "ko": "네, 오빠가 한 명 있어요. 모두 네 명이에요.",
+              "en": "Yes, one older brother. We are four in all."
+            },
+            {
+              "who": "B",
+              "ko": "오빠는 지금 어디예요?",
+              "en": "Where is your older brother now?"
+            },
+            {
+              "who": "A",
+              "ko": "방에 있어요. 오늘은 일요일이에요.",
+              "en": "He's in his room. Today is Sunday."
+            }
           ]
         },
         {
@@ -1680,52 +1666,47 @@
       },
       "sections": [
         {
-          "type": "table",
+          "type": "dialog",
           "title": {
             "en": "The dialogue",
             "ko": "대화"
           },
-          "cols": [
-            "Who · 누구",
-            "Korean · 한국어",
-            "English · 영어"
-          ],
-          "rows": [
-            [
-              "A",
-              "어서 오세요! 뭐 드릴까요?",
-              "Welcome! What can I get you?"
-            ],
-            [
-              "B",
-              "라면 두 그릇 주세요.",
-              "Two bowls of ramen, please."
-            ],
-            [
-              "A",
-              "매운 거 괜찮아요?",
-              "Is spicy food okay?"
-            ],
-            [
-              "B",
-              "네, 좋아요. 모두 얼마예요?",
-              "Yes, that's fine. How much is it in total?"
-            ],
-            [
-              "A",
-              "구천 원이에요.",
-              "It's 9,000 won."
-            ],
-            [
-              "B",
-              "카드로 계산해도 돼요?",
-              "Can I pay by card?"
-            ],
-            [
-              "A",
-              "네, 돼요. 또 오세요!",
-              "Yes, you can. Please come again!"
-            ]
+          "lines": [
+            {
+              "who": "A",
+              "ko": "어서 오세요! 뭐 드릴까요?",
+              "en": "Welcome! What can I get you?"
+            },
+            {
+              "who": "B",
+              "ko": "라면 두 그릇 주세요.",
+              "en": "Two bowls of ramen, please."
+            },
+            {
+              "who": "A",
+              "ko": "매운 거 괜찮아요?",
+              "en": "Is spicy food okay?"
+            },
+            {
+              "who": "B",
+              "ko": "네, 좋아요. 모두 얼마예요?",
+              "en": "Yes, that's fine. How much is it in total?"
+            },
+            {
+              "who": "A",
+              "ko": "구천 원이에요.",
+              "en": "It's 9,000 won."
+            },
+            {
+              "who": "B",
+              "ko": "카드로 계산해도 돼요?",
+              "en": "Can I pay by card?"
+            },
+            {
+              "who": "A",
+              "ko": "네, 돼요. 또 오세요!",
+              "en": "Yes, you can. Please come again!"
+            }
           ]
         },
         {
@@ -1805,52 +1786,47 @@
       },
       "sections": [
         {
-          "type": "table",
+          "type": "dialog",
           "title": {
             "en": "The dialogue",
             "ko": "대화"
           },
-          "cols": [
-            "Who · 누구",
-            "Korean · 한국어",
-            "English · 영어"
-          ],
-          "rows": [
-            [
-              "A",
-              "어제 왜 수업에 안 왔어요?",
-              "Why didn't you come to class yesterday?"
-            ],
-            [
-              "B",
-              "아팠어요. 병원에 갔어요.",
-              "I was sick. I went to the hospital."
-            ],
-            [
-              "A",
-              "지금은 괜찮아요?",
-              "Are you okay now?"
-            ],
-            [
-              "B",
-              "네, 괜찮아요. 오늘은 약을 먹었어요.",
-              "Yes, I'm fine. I took medicine today."
-            ],
-            [
-              "A",
-              "내일은 수업에 나올 거예요?",
-              "Will you come to class tomorrow?"
-            ],
-            [
-              "B",
-              "네, 꼭 나올 거예요. 오늘은 숙제를 못 했어요.",
-              "Yes, I will definitely come. I couldn't do my homework today."
-            ],
-            [
-              "A",
-              "괜찮아요. 내일 하세요.",
-              "It's okay. Do it tomorrow."
-            ]
+          "lines": [
+            {
+              "who": "A",
+              "ko": "어제 왜 수업에 안 왔어요?",
+              "en": "Why didn't you come to class yesterday?"
+            },
+            {
+              "who": "B",
+              "ko": "아팠어요. 병원에 갔어요.",
+              "en": "I was sick. I went to the hospital."
+            },
+            {
+              "who": "A",
+              "ko": "지금은 괜찮아요?",
+              "en": "Are you okay now?"
+            },
+            {
+              "who": "B",
+              "ko": "네, 괜찮아요. 오늘은 약을 먹었어요.",
+              "en": "Yes, I'm fine. I took medicine today."
+            },
+            {
+              "who": "A",
+              "ko": "내일은 수업에 나올 거예요?",
+              "en": "Will you come to class tomorrow?"
+            },
+            {
+              "who": "B",
+              "ko": "네, 꼭 나올 거예요. 오늘은 숙제를 못 했어요.",
+              "en": "Yes, I will definitely come. I couldn't do my homework today."
+            },
+            {
+              "who": "A",
+              "ko": "괜찮아요. 내일 하세요.",
+              "en": "It's okay. Do it tomorrow."
+            }
           ]
         },
         {
