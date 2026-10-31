@@ -1428,19 +1428,19 @@
             "en": "Did you understand?",
             "ko": "이해했나요?"
           },
-          "hint": "Answer in English.",
+          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
           "items": [
             {
-              "q": "Where is B going?",
-              "a": "To the mart."
+              "q": "B는 어디에 가요?",
+              "a": "마트에 가요."
             },
             {
-              "q": "What does B buy?",
-              "a": "Milk and ramen."
+              "q": "B는 무엇을 사요?",
+              "a": "우유하고 라면을 사요."
             },
             {
-              "q": "Does A go too?",
-              "a": "Yes. A says 저도 가요!"
+              "q": "A도 가요?",
+              "a": "네, 저도 가요!"
             }
           ]
         },
@@ -1568,19 +1568,19 @@
             "en": "Did you understand?",
             "ko": "이해했나요?"
           },
-          "hint": "Answer in English.",
+          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
           "items": [
             {
-              "q": "Where does Hana live?",
-              "a": "In this building."
+              "q": "하나는 어디에 살아요?",
+              "a": "이 건물에 살아요."
             },
             {
-              "q": "What is Minsu's job?",
-              "a": "He works at a company."
+              "q": "민수는 학생이에요?",
+              "a": "아니요, 회사원이에요."
             },
             {
-              "q": "Who is the man over there?",
-              "a": "Hana's friend, Jimin."
+              "q": "저기 저 남자는 누구예요?",
+              "a": "하나의 친구예요. 이름이 지민이에요."
             }
           ]
         },
@@ -1708,19 +1708,19 @@
             "en": "Did you understand?",
             "ko": "이해했나요?"
           },
-          "hint": "Answer in English.",
+          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
           "items": [
             {
-              "q": "What color is the sofa?",
-              "a": "Blue."
+              "q": "저 소파는 무슨 색이에요?",
+              "a": "파란색이에요."
             },
             {
-              "q": "How many people are in A's family?",
-              "a": "Four, with a father, a mother, an older brother and A."
+              "q": "A의 가족은 모두 몇 명이에요?",
+              "a": "모두 네 명이에요."
             },
             {
-              "q": "Where is A's older brother?",
-              "a": "In his room."
+              "q": "오빠는 어디에 있어요?",
+              "a": "방에 있어요."
             }
           ]
         },
@@ -1848,19 +1848,19 @@
             "en": "Did you understand?",
             "ko": "이해했나요?"
           },
-          "hint": "Answer in English.",
+          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
           "items": [
             {
-              "q": "What does B order?",
-              "a": "Two bowls of ramen."
+              "q": "B는 뭐 주세요?",
+              "a": "라면 두 그릇 주세요."
             },
             {
-              "q": "How much is it?",
-              "a": "9,000 won."
+              "q": "모두 얼마예요?",
+              "a": "구천 원이에요."
             },
             {
-              "q": "How does B pay?",
-              "a": "By card."
+              "q": "B는 어떻게 계산해요?",
+              "a": "카드로 계산해요."
             }
           ]
         },
@@ -1993,19 +1993,19 @@
             "en": "Did you understand?",
             "ko": "이해했나요?"
           },
-          "hint": "Answer in English.",
+          "hint": "Answer in Korean with words from the dialogue. · 대화에 나온 말로 한국어로 답하세요.",
           "items": [
             {
-              "q": "Why was B absent?",
-              "a": "B was sick."
+              "q": "B는 어제 왜 수업에 안 왔어요?",
+              "a": "아팠어요."
             },
             {
-              "q": "Will B come tomorrow?",
-              "a": "Yes."
+              "q": "B는 내일 수업에 나올 거예요?",
+              "a": "네, 꼭 나올 거예요."
             },
             {
-              "q": "Why can't B hand in homework?",
-              "a": "B could not do it today."
+              "q": "B는 오늘 숙제를 했어요?",
+              "a": "아니요, 못 했어요."
             }
           ]
         },
