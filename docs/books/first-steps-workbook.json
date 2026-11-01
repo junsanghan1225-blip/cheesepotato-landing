@@ -3079,32 +3079,14 @@
       }
     },
     "location-places-exist": {
-      "5": {
-        "type": "roommap",
-        "title": {
-          "en": "Practice C: Where is it?",
-          "ko": "그림을 보고 위치를 말해요"
-        },
-        "hint": "Look at the picture. Write the position word: 위, 아래, 옆, 안.",
-        "items": [
-          {
-            "q": "① 책은 책상 ______ 에 있어요.",
-            "a": "위"
-          },
-          {
-            "q": "② 가방은 책상 ______ 에 있어요.",
-            "a": "아래"
-          },
-          {
-            "q": "③ 의자는 책상 ______ 에 있어요.",
-            "a": "옆"
-          },
-          {
-            "q": "④ 고양이는 상자 ______ 에 있어요.",
-            "a": "안"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
     },
     "food-ordering-taste": {
       "5": {
@@ -3368,32 +3350,6 @@
         0,
         1,
         2,
-        {
-          "type": "streetmap",
-          "title": {
-            "en": "Practice A: Give directions",
-            "ko": "지도를 보고 길을 설명해요"
-          },
-          "hint": "You are at the station (여기). Walk straight up the road. Tell a friend how to get to each place. Use 직진, 사거리, 오른쪽, 왼쪽, 있어요. Answers may vary.",
-          "items": [
-            {
-              "q": "병원까지 어떻게 가요?",
-              "a": "직진하세요. 오른쪽에 병원이 있어요"
-            },
-            {
-              "q": "은행까지 어떻게 가요?",
-              "a": "직진하세요. 왼쪽에 은행이 있어요"
-            },
-            {
-              "q": "우체국까지 어떻게 가요?",
-              "a": "사거리까지 직진하세요. 오른쪽으로 가세요"
-            },
-            {
-              "q": "학교까지 어떻게 가요?",
-              "a": "사거리까지 직진하세요. 왼쪽으로 가세요"
-            }
-          ]
-        },
         5,
         6
       ]
@@ -4191,28 +4147,14 @@
       ]
     },
     "demonstratives": {
-      "3": {
-        "type": "distscene",
-        "title": {
-          "en": "Practice A: Near, middle, far",
-          "ko": "나 · 너 · 먼 곳에 있는 물건"
-        },
-        "hint": "Look where each thing is. Write 이, 그 or 저.",
-        "items": [
-          {
-            "q": "① ______ 사과가 맛있어요. (나와 가까운 사과)",
-            "a": "이"
-          },
-          {
-            "q": "② ______ 연필이 제 거예요. (너와 가까운 연필)",
-            "a": "그"
-          },
-          {
-            "q": "③ ______ 나무가 커요. (둘 다 먼 나무)",
-            "a": "저"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ]
     },
     "korean-particles": {
       "all": [
@@ -4460,34 +4402,14 @@
       ]
     },
     "health-hospital": {
-      "3": {
-        "type": "bodymap",
-        "title": {
-          "en": "Practice A: Name the body part",
-          "ko": "몸 그림을 보고 이름을 써요"
-        },
-        "hint": "Write the Korean word for each numbered part.",
-        "items": [
-          {
-            "a": "머리"
-          },
-          {
-            "a": "눈"
-          },
-          {
-            "a": "목"
-          },
-          {
-            "a": "배"
-          },
-          {
-            "a": "손"
-          },
-          {
-            "a": "발"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ]
     }
   }
 }
