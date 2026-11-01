@@ -26,11 +26,36 @@
         "Korean"
       ],
       "rows": [
-        ["On / Above / Up", "위", "Under / Below / Down", "아래 / 밑"],
-        ["In front of", "앞", "Behind", "뒤"],
-        ["Inside", "안", "Outside", "밖"],
-        ["Beside / Next to", "옆", "Between", "사이"],
-        ["Left side", "왼쪽", "Right side", "오른쪽"]
+        [
+          "On / Above / Up",
+          "위",
+          "Under / Below / Down",
+          "아래 / 밑"
+        ],
+        [
+          "In front of",
+          "앞",
+          "Behind",
+          "뒤"
+        ],
+        [
+          "Inside",
+          "안",
+          "Outside",
+          "밖"
+        ],
+        [
+          "Beside / Next to",
+          "옆",
+          "Between",
+          "사이"
+        ],
+        [
+          "Left side",
+          "왼쪽",
+          "Right side",
+          "오른쪽"
+        ]
       ],
       "note": "Sentence pattern: Noun + 위치 + 에 있어요. For example: 책상 위에 있어요 (It is on the desk)."
     },
@@ -47,12 +72,42 @@
         "Korean"
       ],
       "rows": [
-        ["House / Home", "집", "School", "학교"],
-        ["Company / Office", "회사", "Hospital", "병원"],
-        ["Pharmacy", "약국", "Supermarket", "마트"],
-        ["Restaurant", "식당", "Cafe", "카페"],
-        ["Bank", "은행", "Park", "공원"],
-        ["Restroom", "화장실", "Convenience store", "편의점"]
+        [
+          "House / Home",
+          "집",
+          "School",
+          "학교"
+        ],
+        [
+          "Company / Office",
+          "회사",
+          "Hospital",
+          "병원"
+        ],
+        [
+          "Pharmacy",
+          "약국",
+          "Supermarket",
+          "마트"
+        ],
+        [
+          "Restaurant",
+          "식당",
+          "Cafe",
+          "카페"
+        ],
+        [
+          "Bank",
+          "은행",
+          "Park",
+          "공원"
+        ],
+        [
+          "Restroom",
+          "화장실",
+          "Convenience store",
+          "편의점"
+        ]
       ],
       "note": "To ask where a place is: [장소]이/가 어디에 있어요? For example: 화장실이 어디에 있어요? (Where is the restroom?)"
     },
@@ -69,8 +124,18 @@
         "Formal present (합쇼체)"
       ],
       "rows": [
-        ["To exist / To have", "있다", "있어요", "있습니다"],
-        ["Not exist / Not have", "없다", "없어요", "없습니다"]
+        [
+          "To exist / To have",
+          "있다",
+          "있어요",
+          "있습니다"
+        ],
+        [
+          "Not exist / Not have",
+          "없다",
+          "없어요",
+          "없습니다"
+        ]
       ],
       "note": "Use the particle 이/가 for the subject: 우산이 있어요 (I have an umbrella). 시간이 없어요 (I don't have time)."
     },
@@ -81,12 +146,30 @@
         "ko": "위치 단어를 한국어로 써요"
       },
       "items": [
-        { "q": "On / above →", "a": "위" },
-        { "q": "Under / below →", "a": "아래 / 밑" },
-        { "q": "In front of →", "a": "앞" },
-        { "q": "Behind →", "a": "뒤" },
-        { "q": "Inside →", "a": "안" },
-        { "q": "Beside / next to →", "a": "옆" }
+        {
+          "q": "On / above →",
+          "a": "위"
+        },
+        {
+          "q": "Under / below →",
+          "a": "아래 / 밑"
+        },
+        {
+          "q": "In front of →",
+          "a": "앞"
+        },
+        {
+          "q": "Behind →",
+          "a": "뒤"
+        },
+        {
+          "q": "Inside →",
+          "a": "안"
+        },
+        {
+          "q": "Beside / next to →",
+          "a": "옆"
+        }
       ]
     },
     {
@@ -96,12 +179,30 @@
         "ko": "장소 이름을 한국어로 써요"
       },
       "items": [
-        { "q": "Hospital →", "a": "병원" },
-        { "q": "Pharmacy →", "a": "약국" },
-        { "q": "School →", "a": "학교" },
-        { "q": "Bank →", "a": "은행" },
-        { "q": "Restroom →", "a": "화장실" },
-        { "q": "Restaurant →", "a": "식당" }
+        {
+          "q": "Hospital →",
+          "a": "병원"
+        },
+        {
+          "q": "Pharmacy →",
+          "a": "약국"
+        },
+        {
+          "q": "School →",
+          "a": "학교"
+        },
+        {
+          "q": "Bank →",
+          "a": "은행"
+        },
+        {
+          "q": "Restroom →",
+          "a": "화장실"
+        },
+        {
+          "q": "Restaurant →",
+          "a": "식당"
+        }
       ]
     },
     {
@@ -111,11 +212,26 @@
         "ko": "알맞은 위치 명사를 써요"
       },
       "items": [
-        { "q": "The book is on the desk: 책이 책상 ___ 에 있어요 →", "a": "위" },
-        { "q": "The cat is under the chair: 고양이가 의자 ___ 에 있어요 →", "a": "아래 / 밑" },
-        { "q": "Wait in front of the door: 문 ___ 에서 기다려요 →", "a": "앞" },
-        { "q": "The pen is inside the bag: 가방 ___ 에 펜이 있어요 →", "a": "안" },
-        { "q": "Sit next to your friend: 친구 ___ 에 앉으세요 →", "a": "옆" }
+        {
+          "q": "The book is on the desk: 책이 책상 ___ 에 있어요 →",
+          "a": "위"
+        },
+        {
+          "q": "The cat is under the chair: 고양이가 의자 ___ 에 있어요 →",
+          "a": "아래 / 밑"
+        },
+        {
+          "q": "Wait in front of the door: 문 ___ 에서 기다려요 →",
+          "a": "앞"
+        },
+        {
+          "q": "The pen is inside the bag: 가방 ___ 에 펜이 있어요 →",
+          "a": "안"
+        },
+        {
+          "q": "Sit next to your friend: 친구 ___ 에 앉으세요 →",
+          "a": "옆"
+        }
       ]
     },
     {
@@ -125,11 +241,26 @@
         "ko": "있어요 / 없어요 중 알맞은 말을 골라요"
       },
       "items": [
-        { "q": "I have an umbrella: 우산이 ___ →", "a": "있어요" },
-        { "q": "I do not have time today: 오늘 시간이 ___ →", "a": "없어요" },
-        { "q": "Is the teacher in the classroom?: 선생님이 교실에 ___ ? →", "a": "있어요" },
-        { "q": "There is no water in the cup: 컵에 물이 ___ →", "a": "없어요" },
-        { "q": "Where is the restroom?: 화장실이 어디에 ___ ? →", "a": "있어요" }
+        {
+          "q": "I have an umbrella: 우산이 ___ (있어요 / 없어요) →",
+          "a": "있어요"
+        },
+        {
+          "q": "I do not have time today: 오늘 시간이 ___ (있어요 / 없어요) →",
+          "a": "없어요"
+        },
+        {
+          "q": "Is the teacher in the classroom?: 선생님이 교실에 ___ ? (있어요 / 없어요) →",
+          "a": "있어요"
+        },
+        {
+          "q": "There is no water in the cup: 컵에 물이 ___ (있어요 / 없어요) →",
+          "a": "없어요"
+        },
+        {
+          "q": "Where is the restroom?: 화장실이 어디에 ___ ? (있어요 / 없어요) →",
+          "a": "있어요"
+        }
       ]
     }
   ],

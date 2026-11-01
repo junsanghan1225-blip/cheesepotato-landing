@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=a74e84b8" async></script>
+<script src="gtm.js?v=77056cc7" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=a74e84b8">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=a74e84b8">
+<link rel="stylesheet" href="vendor/pretendard.css?v=77056cc7">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=77056cc7">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a74e84b8" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=a74e84b8"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=77056cc7" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=77056cc7"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -791,6 +791,7 @@ html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * va
 .hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
 .hm-tour .hm-paths-h { padding:0; margin:20px 0 10px; }
 html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오늘 공부」 하나로 — 기능 칸은 메뉴 「더 보기」에 */
+.hm-proline { margin:14px 0 0; font-size:14px; line-height:1.6; color:var(--ink-2, var(--ink)); } .hm-proline button { border:0; background:none; padding:0; font:inherit; font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 .hm-tour-grid { display:grid; grid-template-columns:1fr; gap:0; border-top:1.5px solid var(--ink); counter-reset:tour; }
 @media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(2, 1fr); column-gap:36px; } }
 /* 워크북 차례처럼 — 번호 · 제목 · 한 줄 설명, 얇은 줄만(운영자 2026-10-28 「AI 티를 줄이고 우리 스타일로」) */
@@ -2330,6 +2331,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="hm-tour-t" type="button" data-go="class"><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
     </div>
   </section>
+  <!-- Pro 로 가는 짧은 길(2026-11-01 분석: Pro 쪽 보기 1번 — Pro 소개가 첫 화면 맨 아래 Q&A 위라 거기까지 안 내려감). 결제가 켜져 있고 Pro 가 아닐 때만(app.module.js) -->
+  <p class="hm-proline" id="hmProLine" hidden><span data-en="AI writing scores and every TOPIK mock test open with Pro.">AI 쓰기 채점과 TOPIK 모의고사 전 회는 Pro 에서 열려요.</span> <button type="button" id="hmProLineBtn" data-en="See Pro →">Pro 보기 →</button></p>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
        ② 길 넷 ③ 오늘의 한 문제 · 믿을 만한 숫자(밀러 — 묶어서). 숫자 · 오늘의 문제는 히어로에서 이리로 내려왔다(check-geo 는 aria-label 을 그대로 본다). -->
   <div class="hm-proofrow hm-intro">
@@ -4409,9 +4412,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=a74e84b8"></script>
-<script type="module" src="app.module.js?v=a74e84b8"></script>
+<script src="app.js?v=77056cc7"></script>
+<script type="module" src="app.module.js?v=77056cc7"></script>
 
-<script src="analytics.js?v=a74e84b8" defer></script>
+<script src="analytics.js?v=77056cc7" defer></script>
 </body>
 </html>

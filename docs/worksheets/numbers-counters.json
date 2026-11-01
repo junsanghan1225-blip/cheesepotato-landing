@@ -289,32 +289,32 @@
     {
       "type": "practice",
       "title": {
-        "en": "Practice B: Native numbers with counters",
-        "ko": "고유어 수 + 세는 말"
+        "en": "Practice B: English to Korean with counters",
+        "ko": "영어를 한국어로: 고유어 수 + 세는 말"
       },
       "items": [
         {
-          "q": "사과 3개 →",
+          "q": "3 apples (개) →",
           "a": "사과 세 개"
         },
         {
-          "q": "학생 2명 →",
+          "q": "2 students (명) →",
           "a": "학생 두 명"
         },
         {
-          "q": "커피 1잔 →",
+          "q": "1 cup of coffee (잔) →",
           "a": "커피 한 잔"
         },
         {
-          "q": "책 4권 →",
+          "q": "4 books (권) →",
           "a": "책 네 권"
         },
         {
-          "q": "고양이 5마리 →",
+          "q": "5 cats (마리) →",
           "a": "고양이 다섯 마리"
         },
         {
-          "q": "물 2병 →",
+          "q": "2 bottles of water (병) →",
           "a": "물 두 병"
         }
       ]

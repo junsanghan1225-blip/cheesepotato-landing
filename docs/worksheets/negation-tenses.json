@@ -26,10 +26,30 @@
         "Example sentence"
       ],
       "rows": [
-        ["안 + Verb / Adj", "Short negation (will)", "Do not / Is not / Will not (simple or personal choice)", "오늘 학교에 안 가요."],
-        ["못 + Verb", "Short negation (ability)", "Cannot (inability or obstacle)", "매운 음식을 못 먹어요."],
-        ["Verb / Adj + -지 않다", "Long negation (formal)", "Do not (written / polite statement)", "그 영화를 보지 않았어요."],
-        ["Verb + -지 못하다", "Long negation (ability)", "Cannot (formal inability)", "시간이 없어서 가지 못해요."]
+        [
+          "안 + Verb / Adj",
+          "Short negation (will)",
+          "Do not / Is not / Will not (simple or personal choice)",
+          "오늘 학교에 안 가요."
+        ],
+        [
+          "못 + Verb",
+          "Short negation (ability)",
+          "Cannot (inability or obstacle)",
+          "매운 음식을 못 먹어요."
+        ],
+        [
+          "Verb / Adj + -지 않다",
+          "Long negation (formal)",
+          "Do not (written / polite statement)",
+          "그 영화를 보지 않았어요."
+        ],
+        [
+          "Verb + -지 못하다",
+          "Long negation (ability)",
+          "Cannot (formal inability)",
+          "시간이 없어서 가지 못해요."
+        ]
       ],
       "note": "Vital distinction: 안 is a simple or willing negation ('I don't / it isn't'); 못 indicates lack of ability or circumstantial impossibility ('I can't'). 못 is never used with adjectives."
     },
@@ -47,9 +67,27 @@
         "먹다 (to eat)"
       ],
       "rows": [
-        ["Present (현재)", "-아/어요", "ㅏ/ㅗ takes -아요; other vowels take -어요", "가요", "먹어요"],
-        ["Past (과거)", "-았/었어요", "ㅏ/ㅗ takes -았어요; other vowels take -었어요", "갔어요", "먹었어요"],
-        ["Future (미래)", "-(으)ㄹ 거예요", "Vowel/ㄹ takes -ㄹ 거예요; consonant takes -을 거예요", "갈 거예요", "먹을 거예요"]
+        [
+          "Present (현재)",
+          "-아/어요",
+          "ㅏ/ㅗ takes -아요; other vowels take -어요",
+          "가요",
+          "먹어요"
+        ],
+        [
+          "Past (과거)",
+          "-았/었어요",
+          "ㅏ/ㅗ takes -았어요; other vowels take -었어요",
+          "갔어요",
+          "먹었어요"
+        ],
+        [
+          "Future (미래)",
+          "-(으)ㄹ 거예요",
+          "Vowel/ㄹ takes -ㄹ 거예요; consonant takes -을 거예요",
+          "갈 거예요",
+          "먹을 거예요"
+        ]
       ],
       "note": "For 하다 verbs: present 해요, past 했어요, future 할 거예요 (e.g., 공부해요 → 공부했어요 → 공부할 거예요)."
     },
@@ -68,11 +106,26 @@
         "ko": "안/못 중 알맞은 부정어를 골라요"
       },
       "items": [
-        { "q": "I am full so I won't eat: 배불러서 ___ 먹어요 (안 / 못) →", "a": "안" },
-        { "q": "I am too busy so I cannot go: 바빠서 파티에 ___ 가요 (안 / 못) →", "a": "못" },
-        { "q": "I don't drink alcohol by choice: 저는 술을 ___ 마셔요 (안 / 못) →", "a": "안" },
-        { "q": "I cannot swim (no skill): 저는 수영을 ___ 해요 (안 / 못) →", "a": "못" },
-        { "q": "It is not cold today (adjective): 오늘 날씨가 ___ 추워요 (안 / 못) →", "a": "안" }
+        {
+          "q": "I am full so I won't eat: 배불러서 ___ 먹어요 (안 / 못) →",
+          "a": "안"
+        },
+        {
+          "q": "I am too busy so I cannot go: 바빠서 파티에 ___ 가요 (안 / 못) →",
+          "a": "못"
+        },
+        {
+          "q": "I don't drink alcohol by choice: 저는 술을 ___ 마셔요 (안 / 못) →",
+          "a": "안"
+        },
+        {
+          "q": "I cannot swim (no skill): 저는 수영을 ___ 해요 (안 / 못) →",
+          "a": "못"
+        },
+        {
+          "q": "It is not cold today (adjective): 오늘 날씨가 ___ 추워요 (안 / 못) →",
+          "a": "안"
+        }
       ]
     },
     {
@@ -82,11 +135,26 @@
         "ko": "과거형으로 바꿔 써요"
       },
       "items": [
-        { "q": "어제 친구를 만나다 →", "a": "만났어요" },
-        { "q": "어제 책을 읽다 →", "a": "읽었어요" },
-        { "q": "어제 한국어를 공부하다 →", "a": "공부했어요" },
-        { "q": "어제 영화를 보다 →", "a": "봤어요" },
-        { "q": "어제 피자를 먹다 →", "a": "먹었어요" }
+        {
+          "q": "어제 친구를 만나다 →",
+          "a": "만났어요"
+        },
+        {
+          "q": "어제 책을 읽다 →",
+          "a": "읽었어요"
+        },
+        {
+          "q": "어제 한국어를 공부하다 →",
+          "a": "공부했어요"
+        },
+        {
+          "q": "어제 영화를 보다 →",
+          "a": "봤어요"
+        },
+        {
+          "q": "어제 피자를 먹다 →",
+          "a": "먹었어요"
+        }
       ]
     },
     {
@@ -96,25 +164,55 @@
         "ko": "미래형으로 바꿔 써요"
       },
       "items": [
-        { "q": "내일 서울에 가다 →", "a": "갈 거예요" },
-        { "q": "내일 저녁을 먹다 →", "a": "먹을 거예요" },
-        { "q": "내일 운동을 하다 →", "a": "할 거예요" },
-        { "q": "내일 친구를 만나다 →", "a": "만날 거예요" },
-        { "q": "내일 책을 읽다 →", "a": "읽을 거예요" }
+        {
+          "q": "내일 서울에 가다 →",
+          "a": "갈 거예요"
+        },
+        {
+          "q": "내일 저녁을 먹다 →",
+          "a": "먹을 거예요"
+        },
+        {
+          "q": "내일 운동을 하다 →",
+          "a": "할 거예요"
+        },
+        {
+          "q": "내일 친구를 만나다 →",
+          "a": "만날 거예요"
+        },
+        {
+          "q": "내일 책을 읽다 →",
+          "a": "읽을 거예요"
+        }
       ]
     },
     {
       "type": "practice",
       "title": {
-        "en": "Practice D: Match the tense with the time adverb",
-        "ko": "시간 부사에 맞는 시제 형태를 골라요"
+        "en": "Practice D: Choose the tense that fits the time word",
+        "ko": "때를 나타내는 말에 맞는 시제를 골라요"
       },
       "items": [
-        { "q": "어제 도서관에 ___ (갔어요 / 갈 거예요) →", "a": "갔어요" },
-        { "q": "내일 친구와 영화를 ___ (봤어요 / 볼 거예요) →", "a": "볼 거예요" },
-        { "q": "지금 집에서 음악을 ___ (들어요 / 들을 거예요) →", "a": "들어요" },
-        { "q": "작년에 한국에 ___ (왔어요 / 올 거예요) →", "a": "왔어요" },
-        { "q": "다음 주에 시험을 ___ (봤어요 / 볼 거예요) →", "a": "볼 거예요" }
+        {
+          "q": "어제 도서관에 ___ (갔어요 / 갈 거예요) →",
+          "a": "갔어요"
+        },
+        {
+          "q": "내일 친구와 영화를 ___ (봤어요 / 볼 거예요) →",
+          "a": "볼 거예요"
+        },
+        {
+          "q": "지금 집에서 음악을 ___ (들어요 / 들을 거예요) →",
+          "a": "들어요"
+        },
+        {
+          "q": "작년에 한국에 ___ (왔어요 / 올 거예요) →",
+          "a": "왔어요"
+        },
+        {
+          "q": "다음 주에 시험을 ___ (봤어요 / 볼 거예요) →",
+          "a": "볼 거예요"
+        }
       ]
     }
   ],

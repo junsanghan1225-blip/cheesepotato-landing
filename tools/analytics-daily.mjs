@@ -120,13 +120,14 @@ async function collect() {
       pages: [['/', '900', '700'], ['/topik-writing/', '300', '220']], sources: [['Direct', '(direct) / (none)', '600'], ['Organic Search', 'google / organic', '400']],
       countries: [['Korea', '300', '400'], ['Vietnam', '200', '260']], events: [['page_view', '4310'], ['lesson_start', '871']], devices: [['mobile', '800', '1100'], ['desktop', '248', '463']],
       scDay: [['0', '0']], scQ: [['토픽 쓰기 연습', '12', '300', '0.04', '6.2']], scP: [['https://everykoreans.com/topik-writing/', '30', '900', '0.033', '7.1']],
+      mix: [['China', 'desktop', 'Direct', '20', '0', '0']], cnPages: [['/', '20', '0', '0']],
     };
   }
   const tok = await token();
   const range = [{ startDate: DATE, endDate: DATE }];
   const q = (dimensions, metrics, limit, extra = {}) => ga(tok, { dateRanges: range, dimensions: dimensions.map((name) => ({ name })), metrics: metrics.map((name) => ({ name })), limit, ...extra });
   const sorted = (metric) => ({ orderBys: [{ metric: { metricName: metric }, desc: true }] });
-  const [overview, pages, sources, countries, events, devices, scDay, scQ, scP] = await Promise.all([
+  const [overview, pages, sources, countries, events, devices, scDay, scQ, scP, mix, cnPages] = await Promise.all([
     q([], ['activeUsers', 'newUsers', 'sessions', 'screenPageViews', 'averageSessionDuration', 'engagementRate'], 1),
     q(['pagePath'], ['screenPageViews', 'activeUsers'], 10, sorted('screenPageViews')),
     q(['sessionDefaultChannelGroup', 'sessionSourceMedium'], ['sessions'], 10, sorted('sessions')),
@@ -136,8 +137,11 @@ async function collect() {
     sc(tok, { startDate: SC_END, endDate: SC_END, rowLimit: 1 }),
     sc(tok, { startDate: SC_START, endDate: SC_END, dimensions: ['query'], rowLimit: 20 }),
     sc(tok, { startDate: SC_START, endDate: SC_END, dimensions: ['page'], rowLimit: 10 }),
+    // 사람인지 봇인지 가르는 표(운영자 2026-11-01 「중국 방문이 사람인지」): 나라 × 기기 × 유입 별 방문 · 평균 머문 시간 · 참여율. 봇은 보통 머문 시간 0초 · 참여율 0% · 직접 유입에 몰린다.
+    q(['country', 'deviceCategory', 'sessionDefaultChannelGroup'], ['sessions', 'averageSessionDuration', 'engagementRate'], 15, sorted('sessions')),
+    q(['landingPage'], ['sessions', 'averageSessionDuration', 'engagementRate'], 8, { ...sorted('sessions'), dimensionFilter: { filter: { fieldName: 'country', stringFilter: { value: 'China', matchType: 'EXACT' } } } }),
   ]);
-  return { overview, pages, sources, countries, events, devices, scDay, scQ, scP };
+  return { overview, pages, sources, countries, events, devices, scDay, scQ, scP, mix, cnPages };
 }
 
 function summary(d) {
@@ -150,6 +154,9 @@ function summary(d) {
   L.push(...table('많이 본 쪽 TOP 10', ['쪽', '본 횟수', '방문자'], d.pages.map((r) => [r[0], fmt(r[1]), fmt(r[2])])));
   L.push(...table('어디서 왔나 (유입)', ['채널', '출처 / 매체', '방문'], d.sources.map((r) => [r[0], r[1], fmt(r[2])])));
   L.push(...table('나라별', ['나라', '방문자', '방문'], d.countries.map((r) => [r[0], fmt(r[1]), fmt(r[2])])));
+  const tm = (r) => [r[0], r[1], r[2], fmt(r[3]), fmt(r[4]) + '초', pct(num(r[5]))];
+  L.push(...table('나라 × 기기 × 유입 (사람 · 봇 가르기 — 머문 시간 0초 · 참여율 0% 가 몰려 있으면 봇 의심)', ['나라', '기기', '유입', '방문', '평균 머문 시간', '참여율'], (d.mix || []).map(tm)));
+  L.push(...table('중국에서 처음 열린 쪽', ['쪽', '방문', '평균 머문 시간', '참여율'], (d.cnPages || []).map((r) => [r[0], fmt(r[1]), fmt(r[2]) + '초', pct(num(r[3]))])));
   L.push(...table('기기별', ['기기', '방문자', '방문'], d.devices.map((r) => [r[0], fmt(r[1]), fmt(r[2])])));
   L.push(...table('이벤트 TOP 15', ['이벤트', '횟수'], d.events.slice(0, 15).map((r) => [r[0], fmt(r[1])])));
   const KEY = ['lesson_start', 'lesson_complete', 'level_test_open', 'level_test_start', 'level_test_half', 'level_test_complete', 'sign_up', 'login', 'pro_view', 'checkout', 'paid', 'file_download', 'download_gate_view', 'download_gate_click', 'download_start'];
@@ -189,6 +196,8 @@ w('ga-개요.csv', ['방문자', '새방문자', '세션', '조회수', '평균�
 w('ga-쪽별.csv', ['쪽', '조회수', '방문자'], d.pages);
 w('ga-유입.csv', ['채널', '출처/매체', '세션'], d.sources);
 w('ga-나라.csv', ['나라', '방문자', '세션'], d.countries);
+w('ga-나라기기유입.csv', ['나라', '기기', '유입', '세션', '평균참여시간(초)', '참여율'], d.mix || []);
+w('ga-중국첫쪽.csv', ['쪽', '세션', '평균참여시간(초)', '참여율'], d.cnPages || []);
 w('ga-기기.csv', ['기기', '방문자', '세션'], d.devices);
 w('ga-이벤트.csv', ['이벤트', '횟수'], d.events);
 w('sc-검색어.csv', ['검색어', '클릭', '노출', '클릭률', '평균순위'], d.scQ);

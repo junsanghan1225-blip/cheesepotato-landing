@@ -4,12 +4,16 @@
   "first-steps-workbook": {
    "krw": "13,900",
    "qa": "통과(주의 1)",
-   "pages": 156,
-   "date": "20261031",
-   "ver": 1
+   "pages": 169,
+   "date": "20261101",
+   "ver": 18
   },
   "particles-workbook": {
-   "krw": "13,900"
+   "krw": "13,900",
+   "qa": "통과(주의 1)",
+   "pages": 192,
+   "date": "20261031",
+   "ver": 1
   },
   "topik2-writing-51-52": {
    "krw": "9,900"
@@ -48,7 +52,11 @@
    "ver": 10
   },
   "topik1-reading-mock": {
-   "krw": "13,900"
+   "krw": "13,900",
+   "qa": "통과(주의 1)",
+   "pages": 206,
+   "date": "20261031",
+   "ver": 1
   },
   "topik2-writing-53-54": {
    "krw": "13,900",
@@ -71,7 +79,11 @@
    "ver": 7
   },
   "korean-idioms": {
-   "krw": "13,900"
+   "krw": "13,900",
+   "qa": "통과(주의 1)",
+   "pages": 212,
+   "date": "20261031",
+   "ver": 1
   }
  }
 }

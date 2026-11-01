@@ -26,13 +26,48 @@
         "Example question"
       ],
       "rows": [
-        ["누구", "Who", "누가 (subject: who)", "저 사람이 누구예요?"],
-        ["언제", "When", "언제나 (always)", "생일이 언제예요?"],
-        ["어디", "Where", "어디에 / 어디서", "화장실이 어디예요?"],
-        ["무엇", "What", "뭐 (casual / spoken)", "이름이 뭐예요?"],
-        ["왜", "Why", "왜냐하면 (because)", "왜 한국어를 배워요?"],
-        ["어떻게", "How", "[어떠케] (sound)", "학교에 어떻게 가요?"],
-        ["얼마나", "How much / How long", "얼마 (price)", "시간이 얼마나 걸려요?"]
+        [
+          "누구",
+          "Who",
+          "누가 (subject: who)",
+          "저 사람이 누구예요?"
+        ],
+        [
+          "언제",
+          "When",
+          "언제나 (always)",
+          "생일이 언제예요?"
+        ],
+        [
+          "어디",
+          "Where",
+          "어디에 / 어디서",
+          "화장실이 어디예요?"
+        ],
+        [
+          "무엇",
+          "What",
+          "뭐 (casual / spoken)",
+          "이름이 뭐예요?"
+        ],
+        [
+          "왜",
+          "Why",
+          "왜냐하면 (because)",
+          "왜 한국어를 배워요?"
+        ],
+        [
+          "어떻게",
+          "How",
+          "[어떠케] (sound)",
+          "학교에 어떻게 가요?"
+        ],
+        [
+          "얼마나",
+          "How much / How long",
+          "얼마 (price)",
+          "시간이 얼마나 걸려요?"
+        ]
       ],
       "note": "When 누구 is the grammatical subject with particle 가, it must be written as 누가 (never '누구가'). In spoken Korean, 무엇이 shortens to 뭐가, and 무엇을 shortens to 뭘."
     },
@@ -49,10 +84,30 @@
         "Example question"
       ],
       "rows": [
-        ["몇", "What / Which (number)", "Counter nouns (시, 개, 명, 살)", "지금 몇 시예요?"],
-        ["몇", "How many (count)", "Counter nouns (명, 권, 병, 마리)", "가족이 몇 명이에요?"],
-        ["얼마", "How much (cost)", "원 / 가격 (prices)", "이 사과 얼마예요?"],
-        ["얼마나", "How much / How long / How often", "Adjectives / Adverbs (자주, 멀다, 걸리다)", "한국에 얼마나 있었어요?"]
+        [
+          "몇",
+          "What / Which (number)",
+          "Counter nouns (시, 개, 명, 살)",
+          "지금 몇 시예요?"
+        ],
+        [
+          "몇",
+          "How many (count)",
+          "Counter nouns (명, 권, 병, 마리)",
+          "가족이 몇 명이에요?"
+        ],
+        [
+          "얼마",
+          "How much (cost)",
+          "원 / 가격 (prices)",
+          "이 사과 얼마예요?"
+        ],
+        [
+          "얼마나",
+          "How much / How long / How often",
+          "Adjectives / Adverbs (자주, 멀다, 걸리다)",
+          "한국에 얼마나 있었어요?"
+        ]
       ],
       "note": "Use 몇 before counting units (몇 시, 몇 개). Use 얼마 for prices in Won. Use 얼마나 for duration, distance or frequency."
     },
@@ -71,12 +126,30 @@
         "ko": "알맞은 의문사를 넣어요"
       },
       "items": [
-        { "q": "저 사람은 ___예요? (Who is that person?)", "a": "누구" },
-        { "q": "시험이 ___예요? (When is the exam?)", "a": "언제" },
-        { "q": "집이 ___예요? (Where is your house?)", "a": "어디" },
-        { "q": "이것은 ___예요? (What is this? / spoken form)", "a": "뭐" },
-        { "q": "오늘 ___ 늦었어요? (Why are you late today?)", "a": "왜" },
-        { "q": "공항에 ___ 가요? (How do you get to the airport?)", "a": "어떻게" }
+        {
+          "q": "저 사람은 ___예요? (Who is that person?)",
+          "a": "누구"
+        },
+        {
+          "q": "시험이 ___예요? (When is the exam?)",
+          "a": "언제"
+        },
+        {
+          "q": "집이 ___예요? (Where is your house?)",
+          "a": "어디"
+        },
+        {
+          "q": "이것은 ___예요? (What is this? / spoken form)",
+          "a": "뭐"
+        },
+        {
+          "q": "오늘 ___ 늦었어요? (Why are you late today?)",
+          "a": "왜"
+        },
+        {
+          "q": "공항에 ___ 가요? (How do you get to the airport?)",
+          "a": "어떻게"
+        }
       ]
     },
     {
@@ -86,11 +159,26 @@
         "ko": "누구와 누가 중 알맞은 것을 골라요"
       },
       "items": [
-        { "q": "___ 노래를 잘해요? (Who sings well?)", "a": "누가" },
-        { "q": "저분이 ___예요? (Who is that person over there?)", "a": "누구" },
-        { "q": "어제 교실에 ___ 왔어요? (Who came to class yesterday?)", "a": "누가" },
-        { "q": "이 책은 ___ 책이에요? (Whose book is this?)", "a": "누구" },
-        { "q": "지금 밖에서 ___ 기다려요? (Who is waiting outside?)", "a": "누가" }
+        {
+          "q": "___ 노래를 잘해요? (Who sings well?) (누구 / 누가)",
+          "a": "누가"
+        },
+        {
+          "q": "저분이 ___예요? (Who is that person over there?) (누구 / 누가)",
+          "a": "누구"
+        },
+        {
+          "q": "어제 교실에 ___ 왔어요? (Who came to class yesterday?) (누구 / 누가)",
+          "a": "누가"
+        },
+        {
+          "q": "이 책은 ___ 책이에요? (Whose book is this?) (누구 / 누가)",
+          "a": "누구"
+        },
+        {
+          "q": "지금 밖에서 ___ 기다려요? (Who is waiting outside?) (누구 / 누가)",
+          "a": "누가"
+        }
       ]
     },
     {
@@ -100,25 +188,55 @@
         "ko": "몇, 얼마, 얼마나 중 알맞은 것을 골라요"
       },
       "items": [
-        { "q": "지금 ___ 시예요? (What time is it now?)", "a": "몇" },
-        { "q": "이 커피 한 잔에 ___예요? (How much is this coffee?)", "a": "얼마" },
-        { "q": "집에서 학교까지 ___ 걸려요? (How long does it take?)", "a": "얼마나" },
-        { "q": "가족이 모두 ___ 명이에요? (How many family members?)", "a": "몇" },
-        { "q": "오늘 사과를 ___ 개 샀어요? (How many apples did you buy?)", "a": "몇" }
+        {
+          "q": "지금 ___ 시예요? (What time is it now?) (몇 / 얼마 / 얼마나)",
+          "a": "몇"
+        },
+        {
+          "q": "이 커피 한 잔에 ___예요? (How much is this coffee?) (몇 / 얼마 / 얼마나)",
+          "a": "얼마"
+        },
+        {
+          "q": "집에서 학교까지 ___ 걸려요? (How long does it take?) (몇 / 얼마 / 얼마나)",
+          "a": "얼마나"
+        },
+        {
+          "q": "가족이 모두 ___ 명이에요? (How many family members?) (몇 / 얼마 / 얼마나)",
+          "a": "몇"
+        },
+        {
+          "q": "오늘 사과를 ___ 개 샀어요? (How many apples did you buy?) (몇 / 얼마 / 얼마나)",
+          "a": "몇"
+        }
       ]
     },
     {
       "type": "practice",
       "title": {
-        "en": "Practice D: Match question and logical answer",
-        "ko": "질문에 어울리는 대답을 골라요"
+        "en": "Practice D: Choose the logical answer to each question",
+        "ko": "질문에 알맞은 대답을 골라요"
       },
       "items": [
-        { "q": "생일이 언제예요? → ___ (10월 5일이에요 / 학교예요)", "a": "10월 5일이에요" },
-        { "q": "어디에서 만나요? → ___ (카페에서 만나요 / 3시예요)", "a": "카페에서 만나요" },
-        { "q": "점심에 뭐 먹었어요? → ___ (비빔밥 먹었어요 / 친구예요)", "a": "비빔밥 먹었어요" },
-        { "q": "왜 울어요? → ___ (영화가 슬퍼서요 / 지하철로 가요)", "a": "영화가 슬퍼서요" },
-        { "q": "어떻게 왔어요? → ___ (버스로 왔어요 / 내일 와요)", "a": "버스로 왔어요" }
+        {
+          "q": "생일이 언제예요? → ___ (10월 5일이에요 / 학교예요)",
+          "a": "10월 5일이에요"
+        },
+        {
+          "q": "어디에서 만나요? → ___ (카페에서 만나요 / 3시예요)",
+          "a": "카페에서 만나요"
+        },
+        {
+          "q": "점심에 뭐 먹었어요? → ___ (비빔밥 먹었어요 / 친구예요)",
+          "a": "비빔밥 먹었어요"
+        },
+        {
+          "q": "왜 울어요? → ___ (영화가 슬퍼서요 / 지하철로 가요)",
+          "a": "영화가 슬퍼서요"
+        },
+        {
+          "q": "어떻게 왔어요? → ___ (버스로 왔어요 / 내일 와요)",
+          "a": "버스로 왔어요"
+        }
       ]
     }
   ],
