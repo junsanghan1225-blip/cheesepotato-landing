@@ -1412,6 +1412,40 @@
           ]
         },
         {
+          "type": "keyexp",
+          "title": {
+            "en": "Key expressions",
+            "ko": "핵심 표현"
+          },
+          "hint": "Say each pattern aloud, then read the example.",
+          "items": [
+            [
+              "어디 가요?",
+              "가는 곳을 물어요",
+              "Where are you going?",
+              "마트에 가요."
+            ],
+            [
+              "~에 가요",
+              "가는 곳 + 에 + 가요",
+              "I go to ~",
+              "학교에 가요."
+            ],
+            [
+              "~을/를 사요",
+              "사는 것 + 을/를 + 사요",
+              "I buy ~",
+              "우유를 사요."
+            ],
+            [
+              "저도 가요!",
+              "나도 같이 한다고 말해요",
+              "I'm going too!",
+              "저도 먹어요!"
+            ]
+          ]
+        },
+        {
           "type": "table",
           "title": {
             "en": "Sound notes",
@@ -1448,24 +1482,33 @@
           }
         },
         {
-          "type": "practice",
+          "type": "dlgfill",
           "title": {
             "en": "Make it yours",
-            "ko": "내 말로"
+            "ko": "내 말로 대답해요"
           },
-          "hint": "Write one line with the pattern from the dialogue. · 대화에 나온 문형으로 한 줄씩 써요.",
+          "hint": "Cheese asks. Potato answers with the pattern above. · 치즈가 물으면 감자가 되어 대답해 보세요.",
           "items": [
             {
-              "q": "치즈: 어디 가요? 감자: ______ 에 가요. (내가 가는 곳)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "어디 가요?",
+              "pre": "",
+              "post": "에 가요.",
+              "hint": "내가 가는 곳",
+              "ans": "학교"
             },
             {
-              "q": "치즈: 뭐 사요? 감자: ______ 을/를 사요. (내가 사는 것)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "뭐 사요?",
+              "pre": "",
+              "post": "을/를 사요.",
+              "hint": "내가 사는 것",
+              "ans": "우유"
             },
             {
-              "q": "Say 'I'm going to the park.' →",
-              "a": "공원에 가요."
+              "a": "어디 가요?",
+              "pre": "",
+              "post": "",
+              "hint": "공원에 간다고 말해 봐요",
+              "ans": "공원에 가요."
             }
           ]
         }
@@ -1536,6 +1579,40 @@
           ]
         },
         {
+          "type": "keyexp",
+          "title": {
+            "en": "Key expressions",
+            "ko": "핵심 표현"
+          },
+          "hint": "Say each pattern aloud, then read the example.",
+          "items": [
+            [
+              "저는 ~이에요/예요",
+              "나를 소개해요",
+              "I am ~",
+              "저는 하나예요."
+            ],
+            [
+              "~에 살아요",
+              "사는 곳 + 에 + 살아요",
+              "I live in ~",
+              "이 건물에 살아요."
+            ],
+            [
+              "~는요?",
+              "같은 질문을 되물어요",
+              "And you? / What about ~?",
+              "하나는요?"
+            ],
+            [
+              "제 친구예요",
+              "사람을 소개해요",
+              "This is my friend.",
+              "제 친구예요. 이름이 지민이에요."
+            ]
+          ]
+        },
+        {
           "type": "table",
           "title": {
             "en": "Useful phrases",
@@ -1572,24 +1649,33 @@
           }
         },
         {
-          "type": "practice",
+          "type": "dlgfill",
           "title": {
             "en": "Make it yours",
-            "ko": "내 말로"
+            "ko": "내 말로 대답해요"
           },
-          "hint": "Write one line with the pattern from the dialogue. · 대화에 나온 문형으로 한 줄씩 써요.",
+          "hint": "Cheese asks. Potato answers with the pattern above. · 치즈가 물으면 감자가 되어 대답해 보세요.",
           "items": [
             {
-              "q": "치즈: 어디에 살아요? 감자: 저는 ______ 에 살아요. (내가 사는 곳)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "어디에 살아요?",
+              "pre": "저는",
+              "post": "에 살아요.",
+              "hint": "내가 사는 곳",
+              "ans": "서울"
             },
             {
-              "q": "제 친구예요. 이름이 ______ 이에요/예요. (내 친구)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "친구 이름이 뭐예요?",
+              "pre": "제 친구예요. 이름이",
+              "post": "이에요/예요.",
+              "hint": "내 친구 이름",
+              "ans": "지민"
             },
             {
-              "q": "Ask 'And you?' to a person named 수진 →",
-              "a": "수진은요?"
+              "a": "저는 학생이에요.",
+              "pre": "반가워요!",
+              "post": "",
+              "hint": "수진 씨에게 되물어요(~는요?)",
+              "ans": "수진은요?"
             }
           ]
         }
@@ -1660,6 +1746,40 @@
           ]
         },
         {
+          "type": "keyexp",
+          "title": {
+            "en": "Key expressions",
+            "ko": "핵심 표현"
+          },
+          "hint": "Say each pattern aloud, then read the example.",
+          "items": [
+            [
+              "~이/가 있어요",
+              "있다 · 가지고 있다",
+              "There is ~ / I have ~",
+              "형제가 있어요."
+            ],
+            [
+              "~에 있어요",
+              "있는 곳을 말해요",
+              "~ is at (a place)",
+              "방에 있어요."
+            ],
+            [
+              "무슨 색이에요?",
+              "색을 물어요",
+              "What color is it?",
+              "파란색이에요."
+            ],
+            [
+              "우리 집에 오세요",
+              "집에 초대해요",
+              "Please come to our home.",
+              "우리 집에 오세요!"
+            ]
+          ]
+        },
+        {
           "type": "table",
           "title": {
             "en": "Useful phrases",
@@ -1696,24 +1816,33 @@
           }
         },
         {
-          "type": "practice",
+          "type": "dlgfill",
           "title": {
             "en": "Make it yours",
-            "ko": "내 말로"
+            "ko": "내 말로 대답해요"
           },
-          "hint": "Write one line with the pattern from the dialogue. · 대화에 나온 문형으로 한 줄씩 써요.",
+          "hint": "Cheese asks. Potato answers with the pattern above. · 치즈가 물으면 감자가 되어 대답해 보세요.",
           "items": [
             {
-              "q": "Say 'My room is narrow.' →",
-              "a": "제 방은 좁아요."
+              "a": "방이 어때요?",
+              "pre": "제 방은",
+              "post": "",
+              "hint": "좁다 → 해요체",
+              "ans": "좁아요."
             },
             {
-              "q": "우리 집에 ______ 이/가 있어요. (내 집에 있는 것)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "우리 집에 뭐가 있어요?",
+              "pre": "",
+              "post": "이/가 있어요.",
+              "hint": "내 집에 있는 것",
+              "ans": "소파"
             },
             {
-              "q": "Ask 'What color is that bag?' →",
-              "a": "저 가방은 무슨 색이에요?"
+              "a": "저 가방을 샀어요.",
+              "pre": "저 가방은",
+              "post": "",
+              "hint": "색을 물어요",
+              "ans": "무슨 색이에요?"
             }
           ]
         }
@@ -1784,6 +1913,40 @@
           ]
         },
         {
+          "type": "keyexp",
+          "title": {
+            "en": "Key expressions",
+            "ko": "핵심 표현"
+          },
+          "hint": "Say each pattern aloud, then read the example.",
+          "items": [
+            [
+              "~ 주세요",
+              "주문하거나 부탁해요",
+              "Please give me ~",
+              "라면 두 그릇 주세요."
+            ],
+            [
+              "모두 얼마예요?",
+              "전체 값을 물어요",
+              "How much in total?",
+              "구천 원이에요."
+            ],
+            [
+              "~아/어도 돼요?",
+              "허락을 구해요",
+              "May I ~?",
+              "카드로 계산해도 돼요?"
+            ],
+            [
+              "뭐 드릴까요?",
+              "점원이 주문을 물어요",
+              "What can I get you?",
+              "라면 주세요."
+            ]
+          ]
+        },
+        {
           "type": "table",
           "title": {
             "en": "Useful phrases",
@@ -1820,24 +1983,33 @@
           }
         },
         {
-          "type": "practice",
+          "type": "dlgfill",
           "title": {
             "en": "Make it yours",
-            "ko": "내 말로"
+            "ko": "내 말로 대답해요"
           },
-          "hint": "Write one line with the pattern from the dialogue. · 대화에 나온 문형으로 한 줄씩 써요.",
+          "hint": "Cheese asks. Potato answers with the pattern above. · 치즈가 물으면 감자가 되어 대답해 보세요.",
           "items": [
             {
-              "q": "Order two cups of tea →",
-              "a": "차 두 잔 주세요."
+              "a": "뭐 드릴까요?",
+              "pre": "차",
+              "post": "",
+              "hint": "두 잔을 부탁해요",
+              "ans": "두 잔 주세요."
             },
             {
-              "q": "______ 하나 주세요. (내가 주문하고 싶은 것)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "뭐 드릴까요?",
+              "pre": "",
+              "post": "하나 주세요.",
+              "hint": "내가 주문하고 싶은 것",
+              "ans": "라면"
             },
             {
-              "q": "Ask 'May I sit here?' →",
-              "a": "여기 앉아도 돼요?"
+              "a": "자리가 있어요.",
+              "pre": "여기",
+              "post": "",
+              "hint": "앉아도 되는지 물어요",
+              "ans": "앉아도 돼요?"
             }
           ]
         }
@@ -1908,6 +2080,40 @@
           ]
         },
         {
+          "type": "keyexp",
+          "title": {
+            "en": "Key expressions",
+            "ko": "핵심 표현"
+          },
+          "hint": "Say each pattern aloud, then read the example.",
+          "items": [
+            [
+              "~았/었어요",
+              "지난 일을 말해요",
+              "past tense",
+              "병원에 갔어요."
+            ],
+            [
+              "~(으)ㄹ 거예요",
+              "앞으로 할 일을 말해요",
+              "will ~",
+              "내일 나올 거예요."
+            ],
+            [
+              "안 · 못 + 동사",
+              "안 한다 · 할 수 없다",
+              "not / cannot",
+              "숙제를 못 했어요."
+            ],
+            [
+              "왜 ~아/어요?",
+              "이유를 물어요",
+              "Why ~?",
+              "왜 수업에 안 왔어요?"
+            ]
+          ]
+        },
+        {
           "type": "table",
           "title": {
             "en": "Useful phrases",
@@ -1949,24 +2155,33 @@
           }
         },
         {
-          "type": "practice",
+          "type": "dlgfill",
           "title": {
             "en": "Make it yours",
-            "ko": "내 말로"
+            "ko": "내 말로 대답해요"
           },
-          "hint": "Write one line with the pattern from the dialogue. · 대화에 나온 문형으로 한 줄씩 써요.",
+          "hint": "Cheese asks. Potato answers with the pattern above. · 치즈가 물으면 감자가 되어 대답해 보세요.",
           "items": [
             {
-              "q": "Say 'I did not eat breakfast.' →",
-              "a": "아침을 안 먹었어요."
+              "a": "아침 먹었어요?",
+              "pre": "아니요, 아침을",
+              "post": "",
+              "hint": "안 먹다 → 과거",
+              "ans": "안 먹었어요."
             },
             {
-              "q": "어제 저는 ______ 았/었어요. (어제 내가 한 일)",
-              "a": "(Your own sentence · 내 문장)"
+              "a": "어제 뭐 했어요?",
+              "pre": "어제 저는",
+              "post": "았/었어요.",
+              "hint": "어제 내가 한 일",
+              "ans": "공부했어요"
             },
             {
-              "q": "Say 'I will call you tomorrow.' →",
-              "a": "내일 전화할 거예요."
+              "a": "내일 뭐 할 거예요?",
+              "pre": "내일 전화",
+              "post": "",
+              "hint": "전화하다 → 할 거예요",
+              "ans": "할 거예요."
             }
           ]
         }
