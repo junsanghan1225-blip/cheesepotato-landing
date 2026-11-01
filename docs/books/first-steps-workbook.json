@@ -4540,40 +4540,13 @@
       }
     },
     "house-rooms-furniture": {
-      "5": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice C: Name the furniture",
-          "ko": "가구와 가전을 보고 이름을 써요"
-        },
-        "hint": "Look at the picture. Write the word in Korean.",
-        "items": [
-          {
-            "k": "bed",
-            "a": "침대"
-          },
-          {
-            "k": "sofa",
-            "a": "소파"
-          },
-          {
-            "k": "desk",
-            "a": "책상"
-          },
-          {
-            "k": "fridge",
-            "a": "냉장고"
-          },
-          {
-            "k": "tv",
-            "a": "텔레비전"
-          },
-          {
-            "k": "chair",
-            "a": "의자"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
     "school-classroom": {
       "4": {
