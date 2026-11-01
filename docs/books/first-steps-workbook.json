@@ -163,9 +163,6 @@
     "ida-anida-itta-eopda:2": "more",
     "demonstratives:1": "tip",
     "demonstratives:2": "tip",
-    "korean-particles:1": "tip",
-    "korean-particles:2": "warn",
-    "korean-particles:3": "warn",
     "question-words:1": "warn",
     "question-words:2": "tip",
     "days-months-dates:1": "more",
@@ -216,7 +213,13 @@
     "numbers-counters:4": "pattern",
     "negation-tenses:1": "warn",
     "negation-tenses:2": "tip",
-    "polite-present:5": "warn"
+    "polite-present:5": "warn",
+    "korean-particles:1": "tip",
+    "korean-particles:2": "tip",
+    "korean-particles:3": "tip",
+    "korean-particles:4": "tip",
+    "korean-particles:5": "warn",
+    "korean-particles:6": "warn"
   },
   "patterns": {
     "greetings-self-introduction:2": [
@@ -4278,7 +4281,145 @@
     },
     "korean-particles": {
       "all": [
-        0,
+        {
+          "type": "table",
+          "title": {
+            "en": "The Core Three Pairs: Topic, Subject & Object",
+            "ko": "기초 3대 조사 쌍"
+          },
+          "cols": [
+            "Particle pair",
+            "Grammar role",
+            "After consonant (받침 O)",
+            "After vowel (받침 X)"
+          ],
+          "rows": [
+            [
+              "은 / 는",
+              "Topic / Contrast (as for)",
+              "은 (선생님은, 가방은)",
+              "는 (저는, 친구는)"
+            ],
+            [
+              "이 / 가",
+              "Subject / Specific identifier",
+              "이 (밥이, 물이)",
+              "가 (사과가, 날씨가)"
+            ],
+            [
+              "을 / 를",
+              "Direct object (action target)",
+              "을 (책을, 음악을)",
+              "를 (커피를, 영화를)"
+            ]
+          ],
+          "note": "Phonetic rule: nouns ending in a final consonant (받침) take 은, 이, 을. Nouns ending in an open vowel take 는, 가, 를."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "은 / 는 · Topic: what we are talking about",
+            "ko": "은/는 · 화제 · 견줄 때"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "는",
+              "사과는 달아요.",
+              "Apples are sweet."
+            ],
+            [
+              "은",
+              "동생은 학생이에요.",
+              "My sibling is a student."
+            ],
+            [
+              "는",
+              "민수는 키가 커요.",
+              "Minsu is tall."
+            ],
+            [
+              "은",
+              "이 식당은 김치찌개가 맛있어요.",
+              "As for this restaurant, the kimchi stew is delicious."
+            ]
+          ],
+          "note": "Meaning: names what you are talking about, or sets two things side by side (커피는 좋아하는데 차는 안 좋아해요). · 뜻: 이미 아는 것을 화제로 꺼내거나, 둘을 견줄 때 씁니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "이 / 가 · Subject: who or what does it",
+            "ko": "이/가 · 누가 · 무엇이"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "가",
+              "비가 내려요.",
+              "Rain falls."
+            ],
+            [
+              "이",
+              "바람이 불어요.",
+              "The wind blows."
+            ],
+            [
+              "가",
+              "사과가 맛있어요.",
+              "The apple is delicious."
+            ],
+            [
+              "이",
+              "선생님이 교실로 들어오세요.",
+              "The teacher comes into the classroom."
+            ]
+          ],
+          "note": "Meaning: points out who or what does it, often something new. 저는 introduces yourself; 제가 stresses that it was you. · 뜻: 「누가·뭐가」의 답에 씁니다. 새로 꺼내는 것에 붙습니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "을 / 를 · Object: what the action reaches",
+            "ko": "을/를 · 동작이 닿는 것"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "을",
+              "물을 마셔요.",
+              "I drink water."
+            ],
+            [
+              "를",
+              "사과를 씻어요.",
+              "I wash the apple."
+            ],
+            [
+              "를",
+              "편지를 써요.",
+              "I write a letter."
+            ],
+            [
+              "을",
+              "식당에서 국밥을 먹어요.",
+              "I eat gukbap at a restaurant."
+            ]
+          ],
+          "note": "Meaning: marks what the action is done to. In casual speech it is often dropped: 밥 먹었어요? · 뜻: 동작을 받는 대상에 붙입니다. 말할 때는 빼기도 합니다."
+        },
         1,
         2,
         3,
@@ -4326,40 +4467,15 @@
       }
     },
     "basic-verbs-adjectives": {
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice A: Name the action",
-          "ko": "그림을 보고 동사를 써요"
-        },
-        "hint": "Look at the picture. Write the verb in dictionary form (-다).",
-        "items": [
-          {
-            "k": "eat",
-            "a": "먹다"
-          },
-          {
-            "k": "drink",
-            "a": "마시다"
-          },
-          {
-            "k": "sleep",
-            "a": "자다"
-          },
-          {
-            "k": "read",
-            "a": "읽다"
-          },
-          {
-            "k": "go",
-            "a": "가다"
-          },
-          {
-            "k": "come",
-            "a": "오다"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
     },
     "colors-shapes-opposites": {
       "3": {
