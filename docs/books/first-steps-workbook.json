@@ -163,9 +163,6 @@
     "ida-anida-itta-eopda:2": "more",
     "demonstratives:1": "tip",
     "demonstratives:2": "tip",
-    "korean-particles:1": "tip",
-    "korean-particles:2": "warn",
-    "korean-particles:3": "warn",
     "question-words:1": "warn",
     "question-words:2": "tip",
     "days-months-dates:1": "more",
@@ -216,7 +213,13 @@
     "numbers-counters:4": "pattern",
     "negation-tenses:1": "warn",
     "negation-tenses:2": "tip",
-    "polite-present:5": "warn"
+    "polite-present:5": "warn",
+    "korean-particles:1": "tip",
+    "korean-particles:2": "tip",
+    "korean-particles:3": "tip",
+    "korean-particles:4": "tip",
+    "korean-particles:5": "warn",
+    "korean-particles:6": "warn"
   },
   "patterns": {
     "greetings-self-introduction:2": [
@@ -3076,32 +3079,67 @@
       }
     },
     "location-places-exist": {
-      "5": {
-        "type": "roommap",
-        "title": {
-          "en": "Practice C: Where is it?",
-          "ko": "그림을 보고 위치를 말해요"
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "type": "illus",
+          "src": "first-steps/room.jpg",
+          "w": 1400,
+          "h": 871,
+          "maxw": 150,
+          "title": {
+            "en": "Practice C: Where is it?",
+            "ko": "그림을 보고 위치를 말해요"
+          },
+          "hint": "Look at the picture. Write the position word: 위, 아래, 옆, 안.",
+          "marks": [
+            [
+              1,
+              522,
+              282
+            ],
+            [
+              2,
+              721,
+              590
+            ],
+            [
+              3,
+              1130,
+              452
+            ],
+            [
+              4,
+              210,
+              478
+            ]
+          ],
+          "items": [
+            {
+              "q": "① 책은 책상 ______ 에 있어요.",
+              "a": "위"
+            },
+            {
+              "q": "② 가방은 책상 ______ 에 있어요.",
+              "a": "아래"
+            },
+            {
+              "q": "③ 의자는 책상 ______ 에 있어요.",
+              "a": "옆"
+            },
+            {
+              "q": "④ 고양이는 상자 ______ 에 있어요.",
+              "a": "안"
+            }
+          ],
+          "rr": 30
         },
-        "hint": "Look at the picture. Write the position word: 위, 아래, 옆, 안.",
-        "items": [
-          {
-            "q": "① 책은 책상 ______ 에 있어요.",
-            "a": "위"
-          },
-          {
-            "q": "② 가방은 책상 ______ 에 있어요.",
-            "a": "아래"
-          },
-          {
-            "q": "③ 의자는 책상 ______ 에 있어요.",
-            "a": "옆"
-          },
-          {
-            "q": "④ 고양이는 상자 ______ 에 있어요.",
-            "a": "안"
-          }
-        ]
-      }
+        6
+      ]
     },
     "food-ordering-taste": {
       "5": {
@@ -3248,217 +3286,126 @@
       }
     },
     "shopping-prices-clothes": {
-      "3": {
-        "type": "receipt",
-        "title": {
-          "en": "Practice A: Read the receipt",
-          "ko": "영수증을 읽어요"
-        },
-        "hint": "Answer in Korean. Write the prices in Hangul.",
-        "shop": "예시 옷 가게",
-        "lines": [
-          [
-            "티셔츠",
-            "15,000원"
+      "all": [
+        0,
+        1,
+        2,
+        {
+          "type": "receipt",
+          "title": {
+            "en": "Practice A: Read the receipt",
+            "ko": "영수증을 읽어요"
+          },
+          "hint": "Answer in Korean. Write the prices in Hangul.",
+          "shop": "예시 옷 가게",
+          "lines": [
+            [
+              "티셔츠",
+              "15,000원"
+            ],
+            [
+              "바지",
+              "32,000원"
+            ],
+            [
+              "양말",
+              "3,000원"
+            ]
           ],
-          [
-            "바지",
-            "32,000원"
-          ],
-          [
-            "양말",
-            "3,000원"
+          "total": "50,000원",
+          "items": [
+            {
+              "q": "티셔츠는 얼마예요?",
+              "a": "만 오천 원이에요"
+            },
+            {
+              "q": "바지는 얼마예요?",
+              "a": "삼만 이천 원이에요"
+            },
+            {
+              "q": "모두 얼마예요?",
+              "a": "오만 원이에요"
+            },
+            {
+              "q": "십만 원을 냈어요. 거스름돈은 얼마예요?",
+              "a": "오만 원이에요"
+            }
           ]
-        ],
-        "total": "50,000원",
-        "items": [
-          {
-            "q": "티셔츠는 얼마예요?",
-            "a": "만 오천 원이에요"
-          },
-          {
-            "q": "바지는 얼마예요?",
-            "a": "삼만 이천 원이에요"
-          },
-          {
-            "q": "모두 얼마예요?",
-            "a": "오만 원이에요"
-          },
-          {
-            "q": "십만 원을 냈어요. 거스름돈은 얼마예요?",
-            "a": "오만 원이에요"
-          }
-        ]
-      },
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice B: Name the clothes",
-          "ko": "그림을 보고 옷 이름을 써요"
         },
-        "hint": "Look at the picture and write the word in Korean.",
-        "items": [
-          {
-            "k": "pants",
-            "a": "바지"
-          },
-          {
-            "k": "skirt",
-            "a": "치마"
-          },
-          {
-            "k": "shoes",
-            "a": "신발 / 운동화"
-          },
-          {
-            "k": "hat",
-            "a": "모자"
-          },
-          {
-            "k": "socks",
-            "a": "양말"
-          }
-        ]
-      }
+        5,
+        6
+      ]
     },
     "weather-seasons-temperature": {
-      "4": {
-        "type": "forecast",
-        "title": {
-          "en": "Practice B: Read the forecast",
-          "ko": "날씨 예보를 읽어요"
+      "all": [
+        0,
+        1,
+        2,
+        {
+          "type": "forecast",
+          "title": {
+            "en": "Practice B: Read the forecast",
+            "ko": "날씨 예보를 읽어요"
+          },
+          "hint": "Look at the forecast. Answer in Korean.",
+          "days": [
+            {
+              "d": "월",
+              "k": "sun",
+              "t": "영상 20도"
+            },
+            {
+              "d": "화",
+              "k": "cloud",
+              "t": "영상 17도"
+            },
+            {
+              "d": "수",
+              "k": "rain",
+              "t": "영상 12도"
+            },
+            {
+              "d": "목",
+              "k": "snow",
+              "t": "영하 3도"
+            },
+            {
+              "d": "금",
+              "k": "sun",
+              "t": "영상 15도"
+            }
+          ],
+          "items": [
+            {
+              "q": "수요일 날씨는 어때요?",
+              "a": "비가 와요. 영상 십이 도예요"
+            },
+            {
+              "q": "가장 추운 날은 언제예요?",
+              "a": "목요일이에요. 영하 삼 도예요"
+            },
+            {
+              "q": "가장 따뜻한 날은 언제예요?",
+              "a": "월요일이에요. 영상 이십 도예요"
+            },
+            {
+              "q": "우산이 필요한 날은 언제예요?",
+              "a": "수요일이에요"
+            }
+          ]
         },
-        "hint": "Look at the forecast. Answer in Korean.",
-        "days": [
-          {
-            "d": "월",
-            "k": "sun",
-            "t": "영상 20도"
-          },
-          {
-            "d": "화",
-            "k": "cloud",
-            "t": "영상 17도"
-          },
-          {
-            "d": "수",
-            "k": "rain",
-            "t": "영상 12도"
-          },
-          {
-            "d": "목",
-            "k": "snow",
-            "t": "영하 3도"
-          },
-          {
-            "d": "금",
-            "k": "sun",
-            "t": "영상 15도"
-          }
-        ],
-        "items": [
-          {
-            "q": "수요일 날씨는 어때요?",
-            "a": "비가 와요. 영상 십이 도예요"
-          },
-          {
-            "q": "가장 추운 날은 언제예요?",
-            "a": "목요일이에요. 영하 삼 도예요"
-          },
-          {
-            "q": "가장 따뜻한 날은 언제예요?",
-            "a": "월요일이에요. 영상 이십 도예요"
-          },
-          {
-            "q": "우산이 필요한 날은 언제예요?",
-            "a": "수요일이에요"
-          }
-        ]
-      },
-      "3": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice A: Name the season",
-          "ko": "그림을 보고 계절 이름을 써요"
-        },
-        "hint": "Look at the picture and write the season in Korean.",
-        "items": [
-          {
-            "k": "spring",
-            "a": "봄"
-          },
-          {
-            "k": "summer",
-            "a": "여름"
-          },
-          {
-            "k": "autumn",
-            "a": "가을"
-          },
-          {
-            "k": "winter",
-            "a": "겨울"
-          }
-        ]
-      }
+        5,
+        6
+      ]
     },
     "directions-transportation": {
-      "3": {
-        "type": "streetmap",
-        "title": {
-          "en": "Practice A: Give directions",
-          "ko": "지도를 보고 길을 설명해요"
-        },
-        "hint": "You are at the station (여기). Walk straight up the road. Tell a friend how to get to each place. Use 직진, 사거리, 오른쪽, 왼쪽, 있어요. Answers may vary.",
-        "items": [
-          {
-            "q": "병원까지 어떻게 가요?",
-            "a": "직진하세요. 오른쪽에 병원이 있어요"
-          },
-          {
-            "q": "은행까지 어떻게 가요?",
-            "a": "직진하세요. 왼쪽에 은행이 있어요"
-          },
-          {
-            "q": "우체국까지 어떻게 가요?",
-            "a": "사거리까지 직진하세요. 오른쪽으로 가세요"
-          },
-          {
-            "q": "학교까지 어떻게 가요?",
-            "a": "사거리까지 직진하세요. 왼쪽으로 가세요"
-          }
-        ]
-      },
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice B: Name the transport",
-          "ko": "그림을 보고 교통수단 이름을 써요"
-        },
-        "hint": "Look at the picture and write the word in Korean.",
-        "items": [
-          {
-            "k": "subway",
-            "a": "지하철"
-          },
-          {
-            "k": "bus",
-            "a": "버스"
-          },
-          {
-            "k": "taxi",
-            "a": "택시"
-          },
-          {
-            "k": "train",
-            "a": "기차"
-          },
-          {
-            "k": "plane",
-            "a": "비행기"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ]
     },
     "polite-present": {
       "4": {
@@ -4253,32 +4200,214 @@
       ]
     },
     "demonstratives": {
-      "3": {
-        "type": "distscene",
-        "title": {
-          "en": "Practice A: Near, middle, far",
-          "ko": "나 · 너 · 먼 곳에 있는 물건"
+      "all": [
+        0,
+        1,
+        2,
+        {
+          "type": "illus",
+          "src": "first-steps/dist.jpg",
+          "w": 1400,
+          "h": 871,
+          "maxw": 150,
+          "title": {
+            "en": "Practice A: Near, middle, far",
+            "ko": "나 · 너 · 먼 곳에 있는 물건"
+          },
+          "hint": "Look where each thing is. Write 이, 그 or 저.",
+          "marks": [
+            [
+              1,
+              480,
+              424
+            ],
+            [
+              2,
+              900,
+              466
+            ],
+            [
+              3,
+              798,
+              128
+            ]
+          ],
+          "texts": [
+            [
+              300,
+              812,
+              "나 (말하는 사람)",
+              36
+            ],
+            [
+              1092,
+              812,
+              "너 (듣는 사람)",
+              36
+            ]
+          ],
+          "items": [
+            {
+              "q": "① ______ 사과가 맛있어요. (나와 가까운 사과)",
+              "a": "이"
+            },
+            {
+              "q": "② ______ 연필이 제 거예요. (너와 가까운 연필)",
+              "a": "그"
+            },
+            {
+              "q": "③ ______ 나무가 커요. (둘 다 먼 나무)",
+              "a": "저"
+            }
+          ],
+          "rr": 30
         },
-        "hint": "Look where each thing is. Write 이, 그 or 저.",
-        "items": [
-          {
-            "q": "① ______ 사과가 맛있어요. (나와 가까운 사과)",
-            "a": "이"
-          },
-          {
-            "q": "② ______ 연필이 제 거예요. (너와 가까운 연필)",
-            "a": "그"
-          },
-          {
-            "q": "③ ______ 나무가 커요. (둘 다 먼 나무)",
-            "a": "저"
-          }
-        ]
-      }
+        4,
+        5,
+        6
+      ]
     },
     "korean-particles": {
       "all": [
-        0,
+        {
+          "type": "table",
+          "title": {
+            "en": "The Core Three Pairs: Topic, Subject & Object",
+            "ko": "기초 3대 조사 쌍"
+          },
+          "cols": [
+            "Particle pair",
+            "Grammar role",
+            "After consonant (받침 O)",
+            "After vowel (받침 X)"
+          ],
+          "rows": [
+            [
+              "은 / 는",
+              "Topic / Contrast (as for)",
+              "은 (선생님은, 가방은)",
+              "는 (저는, 친구는)"
+            ],
+            [
+              "이 / 가",
+              "Subject / Specific identifier",
+              "이 (밥이, 물이)",
+              "가 (사과가, 날씨가)"
+            ],
+            [
+              "을 / 를",
+              "Direct object (action target)",
+              "을 (책을, 음악을)",
+              "를 (커피를, 영화를)"
+            ]
+          ],
+          "note": "Phonetic rule: nouns ending in a final consonant (받침) take 은, 이, 을. Nouns ending in an open vowel take 는, 가, 를."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "은 / 는 · Topic: what we are talking about",
+            "ko": "은/는 · 화제 · 견줄 때"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "는",
+              "사과는 달아요.",
+              "Apples are sweet."
+            ],
+            [
+              "은",
+              "동생은 학생이에요.",
+              "My sibling is a student."
+            ],
+            [
+              "는",
+              "민수는 키가 커요.",
+              "Minsu is tall."
+            ],
+            [
+              "은",
+              "이 식당은 김치찌개가 맛있어요.",
+              "As for this restaurant, the kimchi stew is delicious."
+            ]
+          ],
+          "note": "Meaning: names what you are talking about, or sets two things side by side (커피는 좋아하는데 차는 안 좋아해요). · 뜻: 이미 아는 것을 화제로 꺼내거나, 둘을 견줄 때 씁니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "이 / 가 · Subject: who or what does it",
+            "ko": "이/가 · 누가 · 무엇이"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "가",
+              "비가 내려요.",
+              "Rain falls."
+            ],
+            [
+              "이",
+              "바람이 불어요.",
+              "The wind blows."
+            ],
+            [
+              "가",
+              "사과가 맛있어요.",
+              "The apple is delicious."
+            ],
+            [
+              "이",
+              "선생님이 교실로 들어오세요.",
+              "The teacher comes into the classroom."
+            ]
+          ],
+          "note": "Meaning: points out who or what does it, often something new. 저는 introduces yourself; 제가 stresses that it was you. · 뜻: 「누가·뭐가」의 답에 씁니다. 새로 꺼내는 것에 붙습니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "을 / 를 · Object: what the action reaches",
+            "ko": "을/를 · 동작이 닿는 것"
+          },
+          "cols": [
+            "Particle · 조사",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "을",
+              "물을 마셔요.",
+              "I drink water."
+            ],
+            [
+              "를",
+              "사과를 씻어요.",
+              "I wash the apple."
+            ],
+            [
+              "를",
+              "편지를 써요.",
+              "I write a letter."
+            ],
+            [
+              "을",
+              "식당에서 국밥을 먹어요.",
+              "I eat gukbap at a restaurant."
+            ]
+          ],
+          "note": "Meaning: marks what the action is done to. In casual speech it is often dropped: 밥 먹었어요? · 뜻: 동작을 받는 대상에 붙입니다. 말할 때는 빼기도 합니다."
+        },
         1,
         2,
         3,
@@ -4326,252 +4455,150 @@
       }
     },
     "basic-verbs-adjectives": {
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice A: Name the action",
-          "ko": "그림을 보고 동사를 써요"
-        },
-        "hint": "Look at the picture. Write the verb in dictionary form (-다).",
-        "items": [
-          {
-            "k": "eat",
-            "a": "먹다"
-          },
-          {
-            "k": "drink",
-            "a": "마시다"
-          },
-          {
-            "k": "sleep",
-            "a": "자다"
-          },
-          {
-            "k": "read",
-            "a": "읽다"
-          },
-          {
-            "k": "go",
-            "a": "가다"
-          },
-          {
-            "k": "come",
-            "a": "오다"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
     },
     "colors-shapes-opposites": {
-      "3": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice A: Name the color",
-          "ko": "색깔을 보고 이름을 써요"
-        },
-        "hint": "Look at the color. Write the word in Korean.",
-        "items": [
-          {
-            "k": "c:#d9362b",
-            "a": "빨간색"
-          },
-          {
-            "k": "c:#2f6fdb",
-            "a": "파란색"
-          },
-          {
-            "k": "c:#f2c230",
-            "a": "노란색"
-          },
-          {
-            "k": "c:#ffffff",
-            "a": "흰색 / 하얀색"
-          },
-          {
-            "k": "c:#1d1a17",
-            "a": "검은색"
-          },
-          {
-            "k": "c:#2f9e5b",
-            "a": "초록색"
-          }
-        ]
-      },
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice B: Name the shape",
-          "ko": "모양을 보고 이름을 써요"
-        },
-        "hint": "Look at the shape. Write the everyday word.",
-        "items": [
-          {
-            "k": "circle",
-            "a": "동그라미"
-          },
-          {
-            "k": "triangle",
-            "a": "세모"
-          },
-          {
-            "k": "square",
-            "a": "네모"
-          },
-          {
-            "k": "star",
-            "a": "별 모양"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ]
     },
     "house-rooms-furniture": {
-      "5": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice C: Name the furniture",
-          "ko": "가구와 가전을 보고 이름을 써요"
-        },
-        "hint": "Look at the picture. Write the word in Korean.",
-        "items": [
-          {
-            "k": "bed",
-            "a": "침대"
-          },
-          {
-            "k": "sofa",
-            "a": "소파"
-          },
-          {
-            "k": "desk",
-            "a": "책상"
-          },
-          {
-            "k": "fridge",
-            "a": "냉장고"
-          },
-          {
-            "k": "tv",
-            "a": "텔레비전"
-          },
-          {
-            "k": "chair",
-            "a": "의자"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
     "school-classroom": {
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice B: Name the classroom item",
-          "ko": "교실 물건 이름을 써요"
-        },
-        "hint": "Look at the picture. Write the word in Korean.",
-        "items": [
-          {
-            "k": "board",
-            "a": "칠판"
-          },
-          {
-            "k": "desk",
-            "a": "책상"
-          },
-          {
-            "k": "chair",
-            "a": "의자"
-          },
-          {
-            "k": "pencil",
-            "a": "연필"
-          },
-          {
-            "k": "eraser",
-            "a": "지우개"
-          },
-          {
-            "k": "book",
-            "a": "책"
-          }
-        ]
-      }
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ]
     },
     "hobbies-leisure-sports": {
-      "4": {
-        "type": "picwords",
-        "title": {
-          "en": "Practice B: Name the hobby",
-          "ko": "그림을 보고 취미를 써요"
-        },
-        "hint": "Look at the picture. Write the hobby word in Korean.",
-        "items": [
-          {
-            "k": "soccer",
-            "a": "축구"
+      "all": [
+        0,
+        1,
+        2,
+        3,
+        {
+          "type": "weekplan",
+          "title": {
+            "en": "Practice C: My week",
+            "ko": "내 일주일 취미 계획"
           },
-          {
-            "k": "book",
-            "a": "독서"
-          },
-          {
-            "k": "music",
-            "a": "음악"
-          },
-          {
-            "k": "camera",
-            "a": "사진"
-          },
-          {
-            "k": "swim",
-            "a": "수영"
-          },
-          {
-            "k": "bike",
-            "a": "자전거"
-          }
-        ]
-      },
-      "5": {
-        "type": "weekplan",
-        "title": {
-          "en": "Practice C: My week",
-          "ko": "내 일주일 취미 계획"
-        },
-        "hint": "Write one hobby or activity in each day.",
-        "tasks": [
-          "저는 ___요일에 ______ 을/를 해요.",
-          "제 취미는 ______ 이에요/예요."
-        ]
-      }
+          "hint": "Write one hobby or activity in each day.",
+          "tasks": [
+            "저는 ___요일에 ______ 을/를 해요.",
+            "제 취미는 ______ 이에요/예요."
+          ]
+        }
+      ]
     },
     "health-hospital": {
-      "3": {
-        "type": "bodymap",
-        "title": {
-          "en": "Practice A: Name the body part",
-          "ko": "몸 그림을 보고 이름을 써요"
+      "all": [
+        0,
+        1,
+        2,
+        {
+          "type": "illus",
+          "src": "first-steps/body.jpg",
+          "w": 1100,
+          "h": 1366,
+          "maxw": 92,
+          "numbered": true,
+          "title": {
+            "en": "Practice A: Name the body part",
+            "ko": "몸 그림을 보고 이름을 써요"
+          },
+          "hint": "Write the Korean word for each numbered part.",
+          "marks": [
+            [
+              1,
+              860,
+              190,
+              601,
+              246
+            ],
+            [
+              2,
+              860,
+              350,
+              587,
+              355
+            ],
+            [
+              3,
+              860,
+              490,
+              550,
+              451
+            ],
+            [
+              4,
+              860,
+              640,
+              580,
+              635
+            ],
+            [
+              5,
+              170,
+              850,
+              369,
+              785
+            ],
+            [
+              6,
+              200,
+              1240,
+              437,
+              1120
+            ]
+          ],
+          "items": [
+            {
+              "a": "머리"
+            },
+            {
+              "a": "눈"
+            },
+            {
+              "a": "목"
+            },
+            {
+              "a": "배"
+            },
+            {
+              "a": "손"
+            },
+            {
+              "a": "발"
+            }
+          ],
+          "rr": 34
         },
-        "hint": "Write the Korean word for each numbered part.",
-        "items": [
-          {
-            "a": "머리"
-          },
-          {
-            "a": "눈"
-          },
-          {
-            "a": "목"
-          },
-          {
-            "a": "배"
-          },
-          {
-            "a": "손"
-          },
-          {
-            "a": "발"
-          }
-        ]
-      }
+        4,
+        5,
+        6
+      ]
     }
   }
 }
