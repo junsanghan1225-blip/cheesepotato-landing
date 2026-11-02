@@ -167,7 +167,7 @@ for (let t = 0; t < N_TESTS; t++) {
     no: q.slot, id: q.id, type: q.type, genre: q.genre, grade: q.grade, passage: q.passage, question: q.question, options: q.options, answer: q.answer, why: q.why, ...(q.pair ? { pair: q.pair } : {}), ...(q.sentence ? { sentence: q.sentence } : {}), ...(EXPL[q.id] ? { ev: EXPL[q.id].ev, rs: EXPL[q.id].rs } : {}),
   }));
   g1Info.push(items.filter((x) => x.grade === 1).length);
-  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format. Recommended time: 60 minutes.', ko: '31~70번, 실제 시험 형식 · 권장 풀이 시간 60분' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 31, to: 70 }] };
+  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format. Recommended time: 60 minutes.', ko: '31~70번, 실제 시험 형식 · 권장 풀이 시간 60분' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 31, to: 70 }, { type: 'selfcheck', title: { en: 'Self check', ko: '스스로 점검' }, rec: 60, total: 40, from: 31, key: items.map((q) => q.answer) }] };
 }
 for (const m of methods) { for (const [uid, u] of Object.entries(inline)) { const it = u.sections[0].items.find((x) => x.id === m.example.id); if (it) { m.example.test = Number(uid.slice(3)); m.example.no = it.no; } } }
 const book = {

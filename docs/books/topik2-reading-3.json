@@ -74,13 +74,13 @@
  "howto": {
   "en": [
    "Read the method page for each type first.",
-   "Solve one practice set at a time and mark the answer sheet.",
+   "Solve one practice set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
   "ko": [
    "유형마다 풀이 방법 쪽을 먼저 읽습니다.",
-   "연습 한 회씩 풀고 답안지에 표시합니다.",
+   "연습 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
    "정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.",
    "며칠 뒤 틀린 문항을 다시 풉니다."
   ]
@@ -842,8 +842,8 @@
     "ko": "연습 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 25–25",
-    "ko": "10문항 · 시험 25~25번"
+    "en": "10 questions · exam no. 25 · about 14 min",
+    "ko": "10문항 · 시험 25번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1032,7 +1032,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      0,
+      0,
+      3,
+      3,
+      0,
+      1,
+      2,
+      0,
+      1
+     ]
     }
    ]
   },
@@ -1043,8 +1071,8 @@
     "ko": "연습 2회"
    },
    "sub": {
-    "en": "10 questions · exam no. 25–25",
-    "ko": "10문항 · 시험 25~25번"
+    "en": "10 questions · exam no. 25 · about 14 min",
+    "ko": "10문항 · 시험 25번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1233,7 +1261,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      2,
+      0,
+      2,
+      3,
+      2
+     ]
     }
    ]
   },
@@ -1244,8 +1300,8 @@
     "ko": "연습 3회"
    },
    "sub": {
-    "en": "10 questions · exam no. 25–26",
-    "ko": "10문항 · 시험 25~26번"
+    "en": "10 questions · exam no. 25–26 · about 14 min",
+    "ko": "10문항 · 시험 25~26번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1434,7 +1490,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      0,
+      2,
+      2,
+      3,
+      3,
+      1,
+      1,
+      0,
+      0
+     ]
     }
    ]
   },
@@ -1445,8 +1529,8 @@
     "ko": "연습 4회"
    },
    "sub": {
-    "en": "10 questions · exam no. 26–26",
-    "ko": "10문항 · 시험 26~26번"
+    "en": "10 questions · exam no. 26 · about 14 min",
+    "ko": "10문항 · 시험 26번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1635,7 +1719,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      2,
+      3,
+      3,
+      2,
+      1,
+      2,
+      3,
+      0,
+      1
+     ]
     }
    ]
   },
@@ -1646,8 +1758,8 @@
     "ko": "연습 5회"
    },
    "sub": {
-    "en": "10 questions · exam no. 26–26",
-    "ko": "10문항 · 시험 26~26번"
+    "en": "10 questions · exam no. 26 · about 14 min",
+    "ko": "10문항 · 시험 26번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1836,7 +1948,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      3,
+      3,
+      0,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -1847,8 +1987,8 @@
     "ko": "연습 6회"
    },
    "sub": {
-    "en": "10 questions · exam no. 26–27",
-    "ko": "10문항 · 시험 26~27번"
+    "en": "10 questions · exam no. 26–27 · about 14 min",
+    "ko": "10문항 · 시험 26~27번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2037,7 +2177,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      1,
+      0,
+      2,
+      0,
+      1,
+      3,
+      2,
+      3,
+      1
+     ]
     }
    ]
   },
@@ -2048,8 +2216,8 @@
     "ko": "연습 7회"
    },
    "sub": {
-    "en": "10 questions · exam no. 27–27",
-    "ko": "10문항 · 시험 27~27번"
+    "en": "10 questions · exam no. 27 · about 14 min",
+    "ko": "10문항 · 시험 27번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2238,7 +2406,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      3,
+      2,
+      3,
+      0,
+      1,
+      1,
+      3,
+      2,
+      1
+     ]
     }
    ]
   },
@@ -2249,8 +2445,8 @@
     "ko": "연습 8회"
    },
    "sub": {
-    "en": "10 questions · exam no. 27–28",
-    "ko": "10문항 · 시험 27~28번"
+    "en": "10 questions · exam no. 27–28 · about 14 min",
+    "ko": "10문항 · 시험 27~28번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2439,7 +2635,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      3,
+      1,
+      3,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2
+     ]
     }
    ]
   },
@@ -2450,8 +2674,8 @@
     "ko": "연습 9회"
    },
    "sub": {
-    "en": "10 questions · exam no. 28–28",
-    "ko": "10문항 · 시험 28~28번"
+    "en": "10 questions · exam no. 28 · about 14 min",
+    "ko": "10문항 · 시험 28번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2640,7 +2864,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      2,
+      1,
+      3,
+      3,
+      1,
+      0,
+      0,
+      3,
+      0
+     ]
     }
    ]
   },
@@ -2651,8 +2903,8 @@
     "ko": "연습 10회"
    },
    "sub": {
-    "en": "10 questions · exam no. 28–29",
-    "ko": "10문항 · 시험 28~29번"
+    "en": "10 questions · exam no. 28–29 · about 14 min",
+    "ko": "10문항 · 시험 28~29번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2841,7 +3093,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      2,
+      2,
+      0,
+      1,
+      2,
+      1,
+      3,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -2852,8 +3132,8 @@
     "ko": "연습 11회"
    },
    "sub": {
-    "en": "10 questions · exam no. 29–29",
-    "ko": "10문항 · 시험 29~29번"
+    "en": "10 questions · exam no. 29 · about 14 min",
+    "ko": "10문항 · 시험 29번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3042,7 +3322,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      3,
+      2,
+      2,
+      3,
+      0,
+      3,
+      3,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -3053,8 +3361,8 @@
     "ko": "연습 12회"
    },
    "sub": {
-    "en": "10 questions · exam no. 29–30",
-    "ko": "10문항 · 시험 29~30번"
+    "en": "10 questions · exam no. 29–30 · about 14 min",
+    "ko": "10문항 · 시험 29~30번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3243,7 +3551,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      1,
+      2,
+      2,
+      1,
+      3,
+      3,
+      1,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -3254,8 +3590,8 @@
     "ko": "연습 13회"
    },
    "sub": {
-    "en": "10 questions · exam no. 30–30",
-    "ko": "10문항 · 시험 30~30번"
+    "en": "10 questions · exam no. 30 · about 14 min",
+    "ko": "10문항 · 시험 30번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3444,7 +3780,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      3,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1,
+      0,
+      2
+     ]
     }
    ]
   },
@@ -3455,8 +3819,8 @@
     "ko": "연습 14회"
    },
    "sub": {
-    "en": "10 questions · exam no. 30–31",
-    "ko": "10문항 · 시험 30~31번"
+    "en": "10 questions · exam no. 30–31 · about 14 min",
+    "ko": "10문항 · 시험 30~31번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3645,7 +4009,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      2,
+      0,
+      2,
+      0,
+      2,
+      1,
+      1,
+      2,
+      3
+     ]
     }
    ]
   },
@@ -3656,8 +4048,8 @@
     "ko": "연습 15회"
    },
    "sub": {
-    "en": "10 questions · exam no. 31–31",
-    "ko": "10문항 · 시험 31~31번"
+    "en": "10 questions · exam no. 31 · about 14 min",
+    "ko": "10문항 · 시험 31번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3846,7 +4238,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      1,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      0,
+      1
+     ]
     }
    ]
   },
@@ -3857,8 +4277,8 @@
     "ko": "연습 16회"
    },
    "sub": {
-    "en": "10 questions · exam no. 31–32",
-    "ko": "10문항 · 시험 31~32번"
+    "en": "10 questions · exam no. 31–32 · about 14 min",
+    "ko": "10문항 · 시험 31~32번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4047,7 +4467,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      2,
+      2,
+      3,
+      3,
+      0,
+      0,
+      3,
+      1,
+      0
+     ]
     }
    ]
   },
@@ -4058,8 +4506,8 @@
     "ko": "연습 17회"
    },
    "sub": {
-    "en": "10 questions · exam no. 32–34",
-    "ko": "10문항 · 시험 32~34번"
+    "en": "10 questions · exam no. 32–34 · about 14 min",
+    "ko": "10문항 · 시험 32~34번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4248,7 +4696,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      0,
+      1,
+      1,
+      3,
+      1,
+      2,
+      1,
+      2,
+      2
+     ]
     }
    ]
   },
@@ -4259,8 +4735,8 @@
     "ko": "연습 18회"
    },
    "sub": {
-    "en": "10 questions · exam no. 35–35",
-    "ko": "10문항 · 시험 35~35번"
+    "en": "10 questions · exam no. 35 · about 14 min",
+    "ko": "10문항 · 시험 35번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4449,7 +4925,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      2,
+      1,
+      3,
+      2,
+      3,
+      2,
+      0,
+      3,
+      3
+     ]
     }
    ]
   },
@@ -4460,8 +4964,8 @@
     "ko": "연습 19회"
    },
    "sub": {
-    "en": "10 questions · exam no. 35–36",
-    "ko": "10문항 · 시험 35~36번"
+    "en": "10 questions · exam no. 35–36 · about 14 min",
+    "ko": "10문항 · 시험 35~36번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4650,7 +5154,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      2,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0
+     ]
     }
    ]
   },
@@ -4661,8 +5193,8 @@
     "ko": "연습 20회"
    },
    "sub": {
-    "en": "10 questions · exam no. 36–36",
-    "ko": "10문항 · 시험 36~36번"
+    "en": "10 questions · exam no. 36 · about 14 min",
+    "ko": "10문항 · 시험 36번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4851,7 +5383,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      2,
+      1,
+      1,
+      3,
+      2,
+      1,
+      1,
+      3,
+      2
+     ]
     }
    ]
   },
@@ -4862,8 +5422,8 @@
     "ko": "연습 21회"
    },
    "sub": {
-    "en": "10 questions · exam no. 36–37",
-    "ko": "10문항 · 시험 36~37번"
+    "en": "10 questions · exam no. 36–37 · about 14 min",
+    "ko": "10문항 · 시험 36~37번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5052,7 +5612,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      2,
+      0,
+      1
+     ]
     }
    ]
   },
@@ -5063,8 +5651,8 @@
     "ko": "연습 22회"
    },
    "sub": {
-    "en": "10 questions · exam no. 37–37",
-    "ko": "10문항 · 시험 37~37번"
+    "en": "10 questions · exam no. 37 · about 14 min",
+    "ko": "10문항 · 시험 37번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5253,7 +5841,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      3,
+      3,
+      1,
+      3,
+      3,
+      0,
+      0,
+      1,
+      2
+     ]
     }
    ]
   },
@@ -5264,8 +5880,8 @@
     "ko": "연습 23회"
    },
    "sub": {
-    "en": "10 questions · exam no. 37–38",
-    "ko": "10문항 · 시험 37~38번"
+    "en": "10 questions · exam no. 37–38 · about 14 min",
+    "ko": "10문항 · 시험 37~38번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5454,7 +6070,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      2,
+      2,
+      0,
+      3,
+      3,
+      0,
+      2,
+      2
+     ]
     }
    ]
   },
@@ -5465,8 +6109,8 @@
     "ko": "연습 24회"
    },
    "sub": {
-    "en": "10 questions · exam no. 38–38",
-    "ko": "10문항 · 시험 38~38번"
+    "en": "10 questions · exam no. 38 · about 14 min",
+    "ko": "10문항 · 시험 38번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5655,7 +6299,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      1,
+      2,
+      0,
+      0,
+      2,
+      3,
+      3,
+      1,
+      3
+     ]
     }
    ]
   },
@@ -5666,8 +6338,8 @@
     "ko": "연습 25회"
    },
    "sub": {
-    "en": "10 questions · exam no. 38–39",
-    "ko": "10문항 · 시험 38~39번"
+    "en": "10 questions · exam no. 38–39 · about 14 min",
+    "ko": "10문항 · 시험 38~39번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5861,7 +6533,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      0,
+      1,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      0
+     ]
     }
    ]
   },
@@ -5872,8 +6572,8 @@
     "ko": "연습 26회"
    },
    "sub": {
-    "en": "10 questions · exam no. 39–39",
-    "ko": "10문항 · 시험 39~39번"
+    "en": "10 questions · exam no. 39 · about 14 min",
+    "ko": "10문항 · 시험 39번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6072,7 +6772,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      1,
+      2,
+      3,
+      2,
+      2,
+      3,
+      1,
+      2,
+      3
+     ]
     }
    ]
   },
@@ -6083,8 +6811,8 @@
     "ko": "연습 27회"
    },
    "sub": {
-    "en": "10 questions · exam no. 39–40",
-    "ko": "10문항 · 시험 39~40번"
+    "en": "10 questions · exam no. 39–40 · about 14 min",
+    "ko": "10문항 · 시험 39~40번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6283,7 +7011,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      1,
+      0,
+      2,
+      0,
+      3,
+      2,
+      0,
+      0,
+      1
+     ]
     }
    ]
   },
@@ -6294,8 +7050,8 @@
     "ko": "연습 28회"
    },
    "sub": {
-    "en": "10 questions · exam no. 40–40",
-    "ko": "10문항 · 시험 40~40번"
+    "en": "10 questions · exam no. 40 · about 14 min",
+    "ko": "10문항 · 시험 40번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6494,7 +7250,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      2,
+      2,
+      3
+     ]
     }
    ]
   },
@@ -6505,8 +7289,8 @@
     "ko": "연습 29회"
    },
    "sub": {
-    "en": "10 questions · exam no. 40–41",
-    "ko": "10문항 · 시험 40~41번"
+    "en": "10 questions · exam no. 40–41 · about 14 min",
+    "ko": "10문항 · 시험 40~41번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6705,7 +7489,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      3,
+      1,
+      0
+     ]
     }
    ]
   },
@@ -6716,8 +7528,8 @@
     "ko": "연습 30회"
    },
    "sub": {
-    "en": "10 questions · exam no. 41–41",
-    "ko": "10문항 · 시험 41~41번"
+    "en": "10 questions · exam no. 41 · about 14 min",
+    "ko": "10문항 · 시험 41번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6916,7 +7728,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      2,
+      3,
+      1,
+      0,
+      2,
+      1,
+      2,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -6927,8 +7767,8 @@
     "ko": "연습 31회"
    },
    "sub": {
-    "en": "10 questions · exam no. 41–42",
-    "ko": "10문항 · 시험 41~42번"
+    "en": "10 questions · exam no. 41–42 · about 14 min",
+    "ko": "10문항 · 시험 41~42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7120,7 +7960,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      3,
+      0,
+      2,
+      2,
+      1
+     ]
     }
    ]
   },
@@ -7131,8 +7999,8 @@
     "ko": "연습 32회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7321,7 +8189,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      3,
+      2,
+      2,
+      3,
+      1,
+      3,
+      2,
+      2
+     ]
     }
    ]
   },
@@ -7332,8 +8228,8 @@
     "ko": "연습 33회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7522,7 +8418,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      3,
+      2,
+      3,
+      2,
+      3,
+      0,
+      3,
+      2,
+      2
+     ]
     }
    ]
   },
@@ -7533,8 +8457,8 @@
     "ko": "연습 34회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7723,7 +8647,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      3
+     ]
     }
    ]
   },
@@ -7734,8 +8686,8 @@
     "ko": "연습 35회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7924,7 +8876,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      0,
+      1,
+      0,
+      2,
+      3,
+      3,
+      3,
+      3,
+      2
+     ]
     }
    ]
   },
@@ -7935,8 +8915,8 @@
     "ko": "연습 36회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8125,7 +9105,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      1
+     ]
     }
    ]
   },
@@ -8136,8 +9144,8 @@
     "ko": "연습 37회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–42",
-    "ko": "10문항 · 시험 42~42번"
+    "en": "10 questions · exam no. 42 · about 14 min",
+    "ko": "10문항 · 시험 42번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8326,7 +9334,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      1,
+      0,
+      1,
+      1,
+      1,
+      3,
+      1,
+      3,
+      0
+     ]
     }
    ]
   },
@@ -8337,8 +9373,8 @@
     "ko": "연습 38회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42–43",
-    "ko": "10문항 · 시험 42~43번"
+    "en": "10 questions · exam no. 42–43 · about 14 min",
+    "ko": "10문항 · 시험 42~43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8527,7 +9563,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      3,
+      0,
+      0,
+      2,
+      1,
+      3,
+      1,
+      0,
+      3
+     ]
     }
    ]
   },
@@ -8538,8 +9602,8 @@
     "ko": "연습 39회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8728,7 +9792,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      0,
+      2,
+      1,
+      2,
+      3,
+      3,
+      2,
+      2,
+      0
+     ]
     }
    ]
   },
@@ -8739,8 +9831,8 @@
     "ko": "연습 40회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8929,7 +10021,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      2,
+      0,
+      0,
+      3,
+      0,
+      1,
+      2,
+      1,
+      0
+     ]
     }
    ]
   },
@@ -8940,8 +10060,8 @@
     "ko": "연습 41회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -9130,7 +10250,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      1,
+      1,
+      3,
+      1,
+      2,
+      2,
+      2,
+      0,
+      2
+     ]
     }
    ]
   },
@@ -9141,8 +10289,8 @@
     "ko": "연습 42회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -9331,7 +10479,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      1,
+      0,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      1
+     ]
     }
    ]
   },
@@ -9342,8 +10518,8 @@
     "ko": "연습 43회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -9532,7 +10708,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      0,
+      3,
+      1,
+      3,
+      3,
+      1,
+      1,
+      2,
+      0,
+      3
+     ]
     }
    ]
   },
@@ -9543,8 +10747,8 @@
     "ko": "연습 44회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–43",
-    "ko": "10문항 · 시험 43~43번"
+    "en": "10 questions · exam no. 43 · about 14 min",
+    "ko": "10문항 · 시험 43번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -9733,7 +10937,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      2,
+      3,
+      0,
+      0,
+      3,
+      0,
+      0,
+      1,
+      3,
+      2
+     ]
     }
    ]
   },
@@ -9744,8 +10976,8 @@
     "ko": "연습 45회"
    },
    "sub": {
-    "en": "10 questions · exam no. 43–44",
-    "ko": "10문항 · 시험 43~44번"
+    "en": "10 questions · exam no. 43–44 · about 14 min",
+    "ko": "10문항 · 시험 43~44번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -9934,7 +11166,35 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 10
+     "to": 10,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "key": [
+      3,
+      3,
+      3,
+      0,
+      2,
+      3,
+      0,
+      2,
+      1,
+      2
+     ]
     }
    ]
   },
@@ -9945,8 +11205,8 @@
     "ko": "연습 46회"
    },
    "sub": {
-    "en": "5 questions · exam no. 44–45",
-    "ko": "5문항 · 시험 44~45번"
+    "en": "5 questions · exam no. 44–45 · about 7 min",
+    "ko": "5문항 · 시험 44~45번 · 권장 약 7분"
    },
    "sections": [
     {
@@ -10050,7 +11310,30 @@
       "ko": "답안지"
      },
      "from": 1,
-     "to": 5
+     "to": 5,
+     "sheetKo": "TOPIK II 읽기 연습 답안지",
+     "sheetEn": "Reading Practice · Answer Sheet",
+     "unitWord": "연습",
+     "noEn": "Set No.",
+     "lite": true
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "key": [
+      1,
+      3,
+      2,
+      2,
+      2
+     ]
     }
    ]
   }
