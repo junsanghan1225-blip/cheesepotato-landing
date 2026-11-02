@@ -1254,8 +1254,12 @@ const lvCss = LV ? `.front.lvc{padding:0;--b:11px;background:radial-gradient(ell
 .front.lvc:after{display:none}.spine{background:${LV.bg} !important}` : '';
 const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="top"><span>${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'}</span><span>${KDP ? '한국어 학습 시리즈' : '한국어 워크북 시리즈'}</span></div><div class="r1"></div>
 <div class="tt"><div class="a">${esc(LV.title[0])}</div><h1${LV.h1 ? ` style="font-size:${LV.h1}px"` : ''}>${esc(LV.title[1])}</h1>${LV.title[2] ? `<div class="c">${esc(LV.title[2])}</div>` : ''}</div><div class="orn"></div><div class="en">${esc(B.title.en)}</div><div class="sub">${esc(LV.sub || '')}</div>
-<div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}</style></head><body>
+<div class="lvb"><div><b>${esc(LV.code)}</b><span>${esc(LV.name)}</span></div><div class="mini">${lvMascot}</div></div><div class="r3"></div><div class="au"><span>${esc(B.author.ko)} · ${esc(B.author.en)}</span><small>${logoSvg({ fg: LV.pastel ? LV.bg : LVG[0], one: true, height: '16px' })}</small></div></div>` : '';
+/* 파스텔 표지(운영자 2026-11-02 「색깔이 너무 쨍한데 파스텔톤으로」): coverLevel.pastel 이 true 면 앞표지만 흰색을 섞은 연한 바탕 + 원래 색(진한 색)을 글자 · 선 · 띠에 쓴다 */
+const toPastel = (h, t) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(h.slice(i, i + 2), 16) * (1 - t) + 255 * t).toString(16).padStart(2, '0')).join('').toUpperCase();
+const lvPastel = LV?.pastel ? (() => { const D = LV.bg, P1 = toPastel(D, .8), P2 = toPastel(D, .64); return `.front.lvc{background:radial-gradient(ellipse at 72% 74%,${P1} 0%,${P2} 78%);color:#1d1a17}
+.lvc .fr{border-color:${D}}.lvc .r1,.lvc .r3{background:${D}}.lvc .orn:before,.lvc .orn:after{background:${D}}.lvc .tt h1{color:${D}}.lvc .lvb{background:${D};color:#fff}.lvc .lvb span{color:#fff}.lvc .sub{opacity:1;color:#4a443d}.lvc .en{color:#1d1a17}.lvc .au,.lvc .au small{color:#1d1a17}` })() : '';
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}${lvPastel}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
