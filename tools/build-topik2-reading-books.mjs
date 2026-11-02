@@ -52,33 +52,33 @@ Object.assign(TYPE_INFO, {
 const ORDER_ALL = ['blank', 'paraphrase', 'theme', 'headline', 'main', 'detail', 'order', 'insert', 'feeling', 'attitude', 'intent'];
 for (const t of ORDER_ALL) if (!TYPE_INFO[t]) throw new Error(`설명이 없는 유형 ${t}`);
 
+/* 운영자 2026-11-02 「유형 1 · 2 이렇게 나누는 것보다 1~15번 …번호로」: 읽기 4권을 시험 번호(slot) 구간으로 나눈다. 번호마다 문항 수가 달라(1~4번 4개씩 · 5~31번 19개씩 · 32~50번 4개씩) 쪽 수가 고르게 되도록 1~15 · 16~24 · 25~31 · 32~50 */
 const BOOKS = [
-  { n: 1, name: { ko: '어휘 · 문법', en: 'Vocabulary & Grammar' }, types: ['blank', 'paraphrase'], sub: { ko: '빈칸 채우기 · 비슷한 말 고르기', en: 'Fill-in-the-blank and closest-meaning questions' }, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
-  { n: 2, name: { ko: '주제 · 제목 · 중심 생각', en: 'Topic & Main Idea' }, types: ['theme', 'headline', 'main'], sub: { ko: '주제 · 신문 제목 · 중심 생각', en: 'Topic, headline and main-idea questions' }, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
-  { n: 3, name: { ko: '내용 일치', en: 'Same as the Text' }, types: ['detail'], sub: { ko: '글과 같은 내용 고르기', en: 'Choose what matches the text' }, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
-  { n: 4, name: { ko: '순서 · 문장 넣기 · 심정', en: 'Order & Insertion' }, types: ['order', 'insert', 'feeling', 'attitude', 'intent'], sub: { ko: '순서 배열 · 문장 넣기 · 심정 · 태도 · 글의 목적', en: 'Order, sentence insertion, feeling, attitude and purpose' }, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
+  { n: 1, from: 1, to: 15, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
+  { n: 2, from: 16, to: 24, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
+  { n: 3, from: 25, to: 31, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
+  { n: 4, from: 32, to: 50, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
 ];
 const rangeOf = (set) => { const a = [...set].sort((x, y) => x - y); const out = []; for (let i = 0; i < a.length;) { let j = i; while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++; out.push(j > i ? `${a[i]}~${a[j]}` : `${a[i]}`); i = j + 1; } return out.join(', '); };
 let seed = 20261101; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 const circ = '①②③④';
 
 for (const B of BOOKS) {
-  const all = TOPIK2_READING.filter((q) => B.types.includes(q.type));
+  const all = TOPIK2_READING.filter((q) => q.slot >= B.from && q.slot <= B.to);
+  B.types = ORDER_ALL.filter((t) => all.some((q) => q.type === t));
+  B.name = { ko: `${B.from}~${B.to}번`, en: `Questions ${B.from}–${B.to}` };
+  B.sub = { ko: '시험 번호 순서대로 연습', en: 'practice in exam-number order' };   // 표지 글을 줄이려고 짧게(운영자 2026-11-02)
   /* 급(3~6)이 앞에서 뒤로 올라가되, 한 회에는 소재 · 유형이 겹치지 않게: 급 → 유형 번갈아, 같은 소재는 멀리 */
-  const sorted = [...all].sort((a, b) => (a.grade - b.grade) || (rnd() - 0.5));
+  const sorted = [...all].sort((a, b) => (a.slot - b.slot) || (a.grade - b.grade) || (rnd() - 0.5));   // 시험 번호 순서 → 같은 번호 안에서는 급(3→6) 순
   const nUnits = Math.ceil(all.length / 10), size = Math.ceil(all.length / nUnits);
-  /* 유형 섞기: 회마다 유형이 고루 들어가게 급 순서를 지키며 유형별 줄에서 번갈아 뽑는다 */
-  const queues = B.types.map((t) => sorted.filter((q) => q.type === t));
-  const shares = queues.map((q) => q.length / all.length);
-  const order = []; const taken = queues.map(() => 0);
-  while (order.length < all.length) { let bi = -1, bs = 1e9; queues.forEach((q, i) => { if (taken[i] < q.length) { const s = taken[i] / q.length - shares[i] * 0; if (s < bs) { bs = s; bi = i; } } }); order.push(queues[bi][taken[bi]++]); }
+  const order = sorted;   // 번호 순서 그대로
   const answerCount = [0, 0, 0, 0]; all.forEach((q) => answerCount[q.answer]++);
   const inline = {}, unitIds = [];
   for (let u = 0; u < nUnits; u++) {
     const chunk = order.slice(u * size, u * size + size); if (!chunk.length) break;
     const id = `r${B.n}-${String(u + 1).padStart(2, '0')}`; unitIds.push(id);
     const items = chunk.map((q, k) => ({ no: k + 1, id: q.id, type: q.type, genre: q.genre, grade: q.grade, passage: q.passage, question: q.question, options: q.options, answer: q.answer, why: q.why, ...(q.sentence ? { sentence: q.sentence } : {}) }));
-    inline[id] = { id, title: { en: `Practice ${u + 1}`, ko: `연습 ${u + 1}회` }, sub: { en: `${chunk.length} questions on this type.`, ko: `${chunk.length}문항` }, sections: [{ type: 'mcq', title: { en: `Questions 1–${chunk.length}`, ko: `1~${chunk.length}번` }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 1, to: chunk.length }] };
+    inline[id] = { id, title: { en: `Practice ${u + 1}`, ko: `연습 ${u + 1}회` }, sub: { en: `${chunk.length} questions · exam no. ${Math.min(...chunk.map((q) => q.slot))}–${Math.max(...chunk.map((q) => q.slot))}`, ko: `${chunk.length}문항 · 시험 ${Math.min(...chunk.map((q) => q.slot))}~${Math.max(...chunk.map((q) => q.slot))}번` }, sections: [{ type: 'mcq', title: { en: `Questions 1–${chunk.length}`, ko: `1~${chunk.length}번` }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 1, to: chunk.length }] };
   }
   const exampleOf = (t) => all.filter((q) => q.type === t && (t !== 'insert' || q.sentence)).sort((a, b) => a.passage.length - b.passage.length)[0];
   const methods = B.types.filter((t) => all.some((q) => q.type === t)).map((t) => { const m = TYPE_INFO[t]; const ex = exampleOf(t); const ofType = all.filter((q) => q.type === t);
@@ -90,17 +90,17 @@ for (const B of BOOKS) {
     _note: `책 한 권의 틀: tools/build-topik2-reading-books.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik2-reading-${B.n}. 문항은 topik2.js(전부 창작, 기출 아님).`,
     id: `topik2-reading-${B.n}`, published: '2026.11.10', edition: 'Draft proof · 시안', theme: 'classic', color: B.ink, tint: '#F4F4F2',
     series: { en: 'TOPIK SERIES', ko: 'TOPIK 시리즈' },
-    title: { en: `TOPIK II Reading by Type ${B.n}: ${et}`, ko: `TOPIK II 읽기 유형별 ${B.n} · ${kt}` },
+    title: { en: `TOPIK II Reading: Questions ${B.from}–${B.to}`, ko: `TOPIK II 읽기 ${B.from}~${B.to}번` },
     sub: { en: `${N} original questions: ${B.sub.en.toLowerCase()}, with explanations.`, ko: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
     levelTag: 'READING', level: 'TOPIK II', trim: base.trim, author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web, reviewer: base.reviewer, authorBio: base.authorBio,
     preface: {
-      en: [`${N} questions on one family of TOPIK II reading questions: ${B.sub.en.toLowerCase()}. Practice by type until the pattern becomes automatic.`, 'Every question is newly written for this book in the style of the real test. None is a past exam question.', 'Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question.'],
-      ko: [`TOPIK II 읽기 가운데 ${kt} 유형만 모은 ${N}문항입니다. 같은 유형을 계속 풀어 풀이 순서가 몸에 배게 합니다.`, '모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.', '연습 앞에 유형마다 풀이 방법과 필요한 낱말을 한 쪽씩 실었습니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다.'] },
+      en: [`${N} questions for TOPIK II reading questions ${B.from} to ${B.to}, in exam-number order: ${B.sub.en}. Practice number by number until the pattern becomes automatic.`, 'Every question is newly written for this book in the style of the real test. None is a past exam question.', 'Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question.'],
+      ko: [`TOPIK II 읽기 ${B.from}~${B.to}번에 해당하는 ${N}문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.`, '모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.', '연습 앞에 유형마다 풀이 방법과 필요한 낱말을 한 쪽씩 실었습니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다.'] },
     howto: { en: ['Read the method page for each type first.', 'Solve one practice set at a time and mark the answer sheet.', 'Check the answer key and read the explanation of every question you missed.', 'Redo the missed questions after a few days.'], ko: ['유형마다 풀이 방법 쪽을 먼저 읽습니다.', '연습 한 회씩 풀고 답안지에 표시합니다.', '정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.', '며칠 뒤 틀린 문항을 다시 풉니다.'] },
     parts: [{ title: { en: 'Practice sets', ko: '연습' }, units: unitIds }],
     methods, noGuide: true, noIndex: true, noQr: true, unitCount: unitIds.length, coverAccent: '읽기',
-    coverLevel: { code: 'TOPIK II', name: '3~6급', bg: B.bg, bg2: B.bg2, mascot: ['cheese', B.mascot], title: ['TOPIK II', '읽기', `유형별 ${B.n} · ${kt}`], sub: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
-    back: { items: [[`${unitIds.length} sets · 연습 ${unitIds.length}회`, `${N} questions on one type family · 한 유형 묶음 ${N}문항`], [`${N} original questions · 새로 만든 문제 ${N}개`, 'In the real test style; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK II test takers · TOPIK II 응시 준비에', price: '정가 9.9달러' },
+    coverLevel: { code: 'TOPIK II', name: '3~6급', bg: B.bg, bg2: B.bg2, mascot: ['cheese', B.mascot], pastel: true, title: ['TOPIK II', '읽기', `${B.from}~${B.to}번`], sub: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
+    back: { items: [[`${unitIds.length} sets · 연습 ${unitIds.length}회`, `${N} questions for exam no. ${B.from}–${B.to} · 시험 ${B.from}~${B.to}번 ${N}문항`], [`${N} original questions · 새로 만든 문제 ${N}개`, 'In the real test style; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK II test takers · TOPIK II 응시 준비에', price: '정가 9.9달러' },
     inline,
   };
   book.sub.ko = book.coverLevel.sub;
