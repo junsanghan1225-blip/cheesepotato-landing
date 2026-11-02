@@ -1,301 +1,336 @@
 {
- "_note": "책 한 권의 틀: node tools/build-book.mjs elementary-grammar-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 1권 틀과 같은 규칙. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
- "id": "elementary-grammar-workbook",
- "edition": "Draft proof · 시안",
- "theme": "classic",
- "color": "#2F6FDB",
- "tint": "#EEF4FF",
- "series": {
-  "en": "WORKBOOK SERIES",
-  "ko": "워크북 시리즈"
- },
- "title": {
-  "en": "Elementary Korean Grammar Workbook",
-  "ko": "초급 한국어 문법 워크북"
- },
- "sub": {
-  "en": "Speech levels, honorifics, connectors, irregular verbs and reported speech.",
-  "ko": "말투 · 높임 · 이어 주는 말 · 불규칙 · 간접 인용"
- },
- "level": "A2",
- "trim": {
-  "w": 182,
-  "h": 257,
-  "bleed": 3,
-  "paperMm": 0.11
- },
- "author": {
-  "en": "Junsang",
-  "ko": "준상"
- },
- "authorAbout": {
-  "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
-  "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
- },
- "publisher": {
+  "_note": "책 한 권의 틀: node tools/build-book.mjs elementary-grammar-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 1권 틀과 같은 규칙. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.",
+  "id": "elementary-grammar-workbook",
+  "edition": "Draft proof · 시안",
+  "theme": "classic",
+  "color": "#1F3D47",
+  "tint": "#EEF4FF",
+  "series": {
+    "en": "WORKBOOK SERIES",
+    "ko": "워크북 시리즈"
+  },
+  "title": {
+    "en": "Elementary Korean Grammar Workbook",
+    "ko": "초급 한국어 문법 워크북"
+  },
+  "sub": {
+    "en": "Speech levels, honorifics, connectors, irregular verbs and reported speech.",
+    "ko": "말투 · 높임 · 이어 주는 말 · 불규칙 · 간접 인용"
+  },
+  "level": "A2",
+  "trim": {
+    "w": 182,
+    "h": 257,
+    "bleed": 3,
+    "paperMm": 0.11
+  },
+  "author": {
+    "en": "Junsang",
+    "ko": "준상"
+  },
+  "authorAbout": {
+    "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
+    "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
+  },
+  "publisher": {
     "en": "Everykoreans",
     "ko": "에브리코리안즈"
   },
- "web": "everykoreans.com",
- "preface": {
-  "en": [
-   "This is the second book of the series. First Steps taught you to read, write and build simple sentences. Here we meet the grammar that trips up almost every A2 learner: which speech level to use, how to show respect, how to link sentences, and how verbs change shape.",
-   "Each unit is one grammar point. A few clear tables to read, say aloud and copy; then short sets of practice. Write straight into the book, check yourself with the answer key, and come back a week later.",
-   "Pay attention to the TIP, WARNING, MORE and PATTERN boxes. They mark the shortcuts, the common mistakes and the sound changes that textbooks often leave out."
+  "web": "everykoreans.com",
+  "preface": {
+    "en": [
+      "This is the second book of the series. First Steps taught you to read, write and build simple sentences. Here we meet the grammar that trips up almost every A2 learner: which speech level to use, how to show respect, how to link sentences, and how verbs change shape.",
+      "Each unit is one grammar point. A few clear tables to read, say aloud and copy; then short sets of practice. Write straight into the book, check yourself with the answer key, and come back a week later.",
+      "Pay attention to the TIP, WARNING, MORE and PATTERN boxes. They mark the shortcuts, the common mistakes and the sound changes that textbooks often leave out."
+    ],
+    "ko": [
+      "이 책은 시리즈의 두 번째 권입니다. 첫걸음에서 읽고 쓰고 간단한 문장을 만들었다면, 이제 A2 학습자가 거의 다 막히는 문법을 만납니다: 어떤 말투를 쓸지, 어떻게 높일지, 문장을 어떻게 이을지, 동사가 어떻게 달라지는지.",
+      "단원마다 문법 하나입니다. 읽고, 소리 내 말하고, 따라 쓸 표 몇 개, 그다음 짧은 연습. 책에 바로 쓰고, 정답으로 확인하고, 일주일 뒤에 다시 풀어 보세요.",
+      "팁 · 주의 · 더 알아보기 · 문형 상자를 눈여겨보세요. 교재가 자주 빠뜨리는 지름길, 흔한 실수, 소리 변화를 표시했습니다."
+    ]
+  },
+  "howto": {
+    "en": [
+      "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
+      "Cover the English column with a card and test yourself, then swap, cover the Korean.",
+      "Write your answers on the lines. Use pencil: you will want to do the page again.",
+      "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
+      "Look up any word in the Index. It tells you which unit it appears in.",
+      "Free lessons, games and more worksheets: everykoreans.com"
+    ],
+    "ko": [
+      "표를 소리 내 읽으세요. 소리가 글자와 다른 곳은 「읽기 팁」이 실제 발음을 보여 줍니다.",
+      "카드로 영어 칸을 가리고 스스로 확인한 뒤, 이번엔 한국어 칸을 가려 보세요.",
+      "답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필로 쓰기를 권합니다.",
+      "뒤쪽 정답으로 확인하세요. 틀린 것이 많으면 표를 다시 읽고 나중에 다시 풀어 보세요.",
+      "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다.",
+      "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com"
+    ]
+  },
+  "parts": [
+    {
+      "title": {
+        "en": "Speech & Respect",
+        "ko": "말투와 높임"
+      },
+      "units": [
+        "speech-levels",
+        "honorific-si"
+      ]
+    },
+    {
+      "title": {
+        "en": "Linking & Describing",
+        "ko": "잇고 꾸미기"
+      },
+      "units": [
+        "connectors-reason",
+        "adjective-noun-modifiers",
+        "irregular-verbs"
+      ]
+    },
+    {
+      "title": {
+        "en": "Wishes & Plans",
+        "ko": "바람과 약속"
+      },
+      "units": [
+        "wishes-obligations-permissions",
+        "suggestions-promises"
+      ]
+    },
+    {
+      "title": {
+        "en": "Reporting & Sounds",
+        "ko": "전하기와 소리"
+      },
+      "units": [
+        "reported-speech",
+        "onomatopoeia-mimetic-words"
+      ]
+    }
   ],
-  "ko": [
-   "이 책은 시리즈의 두 번째 권입니다. 첫걸음에서 읽고 쓰고 간단한 문장을 만들었다면, 이제 A2 학습자가 거의 다 막히는 문법을 만납니다: 어떤 말투를 쓸지, 어떻게 높일지, 문장을 어떻게 이을지, 동사가 어떻게 달라지는지.",
-   "단원마다 문법 하나입니다. 읽고, 소리 내 말하고, 따라 쓸 표 몇 개, 그다음 짧은 연습. 책에 바로 쓰고, 정답으로 확인하고, 일주일 뒤에 다시 풀어 보세요.",
-   "팁 · 주의 · 더 알아보기 · 문형 상자를 눈여겨보세요. 교재가 자주 빠뜨리는 지름길, 흔한 실수, 소리 변화를 표시했습니다."
-  ]
- },
- "howto": {
-  "en": [
-   "Read the tables aloud. Where the sound differs from the spelling, a “reading tip” shows how it is really pronounced.",
-   "Cover the English column with a card and test yourself, then swap, cover the Korean.",
-   "Write your answers on the lines. Use pencil: you will want to do the page again.",
-   "Check the Answer Key at the back. If you missed more than a few, re-read the tables and retry later.",
-   "Look up any word in the Index. It tells you which unit it appears in.",
-   "Free lessons, games and more worksheets: everykoreans.com"
-  ],
-  "ko": [
-   "표를 소리 내 읽으세요. 소리가 글자와 다른 곳은 「읽기 팁」이 실제 발음을 보여 줍니다.",
-   "카드로 영어 칸을 가리고 스스로 확인한 뒤, 이번엔 한국어 칸을 가려 보세요.",
-   "답은 줄 위에 직접 쓰세요. 다시 풀고 싶어지니 연필로 쓰기를 권합니다.",
-   "뒤쪽 정답으로 확인하세요. 틀린 것이 많으면 표를 다시 읽고 나중에 다시 풀어 보세요.",
-   "낱말이 궁금하면 찾아보기에서 찾으세요. 어느 단원에 나오는지 알려 줍니다.",
-   "무료 레슨 · 게임 · 학습지 더 보기: everykoreans.com"
-  ]
- },
- "parts": [
-  {
-   "title": {
-    "en": "Speech & Respect",
-    "ko": "말투와 높임"
-   },
-   "units": [
-    "speech-levels",
-    "honorific-si"
-   ]
+  "blocks": {
+    "speech-levels:1": "warn",
+    "speech-levels:2": "tip",
+    "speech-levels:3": "warn",
+    "honorific-si:1": "tip",
+    "honorific-si:2": "warn",
+    "connectors-reason:1": "pattern",
+    "connectors-reason:2": "tip",
+    "connectors-reason:3": "more",
+    "adjective-noun-modifiers:1": "tip",
+    "adjective-noun-modifiers:2": "tip",
+    "adjective-noun-modifiers:3": "tip",
+    "irregular-verbs:1": "tip",
+    "irregular-verbs:2": "warn",
+    "irregular-verbs:3": "tip",
+    "wishes-obligations-permissions:1": "pattern",
+    "wishes-obligations-permissions:2": "tip",
+    "wishes-obligations-permissions:3": "more",
+    "suggestions-promises:1": "more",
+    "suggestions-promises:2": "pattern",
+    "suggestions-promises:3": "tip",
+    "reported-speech:1": "tip",
+    "reported-speech:2": "tip",
+    "reported-speech:3": "tip",
+    "onomatopoeia-mimetic-words:1": "tip",
+    "onomatopoeia-mimetic-words:2": "tip"
   },
-  {
-   "title": {
-    "en": "Linking & Describing",
-    "ko": "잇고 꾸미기"
-   },
-   "units": [
-    "connectors-reason",
-    "adjective-noun-modifiers",
-    "irregular-verbs"
-   ]
+  "patterns": {
+    "connectors-reason:1": [
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-아서 / -어서",
+            "f"
+          ]
+        ],
+        "en": "because / so (statement)",
+        "ex": "비가 와서 집에 있어요.",
+        "hl": [
+          "와서"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-(으)니까",
+            "f"
+          ]
+        ],
+        "en": "because (also with commands · suggestions)",
+        "ex": "추우니까 옷을 입으세요.",
+        "hl": [
+          "추우니까"
+        ]
+      }
+    ],
+    "wishes-obligations-permissions:1": [
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-고 싶다",
+            "f"
+          ]
+        ],
+        "en": "want to …",
+        "ex": "한국에 가고 싶어요.",
+        "hl": [
+          "가고 싶어요"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-아야 / -어야 하다",
+            "f"
+          ]
+        ],
+        "en": "must / have to …",
+        "ex": "일찍 일어나야 해요.",
+        "hl": [
+          "일어나야 해요"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-아도 / -어도 되다",
+            "f"
+          ]
+        ],
+        "en": "may / it is OK to …",
+        "ex": "들어가도 돼요?",
+        "hl": [
+          "들어가도 돼요"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-(으)면 안 되다",
+            "f"
+          ]
+        ],
+        "en": "must not …",
+        "ex": "여기에서 먹으면 안 돼요.",
+        "hl": [
+          "먹으면 안 돼요"
+        ]
+      }
+    ],
+    "suggestions-promises:2": [
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-(으)ㄹ까요?",
+            "f"
+          ]
+        ],
+        "en": "Shall we …? / Shall I …?",
+        "ex": "같이 먹을까요?",
+        "hl": [
+          "먹을까요"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-(으)ㄹ래요?",
+            "f"
+          ]
+        ],
+        "en": "Do you want to …?",
+        "ex": "커피 마실래요?",
+        "hl": [
+          "마실래요"
+        ]
+      },
+      {
+        "p": [
+          [
+            "Verb stem",
+            "s"
+          ],
+          [
+            "-(으)ㄹ게요",
+            "f"
+          ]
+        ],
+        "en": "I will … (promise)",
+        "ex": "제가 할게요.",
+        "hl": [
+          "할게요"
+        ]
+      }
+    ]
   },
-  {
-   "title": {
-    "en": "Wishes & Plans",
-    "ko": "바람과 약속"
-   },
-   "units": [
-    "wishes-obligations-permissions",
-    "suggestions-promises"
-   ]
+  "published": "2026.11.10",
+  "coverLevel": {
+    "code": "A2",
+    "name": "초급",
+    "bg": "#1F3D47",
+    "bg2": "#14282E",
+    "mascot": [
+      "cheese",
+      2
+    ],
+    "title": [
+      "초급",
+      "한국어",
+      "문법 워크북"
+    ],
+    "sub": "말투 · 높임 · 이어 주는 말 · 불규칙 · 간접 인용"
   },
-  {
-   "title": {
-    "en": "Reporting & Sounds",
-    "ko": "전하기와 소리"
-   },
-   "units": [
-    "reported-speech",
-    "onomatopoeia-mimetic-words"
-   ]
+  "back": {
+    "items": [
+      [
+        "9 grammar topics · 문법 9가지",
+        "Speech levels, honorifics, connectors, irregular verbs, reported speech · 말투 · 높임 · 이어 주는 말 · 불규칙 · 간접 인용"
+      ],
+      [
+        "Read, say, write · 읽고 말하고 쓰기",
+        "Short tables, then practice in the book · 짧은 표를 읽고 책에 바로 연습"
+      ],
+      [
+        "Answer key · 정답",
+        "Check yourself after each unit · 단원마다 스스로 확인"
+      ]
+    ],
+    "for": "For A2 learners who mix up speech levels and endings · 말투와 어미가 헷갈리는 A2 학습자에",
+    "price": "정가 9.9달러"
   }
- ],
- "blocks": {
-  "speech-levels:1": "warn",
-  "speech-levels:2": "tip",
-  "speech-levels:3": "warn",
-  "honorific-si:1": "tip",
-  "honorific-si:2": "warn",
-  "connectors-reason:1": "pattern",
-  "connectors-reason:2": "tip",
-  "connectors-reason:3": "more",
-  "adjective-noun-modifiers:1": "tip",
-  "adjective-noun-modifiers:2": "tip",
-  "adjective-noun-modifiers:3": "tip",
-  "irregular-verbs:1": "tip",
-  "irregular-verbs:2": "warn",
-  "irregular-verbs:3": "tip",
-  "wishes-obligations-permissions:1": "pattern",
-  "wishes-obligations-permissions:2": "tip",
-  "wishes-obligations-permissions:3": "more",
-  "suggestions-promises:1": "more",
-  "suggestions-promises:2": "pattern",
-  "suggestions-promises:3": "tip",
-  "reported-speech:1": "tip",
-  "reported-speech:2": "tip",
-  "reported-speech:3": "tip",
-  "onomatopoeia-mimetic-words:1": "tip",
-  "onomatopoeia-mimetic-words:2": "tip"
- },
- "patterns": {
-  "connectors-reason:1": [
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-아서 / -어서",
-      "f"
-     ]
-    ],
-    "en": "because / so (statement)",
-    "ex": "비가 와서 집에 있어요.",
-    "hl": [
-     "와서"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-(으)니까",
-      "f"
-     ]
-    ],
-    "en": "because (also with commands · suggestions)",
-    "ex": "추우니까 옷을 입으세요.",
-    "hl": [
-     "추우니까"
-    ]
-   }
-  ],
-  "wishes-obligations-permissions:1": [
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-고 싶다",
-      "f"
-     ]
-    ],
-    "en": "want to …",
-    "ex": "한국에 가고 싶어요.",
-    "hl": [
-     "가고 싶어요"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-아야 / -어야 하다",
-      "f"
-     ]
-    ],
-    "en": "must / have to …",
-    "ex": "일찍 일어나야 해요.",
-    "hl": [
-     "일어나야 해요"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-아도 / -어도 되다",
-      "f"
-     ]
-    ],
-    "en": "may / it is OK to …",
-    "ex": "들어가도 돼요?",
-    "hl": [
-     "들어가도 돼요"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-(으)면 안 되다",
-      "f"
-     ]
-    ],
-    "en": "must not …",
-    "ex": "여기에서 먹으면 안 돼요.",
-    "hl": [
-     "먹으면 안 돼요"
-    ]
-   }
-  ],
-  "suggestions-promises:2": [
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-(으)ㄹ까요?",
-      "f"
-     ]
-    ],
-    "en": "Shall we …? / Shall I …?",
-    "ex": "같이 먹을까요?",
-    "hl": [
-     "먹을까요"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-(으)ㄹ래요?",
-      "f"
-     ]
-    ],
-    "en": "Do you want to …?",
-    "ex": "커피 마실래요?",
-    "hl": [
-     "마실래요"
-    ]
-   },
-   {
-    "p": [
-     [
-      "Verb stem",
-      "s"
-     ],
-     [
-      "-(으)ㄹ게요",
-      "f"
-     ]
-    ],
-    "en": "I will … (promise)",
-    "ex": "제가 할게요.",
-    "hl": [
-     "할게요"
-    ]
-   }
-  ]
- }
 }
