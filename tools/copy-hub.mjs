@@ -14,26 +14,26 @@ if (!out) { console.error('쓰는 법: node tools/copy-hub.mjs <파일.html> [�
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'hub-'));
 const img = imgDir ? [imgDir] : [];
 const run = (cmd, args) => execFileSync(cmd, args, { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
-const tabs = [
-  ['쓰레드 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'a.html'), ...img]), 'a'],
-  ['교사 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'b.html'), ...img, '--json', 'docs/ops/teacher-posts.json', '--title', '한국어 선생님께 홍보 글']), 'b'],
-  ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c'],
-  ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd'],
-  ['ISBN 신청', () => run('python3', ['tools/isbn-html.py', path.join(tmp, 'e.html')]), 'e'],
-  ['선물 · 소개 요청', () => run('node', ['tools/gift-html.mjs', path.join(tmp, 'g.html')]), 'g'],
-  ['예스24 개별등록', () => run('python3', ['tools/yes24-html.py', path.join(tmp, 'h.html')]), 'h'],
-  ['판매처 글(예스24 등)', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f'],
+const tabs = [   // [이름, 만드는 법, 파일 글자, 묶음] — 묶음 순서대로 보인다(운영자 2026-11-02 「복사판 난잡 · 깔끔하게」)
+  ['ISBN 신청', () => run('python3', ['tools/isbn-html.py', path.join(tmp, 'e.html')]), 'e', '지금 등록'],
+  ['예스24 도서등록', () => run('python3', ['tools/yes24-html.py', path.join(tmp, 'h.html')]), 'h', '지금 등록'],
+  ['예스24 소개 글', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f', '지금 등록'],
+  ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c', '다른 판매처'],
+  ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd', '다른 판매처'],
+  ['쓰레드 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'a.html'), ...img]), 'a', '홍보 글'],
+  ['교사 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'b.html'), ...img, '--json', 'docs/ops/teacher-posts.json', '--title', '한국어 선생님께 홍보 글']), 'b', '홍보 글'],
+  ['선물 · 소개 요청', () => run('node', ['tools/gift-html.mjs', path.join(tmp, 'g.html')]), 'g', '홍보 글'],
 ];
 /* 안쪽 쪽은 클립보드를 직접 못 쓰는 브라우저가 있어(파일로 연 쪽) 「복사」 글을 바깥 쪽에 넘겨 거기서 복사한다 */
 const SHIM = `<script>try{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:function(t){parent.postMessage({copy:t},'*');return Promise.resolve()}}})}catch(e){}</script>`;
-const docs = tabs.map(([name, make, k]) => { make(); return [name, SHIM + fs.readFileSync(path.join(tmp, `${k}.html`), 'utf8')]; });
+const docs = tabs.map(([name, make, k, grp]) => { make(); return [name, SHIM + fs.readFileSync(path.join(tmp, `${k}.html`), 'utf8'), grp]; });
 fs.rmSync(tmp, { recursive: true, force: true });
 const data = JSON.stringify(docs).replace(/</g, '\\u003c');
 fs.writeFileSync(out, `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>복사판 모음</title><style>
 html,body{height:100%;margin:0}body{display:flex;flex-direction:column;font:15px system-ui,'Noto Sans KR',sans-serif;background:#faf6ef;color:#1b1512}
-nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;background:#fff;border-bottom:2px solid #1b1512;align-items:center}nav b{margin-right:8px}nav button{padding:8px 14px;border:1px solid #c4551c;background:#fff;color:#c4551c;border-radius:99px;font-weight:700;cursor:pointer}nav button.on{background:#c4551c;color:#fff}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;background:#fff;border-bottom:2px solid #1b1512;align-items:center}nav b{margin-right:8px}nav .g{font-size:12px;color:#7a6f66;margin:0 2px 0 10px;font-weight:700}nav button{padding:8px 14px;border:1px solid #c4551c;background:#fff;color:#c4551c;border-radius:99px;font-weight:700;cursor:pointer}nav button.on{background:#c4551c;color:#fff}
 iframe{flex:1;border:0;width:100%;background:#faf6ef}</style>
-<nav><b>복사판 모음</b>${docs.map(([n], i) => `<button type="button" data-i="${i}">${n}</button>`).join('')}</nav>
+<nav><b>복사판 모음</b>${docs.map(([n, , g], i) => (i === 0 || docs[i - 1][2] !== g ? `<span class="g">${g}</span>` : '') + `<button type="button" data-i="${i}">${n}</button>`).join('')}</nav>
 <iframe id="f" allow="clipboard-write" title="복사판"></iframe>
 <script type="application/json" id="d">${data}</script>
 <script>var D=JSON.parse(document.getElementById('d').textContent),F=document.getElementById('f'),B=document.querySelectorAll('nav button');

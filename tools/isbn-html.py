@@ -44,6 +44,8 @@ for sec in secs:
     h.append('</section>')
     body.append(''.join(h))
 
+import copy_status
+NAV, BODY = copy_status.split(nav, body, 'isbn')
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ISBN 복사판</title>
 <style>
@@ -60,8 +62,8 @@ section{{margin:26px 0}} h2{{font-size:20px;border-bottom:2px solid var(--acc);p
 button{{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:5px 14px;font-size:13px;cursor:pointer}} button.ok{{background:#888}}
 pre.v{{margin:0;padding:8px 10px;white-space:pre-wrap;word-break:break-word;font:inherit}} pre.big{{max-height:260px;overflow:auto}}
 </style></head><body>
-<header><b>ISBN 복사판</b> · 칸마다 「복사」를 누르고 신청 화면에 붙여 넣으세요.<nav>{''.join(nav)}</nav></header>
-<main>{''.join(body)}</main>
+<header><b>ISBN 복사판</b> · 칸마다 「복사」를 누르고 신청 화면에 붙여 넣으세요.<nav>{NAV}</nav></header>
+<main>{BODY}</main>
 <script>
 document.addEventListener('click',function(ev){{var b=ev.target.closest('button');if(!b)return;
 var t=b.closest('.f').querySelector('pre').textContent;
