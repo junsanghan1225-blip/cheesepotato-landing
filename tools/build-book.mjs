@@ -692,9 +692,10 @@ function mcqHtml(s) {
 }
 /* 스스로 점검 표(운영자 2026-11-02 「모의고사 끝나고 self check 표 · 시간이랑 어려웠던 문제 물어보고」): 걸린 시간 · 점수 · 어려웠던 문제 5개(번호 · 이유) · 다음에 바꿀 것 */
 const selfHtml = (s) => {
+  const nHard = s.compact ? 3 : 5;
   const bx = (ko, en) => `<span class="sbx"><i></i>${ko} <small>${en}</small></span>`;
   const why = ['낱말', '문법', '글이 길다', '시간', '찍었다'].map((k) => `<span class="sbx"><i></i>${k}</span>`).join('');
-  const rows = Array.from({ length: 5 }, (_, i) => `<tr><td class="sn">${i + 1}</td><td class="sno"></td><td class="swy">${why}</td><td class="sfx"><span class="sbx"><i></i></span></td></tr>`).join('');
+  const rows = Array.from({ length: nHard }, (_, i) => `<tr><td class="sn">${i + 1}</td><td class="sno"></td><td class="swy">${why}</td><td class="sfx"><span class="sbx"><i></i></span></td></tr>`).join('');
   const keyRows = s.key ? `<p class="scq">정답표 <small>Answer key — 풀이는 책 끝 정답 쪽에서 확인하세요 · explanations are at the end of the book</small></p><div class="skey">${s.key.map((a, i) => `<div><b>${s.from + i}</b>${cn(a)}</div>`).join('')}</div>` : '';
   return `<div class="sckw"><div class="sctop"><b>스스로 점검 <small>Self check</small></b><span>모의고사 <u></u> 회 <small>Test No.</small></span></div>
 <table class="sck1"><tr><th>걸린 시간 <small>Time taken</small></th><td><u></u> 분 min <small>(권장 ${s.rec} 분 · recommended ${s.rec} min)</small></td><th>맞은 개수 <small>Score</small></th><td style="white-space:nowrap"><u></u> / ${s.total}</td></tr>
@@ -703,7 +704,7 @@ ${keyRows}
 <p class="scq">어려웠던 문제는 무엇이었나요? <small>Which questions were hard?</small></p>
 <table class="sck2"><tr><th></th><th>문제 번호 <small>No.</small></th><th>왜 어려웠나요? <small>Why? word · grammar · long text · time · guessed</small></th><th>복습 <small>redone</small></th></tr>${rows}</table>
 <p class="scq">다음 회에서 바꿀 것 <small>What I will change next time</small></p>
-<div class="sckl"></div><div class="sckl"></div><div class="sckl"></div>
+${s.compact ? '<div class="sckl"></div><div class="sckl"></div>' : '<div class="sckl"></div><div class="sckl"></div><div class="sckl"></div>'}
 </div>`;
 };
 const omrHtml = (s) => {
@@ -711,8 +712,8 @@ const omrHtml = (s) => {
   const col = (from, to) => `<div class="oc"><div class="oh"><b>번호</b><span>답 (Answer)</span></div>${Array.from({ length: to - from + 1 }, (_, i) => from + i).map((n) => `<div class="or"><b>${n}</b>${[1, 2, 3, 4].map(bub).join('')}</div>`).join('')}</div>`;
   const mid = Math.floor((s.from + s.to) / 2);
   const idg = Array.from({ length: 8 }, () => `<div class="oi8">${Array.from({ length: 10 }, (_, d) => `<span class="ob s">${d}</span>`).join('')}</div>`).join('');
-  return `<div class="osheet"><div class="otop"><div class="ot1"><b>TOPIK I 읽기 연습 답안지</b><small>Reading Practice · Answer Sheet</small></div><div class="ot2">모의고사 <u></u> 회 &nbsp; Test No.</div></div>
-<div class="ohead"><div class="onum"><div class="olab">수험번호 <small>Registration No.</small></div><div class="oid">${idg}</div></div>
+  return `<div class="osheet"><div class="otop"><div class="ot1"><b>${s.sheetKo || 'TOPIK I 읽기 연습 답안지'}</b><small>${s.sheetEn || 'Reading Practice · Answer Sheet'}</small></div><div class="ot2">${s.unitWord || '모의고사'} <u></u> 회 &nbsp; ${s.noEn || 'Test No.'}</div></div>
+<div class="ohead${s.lite ? " olite" : ""}"><div class="onum"><div class="olab">수험번호 <small>Registration No.</small></div><div class="oid">${idg}</div></div>
 <div class="oside"><div class="onm"><span>이름 · Name (한국어)</span><u></u></div><div class="onm"><span>이름 · Name (English)</span><u></u></div><div class="onm"><span>날짜 · Date</span><u></u></div>
 <div class="omk"><b>표기 방법 · How to mark</b><div class="omk1"><span class="ob f">1</span> 올바른 표기 · right <span class="ob x">2</span><span class="ob y">3</span> 잘못된 표기 · wrong</div><small>연필이나 사인펜으로 번호 안을 진하게 칠하세요. 고친 답은 지우개로 깨끗이 지웁니다.</small></div></div></div>
 <div class="om">${col(s.from, mid)}${col(mid + 1, s.to)}</div>
@@ -883,7 +884,7 @@ Object.assign(P, {
     if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
     if (s.type === 'mcq') return `<div class="sec mqs">${sr(si)}${secLabel(s)}${mcqHtml(s)}</div>`;
-    if (s.type === 'selfcheck') return `<div class="sec sck">${sr(si)}${selfHtml(s)}</div>`;
+    if (s.type === 'selfcheck') return `<div class="sec sck${s.compact ? ' sckc' : ''}">${sr(si)}${selfHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq${s.raw._ref ? ' wqref' : ''}">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
     return `<div class="sec"${s.items.length <= 8 ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
@@ -1029,7 +1030,7 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 /* 유형 설명 쪽의 「따라 풀기」 예시 빈칸도 문제 쪽처럼 밑줄로(운영자 「밑줄은 하나도 안 보여」) */
 .mex .mb{display:inline-block;width:11mm;border-bottom:.3mm solid #222}.mqs .mq1{margin:0 0 2.6mm}.mqs .mqh{font-size:9.2pt;font-weight:700;margin:0 0 1.4mm}.mqs .mqh b{margin-right:.6mm}.mqs .mbo{border:.3mm dashed #666;padding:1.6mm 3mm;font-size:9pt;margin:0 0 1.6mm}.mqs .mbo i{font-style:normal;font-weight:800;margin-right:1.4mm}.mqs .mo{list-style:none;margin:0;padding:0;font-size:9.2pt;line-height:1.6}.mqs .mo li{margin:.1mm 0}.mqs .mo .cm{margin-right:1.2mm;width:1.7em;height:1.7em;font-size:.62em;line-height:1;vertical-align:.2em}.mw .cm,.mk .cm{width:1.7em;height:1.7em;font-size:.62em;line-height:1;vertical-align:.2em}.mqs .mo.g{display:grid;grid-template-columns:1fr 1fr;column-gap:4mm}
 .omr{break-before:page;break-inside:avoid}
-.sck{break-before:page;break-inside:avoid}.sck small{font-weight:500;color:#6a6258;font-size:.82em}.sckw{border:.5mm solid #222;padding:3mm 5mm}.sctop{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.4mm solid #222;padding-bottom:2mm;margin-bottom:3.5mm}.sctop b{font-size:13pt}.sctop u,.sck1 u{display:inline-block;width:14mm;border-bottom:.3mm solid #222}
+.sck{break-before:page;break-inside:avoid}.sck.sckc{break-before:avoid;margin-top:3mm}.sckc .sctop{display:none}.sckc .sckw{padding:2mm 3.4mm}.sckc .scq{margin:2.4mm 0 1mm}.sckc .sck1,.sckc .sck2{margin-bottom:1.8mm}.sckc .sck1 th,.sckc .sck1 td,.sckc .sck2 th,.sckc .sck2 td{padding:1.1mm 2mm}.sckc .skey div{padding:.6mm 0}.sckc .sck1 small{display:none}.olite .oside .onm:nth-child(2){display:none}.sckc .sckl{height:5mm}.olite .onum{display:none}.olite{grid-template-columns:1fr!important}.sckc .sckw{padding:2.4mm 4mm}.sckc .sck2 td{height:6.6mm}.sckc .sckl{height:5.6mm}.sck small{font-weight:500;color:#6a6258;font-size:.82em}.sckw{border:.5mm solid #222;padding:3mm 5mm}.sctop{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.4mm solid #222;padding-bottom:2mm;margin-bottom:3.5mm}.sctop b{font-size:13pt}.sctop u,.sck1 u{display:inline-block;width:14mm;border-bottom:.3mm solid #222}
 .sck1,.sck2{width:100%;border-collapse:collapse;margin:0 0 2.6mm}.sck1 th,.sck1 td,.sck2 th,.sck2 td{border:.3mm solid #222;padding:2.2mm 2.6mm;font-size:9pt;text-align:left;vertical-align:middle}.sck1 th,.sck2 th{background:#f1ece2;font-weight:700;font-size:8.6pt}.sck1 th{width:21%}
 .sck2 td{height:7.2mm}.sck2 .sn{width:7mm;text-align:center;font-weight:700;background:#f7f4ec}.sck2 .sno{width:22mm}.sck2 .swy{font-size:8.4pt}.sck2 .sfx{width:16mm;text-align:center}
 .sbx{display:inline-block;margin-right:3.2mm;white-space:nowrap}.sbx i{display:inline-block;width:3mm;height:3mm;border:.3mm solid #222;border-radius:.6mm;margin-right:1.2mm;vertical-align:-.5mm}
