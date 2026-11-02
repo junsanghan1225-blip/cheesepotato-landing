@@ -77,7 +77,7 @@ const TYPE_INFO = {
       ['고른 답을 넣어 문장 전체를 한 번 더 읽어 보고, 어색하면 다시 골라요.', 'Read the whole sentence once more with your answer. If it sounds odd, choose again.'],
     ],
     words: [['그래서', 'so'], ['그리고', 'and'], ['그런데', 'but, by the way'], ['하지만', 'however'], ['-아/어서', 'because; and then'], ['-(으)니까', 'because'], ['-지만', 'but'], ['-(으)려고', 'in order to'], ['-(으)면서', 'while doing'], ['-기로 하다', 'to decide to'], ['-(으)ㄹ 것이다', 'will'], ['-아/어야 하다', 'must']],
-    trap: ['보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 바로 뒤를 꼭 보세요.', 'If all options are forms of one word, it is a grammar question. Look at what follows the blank.'] },
+    trap: ['보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 앞의 때를 나타내는 말(어제 · 내일)과 빈칸 바로 뒤의 말을 꼭 보세요.', 'If all options are forms of one word, it is a grammar question. Look at time words before the blank (yesterday, tomorrow) and at the word right after it.'] },
   nomatch: { ko: '안내문 읽기 · 맞지 않는 것', en: 'Notices: what does not match', ask: ['다음을 읽고 맞지 않는 것을 고르십시오.', 'Choose the one that does NOT match the notice.'],
     steps: [
       ['문제 끝의 「맞지 않는 것」을 동그라미 쳐요. 정답은 안내문과 다른 보기 하나예요.', 'Circle "does not match". The answer is the one option that differs from the notice.'],
@@ -167,7 +167,7 @@ for (let t = 0; t < N_TESTS; t++) {
     no: q.slot, id: q.id, type: q.type, genre: q.genre, grade: q.grade, passage: q.passage, question: q.question, options: q.options, answer: q.answer, why: q.why, ...(q.pair ? { pair: q.pair } : {}), ...(q.sentence ? { sentence: q.sentence } : {}), ...(EXPL[q.id] ? { ev: EXPL[q.id].ev, rs: EXPL[q.id].rs } : {}),
   }));
   g1Info.push(items.filter((x) => x.grade === 1).length);
-  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format. Recommended time: 60 minutes.', ko: '31~70번, 실제 시험 형식 · 권장 풀이 시간 60분' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 31, to: 70 }, { type: 'selfcheck', title: { en: 'Self check', ko: '스스로 점검' }, rec: 60, total: 40, from: 31, key: items.map((q) => q.answer) }] };
+  inline[id] = { id, title: { en: `Practice Test ${t + 1}`, ko: `모의고사 ${t + 1}회` }, sub: { en: 'Questions 31 to 70 in the real test format. Recommended time: 60 minutes.', ko: '31~70번, 실제 시험 형식 · 권장 풀이 시간 60분' }, sections: [{ type: 'mcq', title: { en: 'Questions 31–70', ko: '31~70번' }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 31, to: 70, no: t + 1 }, { type: 'selfcheck', title: { en: 'Self check', ko: '스스로 점검' }, rec: 60, total: 40, from: 31, no: t + 1, key: items.map((q) => q.answer) }] };
 }
 for (const m of methods) { for (const [uid, u] of Object.entries(inline)) { const it = u.sections[0].items.find((x) => x.id === m.example.id); if (it) { m.example.test = Number(uid.slice(3)); m.example.no = it.no; } } }
 const book = {
@@ -183,8 +183,8 @@ const book = {
     ko: ['TOPIK I 읽기 31~70번을 연습하는 실전 모의고사 10회입니다. 한 회에 40문항, 모두 400문항입니다.', '모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것입니다. 기출 문제가 아닙니다.', '시험 앞에 유형별 풀이 방법과 필요한 단어를 한 쪽씩 실었습니다. 회마다 답안지가 있고, 책 뒤에는 문항마다 짧은 풀이가 붙은 정답 쪽이 있습니다. 왜 그 답이 맞고 다른 답은 틀린지 확인해 보세요.'],
   },
   howto: {
-    en: ['Set a timer for 60 minutes and solve a whole test in one sitting. That is the real time for the 40 reading questions (about 1.5 minutes each).', 'Mark your answers on the answer sheet at the end of the test.', 'Check with the answer key and read the explanation of every question you missed.', 'Write your score in the table and take the next test a few days later.'],
-    ko: ['타이머를 60분에 맞추고 한 회를 한 번에 풀어 보세요. 실제 시험에서 읽기 40문항을 푸는 시간과 같습니다(문항당 평균 1분 30초).', '풀고 나면 회 끝의 답안지에 답을 표시합니다.', '정답 쪽으로 맞춰 보고, 틀린 문항은 풀이를 꼭 읽습니다.', '점수를 표에 적고, 며칠 뒤 다음 회를 풉니다.'],
+    en: ['Set a timer for 60 minutes and solve a whole test in one sitting. The time is based on the reading section of the real test (60 minutes, about 1.5 minutes per question). Check the official notice for the latest time.', 'Mark your answers on the answer sheet at the end of the test.', 'Check with the answer key and read the explanation of every question you missed.', 'Write your score in the table and take the next test a few days later.'],
+    ko: ['타이머를 60분에 맞추고 한 회를 한 번에 풀어 보세요. 실제 시험의 읽기 시간(60분)을 기준으로 한 권장 시간입니다(문항당 평균 1분 30초). 최신 시험 시간은 공식 안내에서 확인하세요.', '풀고 나면 회 끝의 답안지에 답을 표시합니다.', '정답 쪽으로 맞춰 보고, 틀린 문항은 풀이를 꼭 읽습니다.', '점수를 표에 적고, 며칠 뒤 다음 회를 풉니다.'],
   },
   parts: [{ title: { en: 'Practice tests', ko: '실전 모의고사' }, units: unitIds }],
   methods, noGuide: true, noIndex: true, noQr: true, unitCount: N_TESTS, coverAccent: '읽기',

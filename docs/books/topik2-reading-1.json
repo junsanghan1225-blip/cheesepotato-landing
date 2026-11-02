@@ -248,8 +248,8 @@
     }
    ],
    "trap": {
-    "ko": "보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 바로 뒤를 꼭 보세요.",
-    "en": "If all options are forms of one word, it is a grammar question. Look at what follows the blank."
+    "ko": "보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 앞의 때를 나타내는 말(어제 · 내일)과 빈칸 바로 뒤의 말을 꼭 보세요.",
+    "en": "If all options are forms of one word, it is a grammar question. Look at time words before the blank (yesterday, tomorrow) and at the word right after it."
    },
    "example": {
     "id": "t2-002",
@@ -953,7 +953,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 1
     },
     {
      "type": "selfcheck",
@@ -965,6 +966,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 1,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       3,
@@ -1182,7 +1186,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 2
     },
     {
      "type": "selfcheck",
@@ -1194,6 +1199,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 2,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       1,
@@ -1411,7 +1419,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 3
     },
     {
      "type": "selfcheck",
@@ -1423,6 +1432,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 3,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -1640,7 +1652,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 4
     },
     {
      "type": "selfcheck",
@@ -1652,6 +1665,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 4,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       2,
@@ -1869,7 +1885,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 5
     },
     {
      "type": "selfcheck",
@@ -1881,6 +1898,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 5,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -2098,7 +2118,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 6
     },
     {
      "type": "selfcheck",
@@ -2110,6 +2131,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 6,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       3,
@@ -2327,7 +2351,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 7
     },
     {
      "type": "selfcheck",
@@ -2339,6 +2364,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 7,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       0,
@@ -2556,7 +2584,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 8
     },
     {
      "type": "selfcheck",
@@ -2568,6 +2597,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 8,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       1,
@@ -2785,7 +2817,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 9
     },
     {
      "type": "selfcheck",
@@ -2797,6 +2830,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 9,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       2,
@@ -3014,7 +3050,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 10
     },
     {
      "type": "selfcheck",
@@ -3026,6 +3063,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 10,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       2,
@@ -3243,7 +3283,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 11
     },
     {
      "type": "selfcheck",
@@ -3255,6 +3296,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 11,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       3,
@@ -3472,7 +3516,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 12
     },
     {
      "type": "selfcheck",
@@ -3484,6 +3529,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 12,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -3701,7 +3749,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 13
     },
     {
      "type": "selfcheck",
@@ -3713,6 +3762,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 13,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       1,
@@ -3930,7 +3982,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 14
     },
     {
      "type": "selfcheck",
@@ -3942,6 +3995,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 14,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       3,
@@ -4159,7 +4215,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 15
     },
     {
      "type": "selfcheck",
@@ -4171,6 +4228,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 15,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       3,
@@ -4388,7 +4448,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 16
     },
     {
      "type": "selfcheck",
@@ -4400,6 +4461,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 16,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       0,
@@ -4617,7 +4681,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 17
     },
     {
      "type": "selfcheck",
@@ -4629,6 +4694,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 17,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       0,
@@ -4846,7 +4914,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 18
     },
     {
      "type": "selfcheck",
@@ -4858,6 +4927,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 18,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       3,
@@ -5075,7 +5147,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 19
     },
     {
      "type": "selfcheck",
@@ -5087,6 +5160,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 19,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       1,
@@ -5304,7 +5380,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 20
     },
     {
      "type": "selfcheck",
@@ -5316,6 +5393,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 20,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -5533,7 +5613,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 21
     },
     {
      "type": "selfcheck",
@@ -5545,6 +5626,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 21,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       2,
@@ -5762,7 +5846,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 22
     },
     {
      "type": "selfcheck",
@@ -5774,6 +5859,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 22,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       3,
@@ -5991,7 +6079,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 23
     },
     {
      "type": "selfcheck",
@@ -6003,6 +6092,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 23,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       2,
@@ -6220,7 +6312,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 24
     },
     {
      "type": "selfcheck",
@@ -6232,6 +6325,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 24,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       3,
@@ -6449,7 +6545,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 25
     },
     {
      "type": "selfcheck",
@@ -6461,6 +6558,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 25,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       1,
@@ -6678,7 +6778,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 26
     },
     {
      "type": "selfcheck",
@@ -6690,6 +6791,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 26,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -6907,7 +7011,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 27
     },
     {
      "type": "selfcheck",
@@ -6919,6 +7024,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 27,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       0,
@@ -7136,7 +7244,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 28
     },
     {
      "type": "selfcheck",
@@ -7148,6 +7257,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 28,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       0,
@@ -7365,7 +7477,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 29
     },
     {
      "type": "selfcheck",
@@ -7377,6 +7490,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 29,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       2,
@@ -7594,7 +7710,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 30
     },
     {
      "type": "selfcheck",
@@ -7606,6 +7723,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 30,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       2,
@@ -7823,7 +7943,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 31
     },
     {
      "type": "selfcheck",
@@ -7835,6 +7956,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 31,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       0,
@@ -8052,7 +8176,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 32
     },
     {
      "type": "selfcheck",
@@ -8064,6 +8189,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 32,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       0,
@@ -8281,7 +8409,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 33
     },
     {
      "type": "selfcheck",
@@ -8293,6 +8422,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 33,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       1,
@@ -8510,7 +8642,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 34
     },
     {
      "type": "selfcheck",
@@ -8522,6 +8655,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 34,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       0,
@@ -8739,7 +8875,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 35
     },
     {
      "type": "selfcheck",
@@ -8751,6 +8888,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 35,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       1,
       1,
@@ -8968,7 +9108,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 36
     },
     {
      "type": "selfcheck",
@@ -8980,6 +9121,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 36,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       3,
@@ -9197,7 +9341,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 37
     },
     {
      "type": "selfcheck",
@@ -9209,6 +9354,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 37,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       2,
       2,
@@ -9426,7 +9574,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 38
     },
     {
      "type": "selfcheck",
@@ -9438,6 +9587,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 38,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       0,
       3,
@@ -9553,7 +9705,8 @@
      "sheetEn": "Reading Practice · Answer Sheet",
      "unitWord": "연습",
      "noEn": "Set No.",
-     "lite": true
+     "lite": true,
+     "no": 39
     },
     {
      "type": "selfcheck",
@@ -9565,6 +9718,9 @@
      "rec": 6,
      "total": 4,
      "from": 1,
+     "no": 39,
+     "unitWord": "연습",
+     "noEn": "Set No.",
      "key": [
       3,
       3,
