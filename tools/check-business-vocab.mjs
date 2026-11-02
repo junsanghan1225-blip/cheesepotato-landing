@@ -26,7 +26,8 @@ a.forEach((w, i) => {
   if (!Array.isArray(w.examples) || w.examples.length < 2 || w.examples.some((x) => !Array.isArray(x) || x.length !== 2 || !x[0] || !x[1])) e('examples 는 [한국어, 영어] 둘 이상');
   else {
     const stem = w.head.replace(/다$/, '').replace(/\s.*$/, '');
-    if (w.pos !== '표현' && !w.examples.some((x) => x[0].includes(stem.slice(0, Math.max(1, stem.length - (w.pos === '동사' || w.pos === '형용사' ? 0 : 0)))))) e('예문에 표제어(어간)가 안 나온다');
+    /* 어간이 활용에서 바뀌는 말(인사드리다 → 인사드립니다 · 효율적이다 → 효율적입니다 · 환영하다 → 환영합니다)이 틀린 것으로 잡히던 것을 줄임(2026-11-02): 어간 · 하 뗀 앞부분 · 마지막 글자 뗀 앞부분 중 하나만 나와도 통과 */
+    if (w.pos !== '표현' && !w.examples.some((x) => [stem, stem.replace(/(하|이)$/, ''), stem.length >= 3 ? stem.slice(0, -1) : ''].filter(Boolean).some((c) => x[0].includes(c)))) e('예문에 표제어(어간)가 안 나온다');
   }
   if (w.dialog && (!Array.isArray(w.dialog) || w.dialog.some((x) => x.length !== 2))) e('dialog 는 [화자, 말] 쌍');
 });

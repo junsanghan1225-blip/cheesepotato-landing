@@ -62,8 +62,8 @@ function hasHead(ko, head) {
   return false;
 }
 
-/* 표현(사자성어 · 속담 · 관용, expressions.json)은 모양이 달라 check-expressions 가 본다 */
-const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json') && f !== 'expressions.json').sort() : [];
+/* 표현(사자성어 · 속담 · 관용, expressions.json)은 모양이 달라 check-expressions 가, 비즈니스 단어장(business.json)은 check-business-vocab 이 본다 */
+const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json') && f !== 'expressions.json' && f !== 'business.json').sort() : [];
 for (const f of files) {
   let list;
   try { list = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')); }

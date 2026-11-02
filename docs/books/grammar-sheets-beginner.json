@@ -1,0 +1,149 @@
+{
+  "_note": "ISBN 신청 · 표지용 틀(속지는 나중에). 책이 만들어지면 이 틀을 채운다. 2026-11-02",
+  "id": "grammar-sheets-beginner",
+  "published": "2026.11.10",
+  "edition": "Draft proof · 시안",
+  "theme": "classic",
+  "color": "#9C6F1C",
+  "tint": "#F4F4F2",
+  "series": {
+    "en": "WORKSHEET SERIES",
+    "ko": "학습지 시리즈"
+  },
+  "title": {
+    "en": "Korean Grammar Worksheets · Beginner",
+    "ko": "한국어 문법 학습지 · 초급"
+  },
+  "sub": {
+    "en": "112 worksheets: explanation, practice and answers.",
+    "ko": "학습지 112장 · 설명 · 연습 · 정답"
+  },
+  "levelTag": "WORKBOOK",
+  "level": "GRAMMAR",
+  "trim": {
+    "w": 182,
+    "h": 257,
+    "bleed": 3,
+    "paperMm": 0.11
+  },
+  "author": {
+    "en": "Junsang",
+    "ko": "준상"
+  },
+  "authorAbout": {
+    "ko": "준상은 한국어 교사입니다. 약 2년 동안 약 100명의 학생에게 1,700시간이 넘게 한국어를 가르쳤고, 주로 유럽과 미국의 학생들을 만났습니다. 한국어를 가르치는 웹사이트 everykoreans.com 을 운영합니다.",
+    "en": "Junsang is a Korean teacher. In about two years he has taught around 100 students for more than 1,700 hours, mostly from Europe and the United States. He runs everykoreans.com, a website for learning Korean."
+  },
+  "publisher": {
+    "en": "Everykoreans",
+    "ko": "에브리코리안즈"
+  },
+  "web": "everykoreans.com",
+  "reviewer": {
+    "ko": "준상",
+    "en": "Junsang"
+  },
+  "authorBio": {
+    "ko": [
+      "저는 한국어를 우연히 가르치게 되었습니다.",
+      "어릴 때부터 국어는 문법부터 배우는 어려운 과목이었고, 수능을 준비하면서는 더욱 어렵다고만 생각했습니다. 그런 제가 대학교에 다니던 중, 한국어 선생님을 하는 친구를 보고 \"나도 한번 해 볼까\" 하는 마음으로 도전하게 되었습니다.",
+      "처음에는 학생이 한 명도 없었습니다. 말 그대로 파리만 날렸습니다. 그러던 어느 날 제 계정으로 알림이 왔습니다. 한 학생이 수업을 예약했다는 소식이었습니다. 그때부터 가슴이 뛰기 시작했고, 그 학생을 위해 자료를 준비하는 일이 설렜습니다. 어쩌면 그때부터 한국어를 가르치는 일에 빠졌는지도 모르겠습니다.",
+      "재미로, 아르바이트처럼 시작한 일이 2년을 넘었습니다. 그동안 1,700시간이 넘게, 100명의 학생을 가르쳤습니다. 전 세계의 학생들을 만났고, 주로 유럽과 미국의 학생들을 가르쳤습니다.",
+      "가르치다 보면 설명이 안 돼서 답답할 만큼 아름다운 한국어를 만납니다. 그런 한국어를 가르칠 수 있다는 것이 저는 축복이라고 느낍니다. 지금은 한국어를 더 널리 알리기 위해 한국어를 가르치는 웹사이트 everykoreans.com 을 운영하고 있고, 대학교 공부도 함께 하고 있습니다."
+    ],
+    "en": [
+      "I became a Korean teacher by accident.",
+      "Ever since I was a child, Korean class meant learning grammar first, and I thought of it as a hard subject, even more so while preparing for the national college entrance exam. While I was still in university, I saw a friend teaching Korean and thought, \"Why not give it a try?\"",
+      "At first I had no students at all. Truly, not a soul. Then one day a notification arrived on my account: a student had booked a lesson. My heart started to race, and I felt a thrill preparing materials for that student. Maybe that was the moment I fell for teaching Korean.",
+      "What began as a fun side job has now lasted more than two years. In that time I have taught over 1,700 hours to 100 students. I have taught students from all over the world, mostly from Europe and the United States.",
+      "When you teach Korean, you sometimes meet a beauty so deep that it frustrates you because you cannot explain it. I feel blessed to be able to teach that Korean. Today I run everykoreans.com, a website for learning Korean, to spread Korean further, and I am studying at university at the same time."
+    ]
+  },
+  "preface": {
+    "en": [
+      "195 questions on one family of TOPIK II reading questions: fill-in-the-blank and closest-meaning questions. Practice by type until the pattern becomes automatic.",
+      "Every question is newly written for this book in the style of the real test. None is a past exam question.",
+      "Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question."
+    ],
+    "ko": [
+      "TOPIK II 읽기 가운데 어휘 · 문법 유형만 모은 195문항입니다. 같은 유형을 계속 풀어 풀이 순서가 몸에 배게 합니다.",
+      "모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.",
+      "연습 앞에 유형마다 풀이 방법과 필요한 낱말을 한 쪽씩 실었습니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
+    ]
+  },
+  "howto": {
+    "en": [
+      "Read the method page for each type first.",
+      "Solve one practice set at a time and mark the answer sheet.",
+      "Check the answer key and read the explanation of every question you missed.",
+      "Redo the missed questions after a few days."
+    ],
+    "ko": [
+      "유형마다 풀이 방법 쪽을 먼저 읽습니다.",
+      "연습 한 회씩 풀고 답안지에 표시합니다.",
+      "정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.",
+      "며칠 뒤 틀린 문항을 다시 풉니다."
+    ]
+  },
+  "parts": [
+    {
+      "title": {
+        "en": "Draft",
+        "ko": "초안"
+      },
+      "units": [
+        "stub-1"
+      ]
+    }
+  ],
+  "methods": [],
+  "noGuide": true,
+  "noIndex": true,
+  "noQr": true,
+  "unitCount": 1,
+  "coverAccent": "문법 학습지",
+  "coverLevel": {
+    "code": "GRAMMAR",
+    "name": "초급",
+    "bg": "#9C6F1C",
+    "bg2": "#664912",
+    "mascot": [
+      "potato",
+      2
+    ],
+    "title": [
+      "한국어",
+      "문법 학습지",
+      "초급"
+    ],
+    "sub": "학습지 112장 · 설명 · 연습 · 정답"
+  },
+  "back": {
+    "items": [],
+    "for": "",
+    "price": "정가 9.9달러"
+  },
+  "inline": {
+    "stub-1": {
+      "id": "stub-1",
+      "title": {
+        "en": "Draft",
+        "ko": "초안"
+      },
+      "sub": {
+        "en": "Placeholder unit until the interior is built.",
+        "ko": "속지가 만들어지기 전 자리 단원"
+      },
+      "sections": [
+        {
+          "type": "text",
+          "title": {
+            "en": "Draft",
+            "ko": "초안"
+          },
+          "text": "This frame exists to register the ISBN and draw the cover. The interior is built later.\n이 틀은 ISBN 신청과 표지를 위한 것이고, 속지는 나중에 만든다."
+        }
+      ]
+    }
+  }
+}
