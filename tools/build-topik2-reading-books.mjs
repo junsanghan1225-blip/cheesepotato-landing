@@ -56,6 +56,7 @@ for (const t of ORDER_ALL) if (!TYPE_INFO[t]) throw new Error(`설명이 없는 
 /* 권장 풀이 시간(운영자 2026-11-02 「읽기 4권에도 권장 시간」): 실제 TOPIK II 읽기 50문항 70분 = 문항당 평균 84초 — 회의 문항 수에 비례한 평균값이라 「권장」으로만 쓴다 */
 // 같은 번호면 「25~25」 대신 「25」
 const rng = (chunk, sep) => { const lo = Math.min(...chunk.map((q) => q.slot)), hi = Math.max(...chunk.map((q) => q.slot)); return lo === hi ? `${lo}` : `${lo}${sep}${hi}`; };
+const EXAMPLES = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/examples/reading-examples.json'), 'utf8'));   // 따로 만든 예시 + 단계별 풀이 · 팁(운영자 2026-11-02)
 const recMin = (n) => Math.max(1, Math.round(n * 84 / 60));
 const BOOKS = [
   { n: 1, from: 1, to: 15, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
@@ -87,7 +88,7 @@ for (const B of BOOKS) {
   const exampleOf = (t) => all.filter((q) => q.type === t && (t !== 'insert' || q.sentence)).sort((a, b) => a.passage.length - b.passage.length)[0];
   const methods = B.types.filter((t) => all.some((q) => q.type === t)).map((t) => { const m = TYPE_INFO[t]; const ex = exampleOf(t); const ofType = all.filter((q) => q.type === t);
     return { type: t, nos: rangeOf(new Set(ofType.map((q) => q.slot))), count: ofType.length, name: { ko: m.ko, en: m.en }, ask: { ko: m.ask[0], en: m.ask[1] }, steps: m.steps.map(([ko, en, sub]) => ({ ko, en, ...(sub ? { sub: sub.map(([k, e]) => ({ ko: k, en: e })) } : {}) })), words: m.words.map(([ko, en]) => ({ ko, en })), trap: { ko: m.trap[0], en: m.trap[1] },
-      example: { id: ex.id, no: ex.slot, question: ex.question, passage: ex.passage, ...(ex.sentence ? { sentence: ex.sentence } : {}), options: ex.options, answer: ex.answer, why: ex.why } }; });
+      example: EXAMPLES['II:' + t] ? { ...EXAMPLES['II:' + t] } : { id: ex.id, no: ex.slot, question: ex.question, passage: ex.passage, ...(ex.sentence ? { sentence: ex.sentence } : {}), options: ex.options, answer: ex.answer, why: ex.why } }; });
   for (const m of methods) for (const [uid, un] of Object.entries(inline)) { const it = un.sections[0].items.find((x) => x.id === m.example.id); if (it) { m.example.test = Number(uid.split('-')[1]); m.example.no = it.no; } }
   const N = all.length, kt = B.name.ko, et = B.name.en;
   const book = {

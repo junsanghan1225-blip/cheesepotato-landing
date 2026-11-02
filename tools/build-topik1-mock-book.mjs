@@ -87,7 +87,7 @@ const TYPE_INFO = {
       ['안내문과 다르거나 안내문에 없는 내용이 있는 보기 하나가 정답이에요.', 'The option that differs from the notice, or adds something not in it, is the answer.'],
       ['나머지 세 개가 안내문과 맞는지 한 번 더 확인해요(검산).', 'Check that the other three really match (double-check).'],
     ],
-    words: [['기간', 'period'], ['일시', 'date and time'], ['장소', 'place'], ['대상', 'who it is for'], ['회비', 'membership fee'], ['무료', 'free'], ['신청', 'application'], ['접수', 'registration'], ['문의', 'inquiry'], ['휴관일', 'closed day'], ['영업시간', 'business hours'], ['준비물', 'things to bring'], ['할인', 'discount'], ['선착순', 'first come, first served']],
+    words: [['기간', 'period'], ['일시', 'date and time'], ['장소', 'place'], ['대상', 'who it is for'], ['회비', 'membership fee'], ['무료', 'free'], ['신청', 'application'], ['접수', 'registration'], ['문의', 'inquiry'], ['휴관일', 'closed day'], ['영업시간', 'business hours'], ['준비물', 'things to bring'], ['할인', 'discount'], ['정원', 'capacity']],
     trap: ['오전 · 오후와 숫자(열 시 · 두 시 · 삼 일)를 바꿔 말한 보기가 많아요. 숫자를 꼭 다시 확인하세요.', 'Options often change a number or a.m./p.m. Check the numbers again.'] },
   detail: { ko: '내용 일치', en: 'Same as the text', ask: ['다음 글의 내용과 같은 것을 고르십시오.', 'Choose the one that matches the text.'],
     steps: [
@@ -147,11 +147,12 @@ const nosOf = {};
 for (const q of TOPIK_READING) (nosOf[q.type] ||= new Set()).add(q.slot);
 const rangeOf = (set) => { const a = [...set].sort((x, y) => x - y); const out = []; for (let i = 0; i < a.length;) { let j = i; while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++; out.push(j > i ? `${a[i]}~${a[j]}` : `${a[i]}`); i = j + 1; } return out.join(', '); };
 /* 예시: 유형마다 지문이 가장 짧은 문항 하나(짝 지문 · 문장 넣기는 보기 문장이 있는 것) — 풀이 방법을 그대로 따라 풀어 보이는 용도 */
+const EXAMPLES = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/examples/reading-examples.json'), 'utf8'));   // 따로 만든 예시 + 단계별 풀이 · 팁(운영자 2026-11-02)
 const exampleOf = (t) => { const c = TOPIK_READING.filter((q) => q.type === t && (t !== 'insert' || q.sentence)).sort((a, b) => a.passage.length - b.passage.length)[0]; return c; };
 const testNoOf = {}; // 문항 id → 모의고사 회차 (아래에서 채운다)
 const methods = ORDER.map((t) => { const m = TYPE_INFO[t]; if (!m || !nosOf[t]) throw new Error(`유형 ${t} 자료 없음`); const ex = exampleOf(t);
   return { type: t, nos: rangeOf(nosOf[t]), count: nosOf[t].size, name: { ko: m.ko, en: m.en }, ask: { ko: m.ask[0], en: m.ask[1] }, steps: m.steps.map(([ko, en, sub]) => ({ ko, en, ...(sub ? { sub: sub.map(([k, e]) => ({ ko: k, en: e })) } : {}) })), words: m.words.map(([ko, en]) => ({ ko, en })), trap: { ko: m.trap[0], en: m.trap[1] },
-    example: { id: ex.id, no: ex.slot, question: ex.question, passage: ex.passage, ...(ex.sentence ? { sentence: ex.sentence } : {}), options: ex.options, answer: ex.answer, why: ex.why } }; });
+    example: EXAMPLES['I:' + t] ? { ...EXAMPLES['I:' + t] } : { id: ex.id, no: ex.slot, question: ex.question, passage: ex.passage, ...(ex.sentence ? { sentence: ex.sentence } : {}), options: ex.options, answer: ex.answer, why: ex.why } }; });
 for (const q of TOPIK_READING) if (!TYPE_INFO[q.type]) throw new Error(`설명이 없는 유형 ${q.type}`);
 
 /* 정답 쪽의 근거 + 선지별 이유(docs/mock/explain.txt): 문항 id | 근거 | ①~④ 이유 */

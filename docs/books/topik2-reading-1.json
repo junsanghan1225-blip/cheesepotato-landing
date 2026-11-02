@@ -252,19 +252,38 @@
     "en": "If all options are forms of one word, it is a grammar question. Look at time words before the blank (yesterday, tomorrow) and at the word right after it."
    },
    "example": {
-    "id": "t2-002",
-    "no": 3,
     "question": "(　　　　)에 들어갈 말로 가장 알맞은 것을 고르십시오.",
-    "passage": "시험 준비를 하느라 밤을 (　　　　) 피곤하다.",
+    "passage": "비가 (　　　　) 소풍은 예정대로 진행될 것이다.",
     "options": [
-     "새우는 대신",
-     "새우느라고",
-     "새웠을지라도",
-     "새우다 보면"
+     "오더라도",
+     "오느라고",
+     "오다가",
+     "오자마자"
     ],
-    "answer": 1,
-    "why": "까닭이 되는 일과 그 탓에 생긴 결과를 이을 때는 '-느라고'를 씁니다. 피곤한 까닭이 밤을 새운 것이므로 '새우느라고'가 맞습니다. '-는 대신'은 무엇을 다른 것으로 갈음할 때 쓰는 말이라 여기에는 어울리지 않습니다.",
-    "test": 6
+    "answer": 0,
+    "why": "비가 와도 예정대로 한다는 뜻이라서 「-더라도」가 맞아요.",
+    "steps": [
+     {
+      "ko": "앞뒤를 읽고 상황을 말해 봐요: 비가 와도 소풍을 한다.",
+      "en": "State the situation: the picnic goes ahead even with rain."
+     },
+     {
+      "ko": "보기가 같은 낱말의 다른 꼴이에요 → 문법 문제예요.",
+      "en": "The options are forms of one verb → grammar."
+     },
+     {
+      "ko": "뒤 문장의 뜻(예정대로)과 어울리는 연결을 찾아요: 양보 「-더라도」(even if).",
+      "en": "Match the connection to the clause that follows: concession “-더라도”."
+     },
+     {
+      "ko": "넣어 읽어요: 오더라도 ✔ · 오느라고 ✘(이유) · 오다가 ✘(중간에 바뀜) · 오자마자 ✘(바로 뒤).",
+      "en": "Test each form; the others mean cause, interruption or immediately after."
+     }
+    ],
+    "tip": {
+     "ko": "뒤 문장이 「그래도 한다」면 양보(-아/어도 · -더라도 · -ㄹ지라도)를 먼저 떠올려요.",
+     "en": "If the next clause says “still”, think of concessive endings first."
+    }
    }
   },
   {
@@ -332,19 +351,35 @@
     "en": "Grammar that looks alike can still differ in meaning: cause, result or time."
    },
    "example": {
-    "id": "t2-684",
-    "no": 5,
-    "question": "밑줄 친 부분과 의미가 가장 비슷한 것을 고르십시오.",
-    "passage": "익숙한 길이라도 방심하면 사고를 내기 십상이다.",
+    "question": "밑줄 친 부분과 의미가 비슷한 것을 고르십시오.",
+    "passage": "그는 약속 시간에 늦을까 봐 서둘러 집을 나섰다.",
+    "mark": "늦을까 봐",
     "options": [
-     "낼 리가 없다",
-     "내기 쉽다",
-     "낼 턱이 없다",
-     "낼 리 만무하다"
+     "늦을 것 같아서",
+     "늦었기 때문에",
+     "늦게 되자",
+     "늦더라도"
     ],
-    "answer": 1,
-    "why": "'-기 십상이다'는 부정적인 일이 일어날 가능성이 큼을 뜻하므로 '내기 쉽다'와 의미가 가장 가깝습니다. '낼 리가 없다'는 강한 부정이므로 어색합니다.",
-    "test": 10
+    "answer": 0,
+    "why": "「-ㄹ까 봐」는 아직 일어나지 않은 일을 걱정한다는 뜻이라서 「늦을 것 같아서」와 비슷해요.",
+    "steps": [
+     {
+      "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고 뜻을 쉬운 말로 바꿔요: 늦을지 걱정돼서 서둘렀다.",
+      "en": "Read the whole sentence and restate it simply: worried about being late, he hurried."
+     },
+     {
+      "ko": "밑줄 표현만 풀어요: 「-ㄹ까 봐」 = 앞으로 일어날 일을 걱정하는 이유.",
+      "en": "Explain the phrase: “-ㄹ까 봐” = worry about something that may happen."
+     },
+     {
+      "ko": "보기를 밑줄 자리에 넣어 읽어요: 늦을 것 같아서 ✔ · 늦었기 때문에 ✘(이미 늦음) · 늦게 되자 ✘ · 늦더라도 ✘(양보).",
+      "en": "Substitute each option; keep the one with the same meaning."
+     }
+    ],
+    "tip": {
+     "ko": "시간(이미 / 앞으로)과 이유 · 양보가 바뀐 보기는 모양이 비슷해도 오답이에요.",
+     "en": "Options that change time or cause/concession are wrong even if they look alike."
+    }
    }
   },
   {
@@ -446,19 +481,34 @@
     "en": "A word from the text is not always the answer. Choose the word that covers the whole text."
    },
    "example": {
-    "id": "t2-155",
-    "no": 1,
-    "question": "다음은 무엇에 대한 글입니까?",
-    "passage": "가벼운 무게로 코가 편안합니다.\n깨끗하고 선명한 세상을 마주하세요.",
+    "question": "윗글의 주제로 가장 알맞은 것을 고르십시오.",
+    "passage": "도시에서는 아파트 베란다에서 채소를 기르는 사람이 늘고 있다. 직접 기른 채소는 신선할 뿐만 아니라 키우는 즐거움도 준다. 작은 공간에서도 자연을 느끼려는 사람이 많아지고 있는 것이다.",
     "options": [
-     "장갑",
-     "모자",
-     "가방",
-     "안경"
+     "좁은 공간에서도 채소를 키우며 자연을 즐기는 사람이 늘고 있다.",
+     "도시의 채소 가격이 계속 오르고 있다.",
+     "베란다는 아파트에서 가장 중요한 공간이다.",
+     "신선한 채소는 시장에서 사는 것이 좋다."
     ],
-    "answer": 3,
-    "why": "코가 편안하다는 표현과 세상을 선명하게 본다는 문구를 통해 시력을 교정하거나 눈을 보호하는 물건임을 알 수 있으므로 「안경」이 맞습니다. 「모자」는 머리에 쓰는 것으로 시야를 선명하게 해 주는 것과는 거리가 멉니다.",
-    "test": 17
+    "answer": 0,
+    "why": "글 전체가 작은 공간에서 채소를 키우는 사람이 늘고 있다는 이야기예요.",
+    "steps": [
+     {
+      "ko": "문장마다 핵심어를 찾아요: 베란다 채소 · 신선함과 즐거움 · 작은 공간의 자연.",
+      "en": "Find the key words of each sentence."
+     },
+     {
+      "ko": "마지막 문장(「-는 것이다」)이 전체를 정리해요: 자연을 느끼려는 사람이 늘고 있다.",
+      "en": "The last sentence sums up the passage."
+     },
+     {
+      "ko": "모든 문장을 묶는 보기를 골라요: ① ✔ · ② 가격 이야기 없음 ✘ · ③ ④ 글에 없는 판단 ✘.",
+      "en": "Choose the option that covers every sentence."
+     }
+    ],
+    "tip": {
+     "ko": "한 문장만 설명하는 보기나 글에 없는 말을 덧붙인 보기는 주제가 아니에요.",
+     "en": "An option covering only one sentence, or adding new claims, is not the theme."
+    }
    }
   },
   {
@@ -576,19 +626,34 @@
     "en": "Options with strong words like never, all, always or only are often wrong."
    },
    "example": {
-    "id": "t2-110",
-    "no": 9,
     "question": "다음 글의 내용과 같은 것을 고르십시오.",
-    "passage": "어린이 방학 수영 단기 교실\n\n물놀이 안전 수칙과 기초 영법을 배우는 강좌입니다.\n수영복과 수모는 개인이 준비해야 하며 킥판은 무료로 대여합니다.\n- 강습 기간: 8월 3일 ~ 8월 14일\n- 신청 방법: 구민체육센터 방문 접수",
+    "passage": "우리 마을 도서관은 올해부터 저녁 아홉 시까지 문을 연다. 이전에는 여섯 시에 문을 닫아 직장인이 이용하기 어려웠다. 도서관은 이용 시간을 늘린 뒤 직장인 회원이 늘었다고 밝혔다.",
     "options": [
-     "인터넷으로 수강 신청서를 받는다.",
-     "수영 모자는 센터에서 지급한다.",
-     "연습용 킥판은 현장에서 빌려준다.",
-     "한 달 동안 매일 수업이 열린다."
+     "전에는 저녁 아홉 시에 문을 닫았다.",
+     "직장인 회원이 늘어났다.",
+     "올해부터 일요일에 문을 닫는다.",
+     "이용 시간이 짧아졌다."
     ],
-    "answer": 2,
-    "why": "킥판은 무료로 대여해 준다고 안내되어 있으므로 '연습용 킥판은 현장에서 빌려준다'가 맞습니다. 신청은 방문 접수만 가능하므로 '인터넷으로 수강 신청서를 받는다'는 오답입니다.",
-    "test": 26
+    "answer": 1,
+    "why": "이용 시간을 늘린 뒤 직장인 회원이 늘었다고 했어요.",
+    "steps": [
+     {
+      "ko": "읽으면서 때 · 숫자 · 변화에 표시해요: 올해부터 9시 · 전에는 6시 · 회원이 늘었다.",
+      "en": "Mark times, numbers and changes."
+     },
+     {
+      "ko": "보기를 하나씩 글과 비교해요: ① 전 9시 ✘(6시) ② 늘었다 ✔ ③ 글에 없음 ✘ ④ 짧아짐 ✘(늘렸다).",
+      "en": "Compare each option with the text."
+     },
+     {
+      "ko": "한 곳이라도 다르면 버려요.",
+      "en": "Drop an option that differs anywhere."
+     }
+    ],
+    "tip": {
+     "ko": "전 · 후(이전에는 / 올해부터)와 늘다 · 줄다가 바뀐 보기가 많아요.",
+     "en": "Many wrong options swap before/after or increase/decrease."
+    }
    }
   },
   {
@@ -694,19 +759,38 @@
     "en": "A sentence that begins with so or but cannot be the first."
    },
    "example": {
-    "id": "t2-014",
-    "no": 6,
-    "question": "다음을 순서에 맞게 배열한 것을 고르십시오.",
-    "passage": "(가) 공기 정화 식물은 실내 오염 물질을 흡수하여 공기를 쾌적하게 만든다.\n(나) 따라서 실내 습도를 적절하게 유지하는 데에도 큰 도움이 된다.\n(다) 흡수된 오염 물질은 뿌리로 이동하여 미생물에 의해 분해된다.\n(라) 이 과정에서 식물은 수분을 밖으로 배출하는 증산 작용을 함께 한다.",
+    "question": "다음을 순서대로 맞게 배열한 것을 고르십시오.",
+    "passage": "(가) 그래서 올해는 꼭 건강 검진을 받기로 했다.\n(나) 나는 몇 년 동안 병원에 가지 않았다.\n(다) 며칠 전 친구가 검진 결과를 보고 놀랐다는 이야기를 들었다.\n(라) 바쁘다는 이유로 계속 미루어 왔던 것이다.",
     "options": [
-     "(가)-(나)-(다)-(라)",
-     "(다)-(가)-(라)-(나)",
-     "(다)-(라)-(가)-(나)",
-     "(가)-(다)-(라)-(나)"
+     "(나)-(라)-(다)-(가)",
+     "(나)-(다)-(라)-(가)",
+     "(라)-(나)-(다)-(가)",
+     "(다)-(나)-(라)-(가)"
     ],
-    "answer": 3,
-    "why": "공기 정화 식물의 기본 역할을 설명하는 (가)가 먼저 오고, 오염 물질 흡수 후의 과정을 나타내는 (다)가 이어집니다. 그 과정에서 일어나는 증산 작용 (라)를 거쳐, 그 결과 습도 유지 효과를 정리하는 접속어 '따라서'의 (나)로 마무리되는 '(가)-(다)-(라)-(나)'가 올바릅니다. (가)-(나)-(다)-(라)는 습도 유지가 오염 물질 분해보다 먼저 나와 인과관계가 어긋납니다.",
-    "test": 34
+    "answer": 0,
+    "why": "병원에 안 간 일(나) → 미룬 이유(라) → 친구 이야기(다) → 그래서 결심(가) 순서예요.",
+    "steps": [
+     {
+      "ko": "문장마다 한 줄로 줄여요: 결심 · 몇 년 안 감 · 친구 이야기 · 바빠서 미룸.",
+      "en": "Shrink each sentence."
+     },
+     {
+      "ko": "「그래서」로 시작하는 (가)는 첫 문장이 될 수 없고, 결과이니 마지막에 가요.",
+      "en": "“그래서” cannot start; (가) is the result, so it goes last."
+     },
+     {
+      "ko": "(라) 「-던 것이다」는 앞 내용을 설명해요 → (나) 뒤에 와요.",
+      "en": "(라) explains the previous sentence → it follows (나)."
+     },
+     {
+      "ko": "(다)를 가운데에 넣고 확인해요: (나)-(라)-(다)-(가).",
+      "en": "Place (다) in the middle and check the flow."
+     }
+    ],
+    "tip": {
+     "ko": "「그래서 · 그러나 · 이것은」처럼 앞 문장을 가리키는 말을 먼저 찾아 위치를 정해요.",
+     "en": "Find connectors that point back, and fix their positions first."
+    }
    }
   }
  ],
