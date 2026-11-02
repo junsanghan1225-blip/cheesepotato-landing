@@ -3020,7 +3020,7 @@ const LOCALES = {
   vi: { name: 'Tiếng Việt', title: 'Học tiếng Hàn miễn phí: luyện thi TOPIK I · II | CheesePotato',
     desc: 'Học tiếng Hàn miễn phí từ bảng chữ cái Hangul đến TOPIK cấp 6: 401 bài học, 290 điểm ngữ pháp, 1.370 câu luyện TOPIK (nghe · đọc · viết), từ điển và trò chơi. Không cần cài đặt.' },
   ja: { name: '日本語', title: '無料で韓国語を学ぶ. TOPIK I・II対策 | チーズポテト',
-    desc: 'ハングルからTOPIK 6級まで無料で学べる韓国語学習サイト。レッスン401個、文法290項目、TOPIK練習問題2,151問（聞取り・読解・書取り）、辞書、ゲーム。インストール不要。' },
+    desc: 'ハングルからTOPIK 6級まで無料で学べる韓国語学習サイト。レッスン401個、文法290項目、TOPIK練習問題2,364問（聞取り・読解・書取り）、辞書、ゲーム。インストール不要。' },
 };
 const HREFLANG = '\n' + [['en', '/'], ['ko', '/'], ['vi', '/vi/'], ['ja', '/ja/'], ['x-default', '/']]
   .map(([h, u]) => `<link rel="alternate" hreflang="${h}" href="${SITE}${u}">`).join('\n');
