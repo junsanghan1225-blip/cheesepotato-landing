@@ -6,14 +6,30 @@
    "qa": "통과(주의 1)",
    "pages": 159,
    "date": "20261102",
-   "ver": 26
+   "ver": 26,
+   "last": {
+    "ver": 26,
+    "date": "20261102",
+    "pages": 159,
+    "sha256": "098b629f04af4c5157e601329b44063f851f4fadf7132c6cf6bd023183f5ff00",
+    "commit": "b7bda59c2d",
+    "file": "에브리코리안즈_예스24_한국어첫걸음워크북_v26_20261102.zip"
+   }
   },
   "particles-workbook": {
    "krw": "13,900",
    "qa": "통과(주의 1)",
    "pages": 192,
    "date": "20261102",
-   "ver": 2
+   "ver": 2,
+   "last": {
+    "ver": 2,
+    "date": "20261102",
+    "pages": 192,
+    "sha256": "ff6dad005ca9054fcd94862dcf168b11f0a109805e4405f4c803da07eb1e8a1a",
+    "commit": "b7bda59c2d",
+    "file": "에브리코리안즈_예스24_한국어조사워크북_v2_20261102.zip"
+   }
   },
   "topik2-writing-51-52": {
    "krw": "9,900"
@@ -56,7 +72,15 @@
    "qa": "통과(주의 1)",
    "pages": 206,
    "date": "20261102",
-   "ver": 2
+   "ver": 2,
+   "last": {
+    "ver": 2,
+    "date": "20261102",
+    "pages": 206,
+    "sha256": "d700627cee6a044e69abce9bf9bd1809eedcf261eb850237b045f29aa816e203",
+    "commit": "b7bda59c2d",
+    "file": "에브리코리안즈_예스24_TOPIKI읽기실전모의고사10회_v2_20261102.zip"
+   }
   },
   "topik2-writing-53-54": {
    "krw": "13,900",
@@ -83,7 +107,15 @@
    "qa": "통과(주의 1)",
    "pages": 212,
    "date": "20261102",
-   "ver": 2
+   "ver": 2,
+   "last": {
+    "ver": 2,
+    "date": "20261102",
+    "pages": 212,
+    "sha256": "45a9a56722e28a7c8a6c761095e5414cb4760654a49c582c6241ad43b0358cfb",
+    "commit": "b7bda59c2d",
+    "file": "에브리코리안즈_예스24_필수관용표현_v2_20261102.zip"
+   }
   }
  }
 }
