@@ -56,8 +56,8 @@ for (const t of ORDER_ALL) if (!TYPE_INFO[t]) throw new Error(`설명이 없는 
 const BOOKS = [
   { n: 1, from: 1, to: 15, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
   { n: 2, from: 16, to: 24, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
-  { n: 3, from: 25, to: 31, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
-  { n: 4, from: 32, to: 50, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
+  { n: 3, from: 25, to: 45, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
+  { n: 4, from: 46, to: 50, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
 ];
 const rangeOf = (set) => { const a = [...set].sort((x, y) => x - y); const out = []; for (let i = 0; i < a.length;) { let j = i; while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++; out.push(j > i ? `${a[i]}~${a[j]}` : `${a[i]}`); i = j + 1; } return out.join(', '); };
 let seed = 20261101; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);

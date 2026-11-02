@@ -118,7 +118,7 @@ const table = (en) => `<table class="cmp"><thead><tr><th></th><th>${en ? 'Free' 
 
 const pricing = page('pricing.html', '가격 · Pricing', '치즈감자 Pro 구독 가격 — 무료와 Pro 비교. Pricing for CheesePotato Pro: free vs Pro.', `
 <h1>가격 · Pricing</h1>
-<p class="trust">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 2,151 · <a href="/about.html">만든 사람 · 원칙</a></p>
+<p class="trust">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 2,364 · <a href="/about.html">만든 사람 · 원칙</a></p>
 <p>치즈감자는 <strong>대부분 무료</strong>입니다. 시험 준비를 끝까지 하고 싶을 때 <strong>치즈감자 Pro</strong> 를 더하세요.</p>
 <div class="plans">
   <div class="plan best"><span class="tag">추천 · Best value</span>1년 · Yearly<b>${PRICE.yearly}</b>한 달 $3.25꼴 · 35% 싸요 · 📘 책 PDF 전체 포함<br><small>매년 자동 갱신 · billed yearly</small></div>
@@ -150,7 +150,7 @@ ${table(false)}
 
 <hr>
 <h2>English</h2>
-<p class="trust">Made by a Korean teacher · 1,700+ one-to-one lessons · 2,151 original TOPIK questions · <a href="/about.html">About us</a></p>
+<p class="trust">Made by a Korean teacher · 1,700+ one-to-one lessons · 2,364 original TOPIK questions · <a href="/about.html">About us</a></p>
 <p>Most of CheesePotato is <strong>free</strong>. Add <strong>CheesePotato Pro</strong> when you want to prepare all the way to the exam:
 <strong>${PRICE.yearly} / year</strong> (about $3.25 a month, save 35%) or <strong>${PRICE.monthly} / month</strong>, renewing automatically, each starting with a ${PRICE.trialDays}-day free trial — or the <strong>Exam Pass</strong>: ${PRICE.pass} once for ${PRICE.passMonths} months, no renewal.</p>
 ${table(true)}
