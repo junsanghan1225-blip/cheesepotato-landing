@@ -73,13 +73,13 @@
  },
  "howto": {
   "en": [
-   "Set a timer and solve a whole test in one sitting. Check the official notice for the real time limit.",
+   "Set a timer for 60 minutes and solve a whole test in one sitting. That is the real time for the 40 reading questions (about 1.5 minutes each).",
    "Mark your answers on the answer sheet at the end of the test.",
    "Check with the answer key and read the explanation of every question you missed.",
    "Write your score in the table and take the next test a few days later."
   ],
   "ko": [
-   "시간을 정해 한 회를 한 번에 풀어 보세요. 실제 시험 시간은 공식 안내를 확인하세요.",
+   "타이머를 60분에 맞추고 한 회를 한 번에 풀어 보세요. 실제 시험에서 읽기 40문항을 푸는 시간과 같습니다(문항당 평균 1분 30초).",
    "풀고 나면 회 끝의 답안지에 답을 표시합니다.",
    "정답 쪽으로 맞춰 보고, 틀린 문항은 풀이를 꼭 읽습니다.",
    "점수를 표에 적고, 며칠 뒤 다음 회를 풉니다."
@@ -1105,8 +1105,8 @@
     "ko": "모의고사 1회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -2117,8 +2117,8 @@
     "ko": "모의고사 2회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -3129,8 +3129,8 @@
     "ko": "모의고사 3회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -4141,8 +4141,8 @@
     "ko": "모의고사 4회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -5153,8 +5153,8 @@
     "ko": "모의고사 5회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -6165,8 +6165,8 @@
     "ko": "모의고사 6회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -7177,8 +7177,8 @@
     "ko": "모의고사 7회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -8189,8 +8189,8 @@
     "ko": "모의고사 8회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -9201,8 +9201,8 @@
     "ko": "모의고사 9회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
@@ -10213,8 +10213,8 @@
     "ko": "모의고사 10회"
    },
    "sub": {
-    "en": "Questions 31 to 70 in the real test format.",
-    "ko": "31~70번, 실제 시험 형식"
+    "en": "Questions 31 to 70 in the real test format. Recommended time: 60 minutes.",
+    "ko": "31~70번, 실제 시험 형식 · 권장 풀이 시간 60분"
    },
    "sections": [
     {
