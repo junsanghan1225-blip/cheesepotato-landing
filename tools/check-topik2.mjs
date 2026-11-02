@@ -120,18 +120,23 @@ for (const q of rows) {
     note.push(`${q.id} — 지문 앞뒤에 공백이 붙었다`);
 }
 
-/* 지문 하나를 나눠 쓰는 자리는 지문이 글자까지 같아야 한다. */
+/* 지문 하나를 나눠 쓰는 자리는 지문이 글자까지 같아야 한다.
+   2026-11-02: 한 파일에 짝이 여러 벌(19-20 이 열 번 …)일 때도 맞도록, 같은 pair 이름 안에서 지문이 같은 문항끼리 한 짝으로 묶어 본다
+   (짝 하나가 pair 이름 범위의 문항을 번호마다 하나씩 다 갖췄는지). */
 const byPair = new Map();
 rows.filter((q) => q.pair).forEach((q) => {
-  if (!byPair.has(q.pair)) byPair.set(q.pair, []);
-  byPair.get(q.pair).push(q);
+  const k = q.pair + '|' + String(q.passage).replace(/\s+/g, '');
+  if (!byPair.has(k)) byPair.set(k, []);
+  byPair.get(k).push(q);
 });
-byPair.forEach((list, name) => {
-  const [a, b] = [name.split('-')[0], name.split('-')[1]].map(Number);
+byPair.forEach((list, key) => {
+  const name = key.split('|')[0];
+  const [a, b] = name.split('-').map(Number);
   const want = b - a + 1;
-  if (list.length !== want) bad.push(`pair ${name} — ${want}문항이어야 하는데 ${list.length}개다`);
-  const p = new Set(list.map((q) => String(q.passage).replace(/\s+/g, '')));
-  if (p.size > 1) bad.push(`pair ${name} — 묶인 문항의 지문이 서로 다르다`);
+  const ids = list.map((q) => q.id).join(', ');
+  if (list.length !== want) bad.push(`pair ${name} — 같은 지문을 쓰는 문항이 ${want}개여야 하는데 ${list.length}개다(${ids})`);
+  const have = new Set(list.map((q) => q.slot));
+  for (let n = a; n <= b; n++) if (!have.has(n)) { bad.push(`pair ${name} — ${n}번 문항이 없다(${ids})`); break; }
 });
 
 slots.forEach((list, n) => {
