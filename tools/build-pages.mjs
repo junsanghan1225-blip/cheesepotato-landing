@@ -1353,13 +1353,13 @@ function wordPage(entry, prev, next) {
      Search Console 에서 「알몸」 「새엄마」 「사회생활 뜻」 처럼 한국어로 뜻을 찾는 질의가 노출은 많고 클릭이 적었다 → 같은 모양으로. */
   const romH = romanize(head);
   const title = firstEn
-    ? `${head} 뜻${romH ? ` (${esc(romH)})` : ''} meaning — "${esc(firstEn)}" in Korean | CheesePotato`
+    ? `${head} 영어로 · 뜻 — "${esc(firstEn)}"${romH ? ` (${esc(romH)})` : ''} meaning in Korean`
     : `${head} 뜻 — 한국어 낱말 사전 | CheesePotato`;
   const senses = SENSES[head];
   const example = EXAMPLES[head];
   const headTag = pos ? `${head}(${pos})` : head;   // 품사가 없는 표제어(감탄사류)엔 빈 괄호를 안 붙인다
   /* 뜻을 먼저, 뒤에 누를 까닭(소리 · 예문 · 무료) — vocabPage 설명과 같은 갈래. 이 쪽에 실제로 있는 것만 적는다 */
-  const desc = clip(`${head}${pos ? `(${pos})` : ''} 뜻 — ` + (senses?.length
+  const desc = clip(`${head}${pos ? `(${pos})` : ''} 영어로 · 뜻 — ` + (senses?.length
     ? `${senses[0][0]}${senses[0][1] ? ` (${senses[0][1]})` : ''}`
     : `${en || '한국어 낱말'}`) + `. 🔊 Hear it${example ? ', see an example' : ''} and add it to your wordbook. Free, no sign-up.`);
 
@@ -1460,10 +1460,11 @@ function vocabPage(w, prev, next) {
   /* 2026-10-07(운영자 「검색 노출은 많은데 클릭이 적다」): 두 검색을 한 줄에 — 「가게 meaning」 과 「shop in Korean」.
      낱말 + meaning 을 맨 앞에, 영어 뜻을 바로 뒤에. 설명은 답 먼저 · 무료 · 소리 · 퀴즈로 누를 까닭을 준다. */
   /* 2026-10-11: Search Console 검색어를 보니 「가능」 「그」 「미루다」 처럼 한국어로 뜻을 찾는 사람이 많다 — 영어 제목만으로는 눌릴 까닭이 없다. 「뜻」 한 글자로 두 갈래 모두에게 읽히게 한다 */
-  const title = `${head} 뜻 (${rom}) meaning — "${firstEn}" in Korean | CheesePotato`;
+  /* 2026-11-02(운영자 「1번 진행」): Search Console 에 「소독약 영어로」 「시청자 영어로」 처럼 한국어로 영어 번역을 찾는 질의가 노출은 많고(51 · 22) 클릭이 1 뿐이었다 → 「영어로」를 제목 맨 앞에. 브랜드 꼬리는 길이를 아끼려 뺀다(검색 결과가 알아서 붙인다) */
+  const title = `${head} 영어로 · 뜻 — "${firstEn}" (${rom}) meaning in Korean`;
   const posEn = POS_EN[w.p] ? ` ${POS_EN[w.p]}` : '';
   const ex = w.x[0]?.[0] ? ` Example: ${w.x[0][0]}` : '';
-  const desc = clip(`${head} 뜻 · ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it · examples${conj ? ' · conjugation' : ''} · 1-minute quiz. Free.`);   // 2026-10-21: 155자 안에 끝나게 줄임 — 검색 결과에서 「Free, no…」처럼 잘리던 쪽이 많았다
+  const desc = clip(`${head} 영어로 "${firstEn}" · 뜻. ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it · examples${conj ? ' · conjugation' : ''} · 1-minute quiz. Free.`);   // 2026-10-21: 155자 안에 끝나게 줄임 — 검색 결과에서 「Free, no…」처럼 잘리던 쪽이 많았다
 
   /* 미니 퀴즈 — 뜻 고르기 넷. 스크립트 없이 <details> 로 답을 편다(정적 쪽이라 CSP · 속도 걱정이 없다). */
   const rnd = seeded(head);
