@@ -44,6 +44,10 @@ function make(id, krwArg) {
   console.log('④ zip…');
   const zip = path.join(dir, name); fs.rmSync(zip, { force: true });
   execFileSync('zip', ['-q', '-j', zip, path.join(pack, `${isbn}.pdf`), path.join(pack, `${isbn}_cover.jpg`)]);
+  // 최종 보관 기록(운영자 2026-11-02 「내가 최종이라고 끝난 건 무조건 저장」): 만든 파일의 지문(sha256)과 만든 시점의 저장소 커밋을 남겨, 파일이 없어져도 같은 쪽수 · 내용으로 다시 만들 수 있게 한다.
+  const sha = execFileSync('sha256sum', [path.join(pack, `${isbn}.pdf`)]).toString().split(' ')[0];
+  let commit = ''; try { commit = execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: ROOT }).toString().trim(); } catch {}
+  L.last = { ver: L.ver, date, pages: r.pages, sha256: sha, commit, file: name };
   fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 1) + '\n');
   console.log(`✔ ${name} · ${r.pages}쪽 · ${(fs.statSync(zip).size / 1048576).toFixed(1)}MB · 검사 ${L.qa}`);
   return { id, zip, qa: L.qa };

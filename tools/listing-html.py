@@ -41,6 +41,8 @@ for no, bid in IDS:
         + field('판형 · 쪽수 · 형식', spec)
         + field('가격 · ISBN', '(운영자가 입력: 가격은 정한 뒤, ISBN 은 승인 번호를 받은 뒤)') + '</section>')
 
+import copy_status
+NAV, BODY = copy_status.split(nav, body, 'yes24')
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(shop_name)} 상품 등록 복사판</title>
 <style>
@@ -54,8 +56,8 @@ main{{max-width:860px;margin:0 auto;padding:8px 16px 80px}} section{{margin:26px
 button{{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:5px 14px;font-size:13px;cursor:pointer}} button.ok{{background:#888}}
 pre.v{{margin:0;padding:8px 10px;white-space:pre-wrap;word-break:break-word;font:inherit}} pre.big{{max-height:300px;overflow:auto}}
 </style></head><body>
-<header><b>{e(shop_name)} 상품 등록 복사판</b> · 칸마다 「복사」를 누르고 등록 화면에 붙여 넣으세요. 화면에 없는 칸은 건너뛰세요.<nav>{''.join(nav)}</nav></header>
-<main>{''.join(body)}</main>
+<header><b>{e(shop_name)} 상품 등록 복사판</b> · 칸마다 「복사」를 누르고 등록 화면에 붙여 넣으세요. 화면에 없는 칸은 건너뛰세요.<nav>{NAV}</nav></header>
+<main>{BODY}</main>
 <script>
 document.addEventListener('click',function(ev){{var b=ev.target.closest('button');if(!b)return;var t=b.closest('.f').querySelector('pre').textContent;
 function done(){{b.textContent='복사됨 ✓';b.className='ok';setTimeout(function(){{b.textContent='복사';b.className='';}},1500);}}

@@ -39,6 +39,8 @@ for no, bid in IDS:
         + field('*상품소개', intro, '', True) + field('저자소개', box(sec, '저자소개'), '', True) + field('목차', box(sec, '목차'), '', True)
         + field('출판사서평', review, '', True)
         + f'<div class="f"><div class="fh"><b>올릴 파일</b></div><pre class="v">*표지이미지: {isbn}_cover.jpg (가로 1500px)\n*전자책파일: {isbn}.pdf (예스24판, 보호 없음)</pre></div></section>')
+import copy_status
+NAV, BODY = copy_status.split(nav, body, 'yes24')
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>예스24 도서등록 복사판</title>
 <style>
@@ -53,8 +55,8 @@ button{{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:5px 
 pre.v{{margin:0;padding:8px 10px;white-space:pre-wrap;word-break:break-word;font:inherit}} pre.big{{max-height:300px;overflow:auto}}
 .top{{background:#fff7e0;border:1px solid #e6d9a8;border-radius:8px;padding:10px 12px;margin:12px 0;font-size:14px}}
 </style></head><body>
-<header><b>예스24 도서등록 복사판</b> · 양식 칸 순서대로 「복사」→ 붙여 넣기. 별(*)이 있는 칸은 꼭 채웁니다.<nav>{''.join(nav)}</nav></header>
-<main><div class="top"><b>직접 고르는 칸(복사판에 없음)</b>: *카테고리(국어 · 외국어 쪽에서 고르기) · *판매개시(검수 후 즉시 / 직접지정) · *B2B 판매여부(Y 면 도서관 등 단체 판매, 정산은 정가의 50% — 계약서) · 연령제한 전체 · 언어 한국어 · 읽기 방향 좌→우 · 합본/체험판 일반 · *대여여부 대여불가 · 화폐단위 원. 종이책 정보 · ISSN · UCI · ECN 은 비워 둡니다.</div>{''.join(body)}</main>
+<header><b>예스24 도서등록 복사판</b> · 양식 칸 순서대로 「복사」→ 붙여 넣기. 별(*)이 있는 칸은 꼭 채웁니다.<nav>{NAV}</nav></header>
+<main><div class="top"><b>직접 고르는 칸(복사판에 없음)</b>: *카테고리(국어 · 외국어 쪽에서 고르기) · *판매개시(검수 후 즉시 / 직접지정) · *B2B 판매여부(Y 면 도서관 등 단체 판매, 정산은 정가의 50% — 계약서) · 연령제한 전체 · 언어 한국어 · 읽기 방향 좌→우 · 합본/체험판 일반 · *대여여부 대여불가 · 화폐단위 원. 종이책 정보 · ISSN · UCI · ECN 은 비워 둡니다.</div>{BODY}</main>
 <script>
 document.addEventListener('click',function(ev){{var b=ev.target.closest('button');if(!b)return;var t=b.closest('.f').querySelector('pre').textContent;
 function done(){{b.textContent='복사됨 ✓';b.className='ok';setTimeout(function(){{b.textContent='복사';b.className='';}},1500);}}
