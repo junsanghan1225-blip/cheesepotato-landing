@@ -74,13 +74,13 @@
  "howto": {
   "en": [
    "Read the method page for each type first.",
-   "Solve one practice set at a time and mark the answer sheet.",
+   "Solve one practice set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
   "ko": [
    "유형마다 풀이 방법 쪽을 먼저 읽습니다.",
-   "연습 한 회씩 풀고 답안지에 표시합니다.",
+   "연습 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
    "정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.",
    "며칠 뒤 틀린 문항을 다시 풉니다."
   ]
@@ -758,8 +758,8 @@
     "ko": "연습 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 1–1",
-    "ko": "10문항 · 시험 1~1번"
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -959,8 +959,8 @@
     "ko": "연습 2회"
    },
    "sub": {
-    "en": "10 questions · exam no. 1–1",
-    "ko": "10문항 · 시험 1~1번"
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1160,8 +1160,8 @@
     "ko": "연습 3회"
    },
    "sub": {
-    "en": "10 questions · exam no. 1–1",
-    "ko": "10문항 · 시험 1~1번"
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1361,8 +1361,8 @@
     "ko": "연습 4회"
    },
    "sub": {
-    "en": "10 questions · exam no. 1–2",
-    "ko": "10문항 · 시험 1~2번"
+    "en": "10 questions · exam no. 1–2 · about 14 min",
+    "ko": "10문항 · 시험 1~2번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1562,8 +1562,8 @@
     "ko": "연습 5회"
    },
    "sub": {
-    "en": "10 questions · exam no. 2–2",
-    "ko": "10문항 · 시험 2~2번"
+    "en": "10 questions · exam no. 2 · about 14 min",
+    "ko": "10문항 · 시험 2번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1763,8 +1763,8 @@
     "ko": "연습 6회"
    },
    "sub": {
-    "en": "10 questions · exam no. 2–2",
-    "ko": "10문항 · 시험 2~2번"
+    "en": "10 questions · exam no. 2 · about 14 min",
+    "ko": "10문항 · 시험 2번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -1964,8 +1964,8 @@
     "ko": "연습 7회"
    },
    "sub": {
-    "en": "10 questions · exam no. 2–2",
-    "ko": "10문항 · 시험 2~2번"
+    "en": "10 questions · exam no. 2 · about 14 min",
+    "ko": "10문항 · 시험 2번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2165,8 +2165,8 @@
     "ko": "연습 8회"
    },
    "sub": {
-    "en": "10 questions · exam no. 2–3",
-    "ko": "10문항 · 시험 2~3번"
+    "en": "10 questions · exam no. 2–3 · about 14 min",
+    "ko": "10문항 · 시험 2~3번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2366,8 +2366,8 @@
     "ko": "연습 9회"
    },
    "sub": {
-    "en": "10 questions · exam no. 3–3",
-    "ko": "10문항 · 시험 3~3번"
+    "en": "10 questions · exam no. 3 · about 14 min",
+    "ko": "10문항 · 시험 3번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2567,8 +2567,8 @@
     "ko": "연습 10회"
    },
    "sub": {
-    "en": "10 questions · exam no. 3–3",
-    "ko": "10문항 · 시험 3~3번"
+    "en": "10 questions · exam no. 3 · about 14 min",
+    "ko": "10문항 · 시험 3번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2768,8 +2768,8 @@
     "ko": "연습 11회"
    },
    "sub": {
-    "en": "10 questions · exam no. 3–4",
-    "ko": "10문항 · 시험 3~4번"
+    "en": "10 questions · exam no. 3–4 · about 14 min",
+    "ko": "10문항 · 시험 3~4번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -2969,8 +2969,8 @@
     "ko": "연습 12회"
    },
    "sub": {
-    "en": "10 questions · exam no. 4–4",
-    "ko": "10문항 · 시험 4~4번"
+    "en": "10 questions · exam no. 4 · about 14 min",
+    "ko": "10문항 · 시험 4번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3170,8 +3170,8 @@
     "ko": "연습 13회"
    },
    "sub": {
-    "en": "10 questions · exam no. 4–4",
-    "ko": "10문항 · 시험 4~4번"
+    "en": "10 questions · exam no. 4 · about 14 min",
+    "ko": "10문항 · 시험 4번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3371,8 +3371,8 @@
     "ko": "연습 14회"
    },
    "sub": {
-    "en": "10 questions · exam no. 4–4",
-    "ko": "10문항 · 시험 4~4번"
+    "en": "10 questions · exam no. 4 · about 14 min",
+    "ko": "10문항 · 시험 4번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3572,8 +3572,8 @@
     "ko": "연습 15회"
    },
    "sub": {
-    "en": "10 questions · exam no. 4–5",
-    "ko": "10문항 · 시험 4~5번"
+    "en": "10 questions · exam no. 4–5 · about 14 min",
+    "ko": "10문항 · 시험 4~5번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3773,8 +3773,8 @@
     "ko": "연습 16회"
    },
    "sub": {
-    "en": "10 questions · exam no. 5–5",
-    "ko": "10문항 · 시험 5~5번"
+    "en": "10 questions · exam no. 5 · about 14 min",
+    "ko": "10문항 · 시험 5번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -3974,8 +3974,8 @@
     "ko": "연습 17회"
    },
    "sub": {
-    "en": "10 questions · exam no. 5–6",
-    "ko": "10문항 · 시험 5~6번"
+    "en": "10 questions · exam no. 5–6 · about 14 min",
+    "ko": "10문항 · 시험 5~6번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4175,8 +4175,8 @@
     "ko": "연습 18회"
    },
    "sub": {
-    "en": "10 questions · exam no. 6–6",
-    "ko": "10문항 · 시험 6~6번"
+    "en": "10 questions · exam no. 6 · about 14 min",
+    "ko": "10문항 · 시험 6번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4376,8 +4376,8 @@
     "ko": "연습 19회"
    },
    "sub": {
-    "en": "10 questions · exam no. 6–7",
-    "ko": "10문항 · 시험 6~7번"
+    "en": "10 questions · exam no. 6–7 · about 14 min",
+    "ko": "10문항 · 시험 6~7번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4577,8 +4577,8 @@
     "ko": "연습 20회"
    },
    "sub": {
-    "en": "10 questions · exam no. 7–7",
-    "ko": "10문항 · 시험 7~7번"
+    "en": "10 questions · exam no. 7 · about 14 min",
+    "ko": "10문항 · 시험 7번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4778,8 +4778,8 @@
     "ko": "연습 21회"
    },
    "sub": {
-    "en": "10 questions · exam no. 7–8",
-    "ko": "10문항 · 시험 7~8번"
+    "en": "10 questions · exam no. 7–8 · about 14 min",
+    "ko": "10문항 · 시험 7~8번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -4979,8 +4979,8 @@
     "ko": "연습 22회"
    },
    "sub": {
-    "en": "10 questions · exam no. 8–8",
-    "ko": "10문항 · 시험 8~8번"
+    "en": "10 questions · exam no. 8 · about 14 min",
+    "ko": "10문항 · 시험 8번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5180,8 +5180,8 @@
     "ko": "연습 23회"
    },
    "sub": {
-    "en": "10 questions · exam no. 8–9",
-    "ko": "10문항 · 시험 8~9번"
+    "en": "10 questions · exam no. 8–9 · about 14 min",
+    "ko": "10문항 · 시험 8~9번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5381,8 +5381,8 @@
     "ko": "연습 24회"
    },
    "sub": {
-    "en": "10 questions · exam no. 9–9",
-    "ko": "10문항 · 시험 9~9번"
+    "en": "10 questions · exam no. 9 · about 14 min",
+    "ko": "10문항 · 시험 9번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5582,8 +5582,8 @@
     "ko": "연습 25회"
    },
    "sub": {
-    "en": "10 questions · exam no. 9–10",
-    "ko": "10문항 · 시험 9~10번"
+    "en": "10 questions · exam no. 9–10 · about 14 min",
+    "ko": "10문항 · 시험 9~10번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5783,8 +5783,8 @@
     "ko": "연습 26회"
    },
    "sub": {
-    "en": "10 questions · exam no. 10–10",
-    "ko": "10문항 · 시험 10~10번"
+    "en": "10 questions · exam no. 10 · about 14 min",
+    "ko": "10문항 · 시험 10번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -5984,8 +5984,8 @@
     "ko": "연습 27회"
    },
    "sub": {
-    "en": "10 questions · exam no. 10–11",
-    "ko": "10문항 · 시험 10~11번"
+    "en": "10 questions · exam no. 10–11 · about 14 min",
+    "ko": "10문항 · 시험 10~11번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6185,8 +6185,8 @@
     "ko": "연습 28회"
    },
    "sub": {
-    "en": "10 questions · exam no. 11–11",
-    "ko": "10문항 · 시험 11~11번"
+    "en": "10 questions · exam no. 11 · about 14 min",
+    "ko": "10문항 · 시험 11번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6386,8 +6386,8 @@
     "ko": "연습 29회"
    },
    "sub": {
-    "en": "10 questions · exam no. 11–12",
-    "ko": "10문항 · 시험 11~12번"
+    "en": "10 questions · exam no. 11–12 · about 14 min",
+    "ko": "10문항 · 시험 11~12번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6587,8 +6587,8 @@
     "ko": "연습 30회"
    },
    "sub": {
-    "en": "10 questions · exam no. 12–12",
-    "ko": "10문항 · 시험 12~12번"
+    "en": "10 questions · exam no. 12 · about 14 min",
+    "ko": "10문항 · 시험 12번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6788,8 +6788,8 @@
     "ko": "연습 31회"
    },
    "sub": {
-    "en": "10 questions · exam no. 12–13",
-    "ko": "10문항 · 시험 12~13번"
+    "en": "10 questions · exam no. 12–13 · about 14 min",
+    "ko": "10문항 · 시험 12~13번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -6989,8 +6989,8 @@
     "ko": "연습 32회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13–13",
-    "ko": "10문항 · 시험 13~13번"
+    "en": "10 questions · exam no. 13 · about 14 min",
+    "ko": "10문항 · 시험 13번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7190,8 +7190,8 @@
     "ko": "연습 33회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13–13",
-    "ko": "10문항 · 시험 13~13번"
+    "en": "10 questions · exam no. 13 · about 14 min",
+    "ko": "10문항 · 시험 13번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7391,8 +7391,8 @@
     "ko": "연습 34회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13–14",
-    "ko": "10문항 · 시험 13~14번"
+    "en": "10 questions · exam no. 13–14 · about 14 min",
+    "ko": "10문항 · 시험 13~14번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7592,8 +7592,8 @@
     "ko": "연습 35회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14–14",
-    "ko": "10문항 · 시험 14~14번"
+    "en": "10 questions · exam no. 14 · about 14 min",
+    "ko": "10문항 · 시험 14번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7793,8 +7793,8 @@
     "ko": "연습 36회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14–15",
-    "ko": "10문항 · 시험 14~15번"
+    "en": "10 questions · exam no. 14–15 · about 14 min",
+    "ko": "10문항 · 시험 14~15번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -7994,8 +7994,8 @@
     "ko": "연습 37회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15–15",
-    "ko": "10문항 · 시험 15~15번"
+    "en": "10 questions · exam no. 15 · about 14 min",
+    "ko": "10문항 · 시험 15번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8195,8 +8195,8 @@
     "ko": "연습 38회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15–15",
-    "ko": "10문항 · 시험 15~15번"
+    "en": "10 questions · exam no. 15 · about 14 min",
+    "ko": "10문항 · 시험 15번 · 권장 약 14분"
    },
    "sections": [
     {
@@ -8396,8 +8396,8 @@
     "ko": "연습 39회"
    },
    "sub": {
-    "en": "4 questions · exam no. 15–15",
-    "ko": "4문항 · 시험 15~15번"
+    "en": "4 questions · exam no. 15 · about 6 min",
+    "ko": "4문항 · 시험 15번 · 권장 약 6분"
    },
    "sections": [
     {
