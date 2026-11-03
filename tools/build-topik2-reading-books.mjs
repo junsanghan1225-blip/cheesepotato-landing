@@ -116,7 +116,7 @@ for (const B of BOOKS) {
   for (const t of B.types) { const qs = order.filter((q) => q.type === t).sort((a, b) => (a.grade - b.grade) || (a.slot - b.slot));   // 유형마다: 풀이 방법 → 연습문제(쉬운 5문항) → 실전문제(나머지, 10문항 안팎씩)
     const pr = qs.slice(0, 5), rest = qs.slice(5).sort((a, b) => (a.slot - b.slot) || (a.grade - b.grade));
     sets.push({ t, k: 0, chunk: pr });
-    if (rest.length) { const lim = ['blank', 'paraphrase', 'theme', 'headline'].includes(t) ? 10 : ['order', 'insert'].includes(t) ? 5 : 7; const n = Math.ceil(rest.length / lim), sz = Math.ceil(rest.length / n); for (let k = 0; k < n; k++) sets.push({ t, k: k + 1, chunk: rest.slice(k * sz, k * sz + sz) }); } }
+    if (rest.length) { const lim = ['order', 'insert', 'detail', 'main', 'feeling', 'attitude', 'intent'].includes(t) ? 5 : (B.n === 3 && t === 'blank') ? 7 : ['blank', 'paraphrase', 'theme', 'headline'].includes(t) ? 10 : 7; const n = Math.ceil(rest.length / lim), sz = Math.ceil(rest.length / n); for (let k = 0; k < n; k++) sets.push({ t, k: k + 1, chunk: rest.slice(k * sz, k * sz + sz) }); } }
   for (let u = 0; u < sets.length; u++) {
     const { t: stype, k: setNo, chunk } = sets[u]; if (!chunk.length) break;
     const id = `r${B.n}-${String(u + 1).padStart(2, '0')}`; unitIds.push(id); if (setNo === 0) methodBefore[id] = stype;
