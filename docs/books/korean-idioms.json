@@ -1983,6 +1983,24 @@
        }
       },
       {
+       "ko": "신경을 쓰다",
+       "hanja": "",
+       "pos": "idiom",
+       "en": "to pay attention to; to care about; to take care over",
+       "km": "어떤 일에 마음을 기울여 세심하게 살피거나 조심하다",
+       "lit": "use one's nerves",
+       "eq": "to take care over; to pay attention to",
+       "lv": 4,
+       "ex": {
+        "ko": "발표 자료는 글꼴과 색깔까지 신경을 써서 준비했어요.",
+        "en": "I prepared the presentation slides carefully, even down to the font and the colors."
+       },
+       "ex2": {
+        "ko": "부모님은 동생이 혼자 있어도 불편하지 않도록 작은 일까지 신경을 쓰셨다.",
+        "en": "Our parents paid attention even to small things so that my younger sibling would not feel uncomfortable when alone."
+       }
+      },
+      {
        "ko": "애를 먹다",
        "hanja": "",
        "pos": "idiom",
@@ -2071,24 +2089,6 @@
         "ko": "정부는 인공지능 기반의 차세대 먹거리 산업 육성에 막대한 기대를 걸고 있다.",
         "en": "The government pins enormous hopes on fostering AI-based future growth engines."
        }
-      },
-      {
-       "ko": "가슴이 벅차다",
-       "hanja": "",
-       "pos": "idiom",
-       "en": "one's heart is full; to be overwhelmed with emotion or joy",
-       "km": "기쁨이나 감격이 넘쳐흘러 마음이 가득 차오르다",
-       "lit": "one's chest is full to overflowing",
-       "eq": "one's heart is bursting; overwhelmed with joy",
-       "lv": 4,
-       "ex": {
-        "ko": "오랜 인고 끝에 태극기를 들고 시상대 맨 위에 서니 가슴이 벅찼어요.",
-        "en": "Standing atop the podium with national flag after long toil, my heart swelled."
-       },
-       "ex2": {
-        "ko": "첫 아이가 태어나 품에 안긴 순간 부모는 가슴 벅찬 감동의 눈물을 흘렸다.",
-        "en": "The moment their newborn was in arms, parents shed tears of heart-swelling emotion."
-       }
       }
      ]
     },
@@ -2111,7 +2111,7 @@
        "색안경을 끼고 보다"
       ],
       "options": [
-       "to have a hard time",
+       "to pay attention to",
        "to draw glares",
        "to throw up both hands and feet",
        "to pull oneself together",
@@ -2183,8 +2183,8 @@
        "a": "to view with prejudice; to look at someone through colored glasses"
       },
       {
-       "q": "마음을 비우다 →",
-       "a": "to clear one's mind of greed; to let go of desire and ambition"
+       "q": "혀를 차다 →",
+       "a": "to click one's tongue; to tut-tut in disapproval or pity"
       }
      ]
     },
@@ -2201,7 +2201,7 @@
        "a": "(Your own sentence · 내 문장)"
       },
       {
-       "q": "Write a sentence with 가슴이 벅차다. →",
+       "q": "Write a sentence with 기대를 걸다. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]
@@ -2228,6 +2228,24 @@
      "from": 75,
      "rowH": 38,
      "entries": [
+      {
+       "ko": "가슴이 벅차다",
+       "hanja": "",
+       "pos": "idiom",
+       "en": "one's heart is full; to be overwhelmed with emotion or joy",
+       "km": "기쁨이나 감격이 넘쳐흘러 마음이 가득 차오르다",
+       "lit": "one's chest is full to overflowing",
+       "eq": "one's heart is bursting; overwhelmed with joy",
+       "lv": 4,
+       "ex": {
+        "ko": "오랜 인고 끝에 태극기를 들고 시상대 맨 위에 서니 가슴이 벅찼어요.",
+        "en": "Standing atop the podium with national flag after long toil, my heart swelled."
+       },
+       "ex2": {
+        "ko": "첫 아이가 태어나 품에 안긴 순간 부모는 가슴 벅찬 감동의 눈물을 흘렸다.",
+        "en": "The moment their newborn was in arms, parents shed tears of heart-swelling emotion."
+       }
+      },
       {
        "ko": "골치를 앓다",
        "hanja": "",
@@ -2479,24 +2497,6 @@
         "ko": "잦은 고장으로 소비자의 속을 썩이던 전자제품은 결국 리콜 조치되었다.",
         "en": "Electronic appliances worrying consumers sick with frequent breakdowns were recalled."
        }
-      },
-      {
-       "ko": "쓴맛을 보다",
-       "hanja": "",
-       "pos": "idiom",
-       "en": "to taste bitterness; to experience bitter failure or defeat",
-       "km": "실패나 패배로 인해 쓰라린 경험과 큰 고통을 겪다",
-       "lit": "taste bitterness",
-       "eq": "to taste bitter defeat; to learn the hard way",
-       "lv": 4,
-       "ex": {
-        "ko": "무리하게 사업을 확장하다가 금융 위기를 맞아 혹독한 쓴맛을 보았어요.",
-        "en": "Expanding recklessly, he tasted bitter defeat facing the financial crisis."
-       },
-       "ex2": {
-        "ko": "상대를 얕보고 방심했던 디펜딩 챔피언은 예선 탈락이라는 쓴맛을 보았다.",
-        "en": "The defending champion underestimating rivals tasted bitter early elimination."
-       }
       }
      ]
     },
@@ -2523,7 +2523,7 @@
        "to be scared out of one's wits",
        "to sweat bullets",
        "to cheat on someone",
-       "to be moved to tears",
+       "to break someone's heart",
        "to worry oneself sick"
       ],
       "answer": [
@@ -2542,6 +2542,11 @@
       "cols": 2,
       "items": [
        {
+        "q": "객석을 가득 채운 관객들의 함성을 들으니 눈물이 날 만큼 ___.",
+        "en": "",
+        "a": "가슴이 벅차다 (가슴이 벅차네요)"
+       },
+       {
         "q": "네, 인건비와 자재비가 급등해서 담당자마다 ___ 있어요.",
         "en": "",
         "a": "골치를 앓다 (골치를 앓고)"
@@ -2555,18 +2560,13 @@
         "q": "죄송해요. 실적 문제를 지적하려다 좋은 분위기에 ___ 말았네요.",
         "en": "",
         "a": "찬물을 끼얹다 (찬물을 끼얹고)"
-       },
-       {
-        "q": "___ 말은 주워 담을 수 없으니 꼭 진심으로 사과하세요.",
-        "en": "",
-        "a": "가슴에 못을 박다 (가슴에 못을 박는)"
        }
       ],
       "bank": [
-       "가슴에 못을 박다",
+       "찬물을 끼얹다",
+       "가슴이 벅차다",
        "골치를 앓다",
-       "손에 땀을 쥐다",
-       "찬물을 끼얹다"
+       "손에 땀을 쥐다"
       ]
      }
     },
@@ -2579,20 +2579,20 @@
      "hint": "Cover the list first, then write the English meaning.",
      "items": [
       {
-       "q": "골치를 앓다 →",
-       "a": "to suffer a headache over; to be plagued by troubles"
+       "q": "가슴이 벅차다 →",
+       "a": "one's heart is full; to be overwhelmed with emotion or joy"
       },
       {
-       "q": "찬물을 끼얹다 →",
-       "a": "to throw cold water on; to dampen the mood or progress"
+       "q": "어안이 벙벙하다 →",
+       "a": "to be dumbfounded; to be struck dumb with astonishment"
       },
       {
-       "q": "가슴에 못을 박다 →",
-       "a": "to break someone's heart; to deeply wound someone's feelings"
+       "q": "바람을 피우다 →",
+       "a": "to cheat on someone; to have an affair; to be unfaithful"
       },
       {
-       "q": "물거품이 되다 →",
-       "a": "to come to nothing; to vanish into thin air like foam"
+       "q": "눈에 밟히다 →",
+       "a": "to haunt one's mind; to constantly come to mind with longing or worry"
       }
      ]
     },
@@ -2605,11 +2605,11 @@
      "hint": "Use each expression in a true sentence about your own life. Say it aloud.",
      "items": [
       {
-       "q": "Write a sentence with 찬물을 끼얹다. →",
+       "q": "Write a sentence with 손에 땀을 쥐다. →",
        "a": "(Your own sentence · 내 문장)"
       },
       {
-       "q": "Write a sentence with 쓴맛을 보다. →",
+       "q": "Write a sentence with 물거품이 되다. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]
@@ -2636,6 +2636,24 @@
      "from": 90,
      "rowH": 38,
      "entries": [
+      {
+       "ko": "쓴맛을 보다",
+       "hanja": "",
+       "pos": "idiom",
+       "en": "to taste bitterness; to experience bitter failure or defeat",
+       "km": "실패나 패배로 인해 쓰라린 경험과 큰 고통을 겪다",
+       "lit": "taste bitterness",
+       "eq": "to taste bitter defeat; to learn the hard way",
+       "lv": 4,
+       "ex": {
+        "ko": "무리하게 사업을 확장하다가 금융 위기를 맞아 혹독한 쓴맛을 보았어요.",
+        "en": "Expanding recklessly, he tasted bitter defeat facing the financial crisis."
+       },
+       "ex2": {
+        "ko": "상대를 얕보고 방심했던 디펜딩 챔피언은 예선 탈락이라는 쓴맛을 보았다.",
+        "en": "The defending champion underestimating rivals tasted bitter early elimination."
+       }
+      },
       {
        "ko": "쥐구멍에 들어가다",
        "hanja": "",
@@ -2887,24 +2905,6 @@
         "ko": "독점 기업의 높은 콧대를 꺾기 위해 정부가 강력한 규제책을 꺼내 들었다.",
         "en": "To break monopoly corporations' haughtiness, the government pulled strong regulations."
        }
-      },
-      {
-       "ko": "바가지를 긁다",
-       "hanja": "",
-       "pos": "idiom",
-       "en": "to nag (esp. wife nagging her husband)",
-       "km": "주로 아내가 남편에게 잔소리를 심하게 늘어놓으며 괴롭히다",
-       "lit": "scratch a gourd bowl",
-       "eq": "to nag someone",
-       "lv": 4,
-       "ex": {
-        "ko": "어젯밤 술에 취해 늦게 들어갔더니 아내가 아침부터 바가지를 긁네요.",
-        "en": "Coming home late drunk last night, my wife nagged me from early morning."
-       },
-       "ex2": {
-        "ko": "부부 갈등을 줄이려면 감정적인 바가지 긁기보다 차분한 대화가 우선이다.",
-        "en": "To reduce marital conflicts, calm conversation takes priority over emotional nagging."
-       }
       }
      ]
     },
@@ -2920,19 +2920,19 @@
        "ko": "표현과 뜻을 짝지어 알맞은 글자를 쓰세요."
       },
       "words": [
+       "쓴맛을 보다",
        "쥐구멍에 들어가다",
        "코가 납작해지다",
        "입맛을 돋우다",
-       "간이 크다",
-       "눈이 높다"
+       "간이 크다"
       ],
       "options": [
+       "to whet one's appetite",
        "to be bold",
        "to have high standards",
-       "to stand by with folded arms",
+       "to taste bitterness",
        "to want to sink through the floor",
-       "to be humiliated",
-       "to whet one's appetite"
+       "to be humiliated"
       ],
       "answer": [
        "d",
@@ -2987,20 +2987,20 @@
      "hint": "Cover the list first, then write the English meaning.",
      "items": [
       {
-       "q": "쥐구멍에 들어가다 →",
-       "a": "to want to sink through the floor; to be deeply ashamed"
+       "q": "쓴맛을 보다 →",
+       "a": "to taste bitterness; to experience bitter failure or defeat"
       },
       {
-       "q": "귀가 얇다 →",
-       "a": "to be gullible; to be easily influenced by others' words"
+       "q": "간이 크다 →",
+       "a": "to be bold; to have a lot of nerve; daring or audacious"
       },
       {
-       "q": "성의를 다하다 →",
-       "a": "to do something in all sincerity; to devote one's full sincerity"
+       "q": "모범을 보이다 →",
+       "a": "to set an example; to serve as a role model"
       },
       {
-       "q": "오지랖이 넓다 →",
-       "a": "to be meddlesome; to poke one's nose into other people's business"
+       "q": "시치미를 떼다 →",
+       "a": "to feign innocence; to play dumb; to pretend not to know"
       }
      ]
     },
@@ -3013,7 +3013,7 @@
      "hint": "Use each expression in a true sentence about your own life. Say it aloud.",
      "items": [
       {
-       "q": "Write a sentence with 눈이 높다. →",
+       "q": "Write a sentence with 귀가 얇다. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]
@@ -3041,21 +3041,21 @@
      "rowH": 38,
      "entries": [
       {
-       "ko": "낯이 설다",
+       "ko": "바가지를 긁다",
        "hanja": "",
        "pos": "idiom",
-       "en": "to be unfamiliar; strange or unaccustomed",
-       "km": "전에 본 적이 없어 얼굴이나 환경이 생소하고 어색함",
-       "lit": "face is unfamiliar",
-       "eq": "strange and unfamiliar",
+       "en": "to nag (esp. wife nagging her husband)",
+       "km": "주로 아내가 남편에게 잔소리를 심하게 늘어놓으며 괴롭히다",
+       "lit": "scratch a gourd bowl",
+       "eq": "to nag someone",
        "lv": 4,
        "ex": {
-        "ko": "처음 가 본 도시의 골목길은 모든 풍경이 낯이 설어 긴장되었어요.",
-        "en": "In the alleyways of the newly visited city, every scene felt unfamiliar and tense."
+        "ko": "어젯밤 술에 취해 늦게 들어갔더니 아내가 아침부터 바가지를 긁네요.",
+        "en": "Coming home late drunk last night, my wife nagged me from early morning."
        },
        "ex2": {
-        "ko": "낯이 선 환경에 놓인 전학생이 학교에 적응하도록 교사의 배려가 필요하다.",
-        "en": "A transfer student in an unfamiliar environment needs a teacher's caring attention."
+        "ko": "부부 갈등을 줄이려면 감정적인 바가지 긁기보다 차분한 대화가 우선이다.",
+        "en": "To reduce marital conflicts, calm conversation takes priority over emotional nagging."
        }
       },
       {
@@ -3354,9 +3354,9 @@
       "cols": 2,
       "items": [
        {
-        "q": "아직은 사람들도 길거리도 다 ___ 어색해요.",
+        "q": "어제 모임에서 늦게 귀가했다고 집사람이 ___ 봅니다.",
         "en": "",
-        "a": "낯이 설다 (낯이 설어서)"
+        "a": "바가지를 긁다 (바가지를 긁었나)"
        },
        {
         "q": "아는 지인이 중간에서 ___ 줘서 같이 협업하게 되었어요.",
@@ -3378,7 +3378,7 @@
        "다리를 놓다",
        "담을 쌓다",
        "등을 떠밀다",
-       "낯이 설다"
+       "바가지를 긁다"
       ]
      }
     },
@@ -3391,8 +3391,8 @@
      "hint": "Cover the list first, then write the English meaning.",
      "items": [
       {
-       "q": "낯이 설다 →",
-       "a": "to be unfamiliar; strange or unaccustomed"
+       "q": "바가지를 긁다 →",
+       "a": "to nag (esp. wife nagging her husband)"
       },
       {
        "q": "등을 떠밀다 →",
@@ -3417,11 +3417,7 @@
      "hint": "Use each expression in a true sentence about your own life. Say it aloud.",
      "items": [
       {
-       "q": "Write a sentence with 등을 돌리다. →",
-       "a": "(Your own sentence · 내 문장)"
-      },
-      {
-       "q": "Write a sentence with 자리를 잡다. →",
+       "q": "Write a sentence with 등을 떠밀다. →",
        "a": "(Your own sentence · 내 문장)"
       }
      ]

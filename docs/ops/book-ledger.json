@@ -107,14 +107,14 @@
    "qa": "통과(주의 1)",
    "pages": 212,
    "date": "20261103",
-   "ver": 4,
+   "ver": 5,
    "last": {
-    "ver": 4,
+    "ver": 5,
     "date": "20261103",
     "pages": 212,
-    "sha256": "31e1105f609786cbeedce0e809bed0c1f84aed382ed3f3a64b5ac1d8d0a559d0",
-    "commit": "0b36032622",
-    "file": "에브리코리안즈_예스24_필수관용표현_v4_20261103.zip"
+    "sha256": "bf4ee328a34bdc2a8b8abc57161be96a9cf5bbefbb12f4ba6e198ae34b643d81",
+    "commit": "a0519ff55d",
+    "file": "에브리코리안즈_예스24_필수관용표현_v5_20261103.zip"
    }
   }
  }
