@@ -346,20 +346,48 @@
    },
    "steps": [
     {
-     "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고, 그 문장의 뜻을 쉬운 말로 바꿔 말해 봐요.",
+     "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고, 문장의 뜻을 쉬운 말로 바꿔 말해 봐요.",
      "en": "Read the whole sentence with the underlined part and say its meaning in easy words."
     },
     {
-     "ko": "밑줄 친 표현만 따로 풀어 봐요. 문법이면 「뜻 + 때 · 이유 · 조건」을, 낱말이면 비슷한 말을 떠올려요.",
-     "en": "Explain the underlined part alone: for grammar, its meaning (time, reason, condition); for a word, a synonym."
+     "ko": "밑줄 친 표현이 무엇인지 가려요.",
+     "en": "Decide what kind of expression is underlined.",
+     "sub": [
+      {
+       "ko": "문법(-는 바람에 · -더니 · -(으)ㄴ 덕분에 …) → 뜻 + 때 · 이유 · 조건을 떠올려요",
+       "en": "grammar → recall its meaning: time, reason, condition"
+      },
+      {
+       "ko": "낱말(관용 표현 포함) → 비슷한 쉬운 말을 떠올려요",
+       "en": "a word or idiom → think of an easier word with the same meaning"
+      }
+     ]
+    },
+    {
+     "ko": "밑줄 친 표현만 따로 풀어 써요. 예: -는 바람에 = 나쁜 이유 · -(으)ㄴ 덕분에 = 좋은 이유.",
+     "en": "Explain the underlined part alone. E.g. -는 바람에 = bad reason; -(으)ㄴ 덕분에 = good reason."
     },
     {
      "ko": "보기를 하나씩 밑줄 자리에 넣어 읽어요. 문장의 뜻이 그대로이면 정답 후보예요.",
      "en": "Put each option in place of the underlined part. If the meaning stays the same, it is a candidate."
     },
     {
-     "ko": "뜻이 반대이거나 시간 · 이유가 바뀌면 버려요(-더니 · -다가 · -(으)ㄴ 덕분에 …).",
-     "en": "Drop options that reverse the meaning or change the time or reason."
+     "ko": "뜻이 반대이거나 시간 · 이유가 바뀌면 버려요.",
+     "en": "Drop options that reverse the meaning or change the time or reason.",
+     "sub": [
+      {
+       "ko": "-더니(전에 본 일) ≠ -다가(중간에 바뀜)",
+       "en": "-더니 (something I saw before) ≠ -다가 (changed midway)"
+      },
+      {
+       "ko": "-는 바람에(나쁜 이유) ≠ -(으)ㄴ 덕분에(좋은 이유)",
+       "en": "-는 바람에 (bad reason) ≠ -(으)ㄴ 덕분에 (good reason)"
+      }
+     ]
+    },
+    {
+     "ko": "남은 보기 하나를 문장 전체에 넣어 한 번 더 읽고 어색하지 않은지 확인해요.",
+     "en": "Read the sentence once more with your answer; if it sounds odd, choose again."
     }
    ],
    "words": [

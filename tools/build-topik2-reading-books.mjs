@@ -64,6 +64,39 @@ const BOOKS = [
   { n: 3, from: 25, to: 45, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
   { n: 4, from: 46, to: 50, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
 ];
+/* 얇던 유형의 풀이 단계를 빈칸 채우기만큼 자세하게(운영자 2026-11-03 「풀이 방법이 빈칸 채우기만 됐어 · 나머지도 다」): 단계 6개 안팎 + 보기 속 예 */
+Object.assign(TYPE_INFO.paraphrase, { steps: [
+  ['밑줄 친 표현이 들어간 문장을 끝까지 읽고, 문장의 뜻을 쉬운 말로 바꿔 말해 봐요.', 'Read the whole sentence with the underlined part and say its meaning in easy words.'],
+  ['밑줄 친 표현이 무엇인지 가려요.', 'Decide what kind of expression is underlined.', [['문법(-는 바람에 · -더니 · -(으)ㄴ 덕분에 …) → 뜻 + 때 · 이유 · 조건을 떠올려요', 'grammar → recall its meaning: time, reason, condition'], ['낱말(관용 표현 포함) → 비슷한 쉬운 말을 떠올려요', 'a word or idiom → think of an easier word with the same meaning']]],
+  ['밑줄 친 표현만 따로 풀어 써요. 예: -는 바람에 = 나쁜 이유 · -(으)ㄴ 덕분에 = 좋은 이유.', 'Explain the underlined part alone. E.g. -는 바람에 = bad reason; -(으)ㄴ 덕분에 = good reason.'],
+  ['보기를 하나씩 밑줄 자리에 넣어 읽어요. 문장의 뜻이 그대로이면 정답 후보예요.', 'Put each option in place of the underlined part. If the meaning stays the same, it is a candidate.'],
+  ['뜻이 반대이거나 시간 · 이유가 바뀌면 버려요.', 'Drop options that reverse the meaning or change the time or reason.', [['-더니(전에 본 일) ≠ -다가(중간에 바뀜)', '-더니 (something I saw before) ≠ -다가 (changed midway)'], ['-는 바람에(나쁜 이유) ≠ -(으)ㄴ 덕분에(좋은 이유)', '-는 바람에 (bad reason) ≠ -(으)ㄴ 덕분에 (good reason)']]],
+  ['남은 보기 하나를 문장 전체에 넣어 한 번 더 읽고 어색하지 않은지 확인해요.', 'Read the sentence once more with your answer; if it sounds odd, choose again.'],
+] });
+Object.assign(TYPE_INFO.headline, { steps: [
+  ['제목의 핵심 낱말(명사 · 동사)에 동그라미를 쳐요. 조사와 어미는 줄여서 읽어요.', 'Circle the key nouns and verbs. Headlines drop particles and endings, so add them back.'],
+  ['줄여 쓴 말을 풀어 써요.', 'Expand the shortened phrases.', [['「가격 ↑」 = 값이 올랐다', '"price ↑" = the price went up'], ['「~ 눈길」 = 관심을 끌다', '"~ 눈길" = attracts attention'], ['「…로 몸살」 = …때문에 힘들다', '"…로 몸살" = is struggling because of …']]],
+  ['제목이 말하는 방향을 확인해요: 늘다 · 줄다 · 높아지다 · 낮아지다.', 'Check the direction the headline points: up, down, higher, lower.'],
+  ['보기를 하나씩 읽고 제목과 같은 내용인지 비교해요.', 'Read each option and compare it with the headline.'],
+  ['제목에 없는 내용을 덧붙인 보기, 방향이 반대인 보기는 버려요.', 'Drop options that add what the headline does not say or reverse its direction.', [['제목: 관광객 증가 → 보기: 관광객이 줄었다 ✗', 'Headline: tourists up → option: tourists fell ✗'], ['제목에 없는 이유나 결과를 덧붙임 ✗', 'adds a reason or result not in the headline ✗']]],
+  ['남은 보기를 제목에 넣어 읽어 보고 뜻이 같은지 마지막으로 확인해요.', 'Re-read your answer against the headline one last time.'],
+] });
+Object.assign(TYPE_INFO.feeling, { steps: [
+  ['밑줄 친 문장의 앞뒤를 읽고 무슨 일이 있었는지 한 줄로 말해요.', 'Read around the underlined part and say what happened in one line.'],
+  ['그 일이 좋은 일인지 나쁜 일인지 먼저 정해요.', 'Decide first whether the event was good or bad for "I".', [['합격 · 선물 · 칭찬 → 좋은 일', 'pass · gift · praise → good'], ['실패 · 이별 · 지각 → 나쁜 일', 'failure · parting · being late → bad']]],
+  ['그 일을 겪은 ‘나’의 행동 · 몸의 변화를 찾아요.', 'Find what "I" did or felt in the body.', [['한숨을 쉬다 · 눈물이 나다', 'sigh · tears'], ['웃음이 나다 · 가슴이 뛰다', 'smile · racing heart']]],
+  ['행동을 감정으로 바꿔요.', 'Turn the action into a feeling.', [['한숨 = 걱정 · 아쉬움', 'sigh = worry · regret'], ['가슴이 뛰다 = 설렘 · 긴장', 'racing heart = excitement · nerves'], ['눈물이 나다 = 감동 · 슬픔', 'tears = moved · sad']]],
+  ['보기 네 개의 감정 낱말 중 좋은 일 · 나쁜 일에 맞는 것만 남겨요.', 'Keep only the options that match good or bad.'],
+  ['남은 보기가 둘이면, 밑줄 친 문장 바로 앞뒤의 행동과 더 가까운 것을 골라요.', 'If two remain, pick the one closer to the actions right around the underlined part.'],
+] });
+Object.assign(TYPE_INFO.attitude, { steps: [
+  ['글 끝 문장의 끝(어미)을 먼저 봐요.', 'Look at the ending of the last sentences first.', [['-아/어야 한다 → 주장', '-아/어야 한다 → insistence'], ['-(으)ㄹ 것이다 → 전망', '-(으)ㄹ 것이다 → prediction'], ['-기 어렵다 · -는 것은 문제이다 → 비판', '-기 어렵다 · -는 것은 문제이다 → criticism']]],
+  ['글쓴이가 평가하는 말을 찾아요.', 'Find the words with which the writer evaluates.', [['문제이다 · 걱정스럽다 → 부정', 'is a problem · worrying → negative'], ['바람직하다 · 필요하다 → 긍정', 'desirable · necessary → positive']]],
+  ['찬성 · 반대 · 걱정 · 기대 중 어느 쪽인지 정해요.', 'Decide: agree, oppose, worry, or expect.'],
+  ['보기의 태도 낱말을 글의 표현과 맞춰 봐요.', 'Match the attitude words in the options with the text.', [['비판하다 = 잘못을 짚다', 'criticize = point out a fault'], ['우려하다 = 걱정하다', 'be concerned = worry'], ['기대하다 · 설명하다 · 주장하다', 'expect · explain · insist']]],
+  ['글에 한 번 나온 낱말만으로 고르지 않아요. 글 전체의 분위기와 맞는 것을 골라요.', 'Do not choose from one word only. Pick the attitude that fits the whole text.'],
+  ['남은 보기를 글쓴이의 마지막 문장에 대어 보고 어울리는지 확인해요.', 'Test your answer against the last sentence.'],
+] });
 const rangeOf = (set) => { const a = [...set].sort((x, y) => x - y); const out = []; for (let i = 0; i < a.length;) { let j = i; while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++; out.push(j > i ? `${a[i]}~${a[j]}` : `${a[i]}`); i = j + 1; } return out.join(', '); };
 let seed = 20261101; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 const circ = '①②③④';

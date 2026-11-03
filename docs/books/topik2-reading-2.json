@@ -615,16 +615,58 @@
      "en": "Read around the underlined part and say what happened in one line."
     },
     {
-     "ko": "그 일을 겪은 ‘나’의 행동을 찾아요: 한숨을 쉬다 · 웃음이 나다 · 가슴이 뛰다 · 눈물이 나다.",
-     "en": "Find what \"I\" did: sighed, smiled, heart raced, cried."
+     "ko": "그 일이 좋은 일인지 나쁜 일인지 먼저 정해요.",
+     "en": "Decide first whether the event was good or bad for \"I\".",
+     "sub": [
+      {
+       "ko": "합격 · 선물 · 칭찬 → 좋은 일",
+       "en": "pass · gift · praise → good"
+      },
+      {
+       "ko": "실패 · 이별 · 지각 → 나쁜 일",
+       "en": "failure · parting · being late → bad"
+      }
+     ]
     },
     {
-     "ko": "행동 → 감정으로 바꿔요: 한숨 = 걱정 · 아쉬움, 가슴이 뛰다 = 설렘 · 긴장.",
-     "en": "Turn action into feeling: sigh = worry or regret; racing heart = excitement or nerves."
+     "ko": "그 일을 겪은 ‘나’의 행동 · 몸의 변화를 찾아요.",
+     "en": "Find what \"I\" did or felt in the body.",
+     "sub": [
+      {
+       "ko": "한숨을 쉬다 · 눈물이 나다",
+       "en": "sigh · tears"
+      },
+      {
+       "ko": "웃음이 나다 · 가슴이 뛰다",
+       "en": "smile · racing heart"
+      }
+     ]
     },
     {
-     "ko": "보기 네 개의 감정 낱말 중 일의 결과(좋은 일 · 나쁜 일)에 맞는 것만 남겨요.",
-     "en": "Keep the feeling that matches the outcome (good or bad)."
+     "ko": "행동을 감정으로 바꿔요.",
+     "en": "Turn the action into a feeling.",
+     "sub": [
+      {
+       "ko": "한숨 = 걱정 · 아쉬움",
+       "en": "sigh = worry · regret"
+      },
+      {
+       "ko": "가슴이 뛰다 = 설렘 · 긴장",
+       "en": "racing heart = excitement · nerves"
+      },
+      {
+       "ko": "눈물이 나다 = 감동 · 슬픔",
+       "en": "tears = moved · sad"
+      }
+     ]
+    },
+    {
+     "ko": "보기 네 개의 감정 낱말 중 좋은 일 · 나쁜 일에 맞는 것만 남겨요.",
+     "en": "Keep only the options that match good or bad."
+    },
+    {
+     "ko": "남은 보기가 둘이면, 밑줄 친 문장 바로 앞뒤의 행동과 더 가까운 것을 골라요.",
+     "en": "If two remain, pick the one closer to the actions right around the underlined part."
     }
    ],
    "words": [

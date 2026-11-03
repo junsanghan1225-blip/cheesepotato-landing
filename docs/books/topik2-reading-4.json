@@ -483,16 +483,66 @@
    },
    "steps": [
     {
-     "ko": "글 끝의 문장 끝(어미)을 보세요: -아/어야 한다(주장) · -ㄹ 것이다(전망) · -기 어렵다(비판).",
-     "en": "Look at the sentence endings: should (claim), will (forecast), is hard (criticism)."
+     "ko": "글 끝 문장의 끝(어미)을 먼저 봐요.",
+     "en": "Look at the ending of the last sentences first.",
+     "sub": [
+      {
+       "ko": "-아/어야 한다 → 주장",
+       "en": "-아/어야 한다 → insistence"
+      },
+      {
+       "ko": "-(으)ㄹ 것이다 → 전망",
+       "en": "-(으)ㄹ 것이다 → prediction"
+      },
+      {
+       "ko": "-기 어렵다 · -는 것은 문제이다 → 비판",
+       "en": "-기 어렵다 · -는 것은 문제이다 → criticism"
+      }
+     ]
     },
     {
-     "ko": "글쓴이가 찬성 · 반대 · 걱정 · 기대 중 어느 쪽인지 평가하는 말을 찾아요(문제이다 · 바람직하다).",
-     "en": "Find evaluation words: problem, desirable, worrying."
+     "ko": "글쓴이가 평가하는 말을 찾아요.",
+     "en": "Find the words with which the writer evaluates.",
+     "sub": [
+      {
+       "ko": "문제이다 · 걱정스럽다 → 부정",
+       "en": "is a problem · worrying → negative"
+      },
+      {
+       "ko": "바람직하다 · 필요하다 → 긍정",
+       "en": "desirable · necessary → positive"
+      }
+     ]
     },
     {
-     "ko": "보기의 태도 낱말(비판하다 · 우려하다 · 기대하다 · 설명하다)을 글의 표현과 맞춰 봐요.",
-     "en": "Match the option verbs (criticize, worry, expect, explain) to the text."
+     "ko": "찬성 · 반대 · 걱정 · 기대 중 어느 쪽인지 정해요.",
+     "en": "Decide: agree, oppose, worry, or expect."
+    },
+    {
+     "ko": "보기의 태도 낱말을 글의 표현과 맞춰 봐요.",
+     "en": "Match the attitude words in the options with the text.",
+     "sub": [
+      {
+       "ko": "비판하다 = 잘못을 짚다",
+       "en": "criticize = point out a fault"
+      },
+      {
+       "ko": "우려하다 = 걱정하다",
+       "en": "be concerned = worry"
+      },
+      {
+       "ko": "기대하다 · 설명하다 · 주장하다",
+       "en": "expect · explain · insist"
+      }
+     ]
+    },
+    {
+     "ko": "글에 한 번 나온 낱말만으로 고르지 않아요. 글 전체의 분위기와 맞는 것을 골라요.",
+     "en": "Do not choose from one word only. Pick the attitude that fits the whole text."
+    },
+    {
+     "ko": "남은 보기를 글쓴이의 마지막 문장에 대어 보고 어울리는지 확인해요.",
+     "en": "Test your answer against the last sentence."
     }
    ],
    "words": [
