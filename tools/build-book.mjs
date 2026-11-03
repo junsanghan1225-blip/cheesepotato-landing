@@ -365,7 +365,7 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 <dt>Printed · 발행일</dt><dd class="ph">○○○○년 ○월 ○일</dd>`}
 <dt>Web</dt><dd>${esc(B.web)}</dd></dl>
 <p>All sentences, tables and exercises in this book were written for it. They are original practice material.<br>이 책의 낱말 · 문장 · 연습은 모두 이 책을 위해 새로 쓴 것입니다.</p>
-<p>The text and exercises were drafted with the help of generative AI tools (including Google Gemini 3.8 Flash), then reviewed and edited by the author.<br>이 책의 글과 문항은 생성형 AI 도구(Google Gemini 3.8 Flash 등)의 도움으로 초안을 만들고 저자가 검수 · 편집했습니다.</p>
+<p>AI tools (including Google Gemini) were used in part. The author did all the review and editing.<br>AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자가 직접 했습니다.</p>
 <p>© ${esc(B.publisher.en)}. All rights reserved. No part of this book may be reproduced without written permission, except for brief quotations in reviews or for classroom use by the purchaser.<br>저작권법에 따라 보호받는 책으로, 무단 복제와 전재를 금합니다.</p>
 <p>TOPIK is the name of an exam run by the National Institute for International Education (NIIED). This book is an independent study aid; it is not operated, endorsed or certified by NIIED or the TOPIK Center, and its questions are original, not past exam papers.<br>TOPIK 은 국립국제교육원의 시험 이름입니다. 이 책은 독자적으로 만든 학습서이며 국립국제교육원 · 한국어능력시험센터가 운영 · 제휴 · 인증하지 않았습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다.</p>
 <p>Typeset in Pretendard (SIL Open Font License 1.1).</p>
@@ -697,7 +697,7 @@ const selfHtml = (s) => {
   const bx = (ko, en) => `<span class="sbx"><i></i>${ko} <small>${en}</small></span>`;
   const why = ['낱말', '문법', '글이 길다', '시간', '찍었다'].map((k) => `<span class="sbx"><i></i>${k}</span>`).join('');
   const rows = Array.from({ length: nHard }, (_, i) => `<tr><td class="sn">${i + 1}</td><td class="sno"></td><td class="swy">${why}</td><td class="sfx"><span class="sbx"><i></i></span></td></tr>`).join('');
-  const keyRows = s.key ? `<p class="scq">정답표 <small>Answer key — 풀이는 책 끝 정답 쪽에서 확인하세요 · explanations are at the end of the book</small></p><div class="skey">${s.key.map((a, i) => `<div><b>${s.from + i}</b>${cn(a)}</div>`).join('')}</div>` : '';
+  const keyRows = s.key ? `<p class="scq">정답표 <small>Answer key · 풀이는 책 끝 정답 쪽에서 확인하세요 · explanations are at the end of the book</small></p><div class="skey">${s.key.map((a, i) => `<div><b>${s.from + i}</b>${cn(a)}</div>`).join('')}</div>` : '';
   return `<div class="sckw"><div class="sctop"><b>스스로 점검 <small>Self check</small></b><span>${s.unitWord || '모의고사'} <u>${s.no ?? ''}</u> 회 <small>${s.noEn || 'Test No.'}</small></span></div>
 <table class="sck1"><tr><th>걸린 시간 <small>Time taken</small></th><td><u></u> 분 min <small>(권장 ${s.rec}분 · recommended ${s.rec} min)</small></td><th>맞은 개수 <small>Score</small></th><td style="white-space:nowrap"><u></u> / ${s.total}</td></tr>
 <tr><th>시간은 어땠나요? <small>How was the time?</small></th><td colspan="3">${bx('남았다', 'extra time')}${bx('딱 맞았다', 'just right')}${bx('모자랐다', 'not enough')}</td></tr></table>
