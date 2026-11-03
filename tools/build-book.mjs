@@ -177,7 +177,7 @@ const CSS = `
 @page{size:${W}mm ${H}mm;margin:22mm 17mm 24mm 22mm}
 @page:left{margin:22mm 22mm 24mm 17mm;
   @top-left{content:${cssStr(B.title.en.toUpperCase())};white-space:nowrap;font:600 6.8pt 'Pretendard Variable';letter-spacing:.12em;color:#9a9288;vertical-align:bottom;padding-bottom:5mm}
-  @bottom-left{content:counter(page);font:700 8.5pt 'Pretendard Variable';color:${ACC};vertical-align:top;padding-top:6mm}}
+  @bottom-right{content:counter(page);margin-right:-5mm;font:700 8.5pt 'Pretendard Variable';color:${ACC};vertical-align:top;padding-top:6mm}}
 @page:right{
   @bottom-right{content:counter(page);font:700 8.5pt 'Pretendard Variable';color:${ACC};vertical-align:top;padding-top:6mm}}
 @page plain{@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
