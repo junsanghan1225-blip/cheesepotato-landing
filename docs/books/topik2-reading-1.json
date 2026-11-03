@@ -4,7 +4,7 @@
  "published": "2026.11.10",
  "edition": "Draft proof · 시안",
  "theme": "classic",
- "color": "#2E9E79",
+ "color": "#2E669E",
  "tint": "#F4F4F2",
  "series": {
   "en": "TOPIK SERIES",
@@ -15,8 +15,8 @@
   "ko": "TOPIK II 읽기 1~15번"
  },
  "sub": {
-  "en": "384 original questions: practice in exam-number order, with explanations.",
-  "ko": "새로 만든 문제 384개 · 시험 번호 순서대로 연습"
+  "en": "384 original questions: questions by exam-number type, with explanations.",
+  "ko": "새로 만든 문제 384개 · 시험 번호 유형별 문제"
  },
  "levelTag": "READING",
  "level": "TOPIK II",
@@ -61,9 +61,9 @@
  },
  "preface": {
   "en": [
-   "384 questions for TOPIK II reading questions 1 to 15, in exam-number order: practice in exam-number order. Practice number by number until the pattern becomes automatic.",
+   "384 questions for TOPIK II reading questions 1 to 15, in exam-number order: questions by exam-number type. Work through the numbers until the pattern becomes automatic.",
    "Every question is newly written for this book in the style of the real test. None is a past exam question.",
-   "Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question."
+   "Before the question sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question."
   ],
   "ko": [
    "TOPIK II 읽기 1~15번에 해당하는 384문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.",
@@ -74,13 +74,13 @@
  "howto": {
   "en": [
    "Read the method page for each type first.",
-   "Solve one practice set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
+   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
   "ko": [
    "유형마다 풀이 방법 쪽을 먼저 읽습니다.",
-   "연습 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
+   "유형별 문제를 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
    "정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.",
    "며칠 뒤 틀린 문항을 다시 풉니다."
   ]
@@ -88,8 +88,8 @@
  "parts": [
   {
    "title": {
-    "en": "Practice sets",
-    "ko": "연습"
+    "en": "Questions by type",
+    "ko": "유형별 문제"
    },
    "units": [
     "r1-01",
@@ -802,8 +802,8 @@
  "coverLevel": {
   "code": "TOPIK II",
   "name": "3~6급",
-  "bg": "#2E9E79",
-  "bg2": "#1C6B52",
+  "bg": "#2E669E",
+  "bg2": "#1F4668",
   "mascot": [
    "cheese",
    3
@@ -814,12 +814,12 @@
    "읽기",
    "1~15번"
   ],
-  "sub": "새로 만든 문제 384개 · 시험 번호 순서대로 연습"
+  "sub": "새로 만든 문제 384개 · 시험 번호 유형별 문제"
  },
  "back": {
   "items": [
    [
-    "39 sets · 연습 39회",
+    "39 sets · 유형별 문제 39회",
     "384 questions for exam no. 1–15 · 시험 1~15번 384문항"
    ],
    [
@@ -838,8 +838,8 @@
   "r1-01": {
    "id": "r1-01",
    "title": {
-    "en": "Practice 1",
-    "ko": "연습 1회"
+    "en": "Type set 1",
+    "ko": "유형별 문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1033,9 +1033,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 1
@@ -1051,7 +1051,7 @@
      "total": 10,
      "from": 1,
      "no": 1,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -1071,8 +1071,8 @@
   "r1-02": {
    "id": "r1-02",
    "title": {
-    "en": "Practice 2",
-    "ko": "연습 2회"
+    "en": "Type set 2",
+    "ko": "유형별 문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1266,9 +1266,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 2
@@ -1284,7 +1284,7 @@
      "total": 10,
      "from": 1,
      "no": 2,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -1304,8 +1304,8 @@
   "r1-03": {
    "id": "r1-03",
    "title": {
-    "en": "Practice 3",
-    "ko": "연습 3회"
+    "en": "Type set 3",
+    "ko": "유형별 문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1499,9 +1499,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 3
@@ -1517,7 +1517,7 @@
      "total": 10,
      "from": 1,
      "no": 3,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -1537,8 +1537,8 @@
   "r1-04": {
    "id": "r1-04",
    "title": {
-    "en": "Practice 4",
-    "ko": "연습 4회"
+    "en": "Type set 4",
+    "ko": "유형별 문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 1–2 · about 14 min",
@@ -1732,9 +1732,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 4
@@ -1750,7 +1750,7 @@
      "total": 10,
      "from": 1,
      "no": 4,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -1770,8 +1770,8 @@
   "r1-05": {
    "id": "r1-05",
    "title": {
-    "en": "Practice 5",
-    "ko": "연습 5회"
+    "en": "Type set 5",
+    "ko": "유형별 문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 2 · about 14 min",
@@ -1965,9 +1965,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 5
@@ -1983,7 +1983,7 @@
      "total": 10,
      "from": 1,
      "no": 5,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -2003,8 +2003,8 @@
   "r1-06": {
    "id": "r1-06",
    "title": {
-    "en": "Practice 6",
-    "ko": "연습 6회"
+    "en": "Type set 6",
+    "ko": "유형별 문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 2 · about 14 min",
@@ -2198,9 +2198,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 6
@@ -2216,7 +2216,7 @@
      "total": 10,
      "from": 1,
      "no": 6,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -2236,8 +2236,8 @@
   "r1-07": {
    "id": "r1-07",
    "title": {
-    "en": "Practice 7",
-    "ko": "연습 7회"
+    "en": "Type set 7",
+    "ko": "유형별 문제 7회"
    },
    "sub": {
     "en": "10 questions · exam no. 2 · about 14 min",
@@ -2431,9 +2431,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 7
@@ -2449,7 +2449,7 @@
      "total": 10,
      "from": 1,
      "no": 7,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -2469,8 +2469,8 @@
   "r1-08": {
    "id": "r1-08",
    "title": {
-    "en": "Practice 8",
-    "ko": "연습 8회"
+    "en": "Type set 8",
+    "ko": "유형별 문제 8회"
    },
    "sub": {
     "en": "10 questions · exam no. 2–3 · about 14 min",
@@ -2664,9 +2664,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 8
@@ -2682,7 +2682,7 @@
      "total": 10,
      "from": 1,
      "no": 8,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -2702,8 +2702,8 @@
   "r1-09": {
    "id": "r1-09",
    "title": {
-    "en": "Practice 9",
-    "ko": "연습 9회"
+    "en": "Type set 9",
+    "ko": "유형별 문제 9회"
    },
    "sub": {
     "en": "10 questions · exam no. 3 · about 14 min",
@@ -2897,9 +2897,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 9
@@ -2915,7 +2915,7 @@
      "total": 10,
      "from": 1,
      "no": 9,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -2935,8 +2935,8 @@
   "r1-10": {
    "id": "r1-10",
    "title": {
-    "en": "Practice 10",
-    "ko": "연습 10회"
+    "en": "Type set 10",
+    "ko": "유형별 문제 10회"
    },
    "sub": {
     "en": "10 questions · exam no. 3 · about 14 min",
@@ -3130,9 +3130,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 10
@@ -3148,7 +3148,7 @@
      "total": 10,
      "from": 1,
      "no": 10,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -3168,8 +3168,8 @@
   "r1-11": {
    "id": "r1-11",
    "title": {
-    "en": "Practice 11",
-    "ko": "연습 11회"
+    "en": "Type set 11",
+    "ko": "유형별 문제 11회"
    },
    "sub": {
     "en": "10 questions · exam no. 3–4 · about 14 min",
@@ -3363,9 +3363,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 11
@@ -3381,7 +3381,7 @@
      "total": 10,
      "from": 1,
      "no": 11,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -3401,8 +3401,8 @@
   "r1-12": {
    "id": "r1-12",
    "title": {
-    "en": "Practice 12",
-    "ko": "연습 12회"
+    "en": "Type set 12",
+    "ko": "유형별 문제 12회"
    },
    "sub": {
     "en": "10 questions · exam no. 4 · about 14 min",
@@ -3596,9 +3596,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 12
@@ -3614,7 +3614,7 @@
      "total": 10,
      "from": 1,
      "no": 12,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -3634,8 +3634,8 @@
   "r1-13": {
    "id": "r1-13",
    "title": {
-    "en": "Practice 13",
-    "ko": "연습 13회"
+    "en": "Type set 13",
+    "ko": "유형별 문제 13회"
    },
    "sub": {
     "en": "10 questions · exam no. 4 · about 14 min",
@@ -3829,9 +3829,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 13
@@ -3847,7 +3847,7 @@
      "total": 10,
      "from": 1,
      "no": 13,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -3867,8 +3867,8 @@
   "r1-14": {
    "id": "r1-14",
    "title": {
-    "en": "Practice 14",
-    "ko": "연습 14회"
+    "en": "Type set 14",
+    "ko": "유형별 문제 14회"
    },
    "sub": {
     "en": "10 questions · exam no. 4 · about 14 min",
@@ -4062,9 +4062,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 14
@@ -4080,7 +4080,7 @@
      "total": 10,
      "from": 1,
      "no": 14,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -4100,8 +4100,8 @@
   "r1-15": {
    "id": "r1-15",
    "title": {
-    "en": "Practice 15",
-    "ko": "연습 15회"
+    "en": "Type set 15",
+    "ko": "유형별 문제 15회"
    },
    "sub": {
     "en": "10 questions · exam no. 4–5 · about 14 min",
@@ -4295,9 +4295,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 15
@@ -4313,7 +4313,7 @@
      "total": 10,
      "from": 1,
      "no": 15,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -4333,8 +4333,8 @@
   "r1-16": {
    "id": "r1-16",
    "title": {
-    "en": "Practice 16",
-    "ko": "연습 16회"
+    "en": "Type set 16",
+    "ko": "유형별 문제 16회"
    },
    "sub": {
     "en": "10 questions · exam no. 5 · about 14 min",
@@ -4528,9 +4528,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 16
@@ -4546,7 +4546,7 @@
      "total": 10,
      "from": 1,
      "no": 16,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -4566,8 +4566,8 @@
   "r1-17": {
    "id": "r1-17",
    "title": {
-    "en": "Practice 17",
-    "ko": "연습 17회"
+    "en": "Type set 17",
+    "ko": "유형별 문제 17회"
    },
    "sub": {
     "en": "10 questions · exam no. 5–6 · about 14 min",
@@ -4761,9 +4761,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 17
@@ -4779,7 +4779,7 @@
      "total": 10,
      "from": 1,
      "no": 17,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -4799,8 +4799,8 @@
   "r1-18": {
    "id": "r1-18",
    "title": {
-    "en": "Practice 18",
-    "ko": "연습 18회"
+    "en": "Type set 18",
+    "ko": "유형별 문제 18회"
    },
    "sub": {
     "en": "10 questions · exam no. 6 · about 14 min",
@@ -4994,9 +4994,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 18
@@ -5012,7 +5012,7 @@
      "total": 10,
      "from": 1,
      "no": 18,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -5032,8 +5032,8 @@
   "r1-19": {
    "id": "r1-19",
    "title": {
-    "en": "Practice 19",
-    "ko": "연습 19회"
+    "en": "Type set 19",
+    "ko": "유형별 문제 19회"
    },
    "sub": {
     "en": "10 questions · exam no. 6–7 · about 14 min",
@@ -5227,9 +5227,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 19
@@ -5245,7 +5245,7 @@
      "total": 10,
      "from": 1,
      "no": 19,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -5265,8 +5265,8 @@
   "r1-20": {
    "id": "r1-20",
    "title": {
-    "en": "Practice 20",
-    "ko": "연습 20회"
+    "en": "Type set 20",
+    "ko": "유형별 문제 20회"
    },
    "sub": {
     "en": "10 questions · exam no. 7 · about 14 min",
@@ -5460,9 +5460,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 20
@@ -5478,7 +5478,7 @@
      "total": 10,
      "from": 1,
      "no": 20,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -5498,8 +5498,8 @@
   "r1-21": {
    "id": "r1-21",
    "title": {
-    "en": "Practice 21",
-    "ko": "연습 21회"
+    "en": "Type set 21",
+    "ko": "유형별 문제 21회"
    },
    "sub": {
     "en": "10 questions · exam no. 7–8 · about 14 min",
@@ -5693,9 +5693,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 21
@@ -5711,7 +5711,7 @@
      "total": 10,
      "from": 1,
      "no": 21,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -5731,8 +5731,8 @@
   "r1-22": {
    "id": "r1-22",
    "title": {
-    "en": "Practice 22",
-    "ko": "연습 22회"
+    "en": "Type set 22",
+    "ko": "유형별 문제 22회"
    },
    "sub": {
     "en": "10 questions · exam no. 8 · about 14 min",
@@ -5926,9 +5926,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 22
@@ -5944,7 +5944,7 @@
      "total": 10,
      "from": 1,
      "no": 22,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -5964,8 +5964,8 @@
   "r1-23": {
    "id": "r1-23",
    "title": {
-    "en": "Practice 23",
-    "ko": "연습 23회"
+    "en": "Type set 23",
+    "ko": "유형별 문제 23회"
    },
    "sub": {
     "en": "10 questions · exam no. 8–9 · about 14 min",
@@ -6159,9 +6159,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 23
@@ -6177,7 +6177,7 @@
      "total": 10,
      "from": 1,
      "no": 23,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -6197,8 +6197,8 @@
   "r1-24": {
    "id": "r1-24",
    "title": {
-    "en": "Practice 24",
-    "ko": "연습 24회"
+    "en": "Type set 24",
+    "ko": "유형별 문제 24회"
    },
    "sub": {
     "en": "10 questions · exam no. 9 · about 14 min",
@@ -6392,9 +6392,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 24
@@ -6410,7 +6410,7 @@
      "total": 10,
      "from": 1,
      "no": 24,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -6430,8 +6430,8 @@
   "r1-25": {
    "id": "r1-25",
    "title": {
-    "en": "Practice 25",
-    "ko": "연습 25회"
+    "en": "Type set 25",
+    "ko": "유형별 문제 25회"
    },
    "sub": {
     "en": "10 questions · exam no. 9–10 · about 14 min",
@@ -6625,9 +6625,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 25
@@ -6643,7 +6643,7 @@
      "total": 10,
      "from": 1,
      "no": 25,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -6663,8 +6663,8 @@
   "r1-26": {
    "id": "r1-26",
    "title": {
-    "en": "Practice 26",
-    "ko": "연습 26회"
+    "en": "Type set 26",
+    "ko": "유형별 문제 26회"
    },
    "sub": {
     "en": "10 questions · exam no. 10 · about 14 min",
@@ -6858,9 +6858,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 26
@@ -6876,7 +6876,7 @@
      "total": 10,
      "from": 1,
      "no": 26,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -6896,8 +6896,8 @@
   "r1-27": {
    "id": "r1-27",
    "title": {
-    "en": "Practice 27",
-    "ko": "연습 27회"
+    "en": "Type set 27",
+    "ko": "유형별 문제 27회"
    },
    "sub": {
     "en": "10 questions · exam no. 10–11 · about 14 min",
@@ -7091,9 +7091,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 27
@@ -7109,7 +7109,7 @@
      "total": 10,
      "from": 1,
      "no": 27,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -7129,8 +7129,8 @@
   "r1-28": {
    "id": "r1-28",
    "title": {
-    "en": "Practice 28",
-    "ko": "연습 28회"
+    "en": "Type set 28",
+    "ko": "유형별 문제 28회"
    },
    "sub": {
     "en": "10 questions · exam no. 11 · about 14 min",
@@ -7324,9 +7324,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 28
@@ -7342,7 +7342,7 @@
      "total": 10,
      "from": 1,
      "no": 28,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -7362,8 +7362,8 @@
   "r1-29": {
    "id": "r1-29",
    "title": {
-    "en": "Practice 29",
-    "ko": "연습 29회"
+    "en": "Type set 29",
+    "ko": "유형별 문제 29회"
    },
    "sub": {
     "en": "10 questions · exam no. 11–12 · about 14 min",
@@ -7557,9 +7557,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 29
@@ -7575,7 +7575,7 @@
      "total": 10,
      "from": 1,
      "no": 29,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -7595,8 +7595,8 @@
   "r1-30": {
    "id": "r1-30",
    "title": {
-    "en": "Practice 30",
-    "ko": "연습 30회"
+    "en": "Type set 30",
+    "ko": "유형별 문제 30회"
    },
    "sub": {
     "en": "10 questions · exam no. 12 · about 14 min",
@@ -7790,9 +7790,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 30
@@ -7808,7 +7808,7 @@
      "total": 10,
      "from": 1,
      "no": 30,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -7828,8 +7828,8 @@
   "r1-31": {
    "id": "r1-31",
    "title": {
-    "en": "Practice 31",
-    "ko": "연습 31회"
+    "en": "Type set 31",
+    "ko": "유형별 문제 31회"
    },
    "sub": {
     "en": "10 questions · exam no. 12–13 · about 14 min",
@@ -8023,9 +8023,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 31
@@ -8041,7 +8041,7 @@
      "total": 10,
      "from": 1,
      "no": 31,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -8061,8 +8061,8 @@
   "r1-32": {
    "id": "r1-32",
    "title": {
-    "en": "Practice 32",
-    "ko": "연습 32회"
+    "en": "Type set 32",
+    "ko": "유형별 문제 32회"
    },
    "sub": {
     "en": "10 questions · exam no. 13 · about 14 min",
@@ -8256,9 +8256,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 32
@@ -8274,7 +8274,7 @@
      "total": 10,
      "from": 1,
      "no": 32,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -8294,8 +8294,8 @@
   "r1-33": {
    "id": "r1-33",
    "title": {
-    "en": "Practice 33",
-    "ko": "연습 33회"
+    "en": "Type set 33",
+    "ko": "유형별 문제 33회"
    },
    "sub": {
     "en": "10 questions · exam no. 13 · about 14 min",
@@ -8489,9 +8489,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 33
@@ -8507,7 +8507,7 @@
      "total": 10,
      "from": 1,
      "no": 33,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,
@@ -8527,8 +8527,8 @@
   "r1-34": {
    "id": "r1-34",
    "title": {
-    "en": "Practice 34",
-    "ko": "연습 34회"
+    "en": "Type set 34",
+    "ko": "유형별 문제 34회"
    },
    "sub": {
     "en": "10 questions · exam no. 13–14 · about 14 min",
@@ -8722,9 +8722,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 34
@@ -8740,7 +8740,7 @@
      "total": 10,
      "from": 1,
      "no": 34,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -8760,8 +8760,8 @@
   "r1-35": {
    "id": "r1-35",
    "title": {
-    "en": "Practice 35",
-    "ko": "연습 35회"
+    "en": "Type set 35",
+    "ko": "유형별 문제 35회"
    },
    "sub": {
     "en": "10 questions · exam no. 14 · about 14 min",
@@ -8955,9 +8955,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 35
@@ -8973,7 +8973,7 @@
      "total": 10,
      "from": 1,
      "no": 35,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       1,
@@ -8993,8 +8993,8 @@
   "r1-36": {
    "id": "r1-36",
    "title": {
-    "en": "Practice 36",
-    "ko": "연습 36회"
+    "en": "Type set 36",
+    "ko": "유형별 문제 36회"
    },
    "sub": {
     "en": "10 questions · exam no. 14–15 · about 14 min",
@@ -9188,9 +9188,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 36
@@ -9206,7 +9206,7 @@
      "total": 10,
      "from": 1,
      "no": 36,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -9226,8 +9226,8 @@
   "r1-37": {
    "id": "r1-37",
    "title": {
-    "en": "Practice 37",
-    "ko": "연습 37회"
+    "en": "Type set 37",
+    "ko": "유형별 문제 37회"
    },
    "sub": {
     "en": "10 questions · exam no. 15 · about 14 min",
@@ -9421,9 +9421,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 37
@@ -9439,7 +9439,7 @@
      "total": 10,
      "from": 1,
      "no": 37,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       2,
@@ -9459,8 +9459,8 @@
   "r1-38": {
    "id": "r1-38",
    "title": {
-    "en": "Practice 38",
-    "ko": "연습 38회"
+    "en": "Type set 38",
+    "ko": "유형별 문제 38회"
    },
    "sub": {
     "en": "10 questions · exam no. 15 · about 14 min",
@@ -9654,9 +9654,9 @@
      },
      "from": 1,
      "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 38
@@ -9672,7 +9672,7 @@
      "total": 10,
      "from": 1,
      "no": 38,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       0,
@@ -9692,8 +9692,8 @@
   "r1-39": {
    "id": "r1-39",
    "title": {
-    "en": "Practice 39",
-    "ko": "연습 39회"
+    "en": "Type set 39",
+    "ko": "유형별 문제 39회"
    },
    "sub": {
     "en": "4 questions · exam no. 15 · about 6 min",
@@ -9785,9 +9785,9 @@
      },
      "from": 1,
      "to": 4,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
+     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
+     "sheetEn": "Reading Questions · Answer Sheet",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "lite": true,
      "no": 39
@@ -9803,7 +9803,7 @@
      "total": 4,
      "from": 1,
      "no": 39,
-     "unitWord": "연습",
+     "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
       3,

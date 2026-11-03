@@ -59,7 +59,7 @@ const rng = (chunk, sep) => { const lo = Math.min(...chunk.map((q) => q.slot)), 
 const EXAMPLES = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/examples/reading-examples.json'), 'utf8'));   // 따로 만든 예시 + 단계별 풀이 · 팁(운영자 2026-11-02)
 const recMin = (n) => Math.max(1, Math.round(n * 84 / 60));
 const BOOKS = [
-  { n: 1, from: 1, to: 15, bg: '#2E9E79', bg2: '#1C6B52', mascot: 3, ink: '#2E9E79' },
+  { n: 1, from: 1, to: 15, bg: '#2E669E', bg2: '#1F4668', mascot: 3, ink: '#2E669E' },
   { n: 2, from: 16, to: 24, bg: '#7C1D1D', bg2: '#521212', mascot: 4, ink: '#7C1D1D' },
   { n: 3, from: 25, to: 45, bg: '#9E2E8B', bg2: '#6B1C5D', mascot: 5, ink: '#9E2E8B' },
   { n: 4, from: 46, to: 50, bg: '#455F11', bg2: '#2D3F0A', mascot: 6, ink: '#455F11' },
@@ -72,7 +72,7 @@ for (const B of BOOKS) {
   const all = TOPIK2_READING.filter((q) => q.slot >= B.from && q.slot <= B.to);
   B.types = ORDER_ALL.filter((t) => all.some((q) => q.type === t));
   B.name = { ko: `${B.from}~${B.to}번`, en: `Questions ${B.from}–${B.to}` };
-  B.sub = { ko: '시험 번호 순서대로 연습', en: 'practice in exam-number order' };   // 표지 글을 줄이려고 짧게(운영자 2026-11-02)
+  B.sub = { ko: '시험 번호 유형별 문제', en: 'questions by exam-number type' };   // 표지 글을 줄이려고 짧게(운영자 2026-11-02)
   /* 급(3~6)이 앞에서 뒤로 올라가되, 한 회에는 소재 · 유형이 겹치지 않게: 급 → 유형 번갈아, 같은 소재는 멀리 */
   const sorted = [...all].sort((a, b) => (a.slot - b.slot) || (a.grade - b.grade) || (rnd() - 0.5));   // 시험 번호 순서 → 같은 번호 안에서는 급(3→6) 순
   const nUnits = Math.ceil(all.length / 10), size = Math.ceil(all.length / nUnits);
@@ -83,7 +83,7 @@ for (const B of BOOKS) {
     const chunk = order.slice(u * size, u * size + size); if (!chunk.length) break;
     const id = `r${B.n}-${String(u + 1).padStart(2, '0')}`; unitIds.push(id);
     const items = chunk.map((q, k) => ({ no: k + 1, id: q.id, type: q.type, genre: q.genre, grade: q.grade, passage: q.passage, question: q.question, options: q.options, answer: q.answer, why: q.why, ...(q.sentence ? { sentence: q.sentence } : {}) }));
-    inline[id] = { id, title: { en: `Practice ${u + 1}`, ko: `연습 ${u + 1}회` }, sub: { en: `${chunk.length} questions · exam no. ${rng(chunk, '–')} · about ${recMin(chunk.length)} min`, ko: `${chunk.length}문항 · 시험 ${rng(chunk, '~')}번 · 권장 약 ${recMin(chunk.length)}분` }, sections: [{ type: 'mcq', title: { en: `Questions 1–${chunk.length}`, ko: `1~${chunk.length}번` }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 1, to: chunk.length, sheetKo: 'TOPIK II 읽기 연습 답안지', sheetEn: 'Reading Practice · Answer Sheet', unitWord: '연습', noEn: 'Set No.', lite: true, no: u + 1 }, { type: 'selfcheck', title: { en: 'Self check', ko: '스스로 점검' }, compact: true, rec: recMin(chunk.length), total: chunk.length, from: 1, no: u + 1, unitWord: '연습', noEn: 'Set No.', key: items.map((q) => q.answer) }] };
+    inline[id] = { id, title: { en: `Type set ${u + 1}`, ko: `유형별 문제 ${u + 1}회` }, sub: { en: `${chunk.length} questions · exam no. ${rng(chunk, '–')} · about ${recMin(chunk.length)} min`, ko: `${chunk.length}문항 · 시험 ${rng(chunk, '~')}번 · 권장 약 ${recMin(chunk.length)}분` }, sections: [{ type: 'mcq', title: { en: `Questions 1–${chunk.length}`, ko: `1~${chunk.length}번` }, items }, { type: 'omr', title: { en: 'Answer sheet', ko: '답안지' }, from: 1, to: chunk.length, sheetKo: 'TOPIK II 읽기 유형별 문제 답안지', sheetEn: 'Reading Questions · Answer Sheet', unitWord: '문제', noEn: 'Set No.', lite: true, no: u + 1 }, { type: 'selfcheck', title: { en: 'Self check', ko: '스스로 점검' }, compact: true, rec: recMin(chunk.length), total: chunk.length, from: 1, no: u + 1, unitWord: '문제', noEn: 'Set No.', key: items.map((q) => q.answer) }] };
   }
   const exampleOf = (t) => all.filter((q) => q.type === t && (t !== 'insert' || q.sentence)).sort((a, b) => a.passage.length - b.passage.length)[0];
   const methods = B.types.filter((t) => all.some((q) => q.type === t)).map((t) => { const m = TYPE_INFO[t]; const ex = exampleOf(t); const ofType = all.filter((q) => q.type === t);
@@ -99,13 +99,13 @@ for (const B of BOOKS) {
     sub: { en: `${N} original questions: ${B.sub.en.toLowerCase()}, with explanations.`, ko: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
     levelTag: 'READING', level: 'TOPIK II', trim: base.trim, author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web, reviewer: base.reviewer, authorBio: base.authorBio,
     preface: {
-      en: [`${N} questions for TOPIK II reading questions ${B.from} to ${B.to}, in exam-number order: ${B.sub.en}. Practice number by number until the pattern becomes automatic.`, 'Every question is newly written for this book in the style of the real test. None is a past exam question.', 'Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question.'],
+      en: [`${N} questions for TOPIK II reading questions ${B.from} to ${B.to}, in exam-number order: ${B.sub.en}. Work through the numbers until the pattern becomes automatic.`, 'Every question is newly written for this book in the style of the real test. None is a past exam question.', 'Before the question sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question.'],
       ko: [`TOPIK II 읽기 ${B.from}~${B.to}번에 해당하는 ${N}문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.`, '모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.', '연습 앞에 유형마다 풀이 방법과 필요한 낱말을 한 쪽씩 실었습니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다.'] },
-    howto: { en: ['Read the method page for each type first.', 'Solve one practice set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.', 'Check the answer key and read the explanation of every question you missed.', 'Redo the missed questions after a few days.'], ko: ['유형마다 풀이 방법 쪽을 먼저 읽습니다.', '연습 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.', '정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.', '며칠 뒤 틀린 문항을 다시 풉니다.'] },
-    parts: [{ title: { en: 'Practice sets', ko: '연습' }, units: unitIds }],
+    howto: { en: ['Read the method page for each type first.', 'Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.', 'Check the answer key and read the explanation of every question you missed.', 'Redo the missed questions after a few days.'], ko: ['유형마다 풀이 방법 쪽을 먼저 읽습니다.', '유형별 문제를 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.', '정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.', '며칠 뒤 틀린 문항을 다시 풉니다.'] },
+    parts: [{ title: { en: 'Questions by type', ko: '유형별 문제' }, units: unitIds }],
     methods, noGuide: true, noIndex: true, noQr: true, unitCount: unitIds.length, coverAccent: '읽기',
     coverLevel: { code: 'TOPIK II', name: '3~6급', bg: B.bg, bg2: B.bg2, mascot: ['cheese', B.mascot], pastel: true, title: ['TOPIK II', '읽기', `${B.from}~${B.to}번`], sub: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
-    back: { items: [[`${unitIds.length} sets · 연습 ${unitIds.length}회`, `${N} questions for exam no. ${B.from}–${B.to} · 시험 ${B.from}~${B.to}번 ${N}문항`], [`${N} original questions · 새로 만든 문제 ${N}개`, 'In the real test style; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK II test takers · TOPIK II 응시 준비에', price: '정가 9.9달러' },
+    back: { items: [[`${unitIds.length} sets · 유형별 문제 ${unitIds.length}회`, `${N} questions for exam no. ${B.from}–${B.to} · 시험 ${B.from}~${B.to}번 ${N}문항`], [`${N} original questions · 새로 만든 문제 ${N}개`, 'In the real test style; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK II test takers · TOPIK II 응시 준비에', price: '정가 9.9달러' },
     inline,
   };
   book.sub.ko = book.coverLevel.sub;
