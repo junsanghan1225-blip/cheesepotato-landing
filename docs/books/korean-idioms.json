@@ -471,6 +471,123 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "힘을 쓰다",
+       "mean": "to use one's strength; to exert influence or pull strings",
+       "ctx": {
+        "ko": "무거운 물건을 들며 애쓰거나 누군가를 돕기 위해 영향력과 수고를 아끼지 않을 때",
+        "en": "Used when exerting physical strength or pulling strings and making an effort to help someone."
+       },
+       "with": [
+        {
+         "ko": "뒤에서 남몰래",
+         "en": "quietly behind the scenes"
+        },
+        {
+         "ko": "해결하려고 힘을",
+         "en": "exert effort to solve"
+        },
+        {
+         "ko": "온 힘을 쓰다",
+         "en": "use all one's strength"
+        }
+       ],
+       "note": {
+        "ko": "몸의 힘을 쓰는 뜻과 영향력을 행사해 돕는 뜻 두 가지로 쓰여요.",
+        "en": "Used both for physical effort and for using one's influence to help."
+       },
+       "alt": "영향력을 행사하다"
+      },
+      {
+       "head": "머리를 식히다",
+       "mean": "to clear one's head; to take a mental break",
+       "ctx": {
+        "ko": "공부나 일로 지친 사람에게 잠깐 쉬라고 권하거나 스스로 휴식을 말할 때",
+        "en": "Used to suggest taking a short break when tired from studying or working."
+       },
+       "with": [
+        {
+         "ko": "잠깐 나가서",
+         "en": "stepping out briefly"
+        },
+        {
+         "ko": "산책하며",
+         "en": "while taking a walk"
+        },
+        {
+         "ko": "머리를 식히러",
+         "en": "to clear one's head"
+        }
+       ],
+       "note": {
+        "ko": "가벼운 일상 대화와 글 모두에 자연스럽게 어울려요.",
+        "en": "Natural in both casual talk and writing."
+       },
+       "alt": "기분 전환을 하다"
+      },
+      {
+       "head": "시간을 내다",
+       "mean": "to make time; to spare some time for someone or something",
+       "ctx": {
+        "ko": "바쁜 상대에게 만남을 정중히 부탁하거나 짬을 만들어 주었을 때 고마움을 표할 때",
+        "en": "Used when politely asking a busy person to meet or thanking them for making time."
+       },
+       "with": [
+        {
+         "ko": "바쁜 와중에",
+         "en": "amid a busy schedule"
+        },
+        {
+         "ko": "잠깐이라도",
+         "en": "even for a moment"
+        },
+        {
+         "ko": "시간을 내 주다",
+         "en": "spare time for someone"
+        }
+       ],
+       "note": {
+        "ko": "저절로 틈이 생기는 「시간이 나다」와 달리 일부러 짬을 만드는 뜻이에요.",
+        "en": "Unlike '시간이 나다', this means intentionally carving out time."
+       },
+       "alt": "짬을 내다"
+      },
+      {
+       "head": "시간이 나다",
+       "mean": "to have free time; to find some spare time",
+       "ctx": {
+        "ko": "바쁜 일과 사이에 잠깐 여유가 생겼을 때 친구에게 연락하거나 만남을 제안하며 쓰는 말",
+        "en": "Used casually when free time opens up between busy tasks to suggest meeting or talking."
+       },
+       "with": [
+        {
+         "ko": "주말에 시간이 나면",
+         "en": "if free on the weekend"
+        },
+        {
+         "ko": "잠깐 틈이 나서",
+         "en": "having a brief break"
+        },
+        {
+         "ko": "여유 시간이 나다",
+         "en": "have spare time"
+        }
+       ],
+       "note": {
+        "ko": "저절로 여유가 생기는 뜻이며 일부러 짬을 만들 때는 「시간을 내다」를 써요.",
+        "en": "Means free time naturally arises; use '시간을 내다' for intentionally making time."
+       },
+       "alt": "틈이 생기다"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -869,6 +986,123 @@
         "ko": "시민들은 힘든 경제 위기 속에서도 서로를 격려하며 다시 일어설 힘을 내고 있다.",
         "en": "Citizens encourage each other in economic crises, gathering strength to rise again."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "시간이 지나다",
+       "mean": "time passes; after some time has passed",
+       "ctx": {
+        "ko": "약속 시각이 넘었거나 어떤 일을 겪은 뒤 세월이 흘러 감정이 무뎌졌음을 말할 때",
+        "en": "Used when a set time has passed or when feelings change after some time goes by."
+       },
+       "with": [
+        {
+         "ko": "약속 시간이 지나",
+         "en": "past the meeting time"
+        },
+        {
+         "ko": "시간이 지나면 자연히",
+         "en": "naturally as time passes"
+        },
+        {
+         "ko": "오랜 시간이 지난 뒤",
+         "en": "after a long time passes"
+        }
+       ],
+       "note": {
+        "ko": "구체적인 시각이 넘었을 때와 긴 세월이 흘렀을 때 모두 자연스럽게 써요.",
+        "en": "Works for both passing a specific clock time and the passage of years."
+       },
+       "alt": "시간이 흐르다"
+      },
+      {
+       "head": "코앞에 닥치다",
+       "mean": "to be imminent; to be right around the corner",
+       "ctx": {
+        "ko": "시험이나 마감일이 바로 직전까지 다가와 긴장감을 주거나 서두르라고 일깨울 때",
+        "en": "Used to warn or remind someone that an exam or deadline is right around the corner."
+       },
+       "with": [
+        {
+         "ko": "시험이 벌써",
+         "en": "the exam already"
+        },
+        {
+         "ko": "마감일이",
+         "en": "the deadline"
+        },
+        {
+         "ko": "코앞에 닥치자",
+         "en": "once it is imminent"
+        }
+       ],
+       "note": {
+        "ko": "주로 시험·마감·위기처럼 부담스러운 일이 다가올 때 써요.",
+        "en": "Mostly used for stressful upcoming events like exams or deadlines."
+       },
+       "alt": "임박하다"
+      },
+      {
+       "head": "마음을 먹다",
+       "mean": "to make up one's mind; to set one's heart on doing something",
+       "ctx": {
+        "ko": "운동이나 공부 같은 새 계획을 단단히 결심했을 때 일상적으로 두루 쓰는 말",
+        "en": "Used in daily life when firmly deciding to start a new plan like exercising or studying."
+       },
+       "with": [
+        {
+         "ko": "굳게 결심하고",
+         "en": "firmly resolving"
+        },
+        {
+         "ko": "큰맘 먹고",
+         "en": "making a bold decision"
+        },
+        {
+         "ko": "마음을 먹으면",
+         "en": "once you set your mind"
+        }
+       ],
+       "note": {
+        "ko": "구어에서는 「큰맘 먹고」처럼 줄여서도 아주 자주 써요.",
+        "en": "Often shortened to '큰맘 먹고' in spoken Korean."
+       },
+       "alt": "결심하다"
+      },
+      {
+       "head": "기분을 풀다",
+       "mean": "to cheer up; to soothe someone's feelings; to shake off bad mood",
+       "ctx": {
+        "ko": "서운하거나 화가 난 친구에게 미안하다고 달래며 언짢은 마음을 누그러뜨리라고 권할 때",
+        "en": "Used when soothing an upset friend or trying to shake off one's own bad mood."
+       },
+       "with": [
+        {
+         "ko": "맛있는 걸 먹으며",
+         "en": "eating something tasty"
+        },
+        {
+         "ko": "상한 기분을 풀다",
+         "en": "soothe hurt feelings"
+        },
+        {
+         "ko": "이제 그만 기분 풀어",
+         "en": "cheer up now"
+        }
+       ],
+       "note": {
+        "ko": "화가 났을 때는 「화를 풀다」, 삐졌을 때는 「기분을 풀다」를 자주 써요.",
+        "en": "Often used interchangeably with '화를 풀다' when making up after a quarrel."
+       },
+       "alt": "화를 풀다"
       }
      ]
     },
@@ -1273,6 +1507,96 @@
         "ko": "연구원들은 기업의 핵심 기술 정보가 외부로 유출되지 않도록 비밀을 지켜야 한다.",
         "en": "Researchers must keep secrets so core technology data does not leak outside."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "약속을 어기다",
+       "mean": "to break a promise; to go back on one's word",
+       "ctx": {
+        "ko": "정해 둔 시간이나 다짐을 지키지 못해 사과하거나 상대방의 잘못을 지적할 때",
+        "en": "Used when apologizing for breaking a promise or pointing out someone's broken word."
+       },
+       "with": [
+        {
+         "ko": "시간 약속을 어겨",
+         "en": "breaking a time promise"
+        },
+        {
+         "ko": "거듭 약속을 어기다",
+         "en": "repeatedly break promises"
+        },
+        {
+         "ko": "신뢰를 잃다",
+         "en": "lose trust"
+        }
+       ],
+       "note": {
+        "ko": "반대말은 「약속을 지키다」이며 구어에서는 「약속을 깨다」라고도 해요.",
+        "en": "Opposite of '약속을 지키다'; casually also called '약속을 깨다'."
+       },
+       "alt": "약속을 깨다"
+      },
+      {
+       "head": "입이 가볍다",
+       "mean": "to be loose-lipped; unable to keep a secret",
+       "ctx": {
+        "ko": "비밀을 지키지 못하고 소문을 쉽게 내는 사람을 경계하거나 흉볼 때 쓰는 말",
+        "en": "Used to warn against or criticize someone who cannot keep secrets."
+       },
+       "with": [
+        {
+         "ko": "비밀을 말하기엔",
+         "en": "to tell a secret"
+        },
+        {
+         "ko": "워낙 입이 가벼워",
+         "en": "so loose-lipped that"
+        },
+        {
+         "ko": "소문을 내다",
+         "en": "spread rumors"
+        }
+       ],
+       "note": {
+        "ko": "부정적 평가이므로 본인 앞이나 윗사람에게는 쓰지 않아요.",
+        "en": "Negative judgment; avoid using it directly to someone's face or to elders."
+       },
+       "alt": ""
+      },
+      {
+       "head": "입이 무겁다",
+       "mean": "to be tight-lipped; to be good at keeping secrets",
+       "ctx": {
+        "ko": "중요한 비밀이나 고민을 털어놓아도 안심할 수 있는 믿음직한 사람을 칭찬할 때",
+        "en": "Used to praise a trustworthy person who keeps secrets safely."
+       },
+       "with": [
+        {
+         "ko": "비밀을 잘 지켜",
+         "en": "keeping secrets well"
+        },
+        {
+         "ko": "원래 입이 무거운",
+         "en": "naturally tight-lipped"
+        },
+        {
+         "ko": "믿고 말하다",
+         "en": "confide with trust"
+        }
+       ],
+       "note": {
+        "ko": "말수가 적은 것보다 비밀을 잘 지킨다는 칭찬의 뜻이 강해요.",
+        "en": "Praises keeping secrets rather than merely being quiet."
+       },
+       "alt": ""
       }
      ]
     },
@@ -1685,6 +2009,69 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "책임을 지다",
+       "mean": "to take responsibility; to bear the blame or consequences",
+       "ctx": {
+        "ko": "맡은 일을 끝까지 완수하거나 잘못된 결과에 대해 회피하지 않고 수습하겠다고 말할 때",
+        "en": "Used when pledging to see a duty through or taking responsibility for an outcome."
+       },
+       "with": [
+        {
+         "ko": "결과에 책임을 지다",
+         "en": "take responsibility for results"
+        },
+        {
+         "ko": "끝까지 맡아서",
+         "en": "taking charge to the end"
+        },
+        {
+         "ko": "무거운 책임을",
+         "en": "heavy responsibility"
+        }
+       ],
+       "note": {
+        "ko": "남에게 책임을 떠넘길 때는 반대로 「책임을 미루다/전가하다」를 써요.",
+        "en": "Shifting blame to others is expressed as '책임을 미루다'."
+       },
+       "alt": "책임을 떠안다"
+      },
+      {
+       "head": "영향을 미치다",
+       "mean": "to exert influence on; to have an effect on",
+       "ctx": {
+        "ko": "어떤 현상이나 정책이 사회나 건강 등에 변화를 가져올 때 논설문·발표에서 쓰는 격식 표현",
+        "en": "Formal phrase used in essays and reports to explain how one factor affects another."
+       },
+       "with": [
+        {
+         "ko": "긍정적인 영향을",
+         "en": "a positive influence"
+        },
+        {
+         "ko": "환경에 큰",
+         "en": "greatly on the environment"
+        },
+        {
+         "ko": "악영향을 미치다",
+         "en": "have an adverse effect"
+        }
+       ],
+       "note": {
+        "ko": "앞에 대상과 조사 「-에」를 함께 써서 「A가 B에 영향을 미치다」로 써요.",
+        "en": "Takes the particle '-에' on the target being affected."
+       },
+       "alt": "작용하다"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -2089,6 +2476,69 @@
         "ko": "정부는 인공지능 기반의 차세대 먹거리 산업 육성에 막대한 기대를 걸고 있다.",
         "en": "The government pins enormous hopes on fostering AI-based future growth engines."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "기대를 걸다",
+       "mean": "to place hopes on; to pin expectations on",
+       "ctx": {
+        "ko": "새로 시작하는 사업이나 유망한 선수에게 좋은 결과가 있을 거라고 믿고 희망을 둘 때",
+        "en": "Used when pinning hopes and expectations on a promising person, team, or project."
+       },
+       "with": [
+        {
+         "ko": "신제품에 큰 기대를",
+         "en": "high hopes on a new product"
+        },
+        {
+         "ko": "유망주에게 기대를 걸다",
+         "en": "pin hopes on a rising star"
+        },
+        {
+         "ko": "좋은 성과를 바라다",
+         "en": "hope for good results"
+        }
+       ],
+       "note": {
+        "ko": "앞에 대상과 조사 「-에/에게」를 함께 써서 희망을 두는 곳을 나타내요.",
+        "en": "Takes '-에/에게' on the person or thing one places hopes on."
+       },
+       "alt": "기대하다"
+      },
+      {
+       "head": "시간을 끌다",
+       "mean": "to stall for time; to buy time; to drag one's feet",
+       "ctx": {
+        "ko": "대답이나 결정을 바로 하지 않고 일부러 미루는 상대의 태도를 지적할 때",
+        "en": "Used to criticize someone who intentionally delays an answer or decision."
+       },
+       "with": [
+        {
+         "ko": "대답을 피하며",
+         "en": "avoiding an answer"
+        },
+        {
+         "ko": "공연히 시간을",
+         "en": "stall unnecessarily"
+        },
+        {
+         "ko": "질질 끌다",
+         "en": "drag things out"
+        }
+       ],
+       "note": {
+        "ko": "부정적인 어감이 있어서 상대의 지연을 비판할 때 주로 써요.",
+        "en": "Carries a negative nuance criticizing deliberate delay."
+       },
+       "alt": "뜸을 들이다"
       }
      ]
     },
@@ -2501,6 +2951,69 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "찬물을 끼얹다",
+       "mean": "to throw cold water on; to dampen the mood or progress",
+       "ctx": {
+        "ko": "신나고 좋은 분위기나 잘되던 일에 부정적인 말이나 사건이 불쑥 끼어들어 흥을 깰 때",
+        "en": "Used when a negative remark or sudden event ruins an upbeat mood or momentum."
+       },
+       "with": [
+        {
+         "ko": "좋은 분위기에",
+         "en": "on a cheerful mood"
+        },
+        {
+         "ko": "회복세에 찬물을",
+         "en": "dampen the recovery"
+        },
+        {
+         "ko": "흥에 찬물을 끼얹다",
+         "en": "spoil the excitement"
+        }
+       ],
+       "note": {
+        "ko": "일상 모임 분위기뿐 아니라 경제·스포츠 기사에서도 아주 자주 써요.",
+        "en": "Common in both party situations and economic or sports news."
+       },
+       "alt": "흥을 깨다"
+      },
+      {
+       "head": "가슴에 못을 박다",
+       "mean": "to break someone's heart; to deeply wound someone's feelings",
+       "ctx": {
+        "ko": "심한 말이나 불효, 배신으로 부모님이나 가까운 사람에게 평생 잊히지 않을 큰 상처를 주었을 때",
+        "en": "Used with deep regret when harsh words or actions leave a lasting wound in someone's heart."
+       },
+       "with": [
+        {
+         "ko": "모진 말로 가슴에",
+         "en": "with harsh words in the heart"
+        },
+        {
+         "ko": "부모님 가슴에 못을",
+         "en": "break parents' hearts"
+        },
+        {
+         "ko": "깊은 상처를 주다",
+         "en": "inflict a deep wound"
+        }
+       ],
+       "note": {
+        "ko": "단순한 서운함이 아니라 씻기 어려운 큰 슬픔과 후회를 말할 때 써요.",
+        "en": "Expresses deep, lasting emotional pain rather than minor disappointment."
+       },
+       "alt": "상처를 주다"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -2909,6 +3422,96 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "쓴맛을 보다",
+       "mean": "to taste bitterness; to experience bitter failure or defeat",
+       "ctx": {
+        "ko": "자신만만하게 도전했던 시험이나 사업, 경기에서 쓰라린 실패나 패배를 겪었을 때",
+        "en": "Used when experiencing the bitter taste of failure or defeat in an exam, business, or match."
+       },
+       "with": [
+        {
+         "ko": "실패의 쓴맛을 보다",
+         "en": "taste bitter failure"
+        },
+        {
+         "ko": "패배의 아픔을 겪고",
+         "en": "suffering the pain of defeat"
+        },
+        {
+         "ko": "세상의 쓴맛을 알다",
+         "en": "learn life's hard lessons"
+        }
+       ],
+       "note": {
+        "ko": "주로 「실패/패배의 쓴맛을 보다」처럼 앞에 원인을 붙여 자주 써요.",
+        "en": "Commonly preceded by '실패의' or '패배의' (the bitter taste of failure/defeat)."
+       },
+       "alt": "고배를 마시다"
+      },
+      {
+       "head": "눈이 높다",
+       "mean": "to have high standards; to be picky or discerning",
+       "ctx": {
+        "ko": "연인을 고르거나 물건을 살 때 기준이 까다로워 쉽게 만족하지 않는 사람에게 쓰는 말",
+        "en": "Used when someone has high standards in choosing a partner or buying things."
+       },
+       "with": [
+        {
+         "ko": "사람 보는 눈이",
+         "en": "standards for people"
+        },
+        {
+         "ko": "워낙 눈이 높아서",
+         "en": "having such high standards"
+        },
+        {
+         "ko": "기준이 까다롭다",
+         "en": "have picky criteria"
+        }
+       ],
+       "note": {
+        "ko": "안목이 좋다는 칭찬일 수도 있고 너무 까다롭다는 핀잔일 수도 있어요.",
+        "en": "Can be a compliment on good taste or a light tease about being picky."
+       },
+       "alt": ""
+      },
+      {
+       "head": "간이 크다",
+       "mean": "to be bold; to have a lot of nerve; daring or audacious",
+       "ctx": {
+        "ko": "남들이 무서워 피하는 일에 겁 없이 대담하게 나서거나 무모한 행동을 할 때 놀라며 쓰는 말",
+        "en": "Used in amazement or disbelief when someone acts boldly or audaciously without fear."
+       },
+       "with": [
+        {
+         "ko": "겁도 없이 정말",
+         "en": "truly without any fear"
+        },
+        {
+         "ko": "간이 크다는 말을 듣다",
+         "en": "be called bold and daring"
+        },
+        {
+         "ko": "대담하게 나서다",
+         "en": "step forward boldly"
+        }
+       ],
+       "note": {
+        "ko": "용기 있다는 칭찬일 수도 있고 너무 무모하다는 뜻일 수도 있어요.",
+        "en": "Can be praise for bravery or criticism for reckless audacity."
+       },
+       "alt": "배짱이 두둑하다"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -3309,6 +3912,69 @@
         "ko": "온라인 원격 수업 방식은 교육계 전반에 새로운 학습 문화로 확실히 자리를 잡았다.",
         "en": "Online remote classes have firmly established themselves as a new learning culture."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "자리를 잡다",
+       "mean": "to establish oneself; to settle down; to take root",
+       "ctx": {
+        "ko": "새 직장이나 이사 간 곳에서 초기 어려움을 넘기고 안정된 상태가 되었을 때",
+        "en": "Used when someone settles down stably in a new job, home, or system."
+       },
+       "with": [
+        {
+         "ko": "새 직장에서",
+         "en": "at a new workplace"
+        },
+        {
+         "ko": "제도가 안정적으로",
+         "en": "the system stably"
+        },
+        {
+         "ko": "점차 자리를 잡다",
+         "en": "gradually take root"
+        }
+       ],
+       "note": {
+        "ko": "사람의 생활 정착과 문화·제도의 정착 두 가지 모두에 아주 잘 쓰여요.",
+        "en": "Applies to both people settling down and new systems taking root."
+       },
+       "alt": "정착하다"
+      },
+      {
+       "head": "등을 돌리다",
+       "mean": "to turn one's back on; to alienate or forsake",
+       "ctx": {
+        "ko": "가깝던 사이나 지지하던 여론이 실망하여 관계를 끊고 돌아설 때 쓰는 말",
+        "en": "Used when friends, allies, or consumers turn away in disappointment."
+       },
+       "with": [
+        {
+         "ko": "소비자들이 등을",
+         "en": "consumers turning away"
+        },
+        {
+         "ko": "친한 친구에게",
+         "en": "from a close friend"
+        },
+        {
+         "ko": "냉정하게 등을 돌리다",
+         "en": "coldly turn one's back"
+        }
+       ],
+       "note": {
+        "ko": "개인 사이의 절교뿐 아니라 민심이나 고객 이탈을 다룬 기사에도 흔해요.",
+        "en": "Used for both personal breakups and loss of public or customer support."
+       },
+       "alt": "인연을 끊다"
       }
      ]
     },
@@ -3717,6 +4383,69 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "못을 박다",
+       "mean": "to nail down; to state emphatically and conclusively",
+       "ctx": {
+        "ko": "나중에 딴소리를 하거나 결정을 바꾸지 못하도록 처음부터 조건이나 입장을 딱 잘라 말할 때",
+        "en": "Used when stating a condition or refusal firmly and conclusively so it cannot be reversed."
+       },
+       "with": [
+        {
+         "ko": "안 된다고 못을 박다",
+         "en": "state flatly that it's a no"
+        },
+        {
+         "ko": "미리 확실하게",
+         "en": "firmly in advance"
+        },
+        {
+         "ko": "번복하지 못하게",
+         "en": "so it cannot be reversed"
+        }
+       ],
+       "note": {
+        "ko": "상처를 주는 「가슴에 못을 박다」와 달리 사실을 단정 짓는다는 뜻이에요.",
+        "en": "Unlike '가슴에 못을 박다' (hurt deeply), this means nailing down a statement."
+       },
+       "alt": "쐐기를 박다"
+      },
+      {
+       "head": "뜸을 들이다",
+       "mean": "to take one's time; to stall before acting or speaking",
+       "ctx": {
+        "ko": "중요한 소식이나 본론을 바로 말하지 않고 애가 타게 한참 망설이며 시간을 끌 때",
+        "en": "Used when someone stalls and hesitates before finally getting to the main point."
+       },
+       "with": [
+        {
+         "ko": "말하기 전에 한참",
+         "en": "for a long while before speaking"
+        },
+        {
+         "ko": "그만 뜸을 들이고",
+         "en": "stop stalling and"
+        },
+        {
+         "ko": "어서 본론을 말하다",
+         "en": "get to the point quickly"
+        }
+       ],
+       "note": {
+        "ko": "밥을 지을 때 뜸 들이는 것에서 온 말로 대화를 재촉할 때 자주 써요.",
+        "en": "Often used as '뜸 들이지 말고 말해 봐' to urge someone to speak up."
+       },
+       "alt": "시간을 끌다"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -4117,6 +4846,69 @@
         "ko": "그 학자는 평생을 바쳐 지방 국립대에 뼈를 묻으며 후학 양성에 힘썼다.",
         "en": "That scholar devoted his lifetime, dedicating his bones to foster disciples."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "발목을 잡히다",
+       "mean": "to be held back; to be trapped by one's weakness or unforeseen obstacle",
+       "ctx": {
+        "ko": "과거의 실수나 예상 못한 변수에 막혀 중요한 일을 앞두고 나아가지 못할 때",
+        "en": "Used when held back from moving forward due to a past mistake or unexpected obstacle."
+       },
+       "with": [
+        {
+         "ko": "과거의 실수에",
+         "en": "by a past mistake"
+        },
+        {
+         "ko": "부상에 발목을",
+         "en": "held back by injury"
+        },
+        {
+         "ko": "성장의 발목을 잡다",
+         "en": "hinder growth"
+        }
+       ],
+       "note": {
+        "ko": "능동형 「발목을 잡다」와 피동형 「발목을 잡히다」 둘 다 뉴스에 매우 흔해요.",
+        "en": "Both active '발목을 잡다' and passive '발목을 잡히다' are common in news."
+       },
+       "alt": "덜미를 잡히다"
+      },
+      {
+       "head": "가닥을 잡다",
+       "mean": "to get a clue; to figure out the direction; to unravel a problem",
+       "ctx": {
+        "ko": "복잡하게 얽혔던 논의나 사건에서 해결 방향과 실마리를 마침내 정리했을 때",
+        "en": "Used when a clear direction or outline finally emerges from a complicated issue."
+       },
+       "with": [
+        {
+         "ko": "논의의 방향을",
+         "en": "direction of discussion"
+        },
+        {
+         "ko": "원인을 밝히는 데",
+         "en": "in finding the cause"
+        },
+        {
+         "ko": "어느 정도 가닥을",
+         "en": "roughly figure out the direction"
+        }
+       ],
+       "note": {
+        "ko": "자동사 꼴인 「가닥이 잡히다」로도 일상과 뉴스에서 아주 자주 쓰여요.",
+        "en": "Also frequently used in the intransitive form '가닥이 잡히다'."
+       },
+       "alt": "갈피를 잡다"
       }
      ]
     },
@@ -4525,6 +5317,69 @@
         "ko": "비현실적인 주택 공급 대책은 서민들에게 그저 그림의 떡이었다.",
         "en": "Unrealistic housing supply plans were mere pie in the sky to ordinary citizens."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "하늘의 별 따기",
+       "mean": "reaching for the stars; next to impossible",
+       "ctx": {
+        "ko": "인기 공연 표 예매나 치열한 취업처럼 성공하기가 거의 불가능할 만큼 어려울 때",
+        "en": "Used when getting something, like popular tickets or a job, is nearly impossible."
+       },
+       "with": [
+        {
+         "ko": "기차표 구하기가",
+         "en": "getting train tickets"
+        },
+        {
+         "ko": "취업하기가 정말",
+         "en": "getting hired is truly"
+        },
+        {
+         "ko": "하늘의 별 따기다",
+         "en": "is next to impossible"
+        }
+       ],
+       "note": {
+        "ko": "앞에 「-기(가) 하늘의 별 따기다」 틀로 이어 쓰는 일이 가장 많아요.",
+        "en": "Most often used in the frame 'Verb-기(가) 하늘의 별 따기다'."
+       },
+       "alt": ""
+      },
+      {
+       "head": "시작이 반이다",
+       "mean": "well begun is half done; starting is the hardest part",
+       "ctx": {
+        "ko": "새로운 공부나 큰일을 앞두고 엄두가 안 나 망설이는 사람에게 일단 시작해 보라고 용기를 줄 때",
+        "en": "Used to encourage someone hesitating before a big task that just starting is half the battle."
+       },
+       "with": [
+        {
+         "ko": "일단 첫발을 떼면",
+         "en": "once you take the first step"
+        },
+        {
+         "ko": "시작이 반이라고",
+         "en": "saying well begun is half done"
+        },
+        {
+         "ko": "망설이지 말고 시작하다",
+         "en": "start without hesitation"
+        }
+       ],
+       "note": {
+        "ko": "새 출발을 응원할 때 일상 대화와 수필에서 가장 널리 쓰이는 속담이에요.",
+        "en": "One of the most popular proverbs for cheering on a new beginning."
+       },
+       "alt": ""
       }
      ]
     },
@@ -4942,6 +5797,42 @@
         "ko": "지루한 소송전이 무죄 판결로 마무리되자 앓던 이가 빠진 듯 안도했다.",
         "en": "Tedious litigation ending in acquittals brought tooth-pulled relief."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "세 살 버릇 여든까지 간다",
+       "mean": "habits formed in early childhood last a lifetime",
+       "ctx": {
+        "ko": "어릴 때나 초보 시절에 잘못 들인 습관은 나이가 들어서도 고치기 어렵다고 경계할 때",
+        "en": "Used to emphasize that habits formed early in childhood or training last a lifetime."
+       },
+       "with": [
+        {
+         "ko": "어릴 때 들인 습관이",
+         "en": "habits formed in childhood"
+        },
+        {
+         "ko": "평생 고치기 어려워",
+         "en": "hard to fix all one's life"
+        },
+        {
+         "ko": "처음부터 바르게 배우다",
+         "en": "learn properly from the start"
+        }
+       ],
+       "note": {
+        "ko": "아이들 교육뿐 아니라 운동이나 업무의 기본기를 강조할 때도 자주 써요.",
+        "en": "Used not only for child education but also for learning proper basics in work or sports."
+       },
+       "alt": ""
       }
      ]
     },
@@ -5376,6 +6267,150 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "십 년이면 강산도 변한다",
+       "mean": "ten years change all things; time changes everything",
+       "ctx": {
+        "ko": "오랜만에 고향이나 옛 동네를 찾았을 때 건물과 풍경이 몰라보게 달라진 것을 보며 감탄할 때",
+        "en": "Said nostalgically when seeing how drastically a place or the world has changed over ten years."
+       },
+       "with": [
+        {
+         "ko": "세월이 흘러 몰라보게",
+         "en": "beyond recognition over time"
+        },
+        {
+         "ko": "십 년이면 강산도 변한다더니",
+         "en": "as ten years change everything"
+        },
+        {
+         "ko": "세상이 완전히 바뀌다",
+         "en": "the world has completely changed"
+        }
+       ],
+       "note": {
+        "ko": "사자성어 「상전벽해」나 「격세지감」과 뜻이 잘 통하는 속담이에요.",
+        "en": "Shares the same theme of dramatic change over time as '상전벽해' and '격세지감'."
+       },
+       "alt": ""
+      },
+      {
+       "head": "콩 심은 데 콩 나고 팥 심은 데 팥 난다",
+       "mean": "you reap what you sow; like causes produce like effects",
+       "ctx": {
+        "ko": "노력한 만큼 정직한 결과가 나오거나 부모의 성품을 자녀가 그대로 닮았음을 말할 때",
+        "en": "Used to explain that outcomes naturally match their causes, or that children take after their parents."
+       },
+       "with": [
+        {
+         "ko": "원인에 맞는 결과가",
+         "en": "results matching the cause"
+        },
+        {
+         "ko": "부모를 그대로 닮아",
+         "en": "resembling parents closely"
+        },
+        {
+         "ko": "노력한 대로 거두다",
+         "en": "reap just what you sow"
+        }
+       ],
+       "note": {
+        "ko": "글에서는 줄여서 한자어 「콩 심은 데 콩 난다」나 「인과응보」와 함께 자주 써요.",
+        "en": "Often shortened to '콩 심은 데 콩 난다' in daily conversation."
+       },
+       "alt": ""
+      },
+      {
+       "head": "남의 떡이 더 커 보인다",
+       "mean": "the grass is always greener on the other side",
+       "ctx": {
+        "ko": "똑같은 조건인데도 내 것보다 남이 가진 물건이나 처지가 괜히 더 좋아 보일 때",
+        "en": "Used when someone envies another's share or situation even though theirs is just as good."
+       },
+       "with": [
+        {
+         "ko": "원래 사람 마음이",
+         "en": "human nature being so"
+        },
+        {
+         "ko": "내 것보다 남의 떡이",
+         "en": "others' share over mine"
+        },
+        {
+         "ko": "더 좋아 보이다",
+         "en": "look better"
+        }
+       ],
+       "note": {
+        "ko": "부러워하는 친구를 달래거나 스스로의 욕심을 돌아볼 때 가볍게 써요.",
+        "en": "Used lightly to comfort an envious friend or reflect on one's own desires."
+       },
+       "alt": "남의 밥에 든 콩이 더 굵어 보인다"
+      },
+      {
+       "head": "뛰는 놈 위에 나는 놈 있다",
+       "mean": "there is always someone better; pride goes before a fall",
+       "ctx": {
+        "ko": "자기 실력만 믿고 우쭐대지 말라고 경계하거나 더 뛰어난 고수를 만나 놀랐을 때",
+        "en": "Used to warn against arrogance or to marvel when an even greater expert appears."
+       },
+       "with": [
+        {
+         "ko": "자만하지 말고 겸손히",
+         "en": "humbly without arrogance"
+        },
+        {
+         "ko": "더 뛰어난 고수가",
+         "en": "an even greater master"
+        },
+        {
+         "ko": "뛰는 놈 위에 나는 놈",
+         "en": "someone better than the best"
+        }
+       ],
+       "note": {
+        "ko": "스포츠 경기나 경연 대회에서 쟁쟁한 실력자들이 맞붙을 때 자주 인용돼요.",
+        "en": "Frequently cited in sports or competitions when top contenders face off."
+       },
+       "alt": ""
+      },
+      {
+       "head": "배보다 배꼽이 더 크다",
+       "mean": "the tail wags the dog; secondary costs outweigh the main expense",
+       "ctx": {
+        "ko": "물건값보다 배송비나 수리비 같은 부수적인 비용이 오히려 더 많이 들 때 어이없어하는 말",
+        "en": "Used when extra costs like shipping or repair fees exceed the price of the main item."
+       },
+       "with": [
+        {
+         "ko": "수리비가 더 나와",
+         "en": "repair costs costing more"
+        },
+        {
+         "ko": "본래 가격보다",
+         "en": "more than the main price"
+        },
+        {
+         "ko": "배보다 배꼽이 더 크다",
+         "en": "secondary cost is bigger"
+        }
+       ],
+       "note": {
+        "ko": "일상 쇼핑 후기나 요금 제도를 다루는 기사에서 아주 자주 볼 수 있어요.",
+        "en": "Frequently seen in shopping reviews and articles on fee structures."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -5802,6 +6837,69 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "돌다리도 두들겨 보고 건너라",
+       "mean": "look before you leap; be extra cautious even when safe",
+       "ctx": {
+        "ko": "확실해 보이는 계약이나 익숙한 일이라도 방심하지 말고 한 번 더 점검하라고 조언할 때",
+        "en": "Used to advise double-checking even a seemingly safe plan or familiar task."
+       },
+       "with": [
+        {
+         "ko": "계약하기 전에",
+         "en": "before signing a contract"
+        },
+        {
+         "ko": "확실한 일이라도",
+         "en": "even if it seems certain"
+        },
+        {
+         "ko": "신중하게 확인하다",
+         "en": "check carefully"
+        }
+       ],
+       "note": {
+        "ko": "「아는 길도 물어 가라」와 함께 신중함을 강조하는 대표 속담이에요.",
+        "en": "A classic proverb for caution, alongside '아는 길도 물어 가라'."
+       },
+       "alt": "아는 길도 물어 가라"
+      },
+      {
+       "head": "고생 끝에 낙이 온다",
+       "mean": "joy comes after hardship; no pain, no gain",
+       "ctx": {
+        "ko": "지금 겪는 수험 생활이나 고된 훈련을 잘 견디면 반드시 좋은 결과가 온다고 격려할 때",
+        "en": "Used to comfort and encourage someone enduring hard study or training for a future reward."
+       },
+       "with": [
+        {
+         "ko": "힘든 시기를 견디면",
+         "en": "if you endure hard times"
+        },
+        {
+         "ko": "고생 끝에 낙이 온다고",
+         "en": "saying joy follows hardship"
+        },
+        {
+         "ko": "좋은 결과를 얻다",
+         "en": "get a good result"
+        }
+       ],
+       "note": {
+        "ko": "사자성어 「고진감래」와 뜻이 똑같아 시험 지문에서 짝으로 자주 나와요.",
+        "en": "Matches the four-character idiom '고진감래' in exams and essays."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -6224,6 +7322,42 @@
         "ko": "이번 갈등은 비 온 뒤에 땅이 굳어지듯 신뢰를 다지는 계기가 되었다.",
         "en": "This conflict became a chance to solidify trust like ground hardening after rain."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "간에 기별도 안 간다",
+       "mean": "hardly enough to fill a tooth; not nearly enough to satisfy hunger",
+       "ctx": {
+        "ko": "배가 무척 고픈데 음식 양이 너무 적어서 먹고 나도 전혀 배부르지 않을 때 농담처럼 하는 말",
+        "en": "Said humorously when a portion of food is so tiny that it barely touches one's hunger."
+       },
+       "with": [
+        {
+         "ko": "양이 너무 적어서",
+         "en": "the portion being too small"
+        },
+        {
+         "ko": "이 정도로는 간에",
+         "en": "with just this tiny bit"
+        },
+        {
+         "ko": "배가 전혀 안 차다",
+         "en": "not filling at all"
+        }
+       ],
+       "note": {
+        "ko": "시식 코너나 작은 간식을 먹었을 때 친한 사이에서 가볍게 쓰는 구어 표현이에요.",
+        "en": "Lighthearted spoken phrase used among friends when eating a tiny snack."
+       },
+       "alt": ""
       }
      ]
     },
@@ -6658,6 +7792,42 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "칼로 물 베기",
+       "mean": "cutting water with a sword; lovers' quarrels leave no scars",
+       "ctx": {
+        "ko": "부부나 아주 친한 사이는 잠시 크게 다투더라도 금방 마음이 풀려 화해하게 된다고 말할 때",
+        "en": "Used to comfort or smile at a couple's quarrel, noting they will make up quickly with no trace."
+       },
+       "with": [
+        {
+         "ko": "부부싸움은 원래",
+         "en": "a couple's quarrel is"
+        },
+        {
+         "ko": "칼로 물 베기라더니",
+         "en": "like cutting water with a sword"
+        },
+        {
+         "ko": "금방 다시 화해하다",
+         "en": "make up again right away"
+        }
+       ],
+       "note": {
+        "ko": "거의 항상 「부부싸움은 칼로 물 베기」라는 한 문장처럼 붙여서 써요.",
+        "en": "Almost always used in the full phrase '부부싸움은 칼로 물 베기'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -7084,6 +8254,96 @@
         "ko": "지휘관이 부재한 조직은 사공이 많아 배가 산으로 가는 혼선을 겪는다.",
         "en": "Organizations without directors suffer confusion as too many cooks spoil the broth."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "똥 묻은 개가 겨 묻은 개 나무란다",
+       "mean": "the pot calling the kettle black",
+       "ctx": {
+        "ko": "자기는 훨씬 더 큰 잘못을 저질러 놓고 남의 사소한 실수를 가지고 시비를 걸며 흉볼 때",
+        "en": "Used to criticize someone with a glaring fault who scolds others for a tiny mistake."
+       },
+       "with": [
+        {
+         "ko": "자기 잘못은 모르고",
+         "en": "blind to one's own fault"
+        },
+        {
+         "ko": "남의 작은 실수를",
+         "en": "another's minor mistake"
+        },
+        {
+         "ko": "오히려 나무라다",
+         "en": "scold others instead"
+        }
+       ],
+       "note": {
+        "ko": "어감이 직설적인 구어 속담이므로 격식 있는 글에서는 「적반하장」을 더 자주 써요.",
+        "en": "Colloquial and blunt; in formal writing, '적반하장' is preferred."
+       },
+       "alt": ""
+      },
+      {
+       "head": "바늘 도둑이 소 도둑 된다",
+       "mean": "he that will steal a pin will steal an ox; small vices lead to big crimes",
+       "ctx": {
+        "ko": "아무리 작고 사소한 거짓말이나 나쁜 버릇이라도 그냥 두면 나중에 큰 잘못으로 커진다고 경고할 때",
+        "en": "Used to warn that overlooking small wrongdoings leads to much bigger crimes later."
+       },
+       "with": [
+        {
+         "ko": "작은 잘못을 방치하면",
+         "en": "if small faults are ignored"
+        },
+        {
+         "ko": "나쁜 버릇이 커져서",
+         "en": "bad habits growing bigger"
+        },
+        {
+         "ko": "큰 죄를 저지르다",
+         "en": "commit a major offense"
+        }
+       ],
+       "note": {
+        "ko": "어린 시절의 정직함과 초기 규율의 중요성을 다루는 글에 자주 인용돼요.",
+        "en": "Frequently cited in essays on honesty and correcting bad habits early."
+       },
+       "alt": ""
+      },
+      {
+       "head": "병 주고 약 준다",
+       "mean": "harming someone and then pretending to help; playing arsonist and firefighter",
+       "ctx": {
+        "ko": "먼저 심한 말이나 행동으로 남에게 상처를 준 사람이 뒤늦게 걱정해 주는 척하며 달랠 때",
+        "en": "Used when the very person who caused harm turns around and pretends to comfort the victim."
+       },
+       "with": [
+        {
+         "ko": "상처를 주고서는",
+         "en": "after hurting someone"
+        },
+        {
+         "ko": "뒤늦게 위로하는 척",
+         "en": "pretending to comfort later"
+        },
+        {
+         "ko": "병 주고 약 주는 격",
+         "en": "harming then playing nice"
+        }
+       ],
+       "note": {
+        "ko": "앞뒤가 안 맞는 얄미운 행동을 꼬집을 때 일상 대화에서 아주 자주 써요.",
+        "en": "Common in daily conversation to call out two-faced, hypocritical comfort."
+       },
+       "alt": ""
       }
      ]
     },
@@ -7518,6 +8778,42 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "강 건너 불구경",
+       "mean": "watching a fire across the river; bystander apathy",
+       "ctx": {
+        "ko": "이웃이나 동료가 큰 어려움을 겪고 있는데도 나와 상관없는 일이라며 무관심하게 지켜볼 때",
+        "en": "Used to criticize standing by indifferently while others suffer a crisis."
+       },
+       "with": [
+        {
+         "ko": "남의 일처럼 여기며",
+         "en": "treating it as others' business"
+        },
+        {
+         "ko": "강 건너 불구경하듯",
+         "en": "like watching a distant fire"
+        },
+        {
+         "ko": "모른 척 방관하다",
+         "en": "look on indifferently"
+        }
+       ],
+       "note": {
+        "ko": "관용구 「뒷짐을 지다」나 사자성어 「수수방관」과 뜻이 통하는 표현이에요.",
+        "en": "Shares the same meaning as '뒷짐을 지다' and '수수방관'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -7944,6 +9240,69 @@
         "ko": "비상 기금을 곶감 빼먹듯 야금야금 소진하면 위기 대응이 불가능해진다.",
         "en": "Depleting emergency funds bit by bit makes crisis response impossible."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "윗물이 맑아야 아랫물이 맑다",
+       "mean": "as the upper stream is pure, so is the lower; leaders set the moral tone",
+       "ctx": {
+        "ko": "부모나 상사, 사회 지도층이 먼저 바르고 깨끗하게 행동해야 아랫사람도 본받는다고 강조할 때",
+        "en": "Used in editorials or advice to stress that leaders and elders must set an honest example first."
+       },
+       "with": [
+        {
+         "ko": "지도층이 먼저",
+         "en": "leaders first"
+        },
+        {
+         "ko": "모범을 보여야",
+         "en": "must set an example"
+        },
+        {
+         "ko": "아랫사람이 따르다",
+         "en": "juniors follow suit"
+        }
+       ],
+       "note": {
+        "ko": "공직 기강이나 가정교육의 솔선수범을 다룬 논설문에 단골로 쓰여요.",
+        "en": "Frequently cited in essays on leadership ethics and family education."
+       },
+       "alt": ""
+      },
+      {
+       "head": "서당 개 삼 년이면 풍월을 읊는다",
+       "mean": "experience breeds competence; even a novice learns by long exposure",
+       "ctx": {
+        "ko": "전문가는 아니지만 한 분야에서 오래 일하거나 곁에서 보고 들어 기본 요령은 생겼다고 말할 때",
+        "en": "Used modestly when saying one has picked up the basics simply by being around experts for years."
+       },
+       "with": [
+        {
+         "ko": "옆에서 오래 보더니",
+         "en": "watching beside for long"
+        },
+        {
+         "ko": "자연히 요령이 생겨",
+         "en": "naturally picking up skills"
+        },
+        {
+         "ko": "어깨너머로 배우다",
+         "en": "learn over someone's shoulder"
+        }
+       ],
+       "note": {
+        "ko": "자신의 실력을 겸손하고 재치 있게 낮추어 말할 때 쓰기 좋은 속담이에요.",
+        "en": "A witty, humble way to explain how you learned a skill through long exposure."
+       },
+       "alt": ""
       }
      ]
     },
@@ -8378,6 +9737,42 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "귀에 걸면 귀걸이 코에 걸면 코걸이",
+       "mean": "elastic interpretation; it depends on how you look at it",
+       "ctx": {
+        "ko": "원칙이나 기준이 뚜렷하지 않아서 사람마다 자기 편리한 대로 이래도 그만 저래도 그만이라 해석할 때",
+        "en": "Used to criticize vague rules that can be twisted whichever way is convenient."
+       },
+       "with": [
+        {
+         "ko": "명확한 기준 없이",
+         "en": "without clear standards"
+        },
+        {
+         "ko": "해석하기 나름이라",
+         "en": "depending on interpretation"
+        },
+        {
+         "ko": "일관성이 없다",
+         "en": "lack consistency"
+        }
+       ],
+       "note": {
+        "ko": "모호한 규정이나 잣대를 비판할 때 쓰며 한자어 「이현령비현령」과 같은 뜻이에요.",
+        "en": "Criticizes arbitrary standards; equivalent to the Sino-Korean '이현령비현령'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -8808,6 +10203,69 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "화기애애",
+       "mean": "harmonious and friendly atmosphere; warm and cheerful",
+       "ctx": {
+        "ko": "가족 모임이나 회의 자리가 다툼 없이 웃음꽃이 피며 따뜻하고 화목할 때",
+        "en": "Used to describe a warm, cheerful, and friendly atmosphere at a gathering or meeting."
+       },
+       "with": [
+        {
+         "ko": "화기애애한 분위기",
+         "en": "a warm, friendly mood"
+        },
+        {
+         "ko": "내내 화기애애하다",
+         "en": "stay cheerful throughout"
+        },
+        {
+         "ko": "웃음이 끊이지 않는",
+         "en": "filled with constant smiles"
+        }
+       ],
+       "note": {
+        "ko": "뒤에 「-하다」를 붙여 형용사로 쓰며 특히 「분위기」와 짝을 이뤄요.",
+        "en": "Used as the adjective '화기애애하다', almost always modifying '분위기' (atmosphere)."
+       },
+       "alt": ""
+      },
+      {
+       "head": "남녀노소",
+       "mean": "men and women of all ages; people of every age group",
+       "ctx": {
+        "ko": "축제나 공원, 인기 음식처럼 나이나 성별에 상관없이 모든 사람이 다 함께 즐길 수 있을 때",
+        "en": "Used in announcements, news, and speech to mean everyone regardless of age or gender."
+       },
+       "with": [
+        {
+         "ko": "남녀노소 누구나",
+         "en": "anyone of any age or gender"
+        },
+        {
+         "ko": "남녀노소 가리지 않고",
+         "en": "regardless of age or gender"
+        },
+        {
+         "ko": "모두 함께 즐기다",
+         "en": "enjoy together by all"
+        }
+       ],
+       "note": {
+        "ko": "뒤에 「누구나·모두·불문하고」를 붙여 한 덩어리처럼 쓰는 일이 가장 많아요.",
+        "en": "Almost always followed by '누구나', '모두', or '불문하고'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -9208,6 +10666,69 @@
         "ko": "원작 소설의 깊이와 급조된 영화 사이에는 천양지차의 수준 차가 있었다.",
         "en": "Between the depth of the original novel and the rushed movie, there was a vast gap in quality."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "일석이조",
+       "mean": "to kill two birds with one stone",
+       "ctx": {
+        "ko": "한 가지 일을 해서 돈도 아끼고 건강도 챙기는 것처럼 두 가지 이득을 동시에 얻을 때",
+        "en": "Used when a single action or choice brings two distinct benefits at once."
+       },
+       "with": [
+        {
+         "ko": "일석이조의 효과",
+         "en": "two-birds-one-stone effect"
+        },
+        {
+         "ko": "운동도 되고 돈도 아껴",
+         "en": "exercising and saving money"
+        },
+        {
+         "ko": "일석이조라고 할 수 있다",
+         "en": "can be called double gain"
+        }
+       ],
+       "note": {
+        "ko": "일상 대화와 TOPIK 쓰기 모두에 가장 두루 쓸 수 있는 사자성어예요.",
+        "en": "Extremely versatile across both casual speech and formal TOPIK writing."
+       },
+       "alt": "일거양득"
+      },
+      {
+       "head": "주객전도",
+       "mean": "putting the cart before the horse; role reversal",
+       "ctx": {
+        "ko": "원래 중요한 본업보다 부수적인 일이나 사은품이 오히려 더 중심이 되어 버렸을 때",
+        "en": "Used when something secondary overshadows the main purpose, reversing priorities."
+       },
+       "with": [
+        {
+         "ko": "본래 목적을 잃고",
+         "en": "losing the main purpose"
+        },
+        {
+         "ko": "주객전도가 되다",
+         "en": "priorities get reversed"
+        },
+        {
+         "ko": "주객이 전도된 상황",
+         "en": "a cart-before-the-horse state"
+        }
+       ],
+       "note": {
+        "ko": "속담 「배보다 배꼽이 더 크다」와 맥락이 비슷하며 글에서 한층 격식 있게 쓰여요.",
+        "en": "Similar in context to '배보다 배꼽이 더 크다', with a more formal written tone."
+       },
+       "alt": ""
       }
      ]
     },
@@ -9620,6 +11141,42 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "파란만장",
+       "mean": "full of ups and downs; turbulent; full of vicissitudes",
+       "ctx": {
+        "ko": "수많은 시련과 극적인 변화를 겪으며 드라마처럼 굴곡이 많았던 삶이나 역사를 돌아볼 때",
+        "en": "Used to describe a life, career, or history full of dramatic ups and downs."
+       },
+       "with": [
+        {
+         "ko": "파란만장한 일생",
+         "en": "a turbulent, eventful life"
+        },
+        {
+         "ko": "파란만장한 세월을 겪다",
+         "en": "go through dramatic times"
+        },
+        {
+         "ko": "수많은 우여곡절 끝에",
+         "en": "after many twists and turns"
+        }
+       ],
+       "note": {
+        "ko": "주로 「파란만장한 삶/역사」처럼 관형형으로 명사를 꾸며 주는 틀로 쓰여요.",
+        "en": "Typically used as the modifier '파란만장한' before '삶' (life) or '역사' (history)."
+       },
+       "alt": "우여곡절"
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -10024,6 +11581,96 @@
         "ko": "전통 공동체의 상부상조 미덕은 현대 사회에서도 반드시 지켜야 한다.",
         "en": "The mutual-aid virtue of traditional communities must be preserved in modern society."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "일편단심",
+       "mean": "single-hearted devotion; unwavering loyalty; true heart",
+       "ctx": {
+        "ko": "오랜 세월이 흘러도 한 사람이나 한 가지 목표만 변함없이 한결같은 마음으로 아끼고 지킬 때",
+        "en": "Used to praise unwavering, single-hearted devotion to one person or cause over time."
+       },
+       "with": [
+        {
+         "ko": "변함없는 일편단심",
+         "en": "unwavering devotion"
+        },
+        {
+         "ko": "일편단심으로 지켜 오다",
+         "en": "keep with a single heart"
+        },
+        {
+         "ko": "한결같은 정성을 쏟다",
+         "en": "pour constant sincerity"
+        }
+       ],
+       "note": {
+        "ko": "연인의 지극한 사랑이나 한 분야를 지킨 장인의 정성을 비유할 때 써요.",
+        "en": "Used for devoted love or a craftsperson's lifelong dedication to one path."
+       },
+       "alt": ""
+      },
+      {
+       "head": "동병상련",
+       "mean": "fellow sufferers pity each other; mutual sympathy",
+       "ctx": {
+        "ko": "취업 준비나 타향살이처럼 똑같은 아픔과 어려움을 겪는 사람끼리 서로 깊이 공감할 때",
+        "en": "Used when people going through the same hardship feel deep mutual sympathy."
+       },
+       "with": [
+        {
+         "ko": "동병상련의 마음으로",
+         "en": "with fellow-sufferer empathy"
+        },
+        {
+         "ko": "같은 처지라 공감하며",
+         "en": "empathizing in same shoes"
+        },
+        {
+         "ko": "서로를 위로하다",
+         "en": "comfort each other"
+        }
+       ],
+       "note": {
+        "ko": "힘든 처지를 공유하며 서로 위로하고 의지하는 따뜻한 맥락에 쓰여요.",
+        "en": "Conveys warm empathy and mutual comfort between people in similar struggles."
+       },
+       "alt": ""
+      },
+      {
+       "head": "설상가상",
+       "mean": "misfortunes never come singly; adding frost to snow",
+       "ctx": {
+        "ko": "가뜩이나 힘든 일이 생겼는데 거기에 또 다른 불행이나 고장이 연달아 겹쳤을 때",
+        "en": "Used when one bad thing happens right after another, making a hard situation worse."
+       },
+       "with": [
+        {
+         "ko": "설상가상으로 겹치다",
+         "en": "pile up to make it worse"
+        },
+        {
+         "ko": "어려운 상황에 더해",
+         "en": "adding to a hard situation"
+        },
+        {
+         "ko": "악재가 잇따르다",
+         "en": "misfortunes follow in turn"
+        }
+       ],
+       "note": {
+        "ko": "문장 맨 앞이나 중간에 「설상가상으로」라는 부사어 꼴로 가장 자주 나와요.",
+        "en": "Most commonly appears as the sentence adverb '설상가상으로' (to make matters worse)."
+       },
+       "alt": ""
       }
      ]
     },
@@ -10436,6 +12083,96 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "청출어람",
+       "mean": "the pupil excels the master",
+       "ctx": {
+        "ko": "가르침을 받은 제자나 후배가 꾸준히 노력해 스승이나 선배보다 더 뛰어난 실력을 보여 줄 때",
+        "en": "Used with pride and praise when a student or junior surpasses their teacher or mentor."
+       },
+       "with": [
+        {
+         "ko": "스승을 뛰어넘은 청출어람",
+         "en": "pupil excelling the master"
+        },
+        {
+         "ko": "청출어람의 실력을 보이다",
+         "en": "show skill surpassing mentor"
+        },
+        {
+         "ko": "제자가 더 훌륭해지다",
+         "en": "student grows even greater"
+        }
+       ],
+       "note": {
+        "ko": "스승을 무시하는 뜻이 아니라 제자의 성장을 기뻐하며 칭찬하는 좋은 말이에요.",
+        "en": "A warm compliment celebrating a student's growth, never disrespecting the teacher."
+       },
+       "alt": ""
+      },
+      {
+       "head": "일망타진",
+       "mean": "rounding up the whole gang in a single sweep; catching everyone in one fell net",
+       "ctx": {
+        "ko": "경찰이나 단속반이 범죄 조직이나 사기 일당을 한 번의 작전으로 남김없이 모두 붙잡았을 때",
+        "en": "Used in news reports when police round up an entire gang of criminals in a single sweep."
+       },
+       "with": [
+        {
+         "ko": "범죄 일당을 일망타진하다",
+         "en": "round up the whole gang"
+        },
+        {
+         "ko": "한 번에 모두 검거해",
+         "en": "arresting all at once"
+        },
+        {
+         "ko": "조직을 뿌리 뽑다",
+         "en": "uproot the ring completely"
+        }
+       ],
+       "note": {
+        "ko": "사건·사고 보도에서 범죄자 검거를 알릴 때 쓰는 격식 있는 뉴스 용어예요.",
+        "en": "Formal news term used specifically for rounding up criminals or illegal rings."
+       },
+       "alt": ""
+      },
+      {
+       "head": "갑론을박",
+       "mean": "arguing pro and con; heated debates back and forth",
+       "ctx": {
+        "ko": "새로운 제도나 논쟁거리를 두고 찬성과 반대 양쪽이 팽팽하게 맞서 공방을 벌일 때",
+        "en": "Used when people engage in heated back-and-forth debate over a controversial issue."
+       },
+       "with": [
+        {
+         "ko": "갑론을박을 벌이다",
+         "en": "engage in heated debate"
+        },
+        {
+         "ko": "찬반 갑론을박이 이어지다",
+         "en": "pro-and-con arguments continue"
+        },
+        {
+         "ko": "의견이 팽팽히 맞서다",
+         "en": "opinions clash sharply"
+        }
+       ],
+       "note": {
+        "ko": "뉴스 기사나 토론 요약문에서 「갑론을박이 벌어졌다」 꼴로 자주 쓰여요.",
+        "en": "Common in news and debate summaries as '갑론을박을 벌이다/이어지다'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -10840,6 +12577,96 @@
         "ko": "지나치게 까다로운 규정을 내세우다 스스로 자승자박의 꼴이 된 기업이 비판을 받았다.",
         "en": "A company that insisted on excessively strict regulations and ended up trapped by its own rules drew criticism."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "자화자찬",
+       "mean": "singing one's own praises; blowing one's own horn",
+       "ctx": {
+        "ko": "자기가 해 놓은 일을 스스로 칭찬하거나 자랑할 때 남을 꼬집거나 자기 말을 멋쩍게 마무리할 때",
+        "en": "Used either to critique someone bragging or jokingly when praising one's own work."
+       },
+       "with": [
+        {
+         "ko": "스스로 자화자찬하다",
+         "en": "sing one's own praises"
+        },
+        {
+         "ko": "자화자찬 같지만",
+         "en": "though it sounds like bragging"
+        },
+        {
+         "ko": "자화자찬에 그치다",
+         "en": "end in mere self-praise"
+        }
+       ],
+       "note": {
+        "ko": "대화에서는 「조금 자화자찬 같지만 제가 봐도 잘했어요」처럼 유머러스하게도 써요.",
+        "en": "Often used humorously in speech: '조금 자화자찬 같지만...' (Not to brag, but...)."
+       },
+       "alt": ""
+      },
+      {
+       "head": "우유부단",
+       "mean": "indecisive; wishy-washy; wavering",
+       "ctx": {
+        "ko": "중요한 결정을 내려야 할 때 이 눈치 저 눈치를 보며 결단력 없이 자꾸 망설이는 성격을 지적할 때",
+        "en": "Used to criticize an indecisive attitude of wavering and hesitating when a firm choice is needed."
+       },
+       "with": [
+        {
+         "ko": "우유부단한 성격",
+         "en": "an indecisive personality"
+        },
+        {
+         "ko": "우유부단하게 망설이다",
+         "en": "hesitate indecisively"
+        },
+        {
+         "ko": "결단을 내리지 못해",
+         "en": "unable to make a firm call"
+        }
+       ],
+       "note": {
+        "ko": "신중한 것과 달리 결정을 못 내려 일을 그르친다는 부정적 어감이 있어요.",
+        "en": "Carries a negative nuance of failing to decide, unlike positive caution ('신중하다')."
+       },
+       "alt": ""
+      },
+      {
+       "head": "구사일생",
+       "mean": "a narrow escape from death; miraculous survival",
+       "ctx": {
+        "ko": "큰 사고나 재난, 탈락 위기에서 아슬아슬하게 목숨을 건지거나 극적으로 살아남았을 때",
+        "en": "Used when someone narrowly escapes a life-threatening accident or elimination."
+       },
+       "with": [
+        {
+         "ko": "구사일생으로 살아나다",
+         "en": "survive by a narrow margin"
+        },
+        {
+         "ko": "큰 위기에서 간신히",
+         "en": "barely from a major crisis"
+        },
+        {
+         "ko": "목숨을 건지다",
+         "en": "save one's life"
+        }
+       ],
+       "note": {
+        "ko": "거의 항상 조사 「-으로」를 붙여 「구사일생으로 구조되다/살아나다」 꼴로 써요.",
+        "en": "Almost always paired with '-으로' before verbs of survival or rescue."
+       },
+       "alt": ""
       }
      ]
     },
@@ -11252,6 +13079,42 @@
      ]
     },
     {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "전무후무",
+       "mean": "unprecedented and never to be repeated; epoch-making",
+       "ctx": {
+        "ko": "예전 역사에도 없었고 앞으로도 다시 나오기 힘들 만큼 독보적인 기록이나 사건을 강조할 때",
+        "en": "Used to highlight an unprecedented record or achievement that may never be repeated."
+       },
+       "with": [
+        {
+         "ko": "전무후무한 대기록",
+         "en": "an unprecedented record"
+        },
+        {
+         "ko": "역사상 전무후무한 일",
+         "en": "an event unmatched in history"
+        },
+        {
+         "ko": "독보적인 성과를 내다",
+         "en": "achieve unrivaled results"
+        }
+       ],
+       "note": {
+        "ko": "주로 「전무후무한 기록/사건」처럼 관형형으로 명사를 수식할 때 써요.",
+        "en": "Typically used in the modifier form '전무후무한' before '기록' or '사건'."
+       },
+       "alt": ""
+      }
+     ]
+    },
+    {
      "type": "checkup",
      "title": {
       "en": "Unit Checkup",
@@ -11656,6 +13519,69 @@
         "ko": "생사의 고비를 함께 넘긴 두 전우는 평생을 아끼는 막역지우로 남았다.",
         "en": "The two comrades who survived life-and-death crises together remained lifelong bosom friends."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "사면초가",
+       "mean": "surrounded by enemies on all sides; utterly isolated",
+       "ctx": {
+        "ko": "사방이 반대파나 악재로 둘러싸여 누구에게도 도움을 청할 수 없이 외롭게 고립되었을 때",
+        "en": "Used when completely cornered and surrounded by troubles or critics on all sides."
+       },
+       "with": [
+        {
+         "ko": "사면초가에 놓이다",
+         "en": "be cornered on all sides"
+        },
+        {
+         "ko": "사면초가의 위기",
+         "en": "a crisis of total isolation"
+        },
+        {
+         "ko": "도움받을 곳이 없다",
+         "en": "have nowhere to turn for help"
+        }
+       ],
+       "note": {
+        "ko": "선택지가 없는 딜레마는 「진퇴양난」, 주변에 아군이 없는 고립은 「사면초가」로 구별해요.",
+        "en": "Distinguish from '진퇴양난' (dilemma); '사면초가' stresses being surrounded and isolated."
+       },
+       "alt": "진퇴양난"
+      },
+      {
+       "head": "절체절명",
+       "mean": "desperate crisis; facing life-or-death crossroads",
+       "ctx": {
+        "ko": "회사나 팀의 존폐가 걸린 것처럼 도저히 피할 수 없는 가장 긴박하고 중대한 위기를 맞았을 때",
+        "en": "Used in news or drama to describe a make-or-break, life-or-death crisis."
+       },
+       "with": [
+        {
+         "ko": "절체절명의 위기",
+         "en": "a make-or-break crisis"
+        },
+        {
+         "ko": "절체절명의 순간",
+         "en": "a critical moment of truth"
+        },
+        {
+         "ko": "운명이 걸린 기로",
+         "en": "a fateful crossroads"
+        }
+       ],
+       "note": {
+        "ko": "「절대절명」으로 잘못 쓰기 쉬우니 올바른 철자인 「절체절명」을 꼭 확인해요.",
+        "en": "Often misspelled as '절대절명'; be sure to use the correct spelling '절체절명'."
+       },
+       "alt": "진퇴양난"
       }
      ]
     },
@@ -12454,6 +14380,42 @@
         "ko": "거대한 역사의 물결을 무력으로 거스르려는 시도는 당랑거철에 불과했다.",
         "en": "Attempts to turn back the huge tides of history with armed force were merely a mantis defying a chariot."
        }
+      }
+     ]
+    },
+    {
+     "type": "idiomkey",
+     "title": {
+      "en": "Key Expressions",
+      "ko": "중요 표현"
+     },
+     "items": [
+      {
+       "head": "역지사지",
+       "mean": "putting oneself in another person's shoes",
+       "ctx": {
+        "ko": "갈등이 생겼을 때 내 입장만 고집하지 말고 상대방의 처지에서 한 번 생각해 보자고 권할 때",
+        "en": "Used to advise putting oneself in the other person's shoes to resolve a conflict."
+       },
+       "with": [
+        {
+         "ko": "역지사지의 자세",
+         "en": "an empathetic mindset"
+        },
+        {
+         "ko": "상대방의 입장에서",
+         "en": "from the other's standpoint"
+        },
+        {
+         "ko": "처지를 바꾸어 생각하다",
+         "en": "think in another's shoes"
+        }
+       ],
+       "note": {
+        "ko": "소통과 배려를 주제로 한 TOPIK II 쓰기 54번 논설문에 가장 유용한 사자성어예요.",
+        "en": "One of the most useful four-character idioms for TOPIK II Essay 54 on empathy."
+       },
+       "alt": ""
       }
      ]
     },
