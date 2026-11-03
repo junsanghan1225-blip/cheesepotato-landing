@@ -63,18 +63,18 @@
   "en": [
    "455 questions for TOPIK II reading questions 25 to 45, in exam-number order: practice in exam-number order. Work through the numbers until the pattern becomes automatic.",
    "Every question is newly written for this book in the style of the real test. None is a past exam question.",
-   "Each question type opens with its solving steps and the words you need, then warm-up questions and test sets for that type follow. Each set has an answer sheet, and the answer key at the back explains every question."
+   "Each question type opens with its solving steps and the words you need, then warm-up questions and test sets for that type follow. Each set ends with a self-check, and the answer key at the back explains every question."
   ],
   "ko": [
    "TOPIK II 읽기 25~45번에 해당하는 455문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.",
    "모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.",
-   "유형마다 풀이 방법과 필요한 낱말이 먼저 나오고, 그 뒤에 연습문제(쉬운 5문항)와 실전문제가 이어집니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
+   "유형마다 풀이 방법과 필요한 낱말이 먼저 나오고, 그 뒤에 연습문제(쉬운 5문항)와 실전문제가 이어집니다. 회마다 스스로 점검이 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
   ]
  },
  "howto": {
   "en": [
    "At the start of each type, read the method and word pages first.",
-   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
+   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark your answers in the book.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
@@ -142,7 +142,22 @@
     "r3-48",
     "r3-49",
     "r3-50",
-    "r3-51"
+    "r3-51",
+    "r3-52",
+    "r3-53",
+    "r3-54",
+    "r3-55",
+    "r3-56",
+    "r3-57",
+    "r3-58",
+    "r3-59",
+    "r3-60",
+    "r3-61",
+    "r3-62",
+    "r3-63",
+    "r3-64",
+    "r3-65",
+    "r3-66"
    ]
   }
  ],
@@ -902,14 +917,14 @@
   "r3-01": "blank",
   "r3-10": "headline",
   "r3-19": "main",
-  "r3-28": "detail",
-  "r3-37": "insert",
-  "r3-44": "feeling"
+  "r3-31": "detail",
+  "r3-44": "insert",
+  "r3-56": "feeling"
  },
  "noGuide": true,
  "noIndex": true,
  "noQr": true,
- "unitCount": 51,
+ "unitCount": 66,
  "coverAccent": "읽기",
  "coverLevel": {
   "code": "TOPIK II",
@@ -931,7 +946,7 @@
  "back": {
   "items": [
    [
-    "51 sets · 유형별 문제 51회",
+    "66 sets · 유형별 문제 66회",
     "455 questions for exam no. 25–45 · 시험 25~45번 455문항"
    ],
    [
@@ -1051,21 +1066,6 @@
        "why": "심해어가 배 쪽에서 수면의 햇빛과 같은 밝기의 빛을 내어 아래에서 올려다보는 포식자의 시선에서 그림자를 없앤다는 맥락이므로 '배에서 나오는 빛으로 수면의 빛과 명암을 일치시켜'가 가장 알맞습니다. '강한 섬광을 터뜨려 포식자의 시력을 일시 마비시켜'는 위장술을 통해 실루엣을 지운다는 설명과 거리가 멉니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 1
     },
     {
      "type": "selfcheck",
@@ -1279,21 +1279,6 @@
        "why": "이웃 나무로부터 경보 신호를 받아 공격이 닥치기 전에 방어 물질을 준비한다는 맥락이므로 '잎의 독성 물질 농도를 미리 높여 해충의 습격에 대비함으로써'가 알맞습니다. '뿌리를 다른 방향으로 급격히 뻗어 균류와의 연결을 끊음으로써'는 서로 돕는 지하 연결망의 취지와 정반대입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 2
     },
     {
      "type": "selfcheck",
@@ -1514,21 +1499,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 3
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -1745,21 +1715,6 @@
        "why": "조선 백자의 순백미가 유교 사대부들의 검소함과 청렴한 도덕성을 상징한다는 문맥이므로 '검소함 속에서 도덕적 고결함을 추구하던 조선 지식인들의'가 알맞습니다. '도자기의 화려한 색상을 극대화하여 왕실의 권위를 과시하려는'은 백자의 담백한 절제미와 정반대입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 4
     },
     {
      "type": "selfcheck",
@@ -1980,21 +1935,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 5
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2211,21 +2151,6 @@
        "why": "다수의 뜻에 동조하여 소외를 피하려는 심리 때문에 자기 생각을 말하지 못하고 침묵한다는 맥락이므로 '소신 있는 반대 의견을 내지 못한 채'가 정답입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 6
     },
     {
      "type": "selfcheck",
@@ -2446,21 +2371,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 7
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2679,21 +2589,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 8
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2878,21 +2773,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 8,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 9
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -3022,21 +2902,6 @@
        "why": "오염을 줄이는 가스 추진선을 대거 수주하면서 국내 조선업이 크게 번창하고 발전할 길이 열렸다는 의미이므로 '친환경 연료 선박의 건조 계약을 대량 확보하여 국내 배 제조 산업이 활기를 띠고 있다'가 알맞습니다. '국내 조선소들이 외국 업체에 수주를 모두 빼앗겨 심각한 경영난에 봉착했다'는 모든 계약을 따냈다는 '수주 싹쓸이'의 뜻을 반대로 뒤집은 오답입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 10
     },
     {
      "type": "selfcheck",
@@ -3250,21 +3115,6 @@
        "why": "중고 장터에 안전 결제를 전면 적용하여 사기 사건 피해가 대폭 감소했다는 내용이므로 '물건 대금을 맡겨두는 결제 방식을 도입하자 거래 사기로 인한 손해가 크게 줄었다'가 옳습니다. '복잡한 결제 절차에 불만을 품은 사용자들이 늘어나면서 사기 사건이 더욱 급증했다'는 피해가 급감했다는 '뚝'의 의미와 정반대입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 11
     },
     {
      "type": "selfcheck",
@@ -3485,21 +3335,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 12
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -3716,21 +3551,6 @@
        "why": "겨울철 혈액 수급이 어려워지자 시민들이 적극적으로 헌혈에 참여하여 따뜻한 온정을 나누고 있다는 의미이므로 '겨울철 피가 크게 부족해지자 시민들이 자발적으로 동참하여 사랑을 나누고 있다'가 알맞습니다. '헌혈에 참여하는 사람이 없어 수술을 앞둔 중환자들이 큰 위험에 빠지게 되었다'는 시민들의 헌혈 릴레이를 무시한 오답입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 13
     },
     {
      "type": "selfcheck",
@@ -3951,21 +3771,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 14
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4182,21 +3987,6 @@
        "why": "'단속 강화에도 사고 빈발'은 경찰 단속에도 불구하고 사고가 계속해서 자주 일어나고 있음을 뜻합니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 15
     },
     {
      "type": "selfcheck",
@@ -4417,21 +4207,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 16
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4650,21 +4425,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 17
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4779,21 +4539,6 @@
        "why": "도심에 대형 지하 빗물 저장 시설을 완공하여 반복되던 홍수 침수 피해를 완전히 해결했다는 의미이므로 '빗물을 가두는 대형 배수 시설이 완공되어 비가 많이 올 때마다 잠기던 피해를 끝냈다'가 맞습니다. '저류 시설의 배수 용량이 부족하여 폭우가 내리자 지하차도가 물에 잠겨버리고 말았다'는 침수 피해를 끝냈다는 '마침표'의 뜻과 반대입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 4,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 18
     },
     {
      "type": "selfcheck",
@@ -4923,21 +4668,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 19
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4967,15 +4697,15 @@
     "ko": "중심 생각 찾기 실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 35 · about 14 min",
-    "ko": "10문항 · 시험 35번 · 권장 약 14분"
+    "en": "7 questions · exam no. 35 · about 10 min",
+    "ko": "7문항 · 시험 35번 · 권장 약 10분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–7",
+      "ko": "1~7번"
      },
      "items": [
       {
@@ -5096,9 +4826,54 @@
        ],
        "answer": 2,
        "why": "알고리즘에 의한 확증 편향을 경계하고 다양한 관점의 정보를 능동적으로 찾아야 한다는 필자의 주장을 가장 잘 담고 있습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 20,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      2,
+      0,
+      3,
+      3,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-21": {
+   "id": "r3-21",
+   "title": {
+    "en": "Find the main idea · Test set 2",
+    "ko": "중심 생각 찾기 실전문제 2회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 35–36 · about 10 min",
+    "ko": "7문항 · 시험 35~36번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-1064",
        "type": "main",
        "genre": "논설문",
@@ -5115,7 +4890,7 @@
        "why": "불필요한 소유를 줄이고 단순한 삶을 통해 정신적 여유와 환경을 지키자는 주장을 나타냅니다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-185",
        "type": "main",
        "genre": "논설문",
@@ -5132,7 +4907,7 @@
        "why": "필자는 다크 패턴의 기만성을 비판하며 「눈속임 설계를 강력히 제재하는 법적 장치가 조속히 마련되어야 한다」고 명확히 주장하고 있으므로 「소비자를 속이는 다크 패턴을 엄격히 규제하는 법을 서둘러 만들어야 한다.」가 주제입니다. 기업의 자율성 보장은 글쓴이의 비판적 관점과 반대됩니다."
       },
       {
-       "no": 10,
+       "no": 3,
        "id": "t2-135",
        "type": "main",
        "genre": "논설문",
@@ -5147,72 +4922,9 @@
        ],
        "answer": 1,
        "why": "종이 낭비를 줄이고 탄소 배출을 억제하기 위해 전자 영수증 발급을 기본 체계로 전환해야 한다는 마지막 문장을 옮긴 '자원과 환경을 지키기 위해 영수증 발급 방식을 전자식으로 바꿔야 한다'가 주제입니다. '종이 영수증 재활용 기술 개발'은 글의 주장과 거리가 있습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 20
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 20,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      2,
-      0,
-      3,
-      3,
-      1,
-      2,
-      0,
-      0,
-      1
-     ]
-    }
-   ]
-  },
-  "r3-21": {
-   "id": "r3-21",
-   "title": {
-    "en": "Find the main idea · Test set 2",
-    "ko": "중심 생각 찾기 실전문제 2회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 35–36 · about 14 min",
-    "ko": "10문항 · 시험 35~36번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 4,
        "id": "t2-1066",
        "type": "main",
        "genre": "논설문",
@@ -5229,7 +4941,7 @@
        "why": "도심 숲의 공기 정화와 휴식 효과를 강조하며 녹지 공간을 체계적으로 확충해야 한다는 내용입니다."
       },
       {
-       "no": 2,
+       "no": 5,
        "id": "t2-1068",
        "type": "main",
        "genre": "논설문",
@@ -5246,7 +4958,7 @@
        "why": "무포장 매장이 확산될 수 있도록 세제 혜택과 인프라 지원 등 제도적 뒷받침이 필요하다는 결론을 담고 있습니다."
       },
       {
-       "no": 3,
+       "no": 6,
        "id": "t2-085",
        "type": "main",
        "genre": "논설문",
@@ -5263,7 +4975,7 @@
        "why": "마지막 문장의 '제도의 지속 가능성을 담보하려면 세밀한 재정 계획과 타당성 검토가 선행되어야 한다'를 옮겨 쓴 '대중교통 무료화 정책은 세밀한 재정 검토를 거쳐 신중히 추진되어야 한다'가 주제입니다. '대중교통 요금을 대폭 인상해야 한다'는 지문에 나오지 않는 주장입니다."
       },
       {
-       "no": 4,
+       "no": 7,
        "id": "t2-1076",
        "type": "main",
        "genre": "논설문",
@@ -5278,9 +4990,54 @@
        ],
        "answer": 1,
        "why": "우주 쓰레기로 인한 연쇄 충돌을 막기 위해 구속력 있는 국제 규범을 제정해야 한다는 주장을 반영합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 21,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-22": {
+   "id": "r3-22",
+   "title": {
+    "en": "Find the main idea · Test set 3",
+    "ko": "중심 생각 찾기 실전문제 3회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 36 · about 10 min",
+    "ko": "7문항 · 시험 36번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 5,
+       "no": 1,
        "id": "t2-1081",
        "type": "main",
        "genre": "논설문",
@@ -5297,7 +5054,7 @@
        "why": "패스트 패션의 환경 오염을 지적하고 옷을 오래 입고 친환경을 지향하는 지속 가능한 소비를 강조합니다."
       },
       {
-       "no": 6,
+       "no": 2,
        "id": "t2-1080",
        "type": "main",
        "genre": "논설문",
@@ -5314,7 +5071,7 @@
        "why": "자율주행차 상용화에 앞서 사고 책임 소재와 피해 구제를 위한 법적 기준 정립이 시급하다는 내용입니다."
       },
       {
-       "no": 7,
+       "no": 3,
        "id": "t2-1077",
        "type": "main",
        "genre": "논설문",
@@ -5331,7 +5088,7 @@
        "why": "관광 공해로부터 원주민의 주거권을 지키고 마을의 지속 가능성을 지켜야 한다는 논지를 담고 있습니다."
       },
       {
-       "no": 8,
+       "no": 4,
        "id": "t2-1071",
        "type": "main",
        "genre": "논설문",
@@ -5348,7 +5105,7 @@
        "why": "탄소세 도입 시 저소득층의 부담을 줄이고 친환경 전환으로 환원하는 공정한 설계가 필수적이라는 점을 짚고 있습니다."
       },
       {
-       "no": 9,
+       "no": 5,
        "id": "t2-186",
        "type": "main",
        "genre": "논설문",
@@ -5365,7 +5122,7 @@
        "why": "글쓴이는 전동 킥보드의 방치와 안전사고 문제를 짚으며 주차 구역 설치, 단속, 의식 개선 등 체계적인 안전 환경 마련을 요구하므로 「안전 대책과 질서 확립을 통해 전동 킥보드 이용 환경을 개선해야 한다.」가 알맞은 주제입니다. 전면 중단하자는 것은 지나친 비약입니다."
       },
       {
-       "no": 10,
+       "no": 6,
        "id": "t2-1079",
        "type": "main",
        "genre": "논설문",
@@ -5380,72 +5137,9 @@
        ],
        "answer": 3,
        "why": "아이를 배제하는 노키즈존보다 상호 배려와 교육을 통해 함께 살아가는 공동체 문화를 만들어야 한다는 주장입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 21
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 21,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      1,
-      0,
-      1,
-      1,
-      0,
-      3,
-      2,
-      1,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-22": {
-   "id": "r3-22",
-   "title": {
-    "en": "Find the main idea · Test set 3",
-    "ko": "중심 생각 찾기 실전문제 3회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 36 · about 14 min",
-    "ko": "10문항 · 시험 36번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 7,
        "id": "t2-1085",
        "type": "main",
        "genre": "논설문",
@@ -5460,9 +5154,54 @@
        ],
        "answer": 2,
        "why": "정년 연장 추진 시 청년 채용과의 갈등을 막고 직무급제 등 유연한 방식으로 세대 상생을 이끌어야 한다는 논지입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 22,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      3,
+      2,
+      1,
+      1,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-23": {
+   "id": "r3-23",
+   "title": {
+    "en": "Find the main idea · Test set 4",
+    "ko": "중심 생각 찾기 실전문제 4회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 36 · about 10 min",
+    "ko": "7문항 · 시험 36번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 2,
+       "no": 1,
        "id": "t2-1084",
        "type": "main",
        "genre": "논설문",
@@ -5479,7 +5218,7 @@
        "why": "시설 현대화와 함께 시장 특유의 역사와 문화적 매력을 균형 있게 살려야 한다는 주장을 담고 있습니다."
       },
       {
-       "no": 3,
+       "no": 2,
        "id": "t2-1083",
        "type": "main",
        "genre": "논설문",
@@ -5496,7 +5235,7 @@
        "why": "지방 대학을 지역 산업과 연계해 혁신 거점으로 키워야 지역 붕괴를 막고 균형 발전을 이룰 수 있다는 취지입니다."
       },
       {
-       "no": 4,
+       "no": 3,
        "id": "t2-036",
        "type": "main",
        "genre": "논설문",
@@ -5513,7 +5252,7 @@
        "why": "마지막 문장의 '건강한 몸을 유지하기 위해서는 조급한 체중 감량보다 균형 잡힌 식단과 규칙적인 운동을 생활화해야 한다'를 잘 종합한 '건강을 위해서는 조급한 감량보다 올바른 식습관과 운동이 필요하다'가 주제입니다. '단기간의 극단적인 식단 제한이 가장 효과적이다'라는 선택지는 지문에서 위험성을 경고한 내용입니다."
       },
       {
-       "no": 5,
+       "no": 4,
        "id": "t2-1082",
        "type": "main",
        "genre": "논설문",
@@ -5530,7 +5269,7 @@
        "why": "딥페이크 악용 범죄로 인한 피해를 막기 위해 유통 차단과 강력한 형사 처벌이 시급하다는 결론입니다."
       },
       {
-       "no": 6,
+       "no": 5,
        "id": "t2-136",
        "type": "main",
        "genre": "논설문",
@@ -5547,7 +5286,7 @@
        "why": "음식 낭비를 줄이기 위해 소비기한 제도의 개념을 알리고 정착시켜야 한다는 주장이므로 '음식물 쓰레기를 줄이려면 소비기한 표시제를 자리 잡게 하고 계속 알려야 한다'가 정답입니다. '유통기한 표기만 유지해야 한다'는 본문에서 비판하고 있는 방향입니다."
       },
       {
-       "no": 7,
+       "no": 6,
        "id": "t2-1073",
        "type": "main",
        "genre": "논설문",
@@ -5564,7 +5303,7 @@
        "why": "독점 플랫폼의 과도한 수수료를 규제하고 자영업자와 상생하는 장치를 마련해야 한다는 주장이 핵심입니다."
       },
       {
-       "no": 8,
+       "no": 7,
        "id": "t2-1075",
        "type": "main",
        "genre": "논설문",
@@ -5579,9 +5318,54 @@
        ],
        "answer": 2,
        "why": "기초 학문을 소홀히 하면 응용 학문도 흔들리므로 국가가 기초 순수학문을 보호 육성해야 한다는 취지입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 23,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      3,
+      2,
+      0,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-24": {
+   "id": "r3-24",
+   "title": {
+    "en": "Find the main idea · Test set 5",
+    "ko": "중심 생각 찾기 실전문제 5회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 36–37 · about 10 min",
+    "ko": "7문항 · 시험 36~37번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-086",
        "type": "main",
        "genre": "논설문",
@@ -5598,7 +5382,7 @@
        "why": "영유아기 스마트폰 노출의 부작용을 경고하며 사용 제한 지침 준수를 요구하므로 '아동의 올바른 발달을 위해 영유아기 디지털 기기 사용을 제한해야 한다'가 정답입니다. '디지털 교육 콘텐츠 생산을 확대해야 한다'는 글의 전체 주장과 어긋납니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-1074",
        "type": "main",
        "genre": "논설문",
@@ -5613,72 +5397,9 @@
        ],
        "answer": 1,
        "why": "유전자 편집 기술의 무분별한 남용을 방지하고 치료 목적으로 제한할 엄격한 기준을 세워야 한다는 주장을 나타냅니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 22
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 22,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      1,
-      1,
-      3,
-      2,
-      0,
-      0,
-      2,
-      1,
-      1
-     ]
-    }
-   ]
-  },
-  "r3-23": {
-   "id": "r3-23",
-   "title": {
-    "en": "Find the main idea · Test set 4",
-    "ko": "중심 생각 찾기 실전문제 4회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 36–37 · about 14 min",
-    "ko": "10문항 · 시험 36~37번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-1072",
        "type": "main",
        "genre": "논설문",
@@ -5695,7 +5416,7 @@
        "why": "공공 보건 분야에서 지식재산권 독점을 줄이고 오픈 사이언스를 통해 지식을 공유해야 한다는 핵심 주장을 담았습니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-1078",
        "type": "main",
        "genre": "논설문",
@@ -5712,7 +5433,7 @@
        "why": "기존 노동법의 사각지대에 있는 플랫폼 종사자들을 위한 새로운 법적 보호 장치가 필요하다는 결론입니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-187",
        "type": "main",
        "genre": "논설문",
@@ -5729,7 +5450,7 @@
        "why": "글의 후반부에서 한옥의 통풍과 채광 등 친환경 지혜를 계승하여 현대 주거 공간에 반영해야 한다고 강조했으므로 「한옥의 친환경적 원리를 살려 현대 주거 환경에 적극 도입해야 한다.」가 중심 주제입니다. 모든 건물을 재건축하자는 주장은 글의 범위를 벗어납니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-1096",
        "type": "main",
        "genre": "설명문",
@@ -5746,7 +5467,7 @@
        "why": "미세 플라스틱이 해양 먹이사슬을 거쳐 상위 포식자로 농축되는 생물 농축 메커니즘과 그 위험성을 설명합니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-1098",
        "type": "main",
        "genre": "설명문",
@@ -5761,9 +5482,54 @@
        ],
        "answer": 1,
        "why": "박쥐가 초음파를 쏘고 반사파를 감지해 장애물과 먹이 정보를 파악하는 반향 정위 원리를 서술합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 24,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      3,
+      0,
+      2,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-25": {
+   "id": "r3-25",
+   "title": {
+    "en": "Find the main idea · Test set 6",
+    "ko": "중심 생각 찾기 실전문제 6회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 37 · about 10 min",
+    "ko": "7문항 · 시험 37번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-1095",
        "type": "main",
        "genre": "설명문",
@@ -5780,7 +5546,7 @@
        "why": "온돌이 구들장의 축열성과 실내 공기 대류 현상을 통해 은은하고 고르게 방을 데우는 과학적 원리를 다룹니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-1092",
        "type": "main",
        "genre": "설명문",
@@ -5797,7 +5563,7 @@
        "why": "특산물 공납을 토지 면적에 따른 쌀 등으로 일원화하여 조세의 형평성을 높이고 민생을 안정한 대동법의 의의를 다룹니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-1090",
        "type": "main",
        "genre": "설명문",
@@ -5814,7 +5580,7 @@
        "why": "강요 없이 부드러운 개입으로 사람들의 긍정적 행동 변화를 이끌어내는 넛지의 원리와 효용을 설명합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-1091",
        "type": "main",
        "genre": "설명문",
@@ -5831,7 +5597,7 @@
        "why": "심해어가 암흑 환경에 적응하기 위해 생체 발광을 먹이 유인, 신호 교환, 위장 등 생존에 활용함을 설명합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-137",
        "type": "main",
        "genre": "설명문",
@@ -5846,72 +5612,9 @@
        ],
        "answer": 3,
        "why": "글의 마지막 문장에 나타난 주장인 '사람 중심의 안전하고 쾌적한 거리를 늘리기 위해 차 없는 구간을 넓혀 가야 한다'가 글의 주제입니다. '보행자 전용 구역을 축소해야 한다'는 글의 주장과 정반대되는 내용입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 23
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 23,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      0,
-      2,
-      0,
-      1,
-      1,
-      3,
-      3,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-24": {
-   "id": "r3-24",
-   "title": {
-    "en": "Find the main idea · Test set 5",
-    "ko": "중심 생각 찾기 실전문제 5회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 37 · about 14 min",
-    "ko": "10문항 · 시험 37번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-1099",
        "type": "main",
        "genre": "설명문",
@@ -5928,7 +5631,7 @@
        "why": "진흙 입자 사이의 미세 기공이 공기를 통하게 하여 유익한 발효균의 활동을 돕는 옹기의 과학적 원리를 다룹니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-1089",
        "type": "main",
        "genre": "설명문",
@@ -5943,9 +5646,54 @@
        ],
        "answer": 0,
        "why": "블루카본의 정의와 빠른 광합성 및 퇴적층 장기 보존이라는 탁월한 탄소 흡수 효과를 설명하고 있습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 25,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      3,
+      1,
+      3,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-26": {
+   "id": "r3-26",
+   "title": {
+    "en": "Find the main idea · Test set 7",
+    "ko": "중심 생각 찾기 실전문제 7회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 37 · about 10 min",
+    "ko": "7문항 · 시험 37번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 3,
+       "no": 1,
        "id": "t2-1086",
        "type": "main",
        "genre": "설명문",
@@ -5962,7 +5710,7 @@
        "why": "피톤치드의 방어 메커니즘과 더불어 환경 정화 및 인간 건강에 미치는 효능을 설명하고 있으므로 주제로 적절합니다."
       },
       {
-       "no": 4,
+       "no": 2,
        "id": "t2-087",
        "type": "main",
        "genre": "설명문",
@@ -5979,7 +5727,7 @@
        "why": "마지막 문장의 '현대 건축에서도 자연 친화적이고 에너지 효율적인 전통 한옥의 구조적 지혜를 적극적으로 배워 응용할 필요가 있다'를 주제로 나타낸 선택지가 옳습니다. '온돌 구조를 철거해야 한다'는 지문 내용과 반대됩니다."
       },
       {
-       "no": 5,
+       "no": 3,
        "id": "t2-1097",
        "type": "main",
        "genre": "설명문",
@@ -5996,7 +5744,7 @@
        "why": "신경 가소성의 원리를 통해 성인이 된 이후에도 지속적인 훈련과 학습으로 뇌가 변화하고 성장함을 설명합니다."
       },
       {
-       "no": 6,
+       "no": 4,
        "id": "t2-1100",
        "type": "main",
        "genre": "설명문",
@@ -6013,7 +5761,7 @@
        "why": "가시 변형, 줄기 수분 저장, 야간 기공 개폐 등 건조 기후에 적응한 사막 식물의 생존 전략을 다룹니다."
       },
       {
-       "no": 7,
+       "no": 5,
        "id": "t2-037",
        "type": "main",
        "genre": "설명문",
@@ -6030,7 +5778,7 @@
        "why": "지역 축제가 성장하려면 지역 고유의 자원을 활용하고 독특한 콘텐츠를 개발해야 한다는 내용이 핵심이므로 '지역 축제가 발전하려면 고유한 문화 자원과 독창적 콘텐츠가 필요하다'가 정답입니다. '유명 가수의 초청 공연을 확대해야 한다'는 지문에서 축제의 독창성을 떨어뜨린다고 지적한 오답입니다."
       },
       {
-       "no": 8,
+       "no": 6,
        "id": "t2-1088",
        "type": "main",
        "genre": "설명문",
@@ -6047,7 +5795,7 @@
        "why": "도시 열섬 현상의 발생 원인(콘크리트, 배출열)과 해결 방안(녹지 확충, 바람길)을 설명하고 있으므로 정답입니다."
       },
       {
-       "no": 9,
+       "no": 7,
        "id": "t2-1093",
        "type": "main",
        "genre": "설명문",
@@ -6062,9 +5810,54 @@
        ],
        "answer": 2,
        "why": "공기 온도 차이에 따른 소리의 굴절 원리와 이로 인해 밤에 소리가 더 멀리 퍼져나가는 현상을 설명합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 26,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      1,
+      2,
+      0,
+      0,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-27": {
+   "id": "r3-27",
+   "title": {
+    "en": "Find the main idea · Test set 8",
+    "ko": "중심 생각 찾기 실전문제 8회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 37–38 · about 10 min",
+    "ko": "7문항 · 시험 37~38번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 10,
+       "no": 1,
        "id": "t2-1094",
        "type": "main",
        "genre": "설명문",
@@ -6079,72 +5872,9 @@
        ],
        "answer": 0,
        "why": "꿀벌의 8자 춤이 태양 기준 방향과 거리 정보를 동료들에게 정확히 알려주는 메커니즘을 서술하고 있습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 24
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 24,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      0,
-      0,
-      1,
-      2,
-      0,
-      0,
-      2,
-      2,
-      0
-     ]
-    }
-   ]
-  },
-  "r3-25": {
-   "id": "r3-25",
-   "title": {
-    "en": "Find the main idea · Test set 6",
-    "ko": "중심 생각 찾기 실전문제 6회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 37–38 · about 14 min",
-    "ko": "10문항 · 시험 37~38번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 2,
        "id": "t2-1087",
        "type": "main",
        "genre": "설명문",
@@ -6161,7 +5891,7 @@
        "why": "갯벌의 오염 물질 정화 기능과 생물 다양성 보전 가치를 균형 있게 밝히고 있으므로 옳습니다."
       },
       {
-       "no": 2,
+       "no": 3,
        "id": "t2-038",
        "type": "main",
        "genre": "논설문",
@@ -6178,7 +5908,7 @@
        "why": "고령화에 대응하여 고령층의 노동력을 활용하고 정년 연장 논의를 본격화해야 한다는 글의 주장을 반영한 '노동력 부족과 고령화 문제 해결을 위해 정년 연장 논의를 활성화해야 한다'가 주제입니다. '정년을 단축해야 한다'는 글의 전체적인 주장 방향과 반대입니다."
       },
       {
-       "no": 3,
+       "no": 4,
        "id": "t2-1109",
        "type": "main",
        "genre": "논설문",
@@ -6195,7 +5925,7 @@
        "why": "재생에너지 확대 시 환경 훼손을 줄이고 이익 공유제를 통해 주민과 상생 합의를 이뤄야 한다는 주장입니다."
       },
       {
-       "no": 4,
+       "no": 5,
        "id": "t2-1101",
        "type": "main",
        "genre": "논설문",
@@ -6212,7 +5942,7 @@
        "why": "시장 실패로 인한 필수의약품 부족을 막기 위해 국가 차원의 공공 생산 및 비축 체계 구축을 촉구하고 있습니다."
       },
       {
-       "no": 5,
+       "no": 6,
        "id": "t2-1107",
        "type": "main",
        "genre": "논설문",
@@ -6229,7 +5959,7 @@
        "why": "금융 사기와 부채 위기로부터 청년들을 지키기 위해 실용적 금융 교육을 의무화해야 한다는 취지입니다."
       },
       {
-       "no": 6,
+       "no": 7,
        "id": "t2-1102",
        "type": "main",
        "genre": "논설문",
@@ -6244,9 +5974,54 @@
        ],
        "answer": 1,
        "why": "기후 이변에 가장 취약한 계층의 생존을 지키기 위한 주거 개선 등 맞춤형 인프라 투자를 강조합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 27,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      3,
+      3,
+      0,
+      2,
+      2,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-28": {
+   "id": "r3-28",
+   "title": {
+    "en": "Find the main idea · Test set 9",
+    "ko": "중심 생각 찾기 실전문제 9회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 38 · about 10 min",
+    "ko": "7문항 · 시험 38번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 7,
+       "no": 1,
        "id": "t2-1111",
        "type": "main",
        "genre": "논설문",
@@ -6263,7 +6038,7 @@
        "why": "지하수의 무분별한 낭비를 막고 공공재로서 엄격하게 허가 및 관리해야 한다는 점을 역설합니다."
       },
       {
-       "no": 8,
+       "no": 2,
        "id": "t2-1112",
        "type": "main",
        "genre": "논설문",
@@ -6280,7 +6055,7 @@
        "why": "공공 치안에만 기대지 말고 무인 점포 사업주가 자체 방범 설비와 관리 책임을 다해야 한다는 주장입니다."
       },
       {
-       "no": 9,
+       "no": 3,
        "id": "t2-188",
        "type": "main",
        "genre": "논설문",
@@ -6297,7 +6072,7 @@
        "why": "생태계 균형과 인류 생존을 위해 생물 다양성을 지키는 일이 필수적이라는 주장을 담고 있으므로 「인류의 지속 가능한 미래를 위해 생물 다양성을 지켜야 한다.」가 가장 적절한 주제입니다. 개발 가속화는 필자의 입장과 정반대입니다."
       },
       {
-       "no": 10,
+       "no": 4,
        "id": "t2-1114",
        "type": "main",
        "genre": "논설문",
@@ -6312,72 +6087,9 @@
        ],
        "answer": 0,
        "why": "단순 금전 지원을 넘어 영농 기술, 멘토링, 공동체 융합 등 종합적인 정착 지원 체계가 필요함을 강조합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 25
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 25,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      3,
-      0,
-      2,
-      2,
-      1,
-      1,
-      2,
-      0,
-      0
-     ]
-    }
-   ]
-  },
-  "r3-26": {
-   "id": "r3-26",
-   "title": {
-    "en": "Find the main idea · Test set 7",
-    "ko": "중심 생각 찾기 실전문제 7회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 38 · about 14 min",
-    "ko": "10문항 · 시험 38번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 5,
        "id": "t2-1110",
        "type": "main",
        "genre": "논설문",
@@ -6394,7 +6106,7 @@
        "why": "소득 대책 없이 노인 연령 기준만 올리면 빈곤이 심화되므로 소득 보전 방안이 선행되어야 함을 강조합니다."
       },
       {
-       "no": 2,
+       "no": 6,
        "id": "t2-1108",
        "type": "main",
        "genre": "논설문",
@@ -6411,7 +6123,7 @@
        "why": "지역 의료 붕괴를 막고 생명권을 지키기 위해 지방 공공 병원과 인력에 대한 국가 지원 강화를 촉구합니다."
       },
       {
-       "no": 3,
+       "no": 7,
        "id": "t2-1103",
        "type": "main",
        "genre": "논설문",
@@ -6426,9 +6138,54 @@
        ],
        "answer": 3,
        "why": "상업성이나 간섭을 배제하고 예술의 공공성과 표현의 자유를 보장하는 독립적 지원을 역설합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 28,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      2,
+      0,
+      0,
+      2,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r3-29": {
+   "id": "r3-29",
+   "title": {
+    "en": "Find the main idea · Test set 10",
+    "ko": "중심 생각 찾기 실전문제 10회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 38 · about 10 min",
+    "ko": "7문항 · 시험 38번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-1104",
        "type": "main",
        "genre": "논설문",
@@ -6445,7 +6202,7 @@
        "why": "과거 기록으로 인한 피해를 막고 개인의 인격권을 지키기 위해 잊힐 권리를 보장해야 한다는 논지입니다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-1105",
        "type": "main",
        "genre": "논설문",
@@ -6462,7 +6219,7 @@
        "why": "로봇화로 인한 기술 실업을 완화하고 안전망 재원을 확보하기 위한 로봇세 등 대책 마련을 촉구합니다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-1113",
        "type": "main",
        "genre": "논설문",
@@ -6479,7 +6236,7 @@
        "why": "야간 조명으로 인한 건강 피해와 생태계 파괴를 막기 위해 빛 공해 규제를 강화해야 한다는 결론입니다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-1106",
        "type": "main",
        "genre": "논설문",
@@ -6496,7 +6253,7 @@
        "why": "형식적인 생태 통로의 한계를 짚고 야생동물의 습성을 반영한 실효성 있는 시공과 관리를 주장합니다."
       },
       {
-       "no": 8,
+       "no": 5,
        "id": "t2-1115",
        "type": "main",
        "genre": "논설문",
@@ -6513,7 +6270,7 @@
        "why": "인공지능의 편향성과 공감 능력의 부재라는 한계를 지적하며 사법 판단 도입에 신중해야 한다는 주장을 담았습니다."
       },
       {
-       "no": 9,
+       "no": 6,
        "id": "t2-088",
        "type": "main",
        "genre": "논설문",
@@ -6530,7 +6287,7 @@
        "why": "도심 녹지가 지닌 중요성을 강조하며 보존 정책이 우선되어야 함을 피력하므로 '도시의 지속 가능성을 위해 도심 속 녹지 공간을 보존해야 한다'가 주제입니다. '개발 규제를 전면 완화해야 한다'는 필자의 시각과 반대되는 지적 대상입니다."
       },
       {
-       "no": 10,
+       "no": 7,
        "id": "t2-138",
        "type": "main",
        "genre": "논설문",
@@ -6549,37 +6306,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 26
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 10,
+     "total": 7,
      "from": 1,
-     "no": 26,
+     "no": 29,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      2,
-      3,
-      3,
       1,
       3,
       3,
@@ -6591,11 +6330,11 @@
     }
    ]
   },
-  "r3-27": {
-   "id": "r3-27",
+  "r3-30": {
+   "id": "r3-30",
    "title": {
-    "en": "Find the main idea · Test set 8",
-    "ko": "중심 생각 찾기 실전문제 8회"
+    "en": "Find the main idea · Test set 11",
+    "ko": "중심 생각 찾기 실전문제 11회"
    },
    "sub": {
     "en": "4 questions · exam no. 45 · about 6 min",
@@ -6680,21 +6419,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 4,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 27
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6704,7 +6428,7 @@
      "rec": 6,
      "total": 4,
      "from": 1,
-     "no": 27,
+     "no": 30,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -6716,8 +6440,8 @@
     }
    ]
   },
-  "r3-28": {
-   "id": "r3-28",
+  "r3-31": {
+   "id": "r3-31",
    "title": {
     "en": "Same as the text · Warm-up",
     "ko": "내용 일치 연습문제"
@@ -6822,21 +6546,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 28
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6846,7 +6555,7 @@
      "rec": 7,
      "total": 5,
      "from": 1,
-     "no": 28,
+     "no": 31,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -6859,22 +6568,22 @@
     }
    ]
   },
-  "r3-29": {
-   "id": "r3-29",
+  "r3-32": {
+   "id": "r3-32",
    "title": {
     "en": "Same as the text · Test set 1",
     "ko": "내용 일치 실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 33–43 · about 14 min",
-    "ko": "10문항 · 시험 33~43번 · 권장 약 14분"
+    "en": "7 questions · exam no. 33–34 · about 10 min",
+    "ko": "7문항 · 시험 33~34번 · 권장 약 10분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–7",
+      "ko": "1~7번"
      },
      "items": [
       {
@@ -6995,9 +6704,54 @@
        ],
        "answer": 2,
        "why": "'먹이사슬을 타고 올라가 결국 인간의 먹거리까지 위협한다'를 바꾸어 쓴 '먹이사슬을 거쳐 최종적으로 사람에게도 영향을 미친다'가 옳습니다. 수돗물과 천일염에서도 발견되었다고 명시되어 있으므로 '전혀 검출되지 않았다'는 틀린 내용입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 32,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-33": {
+   "id": "r3-33",
+   "title": {
+    "en": "Same as the text · Test set 2",
+    "ko": "내용 일치 실전문제 2회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-1205",
        "type": "detail",
        "genre": "소설",
@@ -7014,7 +6768,7 @@
        "why": "'푸근한 부엌은 간데없고 번쩍이는 신축 빌라들이 들어차 있었다'와 일치합니다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-1203",
        "type": "detail",
        "genre": "소설",
@@ -7031,7 +6785,7 @@
        "why": "'젊은 시절 거친 파도를 헤치며 ... 아버지의 배였다'는 구절과 부합합니다."
       },
       {
-       "no": 10,
+       "no": 3,
        "id": "t2-1189",
        "type": "detail",
        "genre": "소설",
@@ -7046,72 +6800,9 @@
        ],
        "answer": 1,
        "why": "'마을이 재개발로 헐리기 전, 그는 어릴 적 살던 텅 빈 기와집을 찾아가'라는 대목과 일치합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 29
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 29,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      1,
-      3,
-      1,
-      2,
-      1,
-      2,
-      2,
-      1,
-      3,
-      1
-     ]
-    }
-   ]
-  },
-  "r3-30": {
-   "id": "r3-30",
-   "title": {
-    "en": "Same as the text · Test set 2",
-    "ko": "내용 일치 실전문제 2회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 4,
        "id": "t2-1225",
        "type": "detail",
        "genre": "소설",
@@ -7128,7 +6819,7 @@
        "why": "'까치밥이라며 날아가는 새들을 위해 가장 높은 가지의 감을 남겨두시던'과 부합합니다."
       },
       {
-       "no": 2,
+       "no": 5,
        "id": "t2-1195",
        "type": "detail",
        "genre": "소설",
@@ -7145,7 +6836,7 @@
        "why": "'지난가을 한번 보자며 밥 한 끼 사겠다던 친구의 투박한 목소리'라는 대목과 일치합니다."
       },
       {
-       "no": 3,
+       "no": 6,
        "id": "t2-1215",
        "type": "detail",
        "genre": "소설",
@@ -7162,7 +6853,7 @@
        "why": "'가뭄에도 마르지 않고 이웃들의 갈증을 달래주던 맑은 샘물'과 부합합니다."
       },
       {
-       "no": 4,
+       "no": 7,
        "id": "t2-1201",
        "type": "detail",
        "genre": "소설",
@@ -7177,9 +6868,54 @@
        ],
        "answer": 0,
        "why": "'어머니의 앙상한 손을 쥐고 그는 밤새 병상 곁을 지켰다'는 서술과 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 33,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      1,
+      0,
+      3,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-34": {
+   "id": "r3-34",
+   "title": {
+    "en": "Same as the text · Test set 3",
+    "ko": "내용 일치 실전문제 3회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 5,
+       "no": 1,
        "id": "t2-1219",
        "type": "detail",
        "genre": "소설",
@@ -7196,7 +6932,7 @@
        "why": "'지난 십 년간 쪽방에서 컵라면으로 끼니를 때우며 써 내려간'이라는 구절과 일치합니다."
       },
       {
-       "no": 6,
+       "no": 2,
        "id": "t2-1217",
        "type": "detail",
        "genre": "소설",
@@ -7213,7 +6949,7 @@
        "why": "'반세기 동안 ... 전파사 할아버지가 셔터를 내리고 있었다'는 내용과 일치합니다."
       },
       {
-       "no": 7,
+       "no": 3,
        "id": "t2-1209",
        "type": "detail",
        "genre": "소설",
@@ -7230,7 +6966,7 @@
        "why": "'삼 형제를 대학까지 가르치신 아버지의 거친 땀방울이 배 구석구석에'에서 확인할 수 있습니다."
       },
       {
-       "no": 8,
+       "no": 4,
        "id": "t2-1191",
        "type": "detail",
        "genre": "소설",
@@ -7247,7 +6983,7 @@
        "why": "'침묵을 깨고 우레와 같은 기립 박수가 터져 나왔다'는 서술과 정확히 일치합니다."
       },
       {
-       "no": 9,
+       "no": 5,
        "id": "t2-1211",
        "type": "detail",
        "genre": "소설",
@@ -7264,7 +7000,7 @@
        "why": "'가난 때문에 수학여행을 가지 못해 학교 뒷산에 홀로 앉아 눈물지었다던'과 일치합니다."
       },
       {
-       "no": 10,
+       "no": 6,
        "id": "t2-1227",
        "type": "detail",
        "genre": "소설",
@@ -7279,72 +7015,9 @@
        ],
        "answer": 2,
        "why": "'학생들은 일제히 일어나 노교사를 향해 고개 숙여 깊은 감사의 인사를 올렸다'와 일치합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 30
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 30,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      0,
-      3,
-      0,
-      0,
-      2,
-      1,
-      2,
-      3,
-      3,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-31": {
-   "id": "r3-31",
-   "title": {
-    "en": "Same as the text · Test set 3",
-    "ko": "내용 일치 실전문제 3회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 7,
        "id": "t2-1185",
        "type": "detail",
        "genre": "소설",
@@ -7359,9 +7032,54 @@
        ],
        "answer": 2,
        "why": "'쏟아져 나오는 인파 틈에서 그는 ... 동생의 얼굴을 단숨에 알아보았다'는 내용과 정확히 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 34,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      1,
+      2,
+      3,
+      3,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-35": {
+   "id": "r3-35",
+   "title": {
+    "en": "Same as the text · Test set 4",
+    "ko": "내용 일치 실전문제 4회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 2,
+       "no": 1,
        "id": "t2-043",
        "type": "detail",
        "genre": "소설",
@@ -7378,7 +7096,7 @@
        "why": "'아버지의 뒤를 이어 청춘을 다 바친 공간이었다'라는 구절을 바꾸어 나타낸 '그는 아버지에게서 공방을 물려받아 운영해 왔다'가 옳습니다. 치솟는 임대료 감당이 어려웠다고 했으므로 '임대료가 낮아져 부담이 줄어들었다'는 잘못된 사실입니다."
       },
       {
-       "no": 3,
+       "no": 2,
        "id": "t2-1197",
        "type": "detail",
        "genre": "소설",
@@ -7395,7 +7113,7 @@
        "why": "'천에 덮여 있던 미완성의 석조각상을 마주했다'는 내용과 일치합니다."
       },
       {
-       "no": 4,
+       "no": 3,
        "id": "t2-1207",
        "type": "detail",
        "genre": "소설",
@@ -7412,7 +7130,7 @@
        "why": "'마을 어르신들이 모두 모여 손주들과 짝을 이루어 줄다리기를 하고'라는 서술과 일치합니다."
       },
       {
-       "no": 5,
+       "no": 4,
        "id": "t2-1221",
        "type": "detail",
        "genre": "소설",
@@ -7429,7 +7147,7 @@
        "why": "'피아니스트를 꿈꾸며 손가락이 부르트도록 건반을 두드리던 젊은 날'에서 일치함을 확인합니다."
       },
       {
-       "no": 6,
+       "no": 5,
        "id": "t2-1187",
        "type": "detail",
        "genre": "소설",
@@ -7446,7 +7164,7 @@
        "why": "'전당포를 드나들면서도 끝내 팔지 않았던 아버지의 마지막 자존심이었다'는 서술과 부합합니다."
       },
       {
-       "no": 7,
+       "no": 6,
        "id": "t2-1223",
        "type": "detail",
        "genre": "소설",
@@ -7463,7 +7181,7 @@
        "why": "'시뻘겋게 달아오른 쇠를 모루 위에 얹고 쇠망치를 내리쳤다'와 일치합니다."
       },
       {
-       "no": 8,
+       "no": 7,
        "id": "t2-1199",
        "type": "detail",
        "genre": "소설",
@@ -7478,9 +7196,54 @@
        ],
        "answer": 0,
        "why": "'오프닝 행사가 시작된 지 한 시간이 지나도록 지인 몇 명을 빼고는 관람객의 발길이 뚝 끊겨 있었다'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 35,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      1,
+      2,
+      0,
+      0,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-36": {
+   "id": "r3-36",
+   "title": {
+    "en": "Same as the text · Test set 5",
+    "ko": "내용 일치 실전문제 5회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-093",
        "type": "detail",
        "genre": "소설",
@@ -7497,7 +7260,7 @@
        "why": "'대형 온라인 서점과 전자책의 파도 속에서도'라는 내용을 다르게 표현한 '그는 대형 온라인 서점과 전자책이 확산되는 와중에도 서점을 유지해 왔다'가 맞습니다. 문을 닫는 날 밤비가 내렸다고 했으므로 맑은 날씨라는 설명은 오답입니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-1193",
        "type": "detail",
        "genre": "소설",
@@ -7512,72 +7275,9 @@
        ],
        "answer": 2,
        "why": "'몇 년 전 써 두었던 누런 사표 봉투가 손에 잡혔다'는 내용과 일치합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 31
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 31,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      0,
-      1,
-      2,
-      0,
-      0,
-      3,
-      0,
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-32": {
-   "id": "r3-32",
-   "title": {
-    "en": "Same as the text · Test set 4",
-    "ko": "내용 일치 실전문제 4회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-1213",
        "type": "detail",
        "genre": "소설",
@@ -7594,7 +7294,7 @@
        "why": "'유학을 떠나기 전 마지막으로 만난 자리였지만'이라는 서술과 일치합니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-1239",
        "type": "detail",
        "genre": "소설",
@@ -7611,7 +7311,7 @@
        "why": "'가까스로 불씨를 살려 새 연탄을 얹고 방으로 돌아와'라는 내용과 일치합니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-1245",
        "type": "detail",
        "genre": "소설",
@@ -7628,7 +7328,7 @@
        "why": "'부도로 멈춰 선 방직공장의 녹슨 기계들 사이를 거닐며'와 일치합니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-1315",
        "type": "detail",
        "genre": "소설",
@@ -7645,7 +7345,7 @@
        "why": "'자전거포가 사라진 자리에는 무인 카페 간판이 새로 걸리고 있었다'와 일치합니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-193",
        "type": "detail",
        "genre": "소설",
@@ -7660,9 +7360,54 @@
        ],
        "answer": 1,
        "why": "본문에서 「삼십 년 동안 매일같이 첫차를 맞이하고 막차를 배웅하던」이라고 기술하였으므로 「민우는 이곳에서 수십 년 동안 철도 업무를 맡아 왔다.」가 내용과 부합합니다. 간이역은 오늘을 끝으로 문을 닫으며 대합실 불도 바로 끄지 못하고 서성였습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 36,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      2,
+      1,
+      0,
+      1,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-37": {
+   "id": "r3-37",
+   "title": {
+    "en": "Same as the text · Test set 6",
+    "ko": "내용 일치 실전문제 6회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-1237",
        "type": "detail",
        "genre": "소설",
@@ -7679,7 +7424,7 @@
        "why": "'가난했던 다락방에서 친구들과 밤새 인생과 문학을 논하며 듣던 바로 그 교향곡'과 일치합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-1307",
        "type": "detail",
        "genre": "소설",
@@ -7696,7 +7441,7 @@
        "why": "'얼음도 봄이 오면 녹아내리듯 자신의 시련 또한 지나갈 것임을' 깨닫고 발걸음을 내딛는 내용과 일치합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-1325",
        "type": "detail",
        "genre": "소설",
@@ -7713,7 +7458,7 @@
        "why": "'학창 시절 좋아했던 여학생이 연필로 적어 준 수줍은 글씨가 남아 있었다'와 일치합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-1287",
        "type": "detail",
        "genre": "소설",
@@ -7730,7 +7475,7 @@
        "why": "'해체 작업을 앞둔 낡은 목선 ... 땔감으로 사라질 운명을 앞둔 배'와 일치합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-1311",
        "type": "detail",
        "genre": "소설",
@@ -7745,72 +7490,9 @@
        ],
        "answer": 2,
        "why": "'얼음장처럼 차가운 샘물을 가득 떠서 마시자 타는 듯했던 갈증이'와 일치합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 32
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 32,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      1,
-      0,
-      1,
-      1,
-      1,
-      3,
-      1,
-      2,
-      2,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-33": {
-   "id": "r3-33",
-   "title": {
-    "en": "Same as the text · Test set 5",
-    "ko": "내용 일치 실전문제 5회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-1249",
        "type": "detail",
        "genre": "소설",
@@ -7827,7 +7509,7 @@
        "why": "'페달을 힘껏 밟으며 동요를 반주하던 젊은 시절 여선생님'과 아이들의 합창 소리에서 일치함을 확인합니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-1265",
        "type": "detail",
        "genre": "소설",
@@ -7842,9 +7524,54 @@
        ],
        "answer": 2,
        "why": "'가죽 띠에 면도칼을 슥슥 갈며 오랜 단골인 그를 반갑게 맞아주었다'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 37,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      2,
+      2,
+      2,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-38": {
+   "id": "r3-38",
+   "title": {
+    "en": "Same as the text · Test set 7",
+    "ko": "내용 일치 실전문제 7회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 3,
+       "no": 1,
        "id": "t2-1291",
        "type": "detail",
        "genre": "소설",
@@ -7861,7 +7588,7 @@
        "why": "'고등학교 취타대 시절 축제 무대에서 힘차게 나팔을 불며'와 부합합니다."
       },
       {
-       "no": 4,
+       "no": 2,
        "id": "t2-1267",
        "type": "detail",
        "genre": "소설",
@@ -7878,7 +7605,7 @@
        "why": "'뜨거운 고구마 한 봉지를 건네받는 순간 언 손가락을 타고'라는 서술과 부합합니다."
       },
       {
-       "no": 5,
+       "no": 3,
        "id": "t2-1261",
        "type": "detail",
        "genre": "소설",
@@ -7895,7 +7622,7 @@
        "why": "'잡초가 무성하게 자란 옛 초등학교 운동장 한가운데에 서서'와 일치합니다."
       },
       {
-       "no": 6,
+       "no": 4,
        "id": "t2-1235",
        "type": "detail",
        "genre": "소설",
@@ -7912,7 +7639,7 @@
        "why": "'도시로 나간 자식의 편지를 손꼽아 기다리던 홀몸 할머니'에게 편지를 전하러 가는 내용과 일치합니다."
       },
       {
-       "no": 7,
+       "no": 5,
        "id": "t2-1321",
        "type": "detail",
        "genre": "소설",
@@ -7929,7 +7656,7 @@
        "why": "'반지하 방의 삐걱거리는 작은 양은 밥상 ... 어머니가 보내주신 멸치볶음과'와 일치합니다."
       },
       {
-       "no": 8,
+       "no": 6,
        "id": "t2-1295",
        "type": "detail",
        "genre": "소설",
@@ -7946,7 +7673,7 @@
        "why": "'딸아이가 야근을 마치고 돌아올 시간이었다 ... 딸아이를 향해 성큼성큼'과 일치합니다."
       },
       {
-       "no": 9,
+       "no": 7,
        "id": "t2-1263",
        "type": "detail",
        "genre": "소설",
@@ -7961,9 +7688,54 @@
        ],
        "answer": 1,
        "why": "'발판을 밟아가며 자식들의 낡은 바지를 줄이고 해어진 교복을 기워주시던 어머니'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 38,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      1,
+      2,
+      1,
+      2,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-39": {
+   "id": "r3-39",
+   "title": {
+    "en": "Same as the text · Test set 8",
+    "ko": "내용 일치 실전문제 8회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 10,
+       "no": 1,
        "id": "t2-1331",
        "type": "detail",
        "genre": "소설",
@@ -7978,72 +7750,9 @@
        ],
        "answer": 2,
        "why": "'수풀 속에 쓰러져 있는 나무 시계탑 ... 멈추어 버린 채 녹슬어 가고 있었다'와 일치합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 33
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 33,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      0,
-      2,
-      1,
-      0,
-      1,
-      2,
-      1,
-      2,
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-34": {
-   "id": "r3-34",
-   "title": {
-    "en": "Same as the text · Test set 6",
-    "ko": "내용 일치 실전문제 6회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 2,
        "id": "t2-1301",
        "type": "detail",
        "genre": "소설",
@@ -8060,7 +7769,7 @@
        "why": "'봄마다 과실나무 가지를 다듬으며 좋은 열매를 맺게 하려고 땀 흘리시던 아버지'와 일치합니다."
       },
       {
-       "no": 2,
+       "no": 3,
        "id": "t2-1297",
        "type": "detail",
        "genre": "소설",
@@ -8077,7 +7786,7 @@
        "why": "'중학교 입학식 날 어머니가 밤새 코바늘로 떠 주셨던 손때 묻은 장갑'과 부합합니다."
       },
       {
-       "no": 3,
+       "no": 4,
        "id": "t2-1303",
        "type": "detail",
        "genre": "소설",
@@ -8094,7 +7803,7 @@
        "why": "'어린 시절 할아버지가 심어 주신 나무는'이라는 구절과 일치합니다."
       },
       {
-       "no": 4,
+       "no": 5,
        "id": "t2-1251",
        "type": "detail",
        "genre": "소설",
@@ -8111,7 +7820,7 @@
        "why": "'다듬이 방망이를 두드리시며 하얀 무명천의 주름을 펴시던 외할머니'와 일치합니다."
       },
       {
-       "no": 5,
+       "no": 6,
        "id": "t2-1279",
        "type": "detail",
        "genre": "소설",
@@ -8128,7 +7837,7 @@
        "why": "'쇼윈도에 자신의 젊은 시절 결혼사진이 걸려 있었다'와 일치합니다."
       },
       {
-       "no": 6,
+       "no": 7,
        "id": "t2-1269",
        "type": "detail",
        "genre": "소설",
@@ -8143,9 +7852,54 @@
        ],
        "answer": 3,
        "why": "'이제 주인을 잃고 비어 있었다'는 내용과 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 39,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      1,
+      0,
+      3,
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  "r3-40": {
+   "id": "r3-40",
+   "title": {
+    "en": "Same as the text · Test set 9",
+    "ko": "내용 일치 실전문제 9회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 7,
+       "no": 1,
        "id": "t2-1259",
        "type": "detail",
        "genre": "소설",
@@ -8162,7 +7916,7 @@
        "why": "'거센 비바람이 등대 유리창을 세차게 때리는 캄캄한 밤, 늙은 등대원은 회전하는 거대한 등명기를 꼼꼼히 점검했다'와 일치합니다."
       },
       {
-       "no": 8,
+       "no": 2,
        "id": "t2-1333",
        "type": "detail",
        "genre": "소설",
@@ -8179,7 +7933,7 @@
        "why": "'자식들의 입학 원서와 첫 집 장만 계약서에 ... 눌러 찍으시던 아버지'와 일치합니다."
       },
       {
-       "no": 9,
+       "no": 3,
        "id": "t2-1233",
        "type": "detail",
        "genre": "소설",
@@ -8196,7 +7950,7 @@
        "why": "'매일 아침 유치원 버스를 타지 않겠다고 떼를 쓰며 어머니의 치맛자락을 붙잡고 울던'과 일치합니다."
       },
       {
-       "no": 10,
+       "no": 4,
        "id": "t2-143",
        "type": "detail",
        "genre": "소설",
@@ -8211,72 +7965,9 @@
        ],
        "answer": 2,
        "why": "'낡아 버린 선체는 이제 해체장으로 끌려갈 마지막 항해를 앞두고 있었다'를 다르게 바꾼 '오랫동안 조업을 함께했던 배가 처리장으로 향하고 있다'가 내용과 일치합니다. 동료들은 포구를 떠났다고 서술되어 있으므로 오답입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 34
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 34,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      1,
-      0,
-      3,
-      1,
-      3,
-      3,
-      1,
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-35": {
-   "id": "r3-35",
-   "title": {
-    "en": "Same as the text · Test set 7",
-    "ko": "내용 일치 실전문제 7회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 43 · about 14 min",
-    "ko": "10문항 · 시험 43번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 5,
        "id": "t2-1319",
        "type": "detail",
        "genre": "소설",
@@ -8293,7 +7984,7 @@
        "why": "'무거운 나뭇짐을 지고 ... 지게를 받치고 다리를 지탱해 주던'과 부합합니다."
       },
       {
-       "no": 2,
+       "no": 6,
        "id": "t2-1273",
        "type": "detail",
        "genre": "소설",
@@ -8310,7 +8001,7 @@
        "why": "'할아버지의 손가락 지문이 닳아 박힌 듯 매끄럽고 은은한 광택'에서 부합함을 확인합니다."
       },
       {
-       "no": 3,
+       "no": 7,
        "id": "t2-1253",
        "type": "detail",
        "genre": "소설",
@@ -8325,9 +8016,54 @@
        ],
        "answer": 2,
        "why": "'천하대장군 장승이 썩어 쓰러지자 촌로는 뒷산에서 베어 온 소나무로 새 장승을 깎기 시작했다'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 40,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      1,
+      2,
+      0,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-41": {
+   "id": "r3-41",
+   "title": {
+    "en": "Same as the text · Test set 10",
+    "ko": "내용 일치 실전문제 10회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-1313",
        "type": "detail",
        "genre": "소설",
@@ -8344,7 +8080,7 @@
        "why": "'시집오실 때 외할머니가 쥐여 주셨다는 그 가락지'와 일치합니다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-1327",
        "type": "detail",
        "genre": "소설",
@@ -8361,7 +8097,7 @@
        "why": "'처마 밑에서 바짝 말린 무청을 삶아 된장을 풀어 끓여내시던 어머니'와 일치합니다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-1271",
        "type": "detail",
        "genre": "소설",
@@ -8378,7 +8114,7 @@
        "why": "'막걸리 한 사발을 들이켰다 ... 주모가 내어준 투박한 깍두기 한 접시'와 일치합니다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-1281",
        "type": "detail",
        "genre": "소설",
@@ -8395,7 +8131,7 @@
        "why": "'모서리가 비스듬히 닳아 빠진 나무 밥주걱'이라는 서술과 일치합니다."
       },
       {
-       "no": 8,
+       "no": 5,
        "id": "t2-1255",
        "type": "detail",
        "genre": "소설",
@@ -8412,7 +8148,7 @@
        "why": "'수천 척 땅속 막장으로 광부들을 실어 나르던 수직 갱도의 거대한 권양기 타워'와 일치합니다."
       },
       {
-       "no": 9,
+       "no": 6,
        "id": "t2-1283",
        "type": "detail",
        "genre": "소설",
@@ -8429,7 +8165,7 @@
        "why": "'흙바닥에 무릎을 꿇고 앉아 구슬치기를 하며 ... 놀던 유년의 친구들'과 부합합니다."
       },
       {
-       "no": 10,
+       "no": 7,
        "id": "t2-1247",
        "type": "detail",
        "genre": "소설",
@@ -8448,37 +8184,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 35
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 10,
+     "total": 7,
      "from": 1,
-     "no": 35,
+     "no": 41,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      0,
-      3,
-      2,
       3,
       0,
       0,
@@ -8490,22 +8208,22 @@
     }
    ]
   },
-  "r3-36": {
-   "id": "r3-36",
+  "r3-42": {
+   "id": "r3-42",
    "title": {
-    "en": "Same as the text · Test set 8",
-    "ko": "내용 일치 실전문제 8회"
+    "en": "Same as the text · Test set 11",
+    "ko": "내용 일치 실전문제 11회"
    },
    "sub": {
-    "en": "9 questions · exam no. 43 · about 13 min",
-    "ko": "9문항 · 시험 43번 · 권장 약 13분"
+    "en": "7 questions · exam no. 43 · about 10 min",
+    "ko": "7문항 · 시험 43번 · 권장 약 10분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
+      "en": "Questions 1–7",
+      "ko": "1~7번"
      },
      "items": [
       {
@@ -8626,9 +8344,54 @@
        ],
        "answer": 2,
        "why": "'첫눈이 내리는 아침, 우체통에서 ... 오랜 벗이 보낸 정갈한 손편지'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 42,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      2,
+      3,
+      3,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-43": {
+   "id": "r3-43",
+   "title": {
+    "en": "Same as the text · Test set 12",
+    "ko": "내용 일치 실전문제 12회"
+   },
+   "sub": {
+    "en": "2 questions · exam no. 43 · about 3 min",
+    "ko": "2문항 · 시험 43번 · 권장 약 3분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–2",
+      "ko": "1~2번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-1329",
        "type": "detail",
        "genre": "소설",
@@ -8645,7 +8408,7 @@
        "why": "'놋화로 속 붉은 숯불 위에서 ... 군밤을 호호 불며 껍질을 까 주시던 할아버지'와 일치합니다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-1293",
        "type": "detail",
        "genre": "소설",
@@ -8664,49 +8427,27 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 36
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 13,
-     "total": 9,
+     "rec": 3,
+     "total": 2,
      "from": 1,
-     "no": 36,
+     "no": 43,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      3,
-      2,
-      3,
-      3,
-      3,
-      0,
-      2,
       3,
       0
      ]
     }
    ]
   },
-  "r3-37": {
-   "id": "r3-37",
+  "r3-44": {
+   "id": "r3-44",
    "title": {
     "en": "Where does the sentence go? · Warm-up",
     "ko": "문장 넣기 연습문제"
@@ -8816,21 +8557,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 37
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -8840,7 +8566,7 @@
      "rec": 7,
      "total": 5,
      "from": 1,
-     "no": 37,
+     "no": 44,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -8853,22 +8579,22 @@
     }
    ]
   },
-  "r3-38": {
-   "id": "r3-38",
+  "r3-45": {
+   "id": "r3-45",
    "title": {
     "en": "Where does the sentence go? · Test set 1",
     "ko": "문장 넣기 실전문제 1회"
    },
    "sub": {
-    "en": "9 questions · exam no. 39 · about 13 min",
-    "ko": "9문항 · 시험 39번 · 권장 약 13분"
+    "en": "5 questions · exam no. 39 · about 7 min",
+    "ko": "5문항 · 시험 39번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8960,9 +8686,52 @@
        "answer": 2,
        "why": "주어진 문장은 '이러한 물 분자의 강한 결합력'을 매개로 모세관 현상의 원리를 제시하므로, 부착력과의 상호작용 뒤이자 거대 나무의 수분 상승 예시 앞인 ㉢에 위치해야 합니다.",
        "sentence": "이러한 물 분자의 강한 결합력은 좁은 관을 타고 중력을 거슬러 위로 솟구치는 원동력이 된다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 45,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      2,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-46": {
+   "id": "r3-46",
+   "title": {
+    "en": "Where does the sentence go? · Test set 2",
+    "ko": "문장 넣기 실전문제 2회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 39 · about 7 min",
+    "ko": "5문항 · 시험 39번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-039",
        "type": "insert",
        "genre": "설명문",
@@ -8980,7 +8749,7 @@
        "sentence": "이처럼 도서관이 단순한 독서 공간을 넘어 복합 문화 공간으로 바뀌고 있다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-1124",
        "type": "insert",
        "genre": "설명문",
@@ -8998,7 +8767,7 @@
        "sentence": "이처럼 지렁이는 인공 비료 없이도 흙을 비옥하게 가꾸어 주는 자연의 위대한 농부다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-1118",
        "type": "insert",
        "genre": "설명문",
@@ -9016,7 +8785,7 @@
        "sentence": "물질을 나노 크기로 아주 잘게 쪼개면 부피 대비 전체 표면적이 기하급수적으로 늘어나기 때문이다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-1127",
        "type": "insert",
        "genre": "설명문",
@@ -9032,71 +8801,9 @@
        "answer": 2,
        "why": "주어진 문장은 '이 천연 항생물질'을 벌집 틈새에 바른다는 행위를 나타내므로, 플라보노이드 항균 성분 설명 뒤이자 그 덕분에 벌통이 무균 상태를 유지한다는 결과 앞인 ㉢에 들어가야 합니다.",
        "sentence": "이 천연 항생물질을 벌집 틈새마다 꼼꼼히 발라 외부 세균의 침입을 철저히 차단한다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 38
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 13,
-     "total": 9,
-     "from": 1,
-     "no": 38,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      1,
-      2,
-      3,
-      2,
-      2,
-      3,
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "r3-39": {
-   "id": "r3-39",
-   "title": {
-    "en": "Where does the sentence go? · Test set 2",
-    "ko": "문장 넣기 실전문제 2회"
-   },
-   "sub": {
-    "en": "9 questions · exam no. 39–40 · about 13 min",
-    "ko": "9문항 · 시험 39~40번 · 권장 약 13분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 5,
        "id": "t2-1136",
        "type": "insert",
        "genre": "설명문",
@@ -9112,9 +8819,52 @@
        "answer": 3,
        "why": "주어진 문장은 덩굴손의 접촉 굴성 반응을 '생존의 지혜'로 종합 평가하는 결론 문장이므로 글의 끝부분인 ㉣에 들어가는 것이 가장 자연스럽습니다.",
        "sentence": "이처럼 기계적 자극에 대한 민감한 반응은 연약한 줄기를 지탱하고 햇빛을 차지하기 위한 생존의 지혜다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 46,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  "r3-47": {
+   "id": "r3-47",
+   "title": {
+    "en": "Where does the sentence go? · Test set 3",
+    "ko": "문장 넣기 실전문제 3회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 39 · about 7 min",
+    "ko": "5문항 · 시험 39번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 2,
+       "no": 1,
        "id": "t2-1122",
        "type": "insert",
        "genre": "설명문",
@@ -9132,7 +8882,7 @@
        "sentence": "위성의 공전 주기와 지구의 자전 주기가 24시간으로 완벽하게 일치하기 때문이다."
       },
       {
-       "no": 3,
+       "no": 2,
        "id": "t2-189",
        "type": "insert",
        "genre": "설명문",
@@ -9150,7 +8900,7 @@
        "sentence": "누구나 남는 식재료를 채워 둘 수 있고 끼니 해결이 어려운 주민은 눈치 보지 않고 음식을 꺼내 간다."
       },
       {
-       "no": 4,
+       "no": 3,
        "id": "t2-1121",
        "type": "insert",
        "genre": "설명문",
@@ -9168,7 +8918,7 @@
        "sentence": "지표면에 바짝 엎드린 채 방석처럼 빽빽하게 자라는 이른바 쿠션 형태가 대표적이다."
       },
       {
-       "no": 5,
+       "no": 4,
        "id": "t2-1119",
        "type": "insert",
        "genre": "설명문",
@@ -9186,7 +8936,7 @@
        "sentence": "그러나 목적지에 가까워지면 시각적으로 기억해 둔 강줄기나 산맥 같은 랜드마크를 적극 활용한다."
       },
       {
-       "no": 6,
+       "no": 5,
        "id": "t2-1129",
        "type": "insert",
        "genre": "설명문",
@@ -9202,9 +8952,52 @@
        "answer": 0,
        "why": "주어진 문장은 고래가 음파로 소통하는 물리적 이유(빛의 소멸과 소리의 빠른 전달)를 밝히고 있으므로, 고래가 음파로 소통한다는 첫 문장 바로 뒤인 ㉠에 들어가는 것이 자연스럽습니다.",
        "sentence": "바닷속은 빛이 수십 미터만 들어가도 사라지지만 소리는 공기 중보다 4배나 빠르게 멀리 전달되기 때문이다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 47,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      0,
+      2,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-48": {
+   "id": "r3-48",
+   "title": {
+    "en": "Where does the sentence go? · Test set 4",
+    "ko": "문장 넣기 실전문제 4회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 40 · about 7 min",
+    "ko": "5문항 · 시험 40번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 7,
+       "no": 1,
        "id": "t2-1160",
        "type": "insert",
        "genre": "설명문",
@@ -9222,7 +9015,7 @@
        "sentence": "이처럼 독특한 호흡근 덕분에 맹그로브는 산소가 결핍된 갯벌 진흙 속에서도 거목으로 번성한다."
       },
       {
-       "no": 8,
+       "no": 2,
        "id": "t2-1143",
        "type": "insert",
        "genre": "설명문",
@@ -9240,7 +9033,7 @@
        "sentence": "지구 반대편 바닷물은 달의 인력보다 원심력이 더 크게 작용하여 역시 바깥쪽으로 부풀어 오른다."
       },
       {
-       "no": 9,
+       "no": 3,
        "id": "t2-1153",
        "type": "insert",
        "genre": "설명문",
@@ -9256,71 +9049,9 @@
        "answer": 0,
        "why": "주어진 문장은 딱정벌레가 안개를 향해 몸을 웅크리는 이유(유일한 수분 공급원)를 밝히고 있으므로, 행동 묘사 뒤이자 등껍질의 친수성/소수성 구조 설명 앞인 ㉠에 들어가야 합니다.",
        "sentence": "비가 내리지 않는 사막에서 바다 안개는 생명을 유지할 수 있는 유일한 수분 공급원이다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 39
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 13,
-     "total": 9,
-     "from": 1,
-     "no": 39,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      1,
-      1,
-      0,
-      2,
-      0,
-      3,
-      2,
-      0
-     ]
-    }
-   ]
-  },
-  "r3-40": {
-   "id": "r3-40",
-   "title": {
-    "en": "Where does the sentence go? · Test set 3",
-    "ko": "문장 넣기 실전문제 3회"
-   },
-   "sub": {
-    "en": "9 questions · exam no. 40 · about 13 min",
-    "ko": "9문항 · 시험 40번 · 권장 약 13분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 4,
        "id": "t2-1149",
        "type": "insert",
        "genre": "설명문",
@@ -9338,7 +9069,7 @@
        "sentence": "이곳에 존재하는 오존 분자들은 태양에서 쏟아지는 치명적인 자외선을 강력하게 흡수한다."
       },
       {
-       "no": 2,
+       "no": 5,
        "id": "t2-1146",
        "type": "insert",
        "genre": "설명문",
@@ -9354,9 +9085,52 @@
        "answer": 1,
        "why": "주어진 문장은 피해 상황에서 긍정적 효과로의 극적인 반전을 이끄는 연결 문장이므로, 화산재의 피해 서술 뒤이자 미네랄 성분의 토양 비옥화 설명 앞인 ㉡이 맞습니다.",
        "sentence": "그러나 시간이 흘러 화산재가 풍화되면 상황은 완전히 반전된다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 48,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      2,
+      0,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-49": {
+   "id": "r3-49",
+   "title": {
+    "en": "Where does the sentence go? · Test set 5",
+    "ko": "문장 넣기 실전문제 5회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 40 · about 7 min",
+    "ko": "5문항 · 시험 40번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 3,
+       "no": 1,
        "id": "t2-1158",
        "type": "insert",
        "genre": "설명문",
@@ -9374,7 +9148,7 @@
        "sentence": "바깥쪽 세포층은 수분을 흡수하면 크게 팽창하지만 안쪽 세포층은 거의 늘어나지 않는 탓이다."
       },
       {
-       "no": 4,
+       "no": 2,
        "id": "t2-1141",
        "type": "insert",
        "genre": "설명문",
@@ -9392,7 +9166,7 @@
        "sentence": "토양 속 염분 농도가 식물 체액보다 높으면 수분을 오히려 땅에 빼앗기기 때문이다."
       },
       {
-       "no": 5,
+       "no": 3,
        "id": "t2-1147",
        "type": "insert",
        "genre": "설명문",
@@ -9410,7 +9184,7 @@
        "sentence": "뜨거운 물에 고치를 삶으면 외곽의 세리신이 부드럽게 녹아내리며 매끄러운 생사가 풀려나온다."
       },
       {
-       "no": 6,
+       "no": 4,
        "id": "t2-1150",
        "type": "insert",
        "genre": "설명문",
@@ -9428,7 +9202,7 @@
        "sentence": "옆줄 속 감각세포는 미세한 수압 변화와 물결의 흐름을 초정밀 센서처럼 감지해 낸다."
       },
       {
-       "no": 7,
+       "no": 5,
        "id": "t2-040",
        "type": "insert",
        "genre": "설명문",
@@ -9444,9 +9218,52 @@
        "answer": 1,
        "why": "주어진 문장의 '이러한 작업'은 낮 동안 얻은 정보를 장기 기억으로 정리하는 뇌의 활동을 가리키며, 뒤따르는 ㉡ 뒤의 문장에서 '이때 뇌파가 느려지면서'라는 표현으로 서파 수면 상태의 뇌파 변화를 받아서 설명합니다. 따라서 ㉡ 자리가 가장 올바릅니다. ㉣ 자리는 수면 부족 시의 부정적 결과를 설명하는 문맥이므로 삽입하기에 적절치 않습니다.",
        "sentence": "그중에서도 깊은 수면 단계인 서파 수면 동안 이러한 작업이 집중적으로 이루어진다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 49,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      2,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-50": {
+   "id": "r3-50",
+   "title": {
+    "en": "Where does the sentence go? · Test set 6",
+    "ko": "문장 넣기 실전문제 6회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 40 · about 7 min",
+    "ko": "5문항 · 시험 40번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-1140",
        "type": "insert",
        "genre": "설명문",
@@ -9464,7 +9281,7 @@
        "sentence": "이처럼 백혈구의 기민한 탐식 작용은 인체가 감염증에 걸리지 않도록 지키는 최전선 방어벽이다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-1157",
        "type": "insert",
        "genre": "설명문",
@@ -9480,71 +9297,9 @@
        "answer": 0,
        "why": "주어진 문장은 오로라 발생의 근본 원인(태양 하전 입자의 극지방 유입)을 설명하므로, 오로라 소개 문장 뒤이자 대기 충돌 묘사 앞인 ㉠에 들어가야 합니다.",
        "sentence": "태양에서 뿜어져 나온 고에너지 하전 입자들이 지구 자기장에 이끌려 양 극지방으로 쏟아지기 때문이다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 40
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 13,
-     "total": 9,
-     "from": 1,
-     "no": 40,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      0,
-      1,
-      1,
-      0,
-      2,
-      1,
-      1,
-      3,
-      0
-     ]
-    }
-   ]
-  },
-  "r3-41": {
-   "id": "r3-41",
-   "title": {
-    "en": "Where does the sentence go? · Test set 4",
-    "ko": "문장 넣기 실전문제 4회"
-   },
-   "sub": {
-    "en": "9 questions · exam no. 40 · about 13 min",
-    "ko": "9문항 · 시험 40번 · 권장 약 13분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-090",
        "type": "insert",
        "genre": "설명문",
@@ -9562,7 +9317,7 @@
        "sentence": "이렇게 발산된 화학 물질은 단순한 방어를 넘어 일종의 경고 신호로 작용한다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-1159",
        "type": "insert",
        "genre": "설명문",
@@ -9580,7 +9335,7 @@
        "sentence": "이 화학물질은 흙속으로 스며들어 이웃 식물 종자의 발아를 막고 뿌리 성장을 억제한다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-1148",
        "type": "insert",
        "genre": "설명문",
@@ -9596,9 +9351,52 @@
        "answer": 3,
        "why": "주어진 문장은 폐, 혈액, 털가죽 등의 적응을 종합하여 평가하는 결론 문장이므로 마지막 자리인 ㉣에 들어가는 것이 옳습니다.",
        "sentence": "이러한 종합적인 생리적 적응 덕분에 야크는 고원의 척박한 추위 속에서도 짐을 실어 나를 수 있다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 50,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      2,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  "r3-51": {
+   "id": "r3-51",
+   "title": {
+    "en": "Where does the sentence go? · Test set 7",
+    "ko": "문장 넣기 실전문제 7회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 40 · about 7 min",
+    "ko": "5문항 · 시험 40번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-1152",
        "type": "insert",
        "genre": "설명문",
@@ -9616,7 +9414,7 @@
        "sentence": "이처럼 나이테는 수백 년 전의 강수량과 기온 변화를 낱낱이 간직한 자연의 기상 관측 일지다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-1161",
        "type": "insert",
        "genre": "설명문",
@@ -9634,7 +9432,7 @@
        "sentence": "흔히 물이 들어 있을 것이라 생각하기 쉽지만 실제로는 순수한 지방 덩어리로 채워져 있다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-1155",
        "type": "insert",
        "genre": "설명문",
@@ -9652,7 +9450,7 @@
        "sentence": "극지방에서 가라앉은 차가운 심층수는 해저 바닥을 따라 천천히 적도로 이동한다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-190",
        "type": "insert",
        "genre": "설명문",
@@ -9670,7 +9468,7 @@
        "sentence": "하지만 최근 연구진의 정밀 분석에 의해 새로운 과학적 사실이 드러났다."
       },
       {
-       "no": 8,
+       "no": 5,
        "id": "t2-1154",
        "type": "insert",
        "genre": "설명문",
@@ -9686,9 +9484,52 @@
        "answer": 1,
        "why": "주어진 문장은 갈색 지방의 열 생산 특성을 정의하므로, 갈색 지방을 축적한다는 문장 뒤이자 미토콘드리아의 체열 생산 설명 앞인 ㉡에 위치해야 합니다.",
        "sentence": "에너지를 저장하는 백색 지방과 달리 갈색 지방은 지방을 태워 직접 열을 뿜어내는 특수 조직이다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 51,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      2,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-52": {
+   "id": "r3-52",
+   "title": {
+    "en": "Where does the sentence go? · Test set 8",
+    "ko": "문장 넣기 실전문제 8회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 40–41 · about 7 min",
+    "ko": "5문항 · 시험 40~41번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-1144",
        "type": "insert",
        "genre": "설명문",
@@ -9704,71 +9545,9 @@
        "answer": 3,
        "why": "주어진 문장은 선두의 교대를 통한 무리의 장거리 이동 완수를 설명하므로, 선두 새의 극심한 체력 소모를 서술한 문장 바로 뒤인 ㉣에 들어가는 것이 자연스럽습니다.",
        "sentence": "또한 선두를 번갈아 교대함으로써 무리 전체가 낙오자 없이 장거리 이동을 완수한다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 41
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 13,
-     "total": 9,
-     "from": 1,
-     "no": 41,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      2,
-      3,
-      3,
-      0,
-      2,
-      1,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-42": {
-   "id": "r3-42",
-   "title": {
-    "en": "Where does the sentence go? · Test set 5",
-    "ko": "문장 넣기 실전문제 5회"
-   },
-   "sub": {
-    "en": "9 questions · exam no. 40–41 · about 13 min",
-    "ko": "9문항 · 시험 40~41번 · 권장 약 13분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–9",
-      "ko": "1~9번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 2,
        "id": "t2-1145",
        "type": "insert",
        "genre": "설명문",
@@ -9786,7 +9565,7 @@
        "sentence": "식물 줄기 끝에서 합성되는 성장 호르몬인 옥신이 빛을 피해 어두운 쪽으로 이동하기 때문이다."
       },
       {
-       "no": 2,
+       "no": 3,
        "id": "t2-140",
        "type": "insert",
        "genre": "설명문",
@@ -9804,7 +9583,7 @@
        "sentence": "이런 까닭에 해파리는 뇌나 심장이 없어도 바닷속에서 오랜 세월 번성할 수 있었다."
       },
       {
-       "no": 3,
+       "no": 4,
        "id": "t2-1142",
        "type": "insert",
        "genre": "설명문",
@@ -9822,7 +9601,7 @@
        "sentence": "P파는 진동 방향과 파동의 진행 방향이 나란한 종파로 고체, 액체, 기체를 모두 통과한다."
       },
       {
-       "no": 4,
+       "no": 5,
        "id": "t2-1181",
        "type": "insert",
        "genre": "설명문",
@@ -9838,9 +9617,52 @@
        "answer": 0,
        "why": "주어진 문장은 무소음 비행의 이유(날개 앞쪽 빗살 톱니 돌기)를 제시하므로, '이 톱니 돌기들은'으로 시작하는 문장 바로 앞인 ㉠에 들어가야 지시 관계가 연결됩니다.",
        "sentence": "날개 앞쪽 가장자리에 빗살 모양의 미세한 톱니 돌기가 촘촘히 솟아 있기 때문이다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 52,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      3,
+      1,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-53": {
+   "id": "r3-53",
+   "title": {
+    "en": "Where does the sentence go? · Test set 9",
+    "ko": "문장 넣기 실전문제 9회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 41 · about 7 min",
+    "ko": "5문항 · 시험 41번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 5,
+       "no": 1,
        "id": "t2-191",
        "type": "insert",
        "genre": "설명문",
@@ -9858,7 +9680,7 @@
        "sentence": "물로 만든 아이스팩이나 테이프가 필요 없는 조립식 종이 상자가 대표적인 예이다."
       },
       {
-       "no": 6,
+       "no": 2,
        "id": "t2-1183",
        "type": "insert",
        "genre": "설명문",
@@ -9876,7 +9698,7 @@
        "sentence": "계면활성제의 친수성 머리는 물을 잡고 친유성 꼬리는 기름때를 둘러싸 물속으로 떼어낸다."
       },
       {
-       "no": 7,
+       "no": 3,
        "id": "t2-1172",
        "type": "insert",
        "genre": "설명문",
@@ -9894,7 +9716,7 @@
        "sentence": "이러한 장치 덕분에 물장군은 물속에 몸을 완벽히 숨긴 채 다가오는 물고기를 기습 공격한다."
       },
       {
-       "no": 8,
+       "no": 4,
        "id": "t2-1182",
        "type": "insert",
        "genre": "설명문",
@@ -9912,7 +9734,7 @@
        "sentence": "녹색을 띠는 엽록소가 파괴되면서 여름 내내 가려져 있던 노란색의 카로티노이드 색소가 겉으로 드러나는 것이다."
       },
       {
-       "no": 9,
+       "no": 5,
        "id": "t2-1169",
        "type": "insert",
        "genre": "설명문",
@@ -9932,38 +9754,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 9,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 42
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 13,
-     "total": 9,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 42,
+     "no": 53,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      0,
-      3,
-      1,
-      0,
       1,
       2,
       3,
@@ -9973,22 +9776,22 @@
     }
    ]
   },
-  "r3-43": {
-   "id": "r3-43",
+  "r3-54": {
+   "id": "r3-54",
    "title": {
-    "en": "Where does the sentence go? · Test set 6",
-    "ko": "문장 넣기 실전문제 6회"
+    "en": "Where does the sentence go? · Test set 10",
+    "ko": "문장 넣기 실전문제 10회"
    },
    "sub": {
-    "en": "8 questions · exam no. 41 · about 11 min",
-    "ko": "8문항 · 시험 41번 · 권장 약 11분"
+    "en": "5 questions · exam no. 41 · about 7 min",
+    "ko": "5문항 · 시험 41번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–8",
-      "ko": "1~8번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -10080,9 +9883,52 @@
        "answer": 1,
        "why": "주어진 문장은 미세 털과 벽면 사이의 반데르발스 힘이라는 결합 메커니즘을 설명하므로, 미세 털 소개 문장 뒤이자 수백만 개의 인력이 합쳐져 체중을 지탱한다는 문장 앞인 ㉡에 들어가는 것이 옳습니다.",
        "sentence": "이 미세 털들이 벽면 원자들과 원자 단위로 밀착할 때 반데르발스 힘이라는 미약한 분자 간 인력이 작용한다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 54,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      1,
+      2,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-55": {
+   "id": "r3-55",
+   "title": {
+    "en": "Where does the sentence go? · Test set 11",
+    "ko": "문장 넣기 실전문제 11회"
+   },
+   "sub": {
+    "en": "3 questions · exam no. 41 · about 4 min",
+    "ko": "3문항 · 시험 41번 · 권장 약 4분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–3",
+      "ko": "1~3번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-1177",
        "type": "insert",
        "genre": "설명문",
@@ -10100,7 +9946,7 @@
        "sentence": "눈에 보이지 않는 하나의 주삿바늘처럼 보이지만 실제로는 6개의 미세한 침이 정교하게 결합된 도구다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-1165",
        "type": "insert",
        "genre": "설명문",
@@ -10118,7 +9964,7 @@
        "sentence": "개미집 중앙에 솟은 거대한 기둥 모양 굴뚝이 온실 효과로 데워진 공기를 위로 배출하기 때문이다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-1174",
        "type": "insert",
        "genre": "설명문",
@@ -10138,39 +9984,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 8,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 43
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 11,
-     "total": 8,
+     "rec": 4,
+     "total": 3,
      "from": 1,
-     "no": 43,
+     "no": 55,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      2,
-      1,
-      2,
-      1,
-      1,
       0,
       0,
       1
@@ -10178,8 +10004,8 @@
     }
    ]
   },
-  "r3-44": {
-   "id": "r3-44",
+  "r3-56": {
+   "id": "r3-56",
    "title": {
     "en": "The writer's feeling · Warm-up",
     "ko": "밑줄 친 부분의 심정 연습문제"
@@ -10284,21 +10110,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 44
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -10308,7 +10119,7 @@
      "rec": 7,
      "total": 5,
      "from": 1,
-     "no": 44,
+     "no": 56,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -10321,22 +10132,22 @@
     }
    ]
   },
-  "r3-45": {
-   "id": "r3-45",
+  "r3-57": {
+   "id": "r3-57",
    "title": {
     "en": "The writer's feeling · Test set 1",
     "ko": "밑줄 친 부분의 심정 실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–7",
+      "ko": "1~7번"
      },
      "items": [
       {
@@ -10457,9 +10268,54 @@
        ],
        "answer": 2,
        "why": "고단한 손님의 노고를 이해하고 그의 행복을 진심으로 기원하는 온정 어린 태도를 보이므로 '따뜻하다'가 정답입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 57,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      1,
+      0,
+      0,
+      3,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-58": {
+   "id": "r3-58",
+   "title": {
+    "en": "The writer's feeling · Test set 2",
+    "ko": "밑줄 친 부분의 심정 실전문제 2회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-042",
        "type": "feeling",
        "genre": "소설",
@@ -10476,7 +10332,7 @@
        "why": "평생 바친 공방이 철거되는 상황에서 가슴이 아리고 안타깝다고 했으므로 '서글프고 아쉽다'가 맞습니다. '후련하고 기쁘다'는 소중한 공간을 정리하는 슬픈 상황과 반대되는 감정입니다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-1204",
        "type": "feeling",
        "genre": "소설",
@@ -10493,7 +10349,7 @@
        "why": "청춘의 추억이 깃든 공간이 흔적도 없이 사라져 버린 현실 앞에서 공허함과 상실감을 느끼므로 '허탈하다'가 맞습니다."
       },
       {
-       "no": 10,
+       "no": 3,
        "id": "t2-1194",
        "type": "feeling",
        "genre": "소설",
@@ -10508,72 +10364,9 @@
        ],
        "answer": 3,
        "why": "가장 소중했던 죽마고우의 갑작스러운 죽음을 전해 듣고 깊은 슬픔과 상실감에 젖어 있으므로 '비통하다'가 옳습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 45
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 45,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      1,
-      0,
-      0,
-      3,
-      2,
-      2,
-      3,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-46": {
-   "id": "r3-46",
-   "title": {
-    "en": "The writer's feeling · Test set 2",
-    "ko": "밑줄 친 부분의 심정 실전문제 2회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 4,
        "id": "t2-1210",
        "type": "feeling",
        "genre": "소설",
@@ -10590,7 +10383,7 @@
        "why": "과거 가난으로 상처받았던 어린 날의 자신을 마주하며 솟구쳐 오르는 뜨거운 연민과 감동을 나타내므로 '뭉클하다'가 알맞습니다."
       },
       {
-       "no": 2,
+       "no": 5,
        "id": "t2-1244",
        "type": "feeling",
        "genre": "소설",
@@ -10607,7 +10400,7 @@
        "why": "청춘을 바친 일터의 몰락을 마주하며 애처롭고 서글픈 감정에 젖어 기념물을 챙기므로 '처연하다'가 정답입니다."
       },
       {
-       "no": 3,
+       "no": 6,
        "id": "t2-1252",
        "type": "feeling",
        "genre": "소설",
@@ -10624,7 +10417,7 @@
        "why": "마을의 안녕을 위해 온 힘을 다해 전통 장승을 완성하고 난 뒤의 보람과 만족감을 나타내므로 '뿌듯하다'가 맞습니다."
       },
       {
-       "no": 4,
+       "no": 7,
        "id": "t2-1212",
        "type": "feeling",
        "genre": "소설",
@@ -10639,9 +10432,54 @@
        ],
        "answer": 3,
        "why": "사랑하는 사람과의 피할 수 없는 이별의 순간을 맞닥뜨리며 가슴 깊이 밀려오는 슬픔과 비애를 느끼므로 '서글프다'가 맞습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 58,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      3,
+      2,
+      2,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r3-59": {
+   "id": "r3-59",
+   "title": {
+    "en": "The writer's feeling · Test set 3",
+    "ko": "밑줄 친 부분의 심정 실전문제 3회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 5,
+       "no": 1,
        "id": "t2-1186",
        "type": "feeling",
        "genre": "소설",
@@ -10658,7 +10496,7 @@
        "why": "고치기 힘들다는 시계 장인의 말에 아버지의 희생과 유품에 대한 애틋한 슬픔이 밀려와 마른 침을 삼키므로 '안타깝다'가 맞습니다."
       },
       {
-       "no": 6,
+       "no": 2,
        "id": "t2-1202",
        "type": "feeling",
        "genre": "소설",
@@ -10675,7 +10513,7 @@
        "why": "폐선이 된 아버지의 배를 보며 아버지의 젊은 날과 지난 세월을 애틋하고 아스라하게 회상하고 있으므로 '아련하다'가 적절합니다."
       },
       {
-       "no": 7,
+       "no": 3,
        "id": "t2-1200",
        "type": "feeling",
        "genre": "소설",
@@ -10692,7 +10530,7 @@
        "why": "위독한 어머니의 꺼져가는 생명 앞에서 솟구치는 가슴 찢어지는 슬픔과 눈물을 나타내므로 '애통하다'가 맞습니다."
       },
       {
-       "no": 8,
+       "no": 4,
        "id": "t2-1222",
        "type": "feeling",
        "genre": "소설",
@@ -10709,7 +10547,7 @@
        "why": "시대의 변화와 쇠락 속에서도 장인으로서의 자긍심과 본분을 잃지 않고 묵묵히 일에 몰두하므로 '의연하다'가 맞습니다."
       },
       {
-       "no": 9,
+       "no": 5,
        "id": "t2-1188",
        "type": "feeling",
        "genre": "소설",
@@ -10726,7 +10564,7 @@
        "why": "폐허가 된 옛집에서 옛 추억과 부재를 실감하며 홀로 어둠을 바라보는 모습에서 '쓸쓸하다'가 가장 어울립니다."
       },
       {
-       "no": 10,
+       "no": 6,
        "id": "t2-1184",
        "type": "feeling",
        "genre": "소설",
@@ -10741,72 +10579,9 @@
        ],
        "answer": 3,
        "why": "오랜 세월 헤어졌던 동생을 발견하고도 섣불리 다가가지 못하고 기둥 뒤로 숨는 행동에서 복잡한 회한과 조심스러움으로 '머뭇거리다'가 알맞습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 46
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 46,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      2,
-      3,
-      3,
-      2,
-      3,
-      2,
-      3,
-      0,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-47": {
-   "id": "r3-47",
-   "title": {
-    "en": "The writer's feeling · Test set 3",
-    "ko": "밑줄 친 부분의 심정 실전문제 3회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 7,
        "id": "t2-1192",
        "type": "feeling",
        "genre": "소설",
@@ -10821,9 +10596,54 @@
        ],
        "answer": 2,
        "why": "현실과 꿈 사이의 괴리, 가장으로서의 무게를 견디며 사표를 다시 집어넣는 처연한 심정을 그리므로 '착잡하다'가 맞습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 59,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      2,
+      3,
+      0,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-60": {
+   "id": "r3-60",
+   "title": {
+    "en": "The writer's feeling · Test set 4",
+    "ko": "밑줄 친 부분의 심정 실전문제 4회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 2,
+       "no": 1,
        "id": "t2-1258",
        "type": "feeling",
        "genre": "소설",
@@ -10840,7 +10660,7 @@
        "why": "거친 폭풍우 속에서 밤새 배들의 안전을 지키는 소임을 무사히 마치고 아침을 맞이하며 느끼는 안도감과 평안이므로 '안도하다'가 정답입니다."
       },
       {
-       "no": 3,
+       "no": 2,
        "id": "t2-1260",
        "type": "feeling",
        "genre": "소설",
@@ -10857,7 +10677,7 @@
        "why": "아이들의 웃음소리가 사라진 폐교의 적막과 퇴락을 마주하며 느끼는 고독과 적막감이므로 '쓸쓸하다'가 맞습니다."
       },
       {
-       "no": 4,
+       "no": 3,
        "id": "t2-092",
        "type": "feeling",
        "genre": "소설",
@@ -10874,7 +10694,7 @@
        "why": "삼십 년간 지켜온 서점을 정리하며 아쉬움과 슬픔을 느끼고 있으므로 '슬프고 허전하다'가 맞습니다. '화나고 답답하다'는 소중한 공간을 잃는 슬픈 상황과 맞지 않습니다."
       },
       {
-       "no": 5,
+       "no": 4,
        "id": "t2-1190",
        "type": "feeling",
        "genre": "소설",
@@ -10891,7 +10711,7 @@
        "why": "평생의 고난 끝에 은퇴 무대에서 터져 나온 관객들의 뜨거운 기립 박수를 마주하며 벅찬 눈물과 기쁨을 누르고 있으므로 '감격스럽다'가 정답입니다."
       },
       {
-       "no": 6,
+       "no": 5,
        "id": "t2-1206",
        "type": "feeling",
        "genre": "소설",
@@ -10908,7 +10728,7 @@
        "why": "폐교를 앞두고 마지막 운동회를 치르는 어린 제자들을 향한 안타까움과 깊은 사랑을 담고 있으므로 '애틋하다'가 정답입니다."
       },
       {
-       "no": 7,
+       "no": 6,
        "id": "t2-1208",
        "type": "feeling",
        "genre": "소설",
@@ -10925,7 +10745,7 @@
        "why": "자식들을 위해 헌신하신 아버지의 고된 삶을 떠올리며 가슴 벅찬 슬픔과 뭉클함을 느끼므로 '먹먹하다'가 가장 어울립니다."
       },
       {
-       "no": 8,
+       "no": 7,
        "id": "t2-1216",
        "type": "feeling",
        "genre": "소설",
@@ -10940,9 +10760,54 @@
        ],
        "answer": 1,
        "why": "평생을 바쳐 지켜온 일터의 문을 영영 닫는 순간의 서글픔과 가슴 아픈 회한을 나타내므로 '비감하다'가 가장 어울립니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 60,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-61": {
+   "id": "r3-61",
+   "title": {
+    "en": "The writer's feeling · Test set 5",
+    "ko": "밑줄 친 부분의 심정 실전문제 5회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-1196",
        "type": "feeling",
        "genre": "소설",
@@ -10959,7 +10824,7 @@
        "why": "마지막 순간까지 혼을 바친 스승의 치열한 예술혼과 유품 앞에서 경건한 존경과 추모의 마음을 품으므로 '숙연하다'가 맞습니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-1198",
        "type": "feeling",
        "genre": "소설",
@@ -10974,72 +10839,9 @@
        ],
        "answer": 0,
        "why": "열정을 바친 첫 전시회가 무관심 속에 외면받는 현실을 지켜보며 느끼는 비참함과 뼈아픈 실망감을 나타내므로 '참담하다'가 정답입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 47
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 47,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      2,
-      0,
-      0,
-      1,
-      0,
-      1,
-      1,
-      1,
-      0
-     ]
-    }
-   ]
-  },
-  "r3-48": {
-   "id": "r3-48",
-   "title": {
-    "en": "The writer's feeling · Test set 4",
-    "ko": "밑줄 친 부분의 심정 실전문제 4회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-1214",
        "type": "feeling",
        "genre": "소설",
@@ -11056,7 +10858,7 @@
        "why": "맑은 물이 솟구치던 정겨운 샘터가 메마르고 파괴된 현실에 대한 안타까움과 탄식을 표현하므로 '안타깝다'가 맞습니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-1314",
        "type": "feeling",
        "genre": "소설",
@@ -11073,7 +10875,7 @@
        "why": "어릴 적 정겨웠던 추억의 공간이 시대의 변화 속에 사라진 것에 대한 깊은 미련과 아쉬움을 나타내므로 '아쉽다'가 맞습니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-1236",
        "type": "feeling",
        "genre": "소설",
@@ -11090,7 +10892,7 @@
        "why": "옛 음악과 청춘의 기억 속에 깊이 빠져들어 감정적으로 황홀하게 몰입하고 있으므로 '도취되다'가 알맞습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-1246",
        "type": "feeling",
        "genre": "소설",
@@ -11107,7 +10909,7 @@
        "why": "가난했지만 순수했던 유년 시절의 동무들과 지난 세월을 애틋하게 추억하며 울컥하는 감정이므로 '그립다'가 맞습니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-1328",
        "type": "feeling",
        "genre": "소설",
@@ -11122,9 +10924,54 @@
        ],
        "answer": 1,
        "why": "겨울밤 화롯가에서 군밤을 구워주시던 할아버지의 따스한 사랑과 온기를 간절히 추억하고 있으므로 '그립다'가 맞습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 61,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      0,
+      3,
+      1,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-62": {
+   "id": "r3-62",
+   "title": {
+    "en": "The writer's feeling · Test set 6",
+    "ko": "밑줄 친 부분의 심정 실전문제 6회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-1280",
        "type": "feeling",
        "genre": "소설",
@@ -11141,7 +10988,7 @@
        "why": "자신을 위해 헌신하시던 어머니의 사랑과 따스한 끼니를 회상하며 간절한 그리움에 젖어 있으므로 '그립다'가 정답입니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-1310",
        "type": "feeling",
        "genre": "소설",
@@ -11158,7 +11005,7 @@
        "why": "지친 길손을 위해 물을 마실 수 있도록 배려해 준 이름 모를 이의 따뜻한 온정에 감사를 느끼므로 '고맙다'가 정답입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-1270",
        "type": "feeling",
        "genre": "소설",
@@ -11175,7 +11022,7 @@
        "why": "고된 산길을 무사히 넘고 시원한 막걸리와 함께 피로를 풀며 느끼는 개운함과 안도감을 나타내므로 '후련하다'가 맞습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-1292",
        "type": "feeling",
        "genre": "소설",
@@ -11192,7 +11039,7 @@
        "why": "혹독한 자연재해를 견디고 굳건히 버텨낸 작은 생명의 위대함 앞에 경건한 감동과 다짐을 품으므로 '숙연하다'가 정답입니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-1326",
        "type": "feeling",
        "genre": "소설",
@@ -11207,72 +11054,9 @@
        ],
        "answer": 3,
        "why": "어머니의 정성 어린 따뜻한 국 한 그릇에 타향살이의 서러움이 녹아내리며 솟구치는 벅찬 감동이므로 '뭉클하다'가 정답입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 48
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 48,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      0,
-      3,
-      1,
-      0,
-      1,
-      0,
-      2,
-      3,
-      3,
-      3
-     ]
-    }
-   ]
-  },
-  "r3-49": {
-   "id": "r3-49",
-   "title": {
-    "en": "The writer's feeling · Test set 5",
-    "ko": "밑줄 친 부분의 심정 실전문제 5회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-1264",
        "type": "feeling",
        "genre": "소설",
@@ -11289,7 +11073,7 @@
        "why": "오랜 단골 이발소의 정겨운 분위기 속에서 긴장을 풀고 안락함과 고요함을 누리고 있으므로 '평온하다'가 정답입니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-1272",
        "type": "feeling",
        "genre": "소설",
@@ -11304,159 +11088,8 @@
        ],
        "answer": 2,
        "why": "할아버지의 인품과 깊은 사색의 흔적을 바둑알을 통해 되새기며 마음을 경건하게 가다듬으므로 '숙연하다'가 정답입니다."
-      },
-      {
-       "no": 3,
-       "id": "t2-1302",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "집터를 지키고 선 거대한 호두나무 껍질은 세월의 더께를 안고 깊게 갈라져 있었다. 어린 시절 할아버지가 심어 주신 나무는 손주가 자라는 동안 묵묵히 그늘을 드리우고 가을마다 알찬 열매를 안겨주었다. 수십 년의 비바람을 견뎌내며 꿋꿋이 자리를 지킨 고목의 위엄 앞에 그는 절로 고개가 숙여졌다. 그는 거친 나무껍질에 두 손을 얹은 채 나무의 깊은 숨소리를 들었다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "조급하다",
-        "무기력하다",
-        "숙연하다",
-        "통쾌하다"
-       ],
-       "answer": 2,
-       "why": "할아버지의 사랑이 담긴 채 오랜 세월을 버텨온 거목의 생명력과 위엄 앞에 옷깃을 여미고 깊은 경외감을 느끼므로 '숙연하다'가 정답입니다."
-      },
-      {
-       "no": 4,
-       "id": "t2-1296",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "서랍 속 깊은 곳에서 털실이 삐져나온 붉은 털장갑 한 켤레를 꺼냈다. 중학교 입학식 날 어머니가 밤새 코바늘로 떠 주셨던 손때 묻은 장갑이었다. 손가락을 끼워 넣자 여전히 손바닥을 부드럽게 감싸는 포근함에 어머니의 따스한 체온이 되살아났다. 자신은 거친 손으로 차가운 물일을 하시면서도 자식의 손만큼은 얼지 않기를 바라셨던 어머니였다. 그는 장갑을 뺨에 댄 채 가만히 눈을 감았다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "애틋하다",
-        "통쾌하다",
-        "후련하다",
-        "창피하다"
-       ],
-       "answer": 0,
-       "why": "자식을 위해 밤새 장갑을 짜 주시던 어머니의 무한한 사랑과 은혜를 피부로 느끼며 뭉클한 정에 젖어 있으므로 '애틋하다'가 맞습니다."
-      },
-      {
-       "no": 5,
-       "id": "t2-1286",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "포구 구석에서 해체 작업을 앞둔 낡은 목선의 뱃전에 올라선 선장은 녹슨 조타륜을 가만히 잡았다. 수십 년간 거친 파도 속에서도 자신의 손발이 되어 만선의 기쁨을 안겨주었던 든든한 동반자였다. 이제 톱날에 잘려 땔감으로 사라질 운명을 앞둔 배의 삐걱거림이 마치 작별을 고하는 울음소리 같았다. 선장은 조타륜에 이마를 기댄 채 한동안 움직이지 못했다.",
-       "question": "밑줄 친 부분에 나타난 '선장'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "상쾌하다",
-        "태연하다",
-        "통쾌하다",
-        "비통하다"
-       ],
-       "answer": 3,
-       "why": "평생 바다를 함께 누빈 분신 같은 배와의 영원한 작별을 앞두고 가슴 찢어지는 비애와 슬픔을 느끼므로 '비통하다'가 맞습니다."
-      },
-      {
-       "no": 6,
-       "id": "t2-192",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "민우는 텅 빈 승강장을 천천히 걸으며 낡은 역사의 기둥을 가만히 쓸어내렸다. 삼십 년 동안 매일같이 첫차를 맞이하고 막차를 배웅하던 이 작은 간이역도 오늘을 끝으로 영영 문을 닫게 되었다. 벽에 걸린 낡은 시계는 쉼 없이 초침을 움직이고 있었지만, 승객들의 웃음소리와 기차의 경적은 이제 다시는 들을 수 없게 될 것이었다. 마지막 열차가 붉은 꼬리등을 깜빡이며 어둠 속으로 완전히 멀어져 가자, 그는 플랫폼에 멍하니 서서 홀로 남겨진 대합실의 불을 끄지 못하고 한참을 서성였다. 익숙한 공간과의 작별을 알리는 정적 앞에서 가슴 한구석이 뻥 뚫린 듯 허전하고 서글펐다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 가장 알맞은 것을 고르십시오.",
-       "options": [
-        "허탈하고 쓸쓸하다",
-        "초조하고 불안하다",
-        "분하고 억울하다",
-        "후련하고 홀가분하다"
-       ],
-       "answer": 0,
-       "why": "오랜 세월 일해 온 간이역이 폐쇄되고 마지막 기차가 떠난 뒤 빈 공간에 홀로 남아 공허함과 슬픔을 느끼고 있으므로 「허탈하고 쓸쓸하다」가 알맞습니다. 「초조하고 불안하다」는 다급하거나 걱정스러운 상황에 어울리므로 본문의 정적과 슬픔을 담아내지 못합니다."
-      },
-      {
-       "no": 7,
-       "id": "t2-1324",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "재킷이 닳아 헤진 낡은 음반 표면에는 학창 시절 좋아했던 여학생이 연필로 적어 준 수줍은 글씨가 남아 있었다. 좋아한다는 고백 대신 좋아하는 음악을 들려주겠다며 떨리는 손으로 건네주었던 첫사랑의 선물이었다. 지지직거리는 잡음 속에서 흘러나오는 피아노 선율을 들으며 그는 삼십 년 전의 그 떨리던 봄날로 되돌아가고 있었다. 그는 가만히 미소 지으며 음반 재킷을 쓸어내렸다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "설레다",
-        "원망스럽다",
-        "답답하다",
-        "초조하다"
-       ],
-       "answer": 0,
-       "why": "첫사랑의 풋풋했던 기억과 고백의 순간을 음악을 통해 떠올리며 가슴이 뛰고 설레는 감정이므로 '설레다'가 맞습니다."
-      },
-      {
-       "no": 8,
-       "id": "t2-1266",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "칼바람이 부는 골목길 어귀에서 드럼통 화덕에 장작불을 지피던 군고구마 장수가 손을 비비며 연기를 피했다. 하얗게 김이 피어오르는 뜨거운 고구마 한 봉지를 건네받는 순간 언 손가락을 타고 따스한 온기가 심장까지 전해졌다. 추운 겨울밤 가족들에게 따뜻한 간식을 먹이겠다는 일념 하나로 거리에 서 있는 이의 정직한 수고가 눈물겨웠다. 그는 주머니에 든 잔돈을 모두 털어 장수의 거친 손에 쥐여 주었다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
-       "options": [
-        "온정적이다",
-        "인색하다",
-        "냉정하다",
-        "오만하다"
-       ],
-       "answer": 0,
-       "why": "추위 속에서 묵묵히 일하는 고구마 장수의 노고에 깊이 공감하고 따뜻한 배려를 건네므로 '온정적이다'가 맞습니다."
-      },
-      {
-       "no": 9,
-       "id": "t2-1312",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "보석함 구석에 놓인 투박하고 찌그러진 은가락지 한 쌍을 꺼내 들었다. 시집오실 때 외할머니가 쥐여 주셨다는 그 가락지는 어머니의 손가락 마디가 굵어지면서 더 이상 끼지 못하고 보관되어 온 유품이었다. 험한 밭일과 가사 노동으로 마디마디 굵어진 어머니의 거친 손이 떠올라 가슴이 저려왔다. 가락지를 손바닥 위에 올려놓은 그의 눈시울이 붉어졌다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "애처롭다",
-        "홀가분하다",
-        "통쾌하다",
-        "태연하다"
-       ],
-       "answer": 0,
-       "why": "가족을 위해 고생하느라 굵어지고 거칠어진 어머니의 손마디를 떠올리며 안타깝고 슬픈 연민을 느끼므로 '애처롭다'가 맞습니다."
-      },
-      {
-       "no": 10,
-       "id": "t2-1268",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "반질반질 윤이 나게 닦여 있던 고향 집 장독대 항아리 표면에 거친 먼지가 하얗게 앉아 있었다. 햇볕을 받아 숨을 쉬며 된장과 간장을 익혀내던 옹기들은 이제 주인을 잃고 비어 있었다. 어머니가 하얀 행주로 장독을 닦으며 가족의 건강을 빌던 그 정갈한 아침 풍경이 아련했다. 그는 묵직한 항아리 뚜껑을 열어보고는 조용히 입술을 깨물었다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "태연하다",
-        "먹먹하다",
-        "통쾌하다",
-        "상쾌하다"
-       ],
-       "answer": 1,
-       "why": "어머니가 정성스레 가꾸던 빈 장독대를 보며 밀려오는 슬픔과 비통함을 참으려고 입술을 깨물고 있으므로 '먹먹하다'가 맞습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 49
     },
     {
      "type": "selfcheck",
@@ -11465,262 +11098,26 @@
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 10,
+     "total": 7,
      "from": 1,
-     "no": 49,
+     "no": 62,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      3,
+      0,
       2,
-      2,
-      0,
       3,
-      0,
-      0,
-      0,
-      0,
-      1
+      3,
+      3,
+      3,
+      2
      ]
     }
    ]
   },
-  "r3-50": {
-   "id": "r3-50",
-   "title": {
-    "en": "The writer's feeling · Test set 6",
-    "ko": "밑줄 친 부분의 심정 실전문제 6회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 42 · about 14 min",
-    "ko": "10문항 · 시험 42번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
-      {
-       "no": 1,
-       "id": "t2-1294",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "자정이 넘은 어두운 골목길, 주황색 가로등 불빛 아래 서서 그는 시계를 몇 번이나 들여다보았다. 첫 월급을 타면 따뜻한 목도리를 사주겠다던 딸아이가 야근을 마치고 돌아올 시간이었다. 저 멀리 골목 모퉁이에서 피곤에 지친 발걸음 소리가 들려오자 그의 입가에 환한 미소가 번졌다. 그는 추위도 잊은 채 딸아이를 향해 성큼성큼 걸어 나갔다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "원망스럽다",
-        "불안하다",
-        "반갑다",
-        "초조하다"
-       ],
-       "answer": 2,
-       "why": "추운 밤길에 늦게 귀가하는 딸아이를 기다리다 마침내 마주하게 된 순간의 벅찬 기쁨과 정을 나타내므로 '반갑다'가 맞습니다."
-      },
-      {
-       "no": 2,
-       "id": "t2-1274",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "창밖으로 소복이 첫눈이 내리는 아침, 우체통에서 하얀 봉투 하나를 꺼내 들었다. 오랜 시간 오해로 인해 연락이 끊겼던 오랜 벗이 보낸 정갈한 손편지였다. 지난날의 서운함을 씻고 다시 안부를 묻는 진심 어린 문장마다 눈송이처럼 따스한 화해의 손길이 배어 있었다. 그는 편지를 가슴에 얹은 채 내리는 눈을 말없이 응시했다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "초조하다",
-        "뭉클하다",
-        "통쾌하다",
-        "의심스럽다"
-       ],
-       "answer": 1,
-       "why": "오랜 갈등을 풀고 먼저 화해의 손을 내민 벗의 진심에 가슴 벅찬 감동과 따뜻함을 느끼므로 '뭉클하다'가 맞습니다."
-      },
-      {
-       "no": 3,
-       "id": "t2-1330",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "교정 뒤뜰 수풀 속에 쓰러져 있는 나무 시계탑의 문자판은 페인트가 벗겨져 숫자를 알아보기 힘들었다. 매일 아침 등교를 알리며 맑게 울리던 시계탑의 차임벨 소리에 맞춰 가방을 흔들며 교문을 들어서던 유년의 기억이 선명했다. 시간의 흐름을 묵묵히 지켜보던 시계탑도 아이들이 떠나간 뒤로는 멈추어 버린 채 녹슬어 가고 있었다. 그는 부서진 시계 바늘을 손끝으로 가만히 매만졌다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "통쾌하다",
-        "기세등등하다",
-        "적적하다",
-        "상쾌하다"
-       ],
-       "answer": 2,
-       "why": "시간이 멈춘 채 쓰러져 있는 유년의 시계탑을 바라보며 느끼는 쓸쓸함과 덧없음이므로 '적적하다'가 알맞습니다."
-      },
-      {
-       "no": 4,
-       "id": "t2-1298",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "폐역이 된 시골 간이역 대합실 벽에 페인트가 벗겨진 빨간 우체통 하나가 비스듬히 걸려 있었다. 군대 간 연인의 답장을 기다리며 매일 우체통 앞을 서성이던 청춘의 떨림이 고스란히 묻어 있는 곳이었다. 이제는 전자우편과 스마트폰에 밀려 아무도 편지를 넣지 않는 잊힌 유물이 되었지만, 그 붉은 함은 수많은 이들의 진심을 삼켰던 기억의 보관소였다. 그는 우체통 투입구 속을 가만히 들여다보며 작은 숨을 내쉬었다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "거만하다",
-        "아련하다",
-        "통쾌하다",
-        "초조하다"
-       ],
-       "answer": 1,
-       "why": "편지를 기다리던 청춘의 순수한 설렘과 사라져 가는 아날로그적 추억을 애수 어린 마음으로 회상하므로 '아련하다'가 정답입니다."
-      },
-      {
-       "no": 5,
-       "id": "t2-1332",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "서랍 속 작은 비단 주머니에서 모서리가 닳은 아버지의 회양목 도장을 꺼냈다. 자식들의 입학 원서와 첫 집 장만 계약서에 떨리는 손으로 붉은 인주를 묻혀 꾹꾹 눌러 찍으시던 아버지의 묵직한 책임감이 깃든 물건이었다. 아버지의 땀과 눈물로 일구어낸 가족의 평안이 그 작은 나무도장 하나에 오롯이 담겨 있었다. 그는 도장 밑면에 붉게 밴 인주 자국을 어루만지며 고개를 숙였다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "감사하다",
-        "원망하다",
-        "억울하다",
-        "초조하다"
-       ],
-       "answer": 0,
-       "why": "도장을 통해 가족을 지탱해 온 아버지의 묵직한 책임감과 헌신에 대한 깊은 은혜를 깨닫고 고개를 숙이므로 '감사하다'가 맞습니다."
-      },
-      {
-       "no": 6,
-       "id": "t2-1308",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "서화함에서 조심스레 꺼낸 누런 화선지 위에는 '정심'이라는 두 글자가 힘찬 필치로 새겨져 있었다. 스승께서 입문하던 날 먹을 갈아 정성껏 써 주시며 마음이 바르지 않으면 글씨도 굽어진다고 당부하시던 목소리가 귓전을 울렸다. 바쁜 세상 속에서 타협하며 흔들리던 자신의 나태함이 스승의 준엄한 묵향 앞에 부끄럽게 드러났다. 그는 글씨 앞에 무릎을 꿇고 고개를 깊이 숙였다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "오만하다",
-        "반성하다",
-        "당당하다",
-        "불만스럽다"
-       ],
-       "answer": 1,
-       "why": "스승의 올곧은 가르침을 되돌아보며 자신의 나태했던 삶을 뉘우치고 부끄러워하며 참회하고 있으므로 '반성하다'가 맞습니다."
-      },
-      {
-       "no": 7,
-       "id": "t2-1290",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "먼지 쌓인 상자 속에서 녹색 녹이 슬어 있는 금빛 트럼펫을 꺼내 들었다. 고등학교 취타대 시절 축제 무대에서 힘차게 나팔을 불며 관객들의 환호를 받던 빛나는 청춘의 한순간이 떠올랐다. 마우스피스를 입에 대고 조심스레 숨을 불어넣자 작고 투박한 소리가 방 안을 맴돌았다. 그는 악기를 마른 수건으로 닦아내며 아련한 미소를 지었다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "초조하다",
-        "그립다",
-        "창피하다",
-        "짜증스럽다"
-       ],
-       "answer": 1,
-       "why": "열정 넘쳤던 학창 시절의 음악 활동과 젊은 날을 애틋하게 회상하며 미소 짓고 있으므로 '그립다'가 맞습니다."
-      },
-      {
-       "no": 8,
-       "id": "t2-1300",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "과수원 창고 선반에서 날이 무뎌진 아버지의 전지가위를 꺼냈다. 봄마다 과실나무 가지를 다듬으며 좋은 열매를 맺게 하려고 땀 흘리시던 아버지의 묵직한 손놀림이 눈에 선했다. 쓸데없이 웃자란 가지를 과감히 쳐내야 탐스러운 열매가 맺힌다며 인생의 교훈을 가르쳐 주시던 분이었다. 그는 가위 손잡이를 쥐어보며 아버지의 올곧은 삶의 궤적을 되새겼다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
-       "options": [
-        "경솔하다",
-        "경건하다",
-        "지루하다",
-        "분개하다"
-       ],
-       "answer": 1,
-       "why": "가지를 치며 인생의 교훈을 주셨던 아버지의 지혜와 정직한 삶 앞에 옷깃을 여미며 깊은 존경을 표하므로 '경건하다'가 맞습니다."
-      },
-      {
-       "no": 9,
-       "id": "t2-1306",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "매서운 강바람이 옷깃을 파고드는 다리 난간에 서서 그는 얼어붙은 강물을 내려다보았다. 사업 실패로 모든 것을 잃고 막막함에 방황하던 날들이었지만 차가운 얼음장 밑에서도 강물은 도도하게 바다를 향해 흐르고 있었다. 꽁꽁 언 얼음도 봄이 오면 녹아내리듯 자신의 시련 또한 지나갈 것임을 강물이 말해주는 듯했다. 그는 주먹을 꽉 쥔 채 옷깃을 여미며 힘차게 발걸음을 내디뎠다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
-       "options": [
-        "우유부단하다",
-        "낙담하다",
-        "허탈하다",
-        "단호하다"
-       ],
-       "answer": 3,
-       "why": "절망과 좌절을 딛고 다시 일어서겠다는 굳은 의지와 결의를 다지며 힘차게 발걸음을 옮기므로 '단호하다'가 정답입니다."
-      },
-      {
-       "no": 10,
-       "id": "t2-1318",
-       "type": "feeling",
-       "genre": "소설",
-       "grade": 6,
-       "passage": "헛간 구석에 기대어 있던 끝이 닳아 뭉툭해진 참나무 지게 작대기를 쥐어보았다. 무거운 나뭇짐을 지고 가파른 비탈길을 내려오실 때마다 지게를 받치고 다리를 지탱해 주던 할아버지의 세 번째 다리였다. 가족들의 생계를 홀로 짊어지고 거친 산길을 오르내리시던 할아버지의 굵은 땀방울이 작대기 손잡이에 배어 있었다. 그는 뭉툭해진 끝부분을 어루만지며 가슴을 쓸어내렸다.",
-       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
-       "options": [
-        "지루하다",
-        "애잔하다",
-        "통쾌하다",
-        "거만하다"
-       ],
-       "answer": 1,
-       "why": "가족을 부양하느라 고단한 삶을 지게와 함께 버텨내신 할아버지의 노고에 대한 안타까움과 슬픔이므로 '애잔하다'가 맞습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 50
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 50,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      1,
-      2,
-      1,
-      0,
-      1,
-      1,
-      1,
-      3,
-      1
-     ]
-    }
-   ]
-  },
-  "r3-51": {
-   "id": "r3-51",
+  "r3-63": {
+   "id": "r3-63",
    "title": {
     "en": "The writer's feeling · Test set 7",
     "ko": "밑줄 친 부분의 심정 실전문제 7회"
@@ -11739,6 +11136,402 @@
      "items": [
       {
        "no": 1,
+       "id": "t2-1302",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "집터를 지키고 선 거대한 호두나무 껍질은 세월의 더께를 안고 깊게 갈라져 있었다. 어린 시절 할아버지가 심어 주신 나무는 손주가 자라는 동안 묵묵히 그늘을 드리우고 가을마다 알찬 열매를 안겨주었다. 수십 년의 비바람을 견뎌내며 꿋꿋이 자리를 지킨 고목의 위엄 앞에 그는 절로 고개가 숙여졌다. 그는 거친 나무껍질에 두 손을 얹은 채 나무의 깊은 숨소리를 들었다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "조급하다",
+        "무기력하다",
+        "숙연하다",
+        "통쾌하다"
+       ],
+       "answer": 2,
+       "why": "할아버지의 사랑이 담긴 채 오랜 세월을 버텨온 거목의 생명력과 위엄 앞에 옷깃을 여미고 깊은 경외감을 느끼므로 '숙연하다'가 정답입니다."
+      },
+      {
+       "no": 2,
+       "id": "t2-1296",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "서랍 속 깊은 곳에서 털실이 삐져나온 붉은 털장갑 한 켤레를 꺼냈다. 중학교 입학식 날 어머니가 밤새 코바늘로 떠 주셨던 손때 묻은 장갑이었다. 손가락을 끼워 넣자 여전히 손바닥을 부드럽게 감싸는 포근함에 어머니의 따스한 체온이 되살아났다. 자신은 거친 손으로 차가운 물일을 하시면서도 자식의 손만큼은 얼지 않기를 바라셨던 어머니였다. 그는 장갑을 뺨에 댄 채 가만히 눈을 감았다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "애틋하다",
+        "통쾌하다",
+        "후련하다",
+        "창피하다"
+       ],
+       "answer": 0,
+       "why": "자식을 위해 밤새 장갑을 짜 주시던 어머니의 무한한 사랑과 은혜를 피부로 느끼며 뭉클한 정에 젖어 있으므로 '애틋하다'가 맞습니다."
+      },
+      {
+       "no": 3,
+       "id": "t2-1286",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "포구 구석에서 해체 작업을 앞둔 낡은 목선의 뱃전에 올라선 선장은 녹슨 조타륜을 가만히 잡았다. 수십 년간 거친 파도 속에서도 자신의 손발이 되어 만선의 기쁨을 안겨주었던 든든한 동반자였다. 이제 톱날에 잘려 땔감으로 사라질 운명을 앞둔 배의 삐걱거림이 마치 작별을 고하는 울음소리 같았다. 선장은 조타륜에 이마를 기댄 채 한동안 움직이지 못했다.",
+       "question": "밑줄 친 부분에 나타난 '선장'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "상쾌하다",
+        "태연하다",
+        "통쾌하다",
+        "비통하다"
+       ],
+       "answer": 3,
+       "why": "평생 바다를 함께 누빈 분신 같은 배와의 영원한 작별을 앞두고 가슴 찢어지는 비애와 슬픔을 느끼므로 '비통하다'가 맞습니다."
+      },
+      {
+       "no": 4,
+       "id": "t2-192",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "민우는 텅 빈 승강장을 천천히 걸으며 낡은 역사의 기둥을 가만히 쓸어내렸다. 삼십 년 동안 매일같이 첫차를 맞이하고 막차를 배웅하던 이 작은 간이역도 오늘을 끝으로 영영 문을 닫게 되었다. 벽에 걸린 낡은 시계는 쉼 없이 초침을 움직이고 있었지만, 승객들의 웃음소리와 기차의 경적은 이제 다시는 들을 수 없게 될 것이었다. 마지막 열차가 붉은 꼬리등을 깜빡이며 어둠 속으로 완전히 멀어져 가자, 그는 플랫폼에 멍하니 서서 홀로 남겨진 대합실의 불을 끄지 못하고 한참을 서성였다. 익숙한 공간과의 작별을 알리는 정적 앞에서 가슴 한구석이 뻥 뚫린 듯 허전하고 서글펐다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 가장 알맞은 것을 고르십시오.",
+       "options": [
+        "허탈하고 쓸쓸하다",
+        "초조하고 불안하다",
+        "분하고 억울하다",
+        "후련하고 홀가분하다"
+       ],
+       "answer": 0,
+       "why": "오랜 세월 일해 온 간이역이 폐쇄되고 마지막 기차가 떠난 뒤 빈 공간에 홀로 남아 공허함과 슬픔을 느끼고 있으므로 「허탈하고 쓸쓸하다」가 알맞습니다. 「초조하고 불안하다」는 다급하거나 걱정스러운 상황에 어울리므로 본문의 정적과 슬픔을 담아내지 못합니다."
+      },
+      {
+       "no": 5,
+       "id": "t2-1324",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "재킷이 닳아 헤진 낡은 음반 표면에는 학창 시절 좋아했던 여학생이 연필로 적어 준 수줍은 글씨가 남아 있었다. 좋아한다는 고백 대신 좋아하는 음악을 들려주겠다며 떨리는 손으로 건네주었던 첫사랑의 선물이었다. 지지직거리는 잡음 속에서 흘러나오는 피아노 선율을 들으며 그는 삼십 년 전의 그 떨리던 봄날로 되돌아가고 있었다. 그는 가만히 미소 지으며 음반 재킷을 쓸어내렸다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "설레다",
+        "원망스럽다",
+        "답답하다",
+        "초조하다"
+       ],
+       "answer": 0,
+       "why": "첫사랑의 풋풋했던 기억과 고백의 순간을 음악을 통해 떠올리며 가슴이 뛰고 설레는 감정이므로 '설레다'가 맞습니다."
+      },
+      {
+       "no": 6,
+       "id": "t2-1266",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "칼바람이 부는 골목길 어귀에서 드럼통 화덕에 장작불을 지피던 군고구마 장수가 손을 비비며 연기를 피했다. 하얗게 김이 피어오르는 뜨거운 고구마 한 봉지를 건네받는 순간 언 손가락을 타고 따스한 온기가 심장까지 전해졌다. 추운 겨울밤 가족들에게 따뜻한 간식을 먹이겠다는 일념 하나로 거리에 서 있는 이의 정직한 수고가 눈물겨웠다. 그는 주머니에 든 잔돈을 모두 털어 장수의 거친 손에 쥐여 주었다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
+       "options": [
+        "온정적이다",
+        "인색하다",
+        "냉정하다",
+        "오만하다"
+       ],
+       "answer": 0,
+       "why": "추위 속에서 묵묵히 일하는 고구마 장수의 노고에 깊이 공감하고 따뜻한 배려를 건네므로 '온정적이다'가 맞습니다."
+      },
+      {
+       "no": 7,
+       "id": "t2-1312",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "보석함 구석에 놓인 투박하고 찌그러진 은가락지 한 쌍을 꺼내 들었다. 시집오실 때 외할머니가 쥐여 주셨다는 그 가락지는 어머니의 손가락 마디가 굵어지면서 더 이상 끼지 못하고 보관되어 온 유품이었다. 험한 밭일과 가사 노동으로 마디마디 굵어진 어머니의 거친 손이 떠올라 가슴이 저려왔다. 가락지를 손바닥 위에 올려놓은 그의 눈시울이 붉어졌다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "애처롭다",
+        "홀가분하다",
+        "통쾌하다",
+        "태연하다"
+       ],
+       "answer": 0,
+       "why": "가족을 위해 고생하느라 굵어지고 거칠어진 어머니의 손마디를 떠올리며 안타깝고 슬픈 연민을 느끼므로 '애처롭다'가 맞습니다."
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 63,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r3-64": {
+   "id": "r3-64",
+   "title": {
+    "en": "The writer's feeling · Test set 8",
+    "ko": "밑줄 친 부분의 심정 실전문제 8회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
+      {
+       "no": 1,
+       "id": "t2-1268",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "반질반질 윤이 나게 닦여 있던 고향 집 장독대 항아리 표면에 거친 먼지가 하얗게 앉아 있었다. 햇볕을 받아 숨을 쉬며 된장과 간장을 익혀내던 옹기들은 이제 주인을 잃고 비어 있었다. 어머니가 하얀 행주로 장독을 닦으며 가족의 건강을 빌던 그 정갈한 아침 풍경이 아련했다. 그는 묵직한 항아리 뚜껑을 열어보고는 조용히 입술을 깨물었다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "태연하다",
+        "먹먹하다",
+        "통쾌하다",
+        "상쾌하다"
+       ],
+       "answer": 1,
+       "why": "어머니가 정성스레 가꾸던 빈 장독대를 보며 밀려오는 슬픔과 비통함을 참으려고 입술을 깨물고 있으므로 '먹먹하다'가 맞습니다."
+      },
+      {
+       "no": 2,
+       "id": "t2-1294",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "자정이 넘은 어두운 골목길, 주황색 가로등 불빛 아래 서서 그는 시계를 몇 번이나 들여다보았다. 첫 월급을 타면 따뜻한 목도리를 사주겠다던 딸아이가 야근을 마치고 돌아올 시간이었다. 저 멀리 골목 모퉁이에서 피곤에 지친 발걸음 소리가 들려오자 그의 입가에 환한 미소가 번졌다. 그는 추위도 잊은 채 딸아이를 향해 성큼성큼 걸어 나갔다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "원망스럽다",
+        "불안하다",
+        "반갑다",
+        "초조하다"
+       ],
+       "answer": 2,
+       "why": "추운 밤길에 늦게 귀가하는 딸아이를 기다리다 마침내 마주하게 된 순간의 벅찬 기쁨과 정을 나타내므로 '반갑다'가 맞습니다."
+      },
+      {
+       "no": 3,
+       "id": "t2-1274",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "창밖으로 소복이 첫눈이 내리는 아침, 우체통에서 하얀 봉투 하나를 꺼내 들었다. 오랜 시간 오해로 인해 연락이 끊겼던 오랜 벗이 보낸 정갈한 손편지였다. 지난날의 서운함을 씻고 다시 안부를 묻는 진심 어린 문장마다 눈송이처럼 따스한 화해의 손길이 배어 있었다. 그는 편지를 가슴에 얹은 채 내리는 눈을 말없이 응시했다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "초조하다",
+        "뭉클하다",
+        "통쾌하다",
+        "의심스럽다"
+       ],
+       "answer": 1,
+       "why": "오랜 갈등을 풀고 먼저 화해의 손을 내민 벗의 진심에 가슴 벅찬 감동과 따뜻함을 느끼므로 '뭉클하다'가 맞습니다."
+      },
+      {
+       "no": 4,
+       "id": "t2-1330",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "교정 뒤뜰 수풀 속에 쓰러져 있는 나무 시계탑의 문자판은 페인트가 벗겨져 숫자를 알아보기 힘들었다. 매일 아침 등교를 알리며 맑게 울리던 시계탑의 차임벨 소리에 맞춰 가방을 흔들며 교문을 들어서던 유년의 기억이 선명했다. 시간의 흐름을 묵묵히 지켜보던 시계탑도 아이들이 떠나간 뒤로는 멈추어 버린 채 녹슬어 가고 있었다. 그는 부서진 시계 바늘을 손끝으로 가만히 매만졌다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "통쾌하다",
+        "기세등등하다",
+        "적적하다",
+        "상쾌하다"
+       ],
+       "answer": 2,
+       "why": "시간이 멈춘 채 쓰러져 있는 유년의 시계탑을 바라보며 느끼는 쓸쓸함과 덧없음이므로 '적적하다'가 알맞습니다."
+      },
+      {
+       "no": 5,
+       "id": "t2-1298",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "폐역이 된 시골 간이역 대합실 벽에 페인트가 벗겨진 빨간 우체통 하나가 비스듬히 걸려 있었다. 군대 간 연인의 답장을 기다리며 매일 우체통 앞을 서성이던 청춘의 떨림이 고스란히 묻어 있는 곳이었다. 이제는 전자우편과 스마트폰에 밀려 아무도 편지를 넣지 않는 잊힌 유물이 되었지만, 그 붉은 함은 수많은 이들의 진심을 삼켰던 기억의 보관소였다. 그는 우체통 투입구 속을 가만히 들여다보며 작은 숨을 내쉬었다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "거만하다",
+        "아련하다",
+        "통쾌하다",
+        "초조하다"
+       ],
+       "answer": 1,
+       "why": "편지를 기다리던 청춘의 순수한 설렘과 사라져 가는 아날로그적 추억을 애수 어린 마음으로 회상하므로 '아련하다'가 정답입니다."
+      },
+      {
+       "no": 6,
+       "id": "t2-1332",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "서랍 속 작은 비단 주머니에서 모서리가 닳은 아버지의 회양목 도장을 꺼냈다. 자식들의 입학 원서와 첫 집 장만 계약서에 떨리는 손으로 붉은 인주를 묻혀 꾹꾹 눌러 찍으시던 아버지의 묵직한 책임감이 깃든 물건이었다. 아버지의 땀과 눈물로 일구어낸 가족의 평안이 그 작은 나무도장 하나에 오롯이 담겨 있었다. 그는 도장 밑면에 붉게 밴 인주 자국을 어루만지며 고개를 숙였다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "감사하다",
+        "원망하다",
+        "억울하다",
+        "초조하다"
+       ],
+       "answer": 0,
+       "why": "도장을 통해 가족을 지탱해 온 아버지의 묵직한 책임감과 헌신에 대한 깊은 은혜를 깨닫고 고개를 숙이므로 '감사하다'가 맞습니다."
+      },
+      {
+       "no": 7,
+       "id": "t2-1308",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "서화함에서 조심스레 꺼낸 누런 화선지 위에는 '정심'이라는 두 글자가 힘찬 필치로 새겨져 있었다. 스승께서 입문하던 날 먹을 갈아 정성껏 써 주시며 마음이 바르지 않으면 글씨도 굽어진다고 당부하시던 목소리가 귓전을 울렸다. 바쁜 세상 속에서 타협하며 흔들리던 자신의 나태함이 스승의 준엄한 묵향 앞에 부끄럽게 드러났다. 그는 글씨 앞에 무릎을 꿇고 고개를 깊이 숙였다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "오만하다",
+        "반성하다",
+        "당당하다",
+        "불만스럽다"
+       ],
+       "answer": 1,
+       "why": "스승의 올곧은 가르침을 되돌아보며 자신의 나태했던 삶을 뉘우치고 부끄러워하며 참회하고 있으므로 '반성하다'가 맞습니다."
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 64,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      2,
+      1,
+      2,
+      1,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r3-65": {
+   "id": "r3-65",
+   "title": {
+    "en": "The writer's feeling · Test set 9",
+    "ko": "밑줄 친 부분의 심정 실전문제 9회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 42 · about 10 min",
+    "ko": "7문항 · 시험 42번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
+      {
+       "no": 1,
+       "id": "t2-1290",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "먼지 쌓인 상자 속에서 녹색 녹이 슬어 있는 금빛 트럼펫을 꺼내 들었다. 고등학교 취타대 시절 축제 무대에서 힘차게 나팔을 불며 관객들의 환호를 받던 빛나는 청춘의 한순간이 떠올랐다. 마우스피스를 입에 대고 조심스레 숨을 불어넣자 작고 투박한 소리가 방 안을 맴돌았다. 그는 악기를 마른 수건으로 닦아내며 아련한 미소를 지었다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "초조하다",
+        "그립다",
+        "창피하다",
+        "짜증스럽다"
+       ],
+       "answer": 1,
+       "why": "열정 넘쳤던 학창 시절의 음악 활동과 젊은 날을 애틋하게 회상하며 미소 짓고 있으므로 '그립다'가 맞습니다."
+      },
+      {
+       "no": 2,
+       "id": "t2-1300",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "과수원 창고 선반에서 날이 무뎌진 아버지의 전지가위를 꺼냈다. 봄마다 과실나무 가지를 다듬으며 좋은 열매를 맺게 하려고 땀 흘리시던 아버지의 묵직한 손놀림이 눈에 선했다. 쓸데없이 웃자란 가지를 과감히 쳐내야 탐스러운 열매가 맺힌다며 인생의 교훈을 가르쳐 주시던 분이었다. 그는 가위 손잡이를 쥐어보며 아버지의 올곧은 삶의 궤적을 되새겼다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
+       "options": [
+        "경솔하다",
+        "경건하다",
+        "지루하다",
+        "분개하다"
+       ],
+       "answer": 1,
+       "why": "가지를 치며 인생의 교훈을 주셨던 아버지의 지혜와 정직한 삶 앞에 옷깃을 여미며 깊은 존경을 표하므로 '경건하다'가 맞습니다."
+      },
+      {
+       "no": 3,
+       "id": "t2-1306",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "매서운 강바람이 옷깃을 파고드는 다리 난간에 서서 그는 얼어붙은 강물을 내려다보았다. 사업 실패로 모든 것을 잃고 막막함에 방황하던 날들이었지만 차가운 얼음장 밑에서도 강물은 도도하게 바다를 향해 흐르고 있었다. 꽁꽁 언 얼음도 봄이 오면 녹아내리듯 자신의 시련 또한 지나갈 것임을 강물이 말해주는 듯했다. 그는 주먹을 꽉 쥔 채 옷깃을 여미며 힘차게 발걸음을 내디뎠다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 태도로 알맞은 것을 고르십시오.",
+       "options": [
+        "우유부단하다",
+        "낙담하다",
+        "허탈하다",
+        "단호하다"
+       ],
+       "answer": 3,
+       "why": "절망과 좌절을 딛고 다시 일어서겠다는 굳은 의지와 결의를 다지며 힘차게 발걸음을 옮기므로 '단호하다'가 정답입니다."
+      },
+      {
+       "no": 4,
+       "id": "t2-1318",
+       "type": "feeling",
+       "genre": "소설",
+       "grade": 6,
+       "passage": "헛간 구석에 기대어 있던 끝이 닳아 뭉툭해진 참나무 지게 작대기를 쥐어보았다. 무거운 나뭇짐을 지고 가파른 비탈길을 내려오실 때마다 지게를 받치고 다리를 지탱해 주던 할아버지의 세 번째 다리였다. 가족들의 생계를 홀로 짊어지고 거친 산길을 오르내리시던 할아버지의 굵은 땀방울이 작대기 손잡이에 배어 있었다. 그는 뭉툭해진 끝부분을 어루만지며 가슴을 쓸어내렸다.",
+       "question": "밑줄 친 부분에 나타난 '그'의 심정으로 알맞은 것을 고르십시오.",
+       "options": [
+        "지루하다",
+        "애잔하다",
+        "통쾌하다",
+        "거만하다"
+       ],
+       "answer": 1,
+       "why": "가족을 부양하느라 고단한 삶을 지게와 함께 버텨내신 할아버지의 노고에 대한 안타까움과 슬픔이므로 '애잔하다'가 맞습니다."
+      },
+      {
+       "no": 5,
        "id": "t2-1224",
        "type": "feeling",
        "genre": "소설",
@@ -11755,7 +11548,7 @@
        "why": "까치밥에 깃든 할머니의 자애로운 사랑과 온정을 회상하며 마음에 포근한 평안을 얻고 있으므로 '푸근하다'가 정답입니다."
       },
       {
-       "no": 2,
+       "no": 6,
        "id": "t2-142",
        "type": "feeling",
        "genre": "소설",
@@ -11772,7 +11565,7 @@
        "why": "동료들이 떠난 적막 속에서 평생을 함께한 배를 해체장으로 보내며 서글픔을 느끼고 있으므로 '외롭고 쓸쓸하다'가 맞습니다. '후련하고 홀가분하다'는 오랜 대상과의 이별을 아쉬워하는 상황과 정반대입니다."
       },
       {
-       "no": 3,
+       "no": 7,
        "id": "t2-1282",
        "type": "feeling",
        "genre": "소설",
@@ -11787,9 +11580,54 @@
        ],
        "answer": 2,
        "why": "티 없이 맑고 즐거웠던 어린 시절의 놀이와 친구들을 추억하며 마음속에 따뜻한 만족과 미소를 짓고 있으므로 '흐뭇하다'가 맞습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 65,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      3,
+      1,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r3-66": {
+   "id": "r3-66",
+   "title": {
+    "en": "The writer's feeling · Test set 10",
+    "ko": "밑줄 친 부분의 심정 실전문제 10회"
+   },
+   "sub": {
+    "en": "4 questions · exam no. 42 · about 6 min",
+    "ko": "4문항 · 시험 42번 · 권장 약 6분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–4",
+      "ko": "1~4번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-1320",
        "type": "feeling",
        "genre": "소설",
@@ -11806,7 +11644,7 @@
        "why": "고달프고 외로웠던 젊은 날의 가난을 딛고 성공하여 과거를 돌아보는 깊은 감회와 보람이므로 '감개무량하다'가 정답입니다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-1278",
        "type": "feeling",
        "genre": "소설",
@@ -11823,7 +11661,7 @@
        "why": "가난과 세월의 풍파를 묵묵히 함께 견뎌준 아내를 향한 깊은 사랑과 고마움에 젖어 있으므로 '애틋하다'가 맞습니다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-1304",
        "type": "feeling",
        "genre": "소설",
@@ -11840,7 +11678,7 @@
        "why": "세월이 흘러도 변함없이 울리는 시계탑 종소리를 통해 과거의 따스한 기억과 삶의 평화를 느끼며 벅차오르므로 '감동하다'가 맞습니다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-1316",
        "type": "feeling",
        "genre": "소설",
@@ -11859,37 +11697,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 7,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 51
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 10,
-     "total": 7,
+     "rec": 6,
+     "total": 4,
      "from": 1,
-     "no": 51,
+     "no": 66,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      3,
-      0,
-      2,
       3,
       0,
       0,

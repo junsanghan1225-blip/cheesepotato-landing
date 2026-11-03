@@ -63,18 +63,18 @@
   "en": [
    "384 questions for TOPIK II reading questions 1 to 15, in exam-number order: practice in exam-number order. Work through the numbers until the pattern becomes automatic.",
    "Every question is newly written for this book in the style of the real test. None is a past exam question.",
-   "Each question type opens with its solving steps and the words you need, then warm-up questions and test sets for that type follow. Each set has an answer sheet, and the answer key at the back explains every question."
+   "Each question type opens with its solving steps and the words you need, then warm-up questions and test sets for that type follow. Each set ends with a self-check, and the answer key at the back explains every question."
   ],
   "ko": [
    "TOPIK II 읽기 1~15번에 해당하는 384문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.",
    "모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.",
-   "유형마다 풀이 방법과 필요한 낱말이 먼저 나오고, 그 뒤에 연습문제(쉬운 5문항)와 실전문제가 이어집니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
+   "유형마다 풀이 방법과 필요한 낱말이 먼저 나오고, 그 뒤에 연습문제(쉬운 5문항)와 실전문제가 이어집니다. 회마다 스스로 점검이 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
   ]
  },
  "howto": {
   "en": [
    "At the start of each type, read the method and word pages first.",
-   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
+   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark your answers in the book.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
@@ -134,7 +134,17 @@
     "r1-40",
     "r1-41",
     "r1-42",
-    "r1-43"
+    "r1-43",
+    "r1-44",
+    "r1-45",
+    "r1-46",
+    "r1-47",
+    "r1-48",
+    "r1-49",
+    "r1-50",
+    "r1-51",
+    "r1-52",
+    "r1-53"
    ]
   }
  ],
@@ -803,12 +813,12 @@
   "r1-09": "paraphrase",
   "r1-17": "theme",
   "r1-26": "detail",
-  "r1-35": "order"
+  "r1-38": "order"
  },
  "noGuide": true,
  "noIndex": true,
  "noQr": true,
- "unitCount": 43,
+ "unitCount": 53,
  "coverAccent": "읽기",
  "coverLevel": {
   "code": "TOPIK II",
@@ -830,7 +840,7 @@
  "back": {
   "items": [
    [
-    "43 sets · 유형별 문제 43회",
+    "53 sets · 유형별 문제 53회",
     "384 questions for exam no. 1–15 · 시험 1~15번 384문항"
    ],
    [
@@ -950,21 +960,6 @@
        "why": "앞선 사실을 인정하되 그것이 뒤 절의 의지에 영향을 미치지 않는 양보 표현 '-더라도'가 맞습니다. '-멀길래'는 뒤에 행동의 이유가 와야 하므로 어울리지 않습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 1
     },
     {
      "type": "selfcheck",
@@ -1178,21 +1173,6 @@
        "why": "앞선 행동이 끝나고 곧바로 다음 행동이 이어짐을 나타내는 '-자마자'가 자연스럽습니다. '-하더니'는 과거의 관찰과 달라진 결과를 나타내므로 어울리지 않습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 2
     },
     {
      "type": "selfcheck",
@@ -1413,21 +1393,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 3
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -1644,21 +1609,6 @@
        "why": "어떤 조건이나 상황이 생길 때마다 동일한 반응이 반복됨을 뜻하는 '-을 때마다'가 옳습니다. '-듣는 바람에'는 부정적 결과에 주로 쓰이므로 맞지 않습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 4
     },
     {
      "type": "selfcheck",
@@ -1879,21 +1829,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 5
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2110,21 +2045,6 @@
        "why": "사실이 아닌 것을 거짓으로 꾸며 행동할 때 '-는 척하다'를 씁니다. '-할 리가 없고'는 주관적 확신을 나타내어 위장 행동에 어울리지 않습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 6
     },
     {
      "type": "selfcheck",
@@ -2345,21 +2265,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 7
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2544,21 +2449,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 8,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 8
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -2688,21 +2578,6 @@
        "why": "안 좋은 일이 자주 생김을 나타내는 '-기 일쑤이다'는 '두고 오기 십상이다'와 상통합니다. '두고 올 뻔했다'는 실제로는 챙겨 왔다는 뜻이 되어 어긋납니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 9
     },
     {
      "type": "selfcheck",
@@ -2916,21 +2791,6 @@
        "why": "극심한 상태에 도달했음을 나타내는 '-을 지경이었다'는 '쓰러질 정도였다'와 의미가 일치합니다. '쓰러질 턱이 없었다'는 강한 부정이므로 모순됩니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 10
     },
     {
      "type": "selfcheck",
@@ -3151,21 +3011,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 11
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -3382,21 +3227,6 @@
        "why": "절대로 그럴 까닭이나 가능성이 없음을 뜻하는 '-을 리 만무하다'는 '안전할 리가 전혀 없다'와 완전히 같습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 12
     },
     {
      "type": "selfcheck",
@@ -3617,21 +3447,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 13
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -3848,21 +3663,6 @@
        "why": "절대로 그럴 가능성이 없다고 확신하는 '-을 리가 없다'는 '했을 턱이 없다'와 동의 표현입니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 14
     },
     {
      "type": "selfcheck",
@@ -4083,21 +3883,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 15
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4265,21 +4050,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 7,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 16
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4408,21 +4178,6 @@
        "why": "쫄깃한 면발과 얼큰한 국물을 끓는 물에 익혀 먹는 인스턴트 식품이므로 「라면」이 정답입니다. 「과자」는 바삭하게 구운 간식이므로 면발이나 끓는 국물이 있지 않습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 17
     },
     {
      "type": "selfcheck",
@@ -4636,21 +4391,6 @@
        "why": "햇볕 속 자외선을 차단하고 피부를 보호하는 화장품을 설명하고 있으므로 「선크림」이 알맞습니다. 「클렌징폼」은 세안제이므로 햇볕의 자외선을 차단하는 기능이 없습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 18
     },
     {
      "type": "selfcheck",
@@ -4871,21 +4611,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 19
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5102,21 +4827,6 @@
        "why": "수천 권의 책을 담아 휴대하며 종이 질감 화면으로 독서할 수 있는 장치이므로 '전자책 단말기'가 정답입니다. '디지털카메라'는 사진을 촬영하는 장비이므로 책을 읽는다는 설명과 거리가 떱니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 20
     },
     {
      "type": "selfcheck",
@@ -5337,21 +5047,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 21
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5568,21 +5263,6 @@
        "why": "장소 내에서 지켜야 할 행동 기준과 행동 제한을 안내하고 있으므로 '주의 사항'이 정답입니다. 글 안에 시간이나 요일에 대한 언급은 없으므로 '이용 시간'은 답이 될 수 없습니다."
       }
      ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 22
     },
     {
      "type": "selfcheck",
@@ -5803,21 +5483,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 23
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6036,21 +5701,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 24
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6184,21 +5834,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 25
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6327,21 +5962,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 26
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -6371,15 +5991,15 @@
     "ko": "내용 일치 실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 9 · about 14 min",
-    "ko": "10문항 · 시험 9번 · 권장 약 14분"
+    "en": "7 questions · exam no. 9 · about 10 min",
+    "ko": "7문항 · 시험 9번 · 권장 약 10분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–7",
+      "ko": "1~7번"
      },
      "items": [
       {
@@ -6500,9 +6120,54 @@
        ],
        "answer": 2,
        "why": "'4회 모두 출석한 수강생에게 다기 세트 증정'을 바꾼 「모든 수업에 다 나오면 선물을 준다」가 정답입니다. 수요일에 열리며, 성인 대상이고, 차 우리기와 다식 만들기 실습이 포함됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 27,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      0,
+      2,
+      2,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-28": {
+   "id": "r1-28",
+   "title": {
+    "en": "Same as the text · Test set 2",
+    "ko": "내용 일치 실전문제 2회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 9 · about 10 min",
+    "ko": "7문항 · 시험 9번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 8,
+       "no": 1,
        "id": "t2-274",
        "type": "detail",
        "genre": "실용문",
@@ -6519,7 +6184,7 @@
        "why": "'마지막 날 수강생 작품 전시회 개최'를 바꾼 「강좌가 끝날 무렵 작품을 선보이는 자리가 있다」가 맞습니다. 붓펜은 현장에서 지급하며, 오전 10시에 열리고, 추가 비용 언급은 없습니다."
       },
       {
-       "no": 9,
+       "no": 2,
        "id": "t2-109",
        "type": "detail",
        "genre": "실용문",
@@ -6536,7 +6201,7 @@
        "why": "참가비가 5천 원으로 책정되어 있으므로 '참여하려면 별도의 비용을 내야 한다'가 내용과 같습니다. 행사는 저녁 7시 30분부터 시작하므로 '낮 시간대에 진행된다'는 설명은 틀렸습니다."
       },
       {
-       "no": 10,
+       "no": 3,
        "id": "t2-268",
        "type": "detail",
        "genre": "실용문",
@@ -6551,72 +6216,9 @@
        ],
        "answer": 3,
        "why": "'야간 관람객 관람료 50% 할인'을 뜻하는 「저녁 관람객은 입장료를 반값에 이용한다」가 정답입니다. 금요일과 토요일에만 열리고, 20시 20분 입장 마감이며, 공연은 19시에 열립니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 27
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 27,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      1,
-      3,
-      0,
-      2,
-      2,
-      3,
-      2,
-      1,
-      0,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-28": {
-   "id": "r1-28",
-   "title": {
-    "en": "Same as the text · Test set 2",
-    "ko": "내용 일치 실전문제 2회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 9–10 · about 14 min",
-    "ko": "10문항 · 시험 9~10번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 4,
        "id": "t2-265",
        "type": "detail",
        "genre": "실용문",
@@ -6633,7 +6235,7 @@
        "why": "지문에 '재료비 1만 원'이라고 안내되어 있으므로 「참여하려면 재료비를 내야 한다」가 맞습니다. 고등학생 이상이 대상이므로 중학생은 신청할 수 없고, 오후 2시에 시작하며 누리집으로 접수하므로 다른 항목은 내용과 다릅니다."
       },
       {
-       "no": 2,
+       "no": 5,
        "id": "t2-278",
        "type": "detail",
        "genre": "실용문",
@@ -6650,7 +6252,7 @@
        "why": "'천문 도감 도서 증정'을 바꾼 「참여자에게 별과 관련된 책을 선물한다」가 옳습니다. 금요일 저녁에 열리며, 초등 4~6학년 대상이고, 참가비 1만 원이 있습니다."
       },
       {
-       "no": 3,
+       "no": 6,
        "id": "t2-758",
        "type": "detail",
        "genre": "실용문",
@@ -6667,7 +6269,7 @@
        "why": "안내문에 매주 토요일 14시부터 16시까지 진행된다고 하였으므로 '매주 토요일 오후에 2시간 동안 진행된다'가 내용과 같습니다. 수강료는 무료이나 재료비 2만 원은 본인 부담이며, 신청은 온라인 접수만 가능합니다."
       },
       {
-       "no": 4,
+       "no": 7,
        "id": "t2-009",
        "type": "detail",
        "genre": "실용문",
@@ -6682,9 +6284,54 @@
        ],
        "answer": 0,
        "why": "지문에 '참가비 무료'라고 명시되어 있으므로 '참가비를 따로 내지 않아도 된다'가 옳습니다. 10월 15일은 토요일이므로 평일이 아니며, 접수는 홈페이지로 진행되므로 전화 신청은 틀렸습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 28,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      3,
+      0,
+      1,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-29": {
+   "id": "r1-29",
+   "title": {
+    "en": "Same as the text · Test set 3",
+    "ko": "내용 일치 실전문제 3회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 9–10 · about 10 min",
+    "ko": "7문항 · 시험 9~10번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 5,
+       "no": 1,
        "id": "t2-266",
        "type": "detail",
        "genre": "실용문",
@@ -6701,7 +6348,7 @@
        "why": "'모든 도구 무료 제공'을 바꾼 「수업에 필요한 물품은 따로 챙기지 않아도 된다」가 정답입니다. 매월 둘째 주 토요일에만 열리고, 초등학생 자녀를 둔 가족이 대상이며, 일주일 전 전화 접수이므로 나머지는 틀렸습니다."
       },
       {
-       "no": 6,
+       "no": 2,
        "id": "t2-294",
        "type": "detail",
        "genre": "실용문",
@@ -6718,7 +6365,7 @@
        "why": "'2주간 전문 동화 구연 양성 교육 수료 후 파견'을 바꾼 「이야기를 전달하는 훈련을 먼저 거친다」가 옳습니다. 60세 이상 어르신 대상이고 활동 지원금이 나오며 방문 접수합니다."
       },
       {
-       "no": 7,
+       "no": 3,
        "id": "t2-291",
        "type": "detail",
        "genre": "실용문",
@@ -6735,7 +6382,7 @@
        "why": "'수강료: 전액 무료'를 바꾼 「수업을 듣는 데 필요한 비용이 전혀 없다」가 옳습니다. 꽃밭 디자인과 전지 작업 등 실습이 포함되며, 재료는 제공되고, 목요일 오후 수업입니다."
       },
       {
-       "no": 8,
+       "no": 4,
        "id": "t2-290",
        "type": "detail",
        "genre": "실용문",
@@ -6752,7 +6399,7 @@
        "why": "'활동 당일 중식 제공'을 바꾼 「일하는 날에는 점심 식사를 차려 준다」가 정답입니다. 2차 면접 심사가 있고, 주말이나 공휴일에 활동하며, 20세 이상 성인만 지원할 수 있습니다."
       },
       {
-       "no": 9,
+       "no": 5,
        "id": "t2-292",
        "type": "detail",
        "genre": "실용문",
@@ -6769,7 +6416,7 @@
        "why": "'테이블 1개, 의자 2개 무상 대여'를 풀어쓴 「물품을 진열할 책상과 걸상을 거저 빌려준다」가 맞습니다. 직접 손으로 만든 수공예품만 가능하고, 부스 집기는 무상이며, 18시에 종료됩니다."
       },
       {
-       "no": 10,
+       "no": 6,
        "id": "t2-285",
        "type": "detail",
        "genre": "실용문",
@@ -6784,72 +6431,9 @@
        ],
        "answer": 0,
        "why": "'해당 악기를 1년 이상 다뤄 본 사람'을 바꾼 「악기를 다룬 경력이 일정 기간 있어야 한다」가 정답입니다. 자유곡 연주이며, 토요일 오후 연습이고, 관악기와 현악기 모두 모집합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 28
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 28,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      0,
-      1,
-      3,
-      0,
-      1,
-      1,
-      2,
-      1,
-      3,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-29": {
-   "id": "r1-29",
-   "title": {
-    "en": "Same as the text · Test set 3",
-    "ko": "내용 일치 실전문제 3회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 10 · about 14 min",
-    "ko": "10문항 · 시험 10번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 7,
        "id": "t2-287",
        "type": "detail",
        "genre": "실용문",
@@ -6864,9 +6448,54 @@
        ],
        "answer": 2,
        "why": "'라켓 무료 대여 가능'을 바꾼 「채가 없어도 빌려서 운동을 시작할 수 있다」가 정답입니다. 실내체육관에서 운동하고 실력은 무관하며 셔틀콕 비용은 가입비에 포함됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 29,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      2,
+      1,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-30": {
+   "id": "r1-30",
+   "title": {
+    "en": "Same as the text · Test set 4",
+    "ko": "내용 일치 실전문제 4회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 10 · about 10 min",
+    "ko": "7문항 · 시험 10번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 2,
+       "no": 1,
        "id": "t2-282",
        "type": "detail",
        "genre": "실용문",
@@ -6883,7 +6512,7 @@
        "why": "'거주지 동 주민센터 방문 접수'를 다르게 쓴 「지역 주민센터에 찾아가서 명단을 올린다」가 맞습니다. 조끼와 조명은 무료 지급되며, 20세 이상 성인 대상이고, 야간 취약 지역을 순찰합니다."
       },
       {
-       "no": 3,
+       "no": 2,
        "id": "t2-288",
        "type": "detail",
        "genre": "실용문",
@@ -6900,7 +6529,7 @@
        "why": "'우수 봉사자 연말 표창'을 다르게 쓴 「우수한 태도를 보인 사람에게 상을 건넨다」가 옳습니다. 매월 1회 활동이며, 중고등학생 대상이고, 1회당 3시간의 봉사 시간이 인정됩니다."
       },
       {
-       "no": 4,
+       "no": 3,
        "id": "t2-293",
        "type": "detail",
        "genre": "실용문",
@@ -6917,7 +6546,7 @@
        "why": "'시급 10,500원'을 바꾼 「일하는 시간에 맞춰 소정의 돈을 건넨다」가 정답입니다. 전공자는 우대일 뿐 필수가 아니며, 주 3일 근무이고, 중식비는 별도 지급됩니다."
       },
       {
-       "no": 5,
+       "no": 4,
        "id": "t2-281",
        "type": "detail",
        "genre": "실용문",
@@ -6934,7 +6563,7 @@
        "why": "'재학생 및 휴학생'을 바꾼 「학교를 쉬고 있는 학생도 지원할 수 있다」가 정답입니다. 주 1회 활동이며, 소정의 활동비가 주어지고, 홈페이지로 온라인 신청합니다."
       },
       {
-       "no": 6,
+       "no": 5,
        "id": "t2-759",
        "type": "detail",
        "genre": "실용문",
@@ -6951,7 +6580,7 @@
        "why": "지원 내용에 초기 시제품 제작 지원금 지급이 명시되어 있으므로 '선정된 참가자에게는 초기 시제품 제작 지원금이 제공된다'가 일치합니다. 대상은 창업 3년 이내 기업이며, 멘토링은 온·오프라인 병행이고, 결과는 개별 문자 통보됩니다."
       },
       {
-       "no": 7,
+       "no": 6,
        "id": "t2-060",
        "type": "detail",
        "genre": "실용문",
@@ -6968,7 +6597,7 @@
        "why": "'인주시청 홈페이지 온라인 접수'를 다르게 표현한 '인터넷으로 신청 접수를 받는다'가 옳습니다. 농기구는 현장에서 무료로 빌려준다고 하였으므로 개인 농기구를 필수 지참해야 한다는 설명은 오답입니다."
       },
       {
-       "no": 8,
+       "no": 7,
        "id": "t2-284",
        "type": "detail",
        "genre": "실용문",
@@ -6983,9 +6612,54 @@
        ],
        "answer": 3,
        "why": "'1대1로 안내해 드릴 분'을 바꾼 「어르신을 일대일로 전담하여 다루는 법을 돕는다」가 옳습니다. 초보자 교육을 해주므로 사전 자격증이 필수가 아니며, 평일 오후에 전화 접수로 진행됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 30,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      0,
+      0,
+      1,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-31": {
+   "id": "r1-31",
+   "title": {
+    "en": "Same as the text · Test set 5",
+    "ko": "내용 일치 실전문제 5회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 10 · about 10 min",
+    "ko": "7문항 · 시험 10번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-110",
        "type": "detail",
        "genre": "실용문",
@@ -7002,7 +6676,7 @@
        "why": "킥판은 무료로 대여해 준다고 안내되어 있으므로 '연습용 킥판은 현장에서 빌려준다'가 맞습니다. 신청은 방문 접수만 가능하므로 '인터넷으로 수강 신청서를 받는다'는 오답입니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-280",
        "type": "detail",
        "genre": "실용문",
@@ -7017,72 +6691,9 @@
        ],
        "answer": 3,
        "why": "'회비: 월 1만 원 (모임 공간 대여비로 사용)'을 바꾼 「매달 일정한 회비를 모아서 공간을 빌린다」가 맞습니다. 격주(둘째·넷째 목요일) 모임이고, 다양한 분야를 읽으며, 이메일로 접수합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 29
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 29,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      1,
-      3,
-      0,
-      0,
-      1,
-      3,
-      3,
-      2,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-30": {
-   "id": "r1-30",
-   "title": {
-    "en": "Same as the text · Test set 4",
-    "ko": "내용 일치 실전문제 4회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 10–11 · about 14 min",
-    "ko": "10문항 · 시험 10~11번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-160",
        "type": "detail",
        "genre": "실용문",
@@ -7099,7 +6710,7 @@
        "why": "주의사항에서 「당일 현장 접수는 불가하며」라고 밝혔으므로 「대회 당일에는 현장에서 참가 신청을 받지 않는다.」가 내용과 같습니다. 코스는 한 가지가 아니라 「5km, 10km」 두 종류이며, 기념품은 완주 여부와 별도로 참가자 모두에게 증정됩니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-289",
        "type": "detail",
        "genre": "실용문",
@@ -7116,7 +6727,7 @@
        "why": "'단복 무상 지급'을 바꾼 「단원으로 뽑히면 옷값을 따로 치르지 않는다」가 맞습니다. 초등 2~5학년 대상이며, 수업료는 전액 면제이고, 우편 접수를 받습니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-286",
        "type": "detail",
        "genre": "실용문",
@@ -7133,7 +6744,7 @@
        "why": "'활동 전 3일간 튜터 양성 사전 교육 필수 참석'을 뜻하는 「실제 활동 전에 거쳐야 하는 사전 배움이 있다」가 맞습니다. 교재는 무료 제공되고 가정으로 찾아가며, 교통비가 포함된 활동비가 나옵니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-010",
        "type": "detail",
        "genre": "실용문",
@@ -7150,7 +6761,7 @@
        "why": "'카메라가 없어도 누구나 환영합니다'라고 적혀 있으므로 「카메라가 없어도 동아리에 가입할 수 있다」가 맞습니다. 출사는 매주가 아니라 매월 둘째 주라서 「매주 토요일마다」는 틀리고, 접수도 동아리방에 찾아가서 하므로 「인터넷으로 제출」이 아닙니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-283",
        "type": "detail",
        "genre": "실용문",
@@ -7165,9 +6776,54 @@
        ],
        "answer": 2,
        "why": "'지원서와 샘플 기사 1편을 전자우편으로 제출'을 바꾼 「직접 쓴 예시 글을 함께 제출해야 한다」가 정답입니다. 기사 채택 시 원고료가 주어지며, 마감은 18시까지입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 31,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      1,
+      0,
+      1,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-32": {
+   "id": "r1-32",
+   "title": {
+    "en": "Same as the text · Test set 6",
+    "ko": "내용 일치 실전문제 6회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 11 · about 10 min",
+    "ko": "7문항 · 시험 11번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-760",
        "type": "detail",
        "genre": "설명문",
@@ -7184,7 +6840,7 @@
        "why": "운전자가 멀리서도 보행자를 쉽게 식별할 수 있어 서행을 유도한다는 문장이 있으므로 '옐로카펫은 차량 운전자가 보행자를 쉽게 알아보도록 돕는다'가 일치합니다. 초등학교 인근에 설치되며, 대기선 준수율은 증가했고, 지난해 이미 시범 운영을 마쳤습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-303",
        "type": "detail",
        "genre": "실용문",
@@ -7201,7 +6857,7 @@
        "why": "'강한 바람이 불거나 해가 지는 저녁에는 스스로 접혀 닫힌다'를 바꾼 「센 바람이 일면 기계가 스스로 몸을 접는다」가 정답입니다. 기온 센서로 자동 작동하며 바람이 불거나 밤이 되면 닫힙니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-300",
        "type": "detail",
        "genre": "실용문",
@@ -7218,7 +6874,7 @@
        "why": "'버스 운행이 끊기는 밤 11시부터 새벽 5시 사이에는 전원이 저절로 꺼진다'를 다르게 쓴 「버스가 다니지 않는 밤에는 작동을 멈춘다」가 맞습니다. 15도 이하에서 자동 작동하며 밤에는 꺼집니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-299",
        "type": "detail",
        "genre": "실용문",
@@ -7235,7 +6891,7 @@
        "why": "'아침 8시 이후에도 차를 빼지 않는 차량에는 시간당 주차 요금이 부과되며'를 뜻하는 「아침 여덟 시를 넘기면 비용을 물어야 한다」가 정답입니다. 무료 개방은 밤 7시부터 아침 8시까지이며 15곳이 대상입니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-302",
        "type": "detail",
        "genre": "실용문",
@@ -7250,72 +6906,9 @@
        ],
        "answer": 1,
        "why": "'세제를 쓰지 않고 순수한 온수만을 이용해 45초 만에 세척과 살균이 끝난다'를 다르게 나타낸 「물로만 헹구어도 짧은 순간에 살균을 마친다」가 맞습니다. 세제는 쓰지 않으며 다회용 컵 전용입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 30
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 30,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      1,
-      0,
-      1,
-      1,
-      2,
-      0,
-      2,
-      3,
-      2,
-      1
-     ]
-    }
-   ]
-  },
-  "r1-31": {
-   "id": "r1-31",
-   "title": {
-    "en": "Same as the text · Test set 5",
-    "ko": "내용 일치 실전문제 5회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 11 · about 14 min",
-    "ko": "10문항 · 시험 11번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-304",
        "type": "detail",
        "genre": "실용문",
@@ -7332,7 +6925,7 @@
        "why": "'무공해 전기차를 새로 사면 추가 보조금도 주어진다'를 뜻하는 「공해 없는 새 차를 마련하면 혜택을 더 얹어준다」가 맞습니다. 6개월 이상 연속 등록 차량이 대상이고 폐차해야 지원금이 나옵니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-309",
        "type": "detail",
        "genre": "실용문",
@@ -7347,9 +6940,54 @@
        ],
        "answer": 0,
        "why": "'호출 버튼도 눈높이에 맞춰 낮게 재배치되어'를 바꾼 「자리에 앉은 승객의 손이 닿기 쉽게 버튼을 내렸다」가 정답입니다. 속도는 완만해졌고 안전바가 자동으로 잠기며 지하철 역사에 설치됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 32,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      3,
+      2,
+      1,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-33": {
+   "id": "r1-33",
+   "title": {
+    "en": "Same as the text · Test set 7",
+    "ko": "내용 일치 실전문제 7회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 11 · about 10 min",
+    "ko": "7문항 · 시험 11번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 3,
+       "no": 1,
        "id": "t2-307",
        "type": "detail",
        "genre": "실용문",
@@ -7366,7 +7004,7 @@
        "why": "'카시트가 구비된 전용 차량'을 다르게 쓴 「어린 아기를 태울 안전 의자가 갖추어져 있다」가 정답입니다. 임산부 및 12개월 이하 가정 대상이고 포인트로 지급됩니다."
       },
       {
-       "no": 4,
+       "no": 2,
        "id": "t2-011",
        "type": "detail",
        "genre": "설명문",
@@ -7383,7 +7021,7 @@
        "why": "'올해 말 완공을 목표로 하고 있다'를 말을 바꾸어 표현한 '올해 안에 끝날 예정이다'가 맞습니다. 공사는 다음 달 시작 예정이고 차도를 줄여 자전거 도로를 만드는 것이므로 다른 선택지들은 사실과 다릅니다."
       },
       {
-       "no": 5,
+       "no": 3,
        "id": "t2-297",
        "type": "detail",
        "genre": "실용문",
@@ -7400,7 +7038,7 @@
        "why": "'계단이 없어 휠체어나 유모차를 탄 승객도 쉽게 탈 수 있다'를 바꾼 「발판 계단이 없어 바퀴 달린 차도 오르기 쉽다」가 정답입니다. 전체가 아니라 절반 교체 계획이며, 소음과 진동은 적고, 전기로 달립니다."
       },
       {
-       "no": 6,
+       "no": 4,
        "id": "t2-308",
        "type": "detail",
        "genre": "실용문",
@@ -7417,7 +7055,7 @@
        "why": "'공사 비용의 70%를 시에서 지원해 준다'를 바꾼 「정원을 만드는 데 드는 비용의 일부를 시가 보탠다」가 맞습니다. 면적이 100제곱미터 이상이어야 하고 안전 진단을 거쳐야 합니다."
       },
       {
-       "no": 7,
+       "no": 5,
        "id": "t2-061",
        "type": "detail",
        "genre": "설명문",
@@ -7434,7 +7072,7 @@
        "why": "'기존 일반 버스와 동일한 요금이 적용되어'를 말을 바꾸어 나타낸 '심야 버스는 기존 일반 버스와 이용료가 같다'가 맞습니다. 밤 12시부터 새벽 4시까지 운행하므로 낮 시간대 운행이나 지하철 다니는 시간 운행 설명은 오답입니다."
       },
       {
-       "no": 8,
+       "no": 6,
        "id": "t2-305",
        "type": "detail",
        "genre": "실용문",
@@ -7451,7 +7089,7 @@
        "why": "'새벽 1시까지 문을 열고 의약품 판매를 맡는다'를 바꾼 「자정이 넘은 새벽 한 시까지 약을 살 수 있다」가 정답입니다. 연중무휴이고 전문 약사가 상주하며 누리집이나 전화로 위치를 안내합니다."
       },
       {
-       "no": 9,
+       "no": 7,
        "id": "t2-111",
        "type": "detail",
        "genre": "설명문",
@@ -7466,9 +7104,54 @@
        ],
        "answer": 2,
        "why": "현장 관리소에서 기초 농업 기술을 무료 지도해 준다고 했으므로 '작물 재배에 필요한 조언을 들을 수 있다'가 정답입니다. 선정 방식은 추첨이므로 '선착순으로 뽑는다'는 본문과 다릅니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 33,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      0,
+      3,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-34": {
+   "id": "r1-34",
+   "title": {
+    "en": "Same as the text · Test set 8",
+    "ko": "내용 일치 실전문제 8회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 11–12 · about 10 min",
+    "ko": "7문항 · 시험 11~12번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 10,
+       "no": 1,
        "id": "t2-301",
        "type": "detail",
        "genre": "실용문",
@@ -7483,72 +7166,9 @@
        ],
        "answer": 0,
        "why": "'보행자가 도로의 모든 구역을 차량보다 먼저 걸을 수 있으며'를 바꾼 「걷는 사람이 차보다 앞서서 다닐 권리가 있다」가 정답입니다. 차량 진입은 가능하되 시속 20km 이하로 서행해야 합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 31
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 31,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      3,
-      0,
-      2,
-      2,
-      0,
-      3,
-      3,
-      0,
-      2,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-32": {
-   "id": "r1-32",
-   "title": {
-    "en": "Same as the text · Test set 6",
-    "ko": "내용 일치 실전문제 6회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 11–12 · about 14 min",
-    "ko": "10문항 · 시험 11~12번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 2,
        "id": "t2-295",
        "type": "detail",
        "genre": "실용문",
@@ -7565,7 +7185,7 @@
        "why": "'2인 1조 대원이 집 앞까지 동행한다'를 바꾼 「집 문앞까지 두 사람이 짝을 지어 함께 간다」가 정답입니다. 주말은 쉬며, 도착 30분 전에 사전 신청해야 하고, 요금 청구 언급은 없습니다."
       },
       {
-       "no": 2,
+       "no": 3,
        "id": "t2-161",
        "type": "detail",
        "genre": "신문기사",
@@ -7582,7 +7202,7 @@
        "why": "지문에서 「무선 인터넷을 무료로 이용할 수 있게 되었습니다」라고 명시했으므로 「정류장에서는 별도 요금 없이 인터넷을 쓸 수 있다.」가 맞습니다. 인증 절차는 「없이」 이용할 수 있으며, 전통시장 등 다중이용시설 확대는 내년이 아니라 「올해 말까지」 계획되어 있습니다."
       },
       {
-       "no": 3,
+       "no": 4,
        "id": "t2-306",
        "type": "detail",
        "genre": "실용문",
@@ -7599,7 +7219,7 @@
        "why": "'소방서 상황실로 즉시 비상 문자를 전송한다'를 바꾼 「불이 난 낌새를 채면 담당 기관에 바로 신호를 보낸다」가 맞습니다. 상인과 소방서 양쪽에 즉시 알리며 연기와 불꽃 모두 감지합니다."
       },
       {
-       "no": 4,
+       "no": 5,
        "id": "t2-298",
        "type": "detail",
        "genre": "실용문",
@@ -7616,7 +7236,7 @@
        "why": "'운전자의 정지선 준수율이 20% 이상 올랐다'를 바꾼 「색상을 바꾼 뒤 차량이 멈추는 비율이 늘었다」가 맞습니다. 이번 달에는 시범 설치이고, 노란색으로 칠하며, 초등학교 주변이 대상입니다."
       },
       {
-       "no": 5,
+       "no": 6,
        "id": "t2-296",
        "type": "detail",
        "genre": "실용문",
@@ -7633,7 +7253,7 @@
        "why": "'다른 지하철역의 스마트 도서관 기기에서도 가능하다'를 바꾼 「빌린 곳과 다른 역의 기계에 돌려주어도 된다」가 정답입니다. 지하철 역사 무인 기기에서 빌릴 수 있고, 1인당 2권 한도입니다."
       },
       {
-       "no": 6,
+       "no": 7,
        "id": "t2-062",
        "type": "detail",
        "genre": "설명문",
@@ -7648,9 +7268,54 @@
        ],
        "answer": 3,
        "why": "'모인 포인트는 지역 가맹점에서 현금처럼 사용할 수 있다'를 변형하여 표현한 '포인트를 모으면 지역 가맹점에서 쓸 수 있다'가 정답입니다. 라벨이 붙어 있거나 색깔이 있는 페트병은 제외된다고 명시되어 있습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 34,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-35": {
+   "id": "r1-35",
+   "title": {
+    "en": "Same as the text · Test set 9",
+    "ko": "내용 일치 실전문제 9회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 12 · about 10 min",
+    "ko": "7문항 · 시험 12번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 7,
+       "no": 1,
        "id": "t2-012",
        "type": "detail",
        "genre": "설명문",
@@ -7667,7 +7332,7 @@
        "why": "'무게를 측정해 지역 화폐로 환급해 준다'를 바꾸어 쓴 「재활용품을 가져오면 지역 화폐로 바꾸어 준다」가 맞습니다. 수요일과 금요일에만 하므로 「매일」은 틀리고, 주민센터 앞마당으로 찾아오는 사업이라 「구청으로 찾아가야 한다」도 아닙니다."
       },
       {
-       "no": 8,
+       "no": 2,
        "id": "t2-112",
        "type": "detail",
        "genre": "설명문",
@@ -7684,7 +7349,7 @@
        "why": "다섯 개 미만의 소형 가전제품은 수수료 없이 배출할 수 있다고 했으므로 '적은 수량의 소형 가전은 공짜로 버릴 수 있다'가 옳습니다. 보조배터리도 배출 가능 품목에 포함되어 있으므로 제외되었다는 선택지는 오답입니다."
       },
       {
-       "no": 9,
+       "no": 3,
        "id": "t2-318",
        "type": "detail",
        "genre": "실용문",
@@ -7701,7 +7366,7 @@
        "why": "'담아갈 개인 용기를 반드시 가져와야 한다'를 바꾼 「주민이 직접 빈 그릇을 챙겨가야 액을 받는다」가 맞습니다. 빈 통은 제공되지 않고, 1인당 2리터 제한이며, 평일 화요일에 보급됩니다."
       },
       {
-       "no": 10,
+       "no": 4,
        "id": "t2-324",
        "type": "detail",
        "genre": "실용문",
@@ -7716,72 +7381,9 @@
        ],
        "answer": 3,
        "why": "'취약계층 가정에 우선 보급된다'를 바꾼 「고쳐서 다시 만든 자전거를 이웃에게 먼저 준다」가 맞습니다. 안전 점검을 거치며, 부품을 재활용하고, 일반 시민에게는 시세보다 저렴하게 공급합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 32
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "no": 32,
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "key": [
-      2,
-      2,
-      1,
-      1,
-      3,
-      3,
-      3,
-      3,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-33": {
-   "id": "r1-33",
-   "title": {
-    "en": "Same as the text · Test set 7",
-    "ko": "내용 일치 실전문제 7회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 12 · about 14 min",
-    "ko": "10문항 · 시험 12번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 5,
        "id": "t2-310",
        "type": "detail",
        "genre": "실용문",
@@ -7798,7 +7400,7 @@
        "why": "'5개당 종량제 쓰레기봉투 1장으로 교환해 준다'를 바꾼 「정해진 개수를 모아 오면 쓰레기봉투를 받는다」가 맞습니다. 소독과 세척을 거쳐 무료 전달되며 오염되지 않은 깨끗한 팩만 받습니다."
       },
       {
-       "no": 2,
+       "no": 6,
        "id": "t2-319",
        "type": "detail",
        "genre": "실용문",
@@ -7815,7 +7417,7 @@
        "why": "'연간 최대 5회까지 이용할 수 있다'를 바꾼 「일 년 동안 정해진 횟수만큼 빌려 입을 수 있다」가 정답입니다. 구두와 타이도 포함되며 무료 대여이고 만 39세 이하 청년 대상입니다."
       },
       {
-       "no": 3,
+       "no": 7,
        "id": "t2-162",
        "type": "detail",
        "genre": "신문기사",
@@ -7830,9 +7432,54 @@
        ],
        "answer": 3,
        "why": "지문에서 「준비된 새 건전지가 모두 소진되면 그날 행사는 조기에 마감됩니다」라고 설명했으므로 「준비한 물량이 다 떨어지면 그날 교환이 끝난다.」가 일치합니다. 폐건전지는 5개가 아닌 「10개」를 모아야 하며, 행사는 매일이 아니라 「매주 수요일」에만 진행됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 35,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      3,
+      1,
+      3,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-36": {
+   "id": "r1-36",
+   "title": {
+    "en": "Same as the text · Test set 10",
+    "ko": "내용 일치 실전문제 10회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 12 · about 10 min",
+    "ko": "7문항 · 시험 12번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-317",
        "type": "detail",
        "genre": "실용문",
@@ -7849,7 +7496,7 @@
        "why": "'의사의 난청 진단을 받은 분'을 바꾼 「의사의 진단서가 있어야 비용을 지원받는다」가 정답입니다. 5년 이내 수혜자는 제외되고, 한쪽 귀 기준 최대 100만 원이며, 1년 이상 거주해야 합니다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-322",
        "type": "detail",
        "genre": "실용문",
@@ -7866,7 +7513,7 @@
        "why": "'전기요금과 도시가스 요금을 차감 납부하거나'를 바꾼 「받은 카드로 전기세나 가스비를 깎을 수 있다」가 맞습니다. 노인·영유아·장애인이 포함되어야 하며, 등유도 살 수 있고 동절기 지원입니다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-761",
        "type": "detail",
        "genre": "설명문",
@@ -7883,7 +7530,7 @@
        "why": "시장 입구 안내소에서 이름과 연락처를 기재한 뒤 자유롭게 빌릴 수 있다는 내용이 본문에 나오므로 '시장 입구 안내소에서 간단한 인적 사항을 적고 대여할 수 있다'가 맞습니다. 대여료는 무료이며, 세탁은 상인회에서 담당합니다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-323",
        "type": "detail",
        "genre": "실용문",
@@ -7900,7 +7547,7 @@
        "why": "'1회에 한해 1개월을 추가 연장하여'를 바꾼 「필요하면 한 달을 더 늘려서 빌려 쓸 수 있다」가 정답입니다. 신분증 지참이 필수이고 최장 2개월이며 재고 여부를 전화로 미리 확인해야 합니다."
       },
       {
-       "no": 8,
+       "no": 5,
        "id": "t2-320",
        "type": "detail",
        "genre": "실용문",
@@ -7917,7 +7564,7 @@
        "why": "'설치비의 90%를 시에서 보조해 준다'를 바꾼 「시설을 만들 때 드는 돈의 대부분을 시가 낸다」가 맞습니다. 조경수나 청소용수이지 음용수가 아니며, 설치 공간이 있어야 합니다."
       },
       {
-       "no": 9,
+       "no": 6,
        "id": "t2-311",
        "type": "detail",
        "genre": "실용문",
@@ -7934,7 +7581,7 @@
        "why": "'롤 화장지 2롤을 지급한다'를 다르게 쓴 「모아서 건네주면 일상용 휴지를 건네받는다」가 정답입니다. 헹궈서 말려야 하고, 멸균팩도 인정되며, 목요일에만 운영됩니다."
       },
       {
-       "no": 10,
+       "no": 7,
        "id": "t2-315",
        "type": "detail",
        "genre": "실용문",
@@ -7953,37 +7600,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 33
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 10,
+     "total": 7,
      "from": 1,
-     "no": 33,
+     "no": 36,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      1,
-      2,
-      3,
       0,
       1,
       2,
@@ -7995,11 +7624,11 @@
     }
    ]
   },
-  "r1-34": {
-   "id": "r1-34",
+  "r1-37": {
+   "id": "r1-37",
    "title": {
-    "en": "Same as the text · Test set 8",
-    "ko": "내용 일치 실전문제 8회"
+    "en": "Same as the text · Test set 11",
+    "ko": "내용 일치 실전문제 11회"
    },
    "sub": {
     "en": "5 questions · exam no. 12 · about 7 min",
@@ -8101,21 +7730,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 34
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -8125,7 +7739,7 @@
      "rec": 7,
      "total": 5,
      "from": 1,
-     "no": 34,
+     "no": 37,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -8138,8 +7752,8 @@
     }
    ]
   },
-  "r1-35": {
-   "id": "r1-35",
+  "r1-38": {
+   "id": "r1-38",
    "title": {
     "en": "Put the sentences in order · Warm-up",
     "ko": "순서 맞추기 연습문제"
@@ -8244,21 +7858,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 5,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 35
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -8268,7 +7867,7 @@
      "rec": 7,
      "total": 5,
      "from": 1,
-     "no": 35,
+     "no": 38,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
@@ -8281,22 +7880,22 @@
     }
    ]
   },
-  "r1-36": {
-   "id": "r1-36",
+  "r1-39": {
+   "id": "r1-39",
    "title": {
     "en": "Put the sentences in order · Test set 1",
     "ko": "순서 맞추기 실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13 · about 14 min",
-    "ko": "10문항 · 시험 13번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8383,9 +7982,52 @@
        ],
        "answer": 2,
        "why": "폐타이어 처리의 어려움을 꺼내는 (다)가 화제 도입으로 적절하며, 이를 아스팔트 포장재로 재활용하는 기술 (가)가 이어집니다. 고무 성분의 소음 저감 효과 (나) 뒤에 '게다가'로 사고 예방 효과를 덧붙이는 (라)가 오는 '(다)-(가)-(나)-(라)'가 바른 배열입니다. '(다)-(나)-(가)-(라)'는 아스팔트에 섞는 과정 없이 고무 성분의 장점부터 나와 문맥이 통하지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 39,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      1,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-40": {
+   "id": "r1-40",
+   "title": {
+    "en": "Put the sentences in order · Test set 2",
+    "ko": "순서 맞추기 실전문제 2회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-334",
        "type": "order",
        "genre": "설명문",
@@ -8402,7 +8044,7 @@
        "why": "버려지는 자투리 가죽 실태를 환기하는 (나)로 글을 열고, '이 가죽 조각들'을 가공하는 신기술 (라)가 뒤따릅니다. '이렇게 만든 재생 가죽'의 우수한 질감과 내습성 (가) 뒤에 폐기물 감축과 비용 절감의 총평 (다)가 연결되는 '(나)-(라)-(가)-(다)'가 바릅니다. '(나)-(가)-(라)-(다)'는 재생 가죽 제조 기술 설명 없이 가죽의 장점부터 제시되어 문맥이 끊깁니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-326",
        "type": "order",
        "genre": "설명문",
@@ -8419,7 +8061,7 @@
        "why": "음식물 쓰레기 문제점을 제기하는 (나)가 먼저 오고, 역접 접속사 '그러나'로 퇴비 전환을 설명하는 (가)가 뒤따릅니다. 퇴비가 농작물 성장을 돕는 효과 (라)를 거쳐 글 전체를 종합하는 지시어 '이처럼'의 (다)로 끝맺는 '(나)-(가)-(라)-(다)'가 자연스럽습니다. '(나)-(라)-(가)-(다)'는 퇴비로 전환하는 설명 전에 퇴비의 효과부터 나와 인과관계가 맞지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-163",
        "type": "order",
        "genre": "설명문",
@@ -8436,7 +8078,7 @@
        "why": "폐현수막으로 인한 쓰레기 문제를 제시한 (다) 뒤에, 이를 생활용품으로 만드는 사례를 소개한 (가)가 오고, 그 원단 특성과 장점을 설명한 (나)를 거쳐 전체적인 의의를 요약한 (라)로 이어지는 「(다)－(가)－(나)－(라)」가 자연스럽습니다. (가)부터 시작하면 현수막 쓰레기 문제가 대두된 배경 없이 활용 사례부터 언급되어 어색합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-331",
        "type": "order",
        "genre": "설명문",
@@ -8453,7 +8095,7 @@
        "why": "낙엽 처리 비용 문제를 꺼내는 (나)로 시작하여 지자체의 고체 연료 가공 시도 (라)로 연결됩니다. 낙엽을 펠릿으로 압축 성형하는 방법 (가)가 서술된 후 지시어 '이 펠릿'으로 난방 연료로서의 인기를 밝히는 (다)가 오는 '(나)-(라)-(가)-(다)'가 타당합니다. '(나)-(가)-(라)-(다)'는 연료 가공 취지보다 펠릿 압축 공정이 먼저 나와 논리적 순서가 어긋납니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-113",
        "type": "order",
        "genre": "설명문",
@@ -8472,39 +8114,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 36
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 36,
+     "no": 40,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      3,
-      0,
-      1,
-      3,
-      2,
       1,
       1,
       0,
@@ -8514,22 +8136,22 @@
     }
    ]
   },
-  "r1-37": {
-   "id": "r1-37",
+  "r1-41": {
+   "id": "r1-41",
    "title": {
-    "en": "Put the sentences in order · Test set 2",
-    "ko": "순서 맞추기 실전문제 2회"
+    "en": "Put the sentences in order · Test set 3",
+    "ko": "순서 맞추기 실전문제 3회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13 · about 14 min",
-    "ko": "10문항 · 시험 13번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8616,9 +8238,52 @@
        ],
        "answer": 2,
        "why": "종이 상자가 버려지기 쉽다는 화제를 제기하는 (나)가 첫 문장으로 가장 적절하며, 이를 전환하여 재활용 자원이 됨을 설명하는 (다)가 이어집니다. 배출 방법인 (라)가 나온 뒤 지시어 '이렇게 모인'으로 받는 (가)가 마지막에 오는 '(나)-(다)-(라)-(가)'가 올바른 순서입니다. (나)-(라)-(다)-(가)는 배출 방법이 재활용 가능성 언급보다 먼저 나와 문맥이 어색합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 41,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-42": {
+   "id": "r1-42",
+   "title": {
+    "en": "Put the sentences in order · Test set 4",
+    "ko": "순서 맞추기 실전문제 4회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-329",
        "type": "order",
        "genre": "설명문",
@@ -8635,7 +8300,7 @@
        "why": "버려지는 청바지의 환경 문제를 제시한 (나)가 출발점이 되고, 이를 건축용 단열재로 바꾼 기술 (다)가 이어집니다. 단열재가 열 손실을 차단하는 원리 (가) 뒤에 '그 결과'로 환경적·경제적 이점을 종합하는 (라)가 오는 '(나)-(다)-(가)-(라)'가 가장 자연스럽습니다. '(나)-(가)-(다)-(라)'는 청바지를 단열재로 만드는 기술 소개보다 단열 원리가 먼저 나와 어색합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-339",
        "type": "order",
        "genre": "설명문",
@@ -8652,7 +8317,7 @@
        "why": "버려진 전자기기 속 희소금속 매장 사실 (나)로 흥미를 유발하고, 기판 분쇄 및 화학 추출 공정 (다)가 이어집니다. 추출된 금속의 정련 및 원자재 재공급 (가) 뒤에 '도시 광산' 기술의 자원 수입 대체 의의 (라)로 매듭짓는 '(나)-(다)-(가)-(라)'가 타당합니다. '(나)-(가)-(다)-(라)'는 금속 추출 단계 없이 정련 및 부품 공급부터 나와 순서가 뒤섞였습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-325",
        "type": "order",
        "genre": "설명문",
@@ -8669,7 +8334,7 @@
        "why": "빗물이 버려지는 도시의 문제점을 제시하는 (다)가 첫 문장으로 오고, 이를 해결하기 위한 집수 시설을 설명하는 (나)가 이어집니다. 모인 빗물을 여과하는 (라)를 거쳐 정화된 물의 활용을 정리하는 (가)로 이어지는 '(다)-(나)-(라)-(가)'가 올바른 순서입니다. '(다)-(라)-(나)-(가)'는 빗물을 모으기도 전에 여과 장치부터 나와 논리적 순서에 어긋납니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-337",
        "type": "order",
        "genre": "설명문",
@@ -8686,7 +8351,7 @@
        "why": "버려진 나무토막 처리의 난점을 꺼낸 (가)가 첫 문장이 되고, '이 목재들'을 가마에서 숯으로 굽는 공정 (다)가 이어집니다. 숯 속 미세 구멍의 흡착 원리 (나) 뒤에 '이렇게 제작된 활성탄'의 필터 활용처를 밝히는 (라)로 결론짓는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 숯 제조 공정 없이 숯 내부 구멍의 작용부터 서술되어 순서가 바르지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-335",
        "type": "order",
        "genre": "설명문",
@@ -8705,39 +8370,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 37
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 37,
+     "no": 42,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      3,
-      1,
-      3,
-      0,
-      2,
       0,
       2,
       0,
@@ -8747,22 +8392,22 @@
     }
    ]
   },
-  "r1-38": {
-   "id": "r1-38",
+  "r1-43": {
+   "id": "r1-43",
    "title": {
-    "en": "Put the sentences in order · Test set 3",
-    "ko": "순서 맞추기 실전문제 3회"
+    "en": "Put the sentences in order · Test set 5",
+    "ko": "순서 맞추기 실전문제 5회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13–14 · about 14 min",
-    "ko": "10문항 · 시험 13~14번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13–14 · about 7 min",
+    "ko": "5문항 · 시험 13~14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8849,9 +8494,52 @@
        ],
        "answer": 3,
        "why": "꿀벌이 집으로 돌아오는 현상을 제시하는 (가) 뒤에 이유를 설명하는 '때문이다'의 (다)가 옵니다. 이어 원리를 구체화하는 (나)가 오고, 태양이 보이지 않는 특수 상황에서도 적용되는 (라)가 마지막에 오는 '(가)-(다)-(나)-(라)'가 맞습니다. '(가)-(나)-(라)-(다)'는 이유를 나타내는 문장이 마지막에 배치되어 원인 제시 순서가 맞지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 43,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      3,
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-44": {
+   "id": "r1-44",
+   "title": {
+    "en": "Put the sentences in order · Test set 6",
+    "ko": "순서 맞추기 실전문제 6회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-014",
        "type": "order",
        "genre": "설명문",
@@ -8868,7 +8556,7 @@
        "why": "공기 정화 식물의 기본 역할을 설명하는 (가)가 먼저 오고, 오염 물질 흡수 후의 과정을 나타내는 (다)가 이어집니다. 그 과정에서 일어나는 증산 작용 (라)를 거쳐, 그 결과 습도 유지 효과를 정리하는 접속어 '따라서'의 (나)로 마무리되는 '(가)-(다)-(라)-(나)'가 올바릅니다. (가)-(나)-(다)-(라)는 습도 유지가 오염 물질 분해보다 먼저 나와 인과관계가 어긋납니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-770",
        "type": "order",
        "genre": "설명문",
@@ -8885,7 +8573,7 @@
        "why": "도토리에 알을 낳는 기본 습성을 소개하는 (가)에 이어 어미 벌레의 특이 행동을 예고하는 (라)가 오고, 가지를 잘라 떨어뜨리는 구체적 행위인 (나)와 떨어진 도토리 속 부화를 설명하는 (다)로 이어지는 '(가)-(라)-(나)-(다)'가 자연스럽습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-773",
        "type": "order",
        "genre": "설명문",
@@ -8902,7 +8590,7 @@
        "why": "습도에 반응하는 솔방울의 현상을 제시하는 (가)에 이어 습한 날의 닫힘 현상 (다)와 맑은 날의 열림 현상 (라)가 대조적으로 서술되고, 세포 팽창이라는 생물학적 원인을 규명하는 (나)로 끝나는 '(가)-(다)-(라)-(나)'가 가장 논리적입니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-775",
        "type": "order",
        "genre": "설명문",
@@ -8919,7 +8607,7 @@
        "why": "철새의 브이 자 비행 대형을 소개하는 (가)에 이어 앞 새의 날갯짓에 따른 상승 기류 발생 원리 (나)가 오고, 뒤 새의 에너지 절약 효과를 다룬 (다)와 선두 교대라는 협력 방식을 밝히는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 타당합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-350",
        "type": "order",
        "genre": "설명문",
@@ -8938,39 +8626,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 38
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 38,
+     "no": 44,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      1,
-      0,
-      3,
-      1,
-      3,
       3,
       3,
       2,
@@ -8980,22 +8648,22 @@
     }
    ]
   },
-  "r1-39": {
-   "id": "r1-39",
+  "r1-45": {
+   "id": "r1-45",
    "title": {
-    "en": "Put the sentences in order · Test set 4",
-    "ko": "순서 맞추기 실전문제 4회"
+    "en": "Put the sentences in order · Test set 7",
+    "ko": "순서 맞추기 실전문제 7회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14 · about 14 min",
-    "ko": "10문항 · 시험 14번 · 권장 약 14분"
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9082,9 +8750,52 @@
        ],
        "answer": 0,
        "why": "바닷물 속 맹그로브의 생육 현상을 소개하는 (가) 뒤에 뿌리의 1차 여과를 다룬 (나)가 오고, 잎을 통한 2차 배출을 서술한 (다)와 이중 차단 시스템의 생태적 성과를 정리하는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 정확합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 45,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      0,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-46": {
+   "id": "r1-46",
+   "title": {
+    "en": "Put the sentences in order · Test set 8",
+    "ko": "순서 맞추기 실전문제 8회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-344",
        "type": "order",
        "genre": "설명문",
@@ -9101,7 +8812,7 @@
        "why": "연잎이 깨끗함을 유지한다는 현상 (나)가 화제로 제시되고, 표면의 미세 돌기와 왁스 코팅 구조 (라)가 원인으로 등장합니다. 물방울이 먼지를 쓸어내리는 자정 작용 (가) 뒤에 '연잎 효과'의 산업적 응용 (다)가 뒤따르는 '(나)-(라)-(가)-(다)'가 바릅니다. '(나)-(가)-(라)-(다)'는 연잎 표면 구조 설명 없이 물방울의 굴림 현상부터 나와 논리적 중간 단계가 빠졌습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-347",
        "type": "order",
        "genre": "설명문",
@@ -9118,7 +8829,7 @@
        "why": "겨울철 동백꽃이 겪는 꽃가루받이의 난점 (나)가 먼저 서술되고, '이때' 꽃가루를 옮겨주는 동박새의 등장 (가)가 연결됩니다. 동백꽃이 새의 부리에 맞게 꿀을 마련해 둔 배려 (다) 뒤에 서로 돕는 공생 관계의 의의 (라)로 끝맺는 '(나)-(가)-(다)-(라)'가 타당합니다. '(나)-(다)-(가)-(라)'는 동박새가 등장하기도 전에 새의 부리에 맞춘 꽃의 구조부터 나와 문맥이 어색합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-777",
        "type": "order",
        "genre": "설명문",
@@ -9135,7 +8846,7 @@
        "why": "시력이 퇴화된 전기도롱뇽의 환경을 설명하는 (가) 뒤에 자체 전기장 형성을 다룬 (나)가 오고, 물체 등장 시 왜곡 현상을 설명하는 (다)와 피부 감각을 통한 사냥 성공으로 맺는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 옳습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-352",
        "type": "order",
        "genre": "설명문",
@@ -9152,7 +8863,7 @@
        "why": "높은 수압으로 생물이 살기 어려운 심해 환경 (나)를 짚고, 역접 '그러나'로 세포막 불포화 지방산의 내압 특성 (가)가 이어집니다. 단백질 변형을 막는 체내 화학 물질 (라)에 이어 '이러한 분자 수준의 적응 덕분에' 유영하는 결과 (다)가 오는 '(나)-(가)-(라)-(다)'가 합당합니다. '(나)-(라)-(가)-(다)'는 역접 접속사를 동반한 기본 적응 메커니즘보다 추가적인 화학 물질 내용이 먼저 나와 어색합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-343",
        "type": "order",
        "genre": "설명문",
@@ -9171,39 +8882,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 39
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 39,
+     "no": 46,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      1,
-      1,
-      0,
-      3,
-      0,
       3,
       2,
       2,
@@ -9213,22 +8904,22 @@
     }
    ]
   },
-  "r1-40": {
-   "id": "r1-40",
+  "r1-47": {
+   "id": "r1-47",
    "title": {
-    "en": "Put the sentences in order · Test set 5",
-    "ko": "순서 맞추기 실전문제 5회"
+    "en": "Put the sentences in order · Test set 9",
+    "ko": "순서 맞추기 실전문제 9회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14–15 · about 14 min",
-    "ko": "10문항 · 시험 14~15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9315,9 +9006,52 @@
        ],
        "answer": 1,
        "why": "나무를 쪼아도 뇌진탕에 걸리지 않는 딱따구리의 특징 (나)가 출발점이 되고, 두개골 사이 스펀지 다공성 뼈의 완충 작용 (다)가 원인으로 따릅니다. '게다가'로 설골 근육의 뇌 지지 기능 (가)를 더한 뒤 '이 정교한 완충 메커니즘'의 산업적 응용 (라)가 결합하는 '(나)-(다)-(가)-(라)'가 맞습니다. '(나)-(가)-(다)-(라)'는 기본 골격 구조 설명 전에 첨가 접속사 '게다가'의 근육 작용이 앞서 나와 문맥이 거칩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 47,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      0,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-48": {
+   "id": "r1-48",
+   "title": {
+    "en": "Put the sentences in order · Test set 10",
+    "ko": "순서 맞추기 실전문제 10회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14–15 · about 7 min",
+    "ko": "5문항 · 시험 14~15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-771",
        "type": "order",
        "genre": "설명문",
@@ -9334,7 +9068,7 @@
        "why": "물속 활동 능력을 제시하는 (가) 뒤에 공기방울을 장착하는 준비 동작 (나)가 오고, 공기방울의 호흡 원리를 밝히는 (다)와 그로 인한 생태적 이점을 설명하는 (라)로 맺어지는 '(가)-(나)-(다)-(라)'가 올바릅니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-772",
        "type": "order",
        "genre": "설명문",
@@ -9351,7 +9085,7 @@
        "why": "사막여우의 외형적 특징인 큰 귀를 소개하는 (가) 뒤에 귀의 모세혈관 구조를 설명하는 (나)가 이어지고, 열 방출의 생리적 원리를 다룬 (다)와 더위 극복의 결론인 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 정답입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-349",
        "type": "order",
        "genre": "설명문",
@@ -9368,7 +9102,7 @@
        "why": "거대한 몸집통에도 빠른 상어의 유영 속도 (가)가 화제를 끌고, 비늘 표면 미세 홈의 마찰 저항 감소 작용 (다)가 원인으로 옵니다. 지시어 '이 미세 구조'가 소용돌이를 밀어내는 추진 원리 (나) 뒤에 인간의 수영복 및 선박 모방 기술 (라)로 마치는 '(가)-(다)-(나)-(라)'가 바른 배열입니다. '(가)-(나)-(다)-(라)'는 미세 홈 언급 전에 '이 미세 구조'라는 지시어가 먼저 튀어나와 문맥이 꼬입니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-774",
        "type": "order",
        "genre": "설명문",
@@ -9385,7 +9119,7 @@
        "why": "차가운 물속 체온 유지 능력을 제시하는 (가) 뒤에 비밀로서 이중 털 구조를 언급하는 (나)가 오고, 겉털과 속털의 역할을 상술하는 (다)와 공기층에 의한 체온 보호 결론을 맺는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 맞습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-783",
        "type": "order",
        "genre": "설명문",
@@ -9404,39 +9138,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 40
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 40,
+     "no": 48,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      2,
-      3,
-      0,
-      0,
-      1,
       1,
       0,
       0,
@@ -9446,22 +9160,22 @@
     }
    ]
   },
-  "r1-41": {
-   "id": "r1-41",
+  "r1-49": {
+   "id": "r1-49",
    "title": {
-    "en": "Put the sentences in order · Test set 6",
-    "ko": "순서 맞추기 실전문제 6회"
+    "en": "Put the sentences in order · Test set 11",
+    "ko": "순서 맞추기 실전문제 11회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15 · about 14 min",
-    "ko": "10문항 · 시험 15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9548,9 +9262,52 @@
        ],
        "answer": 1,
        "why": "아스팔트로 인한 도심 침수 취약성 (나)를 먼저 알리고, 대안으로서 '빗물 정원'의 조성 (다)가 이어집니다. 빗물이 정원으로 모여 지하수로 흡수되는 침수 저감 원리 (가) 뒤에 미관과 수해 예방을 아우르는 녹지 공간 평가 (라)가 오는 '(나)-(다)-(가)-(라)'가 자연스럽습니다. '(나)-(가)-(다)-(라)'는 빗물 정원 조성에 대한 설명 없이 정원으로 빗물이 모인다는 내용부터 나와 비약이 생깁니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 49,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      3,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-50": {
+   "id": "r1-50",
+   "title": {
+    "en": "Put the sentences in order · Test set 12",
+    "ko": "순서 맞추기 실전문제 12회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-778",
        "type": "order",
        "genre": "설명문",
@@ -9567,7 +9324,7 @@
        "why": "도심 수직 농장의 부상 배경을 제시하는 (가)에 이어 다단 선반과 영양액 재배라는 기본 구조를 설명하는 (다)가 오고, 인공조명과 센서 제어 기술을 다룬 (나)와 연중 안정적 수확이라는 혜택을 맺는 (라)로 이어지는 '(가)-(다)-(나)-(라)'가 순서에 맞습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-779",
        "type": "order",
        "genre": "설명문",
@@ -9584,7 +9341,7 @@
        "why": "소화전 주변 불법 주정차 문제를 짚는 (가)에 이어 센서 감지와 경고 방송을 다룬 (나)가 오고, 관제 센터 전송 및 과태료 부과를 설명하는 (다)와 도로 확보율 개선 결론인 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 타당합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-361",
        "type": "order",
        "genre": "설명문",
@@ -9601,7 +9358,7 @@
        "why": "외딴 섬 지역 드론 물류 서비스 도입 배경 (가)가 서두에 서고, 육지에서 바다를 건너 착륙장으로 배달하는 비행 경로 (다)가 이어집니다. 약품과 서류를 수십 분 만에 받는 빠른 배송 편익 (나) 뒤에 지리적 격차를 해소하는 기술적 가치 (라)로 마치는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 드론 비행 및 배달 경로 설명 전에 신속 배송 혜택부터 나와 흐름이 매끄럽지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-358",
        "type": "order",
        "genre": "설명문",
@@ -9618,7 +9375,7 @@
        "why": "지정 거치대 반납의 번거로움이 있던 초기 공공 자전거 (나)로 배경을 깔고, GPS를 통한 자유 반납 신형 자전거 도입 (다)가 이어집니다. 앱 잠금 해제와 락 작동 등 간편한 이용법 (가)를 거쳐 대중교통 환승 수단으로의 안착 (라)로 마감되는 '(나)-(다)-(가)-(라)'가 자연스럽습니다. '(나)-(가)-(다)-(라)'는 신형 자전거 시스템 도입 설명 없이 스마트폰 락 해제 방법부터 나와 앞뒤가 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-165",
        "type": "order",
        "genre": "설명문",
@@ -9637,39 +9394,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 41
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 41,
+     "no": 50,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      2,
-      2,
-      3,
-      0,
-      1,
       1,
       2,
       0,
@@ -9679,22 +9416,22 @@
     }
    ]
   },
-  "r1-42": {
-   "id": "r1-42",
+  "r1-51": {
+   "id": "r1-51",
    "title": {
-    "en": "Put the sentences in order · Test set 7",
-    "ko": "순서 맞추기 실전문제 7회"
+    "en": "Put the sentences in order · Test set 13",
+    "ko": "순서 맞추기 실전문제 13회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15 · about 14 min",
-    "ko": "10문항 · 시험 15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9781,9 +9518,52 @@
        ],
        "answer": 2,
        "why": "잔디 관리의 인력 및 예산 부담을 제시하는 (가) 뒤에 자율주행 로봇 배치를 밝히는 (나)가 오고, 장애물 회피 및 제초 기능을 설명하는 (다)와 야간 자동 가동을 통한 공원 미관 유지로 끝맺는 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 가장 매끄럽습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 51,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      3,
+      1,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-52": {
+   "id": "r1-52",
+   "title": {
+    "en": "Put the sentences in order · Test set 14",
+    "ko": "순서 맞추기 실전문제 14회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-115",
        "type": "order",
        "genre": "설명문",
@@ -9800,7 +9580,7 @@
        "why": "과거 가로등의 한계를 말하는 (나) 뒤에 '하지만'으로 센서 조명 도입을 밝히는 (다)가 옵니다. 환경 정보 안내 기능을 추가하는 (가)가 이어진 후 '이제'로 종합적 변화를 맺는 (라)가 오는 '(나)-(다)-(가)-(라)'가 올바릅니다. '(나)-(가)-(다)-(라)'는 첨가 접속어 '게다가'가 새로운 가로등 도입 사실보다 앞서 나와 어색합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-356",
        "type": "order",
        "genre": "설명문",
@@ -9817,7 +9597,7 @@
        "why": "주택가 주차난 해소를 위한 공유 주차 플랫폼 도입 (나)가 맨 앞에 서고, 낮 시간 빈 주차면을 앱에 등록하는 절차 (가)가 옵니다. 방문 운전자가 앱으로 확인 후 주차하는 이용 흐름 (라) 뒤에 불법 주차와 주민 갈등을 줄인다는 효과 (다)로 마치는 '(나)-(가)-(라)-(다)'가 타당합니다. '(나)-(라)-(가)-(다)'는 빈자리 등록 과정 없이 방문객의 주차 이용부터 나와 서비스 작동 절차가 어긋납니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-365",
        "type": "order",
        "genre": "설명문",
@@ -9834,7 +9614,7 @@
        "why": "무인 주문기 확산에 따른 노년층의 소외 (가)가 문제로 제기되고, '이를 돕기 위해' 복지관 키오스크 체험장 마련 (다)가 이어집니다. 두려움 없이 반복 연습하는 학습 모습 (나) 뒤에 디지털 자신감이 일상 독립의 힘이 된다는 (라)로 맺는 '(가)-(다)-(나)-(라)'가 올바른 순서입니다. '(가)-(나)-(다)-(라)'는 체험 교육장 마련 언급 없이 반복 연습부터 나와 장소적 배경이 생략됩니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-065",
        "type": "order",
        "genre": "설명문",
@@ -9851,7 +9631,7 @@
        "why": "과거 정류장의 모습을 설명한 (가) 다음에 접속어 '하지만'으로 새로운 변화를 보여주는 (다)가 오고, 접속어 '나아가'로 추가적인 발전상을 제시하는 (나)가 이어진 뒤 총평인 (라)로 마무리되는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 발전 단계의 순서가 거꾸로 되어 어색합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-355",
        "type": "order",
        "genre": "설명문",
@@ -9870,39 +9650,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 42
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
-     "no": 42,
+     "no": 52,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
-      0,
-      3,
-      1,
-      0,
-      2,
       2,
       3,
       0,
@@ -9912,11 +9672,11 @@
     }
    ]
   },
-  "r1-43": {
-   "id": "r1-43",
+  "r1-53": {
+   "id": "r1-53",
    "title": {
-    "en": "Put the sentences in order · Test set 8",
-    "ko": "순서 맞추기 실전문제 8회"
+    "en": "Put the sentences in order · Test set 15",
+    "ko": "순서 맞추기 실전문제 15회"
    },
    "sub": {
     "en": "4 questions · exam no. 15 · about 6 min",
@@ -10001,21 +9761,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 4,
-     "sheetKo": "TOPIK II 읽기 유형별 문제 답안지",
-     "sheetEn": "Reading Questions · Answer Sheet",
-     "unitWord": "문제",
-     "noEn": "Set No.",
-     "lite": true,
-     "no": 43
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -10025,7 +9770,7 @@
      "rec": 6,
      "total": 4,
      "from": 1,
-     "no": 43,
+     "no": 53,
      "unitWord": "문제",
      "noEn": "Set No.",
      "key": [
