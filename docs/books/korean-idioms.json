@@ -518,6 +518,24 @@
         "en": "Used both for physical effort and for using one's influence to help."
        },
        "alt": "영향력을 행사하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 사업 인허가 문제로 어려움을 겪고 계신가요?"
+        },
+        {
+         "who": "B",
+         "ko": "네, 관련 부처에 사정을 잘 아는 분이 중간에서 힘을 써 주면 좋겠어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "무거운 냉장고를 혼자 옮기느라 허리에 온 힘을 쓰는 바람에 통증이 생겼어요.",
+         "en": "Moving the heavy fridge alone, using all my strength strained my back and caused pain."
+        }
+       ],
+       "n": 1,
+       "of": 4,
        "img": "idm-ex01-01.png"
       },
       {
@@ -546,6 +564,24 @@
         "en": "Natural in both casual talk and writing."
        },
        "alt": "기분 전환을 하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "아이디어가 도저히 안 떠올라서 머리가 터질 것 같아요."
+        },
+        {
+         "who": "B",
+         "ko": "모니터만 붙잡고 있지 말고 근처 카페에 가서 차 한잔 마시며 머리 좀 식혀요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "하루 종일 서류와 씨름하느라 지쳐서 옥상에 올라가 바람을 쐬며 머리를 식혔어요.",
+         "en": "Exhausted from wrestling with files all day, I cooled my head on the roof."
+        }
+       ],
+       "n": 2,
+       "of": 4,
        "img": "idm-ex01-02.png"
       },
       {
@@ -574,6 +610,24 @@
         "en": "Unlike '시간이 나다', this means intentionally carving out time."
        },
        "alt": "짬을 내다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "상담을 받고 싶은데 이번 주에 시간 좀 내주실 수 있을까요?"
+        },
+        {
+         "who": "B",
+         "ko": "내일 오후 회의가 끝난 뒤에 30분 정도 시간을 내 볼게요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "바쁘신 와중에도 소중한 시간을 내어 참석해 주셔서 진심으로 감사합니다.",
+         "en": "Thank you very much for sparing precious time to attend amidst your busy schedule."
+        }
+       ],
+       "n": 3,
+       "of": 4,
        "img": "idm-ex01-03.png"
       },
       {
@@ -602,6 +656,24 @@
         "en": "Means free time naturally arises; use '시간을 내다' for intentionally making time."
        },
        "alt": "틈이 생기다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "오늘 저녁에 혹시 잠깐 시간 나세요?"
+        },
+        {
+         "who": "B",
+         "ko": "급한 보고서를 다 끝내서 6시 이후로는 시간 괜찮아요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "주말에 시간이 나면 교외로 드라이브나 다녀올 생각이에요.",
+         "en": "If I have free time on the weekend, I plan to go for a drive in the suburbs."
+        }
+       ],
+       "n": 4,
+       "of": 4,
        "img": "idm-ex01-04.png"
       }
      ]
@@ -1056,6 +1128,24 @@
         "en": "Works for both passing a specific clock time and the passage of years."
        },
        "alt": "시간이 흐르다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "새 동네에 이사 온 지 얼마 안 돼서 아직 낯설어요."
+        },
+        {
+         "who": "B",
+         "ko": "시간이 좀 지나면 동네 지리도 익숙해지고 편안해질 거예요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "시간이 지나면 오해도 풀리고 서먹했던 사이도 다시 좋아질 거예요.",
+         "en": "As time passes, misunderstandings will clear and relations will improve."
+        }
+       ],
+       "n": 1,
+       "of": 4,
        "img": "idm-ex02-01.png"
       },
       {
@@ -1084,6 +1174,24 @@
         "en": "Mostly used for stressful upcoming events like exams or deadlines."
        },
        "alt": "임박하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "신제품 출시 발표회가 벌써 이번 주 금요일로 다가왔네요."
+        },
+        {
+         "who": "B",
+         "ko": "정말 코앞에 닥쳤으니 남은 기간 동안 최종 점검에 만전을 기합시다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "기말시험이 코앞에 닥쳤는데 아직 책 한 글자도 읽지 않아 초조하네요.",
+         "en": "With finals just around the corner, I feel anxious because I have not read a single page."
+        }
+       ],
+       "n": 2,
+       "of": 4,
        "img": "idm-ex02-02.png"
       },
       {
@@ -1112,6 +1220,24 @@
         "en": "Often shortened to '큰맘 먹고' in spoken Korean."
        },
        "alt": "결심하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "매일 아침 조깅하는 거 힘들지 않아요?"
+        },
+        {
+         "who": "B",
+         "ko": "처음에는 힘들었지만 건강을 위해 독하게 마음먹고 실천하니 습관이 되더라고요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "새해를 맞이하여 이번에는 반드시 금연에 성공하겠다고 굳게 마음을 먹었어요.",
+         "en": "Entering the new year, I firmly made up my mind to succeed in quitting smoking."
+        }
+       ],
+       "n": 3,
+       "of": 4,
        "img": "idm-ex02-03.png"
       },
       {
@@ -1140,6 +1266,24 @@
         "en": "Often used interchangeably with '화를 풀다' when making up after a quarrel."
        },
        "alt": "화를 풀다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "아까 회의 때 거칠게 말해서 정말 미안해요."
+        },
+        {
+         "who": "B",
+         "ko": "진심으로 사과하시니 저도 기분 풀게요. 앞으로 서로 조심합시다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "화가 난 친구에게 달콤한 디저트를 사 주며 서운했던 기분을 풀어 주었어요.",
+         "en": "Buying sweet desserts for an angry friend, I soothed her hurt feelings."
+        }
+       ],
+       "n": 4,
+       "of": 4,
        "img": "idm-ex02-04.png"
       }
      ]
@@ -1596,6 +1740,24 @@
         "en": "Opposite of '약속을 지키다'; casually also called '약속을 깨다'."
        },
        "alt": "약속을 깨다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "동생이 주말에 방 청소를 돕기로 해 놓고 친구 만나러 나갔어요."
+        },
+        {
+         "who": "B",
+         "ko": "가족끼리의 사소한 약속이라도 자꾸 어기면 나중에 신뢰를 잃게 돼요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "친구가 아무런 연락도 없이 약속을 어겨서 약속 장소에서 1시간이나 기다렸어요.",
+         "en": "My friend broke the appointment with no contact, so I waited an hour."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex03-01.png"
       },
       {
@@ -1624,6 +1786,24 @@
         "en": "Negative judgment; avoid using it directly to someone's face or to elders."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "팀장님 승진 소식을 회사 전체에 벌써 소문낸 사람이 누구예요?"
+        },
+        {
+         "who": "B",
+         "ko": "입이 가벼운 김 대리가 점심시간에 무심코 말해 버렸대요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "그 사람은 입이 가벼워서 중요한 이야기를 절대로 털어놓으면 안 돼요.",
+         "en": "That person is so loose-lipped that you must never tell him important matters."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex03-02.png"
       },
       {
@@ -1652,6 +1832,24 @@
         "en": "Praises keeping secrets rather than merely being quiet."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이 이야기 아무한테도 말하지 말고 너만 알고 있어."
+        },
+        {
+         "who": "B",
+         "ko": "걱정 마. 내 입이 얼마나 무거운지 잘 알잖아."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "그 친구는 입이 무거워서 남에게 개인적인 고민을 털어놓기 좋아요.",
+         "en": "That friend is so tight-lipped that it is easy to confide personal worries to him."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex03-03.png"
       }
      ]
@@ -2112,6 +2310,24 @@
         "en": "Shifting blame to others is expressed as '책임을 미루다'."
        },
        "alt": "책임을 떠안다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "보고서 오타 때문에 거래처와 혼선이 생겼는데 어떡하죠?"
+        },
+        {
+         "who": "B",
+         "ko": "제 실수로 발생한 일이니 제가 부서장님께 말씀드리고 책임지겠습니다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "리더는 성과를 자랑하기보다 실패에 대해 앞장서서 책임을 질 줄 알아야 해요.",
+         "en": "A leader must know how to step forward and take blame rather than boast."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex04-01.png"
       },
       {
@@ -2140,6 +2356,24 @@
         "en": "Takes the particle '-에' on the target being affected."
        },
        "alt": "작용하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "부모의 양육 태도가 자녀의 성격에 얼마나 영향을 줄까요?"
+        },
+        {
+         "who": "B",
+         "ko": "가정환경은 아이의 정서 발달과 사회성 형성에 결정적인 영향을 미칩니다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "어릴 적 독서 습관은 평생의 사고력과 가치관 형성에 지대한 영향을 미쳐요.",
+         "en": "Childhood reading habits exert profound influence on lifelong thinking and values."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex04-02.png"
       }
      ]
@@ -2600,6 +2834,24 @@
         "en": "Takes '-에/에게' on the person or thing one places hopes on."
        },
        "alt": "기대하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 신임 감독 선임에 대한 축구 팬들의 반응은 어떤가요?"
+        },
+        {
+         "who": "B",
+         "ko": "명장으로 검증된 분이라 대표팀의 전력 강화에 거는 기대가 아주 큽니다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "선생님과 부모님께서 큰 기대를 걸고 계셔서 이번 시험에 꼭 붙고 싶어요.",
+         "en": "With teachers and parents pinning high hopes, I definitely want to pass this exam."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex05-01.png"
       },
       {
@@ -2628,6 +2880,24 @@
         "en": "Carries a negative nuance criticizing deliberate delay."
        },
        "alt": "뜸을 들이다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "계약서 서명을 왜 자꾸 다음 주로 미루는 걸까요?"
+        },
+        {
+         "who": "B",
+         "ko": "더 유리한 조건을 얻어내려고 일부러 시간을 끌고 있는 것 같아요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "답변을 회피하며 억지로 시간을 끌어 보았자 문제만 더 커질 뿐이에요.",
+         "en": "Stalling for time by evading answers will only make the problem bigger."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex05-02.png"
       }
      ]
@@ -3088,6 +3358,24 @@
         "en": "Common in both party situations and economic or sports news."
        },
        "alt": "흥을 깨다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "팀 회식에서 분위기 좋게 건배하려는데 왜 그 이야기를 꺼냈어요?"
+        },
+        {
+         "who": "B",
+         "ko": "죄송해요. 실적 문제를 지적하려다 좋은 분위기에 찬물을 끼얹고 말았네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "축제 분위기로 들떠 있는 자리에 부서장이 찬물을 끼얹는 쓴소리를 했어요.",
+         "en": "In a festive mood, the department head poured cold water with bitter remarks."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex06-01.png"
       },
       {
@@ -3116,6 +3404,24 @@
         "en": "Expresses deep, lasting emotional pain rather than minor disappointment."
        },
        "alt": "상처를 주다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "어제 친구와 심하게 다투면서 차마 해선 안 될 말까지 했어요."
+        },
+        {
+         "who": "B",
+         "ko": "가슴에 못을 박는 말은 주워 담을 수 없으니 꼭 진심으로 사과하세요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "부모님 가슴에 못을 박는 심한 말을 하고 나서 며칠 동안 후회했어요.",
+         "en": "I regretted for days after uttering harsh words driving nails into my parents' hearts."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex06-02.png"
       }
      ]
@@ -3576,6 +3882,24 @@
         "en": "Commonly preceded by '실패의' or '패배의' (the bitter taste of failure/defeat)."
        },
        "alt": "고배를 마시다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "주식 투자로 모아 둔 종잣돈을 절반이나 잃었다면서요?"
+        },
+        {
+         "who": "B",
+         "ko": "네, 남의 말만 믿고 섣부르게 덤볐다가 인생의 호된 쓴맛을 제대로 봤네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "무리하게 사업을 확장하다가 금융 위기를 맞아 혹독한 쓴맛을 보았어요.",
+         "en": "Expanding recklessly, he tasted bitter defeat facing the financial crisis."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex07-01.png"
       },
       {
@@ -3604,6 +3928,24 @@
         "en": "Can be a compliment on good taste or a light tease about being picky."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "지영 씨는 왜 아직 결혼 상대를 못 찾았을까요?"
+        },
+        {
+         "who": "B",
+         "ko": "눈이 너무 높아서 조건에 맞는 사람을 찾기 힘든가 봐요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "눈이 높아서 웬만한 옷은 쳐다보지도 않고 고급만 찾아요.",
+         "en": "Having high standards, she doesn't even look at ordinary clothes and only seeks luxury."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex07-02.png"
       },
       {
@@ -3632,6 +3974,24 @@
         "en": "Can be praise for bravery or criticism for reckless audacity."
        },
        "alt": "배짱이 두둑하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "저 신입사원은 부장님 앞에서도 당당하게 자기주장을 펴네요."
+        },
+        {
+         "who": "B",
+         "ko": "그러게요, 보통 배짱이 아니에요. 간이 정말 크더라고요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "어두운 밤에 혼자 험한 산을 오르다니 정말 간이 큰 사람이에요.",
+         "en": "Climbing a rugged mountain alone in the dark night shows he really has nerve."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex07-03.png"
       }
      ]
@@ -4088,6 +4448,24 @@
         "en": "Applies to both people settling down and new systems taking root."
        },
        "alt": "정착하다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "창업한 지 벌써 3년이 지났는데 회사는 잘 운영되고 있나요?"
+        },
+        {
+         "who": "B",
+         "ko": "초기에는 힘들었지만 단골 고객들이 늘면서 이제는 자리를 확실히 잡았습니다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "낯선 타국에 정착하여 성실하게 노력한 끝에 마침내 생활의 자리를 잡았어요.",
+         "en": "Settling in a strange country with sincere effort, I finally found stable footing."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex08-01.png"
       },
       {
@@ -4116,6 +4494,24 @@
         "en": "Used for both personal breakups and loss of public or customer support."
        },
        "alt": "인연을 끊다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "두 사람은 예전에 둘도 없는 단짝이었잖아요."
+        },
+        {
+         "who": "B",
+         "ko": "동업하다가 이익 분배로 다투더니 완전히 등을 돌렸더라고요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "오랜 친구가 사소한 돈 문제로 나에게 등을 돌리니 참 허무하네요.",
+         "en": "It feels empty that an old friend turned his back on me over petty money matters."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex08-02.png"
       }
      ]
@@ -4572,6 +4968,24 @@
         "en": "Unlike '가슴에 못을 박다' (hurt deeply), this means nailing down a statement."
        },
        "alt": "쐐기를 박다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 주말 모임 시간을 조금 늦출 수 없을까요?"
+        },
+        {
+         "who": "B",
+         "ko": "주최 측에서 이미 참석 인원과 장소를 못 박아서 변경하기 힘들어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "팀장님은 이번 마감 기한은 연장이 절대 불가능하다고 못을 박으셨어요.",
+         "en": "The team manager nailed down that deadline extensions are strictly impossible."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex09-01.png"
       },
       {
@@ -4600,6 +5014,24 @@
         "en": "Often used as '뜸 들이지 말고 말해 봐' to urge someone to speak up."
        },
        "alt": "시간을 끌다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "저기, 민수야... 사실은 부탁할 게 하나 있는데..."
+        },
+        {
+         "who": "B",
+         "ko": "뜸 들이지 말고 시원하게 말해 봐. 무슨 일인데 그래?"
+        }
+       ],
+       "ex": [
+        {
+         "ko": "할 말이 있으면 뜸을 들이지 말고 솔직하게 바로 털어놓으렴.",
+         "en": "If you have something to say, don't stall; tell me frankly."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex09-02.png"
       }
      ]
@@ -5056,6 +5488,24 @@
         "en": "Both active '발목을 잡다' and passive '발목을 잡히다' are common in news."
        },
        "alt": "덜미를 잡히다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "김 과장이 이번 임원 인사 명단에서 제외되었다면서요?"
+        },
+        {
+         "who": "B",
+         "ko": "예전에 연루되었던 회계 비리 의혹에 발목을 잡혀 결국 승진이 누락되었대요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "과거에 작성했던 부적절한 글 때문에 중요한 승진에서 발목을 잡혔어요.",
+         "en": "Due to improper posts written in the past, he was held back from a key promotion."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex10-01.png"
       },
       {
@@ -5084,6 +5534,24 @@
         "en": "Also frequently used in the intransitive form '가닥이 잡히다'."
        },
        "alt": "갈피를 잡다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 졸업 논문 주제는 정하셨어요?"
+        },
+        {
+         "who": "B",
+         "ko": "교수님과 상담하고 나니 연구 방향의 가닥이 조금씩 잡히네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "며칠 동안 고민하던 문제였는데 이제야 어느 정도 가닥을 잡았어요.",
+         "en": "It was an issue I pondered for days, but I finally figured out a direction."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex10-02.png"
       }
      ]
@@ -5544,6 +6012,24 @@
         "en": "Most often used in the frame 'Verb-기(가) 하늘의 별 따기다'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "유명 맛집 예약하셨어요?"
+        },
+        {
+         "who": "B",
+         "ko": "주말 예약은 하늘의 별 따기라 실패했어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "성수기에 주말 기차표를 예매하는 건 하늘의 별 따기처럼 어려워.",
+         "en": "Booking weekend train tickets in peak seasons is plucking stars from skies."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex11-01.png"
       },
       {
@@ -5572,6 +6058,24 @@
         "en": "One of the most popular proverbs for cheering on a new beginning."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "한국어 공부를 시작하려니 막막해요."
+        },
+        {
+         "who": "B",
+         "ko": "시작이 반이에요. 교재를 펼친 것만으로도 대단해요!"
+        }
+       ],
+       "ex": [
+        {
+         "ko": "운동하기 귀찮아도 시작이 반이니 일단 운동화부터 신고 나가자.",
+         "en": "Even if unmotivated to exercise, starting is half done, so let's put on shoes."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex11-02.png"
       }
      ]
@@ -6041,6 +6545,24 @@
         "en": "Used not only for child education but also for learning proper basics in work or sports."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "아이가 자꾸 편식을 해서 걱정이에요."
+        },
+        {
+         "who": "B",
+         "ko": "세 살 버릇 여든까지 간다고 하니 일찍 바로잡아 주세요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "손톱 물어뜯는 습관은 세 살 버릇 여든까지 가니 지금 고쳐야 해.",
+         "en": "Nail biting lasts a lifetime, so you must fix it now."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex12-01.png"
       }
      ]
@@ -6523,6 +7045,24 @@
         "en": "Shares the same theme of dramatic change over time as '상전벽해' and '격세지감'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "초등학교 앞 문방구가 사라지고 카페가 생겼네요."
+        },
+        {
+         "who": "B",
+         "ko": "십 년이면 강산도 변한다더니 옛 모습이 거의 없네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "고향 동네에 십 년 만에 가 봤더니 십 년이면 강산도 변한다고 빌딩만 가득해.",
+         "en": "Visiting home after ten years, mountains changed and only buildings stand."
+        }
+       ],
+       "n": 1,
+       "of": 5,
        "img": "idm-ex13-01.png"
       },
       {
@@ -6551,6 +7091,24 @@
         "en": "Often shortened to '콩 심은 데 콩 난다' in daily conversation."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "그 아이는 부모님을 닮아 예의가 참 바르네요."
+        },
+        {
+         "who": "B",
+         "ko": "콩 심은 데 콩 나고 팥 심은 데 팥 나는 법이지요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "열심히 준비했으니 콩 심은 데 콩 나듯 좋은 성적을 거둘 거예요.",
+         "en": "Since you prepared hard, you will reap good grades just as you sowed."
+        }
+       ],
+       "n": 2,
+       "of": 5,
        "img": "idm-ex13-02.png"
       },
       {
@@ -6579,6 +7137,24 @@
         "en": "Used lightly to comfort an envious friend or reflect on one's own desires."
        },
        "alt": "남의 밥에 든 콩이 더 굵어 보인다",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "다른 팀 업무가 훨씬 재미있어 보여요."
+        },
+        {
+         "who": "B",
+         "ko": "남의 떡이 더 커 보이는 거예요. 거기도 고충이 많아요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "자기 음식도 맛있는데 남의 떡이 더 커 보인다고 친구 접시만 쳐다보네.",
+         "en": "Own food is tasty, but envy makes friends' plates look bigger."
+        }
+       ],
+       "n": 3,
+       "of": 5,
        "img": "idm-ex13-03.png"
       },
       {
@@ -6607,6 +7183,24 @@
         "en": "Frequently cited in sports or competitions when top contenders face off."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 게임에서 내가 최고 기록 세웠어."
+        },
+        {
+         "who": "B",
+         "ko": "뛰는 놈 위에 나는 놈 있댔어. 저기 다른 친구 점수 좀 봐."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "자신의 실력만 믿고 방심하다간 뛰는 놈 위에 나는 놈에게 추월당해.",
+         "en": "Trusting only own skills and being careless will see you overtaken by bigger fish."
+        }
+       ],
+       "n": 4,
+       "of": 5,
        "img": "idm-ex13-04.png"
       },
       {
@@ -6635,6 +7229,24 @@
         "en": "Frequently seen in shopping reviews and articles on fee structures."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "공짜 쿠폰 쓰려고 기름값 이만 원을 썼어요."
+        },
+        {
+         "who": "B",
+         "ko": "배보다 배꼽이 더 크군요. 오히려 손해잖아요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "삼천 원짜리 물건 사는데 배송비가 사천 원이면 배보다 배꼽이 더 크네.",
+         "en": "Buying a 3,000-won item with 4,000-won shipping means belly button exceeds belly."
+        }
+       ],
+       "n": 5,
+       "of": 5,
        "img": "idm-ex13-05.png"
       }
      ]
@@ -7113,6 +7725,24 @@
         "en": "A classic proverb for caution, alongside '아는 길도 물어 가라'."
        },
        "alt": "아는 길도 물어 가라",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "수익률이 확실한 상품이라는데 바로 투자할까요?"
+        },
+        {
+         "who": "B",
+         "ko": "돌다리도 두들겨 보고 건너랬어요. 약관을 꼼꼼히 따져 보세요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "계약서 도장 찍기 전에 돌다리도 두들겨 보고 건너듯 조건을 검토해.",
+         "en": "Before stamping contracts, review conditions like tapping stone bridges."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex14-01.png"
       },
       {
@@ -7141,6 +7771,24 @@
         "en": "Matches the four-character idiom '고진감래' in exams and essays."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "자격증 시험 준비가 너무 지치고 힘들어요."
+        },
+        {
+         "who": "B",
+         "ko": "고생 끝에 낙이 온다고 하니 조금만 더 버텨 보세요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "밤샘 공부가 고단해도 고생 끝에 낙이 온다는 희망으로 힘을 내요.",
+         "en": "Even if all-night studying is tiring, gain strength hoping joy follows hardship."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex14-02.png"
       }
      ]
@@ -7619,6 +8267,24 @@
         "en": "Lighthearted spoken phrase used among friends when eating a tiny snack."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이 미니 샌드위치 드셔 보세요."
+        },
+        {
+         "who": "B",
+         "ko": "배고픈데 이 정도로는 간에 기별도 안 가겠어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "만두 두 개만 먹어서는 간에 기별도 안 가니 라면도 하나 끓여 먹자.",
+         "en": "Eating two dumplings hardly fills a tooth, so let's boil noodles."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex15-01.png"
       }
      ]
@@ -8101,6 +8767,24 @@
         "en": "Almost always used in the full phrase '부부싸움은 칼로 물 베기'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "어제 부모님이 심하게 다투셔서 걱정돼요."
+        },
+        {
+         "who": "B",
+         "ko": "부부 싸움은 칼로 물 베기라고 하니 너무 염려하지 마세요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "부부 싸움은 칼로 물 베기라더니 아침에 다투고 저녁에 다정하네.",
+         "en": "Spouses' fight is cutting water: quarreling morning, loving evening."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex16-01.png"
       }
      ]
@@ -8583,6 +9267,24 @@
         "en": "Colloquial and blunt; in formal writing, '적반하장' is preferred."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "자기도 정리 안 하면서 내 책상 더럽다고 잔소리해요."
+        },
+        {
+         "who": "B",
+         "ko": "똥 묻은 개가 겨 묻은 개 나무란다더니 딱 그 꼴이네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "자기도 매일 지각하면서 남더러 늦었다니 똥 묻은 개가 겨 묻은 개 나무라네.",
+         "en": "Being late every day yourself and scolding others for being late is the pot calling the kettle black."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex17-01.png"
       },
       {
@@ -8611,6 +9313,24 @@
         "en": "Frequently cited in essays on honesty and correcting bad habits early."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "친구가 지우개 슬쩍 훔치는 걸 봤는데 그냥 둘까요?"
+        },
+        {
+         "who": "B",
+         "ko": "바늘 도둑이 소 도둑 되니 단호하게 주의를 줘야 해."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "사소한 거짓말도 묵인하면 바늘 도둑이 소 도둑 되듯 큰 죄로 이어져.",
+         "en": "Overlooking petty lies leads to grave crimes, as needle thieves become ox thieves."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex17-02.png"
       },
       {
@@ -8639,6 +9359,24 @@
         "en": "Common in daily conversation to call out two-faced, hypocritical comfort."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "나를 울려 놓고 초콜릿을 건네더라고요."
+        },
+        {
+         "who": "B",
+         "ko": "병 주고 약 주는 것도 아니고, 정말 얄밉네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "심한 욕을 해 놓고 선물을 사 오다니 병 주고 약 주는 꼴이네.",
+         "en": "Cursing harshly and bringing gifts is giving disease then medicine."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex17-03.png"
       }
      ]
@@ -9121,6 +9859,24 @@
         "en": "Shares the same meaning as '뒷짐을 지다' and '수수방관'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "옆 팀 프로젝트가 위기라는데 도와줄까요?"
+        },
+        {
+         "who": "B",
+         "ko": "강 건너 불구경하지 말고 우리 지원 인력을 보냅시다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "동료의 부서가 위기인데 강 건너 불구경하듯 방관해서는 곤란해.",
+         "en": "When peer teams face crisis, don't watch like fires across rivers."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex18-01.png"
       }
      ]
@@ -9603,6 +10359,24 @@
         "en": "Frequently cited in essays on leadership ethics and family education."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "직원들이 자꾸 지각을 해요."
+        },
+        {
+         "who": "B",
+         "ko": "팀장님부터 일찍 출근하세요. 윗물이 맑아야 아랫물이 맑죠."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "간부들이 솔선수범해야지 윗물이 맑아야 아랫물이 맑다는 건 당연하잖아.",
+         "en": "Managers must lead by example; downstream water is clear only when upstream is clear."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex19-01.png"
       },
       {
@@ -9631,6 +10405,24 @@
         "en": "A witty, humble way to explain how you learned a skill through long exposure."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "커피 머신 다루는 솜씨가 바리스타 같네요."
+        },
+        {
+         "who": "B",
+         "ko": "카페 알바 삼 년 하니 서당 개 삼 년이면 풍월을 읊게 되더라고요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "어깨너머로 요리를 돕더니 서당 개 삼 년이면 풍월을 읊듯 제법 잘하네.",
+         "en": "After helping over their shoulder for a while, they cook quite well, just like the school dog that learns poetry."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex19-02.png"
       }
      ]
@@ -10113,6 +10905,24 @@
         "en": "Criticizes arbitrary standards; equivalent to the Sino-Korean '이현령비현령'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이 조항은 관리자 마음대로 해석할 수 있겠어요."
+        },
+        {
+         "who": "B",
+         "ko": "귀에 걸면 귀걸이 코에 걸면 코걸이니 기준을 명확히 고쳐야죠."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "규정이 모호해서 귀에 걸면 귀걸이 코에 걸면 코걸이식으로 처벌하네.",
+         "en": "Rules are ambiguous, so penalties depend arbitrarily on interpretation."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex20-01.png"
       }
      ]
@@ -10595,6 +11405,24 @@
         "en": "Used as the adjective '화기애애하다', almost always modifying '분위기' (atmosphere)."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "어제 회식 분위기는 어땠어요?"
+        },
+        {
+         "who": "B",
+         "ko": "서로 농담도 주고받으며 화기애애했어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "명절에 온 가족이 둘러앉아 화기애애하게 송편을 빚었어요.",
+         "en": "During the holiday, the entire family sat together and made songpyeon in a warm, cheerful mood."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex21-01.png"
       },
       {
@@ -10623,6 +11451,24 @@
         "en": "Almost always followed by '누구나', '모두', or '불문하고'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "이번 주말 축제에 가족 다 같이 갈까요?"
+        },
+        {
+         "who": "B",
+         "ko": "남녀노소 즐길 프로그램이 많으니 좋은 생각이에요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "이 만화 영화는 남녀노소 누구나 부담 없이 재미있게 볼 수 있어요.",
+         "en": "This animated film can be enjoyed by people of all ages without any burden."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex21-02.png"
       }
      ]
@@ -11079,6 +11925,24 @@
         "en": "Extremely versatile across both casual speech and formal TOPIK writing."
        },
        "alt": "일거양득",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "요즘 자전거로 출근해요."
+        },
+        {
+         "who": "B",
+         "ko": "운동도 하고 교통비도 아끼고, 일석이조네요!"
+        }
+       ],
+       "ex": [
+        {
+         "ko": "자전거로 출퇴근하면 운동도 되고 돈도 아끼니 일석이조예요.",
+         "en": "Commuting by bicycle gives you exercise and saves money, so it kills two birds with one stone."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex22-01.png"
       },
       {
@@ -11107,6 +11971,24 @@
         "en": "Similar in context to '배보다 배꼽이 더 크다', with a more formal written tone."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "포장 상자가 선물 내용물보다 훨씬 비싸대요."
+        },
+        {
+         "who": "B",
+         "ko": "배보다 배꼽이 더 크네. 완전히 주객전도잖아."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "사진 찍는 데 정신이 팔려 여행을 즐기지 못하니 주객전도예요.",
+         "en": "Obsessed with taking pictures so much that you cannot enjoy the trip is putting the cart before the horse."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex22-02.png"
       }
      ]
@@ -11567,6 +12449,24 @@
         "en": "Typically used as the modifier '파란만장한' before '삶' (life) or '역사' (history)."
        },
        "alt": "우여곡절",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "주인공의 일대기를 다룬 드라마가 감동적이에요."
+        },
+        {
+         "who": "B",
+         "ko": "파란만장한 굴곡을 다 이겨 낸 모습이 울림을 주네요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "할머니의 파란만장했던 지난 삶 이야기를 들으며 눈물을 흘렸어요.",
+         "en": "I shed tears listening to the story of my grandmother's past life full of ups and downs."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex23-01.png"
       }
      ]
@@ -12027,6 +12927,24 @@
         "en": "Used for devoted love or a craftsperson's lifelong dedication to one path."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "남자친구가 군대에 갔는데 기다릴 수 있겠어?"
+        },
+        {
+         "who": "B",
+         "ko": "내 마음은 일편단심이니까 아무 걱정 없어."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "어려운 고난 속에서도 나라를 지키려는 일편단심은 변함이 없었어요.",
+         "en": "Even amidst severe tribulations, the unwavering loyalty to protect the nation never wavered."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex24-01.png"
       },
       {
@@ -12055,6 +12973,24 @@
         "en": "Conveys warm empathy and mutual comfort between people in similar struggles."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "너도 프로젝트 때문에 야근하니?"
+        },
+        {
+         "who": "B",
+         "ko": "응, 우리 신세가 동병상련이라 눈물 난다."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "같은 시험에서 떨어진 친구끼리 동병상련의 마음으로 위로했어요.",
+         "en": "Friends who failed the same exam comforted each other with shared sympathy."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex24-02.png"
       },
       {
@@ -12083,6 +13019,24 @@
         "en": "Most commonly appears as the sentence adverb '설상가상으로' (to make matters worse)."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "차가 고장 났는데 비까지 쏟아져요."
+        },
+        {
+         "who": "B",
+         "ko": "설상가상이네요. 제가 우산 들고 마중 갈게요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "지갑을 잃어버렸는데 설상가상으로 휴대폰 배터리마저 다 닳았어요.",
+         "en": "I lost my wallet, and to make matters worse, my phone battery died completely."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex24-03.png"
       }
      ]
@@ -12543,6 +13497,24 @@
         "en": "A warm compliment celebrating a student's growth, never disrespecting the teacher."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "제 제자가 이번 대회에서 1등을 했어요."
+        },
+        {
+         "who": "B",
+         "ko": "선생님을 능가했군요. 청출어람입니다!"
+        }
+       ],
+       "ex": [
+        {
+         "ko": "선생님께 그림을 배운 아이가 큰 상을 타다니 청출어람이네요.",
+         "en": "The child who learned painting from the teacher won a grand prize, truly surpassing the master."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex25-01.png"
       },
       {
@@ -12571,6 +13543,24 @@
         "en": "Formal news term used specifically for rounding up criminals or illegal rings."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "뉴스 봤어? 마약 유통 일당이 체포되었대."
+        },
+        {
+         "who": "B",
+         "ko": "경찰이 일망타진하려고 몇 달 동안 추적했더라고."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "경찰이 잠복근무 끝에 사기 범죄 조직을 일망타진했어요.",
+         "en": "After an undercover stakeout, police rounded up the whole fraud organization in one sweep."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex25-02.png"
       },
       {
@@ -12599,6 +13589,24 @@
         "en": "Common in news and debate summaries as '갑론을박을 벌이다/이어지다'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "새 프로젝트 방향은 결정되었나요?"
+        },
+        {
+         "who": "B",
+         "ko": "의견이 팽팽하게 갈려 온종일 갑론을박만 하느라 못 정했어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "주차장 유료화 문제를 놓고 아파트 입주민들 사이에 갑론을박이 벌어졌어요.",
+         "en": "A heated back-and-forth dispute arose among apartment tenants over paid parking."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex25-03.png"
       }
      ]
@@ -13059,6 +14067,24 @@
         "en": "Often used humorously in speech: '조금 자화자찬 같지만...' (Not to brag, but...)."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "민수 씨가 자기 자랑만 계속하네요."
+        },
+        {
+         "who": "B",
+         "ko": "자화자찬도 적당히 해야 듣기 좋지요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "자화자찬처럼 들리겠지만 이번 요리는 제가 먹어도 최고예요.",
+         "en": "It may sound like blowing my own horn, but even to me, this dish is the best."
+        }
+       ],
+       "n": 1,
+       "of": 3,
        "img": "idm-ex26-01.png"
       },
       {
@@ -13087,6 +14113,24 @@
         "en": "Carries a negative nuance of failing to decide, unlike positive caution ('신중하다')."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "메뉴를 삼십 분째 못 고르고 있어요."
+        },
+        {
+         "who": "B",
+         "ko": "우유부단하게 굴지 말고 아무거나 골라 봐."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "우유부단하게 망설이다가는 좋은 기회를 다른 사람에게 뺏겨요.",
+         "en": "If you waver indecisively, you will lose precious opportunities to others."
+        }
+       ],
+       "n": 2,
+       "of": 3,
        "img": "idm-ex26-02.png"
       },
       {
@@ -13115,6 +14159,24 @@
         "en": "Almost always paired with '-으로' before verbs of survival or rescue."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "배가 뒤집혔을 때 정말 무서웠겠어요."
+        },
+        {
+         "who": "B",
+         "ko": "구명조끼 덕분에 구사일생으로 구조되었어요."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "교통사고로 차가 크게 부서졌지만 운전자는 구사일생으로 살았어요.",
+         "en": "The car was badly smashed in the accident, but the driver narrowly escaped with life."
+        }
+       ],
+       "n": 3,
+       "of": 3,
        "img": "idm-ex26-03.png"
       }
      ]
@@ -13575,6 +14637,24 @@
         "en": "Typically used in the modifier form '전무후무한' before '기록' or '사건'."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "한국 영화가 칸과 오스카를 동시 석권했대요."
+        },
+        {
+         "who": "B",
+         "ko": "세계 영화사에 전무후무한 대기록을 세웠군요!"
+        }
+       ],
+       "ex": [
+        {
+         "ko": "올림픽에서 4연속 금메달을 딴 선수의 기록은 전무후무한 위업이에요.",
+         "en": "The athlete's record winning four consecutive Olympic gold medals is an unprecedented feat."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex27-01.png"
       }
      ]
@@ -14035,6 +15115,24 @@
         "en": "Distinguish from '진퇴양난' (dilemma); '사면초가' stresses being surrounded and isolated."
        },
        "alt": "진퇴양난",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "투자도 끊기고 거래처도 거래를 취소했대요."
+        },
+        {
+         "who": "B",
+         "ko": "완전 사면초가네. 타개할 방법을 찾아야 해."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "믿었던 동료들마저 등을 돌리니 사면초가에 빠진 기분이었어요.",
+         "en": "When even the colleagues I trusted turned their backs, I felt utterly isolated and trapped."
+        }
+       ],
+       "n": 1,
+       "of": 2,
        "img": "idm-ex28-01.png"
       },
       {
@@ -14063,6 +15161,24 @@
         "en": "Often misspelled as '절대절명'; be sure to use the correct spelling '절체절명'."
        },
        "alt": "진퇴양난",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "경기가 끝나기 10초 전에 역전 골을 넣었어!"
+        },
+        {
+         "who": "B",
+         "ko": "절체절명의 위기에서 팀을 구한 멋진 슛이었네."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "배가 암초에 부딪쳐 침몰하기 직전의 절체절명 순간에 구조대가 왔어요.",
+         "en": "Rescue arrived at the desperate life-or-death moment right before the ship struck reefs and sank."
+        }
+       ],
+       "n": 2,
+       "of": 2,
        "img": "idm-ex28-02.png"
       }
      ]
@@ -14927,6 +16043,24 @@
         "en": "One of the most useful four-character idioms for TOPIK II Essay 54 on empathy."
        },
        "alt": "",
+       "dlg": [
+        {
+         "who": "A",
+         "ko": "팀장이 왜 화를 내는지 모르겠어요."
+        },
+        {
+         "who": "B",
+         "ko": "역지사지로 팀장 입장에서 일정을 보면 이해될 거야."
+        }
+       ],
+       "ex": [
+        {
+         "ko": "친구와 다툴 때는 역지사지의 마음으로 먼저 이해하려고 애써요.",
+         "en": "When quarreling with a friend, try to understand first with empathy from their shoes."
+        }
+       ],
+       "n": 1,
+       "of": 1,
        "img": "idm-ex30-01.png"
       }
      ]

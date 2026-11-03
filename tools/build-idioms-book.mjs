@@ -79,7 +79,7 @@ for (const T of TYPES) {
     if (pk && pk.length) {
       const byHead = new Map((KEY.data.units[id] || []).map((e) => [e.head, e]));
       const own = new Map(ws.map((w) => [w.head, w]));
-      const items = pk.map((h) => byHead.get(h)).filter(Boolean).map((e) => ({ head: e.head, mean: own.get(e.head)?.en ? dash(own.get(e.head).en) : '', ctx: e.ctx, with: e.with, note: e.note, alt: e.alt || '', img: `idm-${id.replace('-', '')}-${String(pk.indexOf(e.head) + 1).padStart(2, '0')}.png` }));
+      const items = pk.map((h) => byHead.get(h)).filter(Boolean).map((e) => ({ head: e.head, mean: own.get(e.head)?.en ? dash(own.get(e.head).en) : '', ctx: e.ctx, with: e.with, note: e.note, alt: e.alt || '', dlg: (own.get(e.head)?.dialog || []).map(([who, ko]) => ({ who, ko })), ex: (own.get(e.head)?.examples || []).slice(0, 1).map((x) => ({ ko: x[0], en: dash(x[1]) })), n: pk.indexOf(e.head) + 1, of: pk.length, img: `idm-${id.replace('-', '')}-${String(pk.indexOf(e.head) + 1).padStart(2, '0')}.png` }));
       const ci = secs.findIndex((x) => x.type === 'checkup');
       secs.splice(ci < 0 ? secs.length : ci, 0, { type: 'idiomkey', title: { en: 'Key Expressions', ko: '중요 표현' }, items });
     }
