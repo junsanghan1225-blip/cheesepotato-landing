@@ -585,7 +585,7 @@ function fmCheck() {
 ${qrBox()}</div>`;
 }
 /* 유형별 풀이 방법 + 필요한 단어(TOPIK I 읽기 모의고사). 한 쪽에 두 유형씩 */
-function methodsPages() {
+function methodsPages(list) {
   const page = (m, i) => {
     const ex = m.example, tk = (t, mark) => { let h = esc(t).replace(/\(\s{2}\)/g, '<u class="mb"></u>').replace(/\(　{4}\)/g, '<u class="mb"></u>'); if (mark && h.includes(esc(mark))) h = h.replace(esc(mark), `<u>${esc(mark)}</u>`); return h; };
     return `<div class="blk plain mtp"><div class="mth"><b>TYPE ${i + 1}</b><span>${esc(m.name.ko)}<small>${esc(m.name.en)}</small></span><em>${esc(m.nos)}번 · ${m.count}문항</em></div>
@@ -597,9 +597,9 @@ function methodsPages() {
 <div class="mex"><div class="mexh">Try it · 따라 풀기${ex.test ? ` <span>모의고사 ${ex.test}회 ${ex.no}번 · Test ${ex.test}, Q${ex.no}</span>` : ' <span>새로 만든 예시 · new example</span>'}</div>${ex.question ? `<div class="mexq">${cm(esc(ex.question))}</div>` : ''}${ex.sentence ? `<div class="mbo"><i>&lt;보기&gt;</i> ${cm(esc(ex.sentence))}</div>` : ''}<div class="mp">${cm(tk(ex.passage, ex.mark))}</div><div class="mexo">${ex.options.map((o, k) => `<span>${cn(k)}${cm(esc(o))}</span>`).join('')}</div>${ex.steps ? `<div class="mexs"><b>풀이 단계 · Step by step</b><ol>${ex.steps.map((st) => `<li>${cm(esc(st.ko))}<small>${esc(st.en)}</small></li>`).join('')}</ol></div>` : ''}<div class="mexa"><b>정답 ${cn(ex.answer)}</b> ${cm(esc(ex.why))}</div>${ex.tip ? `<div class="mext"><b>TIP</b> ${esc(ex.tip.ko)}<small>${esc(ex.tip.en)}</small></div>` : ''}</div>
 <div class="mtw"><b>Words you need · 필요한 단어</b><div>${m.words.map((w) => `<span>${esc(w.ko)}<small>${esc(w.en)}</small></span>`).join('')}</div></div></div>`;
   };
-  return B.methods.map(page).join('\n');
+  return (list || B.methods).map((m) => page(m, B.methods.indexOf(m))).join('\n');
 }
-const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ...(KDP ? [] : [['fm5', 'Self-check', '자가 점검표', fmCheck]])] : B.methods ? [['fm1', 'How to solve each type', '유형별 풀이 방법 · 필요한 단어', methodsPages]] : [];
+const FRONT_LIST = B.front ? [['fm1', 'Exam overview', '시험 소개', fmExam], ['fm2', FRONT.plan[B.front].title.en, FRONT.plan[B.front].title.ko, fmPlan], ['fm3', 'Answer grid (원고지)', '원고지 쓰기법', fmGoji], ['fm4', 'Spoken → written', '말 → 글 바꾸기 표', fmWritten], ...(KDP ? [] : [['fm5', 'Self-check', '자가 점검표', fmCheck]])] : B.methods && !B.methodBefore ? [['fm1', 'How to solve each type', '유형별 풀이 방법 · 필요한 단어', methodsPages]] : [];
 
 function partPage(p) {
   const many = p.sheets.length > 10;   // 단어장처럼 단원이 많으면 짧게 쓰고 두 줄로 나눠 부 표지 밖으로 넘치지 않게
@@ -1145,7 +1145,7 @@ const countPages = (buf) => (buf.toString('latin1').match(/\/Type\s*\/Page(?![s\
 const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
   ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorNote && B.authorBio ? [['note', notePage()]] : []), ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
-  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return [`unit${u.no}`, unitBlock(u)]; })]),
+  ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.flatMap((s) => { const u = units.find((x) => x.id === s.id); const mt = B.methodBefore && B.methodBefore[s.id]; return [...(mt ? [[`meth${u.no}`, methodsPages([B.methods.find((m) => m.type === mt)])]] : []), [`unit${u.no}`, unitBlock(u)]]; })]),
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
