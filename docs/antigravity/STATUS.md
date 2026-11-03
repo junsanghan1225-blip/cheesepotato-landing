@@ -92,4 +92,4 @@
 | 비즈니스 한국어 회화 단어장 3묶음(`ag/business-vocab-3`) | 401~600번(21~30단원) | 200개 그대로(검사 오류 0 · 표본 14개 자연스러움) → 합쳐 600개 완성 | 책 만들기는 매주 5권 순서에 따라 |
 | TOPIK II 읽기 문항 늘리기(`antigravity-topik2-reading-80-task.md`, 1,106문항 · 6묶음) | 읽기 책 4권(시험 번호 구간)용 | 6묶음 모두 검수·합침(994문항, 보류 112 보충 대기) | 운영자가 안티에 맡김. 결과가 오면 `check-topik2` · 정답 하나인지 눈으로 · `build-topik2.mjs` ROUNDS 에 넣어 합치기, 그 뒤 읽기 책 4권을 번호 구간 다시 잡아 만든다. |
 | TOPIK II 읽기 보충 112문항(`antigravity-topik2-reading-supplement-task.md`, 검수에서 빠진 만큼) | 읽기 책 4권 목표 수 맞춤 | 지시서 작성(2026-11-02) · 아직 안 보냄 | 운영자가 안티에 전달 → `ag/topik2-reading-7` |
-| 필수 관용 표현 빈출도 재판단 449개 + 단원별 중요 표현 정리 30단원(`antigravity-idioms-key-task.md`) | 책 「필수 관용 표현」 단원 점검 앞 쪽 · 빈출 표시 | 지시서 작성(2026-11-03) · 아직 안 보냄 | 운영자가 안티에 전달 → `ag/idioms-key` · `docs/idioms/key-expressions.json` |
+| 필수 관용 표현 빈출도 재판단 449개(1차, `antigravity-idioms-freq` 브랜치 `ag/idioms-freq`) → 운영자가 단원마다 3~5개 고름 → 고른 표현 맥락 · 같이 쓰는 말 정리(2차, `ag/idioms-key`) · 그림은 Gemini(`gemini-idioms-art-task.md`) | 책 「필수 관용 표현」 단원 점검 앞 쪽 · 빈출 표시 | 지시서 작성(2026-11-03) · 아직 안 보냄 | 운영자가 안티에 1차 전달 → `docs/idioms/freq.json` |
