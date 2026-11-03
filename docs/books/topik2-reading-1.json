@@ -88,8 +88,8 @@
  "parts": [
   {
    "title": {
-    "en": "Questions by type",
-    "ko": "유형별 문제"
+    "en": "Fill in the blank",
+    "ko": "빈칸 채우기"
    },
    "units": [
     "r1-01",
@@ -99,7 +99,15 @@
     "r1-05",
     "r1-06",
     "r1-07",
-    "r1-08",
+    "r1-08"
+   ]
+  },
+  {
+   "title": {
+    "en": "Pick the closest meaning",
+    "ko": "비슷한 말 고르기"
+   },
+   "units": [
     "r1-09",
     "r1-10",
     "r1-11",
@@ -107,7 +115,15 @@
     "r1-13",
     "r1-14",
     "r1-15",
-    "r1-16",
+    "r1-16"
+   ]
+  },
+  {
+   "title": {
+    "en": "Choose the topic",
+    "ko": "주제 고르기"
+   },
+   "units": [
     "r1-17",
     "r1-18",
     "r1-19",
@@ -116,7 +132,15 @@
     "r1-22",
     "r1-23",
     "r1-24",
-    "r1-25",
+    "r1-25"
+   ]
+  },
+  {
+   "title": {
+    "en": "Same as the text",
+    "ko": "내용 일치"
+   },
+   "units": [
     "r1-26",
     "r1-27",
     "r1-28",
@@ -128,7 +152,15 @@
     "r1-34",
     "r1-35",
     "r1-36",
-    "r1-37",
+    "r1-37"
+   ]
+  },
+  {
+   "title": {
+    "en": "Put the sentences in order",
+    "ko": "순서 맞추기"
+   },
+   "units": [
     "r1-38",
     "r1-39",
     "r1-40",
@@ -857,10 +889,11 @@
  },
  "inline": {
   "r1-01": {
+   "stype": "blank",
    "id": "r1-01",
    "title": {
-    "en": "Fill in the blank · Warm-up",
-    "ko": "빈칸 채우기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 1 · about 7 min",
@@ -985,10 +1018,11 @@
    ]
   },
   "r1-02": {
+   "stype": "blank",
    "id": "r1-02",
    "title": {
-    "en": "Fill in the blank · Test set 1",
-    "ko": "빈칸 채우기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1203,10 +1237,11 @@
    ]
   },
   "r1-03": {
+   "stype": "blank",
    "id": "r1-03",
    "title": {
-    "en": "Fill in the blank · Test set 2",
-    "ko": "빈칸 채우기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1421,10 +1456,11 @@
    ]
   },
   "r1-04": {
+   "stype": "blank",
    "id": "r1-04",
    "title": {
-    "en": "Fill in the blank · Test set 3",
-    "ko": "빈칸 채우기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 1 · about 14 min",
@@ -1639,10 +1675,11 @@
    ]
   },
   "r1-05": {
+   "stype": "blank",
    "id": "r1-05",
    "title": {
-    "en": "Fill in the blank · Test set 4",
-    "ko": "빈칸 채우기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 1–2 · about 14 min",
@@ -1857,10 +1894,11 @@
    ]
   },
   "r1-06": {
+   "stype": "blank",
    "id": "r1-06",
    "title": {
-    "en": "Fill in the blank · Test set 5",
-    "ko": "빈칸 채우기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 2 · about 14 min",
@@ -2075,10 +2113,11 @@
    ]
   },
   "r1-07": {
+   "stype": "blank",
    "id": "r1-07",
    "title": {
-    "en": "Fill in the blank · Test set 6",
-    "ko": "빈칸 채우기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 2 · about 14 min",
@@ -2293,10 +2332,11 @@
    ]
   },
   "r1-08": {
+   "stype": "blank",
    "id": "r1-08",
    "title": {
-    "en": "Fill in the blank · Test set 7",
-    "ko": "빈칸 채우기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "8 questions · exam no. 2 · about 11 min",
@@ -2475,10 +2515,11 @@
    ]
   },
   "r1-09": {
+   "stype": "paraphrase",
    "id": "r1-09",
    "title": {
-    "en": "Pick the closest meaning · Warm-up",
-    "ko": "비슷한 말 고르기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 3 · about 7 min",
@@ -2603,10 +2644,11 @@
    ]
   },
   "r1-10": {
+   "stype": "paraphrase",
    "id": "r1-10",
    "title": {
-    "en": "Pick the closest meaning · Test set 1",
-    "ko": "비슷한 말 고르기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 3 · about 14 min",
@@ -2821,10 +2863,11 @@
    ]
   },
   "r1-11": {
+   "stype": "paraphrase",
    "id": "r1-11",
    "title": {
-    "en": "Pick the closest meaning · Test set 2",
-    "ko": "비슷한 말 고르기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 3 · about 14 min",
@@ -3039,10 +3082,11 @@
    ]
   },
   "r1-12": {
+   "stype": "paraphrase",
    "id": "r1-12",
    "title": {
-    "en": "Pick the closest meaning · Test set 3",
-    "ko": "비슷한 말 고르기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 3 · about 14 min",
@@ -3257,10 +3301,11 @@
    ]
   },
   "r1-13": {
+   "stype": "paraphrase",
    "id": "r1-13",
    "title": {
-    "en": "Pick the closest meaning · Test set 4",
-    "ko": "비슷한 말 고르기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 3–4 · about 14 min",
@@ -3475,10 +3520,11 @@
    ]
   },
   "r1-14": {
+   "stype": "paraphrase",
    "id": "r1-14",
    "title": {
-    "en": "Pick the closest meaning · Test set 5",
-    "ko": "비슷한 말 고르기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 4 · about 14 min",
@@ -3693,10 +3739,11 @@
    ]
   },
   "r1-15": {
+   "stype": "paraphrase",
    "id": "r1-15",
    "title": {
-    "en": "Pick the closest meaning · Test set 6",
-    "ko": "비슷한 말 고르기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 4 · about 14 min",
@@ -3911,10 +3958,11 @@
    ]
   },
   "r1-16": {
+   "stype": "paraphrase",
    "id": "r1-16",
    "title": {
-    "en": "Pick the closest meaning · Test set 7",
-    "ko": "비슷한 말 고르기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "7 questions · exam no. 4 · about 10 min",
@@ -4075,10 +4123,11 @@
    ]
   },
   "r1-17": {
+   "stype": "theme",
    "id": "r1-17",
    "title": {
-    "en": "Choose the topic · Warm-up",
-    "ko": "주제 고르기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 5 · about 7 min",
@@ -4203,10 +4252,11 @@
    ]
   },
   "r1-18": {
+   "stype": "theme",
    "id": "r1-18",
    "title": {
-    "en": "Choose the topic · Test set 1",
-    "ko": "주제 고르기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 5 · about 14 min",
@@ -4421,10 +4471,11 @@
    ]
   },
   "r1-19": {
+   "stype": "theme",
    "id": "r1-19",
    "title": {
-    "en": "Choose the topic · Test set 2",
-    "ko": "주제 고르기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 5–6 · about 14 min",
@@ -4639,10 +4690,11 @@
    ]
   },
   "r1-20": {
+   "stype": "theme",
    "id": "r1-20",
    "title": {
-    "en": "Choose the topic · Test set 3",
-    "ko": "주제 고르기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 6 · about 14 min",
@@ -4857,10 +4909,11 @@
    ]
   },
   "r1-21": {
+   "stype": "theme",
    "id": "r1-21",
    "title": {
-    "en": "Choose the topic · Test set 4",
-    "ko": "주제 고르기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 6–7 · about 14 min",
@@ -5075,10 +5128,11 @@
    ]
   },
   "r1-22": {
+   "stype": "theme",
    "id": "r1-22",
    "title": {
-    "en": "Choose the topic · Test set 5",
-    "ko": "주제 고르기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 7 · about 14 min",
@@ -5293,10 +5347,11 @@
    ]
   },
   "r1-23": {
+   "stype": "theme",
    "id": "r1-23",
    "title": {
-    "en": "Choose the topic · Test set 6",
-    "ko": "주제 고르기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 7–8 · about 14 min",
@@ -5511,10 +5566,11 @@
    ]
   },
   "r1-24": {
+   "stype": "theme",
    "id": "r1-24",
    "title": {
-    "en": "Choose the topic · Test set 7",
-    "ko": "주제 고르기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "10 questions · exam no. 8 · about 14 min",
@@ -5729,10 +5785,11 @@
    ]
   },
   "r1-25": {
+   "stype": "theme",
    "id": "r1-25",
    "title": {
-    "en": "Choose the topic · Test set 8",
-    "ko": "주제 고르기 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "5 questions · exam no. 8 · about 7 min",
@@ -5857,10 +5914,11 @@
    ]
   },
   "r1-26": {
+   "stype": "detail",
    "id": "r1-26",
    "title": {
-    "en": "Same as the text · Warm-up",
-    "ko": "내용 일치 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 9 · about 7 min",
@@ -5985,10 +6043,11 @@
    ]
   },
   "r1-27": {
+   "stype": "detail",
    "id": "r1-27",
    "title": {
-    "en": "Same as the text · Test set 1",
-    "ko": "내용 일치 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "7 questions · exam no. 9 · about 10 min",
@@ -6149,10 +6208,11 @@
    ]
   },
   "r1-28": {
+   "stype": "detail",
    "id": "r1-28",
    "title": {
-    "en": "Same as the text · Test set 2",
-    "ko": "내용 일치 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "7 questions · exam no. 9 · about 10 min",
@@ -6313,10 +6373,11 @@
    ]
   },
   "r1-29": {
+   "stype": "detail",
    "id": "r1-29",
    "title": {
-    "en": "Same as the text · Test set 3",
-    "ko": "내용 일치 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "7 questions · exam no. 9–10 · about 10 min",
@@ -6477,10 +6538,11 @@
    ]
   },
   "r1-30": {
+   "stype": "detail",
    "id": "r1-30",
    "title": {
-    "en": "Same as the text · Test set 4",
-    "ko": "내용 일치 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "7 questions · exam no. 10 · about 10 min",
@@ -6641,10 +6703,11 @@
    ]
   },
   "r1-31": {
+   "stype": "detail",
    "id": "r1-31",
    "title": {
-    "en": "Same as the text · Test set 5",
-    "ko": "내용 일치 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "7 questions · exam no. 10 · about 10 min",
@@ -6805,10 +6868,11 @@
    ]
   },
   "r1-32": {
+   "stype": "detail",
    "id": "r1-32",
    "title": {
-    "en": "Same as the text · Test set 6",
-    "ko": "내용 일치 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "7 questions · exam no. 11 · about 10 min",
@@ -6969,10 +7033,11 @@
    ]
   },
   "r1-33": {
+   "stype": "detail",
    "id": "r1-33",
    "title": {
-    "en": "Same as the text · Test set 7",
-    "ko": "내용 일치 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "7 questions · exam no. 11 · about 10 min",
@@ -7133,10 +7198,11 @@
    ]
   },
   "r1-34": {
+   "stype": "detail",
    "id": "r1-34",
    "title": {
-    "en": "Same as the text · Test set 8",
-    "ko": "내용 일치 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "7 questions · exam no. 11–12 · about 10 min",
@@ -7297,10 +7363,11 @@
    ]
   },
   "r1-35": {
+   "stype": "detail",
    "id": "r1-35",
    "title": {
-    "en": "Same as the text · Test set 9",
-    "ko": "내용 일치 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "7 questions · exam no. 12 · about 10 min",
@@ -7461,10 +7528,11 @@
    ]
   },
   "r1-36": {
+   "stype": "detail",
    "id": "r1-36",
    "title": {
-    "en": "Same as the text · Test set 10",
-    "ko": "내용 일치 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "7 questions · exam no. 12 · about 10 min",
@@ -7625,10 +7693,11 @@
    ]
   },
   "r1-37": {
+   "stype": "detail",
    "id": "r1-37",
    "title": {
-    "en": "Same as the text · Test set 11",
-    "ko": "내용 일치 실전문제 11회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
     "en": "5 questions · exam no. 12 · about 7 min",
@@ -7753,10 +7822,11 @@
    ]
   },
   "r1-38": {
+   "stype": "order",
    "id": "r1-38",
    "title": {
-    "en": "Put the sentences in order · Warm-up",
-    "ko": "순서 맞추기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 13 · about 7 min",
@@ -7881,10 +7951,11 @@
    ]
   },
   "r1-39": {
+   "stype": "order",
    "id": "r1-39",
    "title": {
-    "en": "Put the sentences in order · Test set 1",
-    "ko": "순서 맞추기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "5 questions · exam no. 13 · about 7 min",
@@ -8009,10 +8080,11 @@
    ]
   },
   "r1-40": {
+   "stype": "order",
    "id": "r1-40",
    "title": {
-    "en": "Put the sentences in order · Test set 2",
-    "ko": "순서 맞추기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "5 questions · exam no. 13 · about 7 min",
@@ -8137,10 +8209,11 @@
    ]
   },
   "r1-41": {
+   "stype": "order",
    "id": "r1-41",
    "title": {
-    "en": "Put the sentences in order · Test set 3",
-    "ko": "순서 맞추기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "5 questions · exam no. 13 · about 7 min",
@@ -8265,10 +8338,11 @@
    ]
   },
   "r1-42": {
+   "stype": "order",
    "id": "r1-42",
    "title": {
-    "en": "Put the sentences in order · Test set 4",
-    "ko": "순서 맞추기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "5 questions · exam no. 13 · about 7 min",
@@ -8393,10 +8467,11 @@
    ]
   },
   "r1-43": {
+   "stype": "order",
    "id": "r1-43",
    "title": {
-    "en": "Put the sentences in order · Test set 5",
-    "ko": "순서 맞추기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "5 questions · exam no. 13–14 · about 7 min",
@@ -8521,10 +8596,11 @@
    ]
   },
   "r1-44": {
+   "stype": "order",
    "id": "r1-44",
    "title": {
-    "en": "Put the sentences in order · Test set 6",
-    "ko": "순서 맞추기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "5 questions · exam no. 14 · about 7 min",
@@ -8649,10 +8725,11 @@
    ]
   },
   "r1-45": {
+   "stype": "order",
    "id": "r1-45",
    "title": {
-    "en": "Put the sentences in order · Test set 7",
-    "ko": "순서 맞추기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "5 questions · exam no. 14 · about 7 min",
@@ -8777,10 +8854,11 @@
    ]
   },
   "r1-46": {
+   "stype": "order",
    "id": "r1-46",
    "title": {
-    "en": "Put the sentences in order · Test set 8",
-    "ko": "순서 맞추기 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "5 questions · exam no. 14 · about 7 min",
@@ -8905,10 +8983,11 @@
    ]
   },
   "r1-47": {
+   "stype": "order",
    "id": "r1-47",
    "title": {
-    "en": "Put the sentences in order · Test set 9",
-    "ko": "순서 맞추기 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "5 questions · exam no. 14 · about 7 min",
@@ -9033,10 +9112,11 @@
    ]
   },
   "r1-48": {
+   "stype": "order",
    "id": "r1-48",
    "title": {
-    "en": "Put the sentences in order · Test set 10",
-    "ko": "순서 맞추기 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "5 questions · exam no. 14–15 · about 7 min",
@@ -9161,10 +9241,11 @@
    ]
   },
   "r1-49": {
+   "stype": "order",
    "id": "r1-49",
    "title": {
-    "en": "Put the sentences in order · Test set 11",
-    "ko": "순서 맞추기 실전문제 11회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
     "en": "5 questions · exam no. 15 · about 7 min",
@@ -9289,10 +9370,11 @@
    ]
   },
   "r1-50": {
+   "stype": "order",
    "id": "r1-50",
    "title": {
-    "en": "Put the sentences in order · Test set 12",
-    "ko": "순서 맞추기 실전문제 12회"
+    "en": "Test set 12",
+    "ko": "실전문제 12회"
    },
    "sub": {
     "en": "5 questions · exam no. 15 · about 7 min",
@@ -9417,10 +9499,11 @@
    ]
   },
   "r1-51": {
+   "stype": "order",
    "id": "r1-51",
    "title": {
-    "en": "Put the sentences in order · Test set 13",
-    "ko": "순서 맞추기 실전문제 13회"
+    "en": "Test set 13",
+    "ko": "실전문제 13회"
    },
    "sub": {
     "en": "5 questions · exam no. 15 · about 7 min",
@@ -9545,10 +9628,11 @@
    ]
   },
   "r1-52": {
+   "stype": "order",
    "id": "r1-52",
    "title": {
-    "en": "Put the sentences in order · Test set 14",
-    "ko": "순서 맞추기 실전문제 14회"
+    "en": "Test set 14",
+    "ko": "실전문제 14회"
    },
    "sub": {
     "en": "5 questions · exam no. 15 · about 7 min",
@@ -9673,10 +9757,11 @@
    ]
   },
   "r1-53": {
+   "stype": "order",
    "id": "r1-53",
    "title": {
-    "en": "Put the sentences in order · Test set 15",
-    "ko": "순서 맞추기 실전문제 15회"
+    "en": "Test set 15",
+    "ko": "실전문제 15회"
    },
    "sub": {
     "en": "4 questions · exam no. 15 · about 6 min",

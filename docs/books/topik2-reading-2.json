@@ -88,8 +88,8 @@
  "parts": [
   {
    "title": {
-    "en": "Questions by type",
-    "ko": "유형별 문제"
+    "en": "Fill in the blank",
+    "ko": "빈칸 채우기"
    },
    "units": [
     "r2-01",
@@ -107,7 +107,15 @@
     "r2-13",
     "r2-14",
     "r2-15",
-    "r2-16",
+    "r2-16"
+   ]
+  },
+  {
+   "title": {
+    "en": "Find the main idea",
+    "ko": "중심 생각 찾기"
+   },
+   "units": [
     "r2-17",
     "r2-18",
     "r2-19",
@@ -118,7 +126,15 @@
     "r2-24",
     "r2-25",
     "r2-26",
-    "r2-27",
+    "r2-27"
+   ]
+  },
+  {
+   "title": {
+    "en": "Same as the text",
+    "ko": "내용 일치"
+   },
+   "units": [
     "r2-28",
     "r2-29",
     "r2-30",
@@ -132,7 +148,15 @@
     "r2-38",
     "r2-39",
     "r2-40",
-    "r2-41",
+    "r2-41"
+   ]
+  },
+  {
+   "title": {
+    "en": "The writer's feeling",
+    "ko": "밑줄 친 부분의 심정"
+   },
+   "units": [
     "r2-42",
     "r2-43",
     "r2-44",
@@ -726,10 +750,11 @@
  },
  "inline": {
   "r2-01": {
+   "stype": "blank",
    "id": "r2-01",
    "title": {
-    "en": "Fill in the blank · Warm-up",
-    "ko": "빈칸 채우기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 16 · about 7 min",
@@ -854,10 +879,11 @@
    ]
   },
   "r2-02": {
+   "stype": "blank",
    "id": "r2-02",
    "title": {
-    "en": "Fill in the blank · Test set 1",
-    "ko": "빈칸 채우기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 16 · about 14 min",
@@ -1072,10 +1098,11 @@
    ]
   },
   "r2-03": {
+   "stype": "blank",
    "id": "r2-03",
    "title": {
-    "en": "Fill in the blank · Test set 2",
-    "ko": "빈칸 채우기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 16–17 · about 14 min",
@@ -1290,10 +1317,11 @@
    ]
   },
   "r2-04": {
+   "stype": "blank",
    "id": "r2-04",
    "title": {
-    "en": "Fill in the blank · Test set 3",
-    "ko": "빈칸 채우기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 17 · about 14 min",
@@ -1508,10 +1536,11 @@
    ]
   },
   "r2-05": {
+   "stype": "blank",
    "id": "r2-05",
    "title": {
-    "en": "Fill in the blank · Test set 4",
-    "ko": "빈칸 채우기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 17–18 · about 14 min",
@@ -1726,10 +1755,11 @@
    ]
   },
   "r2-06": {
+   "stype": "blank",
    "id": "r2-06",
    "title": {
-    "en": "Fill in the blank · Test set 5",
-    "ko": "빈칸 채우기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 18 · about 14 min",
@@ -1944,10 +1974,11 @@
    ]
   },
   "r2-07": {
+   "stype": "blank",
    "id": "r2-07",
    "title": {
-    "en": "Fill in the blank · Test set 6",
-    "ko": "빈칸 채우기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 18–19 · about 14 min",
@@ -2162,10 +2193,11 @@
    ]
   },
   "r2-08": {
+   "stype": "blank",
    "id": "r2-08",
    "title": {
-    "en": "Fill in the blank · Test set 7",
-    "ko": "빈칸 채우기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -2380,10 +2412,11 @@
    ]
   },
   "r2-09": {
+   "stype": "blank",
    "id": "r2-09",
    "title": {
-    "en": "Fill in the blank · Test set 8",
-    "ko": "빈칸 채우기 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -2598,10 +2631,11 @@
    ]
   },
   "r2-10": {
+   "stype": "blank",
    "id": "r2-10",
    "title": {
-    "en": "Fill in the blank · Test set 9",
-    "ko": "빈칸 채우기 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -2816,10 +2850,11 @@
    ]
   },
   "r2-11": {
+   "stype": "blank",
    "id": "r2-11",
    "title": {
-    "en": "Fill in the blank · Test set 10",
-    "ko": "빈칸 채우기 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -3034,10 +3069,11 @@
    ]
   },
   "r2-12": {
+   "stype": "blank",
    "id": "r2-12",
    "title": {
-    "en": "Fill in the blank · Test set 11",
-    "ko": "빈칸 채우기 실전문제 11회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -3252,10 +3288,11 @@
    ]
   },
   "r2-13": {
+   "stype": "blank",
    "id": "r2-13",
    "title": {
-    "en": "Fill in the blank · Test set 12",
-    "ko": "빈칸 채우기 실전문제 12회"
+    "en": "Test set 12",
+    "ko": "실전문제 12회"
    },
    "sub": {
     "en": "10 questions · exam no. 19 · about 14 min",
@@ -3470,10 +3507,11 @@
    ]
   },
   "r2-14": {
+   "stype": "blank",
    "id": "r2-14",
    "title": {
-    "en": "Fill in the blank · Test set 13",
-    "ko": "빈칸 채우기 실전문제 13회"
+    "en": "Test set 13",
+    "ko": "실전문제 13회"
    },
    "sub": {
     "en": "10 questions · exam no. 19–21 · about 14 min",
@@ -3688,10 +3726,11 @@
    ]
   },
   "r2-15": {
+   "stype": "blank",
    "id": "r2-15",
    "title": {
-    "en": "Fill in the blank · Test set 14",
-    "ko": "빈칸 채우기 실전문제 14회"
+    "en": "Test set 14",
+    "ko": "실전문제 14회"
    },
    "sub": {
     "en": "10 questions · exam no. 21 · about 14 min",
@@ -3906,10 +3945,11 @@
    ]
   },
   "r2-16": {
+   "stype": "blank",
    "id": "r2-16",
    "title": {
-    "en": "Fill in the blank · Test set 15",
-    "ko": "빈칸 채우기 실전문제 15회"
+    "en": "Test set 15",
+    "ko": "실전문제 15회"
    },
    "sub": {
     "en": "2 questions · exam no. 21 · about 3 min",
@@ -3980,10 +4020,11 @@
    ]
   },
   "r2-17": {
+   "stype": "main",
    "id": "r2-17",
    "title": {
-    "en": "Find the main idea · Warm-up",
-    "ko": "중심 생각 찾기 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 20 · about 7 min",
@@ -4108,10 +4149,11 @@
    ]
   },
   "r2-18": {
+   "stype": "main",
    "id": "r2-18",
    "title": {
-    "en": "Find the main idea · Test set 1",
-    "ko": "중심 생각 찾기 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -4272,10 +4314,11 @@
    ]
   },
   "r2-19": {
+   "stype": "main",
    "id": "r2-19",
    "title": {
-    "en": "Find the main idea · Test set 2",
-    "ko": "중심 생각 찾기 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -4436,10 +4479,11 @@
    ]
   },
   "r2-20": {
+   "stype": "main",
    "id": "r2-20",
    "title": {
-    "en": "Find the main idea · Test set 3",
-    "ko": "중심 생각 찾기 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -4600,10 +4644,11 @@
    ]
   },
   "r2-21": {
+   "stype": "main",
    "id": "r2-21",
    "title": {
-    "en": "Find the main idea · Test set 4",
-    "ko": "중심 생각 찾기 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -4764,10 +4809,11 @@
    ]
   },
   "r2-22": {
+   "stype": "main",
    "id": "r2-22",
    "title": {
-    "en": "Find the main idea · Test set 5",
-    "ko": "중심 생각 찾기 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -4928,10 +4974,11 @@
    ]
   },
   "r2-23": {
+   "stype": "main",
    "id": "r2-23",
    "title": {
-    "en": "Find the main idea · Test set 6",
-    "ko": "중심 생각 찾기 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -5092,10 +5139,11 @@
    ]
   },
   "r2-24": {
+   "stype": "main",
    "id": "r2-24",
    "title": {
-    "en": "Find the main idea · Test set 7",
-    "ko": "중심 생각 찾기 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -5256,10 +5304,11 @@
    ]
   },
   "r2-25": {
+   "stype": "main",
    "id": "r2-25",
    "title": {
-    "en": "Find the main idea · Test set 8",
-    "ko": "중심 생각 찾기 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -5420,10 +5469,11 @@
    ]
   },
   "r2-26": {
+   "stype": "main",
    "id": "r2-26",
    "title": {
-    "en": "Find the main idea · Test set 9",
-    "ko": "중심 생각 찾기 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "7 questions · exam no. 20 · about 10 min",
@@ -5584,10 +5634,11 @@
    ]
   },
   "r2-27": {
+   "stype": "main",
    "id": "r2-27",
    "title": {
-    "en": "Find the main idea · Test set 10",
-    "ko": "중심 생각 찾기 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "3 questions · exam no. 20 · about 4 min",
@@ -5676,10 +5727,11 @@
    ]
   },
   "r2-28": {
+   "stype": "detail",
    "id": "r2-28",
    "title": {
-    "en": "Same as the text · Warm-up",
-    "ko": "내용 일치 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 22 · about 7 min",
@@ -5804,10 +5856,11 @@
    ]
   },
   "r2-29": {
+   "stype": "detail",
    "id": "r2-29",
    "title": {
-    "en": "Same as the text · Test set 1",
-    "ko": "내용 일치 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "7 questions · exam no. 22 · about 10 min",
@@ -5968,10 +6021,11 @@
    ]
   },
   "r2-30": {
+   "stype": "detail",
    "id": "r2-30",
    "title": {
-    "en": "Same as the text · Test set 2",
-    "ko": "내용 일치 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "7 questions · exam no. 22 · about 10 min",
@@ -6132,10 +6186,11 @@
    ]
   },
   "r2-31": {
+   "stype": "detail",
    "id": "r2-31",
    "title": {
-    "en": "Same as the text · Test set 3",
-    "ko": "내용 일치 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -6296,10 +6351,11 @@
    ]
   },
   "r2-32": {
+   "stype": "detail",
    "id": "r2-32",
    "title": {
-    "en": "Same as the text · Test set 4",
-    "ko": "내용 일치 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -6460,10 +6516,11 @@
    ]
   },
   "r2-33": {
+   "stype": "detail",
    "id": "r2-33",
    "title": {
-    "en": "Same as the text · Test set 5",
-    "ko": "내용 일치 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -6624,10 +6681,11 @@
    ]
   },
   "r2-34": {
+   "stype": "detail",
    "id": "r2-34",
    "title": {
-    "en": "Same as the text · Test set 6",
-    "ko": "내용 일치 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -6788,10 +6846,11 @@
    ]
   },
   "r2-35": {
+   "stype": "detail",
    "id": "r2-35",
    "title": {
-    "en": "Same as the text · Test set 7",
-    "ko": "내용 일치 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -6952,10 +7011,11 @@
    ]
   },
   "r2-36": {
+   "stype": "detail",
    "id": "r2-36",
    "title": {
-    "en": "Same as the text · Test set 8",
-    "ko": "내용 일치 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -7116,10 +7176,11 @@
    ]
   },
   "r2-37": {
+   "stype": "detail",
    "id": "r2-37",
    "title": {
-    "en": "Same as the text · Test set 9",
-    "ko": "내용 일치 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -7280,10 +7341,11 @@
    ]
   },
   "r2-38": {
+   "stype": "detail",
    "id": "r2-38",
    "title": {
-    "en": "Same as the text · Test set 10",
-    "ko": "내용 일치 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -7444,10 +7506,11 @@
    ]
   },
   "r2-39": {
+   "stype": "detail",
    "id": "r2-39",
    "title": {
-    "en": "Same as the text · Test set 11",
-    "ko": "내용 일치 실전문제 11회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -7608,10 +7671,11 @@
    ]
   },
   "r2-40": {
+   "stype": "detail",
    "id": "r2-40",
    "title": {
-    "en": "Same as the text · Test set 12",
-    "ko": "내용 일치 실전문제 12회"
+    "en": "Test set 12",
+    "ko": "실전문제 12회"
    },
    "sub": {
     "en": "7 questions · exam no. 24 · about 10 min",
@@ -7772,10 +7836,11 @@
    ]
   },
   "r2-41": {
+   "stype": "detail",
    "id": "r2-41",
    "title": {
-    "en": "Same as the text · Test set 13",
-    "ko": "내용 일치 실전문제 13회"
+    "en": "Test set 13",
+    "ko": "실전문제 13회"
    },
    "sub": {
     "en": "2 questions · exam no. 24 · about 3 min",
@@ -7846,10 +7911,11 @@
    ]
   },
   "r2-42": {
+   "stype": "feeling",
    "id": "r2-42",
    "title": {
-    "en": "The writer's feeling · Warm-up",
-    "ko": "밑줄 친 부분의 심정 연습문제"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
     "en": "5 questions · exam no. 23 · about 7 min",
@@ -7974,10 +8040,11 @@
    ]
   },
   "r2-43": {
+   "stype": "feeling",
    "id": "r2-43",
    "title": {
-    "en": "The writer's feeling · Test set 1",
-    "ko": "밑줄 친 부분의 심정 실전문제 1회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8138,10 +8205,11 @@
    ]
   },
   "r2-44": {
+   "stype": "feeling",
    "id": "r2-44",
    "title": {
-    "en": "The writer's feeling · Test set 2",
-    "ko": "밑줄 친 부분의 심정 실전문제 2회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8302,10 +8370,11 @@
    ]
   },
   "r2-45": {
+   "stype": "feeling",
    "id": "r2-45",
    "title": {
-    "en": "The writer's feeling · Test set 3",
-    "ko": "밑줄 친 부분의 심정 실전문제 3회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8466,10 +8535,11 @@
    ]
   },
   "r2-46": {
+   "stype": "feeling",
    "id": "r2-46",
    "title": {
-    "en": "The writer's feeling · Test set 4",
-    "ko": "밑줄 친 부분의 심정 실전문제 4회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8630,10 +8700,11 @@
    ]
   },
   "r2-47": {
+   "stype": "feeling",
    "id": "r2-47",
    "title": {
-    "en": "The writer's feeling · Test set 5",
-    "ko": "밑줄 친 부분의 심정 실전문제 5회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8794,10 +8865,11 @@
    ]
   },
   "r2-48": {
+   "stype": "feeling",
    "id": "r2-48",
    "title": {
-    "en": "The writer's feeling · Test set 6",
-    "ko": "밑줄 친 부분의 심정 실전문제 6회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -8958,10 +9030,11 @@
    ]
   },
   "r2-49": {
+   "stype": "feeling",
    "id": "r2-49",
    "title": {
-    "en": "The writer's feeling · Test set 7",
-    "ko": "밑줄 친 부분의 심정 실전문제 7회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -9122,10 +9195,11 @@
    ]
   },
   "r2-50": {
+   "stype": "feeling",
    "id": "r2-50",
    "title": {
-    "en": "The writer's feeling · Test set 8",
-    "ko": "밑줄 친 부분의 심정 실전문제 8회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -9286,10 +9360,11 @@
    ]
   },
   "r2-51": {
+   "stype": "feeling",
    "id": "r2-51",
    "title": {
-    "en": "The writer's feeling · Test set 9",
-    "ko": "밑줄 친 부분의 심정 실전문제 9회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
     "en": "7 questions · exam no. 23 · about 10 min",
@@ -9450,10 +9525,11 @@
    ]
   },
   "r2-52": {
+   "stype": "feeling",
    "id": "r2-52",
    "title": {
-    "en": "The writer's feeling · Test set 10",
-    "ko": "밑줄 친 부분의 심정 실전문제 10회"
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
    },
    "sub": {
     "en": "4 questions · exam no. 23 · about 6 min",
