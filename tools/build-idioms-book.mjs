@@ -42,6 +42,8 @@ const ansOf = (x, b) => (b.exact ? [b.k] : [...new Set([b.surface, x.head, b.k])
 /* 중요 표현 쪽(운영자 2026-11-03): 운영자가 단원마다 고른 표현(docs/idioms/picks.json)만, 맥락 · 같이 쓰는 말 · 비슷한 표현은 안티가 정리(docs/idioms/key-expressions.json) */
 const KEY = fs.existsSync(path.join(ROOT, 'docs/idioms/picks.json')) && fs.existsSync(path.join(ROOT, 'docs/idioms/key-expressions.json'))
   ? { picks: rd('docs/idioms/picks.json'), data: rd('docs/idioms/key-expressions.json') } : null;
+/* 빈출도(운영자 2026-11-03): 안티가 449개 다시 판단(freq 1~3) → 책의 감자 개수 2 · 3 · 4(4 = 꼭 외우기 상자). 순서는 바꾸지 않는다 */
+const FQ = new Map((KEY ? KEY.data.freq : []).map((x) => [x.id, x.freq + 1]));
 const book = { units: {}, order: [] };
 const bonus = {};
 const parts = [];
@@ -55,7 +57,7 @@ for (const T of TYPES) {
     const lvs = [...new Set(ws.map((w) => Math.min(w.lv, 6)))].sort();   // 자료의 급은 3~7(7 하나) — TOPIK 은 6급까지라 6으로 묶는다
     const exo = (e) => ({ ko: e[0], en: dash(e[1]) });
     const secs = [{ type: 'vocab', title: { en: 'Expressions', ko: '표현' }, from: n0, rowH: 38,
-      entries: ws.map((w) => ({ ko: w.head, hanja: w.hanja || '', pos: T.pos, en: dash(w.en), km: w.meaning, lit: dash(w.literal), eq: w.en_equiv && w.en_equiv.toLowerCase() !== w.en.toLowerCase() ? w.en_equiv : '', lv: Math.min(w.lv, 6), ex: exo(w.examples[0]), ex2: exo(w.examples[1]) })) }];
+      entries: ws.map((w) => ({ fq: FQ.get(w.id), ko: w.head, hanja: w.hanja || '', pos: T.pos, en: dash(w.en), km: w.meaning, lit: dash(w.literal), eq: w.en_equiv && w.en_equiv.toLowerCase() !== w.en.toLowerCase() ? w.en_equiv : '', lv: Math.min(w.lv, 6), ex: exo(w.examples[0]), ex2: exo(w.examples[1]) })) }];
     n0 += ws.length;
     /* 단원 점검: 뜻 짝짓기 5 + 대화 빈칸 3~4 */
     const mean = (w) => first(w.en);
@@ -77,7 +79,7 @@ for (const T of TYPES) {
     if (pk && pk.length) {
       const byHead = new Map((KEY.data.units[id] || []).map((e) => [e.head, e]));
       const own = new Map(ws.map((w) => [w.head, w]));
-      const items = pk.map((h) => byHead.get(h)).filter(Boolean).map((e) => ({ head: e.head, mean: own.get(e.head)?.en ? dash(own.get(e.head).en) : '', ctx: e.ctx, with: e.with, note: e.note, alt: e.alt || '' }));
+      const items = pk.map((h) => byHead.get(h)).filter(Boolean).map((e) => ({ head: e.head, mean: own.get(e.head)?.en ? dash(own.get(e.head).en) : '', ctx: e.ctx, with: e.with, note: e.note, alt: e.alt || '', img: `idm-${id.replace('-', '')}-${String(pk.indexOf(e.head) + 1).padStart(2, '0')}.png` }));
       const ci = secs.findIndex((x) => x.type === 'checkup');
       secs.splice(ci < 0 ? secs.length : ci, 0, { type: 'idiomkey', title: { en: 'Key Expressions', ko: '중요 표현' }, items });
     }

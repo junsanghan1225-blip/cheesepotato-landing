@@ -105,16 +105,16 @@
   "korean-idioms": {
    "krw": "13,900",
    "qa": "통과(주의 1)",
-   "pages": 212,
+   "pages": 232,
    "date": "20261103",
-   "ver": 5,
+   "ver": 6,
    "last": {
-    "ver": 5,
+    "ver": 6,
     "date": "20261103",
-    "pages": 212,
-    "sha256": "bf4ee328a34bdc2a8b8abc57161be96a9cf5bbefbb12f4ba6e198ae34b643d81",
-    "commit": "a0519ff55d",
-    "file": "에브리코리안즈_예스24_필수관용표현_v5_20261103.zip"
+    "pages": 232,
+    "sha256": "d3843c79d6c22cb0af63c003fc4ce2c1f6a3d49dd84884e80c23d39720df2877",
+    "commit": "7ee0ec3e47",
+    "file": "에브리코리안즈_예스24_필수관용표현_v6_20261103.zip"
    }
   }
  }
