@@ -1,0 +1,353 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 16.46,
+     "sessionsWithoutMetricPercentage": 83.53999999999999,
+     "pagesViews": 15,
+     "subTotal": 20
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 12.66,
+     "sessionsWithoutMetricPercentage": 87.34,
+     "pagesViews": 13,
+     "subTotal": 13
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 79,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 57.77
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 79,
+     "totalBotSessionCount": 99,
+     "distinctUserCount": 66,
+     "pagesPerSessionPercentage": 1.7215189873417722
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 282,
+     "activeTime": 136
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 50
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 11
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 2
+    },
+    {
+     "name": "YandexBrowser",
+     "sessionsCount": 1
+    },
+    {
+     "name": "InstagramApp",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 57
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 16
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 6
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 39
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 15
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 12
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 2
+    },
+    {
+     "name": "ChromeOS",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 26
+    },
+    {
+     "name": "Netherlands",
+     "sessionsCount": 9
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Mongolia",
+     "sessionsCount": 5
+    },
+    {
+     "name": "China",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Uzbekistan",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Israel",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Poland",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Thailand",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 43
+    },
+    {
+     "name": "Everykoreans — Korean Books & Worksheet Shop | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "TOPIK II Writing 51–52: 100 Practice Questions — Everykoreans | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "전기밥솥 영어로 · 뜻 — \"electric rice cooker\" (jeongibapsot) meaning in Korean",
+     "sessionsCount": 3
+    },
+    {
+     "name": "\"anywhere\" in Korean — 어디에서나 (eodieseona) with examples | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "\"line\" in Korean — 줄 (jul) with examples | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "\"well\" in Korean — 잘 (jal) and 3 more ways to say it | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "EPS-TOPIK 듣기 연습 26 — 대화 듣고 답하기 · EPS-TOPIK Listening practice | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Free Korean Worksheets (Printable PDF) | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 19
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 12
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "www.ecosia.org",
+     "sessionsCount": 3
+    },
+    {
+     "name": "com.google.android.googlequicksearchbox",
+     "sessionsCount": 1
+    },
+    {
+     "name": "l.instagram.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 43
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%A0%84%EA%B8%B0%EB%B0%A5%EC%86%A5.html",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shop/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shop/topik2-writing-51-52/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/eps-topik/eps-l-026.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/anywhere.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/line.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/well.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/numbers-counters-worksheet/",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
