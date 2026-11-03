@@ -73,8 +73,8 @@
      "opts": [
       "to be loose-lipped",
       "to breathe",
-      "lip service",
-      "to be humiliated"
+      "to be haughty",
+      "to sweat blood"
      ],
      "a": 1,
      "why": "숨을 쉬다 means to breathe; to take a breath; to respire. 미세먼지가 너무 심한 날에는 바깥에서 마스크 없이 숨을 쉬기조차 힘들어요. (On days with severe fine dust, it is hard even to breathe outside without masks.)"
@@ -82,10 +82,10 @@
     {
      "q": "Which idiom means \"to use one's strength\"?",
      "opts": [
-      "바람을 피우다",
-      "손에 땀을 쥐다",
+      "색안경을 끼고 보다",
+      "손을 씻다",
       "힘을 쓰다",
-      "귀를 기울이다"
+      "기대를 모으다"
      ],
      "a": 2,
      "why": "힘을 쓰다 means to use one's strength; to exert influence or pull strings. 무거운 냉장고를 혼자 옮기느라 허리에 온 힘을 쓰는 바람에 통증이 생겼어요. (Moving the heavy fridge alone, using all my strength strained my back and caused pain.)"
@@ -93,9 +93,9 @@
     {
      "q": "What does 땀을 흘리다 mean?",
      "opts": [
-      "to click one's tongue",
-      "to fall to one's knees",
-      "to take the first step",
+      "to get a clue",
+      "to come to nothing",
+      "to remain silent",
       "to sweat"
      ],
      "a": 3,
@@ -105,9 +105,9 @@
      "q": "Which idiom means \"to be ripped off\"?",
      "opts": [
       "바가지를 쓰다",
-      "입맛을 돋우다",
-      "갈피를 못 잡다",
-      "혀를 내두르다"
+      "자리를 잡다",
+      "고개를 끄덕이다",
+      "시간이 흐르다"
      ],
      "a": 0,
      "why": "바가지를 쓰다 means to be ripped off; to be overcharged. 관광지 식당에서 평소 가격보다 세 배나 비싸게 바가지를 썼어요. (At a tourist site restaurant, I was ripped off paying triple the normal price.)"
@@ -115,10 +115,10 @@
     {
      "q": "What does 잠이 들다 mean?",
      "opts": [
-      "to be caught red-handed",
+      "to quench one's thirst slightly",
       "to fall asleep",
-      "to keep a promise",
-      "to take responsibility"
+      "to feel relieved",
+      "to take an interest in"
      ],
      "a": 1,
      "why": "잠이 들다 means to fall asleep; to drop off to sleep. 하루 종일 산행을 다녀와서 너무 피곤했던지 눕자마자 바로 잠이 들었어요. (So tired after hiking all day, I fell asleep right after lying down.)"
@@ -126,8 +126,8 @@
     {
      "q": "Which idiom means \"to make time\"?",
      "opts": [
-      "손을 잡다",
-      "영향을 미치다",
+      "힘을 내다",
+      "자리를 비우다",
       "시간을 내다",
       "손이 크다"
      ],
@@ -235,8 +235,8 @@
      "opts": [
       "to be bold",
       "to cost time",
-      "to be haughty",
-      "to sweat blood"
+      "to look away",
+      "to tighten one's belt"
      ],
      "a": 1,
      "why": "시간이 들다 means to cost time; to take time and labor. 전통 발효 음식을 제대로 만들려면 많은 정성과 시간이 들어요. (To properly make traditional fermented food, it takes much care and time.)"
@@ -244,10 +244,10 @@
     {
      "q": "Which idiom means \"time flows\"?",
      "opts": [
-      "시치미를 떼다",
-      "이를 갈다",
+      "진땀을 흘리다",
+      "입에 침이 마르다",
       "시간이 흐르다",
-      "눈시울이 붉어지다"
+      "눈총을 받다"
      ],
      "a": 2,
      "why": "시간이 흐르다 means time flows; time passes like water. 아무리 깊은 슬픔과 상처라도 시간이 흐르면 차츰 아물기 마련이에요. (No matter how deep sadness is, it heals gradually as time flows.)"
@@ -255,9 +255,9 @@
     {
      "q": "What does 관심을 가지다 mean?",
      "opts": [
-      "to break someone's heart",
-      "to be held back",
-      "to create a stir",
+      "to be in the spotlight",
+      "to run into a brick wall",
+      "to catch one's breath",
       "to take an interest in"
      ],
      "a": 3,
@@ -267,9 +267,9 @@
      "q": "Which idiom means \"to make up one's mind\"?",
      "opts": [
       "마음을 먹다",
-      "입맛을 돋우다",
-      "고개를 끄덕이다",
-      "혀를 내두르다"
+      "자리를 잡다",
+      "골머리를 썩이다",
+      "시간이 가다"
      ],
      "a": 0,
      "why": "마음을 먹다 means to make up one's mind; to set one's heart on doing something. 새해를 맞이하여 이번에는 반드시 금연에 성공하겠다고 굳게 마음을 먹었어요. (Entering the new year, I firmly made up my mind to succeed in quitting smoking.)"
@@ -277,10 +277,10 @@
     {
      "q": "What does 최선을 다하다 mean?",
      "opts": [
-      "to take up the baton",
+      "to leave one's mark",
       "to do one's best",
-      "to keep a promise",
-      "to take responsibility"
+      "to clear one's mind of greed",
+      "to place hopes on"
      ],
      "a": 1,
      "why": "최선을 다하다 means to do one's best; to do one's utmost; to spare no effort. 결과가 어떻게 나오든 후회가 남지 않도록 매 순간 최선을 다했어요. (Whatever the result turns out, I gave my all every moment to leave no regret.)"
@@ -288,8 +288,8 @@
     {
      "q": "Which idiom means \"to dream a dream\"?",
      "opts": [
-      "손을 잡다",
-      "노력을 기울이다",
+      "힘을 쓰다",
+      "영향을 미치다",
       "꿈을 꾸다",
       "눈이 높다"
      ],
@@ -404,8 +404,8 @@
      "opts": [
       "to be scared out of one's wits",
       "to grow fond of",
-      "to look away",
-      "to tighten one's belt"
+      "to roll up one's sleeves",
+      "to close one's eyes tight"
      ],
      "a": 1,
      "why": "정이 들다 means to grow fond of; to become attached to someone or something. 처음에는 낯설었던 룸메이트였는데 1년 동안 같이 살다 보니 깊이 정이 들었어요. (At first an unfamiliar roommate, living together a year made me deeply attached.)"
@@ -413,10 +413,10 @@
     {
      "q": "Which idiom means \"to quench one's thirst slightly\"?",
      "opts": [
-      "진땀을 흘리다",
-      "이를 갈다",
+      "첫 단추를 끼우다",
+      "입에 침이 마르다",
       "목을 축이다",
-      "눈시울이 붉어지다"
+      "눈총을 받다"
      ],
      "a": 2,
      "why": "목을 축이다 means to quench one's thirst slightly; to wet one's throat. 가파른 산행을 하다가 시원한 샘물 한 모금으로 타는 듯한 목을 축였어요. (Hiking steep mountains, I quenched my burning thirst with cold spring water.)"
@@ -424,9 +424,9 @@
     {
      "q": "What does 입이 가볍다 mean?",
      "opts": [
-      "to break someone's heart",
-      "to be held back",
-      "to be imminent",
+      "to be in the spotlight",
+      "to run into a brick wall",
+      "to create a stir",
       "to be loose-lipped"
      ],
      "a": 3,
@@ -436,9 +436,9 @@
      "q": "Which idiom means \"to look familiar\"?",
      "opts": [
       "낯이 익다",
-      "입맛을 돋우다",
-      "갈피를 못 잡다",
-      "시간이 가다"
+      "자리를 잡다",
+      "골머리를 썩이다",
+      "시간이 흐르다"
      ],
      "a": 0,
      "why": "낯이 익다 means to look familiar; to be recognizable. 지하철에서 마주친 사람이 어디서 많이 본 듯 낯이 익어요. (The person I encountered on the subway looked familiar, as if seen somewhere.)"
@@ -446,10 +446,10 @@
     {
      "q": "What does 약속을 어기다 mean?",
      "opts": [
-      "to taste bitterness",
+      "to be dumbfounded",
       "to break a promise",
-      "to miss the opportune moment",
-      "to wake up"
+      "to feel relieved",
+      "to dream a dream"
      ],
      "a": 1,
      "why": "약속을 어기다 means to break a promise; to go back on one's word. 친구가 아무런 연락도 없이 약속을 어겨서 약속 장소에서 1시간이나 기다렸어요. (My friend broke the appointment with no contact, so I waited an hour.)"
@@ -457,8 +457,8 @@
     {
      "q": "Which idiom means \"to fail an exam or audition\"?",
      "opts": [
-      "눈길을 주다",
-      "결론을 내리다",
+      "힘을 내다",
+      "최선을 다하다",
       "미역국을 먹다",
       "귀가 얇다"
      ],
@@ -583,8 +583,8 @@
      "opts": [
       "to be bold",
       "to get in touch with",
-      "lip service",
-      "to be humiliated"
+      "to be haughty",
+      "to sweat blood"
      ],
      "a": 1,
      "why": "연락이 닿다 means to get in touch with; to reach someone by phone or message. 수소문 끝에 20년 동안 소식이 끊겼던 초등학교 동창과 마침내 연락이 닿았어요. (After searching, I finally got in touch with an elementary classmate after 20 years.)"
@@ -592,10 +592,10 @@
     {
      "q": "Which idiom means \"to give up one's seat\"?",
      "opts": [
-      "색안경을 끼고 보다",
-      "입에 침이 마르다",
+      "시치미를 떼다",
+      "찬물을 끼얹다",
       "자리를 양보하다",
-      "다리를 놓다"
+      "두 손 두 발 다 들다"
      ],
      "a": 2,
      "why": "자리를 양보하다 means to give up one's seat; to yield one's place to someone. 만원 버스에서 무거운 짐을 들고 계신 어르신을 보고 얼른 자리를 양보해 드렸어요. (Seeing a senior with heavy bags on a crowded bus, I quickly gave up my seat.)"
@@ -603,9 +603,9 @@
     {
      "q": "What does 자리를 비우다 mean?",
      "opts": [
-      "to break someone's heart",
-      "to cause someone deep heartache",
-      "to catch someone off guard",
+      "to be in the spotlight",
+      "to draw all eyes",
+      "to take on vitality",
       "to be away from one's desk"
      ],
      "a": 3,
@@ -615,9 +615,9 @@
      "q": "Which idiom means \"to yield results\"?",
      "opts": [
       "결과를 낳다",
-      "종지부를 찍다",
-      "구설수에 오르다",
-      "시간이 흐르다"
+      "줄행랑을 치다",
+      "눈살을 찌푸리다",
+      "시간이 지나다"
      ],
      "a": 0,
      "why": "결과를 낳다 means to yield results; to bring about outcomes; to result in. 꾸준한 연구 개발 투자가 마침내 세계 최초의 원천 기술 개발이라는 결과를 낳았다. (Persistent R&D investment finally yielded results of pioneering world-first tech.)"
@@ -625,10 +625,10 @@
     {
      "q": "What does 영향을 미치다 mean?",
      "opts": [
-      "to taste bitterness",
+      "to be dumbfounded",
       "to exert influence on",
-      "to keep a promise",
-      "to sweat"
+      "to feel relieved",
+      "to fall asleep"
      ],
      "a": 1,
      "why": "영향을 미치다 means to exert influence on; to have an effect on. 어릴 적 독서 습관은 평생의 사고력과 가치관 형성에 지대한 영향을 미쳐요. (Childhood reading habits exert profound influence on lifelong thinking and values.)"
@@ -636,8 +636,8 @@
     {
      "q": "Which idiom means \"to take the first step\"?",
      "opts": [
-      "손을 잡다",
-      "결론을 내리다",
+      "힘을 내다",
+      "최선을 다하다",
       "첫 단추를 끼우다",
       "입이 가볍다"
      ],
@@ -721,6 +721,10 @@
      "en": "to view with prejudice (idiom)"
     },
     {
+     "ko": "신경을 쓰다",
+     "en": "to pay attention to (idiom)"
+    },
+    {
      "ko": "애를 먹다",
      "en": "to have a hard time (idiom)"
     },
@@ -739,10 +743,6 @@
     {
      "ko": "기대를 걸다",
      "en": "to place hopes on (idiom)"
-    },
-    {
-     "ko": "가슴이 벅차다",
-     "en": "one's heart is full (idiom)"
     }
    ],
    "quiz": [
@@ -751,8 +751,8 @@
      "opts": [
       "to be bold",
       "to stall for time",
-      "lip service",
-      "to be humiliated"
+      "to be haughty",
+      "to sweat blood"
      ],
      "a": 1,
      "why": "시간을 끌다 means to stall for time; to buy time; to drag one's feet. 답변을 회피하며 억지로 시간을 끌어 보았자 문제만 더 커질 뿐이에요. (Stalling for time by evading answers will only make the problem bigger.)"
@@ -760,10 +760,10 @@
     {
      "q": "Which idiom means \"to devote effort to\"?",
      "opts": [
-      "시치미를 떼다",
-      "입에 침이 마르다",
+      "진땀을 흘리다",
+      "찬물을 끼얹다",
       "노력을 기울이다",
-      "뒷짐을 지다"
+      "머리를 맞대다"
      ],
      "a": 2,
      "why": "노력을 기울이다 means to devote effort to; to exert oneself toward a goal. 한국어 발음을 정확하게 교정하기 위해 거울을 보며 매일 노력을 기울였어요. (To correct Korean pronunciation accurately, I devoted effort every day in the mirror.)"
@@ -771,9 +771,9 @@
     {
      "q": "What does 눈총을 받다 mean?",
      "opts": [
-      "to break someone's heart",
-      "to cause someone deep heartache",
-      "to take on vitality",
+      "to be in the spotlight",
+      "to draw all eyes",
+      "to enliven the mood",
       "to draw glares"
      ],
      "a": 3,
@@ -783,7 +783,7 @@
      "q": "Which idiom means \"to pull oneself together\"?",
      "opts": [
       "마음을 잡다",
-      "침묵을 지키다",
+      "코앞에 닥치다",
       "머리를 식히다",
       "시간이 나다"
      ],
@@ -802,15 +802,15 @@
      "why": "색안경을 끼고 보다 means to view with prejudice; to look at someone through colored glasses. 외모나 출신 배경만 보고 색안경을 끼고 사람을 대하면 안 돼요. (You must not treat people through tinted glasses based on looks or background.)"
     },
     {
-     "q": "Which idiom means \"to be passionate about\"?",
+     "q": "Which idiom means \"to have a hard time\"?",
      "opts": [
-      "땀을 흘리다",
-      "영향을 미치다",
-      "열을 올리다",
-      "손이 크다"
+      "힘을 쓰다",
+      "최선을 다하다",
+      "애를 먹다",
+      "눈이 높다"
      ],
      "a": 2,
-     "why": "열을 올리다 means to be passionate about; to get heated up over something. 토론 대회 참가자들은 자기주장을 관철하기 위해 얼굴이 붉어지도록 열을 올렸다. (Debate participants heated up with red faces to push their own arguments.)"
+     "why": "애를 먹다 means to have a hard time; to go through a great deal of trouble. 낯선 도시에서 지도가 잘못되는 바람에 길을 찾느라 한참 동안 애를 먹었어요. (With bad maps in an unfamiliar city, I had a hard time finding directions.)"
     }
    ],
    "fill": [
@@ -873,6 +873,10 @@
   "ex-06": {
    "cards": [
     {
+     "ko": "가슴이 벅차다",
+     "en": "one's heart is full (idiom)"
+    },
+    {
      "ko": "골치를 앓다",
      "en": "to suffer a headache over (idiom)"
     },
@@ -927,78 +931,74 @@
     {
      "ko": "속을 썩이다",
      "en": "to cause someone deep heartache (idiom)"
-    },
-    {
-     "ko": "쓴맛을 보다",
-     "en": "to taste bitterness (idiom)"
     }
    ],
    "quiz": [
     {
-     "q": "What does 골치를 앓다 mean?",
+     "q": "What does 가슴이 벅차다 mean?",
      "opts": [
-      "to be bold",
-      "to suffer a headache over",
-      "to roll up one's sleeves",
-      "to push someone into doing something"
+      "to look familiar",
+      "one's heart is full",
+      "to be dumbfounded or amazed",
+      "to stop at nothing"
      ],
      "a": 1,
-     "why": "골치를 앓다 means to suffer a headache over; to be plagued by troubles. 주차 공간이 부족해서 아파트 주민들이 매일 골치를 앓고 있어요. (Because of insufficient parking, apartment residents suffer headaches daily.)"
+     "why": "가슴이 벅차다 means one's heart is full; to be overwhelmed with emotion or joy. 오랜 인고 끝에 태극기를 들고 시상대 맨 위에 서니 가슴이 벅찼어요. (Standing atop the podium with national flag after long toil, my heart swelled.)"
     },
     {
-     "q": "Which idiom means \"to be on the edge of one's seat\"?",
+     "q": "Which idiom means \"to worry oneself sick\"?",
      "opts": [
-      "허리띠를 졸라매다",
-      "혀를 차다",
-      "손에 땀을 쥐다",
-      "벽에 부딪히다"
+      "피땀을 흘리다",
+      "한술 더 뜨다",
+      "속을 태우다",
+      "발목을 잡히다"
      ],
      "a": 2,
-     "why": "손에 땀을 쥐다 means to be on the edge of one's seat; breathless suspense. 월드컵 축구 경기 결승전은 손에 땀을 쥐게 할 만큼 박진감이 넘쳤어요. (The World Cup final match was so thrilling that it kept everyone on the edge of their seats.)"
+     "why": "속을 태우다 means to worry oneself sick; to be deeply anxious and fretting. 아이의 연락이 밤늦게까지 닿지 않아서 부모가 속을 태웠어요. (With the child unreachable until late at night, parents were worried sick.)"
     },
     {
-     "q": "What does 찬물을 끼얹다 mean?",
+     "q": "What does 어안이 벙벙하다 mean?",
      "opts": [
-      "to act as a go-between",
-      "to put an end to",
-      "to rack one's brain",
-      "to throw cold water on"
+      "to stand by with folded arms",
+      "to take the first step",
+      "to be caught red-handed",
+      "to be dumbfounded"
      ],
      "a": 3,
-     "why": "찬물을 끼얹다 means to throw cold water on; to dampen the mood or progress. 축제 분위기로 들떠 있는 자리에 부서장이 찬물을 끼얹는 쓴소리를 했어요. (In a festive mood, the department head poured cold water with bitter remarks.)"
+     "why": "어안이 벙벙하다 means to be dumbfounded; to be struck dumb with astonishment. 생각지도 못했던 복권 1등에 당첨되자 너무 놀라서 어안이 벙벙했어요. (Winning first prize in lottery unexpectedly, I was too shocked and dumbfounded.)"
     },
     {
-     "q": "Which idiom means \"to sweat bullets\"?",
+     "q": "Which idiom means \"to be scared out of one's wits\"?",
      "opts": [
-      "진땀을 흘리다",
-      "활기를 띠다",
-      "발자취를 남기다",
-      "약속을 지키다"
+      "간이 콩알만 해지다",
+      "골머리를 썩이다",
+      "시간이 지나다",
+      "마음을 잡다"
      ],
      "a": 0,
-     "why": "진땀을 흘리다 means to sweat bullets; to have a grueling, tough time dealing with something. 면접관의 날카로운 압박 질문에 대답하느라 진땀을 흘렸어요. (Answering the interviewer's sharp grilling questions made me sweat bullets.)"
+     "why": "간이 콩알만 해지다 means to be scared out of one's wits; to be terrified. 갑자기 등 뒤에서 큰 소리가 나서 간이 콩알만 해졌어요. (Hearing a sudden loud noise behind my back, I was scared out of my wits.)"
     },
     {
-     "q": "What does 가슴에 못을 박다 mean?",
+     "q": "What does 바람을 피우다 mean?",
      "opts": [
-      "to stall for time",
-      "to break someone's heart",
-      "to join hands with",
-      "to break a promise"
+      "to spend time",
+      "to cheat on someone",
+      "to cast a glance at",
+      "to seize an opportunity"
      ],
      "a": 1,
-     "why": "가슴에 못을 박다 means to break someone's heart; to deeply wound someone's feelings. 부모님 가슴에 못을 박는 심한 말을 하고 나서 며칠 동안 후회했어요. (I regretted for days after uttering harsh words driving nails into my parents' hearts.)"
+     "why": "바람을 피우다 means to cheat on someone; to have an affair; to be unfaithful. 남편이 다른 사람과 바람을 피우다가 들통나서 큰 위기에 처했어요. (The husband fell into a crisis when his affair with someone else was caught.)"
     },
     {
-     "q": "Which idiom means \"to be moved to tears\"?",
+     "q": "Which idiom means \"to beat one's chest in deep sorrow, regret, or despair\"?",
      "opts": [
-      "한숨을 쉬다",
-      "소식을 전하다",
-      "눈시울이 붉어지다",
-      "입이 가볍다"
+      "꿈을 꾸다",
+      "자리를 비우다",
+      "가슴을 치다",
+      "손이 크다"
      ],
      "a": 2,
-     "why": "눈시울이 붉어지다 means to be moved to tears; eyes welling up with tears. 어머니의 낡은 손을 꼭 잡는 순간 나도 모르게 눈시울이 붉어졌어요. (Holding my mother's worn hands tightly, tears welled up in my eyes unknowingly.)"
+     "why": "가슴을 치다 means to beat one's chest in deep sorrow, regret, or despair. 공부할 기회를 놓치고 나이 들어 후회하며 가슴을 쳤어요. (Missing study opportunities and regretting in old age, I beat my chest.)"
     }
    ],
    "fill": [
@@ -1028,16 +1028,20 @@
      ]
     },
     {
-     "q": "\"to suffer a headache over\" in Korean (idiom): ___",
-     "en": "to suffer a headache over; to be plagued by troubles",
+     "q": "\"one's heart is full\" in Korean (idiom): ___",
+     "en": "one's heart is full; to be overwhelmed with emotion or joy",
      "a": [
-      "골치를 앓다"
+      "가슴이 벅차다"
      ]
     }
    ]
   },
   "ex-07": {
    "cards": [
+    {
+     "ko": "쓴맛을 보다",
+     "en": "to taste bitterness (idiom)"
+    },
     {
      "ko": "쥐구멍에 들어가다",
      "en": "to want to sink through the floor (idiom)"
@@ -1093,78 +1097,74 @@
     {
      "ko": "콧대가 높다",
      "en": "to be haughty (idiom)"
-    },
-    {
-     "ko": "바가지를 긁다",
-     "en": "to nag (esp. wife nagging her husband) (idiom)"
     }
    ],
    "quiz": [
     {
-     "q": "What does 쥐구멍에 들어가다 mean?",
+     "q": "What does 쓴맛을 보다 mean?",
      "opts": [
-      "to be ripped off",
-      "to want to sink through the floor",
-      "to view with prejudice",
-      "to throw cold water on"
+      "to turn one's back on",
+      "to taste bitterness",
+      "to cut ties with",
+      "to be on the edge of one's seat"
      ],
      "a": 1,
-     "why": "쥐구멍에 들어가다 means to want to sink through the floor; to be deeply ashamed. 중요한 발표 자리에서 치명적인 실수를 해서 쥐구멍에 들어가고 싶었어요. (Making a critical mistake in an important presentation made me want to sink through the floor.)"
+     "why": "쓴맛을 보다 means to taste bitterness; to experience bitter failure or defeat. 무리하게 사업을 확장하다가 금융 위기를 맞아 혹독한 쓴맛을 보았어요. (Expanding recklessly, he tasted bitter defeat facing the financial crisis.)"
     },
     {
-     "q": "Which idiom means \"to whet one's appetite\"?",
+     "q": "Which idiom means \"to be humiliated\"?",
      "opts": [
-      "날개 돋친 듯이 팔리다",
-      "가슴에 못을 박다",
-      "입맛을 돋우다",
-      "벽에 부딪히다"
+      "등을 떠밀다",
+      "각광을 받다",
+      "코가 납작해지다",
+      "속을 썩이다"
      ],
      "a": 2,
-     "why": "입맛을 돋우다 means to whet one's appetite; to stimulate the palate. 새콤달콤한 봄나물 무침이 지쳐 있던 입맛을 산뜻하게 돋우어 주네요. (Sweet and sour spring greens refreshingly whet my tired appetite.)"
+     "why": "코가 납작해지다 means to be humiliated; to have one's pride crushed; taken down a notch. 만년 일등을 자랑하던 아이가 이번 시험에서 밀려 코가 납작해졌어요. (The kid boasting of always being first got overtaken and was taken down a notch.)"
     },
     {
-     "q": "What does 귀가 얇다 mean?",
+     "q": "What does 간이 크다 mean?",
      "opts": [
       "to draw glares",
       "to establish oneself",
       "to nod in agreement",
-      "to be gullible"
+      "to be bold"
      ],
      "a": 3,
-     "why": "귀가 얇다 means to be gullible; to be easily influenced by others' words. 귀가 얇아서 남들이 좋다고 추천하는 물건은 바로 사 버려요. (Because I am gullible, I immediately buy anything others recommend as good.)"
+     "why": "간이 크다 means to be bold; to have a lot of nerve; daring or audacious. 어두운 밤에 혼자 험한 산을 오르다니 정말 간이 큰 사람이에요. (Climbing a rugged mountain alone in the dark night shows he really has nerve.)"
     },
     {
-     "q": "Which idiom means \"to stand by with folded arms\"?",
+     "q": "Which idiom means \"to have high standards\"?",
      "opts": [
-      "뒷짐을 지다",
-      "활기를 띠다",
-      "바통을 이어받다",
+      "눈이 높다",
+      "허를 찌르다",
+      "물꼬를 트다",
       "시간을 끌다"
      ],
      "a": 0,
-     "why": "뒷짐을 지다 means to stand by with folded arms; to remain an idle onlooker. 모두가 밤새워 일하는데 혼자 뒷짐을 지고 구경만 하면 어떡해요? (How can you just stand by with folded arms watching while everyone works overnight?)"
+     "why": "눈이 높다 means to have high standards; to be picky or discerning. 눈이 높아서 웬만한 옷은 쳐다보지도 않고 고급만 찾아요. (Having high standards, she doesn't even look at ordinary clothes and only seeks luxury.)"
     },
     {
-     "q": "What does 성의를 다하다 mean?",
+     "q": "What does 모범을 보이다 mean?",
      "opts": [
-      "to cost time",
-      "to do something in all sincerity",
-      "to grow fond of",
-      "to take an interest in"
+      "to have free time",
+      "to set an example",
+      "to summon courage",
+      "to place hopes on"
      ],
      "a": 1,
-     "why": "성의를 다하다 means to do something in all sincerity; to devote one's full sincerity. 손님 한 분 한 분을 모실 때마다 성의를 다해 친절하게 응대하고 있어요. (Whenever serving every single guest, we respond kindly with all sincerity.)"
+     "why": "모범을 보이다 means to set an example; to serve as a role model. 선배들이 먼저 솔선수범하여 모범을 보여 준 덕분에 팀 분위기가 좋아졌어요. (Thanks to seniors taking initiative and setting examples, team morale improved.)"
     },
     {
-     "q": "Which idiom means \"to be generous\"?",
+     "q": "Which idiom means \"to wash one's hands of\"?",
      "opts": [
-      "땀을 흘리다",
-      "노력을 기울이다",
-      "손이 크다",
+      "잠이 들다",
+      "영향을 미치다",
+      "손을 씻다",
       "입이 무겁다"
      ],
      "a": 2,
-     "why": "손이 크다 means to be generous; to do things on a grand scale (esp. cooking or spending). 우리 어머니는 손이 커서 손님맞이 음식을 열 그릇이나 만드셨어요. (My mother is so generous that she made ten bowls of food to welcome guests.)"
+     "why": "손을 씻다 means to wash one's hands of; to reform and quit wrongdoing. 도박의 늪에서 손을 씻고 건실하게 직장 생활을 시작했어요. (Washing my hands of gambling's swamp, I began a healthy workplace life.)"
     }
    ],
    "fill": [
@@ -1178,12 +1178,10 @@
      ]
     },
     {
-     "q": "어제 모임에서 늦게 귀가했다고 집사람이 ___ 봅니다.",
-     "en": "to nag (esp. wife nagging her husband)",
+     "q": "\"to taste bitterness\" in Korean (idiom): ___",
+     "en": "to taste bitterness; to experience bitter failure or defeat",
      "a": [
-      "바가지를 긁었나",
-      "바가지를 긁다",
-      "바가지를 긁"
+      "쓴맛을 보다"
      ]
     },
     {
@@ -1205,8 +1203,8 @@
   "ex-08": {
    "cards": [
     {
-     "ko": "낯이 설다",
-     "en": "to be unfamiliar (idiom)"
+     "ko": "바가지를 긁다",
+     "en": "to nag (esp. wife nagging her husband) (idiom)"
     },
     {
      "ko": "다리를 놓다",
@@ -1267,23 +1265,23 @@
    ],
    "quiz": [
     {
-     "q": "What does 낯이 설다 mean?",
+     "q": "What does 바가지를 긁다 mean?",
      "opts": [
-      "to be bold",
-      "to be unfamiliar",
-      "to look away",
-      "to close one's eyes tight"
+      "to look familiar",
+      "to nag (esp. wife nagging her husband)",
+      "to be dumbfounded or amazed",
+      "to stop at nothing"
      ],
      "a": 1,
-     "why": "낯이 설다 means to be unfamiliar; strange or unaccustomed. 처음 가 본 도시의 골목길은 모든 풍경이 낯이 설어 긴장되었어요. (In the alleyways of the newly visited city, every scene felt unfamiliar and tense.)"
+     "why": "바가지를 긁다 means to nag (esp. wife nagging her husband). 어젯밤 술에 취해 늦게 들어갔더니 아내가 아침부터 바가지를 긁네요. (Coming home late drunk last night, my wife nagged me from early morning.)"
     },
     {
      "q": "Which idiom means \"to cut ties with\"?",
      "opts": [
-      "진땀을 흘리다",
-      "입에 침이 마르다",
+      "첫 단추를 끼우다",
+      "찬물을 끼얹다",
       "담을 쌓다",
-      "뒷짐을 지다"
+      "머리를 맞대다"
      ],
      "a": 2,
      "why": "담을 쌓다 means to cut ties with; to build a wall against; to have nothing to do with. 운동과 담을 쌓고 살았더니 계단 몇 개만 올라도 숨이 차요. (Living with a wall built against exercise, even a few stairs make me breathless.)"
@@ -1291,9 +1289,9 @@
     {
      "q": "What does 등을 떠밀다 mean?",
      "opts": [
-      "to happen in rapid succession",
-      "to whet one's appetite",
-      "to be embroiled in scandal",
+      "to be moved to tears",
+      "to put an end to",
+      "to knit one's brows",
       "to push someone into doing something"
      ],
      "a": 3,
@@ -1303,9 +1301,9 @@
      "q": "Which idiom means \"to have a wide circle of acquaintances\"?",
      "opts": [
       "발이 넓다",
-      "허를 찌르다",
-      "발자취를 남기다",
-      "시간에 쫓기다"
+      "흥을 돋우다",
+      "쓴맛을 보다",
+      "때를 놓치다"
      ],
      "a": 0,
      "why": "발이 넓다 means to have a wide circle of acquaintances; to be well-connected. 그 친구는 발이 넓어서 어느 모임에 가나 아는 사람이 있어요. (That friend is so well-connected that he knows someone in every gathering.)"
@@ -1313,10 +1311,10 @@
     {
      "q": "What does 파리를 날리다 mean?",
      "opts": [
-      "to make time",
+      "to spend time",
       "to have no customers",
-      "to do something in all sincerity",
-      "to place hopes on"
+      "to cast a glance at",
+      "to seize an opportunity"
      ],
      "a": 1,
      "why": "파리를 날리다 means to have no customers; business is dead; to sit around shooing flies. 경기 침체로 상가 골목의 많은 식당들이 손님이 없어 파리를 날리고 있어요. (Due to recession, many restaurants in commercial alleys sit shooing flies.)"
@@ -1324,8 +1322,8 @@
     {
      "q": "Which idiom means \"to be caught red-handed\"?",
      "opts": [
-      "숨을 쉬다",
-      "연락이 닿다",
+      "한숨을 쉬다",
+      "소식을 전하다",
       "뒷덜미를 잡히다",
       "입이 가볍다"
      ],
@@ -1457,8 +1455,8 @@
      "opts": [
       "to be bold",
       "to enliven the mood",
-      "to look away",
-      "to sweat blood"
+      "to roll up one's sleeves",
+      "to tighten one's belt"
      ],
      "a": 1,
      "why": "흥을 돋우다 means to enliven the mood; to heighten the festive excitement. 신나는 전통 농악대의 풍물놀이 소리가 축제의 흥을 한층 돋우어 주었다. (Exciting traditional farmer music heightened festive excitement even further.)"
@@ -1466,10 +1464,10 @@
     {
      "q": "Which idiom means \"to go one step further\"?",
      "opts": [
-      "시치미를 떼다",
-      "이를 갈다",
+      "진땀을 흘리다",
+      "찬물을 끼얹다",
       "한술 더 뜨다",
-      "뒷짐을 지다"
+      "머리를 맞대다"
      ],
      "a": 2,
      "why": "한술 더 뜨다 means to go one step further; to outdo someone in wickedness or absurdity. 지각을 한 친구가 미안해하기는커녕 한술 더 떠서 화를 내네요. (A friend who was late, far from feeling sorry, went one step further and got angry.)"
@@ -1477,9 +1475,9 @@
     {
      "q": "What does 귀를 기울이다 mean?",
      "opts": [
-      "to happen in rapid succession",
-      "to stand shoulder to shoulder with",
-      "to nod in agreement",
+      "to be moved to tears",
+      "to be passionate about",
+      "to be embroiled in scandal",
       "to lend an ear to"
      ],
      "a": 3,
@@ -1489,9 +1487,9 @@
      "q": "Which idiom means \"to nail down\"?",
      "opts": [
       "못을 박다",
-      "첫발을 떼다",
-      "목을 축이다",
-      "시간을 보내다"
+      "코앞에 닥치다",
+      "물꼬를 트다",
+      "시간을 끌다"
      ],
      "a": 0,
      "why": "못을 박다 means to nail down; to state emphatically and conclusively. 팀장님은 이번 마감 기한은 연장이 절대 불가능하다고 못을 박으셨어요. (The team manager nailed down that deadline extensions are strictly impossible.)"
@@ -1499,10 +1497,10 @@
     {
      "q": "What does 입에 발린 말 mean?",
      "opts": [
-      "to cost time",
+      "to have free time",
       "lip service",
-      "to grow fond of",
-      "to take responsibility"
+      "to summon courage",
+      "to take an interest in"
      ],
      "a": 1,
      "why": "입에 발린 말 means lip service; empty flattery; sweet talk. 진심이 담기지 않은 입에 발린 말은 듣는 사람에게 금방 들통나요. (Lip service without sincere heart is quickly detected by listeners.)"
@@ -1510,8 +1508,8 @@
     {
      "q": "Which idiom means \"to remain silent\"?",
      "opts": [
-      "잠이 들다",
-      "영향을 미치다",
+      "잠을 깨다",
+      "자리를 비우다",
       "침묵을 지키다",
       "귀가 얇다"
      ],
@@ -1625,8 +1623,8 @@
      "opts": [
       "to be scared out of one's wits",
       "to be held back",
-      "to roll up one's sleeves",
-      "to close one's eyes tight"
+      "to want to sink through the floor",
+      "to sell like hotcakes"
      ],
      "a": 1,
      "why": "발목을 잡히다 means to be held back; to be trapped by one's weakness or unforeseen obstacle. 과거에 작성했던 부적절한 글 때문에 중요한 승진에서 발목을 잡혔어요. (Due to improper posts written in the past, he was held back from a key promotion.)"
@@ -1634,10 +1632,10 @@
     {
      "q": "Which idiom means \"to shoulder a heavy burden\"?",
      "opts": [
-      "시치미를 떼다",
-      "이를 갈다",
+      "진땀을 흘리다",
+      "입에 침이 마르다",
       "어깨가 무겁다",
-      "다리를 놓다"
+      "두 손 두 발 다 들다"
      ],
      "a": 2,
      "why": "어깨가 무겁다 means to shoulder a heavy burden; to feel heavy responsibility. 프로젝트 팀장을 맡게 되니 책임감 때문에 어깨가 무거워요. (Being appointed project team leader, my shoulders feel heavy with responsibility.)"
@@ -1645,9 +1643,9 @@
     {
      "q": "What does 한숨을 돌리다 mean?",
      "opts": [
-      "to lend an ear to",
-      "to have a hard time",
-      "to nod in agreement",
+      "to raise expectations",
+      "to stand shoulder to shoulder with",
+      "to rack one's brain",
       "to catch one's breath"
      ],
      "a": 3,
@@ -1657,9 +1655,9 @@
      "q": "Which idiom means \"to be struck with awe\"?",
      "opts": [
       "혀를 내두르다",
-      "코앞에 닥치다",
-      "쓴맛을 보다",
-      "약속을 지키다"
+      "활기를 띠다",
+      "어안이 벙벙하다",
+      "마음이 놓이다"
      ],
      "a": 0,
      "why": "혀를 내두르다 means to be struck with awe; to shake one's head in amazement or disbelief. 어린 신동의 놀라운 기억력과 계산 능력을 보고 전문가들도 혀를 내둘렀어요. (Watching the child prodigy's memory and math skills, experts were struck with awe.)"
@@ -1667,10 +1665,10 @@
     {
      "q": "What does 발자취를 남기다 mean?",
      "opts": [
-      "to spend time",
+      "to stall for time",
       "to leave one's mark",
-      "to cast a glance at",
-      "to seize an opportunity"
+      "to join hands with",
+      "to break a promise"
      ],
      "a": 1,
      "why": "발자취를 남기다 means to leave one's mark; to leave footprints for posterity. 평생을 봉사와 희생으로 헌신한 의사는 인류애의 역사에 큰 발자취를 남겼다. (The doctor who devoted life to service left a great mark on human history.)"
@@ -1678,8 +1676,8 @@
     {
      "q": "Which idiom means \"to open the floodgates\"?",
      "opts": [
-      "잠을 깨다",
-      "영향을 미치다",
+      "꿈을 꾸다",
+      "자리를 비우다",
       "물꼬를 트다",
       "손이 크다"
      ],
@@ -1882,15 +1880,6 @@
      ]
     },
     {
-     "q": "___. 교재를 펼친 것만으로도 대단해요!",
-     "en": "well begun is half done",
-     "a": [
-      "시작이 반이에요",
-      "시작이 반이다",
-      "시작이 반이"
-     ]
-    },
-    {
      "q": "___예요. 오늘 한 쪽부터 차근차근 쓰세요.",
      "en": "a journey of a thousand miles begins with a single step",
      "a": [
@@ -1911,6 +1900,13 @@
      "en": "what bad timing",
      "a": [
       "가는 날이 장날"
+     ]
+    },
+    {
+     "q": "하루 만에 고장 났네요. 역시 ___이에요.",
+     "en": "you get what you pay for",
+     "a": [
+      "싼 게 비지떡"
      ]
     }
    ]
@@ -2233,31 +2229,6 @@
      ]
     },
     {
-     "q": "___더니 옛 모습이 거의 없네요.",
-     "en": "ten years change all things",
-     "a": [
-      "십 년이면 강산도 변한다"
-     ]
-    },
-    {
-     "q": "___. 저기 다른 친구 점수 좀 봐.",
-     "en": "there is always someone better",
-     "a": [
-      "뛰는 놈 위에 나는 놈 있댔어",
-      "뛰는 놈 위에 나는 놈 있다",
-      "뛰는 놈 위에 나는 놈 있"
-     ]
-    },
-    {
-     "q": "___. 오히려 손해잖아요.",
-     "en": "the tail wags the dog",
-     "a": [
-      "배보다 배꼽이 더 크군요",
-      "배보다 배꼽이 더 크다",
-      "배보다 배꼽이 더 크"
-     ]
-    },
-    {
      "q": "에어컨 소음이 조금 큰 게 ___네요.",
      "en": "a fly in the ointment",
      "a": [
@@ -2269,6 +2240,13 @@
      "en": "from bad to worse",
      "a": [
       "갈수록 태산"
+     ]
+    },
+    {
+     "q": "\"let sleeping dogs lie\" in Korean (proverb): ___",
+     "en": "let sleeping dogs lie; stirring up trouble for oneself unnecessarily",
+     "a": [
+      "긁어 부스럼 만든다"
      ]
     }
    ]
@@ -2441,13 +2419,6 @@
       "하늘이 무너져도 솟아날 구멍이 있으니",
       "하늘이 무너져도 솟아날 구멍이 있다",
       "하늘이 무너져도 솟아날 구멍이 있"
-     ]
-    },
-    {
-     "q": "___고 하니 조금만 더 버텨 보세요.",
-     "en": "joy comes after hardship",
-     "a": [
-      "고생 끝에 낙이 온다"
      ]
     }
    ]
@@ -2934,13 +2905,6 @@
    ],
    "fill": [
     {
-     "q": "___더니 딱 그 꼴이네요.",
-     "en": "the pot calling the kettle black",
-     "a": [
-      "똥 묻은 개가 겨 묻은 개 나무란다"
-     ]
-    },
-    {
      "q": "먼저 따뜻하게 인사해 보세요. ___.",
      "en": "speak kindly to receive kind words in return",
      "a": [
@@ -3116,13 +3080,6 @@
      "en": "even a worm will turn",
      "a": [
       "지렁이도 밟으면 꿈틀한다"
-     ]
-    },
-    {
-     "q": "___하지 말고 우리 지원 인력을 보냅시다.",
-     "en": "watching a fire across the river",
-     "a": [
-      "강 건너 불구경"
      ]
     },
     {
@@ -3307,15 +3264,6 @@
      "en": "one bad apple spoils the bunch",
      "a": [
       "어물전 망신은 꼴뚜기가 시킨다"
-     ]
-    },
-    {
-     "q": "팀장님부터 일찍 출근하세요. ___.",
-     "en": "as the upper stream is pure, so is the lower",
-     "a": [
-      "윗물이 맑아야 아랫물이 맑죠",
-      "윗물이 맑아야 아랫물이 맑다",
-      "윗물이 맑아야 아랫물이 맑"
      ]
     }
    ]
@@ -3990,13 +3938,6 @@
      ]
     },
     {
-     "q": "___한 굴곡을 다 이겨 낸 모습이 울림을 주네요.",
-     "en": "full of ups and downs",
-     "a": [
-      "파란만장"
-     ]
-    },
-    {
      "q": "불필요한 ___을 뺀 현명한 선택이네요.",
      "en": "empty formalities and vanity",
      "a": [
@@ -4015,6 +3956,13 @@
      "en": "contented with one's lot",
      "a": [
       "안분지족"
+     ]
+    },
+    {
+     "q": "숲속 펜션에서 ___ 책이나 읽으려고요.",
+     "en": "living free and leisurely without worldly cares",
+     "a": [
+      "유유자적"
      ]
     }
    ]
@@ -4180,17 +4128,17 @@
      ]
     },
     {
-     "q": "___이네요. 제가 우산 들고 마중 갈게요.",
-     "en": "misfortunes never come singly",
-     "a": [
-      "설상가상"
-     ]
-    },
-    {
      "q": "___하지 마. 다시 시작할 방법이 분명 있어.",
      "en": "giving up on oneself in despair",
      "a": [
       "자포자기"
+     ]
+    },
+    {
+     "q": "천연 발효빵으로 소문나서 매일 ___래요.",
+     "en": "crowded with visitors",
+     "a": [
+      "문전성시"
      ]
     }
    ]
@@ -4504,13 +4452,6 @@
    ],
    "fill": [
     {
-     "q": "___도 적당히 해야 듣기 좋지요.",
-     "en": "singing one's own praises",
-     "a": [
-      "자화자찬"
-     ]
-    },
-    {
      "q": "한 배를 탔지만 ___을 꾸고 있어서 그래요.",
      "en": "sharing the same bed with different dreams",
      "a": [
@@ -4532,17 +4473,24 @@
      ]
     },
     {
-     "q": "___하게 굴지 말고 아무거나 골라 봐.",
-     "en": "indecisive",
-     "a": [
-      "우유부단"
-     ]
-    },
-    {
      "q": "___라 했으니 시장 조사를 꼼꼼히 합시다.",
      "en": "knowing the enemy and knowing oneself",
      "a": [
       "지피지기"
+     ]
+    },
+    {
+     "q": "현장 모르는 사람들의 전형적인 ___이군요.",
+     "en": "armchair discussion",
+     "a": [
+      "탁상공론"
+     ]
+    },
+    {
+     "q": "구명조끼 덕분에 ___으로 구조되었어요.",
+     "en": "a narrow escape from death",
+     "a": [
+      "구사일생"
      ]
     }
    ]
@@ -4870,13 +4818,6 @@
      ]
     },
     {
-     "q": "___의 위기에서 팀을 구한 멋진 슛이었네.",
-     "en": "desperate crisis",
-     "a": [
-      "절체절명"
-     ]
-    },
-    {
      "q": "어릴 적 헤어진 동생을 ___ 기다리셔서 그래요.",
      "en": "never forgetting awake or asleep",
      "a": [
@@ -4895,6 +4836,13 @@
      "en": "brazen-faced and shameless",
      "a": [
       "후안무치"
+     ]
+    },
+    {
+     "q": "정말 ___로 무사히 살아 돌아왔습니다.",
+     "en": "divine intervention",
+     "a": [
+      "천우신조"
      ]
     }
    ]
@@ -5239,10 +5187,10 @@
      ]
     },
     {
-     "q": "___로 팀장 입장에서 일정을 보면 이해될 거야.",
-     "en": "putting oneself in another person's shoes",
+     "q": "총액은 똑같은데 결국 ___로 우릴 속이는 거네.",
+     "en": "deceiving others with shallow tricks",
      "a": [
-      "역지사지"
+      "조삼모사"
      ]
     }
    ]

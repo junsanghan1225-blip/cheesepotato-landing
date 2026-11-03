@@ -4,7 +4,7 @@
  "published": "2026.11.10",
  "edition": "Draft proof · 시안",
  "theme": "classic",
- "color": "#2E9E79",
+ "color": "#2E9E9E",
  "tint": "#F4F4F2",
  "series": {
   "en": "TOPIK SERIES",
@@ -61,26 +61,26 @@
  },
  "preface": {
   "en": [
-   "384 questions for TOPIK II reading questions 1 to 15, in exam-number order: practice in exam-number order. Practice number by number until the pattern becomes automatic.",
+   "384 questions for TOPIK II reading questions 1 to 15, in exam-number order: practice in exam-number order. Work through the numbers until the pattern becomes automatic.",
    "Every question is newly written for this book in the style of the real test. None is a past exam question.",
-   "Before the practice sets, one page per question type shows how to solve it and the words you need. Each set has an answer sheet, and the answer key at the back explains every question."
+   "Each question type opens with its solving steps and the words you need, then warm-up questions and test sets for that type follow. Each set ends with a self-check, and the answer key at the back explains every question."
   ],
   "ko": [
    "TOPIK II 읽기 1~15번에 해당하는 384문항입니다. 시험 번호 순서대로 풀며 번호마다 달라지는 유형의 풀이 순서를 익힙니다.",
    "모든 문제는 실제 시험의 형식에 맞춰 이 책을 위해 새로 쓴 것이고, 기출 문제가 아닙니다.",
-   "연습 앞에 유형마다 풀이 방법과 필요한 낱말을 한 쪽씩 실었습니다. 회마다 답안지가 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
+   "유형마다 풀이 방법과 필요한 낱말이 먼저 나오고, 그 뒤에 연습문제(쉬운 5문항)와 실전문제가 이어집니다. 회마다 스스로 점검이 있고, 뒤쪽 정답에서 모든 문항의 풀이를 확인합니다."
   ]
  },
  "howto": {
   "en": [
-   "Read the method page for each type first.",
-   "Solve one practice set at a time within its recommended time (about 1 min 24 s per question) and mark the answer sheet.",
+   "At the start of each type, read the method and word pages first.",
+   "Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark your answers in the book.",
    "Check the answer key and read the explanation of every question you missed.",
    "Redo the missed questions after a few days."
   ],
   "ko": [
-   "유형마다 풀이 방법 쪽을 먼저 읽습니다.",
-   "연습 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
+   "새 유형이 시작될 때마다 풀이 방법과 필요한 낱말 쪽을 먼저 읽습니다.",
+   "유형별 문제를 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.",
    "정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.",
    "며칠 뒤 틀린 문항을 다시 풉니다."
   ]
@@ -88,8 +88,8 @@
  "parts": [
   {
    "title": {
-    "en": "Practice sets",
-    "ko": "연습"
+    "en": "Fill in the blank",
+    "ko": "빈칸 채우기"
    },
    "units": [
     "r1-01",
@@ -99,7 +99,15 @@
     "r1-05",
     "r1-06",
     "r1-07",
-    "r1-08",
+    "r1-08"
+   ]
+  },
+  {
+   "title": {
+    "en": "Pick the closest meaning",
+    "ko": "비슷한 말 고르기"
+   },
+   "units": [
     "r1-09",
     "r1-10",
     "r1-11",
@@ -107,7 +115,15 @@
     "r1-13",
     "r1-14",
     "r1-15",
-    "r1-16",
+    "r1-16"
+   ]
+  },
+  {
+   "title": {
+    "en": "Choose the topic",
+    "ko": "주제 고르기"
+   },
+   "units": [
     "r1-17",
     "r1-18",
     "r1-19",
@@ -116,7 +132,15 @@
     "r1-22",
     "r1-23",
     "r1-24",
-    "r1-25",
+    "r1-25"
+   ]
+  },
+  {
+   "title": {
+    "en": "Same as the text",
+    "ko": "내용 일치"
+   },
+   "units": [
     "r1-26",
     "r1-27",
     "r1-28",
@@ -130,7 +154,33 @@
     "r1-36",
     "r1-37",
     "r1-38",
-    "r1-39"
+    "r1-39",
+    "r1-40",
+    "r1-41"
+   ]
+  },
+  {
+   "title": {
+    "en": "Put the sentences in order",
+    "ko": "순서 맞추기"
+   },
+   "units": [
+    "r1-42",
+    "r1-43",
+    "r1-44",
+    "r1-45",
+    "r1-46",
+    "r1-47",
+    "r1-48",
+    "r1-49",
+    "r1-50",
+    "r1-51",
+    "r1-52",
+    "r1-53",
+    "r1-54",
+    "r1-55",
+    "r1-56",
+    "r1-57"
    ]
   }
  ],
@@ -248,23 +298,42 @@
     }
    ],
    "trap": {
-    "ko": "보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 바로 뒤를 꼭 보세요.",
-    "en": "If all options are forms of one word, it is a grammar question. Look at what follows the blank."
+    "ko": "보기가 같은 낱말의 여러 꼴이면 뜻이 아니라 문법 문제예요. 빈칸 앞의 때를 나타내는 말(어제 · 내일)과 빈칸 바로 뒤의 말을 꼭 보세요.",
+    "en": "If all options are forms of one word, it is a grammar question. Look at time words before the blank (yesterday, tomorrow) and at the word right after it."
    },
    "example": {
-    "id": "t2-002",
-    "no": 3,
     "question": "(　　　　)에 들어갈 말로 가장 알맞은 것을 고르십시오.",
-    "passage": "시험 준비를 하느라 밤을 (　　　　) 피곤하다.",
+    "passage": "비가 (　　　　) 소풍은 예정대로 진행될 것이다.",
     "options": [
-     "새우는 대신",
-     "새우느라고",
-     "새웠을지라도",
-     "새우다 보면"
+     "오더라도",
+     "오느라고",
+     "오다가",
+     "오자마자"
     ],
-    "answer": 1,
-    "why": "까닭이 되는 일과 그 탓에 생긴 결과를 이을 때는 '-느라고'를 씁니다. 피곤한 까닭이 밤을 새운 것이므로 '새우느라고'가 맞습니다. '-는 대신'은 무엇을 다른 것으로 갈음할 때 쓰는 말이라 여기에는 어울리지 않습니다.",
-    "test": 6
+    "answer": 0,
+    "why": "비가 와도 예정대로 한다는 뜻이라서 「-더라도」가 맞아요.",
+    "steps": [
+     {
+      "ko": "앞뒤를 읽고 상황을 말해 봐요: 비가 와도 소풍을 한다.",
+      "en": "State the situation: the picnic goes ahead even with rain."
+     },
+     {
+      "ko": "보기가 같은 낱말의 다른 꼴이에요 → 문법 문제예요.",
+      "en": "The options are forms of one verb → grammar."
+     },
+     {
+      "ko": "뒤 문장의 뜻(예정대로)과 어울리는 연결을 찾아요: 양보 「-더라도」(even if).",
+      "en": "Match the connection to the clause that follows: concession “-더라도”."
+     },
+     {
+      "ko": "넣어 읽어요: 오더라도 ✔ · 오느라고 ✘(이유) · 오다가 ✘(중간에 바뀜) · 오자마자 ✘(바로 뒤).",
+      "en": "Test each form; the others mean cause, interruption or immediately after."
+     }
+    ],
+    "tip": {
+     "ko": "뒤 문장이 「그래도 한다」면 양보(-아/어도 · -더라도 · -ㄹ지라도)를 먼저 떠올려요.",
+     "en": "If the next clause says “still”, think of concessive endings first."
+    }
    }
   },
   {
@@ -281,20 +350,48 @@
    },
    "steps": [
     {
-     "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고, 그 문장의 뜻을 쉬운 말로 바꿔 말해 봐요.",
+     "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고, 문장의 뜻을 쉬운 말로 바꿔 말해 봐요.",
      "en": "Read the whole sentence with the underlined part and say its meaning in easy words."
     },
     {
-     "ko": "밑줄 친 표현만 따로 풀어 봐요. 문법이면 「뜻 + 때 · 이유 · 조건」을, 낱말이면 비슷한 말을 떠올려요.",
-     "en": "Explain the underlined part alone: for grammar, its meaning (time, reason, condition); for a word, a synonym."
+     "ko": "밑줄 친 표현이 무엇인지 가려요.",
+     "en": "Decide what kind of expression is underlined.",
+     "sub": [
+      {
+       "ko": "문법(-는 바람에 · -더니 · -(으)ㄴ 덕분에 …) → 뜻 + 때 · 이유 · 조건을 떠올려요",
+       "en": "grammar → recall its meaning: time, reason, condition"
+      },
+      {
+       "ko": "낱말(관용 표현 포함) → 비슷한 쉬운 말을 떠올려요",
+       "en": "a word or idiom → think of an easier word with the same meaning"
+      }
+     ]
+    },
+    {
+     "ko": "밑줄 친 표현만 따로 풀어 써요. 예: -는 바람에 = 나쁜 이유 · -(으)ㄴ 덕분에 = 좋은 이유.",
+     "en": "Explain the underlined part alone. E.g. -는 바람에 = bad reason; -(으)ㄴ 덕분에 = good reason."
     },
     {
      "ko": "보기를 하나씩 밑줄 자리에 넣어 읽어요. 문장의 뜻이 그대로이면 정답 후보예요.",
      "en": "Put each option in place of the underlined part. If the meaning stays the same, it is a candidate."
     },
     {
-     "ko": "뜻이 반대이거나 시간 · 이유가 바뀌면 버려요(-더니 · -다가 · -(으)ㄴ 덕분에 …).",
-     "en": "Drop options that reverse the meaning or change the time or reason."
+     "ko": "뜻이 반대이거나 시간 · 이유가 바뀌면 버려요.",
+     "en": "Drop options that reverse the meaning or change the time or reason.",
+     "sub": [
+      {
+       "ko": "-더니(전에 본 일) ≠ -다가(중간에 바뀜)",
+       "en": "-더니 (something I saw before) ≠ -다가 (changed midway)"
+      },
+      {
+       "ko": "-는 바람에(나쁜 이유) ≠ -(으)ㄴ 덕분에(좋은 이유)",
+       "en": "-는 바람에 (bad reason) ≠ -(으)ㄴ 덕분에 (good reason)"
+      }
+     ]
+    },
+    {
+     "ko": "남은 보기 하나를 문장 전체에 넣어 한 번 더 읽고 어색하지 않은지 확인해요.",
+     "en": "Read the sentence once more with your answer; if it sounds odd, choose again."
     }
    ],
    "words": [
@@ -332,19 +429,35 @@
     "en": "Grammar that looks alike can still differ in meaning: cause, result or time."
    },
    "example": {
-    "id": "t2-684",
-    "no": 5,
-    "question": "밑줄 친 부분과 의미가 가장 비슷한 것을 고르십시오.",
-    "passage": "익숙한 길이라도 방심하면 사고를 내기 십상이다.",
+    "question": "밑줄 친 부분과 의미가 비슷한 것을 고르십시오.",
+    "passage": "그는 약속 시간에 늦을까 봐 서둘러 집을 나섰다.",
+    "mark": "늦을까 봐",
     "options": [
-     "낼 리가 없다",
-     "내기 쉽다",
-     "낼 턱이 없다",
-     "낼 리 만무하다"
+     "늦을 것 같아서",
+     "늦었기 때문에",
+     "늦게 되자",
+     "늦더라도"
     ],
-    "answer": 1,
-    "why": "'-기 십상이다'는 부정적인 일이 일어날 가능성이 큼을 뜻하므로 '내기 쉽다'와 의미가 가장 가깝습니다. '낼 리가 없다'는 강한 부정이므로 어색합니다.",
-    "test": 10
+    "answer": 0,
+    "why": "「-ㄹ까 봐」는 아직 일어나지 않은 일을 걱정한다는 뜻이라서 「늦을 것 같아서」와 비슷해요.",
+    "steps": [
+     {
+      "ko": "밑줄 친 표현이 들어간 문장을 끝까지 읽고 뜻을 쉬운 말로 바꿔요: 늦을지 걱정돼서 서둘렀다.",
+      "en": "Read the whole sentence and restate it simply: worried about being late, he hurried."
+     },
+     {
+      "ko": "밑줄 표현만 풀어요: 「-ㄹ까 봐」 = 앞으로 일어날 일을 걱정하는 이유.",
+      "en": "Explain the phrase: “-ㄹ까 봐” = worry about something that may happen."
+     },
+     {
+      "ko": "보기를 밑줄 자리에 넣어 읽어요: 늦을 것 같아서 ✔ · 늦었기 때문에 ✘(이미 늦음) · 늦게 되자 ✘ · 늦더라도 ✘(양보).",
+      "en": "Substitute each option; keep the one with the same meaning."
+     }
+    ],
+    "tip": {
+     "ko": "시간(이미 / 앞으로)과 이유 · 양보가 바뀐 보기는 모양이 비슷해도 오답이에요.",
+     "en": "Options that change time or cause/concession are wrong even if they look alike."
+    }
    }
   },
   {
@@ -446,19 +559,34 @@
     "en": "A word from the text is not always the answer. Choose the word that covers the whole text."
    },
    "example": {
-    "id": "t2-155",
-    "no": 1,
-    "question": "다음은 무엇에 대한 글입니까?",
-    "passage": "가벼운 무게로 코가 편안합니다.\n깨끗하고 선명한 세상을 마주하세요.",
+    "question": "윗글의 주제로 가장 알맞은 것을 고르십시오.",
+    "passage": "도시에서는 아파트 베란다에서 채소를 기르는 사람이 늘고 있다. 직접 기른 채소는 신선할 뿐만 아니라 키우는 즐거움도 준다. 작은 공간에서도 자연을 느끼려는 사람이 많아지고 있는 것이다.",
     "options": [
-     "장갑",
-     "모자",
-     "가방",
-     "안경"
+     "좁은 공간에서도 채소를 키우며 자연을 즐기는 사람이 늘고 있다.",
+     "도시의 채소 가격이 계속 오르고 있다.",
+     "베란다는 아파트에서 가장 중요한 공간이다.",
+     "신선한 채소는 시장에서 사는 것이 좋다."
     ],
-    "answer": 3,
-    "why": "코가 편안하다는 표현과 세상을 선명하게 본다는 문구를 통해 시력을 교정하거나 눈을 보호하는 물건임을 알 수 있으므로 「안경」이 맞습니다. 「모자」는 머리에 쓰는 것으로 시야를 선명하게 해 주는 것과는 거리가 멉니다.",
-    "test": 17
+    "answer": 0,
+    "why": "글 전체가 작은 공간에서 채소를 키우는 사람이 늘고 있다는 이야기예요.",
+    "steps": [
+     {
+      "ko": "문장마다 핵심어를 찾아요: 베란다 채소 · 신선함과 즐거움 · 작은 공간의 자연.",
+      "en": "Find the key words of each sentence."
+     },
+     {
+      "ko": "마지막 문장(「-는 것이다」)이 전체를 정리해요: 자연을 느끼려는 사람이 늘고 있다.",
+      "en": "The last sentence sums up the passage."
+     },
+     {
+      "ko": "모든 문장을 묶는 보기를 골라요: ① ✔ · ② 가격 이야기 없음 ✘ · ③ ④ 글에 없는 판단 ✘.",
+      "en": "Choose the option that covers every sentence."
+     }
+    ],
+    "tip": {
+     "ko": "한 문장만 설명하는 보기나 글에 없는 말을 덧붙인 보기는 주제가 아니에요.",
+     "en": "An option covering only one sentence, or adding new claims, is not the theme."
+    }
    }
   },
   {
@@ -576,19 +704,34 @@
     "en": "Options with strong words like never, all, always or only are often wrong."
    },
    "example": {
-    "id": "t2-110",
-    "no": 9,
     "question": "다음 글의 내용과 같은 것을 고르십시오.",
-    "passage": "어린이 방학 수영 단기 교실\n\n물놀이 안전 수칙과 기초 영법을 배우는 강좌입니다.\n수영복과 수모는 개인이 준비해야 하며 킥판은 무료로 대여합니다.\n- 강습 기간: 8월 3일 ~ 8월 14일\n- 신청 방법: 구민체육센터 방문 접수",
+    "passage": "우리 마을 도서관은 올해부터 저녁 아홉 시까지 문을 연다. 이전에는 여섯 시에 문을 닫아 직장인이 이용하기 어려웠다. 도서관은 이용 시간을 늘린 뒤 직장인 회원이 늘었다고 밝혔다.",
     "options": [
-     "인터넷으로 수강 신청서를 받는다.",
-     "수영 모자는 센터에서 지급한다.",
-     "연습용 킥판은 현장에서 빌려준다.",
-     "한 달 동안 매일 수업이 열린다."
+     "전에는 저녁 아홉 시에 문을 닫았다.",
+     "직장인 회원이 늘어났다.",
+     "올해부터 일요일에 문을 닫는다.",
+     "이용 시간이 짧아졌다."
     ],
-    "answer": 2,
-    "why": "킥판은 무료로 대여해 준다고 안내되어 있으므로 '연습용 킥판은 현장에서 빌려준다'가 맞습니다. 신청은 방문 접수만 가능하므로 '인터넷으로 수강 신청서를 받는다'는 오답입니다.",
-    "test": 26
+    "answer": 1,
+    "why": "이용 시간을 늘린 뒤 직장인 회원이 늘었다고 했어요.",
+    "steps": [
+     {
+      "ko": "읽으면서 때 · 숫자 · 변화에 표시해요: 올해부터 9시 · 전에는 6시 · 회원이 늘었다.",
+      "en": "Mark times, numbers and changes."
+     },
+     {
+      "ko": "보기를 하나씩 글과 비교해요: ① 전 9시 ✘(6시) ② 늘었다 ✔ ③ 글에 없음 ✘ ④ 짧아짐 ✘(늘렸다).",
+      "en": "Compare each option with the text."
+     },
+     {
+      "ko": "한 곳이라도 다르면 버려요.",
+      "en": "Drop an option that differs anywhere."
+     }
+    ],
+    "tip": {
+     "ko": "전 · 후(이전에는 / 올해부터)와 늘다 · 줄다가 바뀐 보기가 많아요.",
+     "en": "Many wrong options swap before/after or increase/decrease."
+    }
    }
   },
   {
@@ -694,32 +837,58 @@
     "en": "A sentence that begins with so or but cannot be the first."
    },
    "example": {
-    "id": "t2-014",
-    "no": 6,
-    "question": "다음을 순서에 맞게 배열한 것을 고르십시오.",
-    "passage": "(가) 공기 정화 식물은 실내 오염 물질을 흡수하여 공기를 쾌적하게 만든다.\n(나) 따라서 실내 습도를 적절하게 유지하는 데에도 큰 도움이 된다.\n(다) 흡수된 오염 물질은 뿌리로 이동하여 미생물에 의해 분해된다.\n(라) 이 과정에서 식물은 수분을 밖으로 배출하는 증산 작용을 함께 한다.",
+    "question": "다음을 순서대로 맞게 배열한 것을 고르십시오.",
+    "passage": "(가) 그래서 올해는 꼭 건강 검진을 받기로 했다.\n(나) 나는 몇 년 동안 병원에 가지 않았다.\n(다) 며칠 전 친구가 검진 결과를 보고 놀랐다는 이야기를 들었다.\n(라) 바쁘다는 이유로 계속 미루어 왔던 것이다.",
     "options": [
-     "(가)-(나)-(다)-(라)",
-     "(다)-(가)-(라)-(나)",
-     "(다)-(라)-(가)-(나)",
-     "(가)-(다)-(라)-(나)"
+     "(나)-(라)-(다)-(가)",
+     "(나)-(다)-(라)-(가)",
+     "(라)-(나)-(다)-(가)",
+     "(다)-(나)-(라)-(가)"
     ],
-    "answer": 3,
-    "why": "공기 정화 식물의 기본 역할을 설명하는 (가)가 먼저 오고, 오염 물질 흡수 후의 과정을 나타내는 (다)가 이어집니다. 그 과정에서 일어나는 증산 작용 (라)를 거쳐, 그 결과 습도 유지 효과를 정리하는 접속어 '따라서'의 (나)로 마무리되는 '(가)-(다)-(라)-(나)'가 올바릅니다. (가)-(나)-(다)-(라)는 습도 유지가 오염 물질 분해보다 먼저 나와 인과관계가 어긋납니다.",
-    "test": 34
+    "answer": 0,
+    "why": "병원에 안 간 일(나) → 미룬 이유(라) → 친구 이야기(다) → 그래서 결심(가) 순서예요.",
+    "steps": [
+     {
+      "ko": "문장마다 한 줄로 줄여요: 결심 · 몇 년 안 감 · 친구 이야기 · 바빠서 미룸.",
+      "en": "Shrink each sentence."
+     },
+     {
+      "ko": "「그래서」로 시작하는 (가)는 첫 문장이 될 수 없고, 결과이니 마지막에 가요.",
+      "en": "“그래서” cannot start; (가) is the result, so it goes last."
+     },
+     {
+      "ko": "(라) 「-던 것이다」는 앞 내용을 설명해요 → (나) 뒤에 와요.",
+      "en": "(라) explains the previous sentence → it follows (나)."
+     },
+     {
+      "ko": "(다)를 가운데에 넣고 확인해요: (나)-(라)-(다)-(가).",
+      "en": "Place (다) in the middle and check the flow."
+     }
+    ],
+    "tip": {
+     "ko": "「그래서 · 그러나 · 이것은」처럼 앞 문장을 가리키는 말을 먼저 찾아 위치를 정해요.",
+     "en": "Find connectors that point back, and fix their positions first."
+    }
    }
   }
  ],
+ "methodBefore": {
+  "r1-01": "blank",
+  "r1-09": "paraphrase",
+  "r1-17": "theme",
+  "r1-26": "detail",
+  "r1-42": "order"
+ },
  "noGuide": true,
  "noIndex": true,
  "noQr": true,
- "unitCount": 39,
+ "unitCount": 57,
  "coverAccent": "읽기",
  "coverLevel": {
   "code": "TOPIK II",
   "name": "3~6급",
-  "bg": "#2E9E79",
-  "bg2": "#1C6B52",
+  "bg": "#2E9E9E",
+  "bg2": "#1C6B6B",
   "mascot": [
    "cheese",
    3
@@ -735,7 +904,7 @@
  "back": {
   "items": [
    [
-    "39 sets · 연습 39회",
+    "57 sets · 유형별 문제 57회",
     "384 questions for exam no. 1–15 · 시험 1~15번 384문항"
    ],
    [
@@ -752,21 +921,22 @@
  },
  "inline": {
   "r1-01": {
+   "stype": "blank",
    "id": "r1-01",
    "title": {
-    "en": "Practice 1",
-    "ko": "연습 1회"
+    "en": "Warm-up",
+    "ko": "연습문제"
    },
    "sub": {
-    "en": "10 questions · exam no. 1 · about 14 min",
-    "ko": "10문항 · 시험 1번 · 권장 약 14분"
+    "en": "5 questions · exam no. 1 · about 7 min",
+    "ko": "5문항 · 시험 1번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -853,9 +1023,53 @@
        ],
        "answer": 2,
        "why": "앞선 사실을 인정하되 그것이 뒤 절의 의지에 영향을 미치지 않는 양보 표현 '-더라도'가 맞습니다. '-멀길래'는 뒤에 행동의 이유가 와야 하므로 어울리지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 1,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      3,
+      0,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-02": {
+   "stype": "blank",
+   "id": "r1-02",
+   "title": {
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-644",
        "type": "blank",
        "genre": "서술문",
@@ -872,7 +1086,7 @@
        "why": "어떤 일을 하는 기회에 다른 일까지 아울러 행할 때 '-은 김에'를 씁니다. '-가느라고'는 핑계를 나타내므로 덤으로 빌린 상황에 어색합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-632",
        "type": "blank",
        "genre": "서술문",
@@ -889,7 +1103,7 @@
        "why": "어떤 행동을 해 보아도 기대하는 결과를 얻을 수 없음을 나타내는 '-아/어 봐야'가 자연스럽습니다. '-보길래'는 이유를 나타내어 어울리지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-631",
        "type": "blank",
        "genre": "서술문",
@@ -906,7 +1120,7 @@
        "why": "어떤 일이 일어난 직후 곧이어 다음 상황이 전개됨을 나타내는 연결 어미 '-자'가 적절합니다. '-울리도록'은 목표나 시간의 한계를 뜻하므로 맞지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-623",
        "type": "blank",
        "genre": "서술문",
@@ -923,7 +1137,7 @@
        "why": "판단의 원인이나 근거를 제시하는 연결 어미 '-기에'가 적절합니다. '-다르느라고'는 노력이나 부작용에 쓰이므로 성향 차이에 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-641",
        "type": "blank",
        "genre": "서술문",
@@ -938,68 +1152,9 @@
        ],
        "answer": 0,
        "why": "과거에 하지 않은 일을 가정하며 아쉬움이나 후회를 나타낼 때 '-았/었더라면'을 씁니다. '-해 두더라도'는 현재의 양보를 나타내므로 어색합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      3,
-      3,
-      0,
-      0,
-      2,
-      1,
-      3,
-      1,
-      1,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-02": {
-   "id": "r1-02",
-   "title": {
-    "en": "Practice 2",
-    "ko": "연습 2회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 1 · about 14 min",
-    "ko": "10문항 · 시험 1번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-151",
        "type": "blank",
        "genre": "서술문",
@@ -1016,7 +1171,7 @@
        "why": "「-(으)려고」는 어떤 행동을 할 의도나 목적을 나타낼 때 씁니다. 회의에 참석하려는 목적을 가지고 자료를 미리 인쇄했으므로 「참석하려고」가 맞습니다. 「참석하지만」은 앞뒤 내용이 대조될 때 쓰이므로 문맥에 어울리지 않습니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-635",
        "type": "blank",
        "genre": "서술문",
@@ -1033,7 +1188,7 @@
        "why": "어떤 기술이나 방법을 지칭할 때 '-는 법'을 쓰므로 '다루는 법을'이 옳습니다. '-다루더라도'는 양보를 뜻하여 습득 대상에 맞지 않습니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-628",
        "type": "blank",
        "genre": "서술문",
@@ -1050,7 +1205,7 @@
        "why": "정확하지는 않으나 어떤 일의 원인으로 짐작됨을 나타내는 '-아서/어서 그런지'가 알맞습니다. '-그렇더라도'는 반대 가정을 나타내어 어색합니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-618",
        "type": "blank",
        "genre": "서술문",
@@ -1067,7 +1222,7 @@
        "why": "과거에 직접 경험한 사실과 대조되는 현재의 변화를 말할 때는 '-더니'가 옳습니다. '-따뜻할수록'은 점진적인 비례 관계를 뜻하므로 어색합니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-612",
        "type": "blank",
        "genre": "서술문",
@@ -1082,9 +1237,58 @@
        ],
        "answer": 1,
        "why": "앞선 행동이 끝나고 곧바로 다음 행동이 이어짐을 나타내는 '-자마자'가 자연스럽습니다. '-하더니'는 과거의 관찰과 달라진 결과를 나타내므로 어울리지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 2,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      1,
+      1,
+      0,
+      0,
+      1,
+      3,
+      3,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-03": {
+   "stype": "blank",
+   "id": "r1-03",
+   "title": {
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-101",
        "type": "blank",
        "genre": "서술문",
@@ -1101,7 +1305,7 @@
        "why": "어떤 행동이 끝난 뒤에 다음 행동이 이어짐을 나타낼 때는 '-고서'를 쓰므로 '하고서'가 알맞습니다. '-더니'는 과거에 직접 겪은 사실이 원인이 되어 다른 결과가 생겼을 때 쓰므로 문맥에 맞지 않습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-626",
        "type": "blank",
        "genre": "서술문",
@@ -1118,7 +1322,7 @@
        "why": "뒤의 행위나 상태가 어느 정도에 도달했는지 나타내는 '-을 정도로'가 맞습니다. '-나느라고'는 부정적 결과에 쓰이므로 감동의 크기에 어울리지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-640",
        "type": "blank",
        "genre": "서술문",
@@ -1135,7 +1339,7 @@
        "why": "어떤 행위를 막 하려고 마음먹거나 행동에 옮기려던 순간을 나타내는 '-으려던 참에'가 알맞습니다. '-타느라고'는 다른 일에 집중하는 상황에 씁니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-638",
        "type": "blank",
        "genre": "서술문",
@@ -1152,7 +1356,7 @@
        "why": "이미 확정된 사실을 근거로 삼아 의무나 다짐을 나타낼 때 '-는 이상'을 씁니다. '-결정하더라도'는 가정이나 양보를 뜻하여 어울리지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-616",
        "type": "blank",
        "genre": "서술문",
@@ -1167,68 +1371,9 @@
        ],
        "answer": 1,
        "why": "정도가 더해짐에 따라 결과도 비례하여 커짐을 나타내는 '-을수록'이 알맞습니다. '-읽느라고'는 부정적인 결과를 뜻하므로 깊은 이해와 어울리지 않습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      1,
-      3,
-      3,
-      1,
-      0,
-      2,
-      3,
-      1,
-      1
-     ]
-    }
-   ]
-  },
-  "r1-03": {
-   "id": "r1-03",
-   "title": {
-    "en": "Practice 3",
-    "ko": "연습 3회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 1 · about 14 min",
-    "ko": "10문항 · 시험 1번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-639",
        "type": "blank",
        "genre": "서술문",
@@ -1245,7 +1390,7 @@
        "why": "앞 문장과 뒤 문장의 상반된 두 사실을 대조할 때 '반면에'를 씁니다. '바람에'는 뜻밖의 부정적 원인을 뜻하므로 대조에 쓰이지 않습니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-625",
        "type": "blank",
        "genre": "서술문",
@@ -1262,7 +1407,7 @@
        "why": "기본적인 것도 못 하면서 더 큰 일은 기대조차 할 수 없음을 나타낼 때 '-기는커녕'을 씁니다. '-출전하더라도'는 양보 표현이라 어울리지 않습니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-619",
        "type": "blank",
        "genre": "서술문",
@@ -1279,7 +1424,7 @@
        "why": "어떤 사실을 지각하고 그것이 행동의 직접적인 원인이 될 때 '-길래'를 씁니다. '-저렴하도록'은 목적을 나타내므로 구매의 원인에 맞지 않습니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-617",
        "type": "blank",
        "genre": "서술문",
@@ -1296,7 +1441,7 @@
        "why": "다른 대상을 보상하거나 대신하는 상황을 뜻하는 '대신에'가 자연스럽습니다. '치고는'은 일반적인 기준과 비교할 때 쓰이므로 대행 상황에 맞지 않습니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-633",
        "type": "blank",
        "genre": "서술문",
@@ -1311,9 +1456,58 @@
        ],
        "answer": 0,
        "why": "두 가지 이상의 일을 겸사겸사 함께 하려 함을 나타내는 '-을 겸'이 맞습니다. '-하는 바람에'는 부정적인 원인을 뜻하므로 어울리지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 3,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      3,
+      1,
+      1,
+      2,
+      1,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-04": {
+   "stype": "blank",
+   "id": "r1-04",
+   "title": {
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 1 · about 14 min",
+    "ko": "10문항 · 시험 1번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-051",
        "type": "blank",
        "genre": "서술문",
@@ -1330,7 +1524,7 @@
        "why": "원인이나 이유를 나타내는 연결 어미는 '-길래'이므로 '오길래'가 맞습니다. '-으려고'는 의도나 목적을 나타내므로 뒤 문장의 원인이 되는 상황과 어울리지 않습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-624",
        "type": "blank",
        "genre": "서술문",
@@ -1347,7 +1541,7 @@
        "why": "어떤 일이 진행되면서 동시에 다른 일도 일어남을 나타낼 때 '-는 한편'을 씁니다. '-높이더라도'는 양보를 뜻하므로 긍정적 기여 문맥에 맞지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-643",
        "type": "blank",
        "genre": "서술문",
@@ -1364,7 +1558,7 @@
        "why": "어떤 상태가 유지되는 것을 조건으로 삼을 때 '-는 한'을 씁니다. '-지키더라도'는 뒤에 반대 결과가 와야 하므로 상호 신뢰 문맥에 맞지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-610",
        "type": "blank",
        "genre": "서술문",
@@ -1381,7 +1575,7 @@
        "why": "어떤 일에 힘을 쏟아 다른 부정적인 결과가 생겼을 때 '-느라고'를 씁니다. '-하더라도'는 양보를 나타내므로 이유를 설명하는 문맥에 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-634",
        "type": "blank",
        "genre": "서술문",
@@ -1396,68 +1590,9 @@
        ],
        "answer": 0,
        "why": "부정적인 결과의 책임이나 원인을 돌릴 때 쓰는 '-은 탓에'가 알맞습니다. '-덕에'는 긍정적인 도움에 쓰는 말이므로 사고 상황과 어긋납니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      2,
-      1,
-      0,
-      0,
-      0,
-      0,
-      2,
-      0,
-      2,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-04": {
-   "id": "r1-04",
-   "title": {
-    "en": "Practice 4",
-    "ko": "연습 4회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 1–2 · about 14 min",
-    "ko": "10문항 · 시험 1~2번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-001",
        "type": "blank",
        "genre": "서술문",
@@ -1474,7 +1609,7 @@
        "why": "목적이나 의도를 나타내는 연결 어미는 '-(으)려면'입니다. 뒤 문장의 행동(일찍 자는 것)의 목적이 여행을 가는 것이므로 '가려면'이 올바릅니다. '-거나'는 둘 중 하나를 선택하는 어미이므로 목적을 나타내는 문맥에 맞지 않습니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-615",
        "type": "blank",
        "genre": "서술문",
@@ -1491,7 +1626,7 @@
        "why": "듣는 사람도 이미 알고 있는 사실을 재확인할 때 쓰는 '-다시피'가 맞습니다. '-알렸길래'는 주관적인 근거를 나타내어 안내 문구에 어울리지 않습니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-613",
        "type": "blank",
        "genre": "서술문",
@@ -1508,7 +1643,7 @@
        "why": "뒤 절 행위의 목적이나 기준을 나타내는 연결 어미는 '-도록'입니다. '-있느라고'는 부정적인 결과를 초래할 때 쓰이므로 목적 표현에 맞지 않습니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-620",
        "type": "blank",
        "genre": "서술문",
@@ -1525,7 +1660,7 @@
        "why": "공식적인 목적이나 의도를 나타내는 연결 어미는 '-고자'입니다. '-강조하느라고'는 핑계나 부정적 결과에 쓰이므로 공식 강연 취지에 맞지 않습니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-642",
        "type": "blank",
        "genre": "서술문",
@@ -1540,9 +1675,58 @@
        ],
        "answer": 2,
        "why": "어떤 조건이나 상황이 생길 때마다 동일한 반응이 반복됨을 뜻하는 '-을 때마다'가 옳습니다. '-듣는 바람에'는 부정적 결과에 주로 쓰이므로 맞지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 4,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      0,
+      2,
+      0,
+      0,
+      2,
+      3,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-05": {
+   "stype": "blank",
+   "id": "r1-05",
+   "title": {
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 1–2 · about 14 min",
+    "ko": "10문항 · 시험 1~2번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-637",
        "type": "blank",
        "genre": "서술문",
@@ -1559,7 +1743,7 @@
        "why": "앞의 손해나 부담을 감수하고서라도 뒤의 가치를 지키겠다는 양보 표현 '-을망정'이 자연스럽습니다. '-보느라고'는 인과관계를 뜻하므로 맞지 않습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-676",
        "type": "blank",
        "genre": "서술문",
@@ -1576,7 +1760,7 @@
        "why": "실제와 다르더라도 그렇게 가정하여 스스로 위안 삼을 때 '-은 셈 치다'를 씁니다. '-할 리 만무하고'는 강한 부정입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-662",
        "type": "blank",
        "genre": "서술문",
@@ -1593,7 +1777,7 @@
        "why": "잘못된 사실을 사실로 예상하거나 착각했음을 나타내는 '-을 줄 알고'가 맞습니다. '-수밖에 없어서'는 불가피한 선택을 뜻하므로 맞지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-649",
        "type": "blank",
        "genre": "서술문",
@@ -1610,7 +1794,7 @@
        "why": "실제와 거의 다름없는 결과를 인정할 때 '-은 셈이다'를 씁니다. '-끝날 리가 없다'는 부정적 판단이므로 사실상 완료된 맥락과 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-656",
        "type": "blank",
        "genre": "서술문",
@@ -1625,68 +1809,9 @@
        ],
        "answer": 2,
        "why": "다른 이유 없이 오직 그것 하나에 그침을 겸손하게 표현할 때 '-을 뿐이다'를 씁니다. '-지경입니다'는 극단적 상태를 나타내므로 어색합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      2,
-      3,
-      3,
-      2,
-      2,
-      3,
-      2,
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "r1-05": {
-   "id": "r1-05",
-   "title": {
-    "en": "Practice 5",
-    "ko": "연습 5회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 2 · about 14 min",
-    "ko": "10문항 · 시험 2번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-647",
        "type": "blank",
        "genre": "서술문",
@@ -1703,7 +1828,7 @@
        "why": "어떤 사실이 결코 일어날 가능성이 없다고 강하게 확신할 때 '-을 리가 없다'를 씁니다. '-했을 뻔했다'는 거의 일어날 뻔한 위기를 뜻하므로 어울리지 않습니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-653",
        "type": "blank",
        "genre": "서술문",
@@ -1720,7 +1845,7 @@
        "why": "안 좋은 일이나 실수가 습관처럼 자주 일어남을 뜻할 때 '-기 일쑤이다'를 씁니다. '-지각할 턱이 없다'는 반대 뜻이 되어 어색합니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-648",
        "type": "blank",
        "genre": "서술문",
@@ -1737,7 +1862,7 @@
        "why": "실제로는 일어나지 않았으나 거의 일어날 지경까지 갔음을 나타내는 '-을 뻔했다'가 옳습니다. '-부딪치기 마련이다'는 이치를 나타내어 위기 상황에 맞지 않습니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-655",
        "type": "blank",
        "genre": "서술문",
@@ -1754,7 +1879,7 @@
        "why": "어떤 감정이나 상태가 비할 데 없이 매우 큼을 나타내는 관용 표현은 '-기 짝이 없다'입니다. '-기 십상이다'는 부정적인 일의 발생에 씁니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-102",
        "type": "blank",
        "genre": "서술문",
@@ -1769,9 +1894,58 @@
        ],
        "answer": 0,
        "why": "어느 정도 기준이나 가치에 도달함을 나타낼 때는 '-(으)ㄹ 만하다'를 쓰므로 '들 만한'이 알맞습니다. '-는 셈 치고'는 사실이 아닌 것을 사실로 인정하고 넘어갈 때 쓰므로 물건을 고르는 목적과 어울리지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 5,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      2,
+      1,
+      2,
+      2,
+      1,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-06": {
+   "stype": "blank",
+   "id": "r1-06",
+   "title": {
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 2 · about 14 min",
+    "ko": "10문항 · 시험 2번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-668",
        "type": "blank",
        "genre": "서술문",
@@ -1788,7 +1962,7 @@
        "why": "다른 대안이나 선택의 여지가 없음을 나타낼 때 '-을 수밖에 없다'를 씁니다. '-따를 리가 없다'는 규정 준수 상황과 모순됩니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-660",
        "type": "blank",
        "genre": "서술문",
@@ -1805,7 +1979,7 @@
        "why": "감정이나 느낌이 끝이 없을 정도로 지극함을 나타낼 때 '-기 그지없다'를 씁니다. '-기 십상이었다'는 나쁜 일의 빈발에 쓰이므로 맞지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-661",
        "type": "blank",
        "genre": "서술문",
@@ -1822,7 +1996,7 @@
        "why": "그것 이외에는 다른 방법이나 마음이 없음을 나타낼 때 '-을 따름이다'를 씁니다. '-지경입니다'는 고통이나 곤란의 극단에 씁니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-650",
        "type": "blank",
        "genre": "서술문",
@@ -1839,7 +2013,7 @@
        "why": "어떤 좋지 않은 일이 발생하기 쉬움을 나타낼 때 '-기 십상이다'를 씁니다. '-걸릴 리가 없다'는 확신적 부정이므로 쉬운 발생 가능성에 어긋납니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-646",
        "type": "blank",
        "genre": "서술문",
@@ -1854,68 +2028,9 @@
        ],
        "answer": 3,
        "why": "어떤 행위의 결과가 자연스러운 이치임을 나타낼 때 '-기 마련이다'를 씁니다. '-거둘 리가 없다'는 강한 부정이므로 긍정적 이치와 모순됩니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      2,
-      1,
-      0,
-      0,
-      0,
-      1,
-      3,
-      1,
-      0,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-06": {
-   "id": "r1-06",
-   "title": {
-    "en": "Practice 6",
-    "ko": "연습 6회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 2 · about 14 min",
-    "ko": "10문항 · 시험 2번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-658",
        "type": "blank",
        "genre": "서술문",
@@ -1932,7 +2047,7 @@
        "why": "앞으로의 행동에 대해 스스로 마음먹은 의도나 계획을 나타낼 때 '-을 셈이다'를 씁니다. '-다녀올 리가 없다'는 불가능을 나타내어 어색합니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-663",
        "type": "blank",
        "genre": "서술문",
@@ -1949,7 +2064,7 @@
        "why": "겉으로 드러난 상황이나 징조를 보고 추측할 때 '-을 모양이다'를 씁니다. '-쏟아질 리가 없다'는 반대 추측이라 먹구름 상황과 모순됩니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-002",
        "type": "blank",
        "genre": "서술문",
@@ -1966,7 +2081,7 @@
        "why": "까닭이 되는 일과 그 탓에 생긴 결과를 이을 때는 '-느라고'를 씁니다. 피곤한 까닭이 밤을 새운 것이므로 '새우느라고'가 맞습니다. '-는 대신'은 무엇을 다른 것으로 갈음할 때 쓰는 말이라 여기에는 어울리지 않습니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-670",
        "type": "blank",
        "genre": "서술문",
@@ -1983,7 +2098,7 @@
        "why": "부정적인 실수나 잘못이 자주 되풀이됨을 뜻할 때 '-기 일쑤이다'가 알맞습니다. '-잊어버릴 턱이 없다'는 반대 뜻이 됩니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-652",
        "type": "blank",
        "genre": "서술문",
@@ -1998,9 +2113,58 @@
        ],
        "answer": 2,
        "why": "사실이 아닌 것을 거짓으로 꾸며 행동할 때 '-는 척하다'를 씁니다. '-할 리가 없고'는 주관적 확신을 나타내어 위장 행동에 어울리지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 6,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      1,
+      0,
+      3,
+      0,
+      3,
+      1,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-07": {
+   "stype": "blank",
+   "id": "r1-07",
+   "title": {
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 2 · about 14 min",
+    "ko": "10문항 · 시험 2번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-152",
        "type": "blank",
        "genre": "서술문",
@@ -2017,7 +2181,7 @@
        "why": "「-(으)ㄴ 덕분에」는 어떤 일의 긍정적인 원인이나 이유를 나타낼 때 씁니다. 연습을 거듭한 것이 원인이 되어 발표를 잘 마쳤으므로 「한 덕분에」가 알맞습니다. 「하느라고」는 뒤에 부정적인 결과나 피로 등이 올 때 주로 씁니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-681",
        "type": "blank",
        "genre": "서술문",
@@ -2034,7 +2198,7 @@
        "why": "앞의 불만족스러운 상황을 차라리 피하고 뒤의 대안을 택하겠다는 의도를 나타내는 '-을 바에야'가 알맞습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-675",
        "type": "blank",
        "genre": "서술문",
@@ -2051,7 +2215,7 @@
        "why": "어떤 동작을 수행하는 방법이나 지식을 모른다고 할 때 '-을 줄을 모르다'를 씁니다. '-켤 리가 없었다'는 개연성 부정이라 맥락에 맞지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-664",
        "type": "blank",
        "genre": "서술문",
@@ -2068,7 +2232,7 @@
        "why": "어떤 사실이 대체로 그러한 쪽에 가깝다는 경향을 완곡하게 나타낼 때 '-는 편이다'를 씁니다. '-해결할 턱이 없다'는 강한 부정입니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-651",
        "type": "blank",
        "genre": "서술문",
@@ -2083,68 +2247,9 @@
        ],
        "answer": 3,
        "why": "그럴 만한 정당한 이유나 까닭이 전혀 없음을 나타낼 때 '-을 턱이 없다'를 씁니다. '-만하다'는 가치가 있음을 뜻하여 맥락에 맞지 않습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      3,
-      1,
-      2,
-      2,
-      1,
-      0,
-      0,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-07": {
-   "id": "r1-07",
-   "title": {
-    "en": "Practice 7",
-    "ko": "연습 7회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 2 · about 14 min",
-    "ko": "10문항 · 시험 2번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-678",
        "type": "blank",
        "genre": "서술문",
@@ -2161,7 +2266,7 @@
        "why": "과거에 초보자로서 실수를 저지르기 쉬웠던 경향을 회상할 때 '-기 십상이었다'를 씁니다. '-부딪칠 턱이 없었다'는 반대 의미입니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-666",
        "type": "blank",
        "genre": "서술문",
@@ -2178,7 +2283,7 @@
        "why": "어떤 행동을 할 만한 충분한 가치나 이유가 있음을 뜻할 때 '-을 만하다'를 씁니다. '-둘러볼 턱이 없다'는 근거 없는 부정이 됩니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-677",
        "type": "blank",
        "genre": "서술문",
@@ -2195,7 +2300,7 @@
        "why": "절대로 그럴 까닭이나 가능성이 없음을 단정할 때 '-을 리 만무하다'를 씁니다. '-이기 마련이다'는 필연성을 뜻하여 알리바이와 모순됩니다."
       },
       {
-       "no": 4,
+       "no": 9,
        "id": "t2-657",
        "type": "blank",
        "genre": "서술문",
@@ -2212,7 +2317,7 @@
        "why": "세상의 당연한 이치나 법칙을 나타낼 때 '-는 법이다'를 씁니다. '-잊힐 리가 없다'는 강한 부정이므로 세월에 따른 망각과 모순됩니다."
       },
       {
-       "no": 5,
+       "no": 10,
        "id": "t2-667",
        "type": "blank",
        "genre": "서술문",
@@ -2227,9 +2332,58 @@
        ],
        "answer": 3,
        "why": "어떤 일을 판단하거나 실행하기에 시기적으로 아직 너무 빠름을 나타낼 때 '-기는 이르다'를 씁니다. '-확신할 뻔했다'는 과거의 미수에 씁니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 7,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      0,
+      1,
+      3,
+      0,
+      0,
+      3,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-08": {
+   "stype": "blank",
+   "id": "r1-08",
+   "title": {
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
+   },
+   "sub": {
+    "en": "8 questions · exam no. 2 · about 11 min",
+    "ko": "8문항 · 시험 2번 · 권장 약 11분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–8",
+      "ko": "1~8번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-654",
        "type": "blank",
        "genre": "서술문",
@@ -2246,7 +2400,7 @@
        "why": "극심한 상태나 정도에 도달하여 거의 그렇게 될 것 같음을 나타내는 '-을 지경이다'가 맞습니다. '-주저앉기 마련이다'는 보편적 원리를 뜻합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-659",
        "type": "blank",
        "genre": "서술문",
@@ -2263,7 +2417,7 @@
        "why": "결과가 어떤 조건이나 태도에 의해 결정됨을 나타낼 때 '-기 나름이다'를 씁니다. '-먹을 리가 없다'는 부정적 단정이므로 어울리지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-052",
        "type": "blank",
        "genre": "서술문",
@@ -2280,7 +2434,7 @@
        "why": "조건이나 시점을 나타내는 연결 어미는 '-기 시작하면'이므로 '끓기 시작하면'이 정답입니다. '-는 셈 치고'는 가정을 나타내므로 실제 조리 과정 문맥에 맞지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-679",
        "type": "blank",
        "genre": "서술문",
@@ -2297,7 +2451,7 @@
        "why": "탈수로 인해 견디기 힘든 극단적 상태에 직면했음을 표현하는 '-을 지경이었다'가 옳습니다. '-쓰러질 턱이 없었다'는 부정이 되어 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-674",
        "type": "blank",
        "genre": "서술문",
@@ -2312,68 +2466,9 @@
        ],
        "answer": 1,
        "why": "여러 가지 목적을 함께 아울러 처리하려 할 때 '-을 겸사겸사'를 씁니다. '-챙길 리 만무하여'는 강한 부정이라 목적에 어울리지 않습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      0,
-      3,
-      3,
-      3,
-      1,
-      2,
-      0,
-      2,
-      1
-     ]
-    }
-   ]
-  },
-  "r1-08": {
-   "id": "r1-08",
-   "title": {
-    "en": "Practice 8",
-    "ko": "연습 8회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 2–3 · about 14 min",
-    "ko": "10문항 · 시험 2~3번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 6,
        "id": "t2-671",
        "type": "blank",
        "genre": "서술문",
@@ -2390,7 +2485,7 @@
        "why": "정황상 충분히 그렇게 될 만한 타당한 이유가 있음을 짐작할 때 '-을 법하다'를 씁니다. '-합격할 리가 없다'는 합리적 추론과 반대됩니다."
       },
       {
-       "no": 2,
+       "no": 7,
        "id": "t2-680",
        "type": "blank",
        "genre": "서술문",
@@ -2407,7 +2502,7 @@
        "why": "어떤 잘못된 판단으로 인해 결국 보기 흉하거나 낭패인 결과를 맞았을 때 '-는 꼴이 되다'를 씁니다. '-늘어날 뻔했다'는 모면을 뜻합니다."
       },
       {
-       "no": 3,
+       "no": 8,
        "id": "t2-673",
        "type": "blank",
        "genre": "서술문",
@@ -2422,9 +2517,56 @@
        ],
        "answer": 2,
        "why": "어떤 동작을 할 만한 시간적, 심적 여유가 없음을 나타낼 때 '-을 겨를이 없다'를 씁니다. '-먹을 뻔했다'는 위기 모면에 씁니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 11,
+     "total": 8,
+     "from": 1,
+     "no": 8,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      2,
+      0,
+      2,
+      1,
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-09": {
+   "stype": "paraphrase",
+   "id": "r1-09",
+   "title": {
+    "en": "Warm-up",
+    "ko": "연습문제"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 3 · about 7 min",
+    "ko": "5문항 · 시험 3번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 4,
+       "no": 1,
        "id": "t2-689",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2441,7 +2583,7 @@
        "why": "사실과 다르게 거짓으로 꾸며 행동함을 뜻하는 '-는 척하다'는 '아는 체했다'와 동일한 표현입니다. '알 턱이 없었다'는 능력을 부정하는 서술입니다."
       },
       {
-       "no": 5,
+       "no": 2,
        "id": "t2-696",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2458,7 +2600,7 @@
        "why": "자신의 계획이나 마음먹은 뜻을 나타내는 '-을 셈이다'는 '도전해 볼 계획이다'와 동일합니다. '도전할 턱이 없다'는 불가능을 나타내어 정반대입니다."
       },
       {
-       "no": 6,
+       "no": 3,
        "id": "t2-695",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2475,7 +2617,7 @@
        "why": "감정의 정도가 더할 나위 없이 큼을 나타내는 관용구 '-기 짝이 없다'는 '부끄럽기 그지없습니다'와 완벽히 상통합니다."
       },
       {
-       "no": 7,
+       "no": 4,
        "id": "t2-683",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2492,7 +2634,7 @@
        "why": "'-는 법이다'는 당연한 이치를 나타내므로 같은 뜻의 '-기 마련이다'와 바꾸어 쓸 수 있습니다. '생길 뻔했다'는 일어나지 않은 위기를 뜻하므로 맞지 않습니다."
       },
       {
-       "no": 8,
+       "no": 5,
        "id": "t2-688",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2507,9 +2649,53 @@
        ],
        "answer": 3,
        "why": "안 좋은 일이 자주 생김을 나타내는 '-기 일쑤이다'는 '두고 오기 십상이다'와 상통합니다. '두고 올 뻔했다'는 실제로는 챙겨 왔다는 뜻이 되어 어긋납니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 9,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      1,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-10": {
+   "stype": "paraphrase",
+   "id": "r1-10",
+   "title": {
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 3 · about 14 min",
+    "ko": "10문항 · 시험 3번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-692",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2526,7 +2712,7 @@
        "why": "상태나 행위의 정도를 나타내는 '-을 정도로'는 '눈물이 날 만큼'과 바꾸어 쓸 수 있습니다. '눈물이 날 뻔하여'는 아슬아슬했던 상황에 쓰입니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-687",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2541,68 +2727,9 @@
        ],
        "answer": 0,
        "why": "어떤 일이 진행되면서 동시에 다른 일도 일어남을 뜻하는 '-는 한편'은 '높이는 동시에'와 바꾸어 쓸 수 있습니다. '-는 바람에'는 부정적 원인을 뜻합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      1,
-      2,
-      3,
-      0,
-      1,
-      3,
-      3,
-      1,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-09": {
-   "id": "r1-09",
-   "title": {
-    "en": "Practice 9",
-    "ko": "연습 9회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 3 · about 14 min",
-    "ko": "10문항 · 시험 3번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-682",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2619,7 +2746,7 @@
        "why": "'-을 수 있다'는 가능성이나 추측을 나타내므로 '도움이 될지도 모른다'와 뜻이 통합니다. '도움이 될 턱이 없다'는 강한 부정이므로 뜻이 반대입니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-003",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2636,7 +2763,7 @@
        "why": "'-을/ㄹ지도 모른다'는 불확실한 추측을 나타내며, '-을/ㄹ 수도 있다'와 의미가 가장 비슷합니다. '-을/ㄹ 리가 없다'는 강한 부정적 확신을 나타내므로 반대의 의미가 됩니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-685",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2653,7 +2780,7 @@
        "why": "'-을 리가 없다'는 강한 부정적 확신을 나타내며 '잊었을 턱이 없다'와 완전히 같은 의미입니다. '잊을지도 모른다'는 불확실한 추측이므로 맞지 않습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-702",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2670,7 +2797,7 @@
        "why": "의무나 필요성이 없음을 완곡하게 말하는 '실망할 필요는 없다'는 '실망하지 않아도 된다'와 대체 가능합니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-691",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2687,7 +2814,7 @@
        "why": "어떤 기회나 계기에 다른 행동을 덧붙여 행함을 뜻하는 '-던 김에'는 '지나던 차에'와 의미가 같습니다. '-기는커녕'은 전면 부정이므로 맞지 않습니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-153",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2704,7 +2831,7 @@
        "why": "「-는 편이다」는 어느 한쪽으로 기운다는 뜻이고, 「-는 편에 속한다」는 같은 뜻을 풀어 쓴 말입니다. 「노력하는 셈을 친다」는 실제로 하지 않았는데 한 것으로 치겠다는 뜻이고, 「노력하기 마련이다」는 당연히 그렇게 된다는 뜻이며, 「노력할 턱이 없다」는 그럴 까닭이 없다는 뜻이라 모두 어긋납니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-103",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2721,7 +2848,7 @@
        "why": "'-곤 하다'는 어떤 일이 주기적으로 자주 일어남을 나타내므로 대략 그러한 경향을 뜻하는 '풀리는 편이다'와 의미가 가장 가깝습니다. '-을 뻔했다'는 거의 일어날 뻔했으나 실제로는 일어나지 않은 일에 쓰이므로 뜻이 어긋납니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-694",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2736,9 +2863,58 @@
        ],
        "answer": 2,
        "why": "극심한 상태에 도달했음을 나타내는 '-을 지경이었다'는 '쓰러질 정도였다'와 의미가 일치합니다. '쓰러질 턱이 없었다'는 강한 부정이므로 모순됩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 10,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      2,
+      2,
+      1,
+      0,
+      2,
+      3,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-11": {
+   "stype": "paraphrase",
+   "id": "r1-11",
+   "title": {
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 3 · about 14 min",
+    "ko": "10문항 · 시험 3번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-686",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2755,7 +2931,7 @@
        "why": "오직 그것 하나에만 한정됨을 나타내는 '-을 뿐이다'는 '바라볼 따름이다'와 뜻이 같습니다. '바라볼 리가 없다'는 부정을 나타내어 맥락에 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-710",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2770,68 +2946,9 @@
        ],
        "answer": 2,
        "why": "앞선 동작이 완료되자마자 즉시 다음 동작이 일어남을 뜻하는 '-자마자'는 '도착하는 대로'와 의미가 매우 가깝습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      2,
-      2,
-      1,
-      0,
-      2,
-      3,
-      2,
-      2,
-      2,
-      2
-     ]
-    }
-   ]
-  },
-  "r1-10": {
-   "id": "r1-10",
-   "title": {
-    "en": "Practice 10",
-    "ko": "연습 10회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 3 · about 14 min",
-    "ko": "10문항 · 시험 3번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-690",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2848,7 +2965,7 @@
        "why": "행동의 의도나 목적을 나타내는 '-고자'는 '알리기 위해서'와 같은 뜻으로 대체할 수 있습니다. '-는 바람에'는 원치 않는 결과를 나타냅니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-703",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2865,7 +2982,7 @@
        "why": "어떤 행위를 행할 타당한 가치가 있음을 뜻하는 '-을 만하다'는 '보존할 가치가 있다'와 뜻이 같습니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-716",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2882,7 +2999,7 @@
        "why": "어떤 사실이 실제 결과와 거의 차이가 없음을 나타내는 '-은 셈이다'는 '해결된 것이나 마찬가지다'와 같습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-714",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2899,7 +3016,7 @@
        "why": "실제 그 행위와 거의 비슷하게 행함을 비유하는 '-다시피'는 '보여 주듯이'와 뜻이 같습니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-684",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2916,7 +3033,7 @@
        "why": "'-기 십상이다'는 부정적인 일이 일어날 가능성이 큼을 뜻하므로 '내기 쉽다'와 의미가 가장 가깝습니다. '낼 리가 없다'는 강한 부정이므로 어색합니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-715",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2933,7 +3050,7 @@
        "why": "좋지 않은 일이 발생하기 쉬움을 뜻하는 '-기 일쑤다'는 '떨어지기 십상이다'와 바꾸어 쓸 수 있습니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-711",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2950,7 +3067,7 @@
        "why": "어떤 전제 조건이 유지되는 한계를 가리키는 '-는 이상'은 '연습하지 않는 한'과 대체할 수 있습니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-053",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2965,9 +3082,58 @@
        ],
        "answer": 2,
        "why": "'-을/ㄹ 수 있다'는 가능성이나 추측을 나타내며 '도움이 될지도 모름'과 의미가 통하므로 '도움이 될지도 모른다'가 옳습니다. '도움이 될 리가 없다'는 강한 부정이므로 뜻이 서로 다릅니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 11,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      0,
+      2,
+      2,
+      3,
+      1,
+      1,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-12": {
+   "stype": "paraphrase",
+   "id": "r1-12",
+   "title": {
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 3 · about 14 min",
+    "ko": "10문항 · 시험 3번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-699",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2984,7 +3150,7 @@
        "why": "미래의 상황을 짐작하여 전제하는 '-을 텐데'는 '비가 올 것 같은데'와 의미가 가장 가깝습니다. '비가 올 리가 없는데'는 부정이므로 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-707",
        "type": "paraphrase",
        "genre": "서술문",
@@ -2999,68 +3165,9 @@
        ],
        "answer": 3,
        "why": "어떤 동작을 막 실행하려던 찰나를 뜻하는 '-으려던 참에'는 '나가려던 순간에'와 동일합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      2,
-      2,
-      3,
-      1,
-      1,
-      0,
-      2,
-      1,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-11": {
-   "id": "r1-11",
-   "title": {
-    "en": "Practice 11",
-    "ko": "연습 11회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 3–4 · about 14 min",
-    "ko": "10문항 · 시험 3~4번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-713",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3077,7 +3184,7 @@
        "why": "부정적인 결과의 원인을 탓할 때 쓰는 '-는 바람에'는 '잔 탓에'와 의미가 일치합니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-697",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3094,7 +3201,7 @@
        "why": "앞선 부정적 선택지보다 차라리 뒤의 것을 택하겠다는 비교 표현은 '타협하는 것보다 차라리'와 뜻이 통합니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-709",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3111,7 +3218,7 @@
        "why": "행위의 주체나 방법에 따라 결과가 달라짐을 뜻하는 '-기 나름이다'는 '관리하느냐에 달려 있다'와 바꿀 수 있습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-705",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3128,7 +3235,7 @@
        "why": "어떤 결과가 실제 사실과 거의 같음을 평가하는 '-은 셈이다'는 '끝난 것이나 다름없다'와 일치합니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-704",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3145,7 +3252,7 @@
        "why": "다른 선택의 여지가 없었음을 이중 부정으로 나타내는 '거절하지 않을 수 없었다'는 '거절할 수밖에 없었다'와 동일합니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-698",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3162,7 +3269,7 @@
        "why": "이미 알고 있는 사실을 확인하며 비교하는 '-다시피'는 '예보했던 것처럼'과 같은 뜻입니다. '-기는커녕'은 부정적 대비에 씁니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-700",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3179,7 +3286,7 @@
        "why": "어떤 상태가 지속되는 양상을 나타내는 '-은 채로'는 '눈을 감은 상태로'와 뜻이 같습니다. '-는 대신에'는 보상이나 대체에 씁니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-708",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3194,9 +3301,58 @@
        ],
        "answer": 1,
        "why": "절대로 그럴 까닭이나 가능성이 없음을 뜻하는 '-을 리 만무하다'는 '안전할 리가 전혀 없다'와 완전히 같습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 12,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      2,
+      3,
+      3,
+      1,
+      0,
+      2,
+      3,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-13": {
+   "stype": "paraphrase",
+   "id": "r1-13",
+   "title": {
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 3–4 · about 14 min",
+    "ko": "10문항 · 시험 3~4번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-712",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3213,7 +3369,7 @@
        "why": "정황으로 미루어 충분히 타당한 개연성이 있음을 뜻하는 '-을 법하다'는 '성장할 만하다'와 통합니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-751",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3228,68 +3384,9 @@
        ],
        "answer": 0,
        "why": "좋지 않은 행동이나 결과가 빈번하게 발생함을 뜻하는 '-기 일쑤다'는 '저지르기 십상이다'와 같습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      2,
-      3,
-      3,
-      1,
-      0,
-      2,
-      3,
-      1,
-      0,
-      0
-     ]
-    }
-   ]
-  },
-  "r1-12": {
-   "id": "r1-12",
-   "title": {
-    "en": "Practice 12",
-    "ko": "연습 12회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 4 · about 14 min",
-    "ko": "10문항 · 시험 4번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-734",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3306,7 +3403,7 @@
        "why": "이미 상대방에게 전달된 사실을 재확인하는 '-다시피'는 '보고했던 것처럼'과 같은 뜻입니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-738",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3323,7 +3420,7 @@
        "why": "어떤 행위를 굳이 하지 않아도 괜찮음을 뜻하는 '자책할 필요는 없다'는 '자책하지 않아도 된다'와 일치합니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-736",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3340,7 +3437,7 @@
        "why": "선행 동작이 이루어진 상태를 지속하며 후행 동작을 함을 뜻하는 '-은 채로'는 '마주한 상태로'와 뜻이 같습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-750",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3357,7 +3454,7 @@
        "why": "거의 그러하듯이 상세하게 안내함을 비유하는 '-다시피'는 '짚어 주듯이'와 뜻이 통합니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-735",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3374,7 +3471,7 @@
        "why": "앞으로의 기후 상태를 짐작하여 배경으로 제시하는 '-을 텐데'는 '더울 것 같은데'와 의미가 가장 가깝습니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-740",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3391,7 +3488,7 @@
        "why": "필연적으로 그렇게 처리할 당위성이 있음을 이중 부정으로 강조하는 '처벌하지 않을 수 없다'와 완전히 동일합니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-727",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3408,7 +3505,7 @@
        "why": "진행 중이던 기회에 다른 일을 덧붙여 행함을 뜻하는 '-던 김에'는 '돌아가던 차에'와 의미가 일치합니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-732",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3423,9 +3520,58 @@
        ],
        "answer": 0,
        "why": "마음먹은 의도나 다짐을 나타내는 '-을 셈이다'는 '응시할 계획이다'와 동일합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 13,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      0,
+      2,
+      1,
+      0,
+      2,
+      3,
+      0,
+      1,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-14": {
+   "stype": "paraphrase",
+   "id": "r1-14",
+   "title": {
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 4 · about 14 min",
+    "ko": "10문항 · 시험 4번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-748",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3442,7 +3588,7 @@
        "why": "상황으로 보아 충분히 그럴 만한 개연성이 있음을 뜻하는 '-을 법하다'는 '성공할 만하다'와 상통합니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-730",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3457,68 +3603,9 @@
        ],
        "answer": 1,
        "why": "극심한 피로의 극한 상태를 나타내는 '-을 지경이었다'는 '녹초가 될 정도였다'와 같은 뜻입니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      2,
-      1,
-      0,
-      2,
-      3,
-      0,
-      1,
-      0,
-      3,
-      1
-     ]
-    }
-   ]
-  },
-  "r1-13": {
-   "id": "r1-13",
-   "title": {
-    "en": "Practice 13",
-    "ko": "연습 13회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 4 · about 14 min",
-    "ko": "10문항 · 시험 4번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-729",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3535,7 +3622,7 @@
        "why": "앞의 상태를 대체하여 대조되는 행동을 행함을 나타내는 '있는 대신에'는 '있는 반면에'와 가장 가깝습니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-723",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3552,7 +3639,7 @@
        "why": "두 가지 긍정적 효과가 나란히 발생함을 나타내는 '-는 한편'은 '줄이는 동시에'와 바꾸어 쓸 수 있습니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-720",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3569,7 +3656,7 @@
        "why": "부정적인 위험에 노출되기 쉬움을 뜻하는 '-기 십상이다'는 '다치기 쉽다'와 뜻이 일치합니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-725",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3586,7 +3673,7 @@
        "why": "사실과 다르게 아는 양 꾸며내는 태도를 뜻하는 '-는 척하다'는 '아는 체했다'와 동일한 관용 표현입니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-719",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3603,7 +3690,7 @@
        "why": "필연적인 이치를 뜻하는 '-기 마련이다'는 같은 원리를 나타내는 '-는 법이다'와 완전히 바꾸어 쓸 수 있습니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-054",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3620,7 +3707,7 @@
        "why": "'-는 법이다'는 당연한 이치를 나타내므로 같은 뜻의 '-기 마련이다'와 바꿔 쓸 수 있습니다. '생길 뻔했다'는 실제로는 일어나지 않았다는 뜻이라 이치를 말하는 문장과 어울리지 않습니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-004",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3637,7 +3724,7 @@
        "why": "'-기 마련이다'는 당연한 이치나 결과를 나타내므로 '-(게) 되어 있다'와 바꿔 쓸 수 있습니다. '-기 십상이다'는 바람직하지 않은 일이 일어날 가능성이 높을 때 주로 쓰이므로 자연스럽지 않습니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-721",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3652,9 +3739,58 @@
        ],
        "answer": 2,
        "why": "절대로 그럴 가능성이 없다고 확신하는 '-을 리가 없다'는 '했을 턱이 없다'와 동의 표현입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 14,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      3,
+      1,
+      1,
+      3,
+      3,
+      0,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-15": {
+   "stype": "paraphrase",
+   "id": "r1-15",
+   "title": {
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
+   },
+   "sub": {
+    "en": "10 questions · exam no. 4 · about 14 min",
+    "ko": "10문항 · 시험 4번 · 권장 약 14분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–10",
+      "ko": "1~10번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-718",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3671,7 +3807,7 @@
        "why": "가능성이나 추측을 나타내는 '-을 수 있다'는 '이로울지도 모른다'와 의미가 가장 가깝습니다. '이로울 턱이 없다'는 강한 부정이므로 뜻이 반대입니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-743",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3686,68 +3822,9 @@
        ],
        "answer": 2,
        "why": "막 어떤 행동을 하려던 찰나를 가리키는 '-으려던 참에'는 '들어가려던 순간에'와 동일합니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      3,
-      1,
-      1,
-      3,
-      3,
-      0,
-      3,
-      2,
-      0,
-      2
-     ]
-    }
-   ]
-  },
-  "r1-14": {
-   "id": "r1-14",
-   "title": {
-    "en": "Practice 14",
-    "ko": "연습 14회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 4 · about 14 min",
-    "ko": "10문항 · 시험 4번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-726",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3764,7 +3841,7 @@
        "why": "어떤 목표나 목적을 품고 행동함을 뜻하는 '-고자'는 '유치하기 위해서'와 뜻이 같습니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-104",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3781,7 +3858,7 @@
        "why": "'-기 마련이다'는 자연스러운 이치나 필연적인 결과를 나타내므로 '심해지게 되어 있다'와 바꾸어 쓸 수 있습니다. '-기 십상이다'는 원치 않는 나쁜 일이 생기기 쉬움을 가볍게 경고할 때 주로 쓰여 당위적 귀결을 말하는 자리에는 '심해지게 되어 있다'가 더 들어맞습니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-722",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3798,7 +3875,7 @@
        "why": "오직 그것 하나로 제한됨을 나타내는 '-을 뿐이다'는 '걸을 따름이다'와 의미가 동일합니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-741",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3815,7 +3892,7 @@
        "why": "사실상 성취된 것과 동일함을 인정하는 '-은 셈이다'는 '끝난 것이나 다름없다'와 같습니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-749",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3832,7 +3909,7 @@
        "why": "예상치 못한 부정적 원인을 나타내는 '-는 바람에'는 '난 탓에'와 의미가 일치합니다."
       },
       {
-       "no": 6,
+       "no": 8,
        "id": "t2-745",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3849,7 +3926,7 @@
        "why": "노력 여하에 따라 결과가 달라짐을 뜻하는 '-기 나름이다'는 '쏟느냐에 달려 있다'와 바꿀 수 있습니다."
       },
       {
-       "no": 7,
+       "no": 9,
        "id": "t2-746",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3866,7 +3943,7 @@
        "why": "선행 행동 직후 쉼 없이 다음 행동으로 이어짐을 뜻하는 '-자마자'는 '도착하는 대로'와 의미가 가장 가깝습니다."
       },
       {
-       "no": 8,
+       "no": 10,
        "id": "t2-728",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3881,9 +3958,58 @@
        ],
        "answer": 2,
        "why": "어떤 감정이나 상태의 높은 정도를 나타내는 '-을 정도로'는 '먹먹해질 만큼'과 바꾸어 쓸 수 있습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 14,
+     "total": 10,
+     "from": 1,
+     "no": 15,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      0,
+      3,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-16": {
+   "stype": "paraphrase",
+   "id": "r1-16",
+   "title": {
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
+   },
+   "sub": {
+    "en": "7 questions · exam no. 4 · about 10 min",
+    "ko": "7문항 · 시험 4번 · 권장 약 10분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–7",
+      "ko": "1~7번"
+     },
+     "items": [
       {
-       "no": 9,
+       "no": 1,
        "id": "t2-731",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3900,7 +4026,7 @@
        "why": "죄송한 마음이 비할 데 없이 지극함을 나타내는 '-기 짝이 없다'는 '죄송하기 그지없습니다'와 완벽히 상통합니다."
       },
       {
-       "no": 10,
+       "no": 2,
        "id": "t2-154",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3915,68 +4041,9 @@
        ],
        "answer": 3,
        "why": "「마음먹다」는 무엇을 하겠다고 뜻을 정하는 것을 의미하므로 「결심했다」와 뜻이 같습니다. 「망설였다」는 결정을 내리지 못하고 머뭇거렸다는 뜻이므로 알맞지 않습니다."
-      }
-     ]
-    },
-    {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
-     "type": "selfcheck",
-     "title": {
-      "en": "Self check",
-      "ko": "스스로 점검"
-     },
-     "compact": true,
-     "rec": 14,
-     "total": 10,
-     "from": 1,
-     "key": [
-      0,
-      3,
-      0,
-      1,
-      1,
-      2,
-      1,
-      2,
-      2,
-      3
-     ]
-    }
-   ]
-  },
-  "r1-15": {
-   "id": "r1-15",
-   "title": {
-    "en": "Practice 15",
-    "ko": "연습 15회"
-   },
-   "sub": {
-    "en": "10 questions · exam no. 4–5 · about 14 min",
-    "ko": "10문항 · 시험 4~5번 · 권장 약 14분"
-   },
-   "sections": [
-    {
-     "type": "mcq",
-     "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
-     },
-     "items": [
+      },
       {
-       "no": 1,
+       "no": 3,
        "id": "t2-739",
        "type": "paraphrase",
        "genre": "서술문",
@@ -3993,7 +4060,7 @@
        "why": "충분히 음미할 만한 가치와 의의가 있음을 뜻하는 '-을 만하다'는 '읽을 가치가 있다'와 뜻이 통합니다."
       },
       {
-       "no": 2,
+       "no": 4,
        "id": "t2-724",
        "type": "paraphrase",
        "genre": "서술문",
@@ -4010,7 +4077,7 @@
        "why": "좋지 않은 현상이 습관처럼 발생함을 뜻하는 '-기 일쑤이다'는 '뻑뻑해지기 십상이다'와 뜻이 통합니다."
       },
       {
-       "no": 3,
+       "no": 5,
        "id": "t2-747",
        "type": "paraphrase",
        "genre": "서술문",
@@ -4027,7 +4094,7 @@
        "why": "조건이 지속되는 한계를 규정하는 '-는 이상'은 '하지 않는 한'과 대체할 수 있습니다."
       },
       {
-       "no": 4,
+       "no": 6,
        "id": "t2-744",
        "type": "paraphrase",
        "genre": "서술문",
@@ -4044,7 +4111,7 @@
        "why": "결코 그러한 부정적 가능성이 없음을 단정하는 '-을 리 만무하다'는 '생길 리가 전혀 없다'와 완전히 같습니다."
       },
       {
-       "no": 5,
+       "no": 7,
        "id": "t2-752",
        "type": "paraphrase",
        "genre": "서술문",
@@ -4059,9 +4126,55 @@
        ],
        "answer": 0,
        "why": "실질적으로 다 해결된 것과 다름없음을 뜻하는 '-은 셈이다'는 '풀린 것이나 마찬가지다'와 일치합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 10,
+     "total": 7,
+     "from": 1,
+     "no": 16,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-17": {
+   "stype": "theme",
+   "id": "r1-17",
+   "title": {
+    "en": "Warm-up",
+    "ko": "연습문제"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 5 · about 7 min",
+    "ko": "5문항 · 시험 5번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-217",
        "type": "theme",
        "genre": "광고",
@@ -4078,7 +4191,7 @@
        "why": "찻잔에 담겨 은은한 풀 향을 풍기며 마시는 전통 음료이므로 「녹차」가 정답입니다. 「우유」는 고소한 동물성 음료로 찻잔의 맑은 풀 향을 나타내는 설명과 어울리지 않습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-754",
        "type": "theme",
        "genre": "광고",
@@ -4095,7 +4208,7 @@
        "why": "하루의 피로를 풀어주고 몸에 맞는 매트리스로 편안한 잠자리를 제공한다는 내용이므로 '침대'에 대한 광고입니다. '베개'는 머리를 받치는 침구류이므로 전신 매트리스 설명에 어울리지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-208",
        "type": "theme",
        "genre": "광고",
@@ -4112,7 +4225,7 @@
        "why": "두 바퀴와 발로 밟는 페달 조작으로 이동하는 교통수단을 설명하고 있으므로 「자전거」가 맞습니다. 「스케이트보드」나 「전동킥보드」는 발로 밟는 페달 장치가 없습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-207",
        "type": "theme",
        "genre": "광고",
@@ -4129,7 +4242,7 @@
        "why": "식사 후 입안을 닦아 충치를 예방한다는 설명에서 구강 위생 용품인 「치약」이 알맞습니다. 「비누」는 손이나 몸을 씻는 세정제이므로 충치 예방과 관련이 없습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-215",
        "type": "theme",
        "genre": "광고",
@@ -4148,35 +4261,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 17,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      3,
-      3,
-      3,
-      0,
-      0,
       0,
       1,
       3,
@@ -4186,11 +4283,12 @@
     }
    ]
   },
-  "r1-16": {
-   "id": "r1-16",
+  "r1-18": {
+   "stype": "theme",
+   "id": "r1-18",
    "title": {
-    "en": "Practice 16",
-    "ko": "연습 16회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
     "en": "10 questions · exam no. 5 · about 14 min",
@@ -4377,20 +4475,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4400,6 +4484,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 18,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       0,
       0,
@@ -4415,11 +4502,12 @@
     }
    ]
   },
-  "r1-17": {
-   "id": "r1-17",
+  "r1-19": {
+   "stype": "theme",
+   "id": "r1-19",
    "title": {
-    "en": "Practice 17",
-    "ko": "연습 17회"
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
    },
    "sub": {
     "en": "10 questions · exam no. 5–6 · about 14 min",
@@ -4606,20 +4694,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4629,6 +4703,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 19,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       3,
       0,
@@ -4644,11 +4721,12 @@
     }
    ]
   },
-  "r1-18": {
-   "id": "r1-18",
+  "r1-20": {
+   "stype": "theme",
+   "id": "r1-20",
    "title": {
-    "en": "Practice 18",
-    "ko": "연습 18회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
     "en": "10 questions · exam no. 6 · about 14 min",
@@ -4835,20 +4913,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -4858,6 +4922,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 20,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       1,
       3,
@@ -4873,11 +4940,12 @@
     }
    ]
   },
-  "r1-19": {
-   "id": "r1-19",
+  "r1-21": {
+   "stype": "theme",
+   "id": "r1-21",
    "title": {
-    "en": "Practice 19",
-    "ko": "연습 19회"
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
    },
    "sub": {
     "en": "10 questions · exam no. 6–7 · about 14 min",
@@ -5064,20 +5132,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5087,6 +5141,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 21,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       1,
       1,
@@ -5102,11 +5159,12 @@
     }
    ]
   },
-  "r1-20": {
-   "id": "r1-20",
+  "r1-22": {
+   "stype": "theme",
+   "id": "r1-22",
    "title": {
-    "en": "Practice 20",
-    "ko": "연습 20회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
     "en": "10 questions · exam no. 7 · about 14 min",
@@ -5293,20 +5351,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5316,6 +5360,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 22,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       2,
       1,
@@ -5331,11 +5378,12 @@
     }
    ]
   },
-  "r1-21": {
-   "id": "r1-21",
+  "r1-23": {
+   "stype": "theme",
+   "id": "r1-23",
    "title": {
-    "en": "Practice 21",
-    "ko": "연습 21회"
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
    },
    "sub": {
     "en": "10 questions · exam no. 7–8 · about 14 min",
@@ -5522,20 +5570,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5545,6 +5579,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 23,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       0,
       2,
@@ -5560,11 +5597,12 @@
     }
    ]
   },
-  "r1-22": {
-   "id": "r1-22",
+  "r1-24": {
+   "stype": "theme",
+   "id": "r1-24",
    "title": {
-    "en": "Practice 22",
-    "ko": "연습 22회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
     "en": "10 questions · exam no. 8 · about 14 min",
@@ -5751,20 +5789,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -5774,6 +5798,9 @@
      "rec": 14,
      "total": 10,
      "from": 1,
+     "no": 24,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       0,
       3,
@@ -5789,22 +5816,23 @@
     }
    ]
   },
-  "r1-23": {
-   "id": "r1-23",
+  "r1-25": {
+   "stype": "theme",
+   "id": "r1-25",
    "title": {
-    "en": "Practice 23",
-    "ko": "연습 23회"
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
    },
    "sub": {
-    "en": "10 questions · exam no. 8–9 · about 14 min",
-    "ko": "10문항 · 시험 8~9번 · 권장 약 14분"
+    "en": "5 questions · exam no. 8 · about 7 min",
+    "ko": "5문항 · 시험 8번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -5891,9 +5919,53 @@
        ],
        "answer": 1,
        "why": "체질 진단, 한약 처방, 침 치료를 통해 통증과 피로를 치료하는 전통 의료 기관이므로 「한의원」이 정답입니다. 「약국」은 처방전에 따라 약을 조제하거나 일반 의약품을 판매하는 곳으로 침 치료를 하지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 25,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      2,
+      2,
+      3,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-26": {
+   "stype": "detail",
+   "id": "r1-26",
+   "title": {
+    "en": "Warm-up",
+    "ko": "연습문제"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 9 · about 7 min",
+    "ko": "5문항 · 시험 9번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-272",
        "type": "detail",
        "genre": "실용문",
@@ -5910,7 +5982,7 @@
        "why": "'매주 화요일 저녁 7시'를 풀어쓴 「수업은 평일 늦은 시간에 이루어진다」가 옳습니다. 개인 태블릿을 직접 가져와야 하고, 교재비는 포함되어 있으며, 방문 접수도 가능합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-275",
        "type": "detail",
        "genre": "실용문",
@@ -5927,7 +5999,7 @@
        "why": "'완성된 꽃바구니는 가져갈 수 있음'을 다르게 표현한 「직접 완성한 바구니를 집으로 가져간다」가 정답입니다. 선착순이 아니라 추첨제이며, 식물문화센터 실내에서 진행됩니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-273",
        "type": "detail",
        "genre": "실용문",
@@ -5944,7 +6016,7 @@
        "why": "'보호자 동반 불가'를 패러프레이징한 「부모가 아이 곁에 함께 머물 수 없다」가 정답입니다. 버려진 그림책을 재활용하며, 참가비는 무료이고, 회원증 소지자는 우선 선발 대상일 뿐 필수 조건은 아닙니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-267",
        "type": "detail",
        "genre": "실용문",
@@ -5961,7 +6033,7 @@
        "why": "'비가 올 경우 행사가 취소됨'을 다르게 쓴 「날씨가 궂으면 활동이 열리지 않는다」가 맞습니다. 간식과 생수를 제공하고, 대상은 3~6학년이며, 9월 24일 일요일에 진행되므로 다른 설명은 어긋납니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-269",
        "type": "detail",
        "genre": "실용문",
@@ -5980,35 +6052,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 26,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      0,
-      2,
-      2,
-      3,
-      1,
       3,
       2,
       0,
@@ -6018,22 +6074,23 @@
     }
    ]
   },
-  "r1-24": {
-   "id": "r1-24",
+  "r1-27": {
+   "stype": "detail",
+   "id": "r1-27",
    "title": {
-    "en": "Practice 24",
-    "ko": "연습 24회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 9 · about 14 min",
-    "ko": "10문항 · 시험 9번 · 권장 약 14분"
+    "en": "5 questions · exam no. 9 · about 7 min",
+    "ko": "5문항 · 시험 9번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -6120,9 +6177,53 @@
        ],
        "answer": 2,
        "why": "지문에 대상이 '초등학생'으로 명시되어 있어 '초등학생만 프로그램에 참가할 수 있다'가 정답입니다. 재료비 1만 원이 별도로 들며 접수는 누리집으로 진행되므로 다른 선택지들은 틀렸습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 27,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      3,
+      0,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-28": {
+   "stype": "detail",
+   "id": "r1-28",
+   "title": {
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 9 · about 7 min",
+    "ko": "5문항 · 시험 9번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-276",
        "type": "detail",
        "genre": "실용문",
@@ -6139,7 +6240,7 @@
        "why": "'바람이 강하게 불면 실내 이론 수업으로 대체'를 바꾼 「바람이 심하면 실내에서 학습을 대신한다」가 맞습니다. 대상은 중고등학생이고, 기기는 무료로 빌려주므로 다른 선택지는 틀렸습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-271",
        "type": "detail",
        "genre": "실용문",
@@ -6156,7 +6257,7 @@
        "why": "'4회 모두 출석한 수강생에게 다기 세트 증정'을 바꾼 「모든 수업에 다 나오면 선물을 준다」가 정답입니다. 수요일에 열리며, 성인 대상이고, 차 우리기와 다식 만들기 실습이 포함됩니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-274",
        "type": "detail",
        "genre": "실용문",
@@ -6173,7 +6274,7 @@
        "why": "'마지막 날 수강생 작품 전시회 개최'를 바꾼 「강좌가 끝날 무렵 작품을 선보이는 자리가 있다」가 맞습니다. 붓펜은 현장에서 지급하며, 오전 10시에 열리고, 추가 비용 언급은 없습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-109",
        "type": "detail",
        "genre": "실용문",
@@ -6190,7 +6291,7 @@
        "why": "참가비가 5천 원으로 책정되어 있으므로 '참여하려면 별도의 비용을 내야 한다'가 내용과 같습니다. 행사는 저녁 7시 30분부터 시작하므로 '낮 시간대에 진행된다'는 설명은 틀렸습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-268",
        "type": "detail",
        "genre": "실용문",
@@ -6209,35 +6310,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 28,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      1,
-      3,
-      0,
-      2,
-      2,
       3,
       2,
       1,
@@ -6247,22 +6332,23 @@
     }
    ]
   },
-  "r1-25": {
-   "id": "r1-25",
+  "r1-29": {
+   "stype": "detail",
+   "id": "r1-29",
    "title": {
-    "en": "Practice 25",
-    "ko": "연습 25회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
-    "en": "10 questions · exam no. 9–10 · about 14 min",
-    "ko": "10문항 · 시험 9~10번 · 권장 약 14분"
+    "en": "5 questions · exam no. 9 · about 7 min",
+    "ko": "5문항 · 시험 9번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -6349,9 +6435,53 @@
        ],
        "answer": 1,
        "why": "'모든 도구 무료 제공'을 바꾼 「수업에 필요한 물품은 따로 챙기지 않아도 된다」가 정답입니다. 매월 둘째 주 토요일에만 열리고, 초등학생 자녀를 둔 가족이 대상이며, 일주일 전 전화 접수이므로 나머지는 틀렸습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 29,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      1,
+      3,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-30": {
+   "stype": "detail",
+   "id": "r1-30",
+   "title": {
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 10 · about 7 min",
+    "ko": "5문항 · 시험 10번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-294",
        "type": "detail",
        "genre": "실용문",
@@ -6368,7 +6498,7 @@
        "why": "'2주간 전문 동화 구연 양성 교육 수료 후 파견'을 바꾼 「이야기를 전달하는 훈련을 먼저 거친다」가 옳습니다. 60세 이상 어르신 대상이고 활동 지원금이 나오며 방문 접수합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-291",
        "type": "detail",
        "genre": "실용문",
@@ -6385,7 +6515,7 @@
        "why": "'수강료: 전액 무료'를 바꾼 「수업을 듣는 데 필요한 비용이 전혀 없다」가 옳습니다. 꽃밭 디자인과 전지 작업 등 실습이 포함되며, 재료는 제공되고, 목요일 오후 수업입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-290",
        "type": "detail",
        "genre": "실용문",
@@ -6402,7 +6532,7 @@
        "why": "'활동 당일 중식 제공'을 바꾼 「일하는 날에는 점심 식사를 차려 준다」가 정답입니다. 2차 면접 심사가 있고, 주말이나 공휴일에 활동하며, 20세 이상 성인만 지원할 수 있습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-292",
        "type": "detail",
        "genre": "실용문",
@@ -6419,7 +6549,7 @@
        "why": "'테이블 1개, 의자 2개 무상 대여'를 풀어쓴 「물품을 진열할 책상과 걸상을 거저 빌려준다」가 맞습니다. 직접 손으로 만든 수공예품만 가능하고, 부스 집기는 무상이며, 18시에 종료됩니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-285",
        "type": "detail",
        "genre": "실용문",
@@ -6438,35 +6568,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 30,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      0,
-      1,
-      3,
-      0,
-      1,
       1,
       2,
       1,
@@ -6476,22 +6590,23 @@
     }
    ]
   },
-  "r1-26": {
-   "id": "r1-26",
+  "r1-31": {
+   "stype": "detail",
+   "id": "r1-31",
    "title": {
-    "en": "Practice 26",
-    "ko": "연습 26회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
-    "en": "10 questions · exam no. 10 · about 14 min",
-    "ko": "10문항 · 시험 10번 · 권장 약 14분"
+    "en": "5 questions · exam no. 10 · about 7 min",
+    "ko": "5문항 · 시험 10번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -6578,9 +6693,53 @@
        ],
        "answer": 0,
        "why": "'재학생 및 휴학생'을 바꾼 「학교를 쉬고 있는 학생도 지원할 수 있다」가 정답입니다. 주 1회 활동이며, 소정의 활동비가 주어지고, 홈페이지로 온라인 신청합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 31,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      1,
+      3,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-32": {
+   "stype": "detail",
+   "id": "r1-32",
+   "title": {
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 10 · about 7 min",
+    "ko": "5문항 · 시험 10번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-759",
        "type": "detail",
        "genre": "실용문",
@@ -6597,7 +6756,7 @@
        "why": "지원 내용에 초기 시제품 제작 지원금 지급이 명시되어 있으므로 '선정된 참가자에게는 초기 시제품 제작 지원금이 제공된다'가 일치합니다. 대상은 창업 3년 이내 기업이며, 멘토링은 온·오프라인 병행이고, 결과는 개별 문자 통보됩니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-060",
        "type": "detail",
        "genre": "실용문",
@@ -6614,7 +6773,7 @@
        "why": "'인주시청 홈페이지 온라인 접수'를 다르게 표현한 '인터넷으로 신청 접수를 받는다'가 옳습니다. 농기구는 현장에서 무료로 빌려준다고 하였으므로 개인 농기구를 필수 지참해야 한다는 설명은 오답입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-284",
        "type": "detail",
        "genre": "실용문",
@@ -6631,7 +6790,7 @@
        "why": "'1대1로 안내해 드릴 분'을 바꾼 「어르신을 일대일로 전담하여 다루는 법을 돕는다」가 옳습니다. 초보자 교육을 해주므로 사전 자격증이 필수가 아니며, 평일 오후에 전화 접수로 진행됩니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-110",
        "type": "detail",
        "genre": "실용문",
@@ -6648,7 +6807,7 @@
        "why": "킥판은 무료로 대여해 준다고 안내되어 있으므로 '연습용 킥판은 현장에서 빌려준다'가 맞습니다. 신청은 방문 접수만 가능하므로 '인터넷으로 수강 신청서를 받는다'는 오답입니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-280",
        "type": "detail",
        "genre": "실용문",
@@ -6667,35 +6826,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 32,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      2,
-      1,
-      3,
-      0,
-      0,
       1,
       3,
       3,
@@ -6705,22 +6848,23 @@
     }
    ]
   },
-  "r1-27": {
-   "id": "r1-27",
+  "r1-33": {
+   "stype": "detail",
+   "id": "r1-33",
    "title": {
-    "en": "Practice 27",
-    "ko": "연습 27회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
-    "en": "10 questions · exam no. 10–11 · about 14 min",
-    "ko": "10문항 · 시험 10~11번 · 권장 약 14분"
+    "en": "5 questions · exam no. 10 · about 7 min",
+    "ko": "5문항 · 시험 10번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -6807,9 +6951,53 @@
        ],
        "answer": 2,
        "why": "'지원서와 샘플 기사 1편을 전자우편으로 제출'을 바꾼 「직접 쓴 예시 글을 함께 제출해야 한다」가 정답입니다. 기사 채택 시 원고료가 주어지며, 마감은 18시까지입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 33,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      1,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-34": {
+   "stype": "detail",
+   "id": "r1-34",
+   "title": {
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 11 · about 7 min",
+    "ko": "5문항 · 시험 11번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-760",
        "type": "detail",
        "genre": "설명문",
@@ -6826,7 +7014,7 @@
        "why": "운전자가 멀리서도 보행자를 쉽게 식별할 수 있어 서행을 유도한다는 문장이 있으므로 '옐로카펫은 차량 운전자가 보행자를 쉽게 알아보도록 돕는다'가 일치합니다. 초등학교 인근에 설치되며, 대기선 준수율은 증가했고, 지난해 이미 시범 운영을 마쳤습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-303",
        "type": "detail",
        "genre": "실용문",
@@ -6843,7 +7031,7 @@
        "why": "'강한 바람이 불거나 해가 지는 저녁에는 스스로 접혀 닫힌다'를 바꾼 「센 바람이 일면 기계가 스스로 몸을 접는다」가 정답입니다. 기온 센서로 자동 작동하며 바람이 불거나 밤이 되면 닫힙니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-300",
        "type": "detail",
        "genre": "실용문",
@@ -6860,7 +7048,7 @@
        "why": "'버스 운행이 끊기는 밤 11시부터 새벽 5시 사이에는 전원이 저절로 꺼진다'를 다르게 쓴 「버스가 다니지 않는 밤에는 작동을 멈춘다」가 맞습니다. 15도 이하에서 자동 작동하며 밤에는 꺼집니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-299",
        "type": "detail",
        "genre": "실용문",
@@ -6877,7 +7065,7 @@
        "why": "'아침 8시 이후에도 차를 빼지 않는 차량에는 시간당 주차 요금이 부과되며'를 뜻하는 「아침 여덟 시를 넘기면 비용을 물어야 한다」가 정답입니다. 무료 개방은 밤 7시부터 아침 8시까지이며 15곳이 대상입니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-302",
        "type": "detail",
        "genre": "실용문",
@@ -6896,35 +7084,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 34,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      1,
-      0,
-      1,
-      1,
-      2,
       0,
       2,
       3,
@@ -6934,22 +7106,23 @@
     }
    ]
   },
-  "r1-28": {
-   "id": "r1-28",
+  "r1-35": {
+   "stype": "detail",
+   "id": "r1-35",
    "title": {
-    "en": "Practice 28",
-    "ko": "연습 28회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
-    "en": "10 questions · exam no. 11 · about 14 min",
-    "ko": "10문항 · 시험 11번 · 권장 약 14분"
+    "en": "5 questions · exam no. 11 · about 7 min",
+    "ko": "5문항 · 시험 11번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -7036,9 +7209,53 @@
        ],
        "answer": 0,
        "why": "'계단이 없어 휠체어나 유모차를 탄 승객도 쉽게 탈 수 있다'를 바꾼 「발판 계단이 없어 바퀴 달린 차도 오르기 쉽다」가 정답입니다. 전체가 아니라 절반 교체 계획이며, 소음과 진동은 적고, 전기로 달립니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 35,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      2,
+      2,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-36": {
+   "stype": "detail",
+   "id": "r1-36",
+   "title": {
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 11 · about 7 min",
+    "ko": "5문항 · 시험 11번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-308",
        "type": "detail",
        "genre": "실용문",
@@ -7055,7 +7272,7 @@
        "why": "'공사 비용의 70%를 시에서 지원해 준다'를 바꾼 「정원을 만드는 데 드는 비용의 일부를 시가 보탠다」가 맞습니다. 면적이 100제곱미터 이상이어야 하고 안전 진단을 거쳐야 합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-061",
        "type": "detail",
        "genre": "설명문",
@@ -7072,7 +7289,7 @@
        "why": "'기존 일반 버스와 동일한 요금이 적용되어'를 말을 바꾸어 나타낸 '심야 버스는 기존 일반 버스와 이용료가 같다'가 맞습니다. 밤 12시부터 새벽 4시까지 운행하므로 낮 시간대 운행이나 지하철 다니는 시간 운행 설명은 오답입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-305",
        "type": "detail",
        "genre": "실용문",
@@ -7089,7 +7306,7 @@
        "why": "'새벽 1시까지 문을 열고 의약품 판매를 맡는다'를 바꾼 「자정이 넘은 새벽 한 시까지 약을 살 수 있다」가 정답입니다. 연중무휴이고 전문 약사가 상주하며 누리집이나 전화로 위치를 안내합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-111",
        "type": "detail",
        "genre": "설명문",
@@ -7106,7 +7323,7 @@
        "why": "현장 관리소에서 기초 농업 기술을 무료 지도해 준다고 했으므로 '작물 재배에 필요한 조언을 들을 수 있다'가 정답입니다. 선정 방식은 추첨이므로 '선착순으로 뽑는다'는 본문과 다릅니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-301",
        "type": "detail",
        "genre": "실용문",
@@ -7125,35 +7342,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 36,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      3,
-      0,
-      2,
-      2,
-      0,
       3,
       3,
       0,
@@ -7163,22 +7364,23 @@
     }
    ]
   },
-  "r1-29": {
-   "id": "r1-29",
+  "r1-37": {
+   "stype": "detail",
+   "id": "r1-37",
    "title": {
-    "en": "Practice 29",
-    "ko": "연습 29회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
-    "en": "10 questions · exam no. 11–12 · about 14 min",
-    "ko": "10문항 · 시험 11~12번 · 권장 약 14분"
+    "en": "5 questions · exam no. 11 · about 7 min",
+    "ko": "5문항 · 시험 11번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -7265,9 +7467,53 @@
        ],
        "answer": 3,
        "why": "'다른 지하철역의 스마트 도서관 기기에서도 가능하다'를 바꾼 「빌린 곳과 다른 역의 기계에 돌려주어도 된다」가 정답입니다. 지하철 역사 무인 기기에서 빌릴 수 있고, 1인당 2권 한도입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 37,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      1,
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-38": {
+   "stype": "detail",
+   "id": "r1-38",
+   "title": {
+    "en": "Test set 12",
+    "ko": "실전문제 12회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 12 · about 7 min",
+    "ko": "5문항 · 시험 12번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-062",
        "type": "detail",
        "genre": "설명문",
@@ -7284,7 +7530,7 @@
        "why": "'모인 포인트는 지역 가맹점에서 현금처럼 사용할 수 있다'를 변형하여 표현한 '포인트를 모으면 지역 가맹점에서 쓸 수 있다'가 정답입니다. 라벨이 붙어 있거나 색깔이 있는 페트병은 제외된다고 명시되어 있습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-012",
        "type": "detail",
        "genre": "설명문",
@@ -7301,7 +7547,7 @@
        "why": "'무게를 측정해 지역 화폐로 환급해 준다'를 바꾸어 쓴 「재활용품을 가져오면 지역 화폐로 바꾸어 준다」가 맞습니다. 수요일과 금요일에만 하므로 「매일」은 틀리고, 주민센터 앞마당으로 찾아오는 사업이라 「구청으로 찾아가야 한다」도 아닙니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-112",
        "type": "detail",
        "genre": "설명문",
@@ -7318,7 +7564,7 @@
        "why": "다섯 개 미만의 소형 가전제품은 수수료 없이 배출할 수 있다고 했으므로 '적은 수량의 소형 가전은 공짜로 버릴 수 있다'가 옳습니다. 보조배터리도 배출 가능 품목에 포함되어 있으므로 제외되었다는 선택지는 오답입니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-318",
        "type": "detail",
        "genre": "실용문",
@@ -7335,7 +7581,7 @@
        "why": "'담아갈 개인 용기를 반드시 가져와야 한다'를 바꾼 「주민이 직접 빈 그릇을 챙겨가야 액을 받는다」가 맞습니다. 빈 통은 제공되지 않고, 1인당 2리터 제한이며, 평일 화요일에 보급됩니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-324",
        "type": "detail",
        "genre": "실용문",
@@ -7354,35 +7600,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 38,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      2,
-      2,
-      1,
-      1,
-      3,
       3,
       3,
       3,
@@ -7392,22 +7622,23 @@
     }
    ]
   },
-  "r1-30": {
-   "id": "r1-30",
+  "r1-39": {
+   "stype": "detail",
+   "id": "r1-39",
    "title": {
-    "en": "Practice 30",
-    "ko": "연습 30회"
+    "en": "Test set 13",
+    "ko": "실전문제 13회"
    },
    "sub": {
-    "en": "10 questions · exam no. 12 · about 14 min",
-    "ko": "10문항 · 시험 12번 · 권장 약 14분"
+    "en": "5 questions · exam no. 12 · about 7 min",
+    "ko": "5문항 · 시험 12번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -7494,9 +7725,53 @@
        ],
        "answer": 1,
        "why": "'전기요금과 도시가스 요금을 차감 납부하거나'를 바꾼 「받은 카드로 전기세나 가스비를 깎을 수 있다」가 맞습니다. 노인·영유아·장애인이 포함되어야 하며, 등유도 살 수 있고 동절기 지원입니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 39,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      2,
+      3,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-40": {
+   "stype": "detail",
+   "id": "r1-40",
+   "title": {
+    "en": "Test set 14",
+    "ko": "실전문제 14회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 12 · about 7 min",
+    "ko": "5문항 · 시험 12번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-761",
        "type": "detail",
        "genre": "설명문",
@@ -7513,7 +7788,7 @@
        "why": "시장 입구 안내소에서 이름과 연락처를 기재한 뒤 자유롭게 빌릴 수 있다는 내용이 본문에 나오므로 '시장 입구 안내소에서 간단한 인적 사항을 적고 대여할 수 있다'가 맞습니다. 대여료는 무료이며, 세탁은 상인회에서 담당합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-323",
        "type": "detail",
        "genre": "실용문",
@@ -7530,7 +7805,7 @@
        "why": "'1회에 한해 1개월을 추가 연장하여'를 바꾼 「필요하면 한 달을 더 늘려서 빌려 쓸 수 있다」가 정답입니다. 신분증 지참이 필수이고 최장 2개월이며 재고 여부를 전화로 미리 확인해야 합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-320",
        "type": "detail",
        "genre": "실용문",
@@ -7547,7 +7822,7 @@
        "why": "'설치비의 90%를 시에서 보조해 준다'를 바꾼 「시설을 만들 때 드는 돈의 대부분을 시가 낸다」가 맞습니다. 조경수나 청소용수이지 음용수가 아니며, 설치 공간이 있어야 합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-311",
        "type": "detail",
        "genre": "실용문",
@@ -7564,7 +7839,7 @@
        "why": "'롤 화장지 2롤을 지급한다'를 다르게 쓴 「모아서 건네주면 일상용 휴지를 건네받는다」가 정답입니다. 헹궈서 말려야 하고, 멸균팩도 인정되며, 목요일에만 운영됩니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-315",
        "type": "detail",
        "genre": "실용문",
@@ -7583,35 +7858,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 40,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      1,
-      2,
-      3,
-      0,
-      1,
       2,
       2,
       3,
@@ -7621,22 +7880,23 @@
     }
    ]
   },
-  "r1-31": {
-   "id": "r1-31",
+  "r1-41": {
+   "stype": "detail",
+   "id": "r1-41",
    "title": {
-    "en": "Practice 31",
-    "ko": "연습 31회"
+    "en": "Test set 15",
+    "ko": "실전문제 15회"
    },
    "sub": {
-    "en": "10 questions · exam no. 12–13 · about 14 min",
-    "ko": "10문항 · 시험 12~13번 · 권장 약 14분"
+    "en": "5 questions · exam no. 12 · about 7 min",
+    "ko": "5문항 · 시험 12번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -7723,9 +7983,53 @@
        ],
        "answer": 3,
        "why": "'알약은 포장재를 뜯어 알맹이만 비닐봉지에 모으고'를 바꾼 「알약은 겉포장을 벗겨낸 뒤 봉지에 모아 담는다」가 맞습니다. 약을 세면대에 버리면 수질이 오염되며, 약국에도 수거함이 있고, 물약은 새지 않게 닫아야 합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 41,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      0,
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-42": {
+   "stype": "order",
+   "id": "r1-42",
+   "title": {
+    "en": "Warm-up",
+    "ko": "연습문제"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-763",
        "type": "order",
        "genre": "설명문",
@@ -7742,7 +8046,7 @@
        "why": "굴 껍데기 방치 문제를 제시하는 (가) 뒤에 재활용 가능성을 연 (다)가 오고, 구체적 혼합 공정을 설명하는 (나)와 그에 따른 도로 시공 효과를 밝히는 (라)로 연결되는 '(가)-(다)-(나)-(라)'가 올바른 순서입니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-769",
        "type": "order",
        "genre": "설명문",
@@ -7759,7 +8063,7 @@
        "why": "폐지 상자가 넘쳐나는 문제를 다룬 (나) 뒤에 전통 방식을 접목한 기술을 소개하는 (라)가 오며, 원료 분쇄와 배합 공정을 말하는 (가)와 완충재 완성으로 마무리하는 (다)로 이어지는 '(나)-(라)-(가)-(다)'가 순서에 맞습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-767",
        "type": "order",
        "genre": "설명문",
@@ -7776,7 +8080,7 @@
        "why": "기존 합성수지 모래주머니의 한계를 짚는 (가)에 이어 폐현수막으로 대체하는 시도를 밝히는 (다)가 오고, 원단의 적합성을 설명하는 (나)와 자원 절감 및 재난 대비의 결론을 짓는 (라)로 묶이는 '(가)-(다)-(나)-(라)'가 맞습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-768",
        "type": "order",
        "genre": "설명문",
@@ -7793,7 +8097,7 @@
        "why": "커피박의 연료 잠재력을 소개하는 (나)가 출발점이 되고, 수거 및 성형 과정을 거치는 (가)와 가마에 구워내는 (라)를 거쳐, 완성품의 뛰어난 품질을 소개하는 (다)로 이어지는 '(나)-(가)-(라)-(다)'가 가장 매끄럽습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-765",
        "type": "order",
        "genre": "설명문",
@@ -7812,35 +8116,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 42,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      3,
-      0,
-      0,
-      1,
-      3,
       2,
       3,
       2,
@@ -7850,22 +8138,23 @@
     }
    ]
   },
-  "r1-32": {
-   "id": "r1-32",
+  "r1-43": {
+   "stype": "order",
+   "id": "r1-43",
    "title": {
-    "en": "Practice 32",
-    "ko": "연습 32회"
+    "en": "Test set 1",
+    "ko": "실전문제 1회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13 · about 14 min",
-    "ko": "10문항 · 시험 13번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -7952,9 +8241,53 @@
        ],
        "answer": 2,
        "why": "폐타이어 처리의 어려움을 꺼내는 (다)가 화제 도입으로 적절하며, 이를 아스팔트 포장재로 재활용하는 기술 (가)가 이어집니다. 고무 성분의 소음 저감 효과 (나) 뒤에 '게다가'로 사고 예방 효과를 덧붙이는 (라)가 오는 '(다)-(가)-(나)-(라)'가 바른 배열입니다. '(다)-(나)-(가)-(라)'는 아스팔트에 섞는 과정 없이 고무 성분의 장점부터 나와 문맥이 통하지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 43,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      0,
+      1,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-44": {
+   "stype": "order",
+   "id": "r1-44",
+   "title": {
+    "en": "Test set 2",
+    "ko": "실전문제 2회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-334",
        "type": "order",
        "genre": "설명문",
@@ -7971,7 +8304,7 @@
        "why": "버려지는 자투리 가죽 실태를 환기하는 (나)로 글을 열고, '이 가죽 조각들'을 가공하는 신기술 (라)가 뒤따릅니다. '이렇게 만든 재생 가죽'의 우수한 질감과 내습성 (가) 뒤에 폐기물 감축과 비용 절감의 총평 (다)가 연결되는 '(나)-(라)-(가)-(다)'가 바릅니다. '(나)-(가)-(라)-(다)'는 재생 가죽 제조 기술 설명 없이 가죽의 장점부터 제시되어 문맥이 끊깁니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-326",
        "type": "order",
        "genre": "설명문",
@@ -7988,7 +8321,7 @@
        "why": "음식물 쓰레기 문제점을 제기하는 (나)가 먼저 오고, 역접 접속사 '그러나'로 퇴비 전환을 설명하는 (가)가 뒤따릅니다. 퇴비가 농작물 성장을 돕는 효과 (라)를 거쳐 글 전체를 종합하는 지시어 '이처럼'의 (다)로 끝맺는 '(나)-(가)-(라)-(다)'가 자연스럽습니다. '(나)-(라)-(가)-(다)'는 퇴비로 전환하는 설명 전에 퇴비의 효과부터 나와 인과관계가 맞지 않습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-163",
        "type": "order",
        "genre": "설명문",
@@ -8005,7 +8338,7 @@
        "why": "폐현수막으로 인한 쓰레기 문제를 제시한 (다) 뒤에, 이를 생활용품으로 만드는 사례를 소개한 (가)가 오고, 그 원단 특성과 장점을 설명한 (나)를 거쳐 전체적인 의의를 요약한 (라)로 이어지는 「(다)－(가)－(나)－(라)」가 자연스럽습니다. (가)부터 시작하면 현수막 쓰레기 문제가 대두된 배경 없이 활용 사례부터 언급되어 어색합니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-331",
        "type": "order",
        "genre": "설명문",
@@ -8022,7 +8355,7 @@
        "why": "낙엽 처리 비용 문제를 꺼내는 (나)로 시작하여 지자체의 고체 연료 가공 시도 (라)로 연결됩니다. 낙엽을 펠릿으로 압축 성형하는 방법 (가)가 서술된 후 지시어 '이 펠릿'으로 난방 연료로서의 인기를 밝히는 (다)가 오는 '(나)-(라)-(가)-(다)'가 타당합니다. '(나)-(가)-(라)-(다)'는 연료 가공 취지보다 펠릿 압축 공정이 먼저 나와 논리적 순서가 어긋납니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-113",
        "type": "order",
        "genre": "설명문",
@@ -8041,35 +8374,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 44,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      3,
-      0,
-      1,
-      3,
-      2,
       1,
       1,
       0,
@@ -8079,22 +8396,23 @@
     }
    ]
   },
-  "r1-33": {
-   "id": "r1-33",
+  "r1-45": {
+   "stype": "order",
+   "id": "r1-45",
    "title": {
-    "en": "Practice 33",
-    "ko": "연습 33회"
+    "en": "Test set 3",
+    "ko": "실전문제 3회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13 · about 14 min",
-    "ko": "10문항 · 시험 13번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8181,9 +8499,53 @@
        ],
        "answer": 2,
        "why": "종이 상자가 버려지기 쉽다는 화제를 제기하는 (나)가 첫 문장으로 가장 적절하며, 이를 전환하여 재활용 자원이 됨을 설명하는 (다)가 이어집니다. 배출 방법인 (라)가 나온 뒤 지시어 '이렇게 모인'으로 받는 (가)가 마지막에 오는 '(나)-(다)-(라)-(가)'가 올바른 순서입니다. (나)-(라)-(다)-(가)는 배출 방법이 재활용 가능성 언급보다 먼저 나와 문맥이 어색합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 45,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      3,
+      1,
+      3,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-46": {
+   "stype": "order",
+   "id": "r1-46",
+   "title": {
+    "en": "Test set 4",
+    "ko": "실전문제 4회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 13 · about 7 min",
+    "ko": "5문항 · 시험 13번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-329",
        "type": "order",
        "genre": "설명문",
@@ -8200,7 +8562,7 @@
        "why": "버려지는 청바지의 환경 문제를 제시한 (나)가 출발점이 되고, 이를 건축용 단열재로 바꾼 기술 (다)가 이어집니다. 단열재가 열 손실을 차단하는 원리 (가) 뒤에 '그 결과'로 환경적·경제적 이점을 종합하는 (라)가 오는 '(나)-(다)-(가)-(라)'가 가장 자연스럽습니다. '(나)-(가)-(다)-(라)'는 청바지를 단열재로 만드는 기술 소개보다 단열 원리가 먼저 나와 어색합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-339",
        "type": "order",
        "genre": "설명문",
@@ -8217,7 +8579,7 @@
        "why": "버려진 전자기기 속 희소금속 매장 사실 (나)로 흥미를 유발하고, 기판 분쇄 및 화학 추출 공정 (다)가 이어집니다. 추출된 금속의 정련 및 원자재 재공급 (가) 뒤에 '도시 광산' 기술의 자원 수입 대체 의의 (라)로 매듭짓는 '(나)-(다)-(가)-(라)'가 타당합니다. '(나)-(가)-(다)-(라)'는 금속 추출 단계 없이 정련 및 부품 공급부터 나와 순서가 뒤섞였습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-325",
        "type": "order",
        "genre": "설명문",
@@ -8234,7 +8596,7 @@
        "why": "빗물이 버려지는 도시의 문제점을 제시하는 (다)가 첫 문장으로 오고, 이를 해결하기 위한 집수 시설을 설명하는 (나)가 이어집니다. 모인 빗물을 여과하는 (라)를 거쳐 정화된 물의 활용을 정리하는 (가)로 이어지는 '(다)-(나)-(라)-(가)'가 올바른 순서입니다. '(다)-(라)-(나)-(가)'는 빗물을 모으기도 전에 여과 장치부터 나와 논리적 순서에 어긋납니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-337",
        "type": "order",
        "genre": "설명문",
@@ -8251,7 +8613,7 @@
        "why": "버려진 나무토막 처리의 난점을 꺼낸 (가)가 첫 문장이 되고, '이 목재들'을 가마에서 숯으로 굽는 공정 (다)가 이어집니다. 숯 속 미세 구멍의 흡착 원리 (나) 뒤에 '이렇게 제작된 활성탄'의 필터 활용처를 밝히는 (라)로 결론짓는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 숯 제조 공정 없이 숯 내부 구멍의 작용부터 서술되어 순서가 바르지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-335",
        "type": "order",
        "genre": "설명문",
@@ -8270,35 +8632,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 46,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      3,
-      1,
-      3,
-      0,
-      2,
       0,
       2,
       0,
@@ -8308,22 +8654,23 @@
     }
    ]
   },
-  "r1-34": {
-   "id": "r1-34",
+  "r1-47": {
+   "stype": "order",
+   "id": "r1-47",
    "title": {
-    "en": "Practice 34",
-    "ko": "연습 34회"
+    "en": "Test set 5",
+    "ko": "실전문제 5회"
    },
    "sub": {
-    "en": "10 questions · exam no. 13–14 · about 14 min",
-    "ko": "10문항 · 시험 13~14번 · 권장 약 14분"
+    "en": "5 questions · exam no. 13–14 · about 7 min",
+    "ko": "5문항 · 시험 13~14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8410,9 +8757,53 @@
        ],
        "answer": 3,
        "why": "꿀벌이 집으로 돌아오는 현상을 제시하는 (가) 뒤에 이유를 설명하는 '때문이다'의 (다)가 옵니다. 이어 원리를 구체화하는 (나)가 오고, 태양이 보이지 않는 특수 상황에서도 적용되는 (라)가 마지막에 오는 '(가)-(다)-(나)-(라)'가 맞습니다. '(가)-(나)-(라)-(다)'는 이유를 나타내는 문장이 마지막에 배치되어 원인 제시 순서가 맞지 않습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 47,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      0,
+      3,
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  "r1-48": {
+   "stype": "order",
+   "id": "r1-48",
+   "title": {
+    "en": "Test set 6",
+    "ko": "실전문제 6회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-014",
        "type": "order",
        "genre": "설명문",
@@ -8429,7 +8820,7 @@
        "why": "공기 정화 식물의 기본 역할을 설명하는 (가)가 먼저 오고, 오염 물질 흡수 후의 과정을 나타내는 (다)가 이어집니다. 그 과정에서 일어나는 증산 작용 (라)를 거쳐, 그 결과 습도 유지 효과를 정리하는 접속어 '따라서'의 (나)로 마무리되는 '(가)-(다)-(라)-(나)'가 올바릅니다. (가)-(나)-(다)-(라)는 습도 유지가 오염 물질 분해보다 먼저 나와 인과관계가 어긋납니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-770",
        "type": "order",
        "genre": "설명문",
@@ -8446,7 +8837,7 @@
        "why": "도토리에 알을 낳는 기본 습성을 소개하는 (가)에 이어 어미 벌레의 특이 행동을 예고하는 (라)가 오고, 가지를 잘라 떨어뜨리는 구체적 행위인 (나)와 떨어진 도토리 속 부화를 설명하는 (다)로 이어지는 '(가)-(라)-(나)-(다)'가 자연스럽습니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-773",
        "type": "order",
        "genre": "설명문",
@@ -8463,7 +8854,7 @@
        "why": "습도에 반응하는 솔방울의 현상을 제시하는 (가)에 이어 습한 날의 닫힘 현상 (다)와 맑은 날의 열림 현상 (라)가 대조적으로 서술되고, 세포 팽창이라는 생물학적 원인을 규명하는 (나)로 끝나는 '(가)-(다)-(라)-(나)'가 가장 논리적입니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-775",
        "type": "order",
        "genre": "설명문",
@@ -8480,7 +8871,7 @@
        "why": "철새의 브이 자 비행 대형을 소개하는 (가)에 이어 앞 새의 날갯짓에 따른 상승 기류 발생 원리 (나)가 오고, 뒤 새의 에너지 절약 효과를 다룬 (다)와 선두 교대라는 협력 방식을 밝히는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 타당합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-350",
        "type": "order",
        "genre": "설명문",
@@ -8499,35 +8890,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 48,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      1,
-      0,
-      3,
-      1,
-      3,
       3,
       3,
       2,
@@ -8537,22 +8912,23 @@
     }
    ]
   },
-  "r1-35": {
-   "id": "r1-35",
+  "r1-49": {
+   "stype": "order",
+   "id": "r1-49",
    "title": {
-    "en": "Practice 35",
-    "ko": "연습 35회"
+    "en": "Test set 7",
+    "ko": "실전문제 7회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14 · about 14 min",
-    "ko": "10문항 · 시험 14번 · 권장 약 14분"
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8639,9 +9015,53 @@
        ],
        "answer": 0,
        "why": "바닷물 속 맹그로브의 생육 현상을 소개하는 (가) 뒤에 뿌리의 1차 여과를 다룬 (나)가 오고, 잎을 통한 2차 배출을 서술한 (다)와 이중 차단 시스템의 생태적 성과를 정리하는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 정확합니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 49,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      1,
+      1,
+      0,
+      3,
+      0
+     ]
+    }
+   ]
+  },
+  "r1-50": {
+   "stype": "order",
+   "id": "r1-50",
+   "title": {
+    "en": "Test set 8",
+    "ko": "실전문제 8회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-344",
        "type": "order",
        "genre": "설명문",
@@ -8658,7 +9078,7 @@
        "why": "연잎이 깨끗함을 유지한다는 현상 (나)가 화제로 제시되고, 표면의 미세 돌기와 왁스 코팅 구조 (라)가 원인으로 등장합니다. 물방울이 먼지를 쓸어내리는 자정 작용 (가) 뒤에 '연잎 효과'의 산업적 응용 (다)가 뒤따르는 '(나)-(라)-(가)-(다)'가 바릅니다. '(나)-(가)-(라)-(다)'는 연잎 표면 구조 설명 없이 물방울의 굴림 현상부터 나와 논리적 중간 단계가 빠졌습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-347",
        "type": "order",
        "genre": "설명문",
@@ -8675,7 +9095,7 @@
        "why": "겨울철 동백꽃이 겪는 꽃가루받이의 난점 (나)가 먼저 서술되고, '이때' 꽃가루를 옮겨주는 동박새의 등장 (가)가 연결됩니다. 동백꽃이 새의 부리에 맞게 꿀을 마련해 둔 배려 (다) 뒤에 서로 돕는 공생 관계의 의의 (라)로 끝맺는 '(나)-(가)-(다)-(라)'가 타당합니다. '(나)-(다)-(가)-(라)'는 동박새가 등장하기도 전에 새의 부리에 맞춘 꽃의 구조부터 나와 문맥이 어색합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-777",
        "type": "order",
        "genre": "설명문",
@@ -8692,7 +9112,7 @@
        "why": "시력이 퇴화된 전기도롱뇽의 환경을 설명하는 (가) 뒤에 자체 전기장 형성을 다룬 (나)가 오고, 물체 등장 시 왜곡 현상을 설명하는 (다)와 피부 감각을 통한 사냥 성공으로 맺는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 옳습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-352",
        "type": "order",
        "genre": "설명문",
@@ -8709,7 +9129,7 @@
        "why": "높은 수압으로 생물이 살기 어려운 심해 환경 (나)를 짚고, 역접 '그러나'로 세포막 불포화 지방산의 내압 특성 (가)가 이어집니다. 단백질 변형을 막는 체내 화학 물질 (라)에 이어 '이러한 분자 수준의 적응 덕분에' 유영하는 결과 (다)가 오는 '(나)-(가)-(라)-(다)'가 합당합니다. '(나)-(라)-(가)-(다)'는 역접 접속사를 동반한 기본 적응 메커니즘보다 추가적인 화학 물질 내용이 먼저 나와 어색합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-343",
        "type": "order",
        "genre": "설명문",
@@ -8728,35 +9148,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 50,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      1,
-      1,
-      0,
-      3,
-      0,
       3,
       2,
       2,
@@ -8766,22 +9170,23 @@
     }
    ]
   },
-  "r1-36": {
-   "id": "r1-36",
+  "r1-51": {
+   "stype": "order",
+   "id": "r1-51",
    "title": {
-    "en": "Practice 36",
-    "ko": "연습 36회"
+    "en": "Test set 9",
+    "ko": "실전문제 9회"
    },
    "sub": {
-    "en": "10 questions · exam no. 14–15 · about 14 min",
-    "ko": "10문항 · 시험 14~15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 14 · about 7 min",
+    "ko": "5문항 · 시험 14번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -8868,9 +9273,53 @@
        ],
        "answer": 1,
        "why": "나무를 쪼아도 뇌진탕에 걸리지 않는 딱따구리의 특징 (나)가 출발점이 되고, 두개골 사이 스펀지 다공성 뼈의 완충 작용 (다)가 원인으로 따릅니다. '게다가'로 설골 근육의 뇌 지지 기능 (가)를 더한 뒤 '이 정교한 완충 메커니즘'의 산업적 응용 (라)가 결합하는 '(나)-(다)-(가)-(라)'가 맞습니다. '(나)-(가)-(다)-(라)'는 기본 골격 구조 설명 전에 첨가 접속사 '게다가'의 근육 작용이 앞서 나와 문맥이 거칩니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 51,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      3,
+      0,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-52": {
+   "stype": "order",
+   "id": "r1-52",
+   "title": {
+    "en": "Test set 10",
+    "ko": "실전문제 10회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 14–15 · about 7 min",
+    "ko": "5문항 · 시험 14~15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-771",
        "type": "order",
        "genre": "설명문",
@@ -8887,7 +9336,7 @@
        "why": "물속 활동 능력을 제시하는 (가) 뒤에 공기방울을 장착하는 준비 동작 (나)가 오고, 공기방울의 호흡 원리를 밝히는 (다)와 그로 인한 생태적 이점을 설명하는 (라)로 맺어지는 '(가)-(나)-(다)-(라)'가 올바릅니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-772",
        "type": "order",
        "genre": "설명문",
@@ -8904,7 +9353,7 @@
        "why": "사막여우의 외형적 특징인 큰 귀를 소개하는 (가) 뒤에 귀의 모세혈관 구조를 설명하는 (나)가 이어지고, 열 방출의 생리적 원리를 다룬 (다)와 더위 극복의 결론인 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 정답입니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-349",
        "type": "order",
        "genre": "설명문",
@@ -8921,7 +9370,7 @@
        "why": "거대한 몸집통에도 빠른 상어의 유영 속도 (가)가 화제를 끌고, 비늘 표면 미세 홈의 마찰 저항 감소 작용 (다)가 원인으로 옵니다. 지시어 '이 미세 구조'가 소용돌이를 밀어내는 추진 원리 (나) 뒤에 인간의 수영복 및 선박 모방 기술 (라)로 마치는 '(가)-(다)-(나)-(라)'가 바른 배열입니다. '(가)-(나)-(다)-(라)'는 미세 홈 언급 전에 '이 미세 구조'라는 지시어가 먼저 튀어나와 문맥이 꼬입니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-774",
        "type": "order",
        "genre": "설명문",
@@ -8938,7 +9387,7 @@
        "why": "차가운 물속 체온 유지 능력을 제시하는 (가) 뒤에 비밀로서 이중 털 구조를 언급하는 (나)가 오고, 겉털과 속털의 역할을 상술하는 (다)와 공기층에 의한 체온 보호 결론을 맺는 (라)로 이어지는 '(가)-(나)-(다)-(라)'가 맞습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-783",
        "type": "order",
        "genre": "설명문",
@@ -8957,35 +9406,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 52,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      2,
-      3,
-      0,
-      0,
-      1,
       1,
       0,
       0,
@@ -8995,22 +9428,23 @@
     }
    ]
   },
-  "r1-37": {
-   "id": "r1-37",
+  "r1-53": {
+   "stype": "order",
+   "id": "r1-53",
    "title": {
-    "en": "Practice 37",
-    "ko": "연습 37회"
+    "en": "Test set 11",
+    "ko": "실전문제 11회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15 · about 14 min",
-    "ko": "10문항 · 시험 15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9097,9 +9531,53 @@
        ],
        "answer": 1,
        "why": "아스팔트로 인한 도심 침수 취약성 (나)를 먼저 알리고, 대안으로서 '빗물 정원'의 조성 (다)가 이어집니다. 빗물이 정원으로 모여 지하수로 흡수되는 침수 저감 원리 (가) 뒤에 미관과 수해 예방을 아우르는 녹지 공간 평가 (라)가 오는 '(나)-(다)-(가)-(라)'가 자연스럽습니다. '(나)-(가)-(다)-(라)'는 빗물 정원 조성에 대한 설명 없이 정원으로 빗물이 모인다는 내용부터 나와 비약이 생깁니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 53,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      2,
+      2,
+      3,
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  "r1-54": {
+   "stype": "order",
+   "id": "r1-54",
+   "title": {
+    "en": "Test set 12",
+    "ko": "실전문제 12회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-778",
        "type": "order",
        "genre": "설명문",
@@ -9116,7 +9594,7 @@
        "why": "도심 수직 농장의 부상 배경을 제시하는 (가)에 이어 다단 선반과 영양액 재배라는 기본 구조를 설명하는 (다)가 오고, 인공조명과 센서 제어 기술을 다룬 (나)와 연중 안정적 수확이라는 혜택을 맺는 (라)로 이어지는 '(가)-(다)-(나)-(라)'가 순서에 맞습니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-779",
        "type": "order",
        "genre": "설명문",
@@ -9133,7 +9611,7 @@
        "why": "소화전 주변 불법 주정차 문제를 짚는 (가)에 이어 센서 감지와 경고 방송을 다룬 (나)가 오고, 관제 센터 전송 및 과태료 부과를 설명하는 (다)와 도로 확보율 개선 결론인 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 타당합니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-361",
        "type": "order",
        "genre": "설명문",
@@ -9150,7 +9628,7 @@
        "why": "외딴 섬 지역 드론 물류 서비스 도입 배경 (가)가 서두에 서고, 육지에서 바다를 건너 착륙장으로 배달하는 비행 경로 (다)가 이어집니다. 약품과 서류를 수십 분 만에 받는 빠른 배송 편익 (나) 뒤에 지리적 격차를 해소하는 기술적 가치 (라)로 마치는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 드론 비행 및 배달 경로 설명 전에 신속 배송 혜택부터 나와 흐름이 매끄럽지 않습니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-358",
        "type": "order",
        "genre": "설명문",
@@ -9167,7 +9645,7 @@
        "why": "지정 거치대 반납의 번거로움이 있던 초기 공공 자전거 (나)로 배경을 깔고, GPS를 통한 자유 반납 신형 자전거 도입 (다)가 이어집니다. 앱 잠금 해제와 락 작동 등 간편한 이용법 (가)를 거쳐 대중교통 환승 수단으로의 안착 (라)로 마감되는 '(나)-(다)-(가)-(라)'가 자연스럽습니다. '(나)-(가)-(다)-(라)'는 신형 자전거 시스템 도입 설명 없이 스마트폰 락 해제 방법부터 나와 앞뒤가 맞지 않습니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-165",
        "type": "order",
        "genre": "설명문",
@@ -9186,35 +9664,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 54,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      2,
-      2,
-      3,
-      0,
-      1,
       1,
       2,
       0,
@@ -9224,22 +9686,23 @@
     }
    ]
   },
-  "r1-38": {
-   "id": "r1-38",
+  "r1-55": {
+   "stype": "order",
+   "id": "r1-55",
    "title": {
-    "en": "Practice 38",
-    "ko": "연습 38회"
+    "en": "Test set 13",
+    "ko": "실전문제 13회"
    },
    "sub": {
-    "en": "10 questions · exam no. 15 · about 14 min",
-    "ko": "10문항 · 시험 15번 · 권장 약 14분"
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
    },
    "sections": [
     {
      "type": "mcq",
      "title": {
-      "en": "Questions 1–10",
-      "ko": "1~10번"
+      "en": "Questions 1–5",
+      "ko": "1~5번"
      },
      "items": [
       {
@@ -9326,9 +9789,53 @@
        ],
        "answer": 2,
        "why": "잔디 관리의 인력 및 예산 부담을 제시하는 (가) 뒤에 자율주행 로봇 배치를 밝히는 (나)가 오고, 장애물 회피 및 제초 기능을 설명하는 (다)와 야간 자동 가동을 통한 공원 미관 유지로 끝맺는 (라)로 연결되는 '(가)-(나)-(다)-(라)'가 가장 매끄럽습니다."
-      },
+      }
+     ]
+    },
+    {
+     "type": "selfcheck",
+     "title": {
+      "en": "Self check",
+      "ko": "스스로 점검"
+     },
+     "compact": true,
+     "rec": 7,
+     "total": 5,
+     "from": 1,
+     "no": 55,
+     "unitWord": "문제",
+     "noEn": "Set No.",
+     "key": [
+      0,
+      3,
+      1,
+      0,
+      2
+     ]
+    }
+   ]
+  },
+  "r1-56": {
+   "stype": "order",
+   "id": "r1-56",
+   "title": {
+    "en": "Test set 14",
+    "ko": "실전문제 14회"
+   },
+   "sub": {
+    "en": "5 questions · exam no. 15 · about 7 min",
+    "ko": "5문항 · 시험 15번 · 권장 약 7분"
+   },
+   "sections": [
+    {
+     "type": "mcq",
+     "title": {
+      "en": "Questions 1–5",
+      "ko": "1~5번"
+     },
+     "items": [
       {
-       "no": 6,
+       "no": 1,
        "id": "t2-115",
        "type": "order",
        "genre": "설명문",
@@ -9345,7 +9852,7 @@
        "why": "과거 가로등의 한계를 말하는 (나) 뒤에 '하지만'으로 센서 조명 도입을 밝히는 (다)가 옵니다. 환경 정보 안내 기능을 추가하는 (가)가 이어진 후 '이제'로 종합적 변화를 맺는 (라)가 오는 '(나)-(다)-(가)-(라)'가 올바릅니다. '(나)-(가)-(다)-(라)'는 첨가 접속어 '게다가'가 새로운 가로등 도입 사실보다 앞서 나와 어색합니다."
       },
       {
-       "no": 7,
+       "no": 2,
        "id": "t2-356",
        "type": "order",
        "genre": "설명문",
@@ -9362,7 +9869,7 @@
        "why": "주택가 주차난 해소를 위한 공유 주차 플랫폼 도입 (나)가 맨 앞에 서고, 낮 시간 빈 주차면을 앱에 등록하는 절차 (가)가 옵니다. 방문 운전자가 앱으로 확인 후 주차하는 이용 흐름 (라) 뒤에 불법 주차와 주민 갈등을 줄인다는 효과 (다)로 마치는 '(나)-(가)-(라)-(다)'가 타당합니다. '(나)-(라)-(가)-(다)'는 빈자리 등록 과정 없이 방문객의 주차 이용부터 나와 서비스 작동 절차가 어긋납니다."
       },
       {
-       "no": 8,
+       "no": 3,
        "id": "t2-365",
        "type": "order",
        "genre": "설명문",
@@ -9379,7 +9886,7 @@
        "why": "무인 주문기 확산에 따른 노년층의 소외 (가)가 문제로 제기되고, '이를 돕기 위해' 복지관 키오스크 체험장 마련 (다)가 이어집니다. 두려움 없이 반복 연습하는 학습 모습 (나) 뒤에 디지털 자신감이 일상 독립의 힘이 된다는 (라)로 맺는 '(가)-(다)-(나)-(라)'가 올바른 순서입니다. '(가)-(나)-(다)-(라)'는 체험 교육장 마련 언급 없이 반복 연습부터 나와 장소적 배경이 생략됩니다."
       },
       {
-       "no": 9,
+       "no": 4,
        "id": "t2-065",
        "type": "order",
        "genre": "설명문",
@@ -9396,7 +9903,7 @@
        "why": "과거 정류장의 모습을 설명한 (가) 다음에 접속어 '하지만'으로 새로운 변화를 보여주는 (다)가 오고, 접속어 '나아가'로 추가적인 발전상을 제시하는 (나)가 이어진 뒤 총평인 (라)로 마무리되는 '(가)-(다)-(나)-(라)'가 올바릅니다. '(가)-(나)-(다)-(라)'는 발전 단계의 순서가 거꾸로 되어 어색합니다."
       },
       {
-       "no": 10,
+       "no": 5,
        "id": "t2-355",
        "type": "order",
        "genre": "설명문",
@@ -9415,35 +9922,19 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 10,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
       "ko": "스스로 점검"
      },
      "compact": true,
-     "rec": 14,
-     "total": 10,
+     "rec": 7,
+     "total": 5,
      "from": 1,
+     "no": 56,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
-      0,
-      3,
-      1,
-      0,
-      2,
       2,
       3,
       0,
@@ -9453,11 +9944,12 @@
     }
    ]
   },
-  "r1-39": {
-   "id": "r1-39",
+  "r1-57": {
+   "stype": "order",
+   "id": "r1-57",
    "title": {
-    "en": "Practice 39",
-    "ko": "연습 39회"
+    "en": "Test set 15",
+    "ko": "실전문제 15회"
    },
    "sub": {
     "en": "4 questions · exam no. 15 · about 6 min",
@@ -9542,20 +10034,6 @@
      ]
     },
     {
-     "type": "omr",
-     "title": {
-      "en": "Answer sheet",
-      "ko": "답안지"
-     },
-     "from": 1,
-     "to": 4,
-     "sheetKo": "TOPIK II 읽기 연습 답안지",
-     "sheetEn": "Reading Practice · Answer Sheet",
-     "unitWord": "연습",
-     "noEn": "Set No.",
-     "lite": true
-    },
-    {
      "type": "selfcheck",
      "title": {
       "en": "Self check",
@@ -9565,6 +10043,9 @@
      "rec": 6,
      "total": 4,
      "from": 1,
+     "no": 57,
+     "unitWord": "문제",
+     "noEn": "Set No.",
      "key": [
       3,
       3,
