@@ -7738,6 +7738,10 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .bk-next-h { margin:0 0 8px; font-size:13px; font-weight:700; color:var(--ink-3); }
 .bkbox { display:flex; gap:14px; align-items:center; margin:0 0 8px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); text-decoration:none; color:var(--ink); }
 .bkbox:hover { border-color:var(--ink); }
+.bkbox-img { flex:none; width:84px; height:auto; aspect-ratio:182/257; object-fit:cover; border:1px solid var(--line); border-radius:5px; background:var(--bg); }
+.bkbox-tx { flex:1; min-width:0; }
+.bkbox-meta { display:block; margin-top:6px; font-size:13px; color:var(--ink-2); }
+.bkbox-meta strong { color:var(--ink); font-size:15px; }
 .bkbox b { display:block; font-size:15px; }
 .bkbox small { display:block; color:var(--ink-3); font-size:13px; line-height:1.6; margin-top:3px; }
 .bkbox em { font-style:normal; font-weight:700; font-size:13px; margin-top:6px; display:block; }
