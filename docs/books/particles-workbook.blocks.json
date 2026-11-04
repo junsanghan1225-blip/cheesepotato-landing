@@ -1,0 +1,30 @@
+{
+  "_note": "조사 블록 구역 자료(단원 id → cards · split · choose · fill · pool). 만드는 법 docs/antigravity/antigravity-particles-blocks-task.md. 안티가 채우고 Claude 가 검토한다. 검사: node tools/check-particles-blocks.mjs",
+  "pt-26-1": {
+    "cards": [
+      { "tag": { "ko": "새로 꺼내는 것", "en": "new information" }, "when": "처음 이야기에 올리는 사람 · 물건", "ko": "저기 고양이{가} 있어요.", "en": "There is a cat over there." },
+      { "tag": { "ko": "방금 보고 듣는 것", "en": "just noticed" }, "when": "눈앞에서 일어난 일", "ko": "와, 눈{이} 와요!", "en": "Wow, it is snowing!" },
+      { "tag": { "ko": "「누가 · 뭐가」의 답", "en": "answers who/what" }, "when": "누가 했는지가 새 정보", "ko": "누가 왔어요?\n민수{가} 왔어요.", "en": "Who came? Minsu did." },
+      { "tag": { "ko": "이유 · 때를 말하는 절", "en": "clause subject" }, "when": "「-아서/어서」 앞 문장의 주어", "ko": "비{가} 와서 늦었어요.", "en": "I was late because it rained." },
+      { "tag": { "ko": "「아니다 · 되다」 앞", "en": "with 아니다 / 되다" }, "when": "이 두 말 앞의 말에는 이/가", "ko": "의사{가} 아니에요. / 의사{가} 되고 싶어요.", "en": "I am not a doctor. / I want to become a doctor." }
+    ],
+    "split": [
+      { "ko": "저기 학생이 있어요.", "en": "There is a student over there.", "blocks": [ { "t": "저기", "role": "장소" }, { "t": "학생", "role": "주어 말" }, { "p": "이", "role": "주어 조사" }, { "t": "있어요", "role": "서술어" } ] },
+      { "ko": "아, 비가 와요!", "en": "Oh, it is raining!", "blocks": [ { "t": "아", "role": "감탄" }, { "t": "비", "role": "주어 말" }, { "p": "가", "role": "주어 조사" }, { "t": "와요", "role": "서술어" } ] },
+      { "ko": "지영이 왔어요.", "en": "Jiyoung came.", "blocks": [ { "t": "지영", "role": "사람" }, { "p": "이", "role": "주어 조사" }, { "t": "왔어요", "role": "서술어" } ] },
+      { "ko": "눈이 와서 길이 미끄러워요.", "en": "The road is slippery because it snowed.", "note": "한 문장에 조사가 둘이면 조사 블록도 둘", "blocks": [ { "t": "눈", "role": "주어 말" }, { "p": "이", "role": "주어 조사" }, { "t": "와서", "role": "이유" }, { "t": "길", "role": "주어 말" }, { "p": "이", "role": "주어 조사" }, { "t": "미끄러워요", "role": "서술어" } ] }
+    ],
+    "choose": [
+      { "q": "저기 고양이___ 있어요.", "en": "There is a cat over there.", "opts": ["이", "가"], "answer": 2, "why": "고양이 ends in a vowel, so 가." },
+      { "q": "누가 왔어요? 민수___ 왔어요.", "en": "Who came? Minsu did.", "opts": ["이", "가"], "answer": 2, "why": "수 ends in a vowel, so 가." },
+      { "q": "의사___ 아니에요.", "en": "I am not a doctor.", "opts": ["이", "가", "를"], "answer": 2, "why": "아니다 needs 이/가 before it, and 사 is a vowel, so 가." },
+      { "q": "하늘___ 파래요. 구름___ 하얘요.", "en": "The sky is blue. The clouds are white.", "opts": ["이 · 이", "가 · 이", "가 · 가"], "answer": 1, "why": "하늘 and 구름 both end in a consonant, so 이 · 이." }
+    ],
+    "fill": [
+      { "ko": "하늘이 파래요.", "en": "The sky is blue.", "blocks": [ { "t": "하늘", "role": "주어 말" }, { "p": "이", "role": "조사", "blank": true }, { "t": "파래요", "role": "서술어" } ] },
+      { "ko": "물이 있어요.", "en": "There is water.", "blocks": [ { "t": "물", "role": "주어 말" }, { "p": "이", "role": "조사", "blank": true }, { "t": "있어요", "role": "서술어" } ] },
+      { "ko": "친구가 와서 기뻤어요.", "en": "I was glad because a friend came.", "blocks": [ { "t": "친구", "role": "사람" }, { "p": "가", "role": "조사", "blank": true }, { "t": "와서", "role": "이유" }, { "t": "기뻤어요", "role": "서술어" } ] }
+    ],
+    "pool": ["이", "가", "는", "을"]
+  }
+}
