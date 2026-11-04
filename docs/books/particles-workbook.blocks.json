@@ -8346,5 +8346,1818 @@
    "answer": 1,
    "why": "에서 pairs with physical places (from place A), whereas 부터 pairs with temporal points (from time X)."
   }
+ },
+ "rv-1": {
+  "choose": [
+   {
+    "q": "A: 누가 지민이에요? B: 수진 씨___ 지민이에요.",
+    "en": "A: Who is Jimin? B: Sujin is Jimin.",
+    "opts": [
+     "는",
+     "가"
+    ],
+    "answer": 2,
+    "why": "Questions asking 'who' (누가) are answered with 이/가."
+   },
+   {
+    "q": "A: 무엇을 마셔요? B: 물___ 마셔요.",
+    "en": "A: What do you drink? B: I drink water.",
+    "opts": [
+     "을",
+     "를"
+    ],
+    "answer": 1,
+    "why": "물 ends with a consonant (ㄹ 받침), so the object particle 을 is used."
+   },
+   {
+    "q": "이것은 민수 씨___ 안경이에요.",
+    "en": "These are Minsu's glasses.",
+    "opts": [
+     "의",
+     "이",
+     "은"
+    ],
+    "answer": 1,
+    "why": "의 marks possession (Minsu's)."
+   },
+   {
+    "q": "사과는 싸요. 하지만 딸기___ 비싸요.",
+    "en": "Apples are cheap. But strawberries are expensive.",
+    "opts": [
+     "는",
+     "를"
+    ],
+    "answer": 1,
+    "why": "Contrast between two subjects requires 은/는. 딸기 ends in a vowel, taking 는."
+   },
+   {
+    "q": "지영 씨는 사과___ 씻어요.",
+    "en": "Jiyoung washes an apple.",
+    "opts": [
+     "를",
+     "가"
+    ],
+    "answer": 1,
+    "why": "사과 is the object and ends in a vowel, taking 를."
+   },
+   {
+    "q": "오늘___ 날씨가 정말 따뜻해요.",
+    "en": "As for today, the weather is really warm.",
+    "opts": [
+     "은",
+     "이"
+    ],
+    "answer": 1,
+    "why": "오늘 sets the general topic of the sentence, taking 은."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "머리가 아파요.",
+    "en": "My head hurts.",
+    "blocks": [
+     {
+      "t": "머리",
+      "role": "주어 말"
+     },
+     {
+      "p": "는",
+      "role": "주어 조사",
+      "wrong": true,
+      "right": "가"
+     },
+     {
+      "t": "아파요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "동생은 우유를 마셔요.",
+    "en": "My younger sibling drinks milk.",
+    "blocks": [
+     {
+      "t": "동생",
+      "role": "주제 말"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사"
+     },
+     {
+      "t": "우유",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사",
+      "wrong": true,
+      "right": "를"
+     },
+     {
+      "t": "마셔요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "선생님은 가방이 무거워요.",
+    "en": "The teacher's bag is heavy.",
+    "blocks": [
+     {
+      "t": "선생님",
+      "role": "주제 말"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사"
+     },
+     {
+      "t": "가방",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사",
+      "wrong": true,
+      "right": "이"
+     },
+     {
+      "t": "무거워요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "이 책은 동생의 책이에요.",
+    "en": "This book is my sibling's book.",
+    "blocks": [
+     {
+      "t": "이 책",
+      "role": "주제 말"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사"
+     },
+     {
+      "t": "동생",
+      "role": "사람"
+     },
+     {
+      "p": "이",
+      "role": "조사",
+      "wrong": true,
+      "right": "의"
+     },
+     {
+      "t": "책이에요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "저는 학생이에요.",
+    "en": "I am a student.",
+    "blocks": [
+     {
+      "t": "저",
+      "role": "나"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "학생이에요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "누나는 마음이 따뜻해요.",
+    "en": "My older sister is warm-hearted.",
+    "blocks": [
+     {
+      "t": "누나",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "마음",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "따뜻해요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "꽃이 참 예뻐요.",
+    "en": "The flowers are really pretty.",
+    "blocks": [
+     {
+      "t": "꽃",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사",
+      "blank": true
+     },
+     {
+      "t": "참",
+      "role": "부사"
+     },
+     {
+      "t": "예뻐요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "우리는 음악을 들어요.",
+    "en": "We listen to music.",
+    "blocks": [
+     {
+      "t": "우리",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "음악",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사",
+      "blank": true
+     },
+     {
+      "t": "들어요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "이",
+   "은",
+   "는",
+   "을"
+  ]
+ },
+ "rv-2": {
+  "choose": [
+   {
+    "q": "우리는 공원___ 사진을 찍었어요.",
+    "en": "We took photos in the park.",
+    "opts": [
+     "에서",
+     "에"
+    ],
+    "answer": 1,
+    "why": "Taking photos is an action taking place in a location, requiring 에서 (common mistake: using 에 for place of action)."
+   },
+   {
+    "q": "수업은 오전 9시___ 시작해요.",
+    "en": "The class begins from 9 a.m.",
+    "opts": [
+     "부터",
+     "에서"
+    ],
+    "answer": 1,
+    "why": "Starting point in time requires 부터 (common mistake: using 에서 for time)."
+   },
+   {
+    "q": "수진 씨___ 생일 선물을 줬어요.",
+    "en": "I gave a birthday gift to Sujin.",
+    "opts": [
+     "에게",
+     "에"
+    ],
+    "answer": 1,
+    "why": "Giving something to a person requires 에게 or 한테, not 에."
+   },
+   {
+    "q": "주말에 부모님 댁___ 가요.",
+    "en": "I go to my parents' home on weekends.",
+    "opts": [
+     "에",
+     "에서"
+    ],
+    "answer": 1,
+    "why": "Destination of a movement verb like 가다 takes 에."
+   },
+   {
+    "q": "친구___ 한국어를 배웠어요.",
+    "en": "I learned Korean from a friend.",
+    "opts": [
+     "한테",
+     "에"
+    ],
+    "answer": 1,
+    "why": "Receiving or learning from a person takes 한테 or 에게."
+   },
+   {
+    "q": "서울역___ 걸어서 십 분 걸려요.",
+    "en": "It takes ten minutes on foot to Seoul Station.",
+    "opts": [
+     "까지",
+     "부터"
+    ],
+    "answer": 1,
+    "why": "까지 indicates the arrival limit or destination (up to / until)."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "식당에서 점심을 먹어요.",
+    "en": "I eat lunch at the restaurant.",
+    "blocks": [
+     {
+      "t": "식당",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사",
+      "wrong": true,
+      "right": "에서"
+     },
+     {
+      "t": "점심",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사"
+     },
+     {
+      "t": "먹어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "집에서 도서관까지 걸어가요.",
+    "en": "I walk from home to the library.",
+    "blocks": [
+     {
+      "t": "집",
+      "role": "장소"
+     },
+     {
+      "p": "부터",
+      "role": "장소 조사",
+      "wrong": true,
+      "right": "에서"
+     },
+     {
+      "t": "도서관",
+      "role": "장소"
+     },
+     {
+      "p": "까지",
+      "role": "장소 조사"
+     },
+     {
+      "t": "걸어가요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "친구한테 편지를 보내요.",
+    "en": "I send a letter to a friend.",
+    "blocks": [
+     {
+      "t": "친구",
+      "role": "사람"
+     },
+     {
+      "p": "에",
+      "role": "조사",
+      "wrong": true,
+      "right": "한테"
+     },
+     {
+      "t": "편지",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "보내요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "한 시부터 세 시까지 공부해요.",
+    "en": "I study from one o'clock to three o'clock.",
+    "blocks": [
+     {
+      "t": "한 시",
+      "role": "때"
+     },
+     {
+      "p": "까지",
+      "role": "조사",
+      "wrong": true,
+      "right": "부터"
+     },
+     {
+      "t": "세 시",
+      "role": "때"
+     },
+     {
+      "p": "까지",
+      "role": "조사"
+     },
+     {
+      "t": "공부해요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "지갑 안에 돈이 있어요.",
+    "en": "There is money inside the wallet.",
+    "blocks": [
+     {
+      "t": "지갑 안",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사",
+      "blank": true
+     },
+     {
+      "t": "돈",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "있어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "내일까지 숙제를 내세요.",
+    "en": "Please submit your homework by tomorrow.",
+    "blocks": [
+     {
+      "t": "내일",
+      "role": "때"
+     },
+     {
+      "p": "까지",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "숙제",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "내세요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "아침부터 비가 내려요.",
+    "en": "It has been raining since morning.",
+    "blocks": [
+     {
+      "t": "아침",
+      "role": "때"
+     },
+     {
+      "p": "부터",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "비",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사"
+     },
+     {
+      "t": "내려요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "민수는 저녁에 운동해요.",
+    "en": "Minsu exercises in the evening.",
+    "blocks": [
+     {
+      "t": "민수",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "저녁",
+      "role": "때"
+     },
+     {
+      "p": "에",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "운동해요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "에",
+   "에서",
+   "부터",
+   "까지"
+  ]
+ },
+ "rv-3": {
+  "choose": [
+   {
+    "q": "서랍에 볼펜 하나___ 없어요.",
+    "en": "I have nothing but one ballpoint pen in the drawer.",
+    "opts": [
+     "밖에",
+     "만"
+    ],
+    "answer": 1,
+    "why": "밖에 requires a negative ending like 없어요 (common mistake: using 만 with negative when meaning 'nothing but')."
+   },
+   {
+    "q": "주말에 커피를 네 잔___ 마셨어요.",
+    "en": "I drank as many as four cups of coffee over the weekend.",
+    "opts": [
+     "이나",
+     "만"
+    ],
+    "answer": 1,
+    "why": "이나 expresses that an amount is unexpectedly large (as many as)."
+   },
+   {
+    "q": "식탁 위에 빵___ 우유가 있어요.",
+    "en": "There are bread and milk on the table.",
+    "opts": [
+     "과",
+     "와"
+    ],
+    "answer": 1,
+    "why": "빵 ends with a consonant (ㅇ 받침), so 과 is used."
+   },
+   {
+    "q": "동생도 오고 친구___ 왔어요.",
+    "en": "My younger sibling came, and my friend came too.",
+    "opts": [
+     "도",
+     "를"
+    ],
+    "answer": 1,
+    "why": "도 means 'also' or 'too'."
+   },
+   {
+    "q": "어제 언니___ 영화를 봤어요.",
+    "en": "Yesterday I watched a movie with my older sister.",
+    "opts": [
+     "랑",
+     "이랑"
+    ],
+    "answer": 1,
+    "why": "언니 ends in a vowel, so 랑 is attached directly."
+   },
+   {
+    "q": "교실에 민수___ 남았어요.",
+    "en": "Only Minsu remained in the classroom.",
+    "opts": [
+     "만",
+     "도"
+    ],
+    "answer": 1,
+    "why": "만 means 'only', emphasizing exclusivity with an affirmative verb."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "저는 한국 노래만 들어요.",
+    "en": "I only listen to Korean songs.",
+    "blocks": [
+     {
+      "t": "저",
+      "role": "나"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "한국 노래",
+      "role": "목적어 말"
+     },
+     {
+      "p": "밖에",
+      "role": "조사",
+      "wrong": true,
+      "right": "만"
+     },
+     {
+      "t": "들어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "가방에 사과와 바나나가 있어요.",
+    "en": "There are apples and bananas in the bag.",
+    "blocks": [
+     {
+      "t": "가방",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사"
+     },
+     {
+      "t": "사과",
+      "role": "말"
+     },
+     {
+      "p": "과",
+      "role": "함께 조사",
+      "wrong": true,
+      "right": "와"
+     },
+     {
+      "t": "바나나",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사"
+     },
+     {
+      "t": "있어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "어제 수진이하고 쇼핑을 했어요.",
+    "en": "Yesterday I went shopping with Sujin.",
+    "blocks": [
+     {
+      "t": "어제",
+      "role": "때"
+     },
+     {
+      "t": "수진이",
+      "role": "사람"
+     },
+     {
+      "p": "만",
+      "role": "함께 조사",
+      "wrong": true,
+      "right": "하고"
+     },
+     {
+      "t": "쇼핑",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사"
+     },
+     {
+      "t": "했어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "주머니에 동전 하나밖에 없어요.",
+    "en": "I have nothing but one coin in my pocket.",
+    "blocks": [
+     {
+      "t": "주머니",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사"
+     },
+     {
+      "t": "동전 하나",
+      "role": "수 · 양"
+     },
+     {
+      "p": "만",
+      "role": "조사",
+      "wrong": true,
+      "right": "밖에"
+     },
+     {
+      "t": "없어요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "저도 김치찌개를 좋아해요.",
+    "en": "I also like kimchi stew.",
+    "blocks": [
+     {
+      "t": "저",
+      "role": "나"
+     },
+     {
+      "p": "도",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "김치찌개",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "좋아해요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "오늘은 차만 마실게요.",
+    "en": "Today I will only drink tea.",
+    "blocks": [
+     {
+      "t": "오늘",
+      "role": "때"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사"
+     },
+     {
+      "t": "차",
+      "role": "목적어 말"
+     },
+     {
+      "p": "만",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "마실게요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "냉장고에 물밖에 없어요.",
+    "en": "There is nothing but water in the fridge.",
+    "blocks": [
+     {
+      "t": "냉장고",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사"
+     },
+     {
+      "t": "물",
+      "role": "주어 말"
+     },
+     {
+      "p": "밖에",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "없어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "주말에 산책이나 할까요?",
+    "en": "Shall we take a walk or something this weekend?",
+    "blocks": [
+     {
+      "t": "주말",
+      "role": "때"
+     },
+     {
+      "p": "에",
+      "role": "조사"
+     },
+     {
+      "t": "산책",
+      "role": "목적어 말"
+     },
+     {
+      "p": "이나",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "할까요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "도",
+   "만",
+   "밖에",
+   "이나"
+  ]
+ },
+ "rv-4": {
+  "choose": [
+   {
+    "q": "시청까지 지하철___ 가요.",
+    "en": "I go to City Hall by subway.",
+    "opts": [
+     "로",
+     "으로"
+    ],
+    "answer": 1,
+    "why": "지하철 ends in ㄹ 받침, so it takes 로 (common mistake: using 으로 after ㄹ)."
+   },
+   {
+    "q": "한국어가 영어___ 더 어려워요.",
+    "en": "Korean is more difficult than English.",
+    "opts": [
+     "보다",
+     "처럼"
+    ],
+    "answer": 1,
+    "why": "보다 is attached to the baseline noun in a comparison (more than English)."
+   },
+   {
+    "q": "저는 아침___ 조깅을 해요.",
+    "en": "I go jogging every morning.",
+    "opts": [
+     "마다",
+     "쯤"
+    ],
+    "answer": 1,
+    "why": "마다 means 'every' (every morning)."
+   },
+   {
+    "q": "역에서 친구를 세 시___ 만나요.",
+    "en": "I meet my friend around three o'clock at the station.",
+    "opts": [
+     "쯤",
+     "마다"
+    ],
+    "answer": 1,
+    "why": "쯤 indicates approximation of time or amount (around 3 o'clock)."
+   },
+   {
+    "q": "지영 씨는 인형___ 귀여워요.",
+    "en": "Jiyoung is cute like a doll.",
+    "opts": [
+     "처럼",
+     "보다"
+    ],
+    "answer": 1,
+    "why": "처럼 expresses resemblance or likeness (like a doll)."
+   },
+   {
+    "q": "숟가락___ 국을 떠먹어요.",
+    "en": "I eat soup with a spoon.",
+    "opts": [
+     "으로",
+     "로"
+    ],
+    "answer": 1,
+    "why": "숟가락 ends in a consonant (ㄱ 받침), taking 으로 for the tool."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "글씨를 연필로 써요.",
+    "en": "I write letters with a pencil.",
+    "blocks": [
+     {
+      "t": "글씨",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "연필",
+      "role": "도구"
+     },
+     {
+      "p": "으로",
+      "role": "도구 조사",
+      "wrong": true,
+      "right": "로"
+     },
+     {
+      "t": "써요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "우리는 버스로 여행을 가요.",
+    "en": "We go on a trip by bus.",
+    "blocks": [
+     {
+      "t": "우리",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "버스",
+      "role": "도구"
+     },
+     {
+      "p": "으로",
+      "role": "도구 조사",
+      "wrong": true,
+      "right": "로"
+     },
+     {
+      "t": "여행",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사"
+     },
+     {
+      "t": "가요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "수진이는 일요일마다 교회를 가요.",
+    "en": "Sujin goes to church every Sunday.",
+    "blocks": [
+     {
+      "t": "수진이",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "일요일",
+      "role": "때"
+     },
+     {
+      "p": "쯤",
+      "role": "조사",
+      "wrong": true,
+      "right": "마다"
+     },
+     {
+      "t": "교회",
+      "role": "장소"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "가요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "형은 호랑이처럼 용감해요.",
+    "en": "My older brother is brave like a tiger.",
+    "blocks": [
+     {
+      "t": "형",
+      "role": "주제 말"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사"
+     },
+     {
+      "t": "호랑이",
+      "role": "말"
+     },
+     {
+      "p": "보다",
+      "role": "비교 조사",
+      "wrong": true,
+      "right": "처럼"
+     },
+     {
+      "t": "용감해요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "오른쪽으로 돌아가세요.",
+    "en": "Please turn to the right.",
+    "blocks": [
+     {
+      "t": "오른쪽",
+      "role": "장소"
+     },
+     {
+      "p": "으로",
+      "role": "방향 조사",
+      "blank": true
+     },
+     {
+      "t": "돌아가세요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "비행기가 배보다 훨씬 빨라요.",
+    "en": "An airplane is much faster than a ship.",
+    "blocks": [
+     {
+      "t": "비행기",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사"
+     },
+     {
+      "t": "배",
+      "role": "말"
+     },
+     {
+      "p": "보다",
+      "role": "비교 조사",
+      "blank": true
+     },
+     {
+      "t": "훨씬",
+      "role": "부사"
+     },
+     {
+      "t": "빨라요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "나라마다 문화가 달라요.",
+    "en": "Every country has a different culture.",
+    "blocks": [
+     {
+      "t": "나라",
+      "role": "말"
+     },
+     {
+      "p": "마다",
+      "role": "조사",
+      "blank": true
+     },
+     {
+      "t": "문화",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사"
+     },
+     {
+      "t": "달라요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "한국말로 이야기해요.",
+    "en": "We speak in Korean.",
+    "blocks": [
+     {
+      "t": "한국말",
+      "role": "도구"
+     },
+     {
+      "p": "로",
+      "role": "도구 조사",
+      "blank": true
+     },
+     {
+      "t": "이야기해요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "로",
+   "으로",
+   "보다",
+   "마다"
+  ]
+ },
+ "rv-5": {
+  "choose": [
+   {
+    "q": "도서관___ 책을 반납해요.",
+    "en": "I return the book to the library.",
+    "opts": [
+     "에",
+     "에게"
+    ],
+    "answer": 1,
+    "why": "도서관 is a place or institution, taking 에 rather than 에게 (people/animals)."
+   },
+   {
+    "q": "서울___ 부산까지 KTX를 타요.",
+    "en": "I ride the KTX from Seoul to Busan.",
+    "opts": [
+     "에서",
+     "부터"
+    ],
+    "answer": 1,
+    "why": "Starting point for physical journey between places takes 에서, not 부터."
+   },
+   {
+    "q": "동생은 지금 방___ 자고 있어요.",
+    "en": "My younger sibling is sleeping in the room right now.",
+    "opts": [
+     "에서",
+     "에"
+    ],
+    "answer": 1,
+    "why": "Sleeping is an activity occurring at a location, requiring 에서."
+   },
+   {
+    "q": "A: 누가 전화했어요? B: 민수___ 전화했어요.",
+    "en": "A: Who called? B: Minsu called.",
+    "opts": [
+     "가",
+     "는"
+    ],
+    "answer": 1,
+    "why": "Answers to who-questions focus on the subject with 이/가."
+   },
+   {
+    "q": "냉장고에 우유 하나___ 안 남았어요.",
+    "en": "There is nothing left in the fridge except one bottle of milk.",
+    "opts": [
+     "밖에",
+     "만"
+    ],
+    "answer": 1,
+    "why": "When paired with a negative verb (안 남았어요), 밖에 expresses 'nothing but'."
+   },
+   {
+    "q": "숟가락___ 밥을 먹어요.",
+    "en": "I eat rice with a spoon.",
+    "opts": [
+     "으로",
+     "에"
+    ],
+    "answer": 1,
+    "why": "으로 indicates the instrument used for eating."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "친구에게 생일 축하 메시지를 보냈어요.",
+    "en": "I sent a birthday celebration message to a friend.",
+    "blocks": [
+     {
+      "t": "친구",
+      "role": "사람"
+     },
+     {
+      "p": "에",
+      "role": "조사",
+      "wrong": true,
+      "right": "에게"
+     },
+     {
+      "t": "생일 축하 메시지",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "보냈어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "아침 아홉 시부터 수업을 들어요.",
+    "en": "I take classes starting from nine in the morning.",
+    "blocks": [
+     {
+      "t": "아침 아홉 시",
+      "role": "때"
+     },
+     {
+      "p": "에서",
+      "role": "조사",
+      "wrong": true,
+      "right": "부터"
+     },
+     {
+      "t": "수업",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사"
+     },
+     {
+      "t": "들어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "지하는 시원하지만 옥상은 더워요.",
+    "en": "The basement is cool, but the rooftop is warm.",
+    "blocks": [
+     {
+      "t": "지하",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "시원하지만",
+      "role": "서술어"
+     },
+     {
+      "t": "옥상",
+      "role": "주제 말"
+     },
+     {
+      "p": "이",
+      "role": "주제 조사",
+      "wrong": true,
+      "right": "은"
+     },
+     {
+      "t": "더워요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "목이 마르면 주스나 차를 마셔요.",
+    "en": "If you are thirsty, drink juice or tea.",
+    "blocks": [
+     {
+      "t": "목",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "마르면",
+      "role": "서술어"
+     },
+     {
+      "t": "주스",
+      "role": "말"
+     },
+     {
+      "p": "와",
+      "role": "조사",
+      "wrong": true,
+      "right": "나"
+     },
+     {
+      "t": "차",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "마셔요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "책상 위에 연필이 놓여 있어요.",
+    "en": "A pencil is placed on the desk.",
+    "blocks": [
+     {
+      "t": "책상 위",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사",
+      "blank": true
+     },
+     {
+      "t": "연필",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "놓여 있어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "백화점에서 옷을 골랐어요.",
+    "en": "I picked clothes at the department store.",
+    "blocks": [
+     {
+      "t": "백화점",
+      "role": "장소"
+     },
+     {
+      "p": "에서",
+      "role": "장소 조사",
+      "blank": true
+     },
+     {
+      "t": "옷",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사"
+     },
+     {
+      "t": "골랐어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "형은 축구를 잘해요.",
+    "en": "My older brother plays soccer well.",
+    "blocks": [
+     {
+      "t": "형",
+      "role": "주제 말"
+     },
+     {
+      "p": "은",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "축구",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "잘해요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "저는 주말에 집에서 쉬어요.",
+    "en": "As for me, I rest at home on weekends.",
+    "blocks": [
+     {
+      "t": "저",
+      "role": "나"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "주말",
+      "role": "때"
+     },
+     {
+      "p": "에",
+      "role": "조사"
+     },
+     {
+      "t": "집",
+      "role": "장소"
+     },
+     {
+      "p": "에서",
+      "role": "장소 조사"
+     },
+     {
+      "t": "쉬어요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "에",
+   "에서",
+   "은",
+   "는"
+  ]
+ },
+ "rv-6": {
+  "choose": [
+   {
+    "q": "할머니___ 선물을 드렸어요.",
+    "en": "I gave a gift to my grandmother.",
+    "opts": [
+     "께",
+     "에게"
+    ],
+    "answer": 1,
+    "why": "께 is the honorific recipient particle used for elders such as grandmother."
+   },
+   {
+    "q": "여름이 겨울___ 낮이 더 길어요.",
+    "en": "In summer, the days are longer than in winter.",
+    "opts": [
+     "보다",
+     "처럼"
+    ],
+    "answer": 1,
+    "why": "겨울 takes 보다 for the comparison standard (longer than winter)."
+   },
+   {
+    "q": "버스 정류장___ 사람들이 줄을 섰어요.",
+    "en": "People lined up at every bus stop.",
+    "opts": [
+     "마다",
+     "쯤"
+    ],
+    "answer": 1,
+    "why": "마다 means 'every' (at each bus stop)."
+   },
+   {
+    "q": "우리는 비행기___ 제주도에 갔어요.",
+    "en": "We went to Jeju Island by plane.",
+    "opts": [
+     "로",
+     "으로"
+    ],
+    "answer": 1,
+    "why": "비행기 ends in a vowel, so 로 is used for the means of transport."
+   },
+   {
+    "q": "A: 어디___ 아파요? B: 배가 아파요.",
+    "en": "A: Where hurts? B: My stomach hurts.",
+    "opts": [
+     "가",
+     "는"
+    ],
+    "answer": 1,
+    "why": "Question words like 어디 take 이/가."
+   },
+   {
+    "q": "식사 후에 따뜻한 차___ 마셔요.",
+    "en": "After the meal, I drink warm tea.",
+    "opts": [
+     "를",
+     "을"
+    ],
+    "answer": 1,
+    "why": "차 ends in a vowel, so it takes the object particle 를."
+   }
+  ],
+  "fix": [
+   {
+    "ko": "아이들이 손으로 모래를 만져요.",
+    "en": "Children touch sand with their hands.",
+    "blocks": [
+     {
+      "t": "아이들",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "손",
+      "role": "도구"
+     },
+     {
+      "p": "로",
+      "role": "도구 조사",
+      "wrong": true,
+      "right": "으로"
+     },
+     {
+      "t": "모래",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "만져요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "어려운 문제를 선생님께 여쭤보았어요.",
+    "en": "I asked the teacher about a difficult question.",
+    "blocks": [
+     {
+      "t": "어려운 문제",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "선생님",
+      "role": "사람"
+     },
+     {
+      "p": "한테",
+      "role": "조사",
+      "wrong": true,
+      "right": "께"
+     },
+     {
+      "t": "여쭤보았어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "친구의 선물이 마음에 들어요.",
+    "en": "I like my friend's gift.",
+    "blocks": [
+     {
+      "t": "친구",
+      "role": "사람"
+     },
+     {
+      "p": "는",
+      "role": "조사",
+      "wrong": true,
+      "right": "의"
+     },
+     {
+      "t": "선물",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사"
+     },
+     {
+      "t": "마음에 들어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "어제 공원에서 친구하고 자전거를 탔어요.",
+    "en": "Yesterday I rode a bicycle with a friend in the park.",
+    "blocks": [
+     {
+      "t": "어제",
+      "role": "때"
+     },
+     {
+      "t": "공원",
+      "role": "장소"
+     },
+     {
+      "p": "에서",
+      "role": "장소 조사"
+     },
+     {
+      "t": "친구",
+      "role": "사람"
+     },
+     {
+      "p": "만",
+      "role": "함께 조사",
+      "wrong": true,
+      "right": "하고"
+     },
+     {
+      "t": "자전거",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "탔어요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "fill": [
+   {
+    "ko": "교실 안에 시계가 있어요.",
+    "en": "There is a clock inside the classroom.",
+    "blocks": [
+     {
+      "t": "교실 안",
+      "role": "장소"
+     },
+     {
+      "p": "에",
+      "role": "장소 조사",
+      "blank": true
+     },
+     {
+      "t": "시계",
+      "role": "주어 말"
+     },
+     {
+      "p": "가",
+      "role": "주어 조사"
+     },
+     {
+      "t": "있어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "우리는 카페에서 이야기를 나눠요.",
+    "en": "We share conversations at the cafe.",
+    "blocks": [
+     {
+      "t": "우리",
+      "role": "주제 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사"
+     },
+     {
+      "t": "카페",
+      "role": "장소"
+     },
+     {
+      "p": "에서",
+      "role": "장소 조사",
+      "blank": true
+     },
+     {
+      "t": "이야기",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사"
+     },
+     {
+      "t": "나눠요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "아침마다 신문을 읽어요.",
+    "en": "I read the newspaper every morning.",
+    "blocks": [
+     {
+      "t": "아침",
+      "role": "때"
+     },
+     {
+      "p": "마다",
+      "role": "조사"
+     },
+     {
+      "t": "신문",
+      "role": "목적어 말"
+     },
+     {
+      "p": "을",
+      "role": "목적 조사",
+      "blank": true
+     },
+     {
+      "t": "읽어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "저녁에 재미있는 영화를 봐요.",
+    "en": "In the evening, I watch an exciting movie.",
+    "blocks": [
+     {
+      "t": "저녁",
+      "role": "때"
+     },
+     {
+      "p": "에",
+      "role": "조사"
+     },
+     {
+      "t": "재미있는 영화",
+      "role": "목적어 말"
+     },
+     {
+      "p": "를",
+      "role": "목적 조사",
+      "blank": true
+     },
+     {
+      "t": "봐요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "에",
+   "에서",
+   "을",
+   "를"
+  ]
  }
 }
