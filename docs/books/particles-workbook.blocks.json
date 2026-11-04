@@ -3114,16 +3114,15 @@
     "why": "Eating only vegetables exclusively takes 만."
    },
    {
-    "q": "낮___ 자고 밤___ 일해요.",
-    "en": "I sleep only during the day and work only at night.",
+    "q": "저는 커피___ 마시고 차는 안 마셔요.",
+    "en": "I drink only coffee, not tea.",
     "opts": [
-     "에만 · 에만",
-     "도 · 도",
-     "만 · 만",
-     "은 · 는"
+     "만",
+     "도",
+     "에서"
     ],
     "answer": 1,
-    "why": "Exclusively in the day and exclusively at night takes 에만 · 에만."
+    "why": "만 means only: coffee and nothing else."
    }
   ],
   "fill": [
@@ -5318,8 +5317,8 @@
     "why": "Repeating regularly every Saturday takes 마다."
    },
    {
-    "q": "시간___ 역___ 기차가 서요.",
-    "en": "The train stops every hour and at every station.",
+    "q": "일요일___ 아침___ 운동해요.",
+    "en": "I exercise every Sunday morning.",
     "opts": [
      "마다 · 마다",
      "에 · 에",
@@ -5327,7 +5326,7 @@
      "에 · 마다"
     ],
     "answer": 1,
-    "why": "Both every hour and every station take 마다."
+    "why": "Both Sunday and morning take 마다: every Sunday, every morning."
    }
   ],
   "fill": [
