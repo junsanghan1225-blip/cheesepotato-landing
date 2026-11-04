@@ -88,7 +88,7 @@
 1. `git pull` 로 main 을 받고 브랜치를 만든다(비교는 `ag/particles-blocks-ct-1`, 종합은 `ag/particles-blocks-rv-1`).
 2. 단원마다 `inline.<id>` 의 글 · 표를 읽고 만든다. 한 번에 비교 4~5개 또는 종합 3개씩 올려도 좋다.
 3. `docs/books/particles-workbook.blocks.json` 에 키를 더한다(JSON 문법 주의).
-4. 올리기 전에 **`node tools/check-particles-blocks.mjs`** 가 통과해야 한다(이번 지시문 모양을 검사하는 부분은 Claude 가 먼저 넣어 둔다).
+4. 올리기 전에 **`node tools/check-particles-blocks.mjs`** 가 통과해야 한다(ct · rv 검사는 2026-11-04 에 들어 있다).
 5. 스스로 확인: 블록을 합쳐 소리 내어 읽어 보기 · `situations` / `choose` 의 정답이 정말 하나인지 · `fix` 의 틀린 조사가 정말 틀린지.
 
 ## 올리기
