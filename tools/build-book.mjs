@@ -197,6 +197,7 @@ body{font:400 9.6pt/1.55 'Pretendard Variable',sans-serif;color:#1d1a17;word-bre
 .blk{break-before:page}.blk:first-child{break-before:auto}
 h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 .plain{page:plain}
+.plain.ak,.plain.ix,.plain.memo{page:auto}
 /* 속표지 · 판권 */
 .tp{height:${H - 46}mm;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6mm}
 .tp .ser{font-size:8pt;font-weight:800;letter-spacing:.3em;color:${ACC}}
