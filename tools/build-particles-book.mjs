@@ -98,7 +98,7 @@ parts.push({ title: { en: 'Review tests', ko: '종합 연습' }, units: CT.revie
 const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/books/elementary-grammar-workbook.json'), 'utf8'));
 const book = {
   _note: '책 한 권의 틀 — tools/build-particles-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs particles-workbook. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.',
-  id: 'particles-workbook', edition: 'Draft proof · 시안', theme: 'classic', color: '#2F8F6B', tint: '#EEF8F3',
+  id: 'particles-workbook', splitSections: true, edition: 'Draft proof · 시안', theme: 'classic', color: '#2F8F6B', tint: '#EEF8F3',
   series: base.series, title: { en: 'Korean Particles Workbook', ko: '한국어 조사 워크북' },
   sub: { en: '20 particles, how to choose between them, and 600 sentences to learn from.', ko: '조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기' },
   level: 'A1–A2', trim: base.trim, author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
