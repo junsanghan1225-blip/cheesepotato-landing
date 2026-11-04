@@ -2587,6 +2587,35 @@
           "tip": "같은 글자를 두 번 쓰면 된소리예요. 목에 힘을 주고 소리를 짧게 내요. Double the letter = tense sound."
         },
         {
+          "type": "strokes",
+          "title": {
+            "en": "Add a stroke, get a stronger sound",
+            "ko": "획을 더하면 소리가 세져요"
+          },
+          "hint": "Each new stroke is orange. Read the letters from left to right and say each one aloud.",
+          "chains": [
+            [
+              "ㄱ",
+              "ㅋ"
+            ],
+            [
+              "ㄴ",
+              "ㄷ",
+              "ㅌ"
+            ],
+            [
+              "ㅅ",
+              "ㅈ",
+              "ㅊ"
+            ],
+            [
+              "ㅇ",
+              "ㅎ"
+            ]
+          ],
+          "note": "ㅁ → ㅂ → ㅍ 도 같은 원리예요. 모양이 조금 바뀌어서 그림에서는 뺐어요. ㅁ → ㅂ → ㅍ follows the same idea, but the shape changes a little."
+        },
+        {
           "type": "cards",
           "title": {
             "en": "Three sounds, three meanings",
