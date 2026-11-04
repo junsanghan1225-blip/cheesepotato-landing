@@ -5395,5 +5395,274 @@
    "만"
   ]
  },
- "_note": "조사 블록 구역 자료(단원 id → cards · split · choose · fill · pool). 만드는 법 docs/antigravity/antigravity-particles-blocks-task.md. 안티가 채우고 Claude 가 검토한다. 검사: node tools/check-particles-blocks.mjs"
+ "_note": "조사 블록 구역 자료(단원 id → cards · split · choose · fill · pool). 만드는 법 docs/antigravity/antigravity-particles-blocks-task.md. 안티가 채우고 Claude 가 검토한다. 검사: node tools/check-particles-blocks.mjs",
+ "ct-topic-subject": {
+  "compare": [
+   {
+    "title": {
+     "ko": "하늘 ○ 파래요",
+     "en": ""
+    },
+    "sides": [
+     {
+      "label": "은/는",
+      "ko": "하늘은 파래요.",
+      "en": "The sky is blue (a general fact, or in contrast).",
+      "chip": "일반적인 사실 · 견줄 때",
+      "mean": "하늘은 원래 파래요.",
+      "blocks": [
+       {
+        "t": "하늘",
+        "role": "주어 말"
+       },
+       {
+        "p": "은",
+        "role": "주제 조사"
+       },
+       {
+        "t": "파래요",
+        "role": "서술어"
+       }
+      ]
+     },
+     {
+      "label": "이/가",
+      "ko": "하늘이 파래요.",
+      "en": "The sky is blue (I see it now).",
+      "chip": "지금 눈에 보이는 것",
+      "mean": "지금 보니 하늘이 파래요.",
+      "blocks": [
+       {
+        "t": "하늘",
+        "role": "주어 말"
+       },
+       {
+        "p": "이",
+        "role": "주어 조사"
+       },
+       {
+        "t": "파래요",
+        "role": "서술어"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "title": {
+     "ko": "민수 ○ 왔어요",
+     "en": ""
+    },
+    "sides": [
+     {
+      "label": "은/는",
+      "ko": "민수는 왔어요.",
+      "en": "As for Minsu, he came.",
+      "chip": "이야기의 주인공 · 견줄 때",
+      "mean": "민수에 대해 말해요. 다른 사람은 모를 수 있어요.",
+      "blocks": [
+       {
+        "t": "민수",
+        "role": "사람"
+       },
+       {
+        "p": "는",
+        "role": "주제 조사"
+       },
+       {
+        "t": "왔어요",
+        "role": "서술어"
+       }
+      ]
+     },
+     {
+      "label": "이/가",
+      "ko": "민수가 왔어요.",
+      "en": "Minsu is the one who came.",
+      "chip": "질문의 답 · 새 정보",
+      "mean": "「누가 왔어요?」의 답이에요.",
+      "blocks": [
+       {
+        "t": "민수",
+        "role": "사람"
+       },
+       {
+        "p": "가",
+        "role": "주어 조사"
+       },
+       {
+        "t": "왔어요",
+        "role": "서술어"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "title": {
+     "ko": "저/제 ○ 학생이에요",
+     "en": ""
+    },
+    "sides": [
+     {
+      "label": "은/는",
+      "ko": "저는 학생이에요.",
+      "en": "I am a student. (introducing myself)",
+      "chip": "자기소개",
+      "mean": "저는 학생이에요. (자기소개)",
+      "blocks": [
+       {
+        "t": "저",
+        "role": "나"
+       },
+       {
+        "p": "는",
+        "role": "주제 조사"
+       },
+       {
+        "t": "학생이에요",
+        "role": "서술어"
+       }
+      ]
+     },
+     {
+      "label": "이/가",
+      "ko": "제가 학생이에요.",
+      "en": "I am the student. (answer to who)",
+      "chip": "누구인지 가려 줄 때",
+      "mean": "「누가 학생이에요?」의 답이에요.",
+      "blocks": [
+       {
+        "t": "제",
+        "role": "나"
+       },
+       {
+        "p": "가",
+        "role": "주어 조사"
+       },
+       {
+        "t": "학생이에요",
+        "role": "서술어"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "rule": {
+   "ko": "「누가 · 뭐가」로 물으면 이/가로 답해요. 이미 알고 있는 것을 말하거나 둘을 견주면 은/는.",
+   "en": "A who/what question is answered with 이/가. Use 은/는 for what is already known, or to contrast two things."
+  },
+  "situations": [
+   {
+    "ctx": "친구가 물어요: 「누가 학생이에요?」",
+    "q": "내 대답은?",
+    "opts": [
+     "저는 학생이에요.",
+     "제가 학생이에요."
+    ],
+    "answer": 2,
+    "why": "A who-question is answered with 이/가."
+   },
+   {
+    "ctx": "창밖에 갑자기 비가 와요.",
+    "q": "와, ___ 와요!",
+    "opts": [
+     "비는",
+     "비가"
+    ],
+    "answer": 2,
+    "why": "Something you just noticed takes 이/가."
+   },
+   {
+    "ctx": "커피와 차를 견주어 말해요.",
+    "q": "커피는 좋아해요. 차___ 안 좋아해요.",
+    "opts": [
+     "는",
+     "가"
+    ],
+    "answer": 1,
+    "why": "Contrast takes 은/는."
+   },
+   {
+    "ctx": "처음 만난 사람에게 이름을 말해요.",
+    "q": "저___ 수진이에요.",
+    "opts": [
+     "는",
+     "가"
+    ],
+    "answer": 1,
+    "why": "Introducing yourself uses 은/는."
+   }
+  ],
+  "fill2": [
+   {
+    "ko": "김밥이 맛있어요.",
+    "en": "A: What is tasty? B: Kimbap is tasty.",
+    "blocks": [
+     {
+      "t": "김밥",
+      "role": "주어 말"
+     },
+     {
+      "p": "이",
+      "role": "주어 조사",
+      "blank": true
+     },
+     {
+      "t": "맛있어요",
+      "role": "서술어"
+     }
+    ]
+   },
+   {
+    "ko": "저는 선생님이고 제 친구는 학생이에요.",
+    "en": "I am a teacher, but my friend is a student.",
+    "blocks": [
+     {
+      "t": "저",
+      "role": "나"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "선생님이고",
+      "role": "말"
+     },
+     {
+      "t": "제 친구",
+      "role": "주어 말"
+     },
+     {
+      "p": "는",
+      "role": "주제 조사",
+      "blank": true
+     },
+     {
+      "t": "학생이에요",
+      "role": "서술어"
+     }
+    ]
+   }
+  ],
+  "pool": [
+   "은",
+   "는",
+   "이",
+   "가"
+  ],
+  "explain": {
+   "q": "민수는 왔어요. / 민수가 왔어요. 두 문장은 어떻게 다를까요?",
+   "en": "Minsu came. How do the two sentences differ?",
+   "opts": [
+    "는: 민수에 대해 말해요",
+    "가: 누가 왔는지 알려 줘요"
+   ],
+   "answer": 2,
+   "why": "가 answers who came; 는 talks about Minsu."
+  }
+ }
 }
