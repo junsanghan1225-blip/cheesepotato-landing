@@ -1,0 +1,369 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 19.44,
+     "sessionsWithoutMetricPercentage": 80.56,
+     "pagesViews": 17,
+     "subTotal": 28
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 1.39,
+     "sessionsWithoutMetricPercentage": 98.61,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 11.11,
+     "sessionsWithoutMetricPercentage": 88.89,
+     "pagesViews": 12,
+     "subTotal": 12
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 72,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 62.36
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 72,
+     "totalBotSessionCount": 73,
+     "distinctUserCount": 59,
+     "pagesPerSessionPercentage": 1.7638888888888888
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 313,
+     "activeTime": 152
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 33
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 13
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 10
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Other",
+     "sessionsCount": 2
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 2
+    },
+    {
+     "name": "YandexBrowser",
+     "sessionsCount": 1
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 47
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 23
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 40
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 15
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 10
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 2
+    },
+    {
+     "name": "ChromeOS",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 26
+    },
+    {
+     "name": "China",
+     "sessionsCount": 9
+    },
+    {
+     "name": "Germany",
+     "sessionsCount": 9
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 8
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Brazil",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Italy",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Russian Federation",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Singapore",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Kuwait",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 30
+    },
+    {
+     "name": "TOPIK II Writing 51–52: 100 Practice Questions — Everykoreans | CheesePotato",
+     "sessionsCount": 6
+    },
+    {
+     "name": "TOPIK(토픽) II 쓰기 연습 문항 200개 — 51·52·53·54번 | CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "TOPIK 2 Vocabulary List — 8,258 Essential Korean Words by Topic | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "\"well\" in Korean — 잘 (jal) and 3 more ways to say it | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Everykoreans — Korean Books & Worksheet Shop | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "N(으)로 뜻과 예문 · 문법 정리 — Korean grammar | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK Grammar List — 290 Korean Grammar Patterns, Free CSV & Anki | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "TOPIK Listening Practice: 165 Questions with Transcripts (TOPIK I & II) | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 17
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 13
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 6
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "www.ecosia.org",
+     "sessionsCount": 3
+    },
+    {
+     "name": "cn.bing.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "m.search.naver.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "search.yahoo.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 30
+    },
+    {
+     "url": "https://everykoreans.com/shop/topik2-writing-51-52/",
+     "visitsCount": 6
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 5
+    },
+    {
+     "url": "https://everykoreans.com/topik-vocabulary-list/",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/topik2-words/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EB%8B%A4%EC%A0%95.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%B0%B8%EA%B8%B0%EB%A6%84.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/en/topik-listening/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/well.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/sentence/26-14.html",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
