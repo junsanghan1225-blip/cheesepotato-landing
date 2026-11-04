@@ -5987,11 +5987,13 @@
     },
     "pt-26-15": {
       "to": "ct-na",
+      "also": "pt-26-16",
       "en": "Two meanings of (이)나. Compare them.",
       "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
     },
     "pt-26-16": {
       "to": "ct-na",
+      "also": "pt-26-15",
       "en": "Two meanings of (이)나. Compare them.",
       "ko": "(이)나의 두 가지 뜻을 견줘 보세요."
     }

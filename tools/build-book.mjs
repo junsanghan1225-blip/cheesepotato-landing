@@ -418,7 +418,8 @@ ${B.authorNote && !B.authorBio ? `<div class="an"><h3>Author's note · 저자의
 const lookalike = (u) => {
   const la = B.lookalike?.[u.id]; if (!la) return '';
   const t = units.find((x) => x.id === la.to); if (!t) throw new Error(`lookalike ${u.id}: 책에 없는 단원 ${la.to}`);
-  return `<div class="la"><b>Look-alike alert · 헷갈리는 조사</b><span>${esc(la.en)}<br>${esc(la.ko)}</span><em>→ Unit ${String(t.no).padStart(2, '0')} · ${esc(t.title.ko)}</em></div>`;
+  const al = la.also ? units.find((x) => x.id === la.also) : null; if (la.also && !al) throw new Error(`lookalike ${u.id}: 책에 없는 단원 ${la.also}`);   // 같이 볼 단원(예: (이)나 ① ↔ ②) — 운영자 2026-11-04 「상자가 18번도 가리켜야」
+  return `<div class="la"><b>Look-alike alert · 헷갈리는 조사</b><span>${esc(la.en)}<br>${esc(la.ko)}</span><em>→ Unit ${String(t.no).padStart(2, '0')} · ${esc(t.title.ko)}${al ? `<small>같이 보기 · See also: Unit ${String(al.no).padStart(2, '0')} · ${esc(al.title.ko)}</small>` : ''}</em></div>`;
 };
 const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-/.test(u.id);
@@ -1152,7 +1153,7 @@ table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nt
 .stp{list-style:none;margin:0 0 2mm;padding:0;font-size:9.4pt;line-height:1.55}.stp li{display:grid;grid-template-columns:15mm 1fr;column-gap:2.5mm;align-items:start;padding:1.2mm 0;border-top:.2mm solid #d9d3e6;break-inside:avoid}.stp li:first-child{border-top:0}.stp .sn{font-size:7.4pt;font-weight:800;letter-spacing:.06em;color:#fff;background:${ACC};border-radius:1mm;padding:.5mm 0;text-align:center;margin-top:.6mm}
 /* 전자책 연습의 미니 정답: 문제 바로 아래에 두면 눈에 먼저 들어와서, 쪽 아래에 작게 거꾸로(180도) 둔다(운영자 2026-10-30) */
 .yrev{margin-top:3mm;padding:1.2mm 2.4mm;border:.25mm dashed #b9b2c9;border-radius:1mm;font-size:7pt;line-height:1.5;color:#6b6460;transform:rotate(180deg);text-align:left}
-.la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
+.la{display:flex;gap:3mm;align-items:center;margin-top:4mm;padding:2.2mm 3.4mm;border-left:1.2mm solid #d9822b;background:#fff6ea;border-radius:1.2mm;font-size:8.6pt;line-height:1.45;break-inside:avoid}.la b{flex:none;font-size:7.6pt;letter-spacing:.03em;color:#b25f12;max-width:24mm}.la span{flex:1}.la em small{display:block;font-weight:600;font-size:.86em;color:#555;margin-top:.8mm}.la em{flex:none;font-style:normal;font-weight:800;color:${ACC};font-size:8.2pt}
 .pr li.fill,.pr li.two{align-items:start}.pr li.two .ln{align-self:end}.pr li.two.fill{grid-template-columns:6mm 1fr}.pr .q .ko{display:block}.pr .q .en{display:block;margin-top:.5mm;font-size:8.2pt;color:#6d655c;line-height:1.35}
 .pr.th li{display:block;position:relative;padding:1.4mm 0 1mm 6mm;min-height:0}.pr.th li:before{position:absolute;left:0;top:1.6mm}.pr.th .q{display:block}.pr.th .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
 .pr .q{font-weight:500;line-height:1.45;padding-bottom:.4mm}.pr .ln{flex:none;min-width:0;height:4.8mm;border-bottom:.2mm solid #8e9ab0;margin:0}.pr .bl{border-bottom:.2mm solid #8e9ab0}
