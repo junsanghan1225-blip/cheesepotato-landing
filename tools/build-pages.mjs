@@ -202,6 +202,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .cat{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 16px 14px}
 .more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
 .more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
+.lead-box{margin:18px 0;padding:14px 16px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--tint,#faf6ee)}.lead-box>b{font-size:15px}.lead-box p{margin:4px 0 10px;font-size:13.5px;color:var(--ink2,#555)}.lead-row{display:flex;gap:8px;flex-wrap:wrap}.lead-row input[type=email]{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid var(--line,#e7e2d9);border-radius:7px;font:inherit;font-size:15px;background:#fff;color:var(--ink,#1b1b1b)}.lead-go{padding:11px 16px;border:1px solid var(--ink,#1b1b1b);border-radius:7px;background:var(--ink,#1b1b1b);color:#fff;font:inherit;font-size:14.5px;font-weight:800;cursor:pointer}.lead-go:disabled{opacity:.5}.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.lead-tips{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:12.5px;color:var(--dim,#777);cursor:pointer}.lead-tips input{margin-top:2px}.lead-msg{min-height:1.2em;margin:8px 0 0!important}.lead-msg.ok{color:#1b7a3a}.lead-msg.bad{color:#b3261e}.lead-dl{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--orange,#c2410c)}
 .bkbox{display:flex;gap:14px;align-items:center;margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--card,#fff);text-decoration:none;color:var(--ink,#222)}
 .bkbox:hover{border-color:var(--ink,#222)}.bkbox .bk-i{font-size:34px;line-height:1}.bkbox b{display:block;font-size:15.5px}.bkbox small{display:block;color:var(--dim,#777);font-size:13px;line-height:1.6;margin-top:3px}.bkbox em{font-style:normal;font-weight:700;font-size:13px;margin-top:6px;display:block;color:var(--ink,#222)}
 .next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
@@ -263,6 +264,7 @@ const crumbLd = (parts) => {
 /* 정적 쪽의 손에 잡히는 것(page.js — 🔊 · 보기 누르면 채점). 내용이 바뀌면 주소도 바뀌게 자국을 붙인다. */
 const QNA_JS = `/blog-qna.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'blog-qna.js'))).digest('hex').slice(0, 8)}`;
 const PAGE_JS = `/page.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'page.js'))).digest('hex').slice(0, 8)}`;
+const SUB_JS = `/subscribe.js?v=${createHash('sha1').update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'subscribe.js'))).digest('hex').slice(0, 8)}`;
 /* 다음 한 걸음 — 검색으로 들어온 사람에게 권하는 것은 하나만: 2분 레벨 테스트(사이트 #leveltest 가 연다) */
 const LT_CTA = '<a class="cta" href="/#leveltest">2분 레벨 테스트로 내 수준 알아보기 →<span>Free 2-minute level test — find your Korean level and get a study path</span></a>';
 const LT_LINK = '<p class="lt-next"><a href="/#leveltest">내 한국어 수준이 궁금하다면 → <b>2분 레벨 테스트</b></a></p>';
@@ -315,7 +317,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta name="twitter:image" content="${SITE}/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
-<script src="${PAGE_JS}" defer></script>${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
+<script src="${PAGE_JS}" defer></script>${body.includes('data-lead=') ? `<script src="${SUB_JS}" defer></script>` : ''}${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
@@ -395,6 +397,7 @@ function pointPage(cat, p, prev, next) {
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
     bookSteps(['particles-workbook', 'first-steps-workbook'], '이 표현을 연습하고 나서 · 책으로 이어서 (Next step: the workbooks)', 'sentence'),
+    leadSample('particles-workbook', 'sentence'),
     WS_SET.has(p.id) ? `<a class="cta" href="/worksheet/${esc(p.id)}.html">인쇄용 학습지 받기 · 연습 + 정답<span>Free printable worksheet (PDF) for ${esc(p.name)}</span></a>` : '',
     `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
       `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
@@ -884,6 +887,17 @@ const bookSteps = (ids, head, from = '') => `<h2>${head}</h2>` + ids.map((id) =>
   if (!b) throw new Error('shop.json 에 없는 책: ' + id);
   return `<a class="bkbox" href="/shop/${id}/?utm_source=hub&amp;utm_medium=page${from ? `&amp;utm_content=${from}` : ''}"><span><b>${esc(b.title.en)}</b><small>${esc(b.sub.en)} · PDF $${esc(b.price)}<br>${esc(b.sub.ko || '')}</small><em>책 보기 · See the book →</em></span></a>`;
 }).join('');
+/* 검색으로 들어온 사람에게 — 이메일을 내면 email_leads 에 한 줄(subscribe.js), 이메일 없이도 샘플을 바로 받는다(운영자 2026-11-05 「C 먼저」). 책 쪽 sampleBox 와 같은 모양. from = 어느 쪽에서(source) */
+const leadSample = (id, from) => {
+  const b = SHOPJ.books.find((x) => x.id === id);
+  if (!b || !b.sample) throw new Error('shop.json 에 샘플 없는 책: ' + id);
+  const f = `/assets/books/${id}/sample.pdf`;
+  return `<div class="lead-box"><b>무료 샘플 받기 · Get a free sample</b>` +
+    `<p>${esc(b.title.en)}의 표지 · 차례 · 첫 단원(${b.sample.pages}쪽 PDF)을 먼저 볼 수 있어요. 이메일을 남기면 새 무료 샘플 소식도 가끔 보내요.<br>The cover, contents and first units (${b.sample.pages} pages). Leave your email and we will tell you about new free samples now and then.</p>` +
+    `<form data-lead="page-${esc(from)}-${esc(id)}" novalidate><div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><button class="lead-go" type="submit">샘플 받기 · Get it</button></div>` +
+    `<label class="lead-tips"><input type="checkbox" name="tips" checked> <span>새 무료 샘플 · 학습 소식 받기(언제든 그만 받기) · Study news (stop any time)</span></label><p class="lead-msg" role="status" aria-live="polite"></p></form>` +
+    `<a class="lead-dl" href="${f}" download data-ev="샘플받기" data-ev-from="${esc(from)}">↓ 이메일 없이 바로 받기 · Download now, no email needed</a></div>`;
+};
 /* 쓰기 모음 쪽에서 쓰기 안내 글로 — 「토픽 쓰기 연습」 검색(2026-10-29 구글 노출이 반으로 줄었다)에서 들어온 사람이 번호마다 어떻게 쓰는지 바로 읽고, 글들 사이의 안쪽 연결도 생긴다. 글 제목 · 요약은 blog.js 에서 가져와 어긋나지 않는다. */
 const TW_GUIDES = ['topik-writing-score-tips', 'topik-writing-51-52-english', 'topik-writing-53-template', 'topik-writing-53-english', 'topik-writing-54-structure', 'topik-writing-54-structure-english', 'topik-mistakes-to-avoid-english'];
 const twGuides = () => '<h2>쓰기 안내 글 · Writing guides</h2><ul class="pts">' + TW_GUIDES.map((id) => {
@@ -918,6 +932,7 @@ function twHub(items) {
     sections,
     twGuides(),
     twBook('tw_end'),
+    leadSample('topik2-writing-51-52', 'tw'),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
   ].join('\n');
@@ -1511,6 +1526,7 @@ function vocabPage(w, prev, next) {
     quiz,
     LT_CTA,
     bookSteps([isT2(w) ? 'topik2-vocab-1000' : 'topik1-vocab'], `이 낱말을 공부했다면 · 책으로 이어서 (Next step: the ${isT2(w) ? 'TOPIK II' : 'TOPIK I'} vocabulary book)`, 'dict'),
+    leadSample(isT2(w) ? 'topik2-vocab-1000' : 'topik1-vocab', 'dict'),
     same.length ? `<h2>같은 주제 낱말 <small>More ${esc(tpName?.en || '')} words</small></h2><ul class="pts">` +
       same.map((x) => `<li><a href="${dictHref(x.h)}">${esc(x.h)}</a></li>`).join('') + '</ul>' +
       (tp ? `<p class="note"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 · All ${esc(tp.en)} words →</a></p>` : '') : '',
