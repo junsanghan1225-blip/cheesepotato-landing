@@ -7778,3 +7778,20 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 /* 레벨 테스트 영역 안내 — 어두운 화면에서 제목이 까맣게 묻히던 것(운영자 2026-10-30), 이모지를 뺀 빈 칸은 접는다 */
 .lt-intro h3 { color:var(--ink); }
 .lt-intro-ic:empty { display:none; }
+
+/* 이메일 모으기 칸(레벨 테스트 결과 · 닫을 때) — 종이 바탕 · 얇은 줄 · 작은 모서리, 주황은 단추 하나 */
+.lt-mail { margin:12px 0 0; padding-top:12px; border-top:1px solid var(--line); text-align:left; }
+.lt-mail-t { font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.45; word-break:keep-all; }
+.lt-mail-r { display:flex; gap:8px; margin-top:8px; }
+.lt-mail-r input { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font:inherit; font-size:15px; color:var(--ink); }
+.lt-mail-r button { flex:none; padding:10px 16px; border:1px solid var(--ink); border-radius:8px; background:var(--ink); color:#fff; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
+.lt-mail-r button:disabled { opacity:.5; cursor:default; }
+.lt-mail-c { display:flex; gap:8px; align-items:flex-start; margin-top:8px; font-size:12.5px; line-height:1.45; color:var(--ink-3); }
+.lt-mail-c input { margin-top:2px; }
+.lt-mail-m { min-height:0; margin:6px 0 0; font-size:12.5px; }
+.lt-mail-m.ok { color:#1f6b3a; } .lt-mail-m.bad { color:#b3322d; }
+.lt-leave { position:fixed; left:12px; right:12px; bottom:84px; z-index:60; max-width:420px; margin:0 auto; padding:14px 16px 12px; border:1px solid var(--ink); border-radius:10px; background:var(--paper, #fbf7ee); box-shadow:0 2px 0 rgba(0,0,0,.08); }
+.lt-leave.hidden { display:none; }
+.lt-leave-t { font-size:15px; font-weight:800; color:var(--ink); padding-right:22px; }
+.lt-leave .lt-mail { margin-top:8px; padding-top:0; border-top:0; }
+.lt-leave-x { position:absolute; top:6px; right:8px; width:28px; height:28px; border:0; background:none; font-size:20px; line-height:1; color:var(--ink-3); cursor:pointer; }
