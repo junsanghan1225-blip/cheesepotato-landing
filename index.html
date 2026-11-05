@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=3b07568e" async></script>
+<script src="gtm.js?v=4c31bc54" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=3b07568e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=3b07568e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=4c31bc54">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=4c31bc54">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3b07568e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=3b07568e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=4c31bc54" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=4c31bc54"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -822,6 +822,11 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
 .hm-bk-link { color:var(--ink-2); font-weight:700; font-size:14px; }
+/* 손가락으로 누르기 쉽게(운영자 2026-11-05 「4번은 해」) — 글자는 그대로, 누르는 칸만 44px 가까이 */
+.hm-bk-link, .hm-lead-dl a, .hero-trust { display:inline-block; padding-top:12px; padding-bottom:12px; }
+.hm-lead-dl a { padding-left:2px; padding-right:2px; }
+.hm-proline button, .hm-proline .hero-link { padding-top:12px; padding-bottom:12px; min-height:44px; }
+.dl-coming { padding-top:12px; padding-bottom:12px; display:inline-block; }
 .hm-bundle { margin:16px 0 0; padding:12px 14px; border:1px dashed var(--orange); border-radius:8px; background:var(--tint); font-size:14px; line-height:1.45; }
 .hm-bundle a { display:block; }
 .hm-bundle b { display:block; }
@@ -905,6 +910,12 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (max-width:640px) { .hero-solo #heroLevelTestBtn { width:100%; justify-content:center; } }
 .hero-book { display:inline-block; margin-top:10px; font-size:14.5px; font-weight:800; color:var(--orange-text, var(--orange-deep)); text-decoration:none; padding:8px 0; }
 .hero-book:hover { text-decoration:underline; text-underline-offset:3px; }
+.hero-more { display:flex; flex-wrap:wrap; align-items:center; gap:0 18px; margin-top:6px; }
+.hero-more > a, .hero-more > button { display:inline-flex; align-items:center; min-height:44px; margin:0; padding:0 2px; border:none; background:none; border-radius:0; font:inherit; font-size:14.5px; font-weight:800; color:var(--orange-text, var(--orange-deep)); text-decoration:none; cursor:pointer; }
+.hero-more > .hero-app { color:var(--ink); font-weight:700; }
+.hero-more > .hero-link { color:var(--ink); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+.hero-more > a:hover, .hero-more > button:hover { text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:600px) { .hero-acts .hero-go, .hero-acts .hero-try { flex:1 1 100%; justify-content:center; text-align:center; } }
 .hero-link { font:inherit; font-size:14px; font-weight:700; color:var(--ink); background:none; border:none; padding:10px 2px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--orange); }
 .hm-proofrow { max-width:var(--max); margin:36px auto 0; padding:0 var(--gut); display:grid; gap:20px; }
 .hm-proofrow .hm-today { margin-top:0; }
@@ -2284,14 +2295,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="hero-how" href="#hmPaths" data-en="See the paths">길 둘러보기</a>
       </div>
       <p class="hero-fine" data-en="Free · no sign-up needed · about 3 minutes">무료 · 가입 없이 바로 · 3분쯤</p>
-      <!-- 책 입구(운영자 2026-10-27 「책이 첫 화면에 안 보인다」) — 책 코너(#hmBooks)는 한참 아래라 첫 화면에 한 줄 -->
-      <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="PDF workbooks, each with a free sample →">PDF 워크북 · 책마다 무료 샘플 →</a>
-      <!-- 믿음 한 줄(운영자 2026-10-10) — 누가 만들었는지. 숫자는 about.html 과 같이 고친다. -->
+      <!-- 눌러 볼 곳을 한 줄로(운영자 2026-11-05 「첫 화면 단추가 너무 많다」 — 큰 단추 둘 아래는 작은 글자 링크 셋 + 믿음 한 줄) -->
+      <div class="hero-more">
+        <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="PDF workbooks, each with a free sample →">PDF 워크북 · 책마다 무료 샘플 →</a>
+        <button class="hero-link" id="heroSignupBtn" type="button" data-ko="무료 회원가입">Free sign-up</button>
+        <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="Android app">안드로이드 앱</a>
+      </div>
       <a class="hero-trust" href="about.html" data-en="Made by a Korean teacher · 1,700+ one-to-one lessons · 2,364 original TOPIK questions →">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 2,364 →</a>
-      <!-- 회원가입 — 로그인한 사람에게는 숨긴다(paintAuthNav) -->
-      <button class="hero-link" id="heroSignupBtn" type="button" data-ko="회원가입 · 무료, 기록을 기기마다 이어 보려면">Sign up · free — keep your progress on every device</button>
-      <!-- 앱 내려받기 유도(운영자 2026-10-21) — 첫 화면에서 바로 보이게. 눌림은 app_download_click(자리: 첫화면) -->
-      <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="Android app · Get it on Google Play">안드로이드 앱 · Google Play 에서 받기</a>
     </div>
     <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
       <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
@@ -4425,9 +4435,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=3b07568e"></script>
-<script type="module" src="app.module.js?v=3b07568e"></script>
+<script src="app.js?v=4c31bc54"></script>
+<script type="module" src="app.module.js?v=4c31bc54"></script>
 
-<script src="analytics.js?v=3b07568e" defer></script>
+<script src="analytics.js?v=4c31bc54" defer></script>
 </body>
 </html>
