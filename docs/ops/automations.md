@@ -15,3 +15,4 @@
 | 책 공장(책 PDF · 최종 검수 자동 검사 · 표지 · zip) | `node tools/book-factory.mjs <책 id>` · `--all` / 검사만 `tools/check-book-pdf.mjs` · 장부 `docs/ops/book-ledger.json` | 없음 | 켜짐(손으로 돌림) | `docs/plans/books.md` 8 |
 
 **없는 것(2026-10-27 기준)**: KDP · 예스24 · 쿠팡 올리기(운영자가 화면에서 직접 — 올리기 API 없음) · 구매자별 워터마크.
+| 매일 아침 「오늘 계획」 | 한국 8:07 새 대화로 오늘 숫자 · 할 일 3개(운영자 1 + Claude 2) 알림 | 예약 작업 `trig_019Ucr3Go8DG2iDEfssaPqXR`(Claude 앱 예약 작업) · 기준 `docs/ops/daily-plan.md` | 2026-11-05 켬 — 첫 실행(11/6 아침)에 저장소를 읽는지 확인 |
