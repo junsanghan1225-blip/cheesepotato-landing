@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=3b07568e', ja: './i18n-ja.js?v=3b07568e', zh: './i18n-zh.js?v=3b07568e', id: './i18n-id.js?v=3b07568e', ne: './i18n-ne.js?v=3b07568e', my: './i18n-my.js?v=3b07568e', ru: './i18n-ru.js?v=3b07568e', mn: './i18n-mn.js?v=3b07568e', pt: './i18n-pt.js?v=3b07568e', uz: './i18n-uz.js?v=3b07568e' };
+const I18N_URL = { vi: './i18n-vi.js?v=4c31bc54', ja: './i18n-ja.js?v=4c31bc54', zh: './i18n-zh.js?v=4c31bc54', id: './i18n-id.js?v=4c31bc54', ne: './i18n-ne.js?v=4c31bc54', my: './i18n-my.js?v=4c31bc54', ru: './i18n-ru.js?v=4c31bc54', mn: './i18n-mn.js?v=4c31bc54', pt: './i18n-pt.js?v=4c31bc54', uz: './i18n-uz.js?v=4c31bc54' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1487,10 +1487,14 @@ if ('serviceWorker' in navigator) {
   const fab = document.querySelector('.hlp-fab');
   if (!fab) return;
   let last = window.scrollY, tm = 0;
+  /* 폰 첫 화면 맨 위(처음 온 사람의 큰 단추 + 길 카드)에서는 치즈 단추가 길 카드를 가리니 비켜 둔다(운영자 2026-11-05) — 조금만 내려도 돌아온다 */
+  const onHeroTop = () => { const h = document.querySelector('.hm-intro'); return window.innerWidth <= 600 && window.scrollY < 60 && !!h && h.offsetParent !== null; };
+  fab.classList.toggle('away', onHeroTop());
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (y > last + 8 && y > 240) fab.classList.add('away'); else if (y < last - 8) fab.classList.remove('away');
     last = y;
-    clearTimeout(tm); tm = setTimeout(() => fab.classList.remove('away'), 900);
+    clearTimeout(tm); tm = setTimeout(() => fab.classList.toggle('away', onHeroTop()), 900);
+    if (onHeroTop()) fab.classList.add('away');
   }, { passive: true });
 })();

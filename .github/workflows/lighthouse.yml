@@ -1,0 +1,31 @@
+# 쪽 점수 검사(Lighthouse) — 폰 기준 성능 · 접근성 · 모범 사례 · 검색 점수를 표로 낸다(tools/lighthouse-check.mjs).
+# 알려 주는 용도: 점수가 낮아도 PR 이 막히지 않는다. 결과는 실행 화면(Summary)에 표로 보인다.
+# 켜지는 때: 화면 파일이 바뀐 PR · 매주 월요일 · 손으로(Actions → lighthouse → Run workflow).
+name: lighthouse
+
+on:
+  pull_request:
+    paths: ['index.html', 'app*.js', 'app-views.css', 'page.js', 'tools/lighthouse-check.mjs']
+  schedule:
+    - cron: '17 21 * * 0'   # 일요일 21:17 UTC = 월요일 06:17 KST
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 도구 설치
+        run: npm install --no-save --silent lighthouse@12 chrome-launcher
+      - name: 사이트 띄우기
+        run: |
+          python3 -m http.server 8080 >/dev/null 2>&1 &
+          sleep 2
+      - name: 쪽 점수 재기
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node tools/lighthouse-check.mjs http://localhost:8080
