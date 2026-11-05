@@ -334,3 +334,4 @@
 - 2026-11-05: 운영자 「다 하자 · 날마다 계획 세우고 알려줘」 — 큰 사이트 단계 계획 확정(direction.md 8장), 요일 리듬 · 첫 주 표 `docs/ops/daily-plan.md`, 매일 한국 8:07 예약 작업(`trig_019Ucr3Go8DG2iDEfssaPqXR`).
 - 2026-11-05: 메일 소식은 Resend 로(운영자 「Resend 로그인 · 도메인 인증 돼 있어」). 받는 사람 = email_leads 중 marketing_ok. 순서 · 첫 호 초안 `docs/ops/newsletter.md`. 한도(요금표)는 확인 못 함 — 운영자가 Billing 에서.
 - 2026-11-05: 이메일 동의자 0명(켜고 하루) — 첫 발송은 5명 이상일 때(11/11 또는 11/18). 11월 목표 20명 · 입구 늘리기(첫 화면 상자 · 블로그 끝 · SNS 링크).
+- 2026-11-05: 첫 화면 책 코너 맨 위에 「무료 샘플 + 이메일」 상자(source `home-books`) + 이메일 없이 바로 받기 3개(첫걸음 · TOPIK I 단어장 · 쓰기 51~52). 생성 도구 tools/build-home-books.mjs.

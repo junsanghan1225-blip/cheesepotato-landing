@@ -804,6 +804,10 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-books { padding-top:28px; padding-bottom:8px; }
 .hm-books .label { color:var(--orange-text, var(--orange-deep)); }
 .hm-books-sub { margin:6px 0 0; font-size:14.5px; color:var(--ink-2); line-height:1.55; word-break:keep-all; max-width:640px; }
+.hm-lead { max-width:640px; margin:14px 0 0; padding:14px 16px; border:1px solid var(--line); border-radius:10px; background:var(--surface-2, #faf6ee); }
+.hm-lead .lt-mail-t { font-size:14.5px; }
+.hm-lead-dl { margin:10px 0 0; font-size:13px; color:var(--ink-3); line-height:1.6; }
+.hm-lead-dl a { color:var(--orange-text, var(--orange-deep)); font-weight:700; white-space:nowrap; }
 .hm-bk-row { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x proximity; padding:8px 2px 14px; margin:12px -2px 0; -webkit-overflow-scrolling:touch; }
 .hm-bk { flex:0 0 148px; scroll-snap-align:start; display:flex; flex-direction:column; gap:4px; text-decoration:none; color:var(--ink); min-width:0; }
 .hm-bk img { display:block; width:100%; height:auto; aspect-ratio:700/995; object-fit:cover; border-radius:3px 8px 8px 3px; box-shadow:0 8px 18px rgba(0,0,0,.18); transition:transform .15s; background:var(--tint); }
@@ -2371,6 +2375,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="label" data-en="BOOKS · PDF WORKBOOKS">책 · PDF 워크북</div>
     <h2 class="section-title" id="hmBooksH" data-en="Workbooks you write in">써 가며 배우는 한국어 워크북</h2>
     <p class="hm-books-sub" data-en="Made by a Korean teacher for people who learn Korean in English. Answers included in every book, free online practice on the site, instant PDF download.">한국어 선생님이 만든 PDF 워크북이에요. 책마다 정답이 들어 있고, 사이트에서 무료로 더 연습할 수 있고, 결제하면 바로 내려받아요.</p>
+    <form class="lt-mail hm-lead" data-app-lead="home-books" novalidate>
+      <div class="lt-mail-t" data-en="Every book has a free sample. Leave your email for new free samples and study news.">책마다 무료 샘플이 있어요. 이메일을 남기면 새 무료 샘플 · 학습 소식을 보내 드려요.</div>
+      <div class="lt-mail-r"><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="이메일 주소" data-en-placeholder="Email address" aria-label="이메일 주소" data-en-aria="Email address" required><button type="submit" data-en="Send me news">소식 받기</button></div>
+      <label class="lt-mail-c"><input type="checkbox" name="tips" checked> <span data-en="Free samples and study news now and then (stop any time)">새 무료 샘플 · 학습 소식을 가끔 받아요(언제든 그만 받기)</span></label>
+      <p class="lt-mail-m" aria-live="polite"></p>
+      <p class="hm-lead-dl"><span data-en="No email needed. Download now:">이메일 없이 바로 받기:</span> <a href="assets/books/first-steps-workbook/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-첫걸음">첫걸음 · First Steps</a> · <a href="assets/books/topik1-vocab/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-TOPIK1단어">TOPIK I 단어장</a> · <a href="assets/books/topik2-writing-51-52/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-쓰기">TOPIK II 쓰기 51~52</a></p>
+    </form>
     <div class="hm-bk-row" role="list" aria-label="판매 중인 책" data-en-aria="Books on sale">
         <a class="hm-bk" role="listitem" href="shop/first-steps-workbook/" data-ev="책클릭" data-ev-from="첫화면">
           <img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="Korean First Steps Workbook — 한국어 첫걸음 워크북" width="300" height="426" loading="lazy" decoding="async">
