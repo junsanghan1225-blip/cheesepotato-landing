@@ -28,6 +28,8 @@ const REVIEW = args.includes('--review');
 /* --digital : 파는 PDF(전자책) — 종이책 자리표시(출판사 신고번호 · ISBN · 발행일 · 바코드)를 빼고 「디지털판」으로 적는다(운영자 2026-10-18 「책 PDF 최종」). */
 /* --yes24 --krw 9,900 : 예스24 용 파일(운영자 2026-10-30 「원화로 바꾸자」) — 정가를 원화로 판권쪽 · 뒷표지에 찍는다(달러 정가는 Polar · KDP 판). 예스24 가 DRM 을 직접 씌우므로 이 파일에는 보호(protect-pdf)를 걸지 않는다. */
 const USD = args.includes('--usd');   // --usd: 예스24판과 같은 속(체크 칸 · 정답 상자 …)에 판권쪽 가격은 책 틀의 달러 가격 그대로 — Polar 판매용(운영자 2026-10-31)
+/* --student : 학생에게 개인으로 보내는 판(운영자 2026-11-05 「학생용도 따로」) — 정답 쪽 · 쪽 아래 작은 거꾸로 정답 상자 · 「정답은 뒤쪽」 글을 뺀다. 선생님이 정답을 따로 갖고 있다 */
+const STUDENT = args.includes('--student');
 const YES24 = args.includes('--yes24') || USD;
 const KRW = YES24 && args.includes('--krw') ? args[args.indexOf('--krw') + 1] : '';
 if (YES24 && !USD && !/^\d{1,3}(,\d{3})*$/.test(KRW)) { console.error('쓰는 법: --yes24 --krw 9,900'); process.exit(1); }
@@ -464,7 +466,7 @@ function howPage() {
 const GUIDE = [
   ['table', '핵심 정리 · Key Points', '읽고 소리 내 말하고 따라 쓰는 표. 단원의 뼈대입니다.', 'Tables to read aloud, copy and revisit · the backbone of each unit.'],
   ['ref', '참고 · Note', '규칙이 어떻게 움직이는지 풀어 쓴 설명입니다.', 'A short explanation of how the pattern works.'],
-  ['practice', '연습 · Practice', KDP ? '문제 아래 정답을 가리고 풀어 본 뒤 확인합니다.' : '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', KDP ? 'Cover the answer below each question, try it, then check.' : 'Write on the line, then check the Answer Key at the back.'],
+  ['practice', '연습 · Practice', KDP ? '문제 아래 정답을 가리고 풀어 본 뒤 확인합니다.' : STUDENT ? '줄 위에 직접 쓰고, 선생님과 함께 확인합니다.' : '줄 위에 직접 쓰고, 뒤쪽 정답으로 확인합니다.', KDP ? 'Cover the answer below each question, try it, then check.' : STUDENT ? 'Write on the line, then check with your teacher.' : 'Write on the line, then check the Answer Key at the back.'],
   ['tip', 'TIP · 팁', '더 자연스럽게 말하는 요령, 알아 두면 편한 규칙.', 'A handy shortcut or a more natural way to say it.'],
   ['warn', 'WARNING · 주의', '자주 하는 실수와 예외. 틀리기 쉬운 곳은 꼭 읽으세요.', 'Common mistakes and exceptions · read these before you practise.'],
   ['pattern', 'PATTERN · 문형', '자주 쓰는 문장 틀. 점선 상자 자리에 내 낱말을 갈아 끼우세요.', 'A sentence frame. Swap your own word into the dashed slot.'],
@@ -479,7 +481,7 @@ function guidePage() {
     return boxHtml(k, { tip: 'Short, useful, and often what native speakers really say.', warn: 'The mistake learners make most often · and how to avoid it.', more: 'Extra background you can skip on the first read.' }[k]);
   };
   return `<div class="blk plain gd"><h2>How this book is organized</h2><div class="k">이 책의 구성 · 블록 읽는 법</div>${GUIDE.map(([k, t, ko, en]) => `<div class="row"><div class="mini">${mini(k)}</div><div class="d"><b>${t}</b>${en}<small>${ko}</small></div></div>`).join('')}
-<p style="margin-top:2.4mm;font-size:8.2pt;color:#2a3550;line-height:1.5"><b>번호 읽는 법 · Numbering</b>: 「핵심 정리 5-2」 = 5단원의 두 번째 칸. “Key Points 5-2” is the second block of Unit 5. 정답과 찾아보기는 책 뒤쪽에 있습니다 · The Answer Key and Index are at the back.</p></div>`;
+<p style="margin-top:2.4mm;font-size:8.2pt;color:#2a3550;line-height:1.5"><b>번호 읽는 법 · Numbering</b>: 「핵심 정리 5-2」 = 5단원의 두 번째 칸. “Key Points 5-2” is the second block of Unit 5. ${STUDENT ? '찾아보기는 책 뒤쪽에 있습니다 · The Index is at the back.' : '정답과 찾아보기는 책 뒤쪽에 있습니다 · The Answer Key and Index are at the back.'}</p></div>`;
 }
 function tocPage(starts) {
   let h = `<div class="blk plain"><div class="toc"><h2>Contents · 목차</h2>`;
@@ -492,7 +494,7 @@ function tocPage(starts) {
     for (const s of p.sheets) { const u = units.find((x) => x.id === s.id); h += ln(String(u.no).padStart(2, '0'), s.title.en, s.title.ko, starts?.unit[u.no]); }
   }
   h += `<div class="pt ex">BACK MATTER · <span style="color:#9a9288;font-weight:500">부록</span></div>`;
-  h += ln('', 'Answer Key', '정답', starts?.answers) + (B.noIndex ? '' : ln('', 'Index', '찾아보기', starts?.index)) + ln('', 'Notes', '메모', starts?.memo);
+  h += (STUDENT ? '' : ln('', 'Answer Key', '정답', starts?.answers)) + (B.noIndex ? '' : ln('', 'Index', '찾아보기', starts?.index)) + ln('', 'Notes', '메모', starts?.memo);
   return h + '</div></div>';
 }
 /* 문제은행 책 — 번호마다 「풀이 방법」 쪽(topik-writing.js 의 TW_GUIDE): 무엇을 묻는지 · 풀이 순서 · 표현 · 자주 하는 실수 */
@@ -820,7 +822,7 @@ function unitBlock(u) {
     if (s.type === 'family') { const bx = (ko, en, extra = '') => `<div class="fb"><b>${esc(ko)}</b><small>${esc(en)}</small>${extra}</div>`; const sib = (m, f, en) => `<div class="fb two"><span><b>${esc(m)}</b><small>${esc(en[0])}</small></span><span><b>${esc(f)}</b><small>${esc(en[1])}</small></span></div>`;
       return `<div class="sec fam">${sr(si)}${secLabel(s)}<div class="ftree"><div class="ftr">${bx('할아버지', 'grandfather')}<i class="fh"></i>${bx('할머니', 'grandmother')}</div><div class="fv"></div><div class="ftr">${bx('아버지', 'father · 아빠', '<em>아버님</em>')}<i class="fh"></i>${bx('어머니', 'mother · 엄마', '<em>어머님</em>')}</div><div class="fcap">부모님 = father &amp; mother · 아버님 · 어머님 = respectful (also a spouse's parents)</div><div class="fv"></div><div class="ftr ks">${sib('형', '오빠', ['older brother · male speaker', 'older brother · female speaker'])}${sib('누나', '언니', ['older sister · male speaker', 'older sister · female speaker'])}<div class="fb me"><b>나</b><small>me</small></div>${bx('동생', 'younger sibling', '<em>남동생 · 여동생</em>')}</div><div class="fcap">형님 · 누님 = respectful, used by males</div></div></div>`; }
     /* ── 첫걸음 시범 6개 단원(운영자 2026-10-31 「공장 같다 · 단원마다 개별화」): 단원 성격에 맞는 쪽 도구 ── */
-    const ansBox = (arr) => `<div class="yrev">${arr.map((a, i) => `${i + 1}) ${esc(a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
+    const ansBox = (arr) => STUDENT ? '' : `<div class="yrev">${arr.map((a, i) => `${i + 1}) ${esc(a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
     const head = (s0) => `<div class="sec vz${['principle', 'cards', 'chart', 'weeks'].includes(s0.type) ? ' brk' : ''}">${sr(si)}${secLabel(s0)}${s0.hint ? `<div class="hint">${esc(s0.hint)}</div>` : ''}`;
     if (s.type === 'clock') {
       /* 디지털 시계(운영자 2026-11-01 「디지털 전자 시계로 헷갈려」): 바늘 읽기 대신 숫자판 — 몇 시 몇 분만 한국어로 읽게 */
@@ -935,7 +937,7 @@ Object.assign(P, {
     if (s.type === 'selfcheck') return `<div class="sec slf${s.compact ? ' sckc' : ''}">${sr(si)}${s.compact ? '' : secLabel(s)}${selfHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq${s.raw._ref ? ' wqref' : ''}">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
+    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
   }).join('\n');
   if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${u._head}${walkHtml(u.id).a ? '' : unitQr(u)}${appCheck(u)}${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}${walkHtml(u.id).a ? '' : unitQr(u)}</div>`;
@@ -1213,7 +1215,7 @@ const entries = indexEntries();
 const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u = units.find((x) => x.id === sh.id); return [`unit${u.no}`, unitBlock(u)]; })) : [
   ['title', titlePage()], ['copyright', copyrightPage()], ['preface', prefacePage()], ...(B.authorNote && B.authorBio ? [['note', notePage()]] : []), ...(B.authorBio ? [['author', authorPage()]] : []), ['how', howPage()], ...(B.selfStudy ? [['studymap', studyMap()]] : []), ...(B.noGuide ? [] : [['guide', guidePage()]]), ['toc', tocPage(null)], ...FRONT_LIST.map(([k, , , fn]) => [k, fn()]),
   ...parts.flatMap((p) => [[`part${p.no}`, partPage(p)], ...(TWM ? [[`qguide${p.no}`, qGuidePage(p)], [`qscore${p.no}`, qScorePage(p)], [`qworked${p.no}`, qWorkedPage(p)]] : []), ...p.sheets.flatMap((s) => { const u = units.find((x) => x.id === s.id); const mt = B.methodBefore && B.methodBefore[s.id]; return [...(mt ? [[`meth${u.no}`, methodsPages([B.methods.find((m) => m.type === mt)])]] : []), [`unit${u.no}`, unitBlock(u)]]; })]),
-  ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ['answers', answersBlock()], ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
+  ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ...(STUDENT ? [] : [['answers', answersBlock()]]), ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
 for (const [k, html] of blocks) { counts[k] = countPages(await pdf(html)); if (process.env.BOOK_DEBUG) { console.log("  블록", k, counts[k]); if (k === "unit1") fs.writeFileSync("/tmp/blk-unit1.pdf", await pdf(html)); } }
@@ -1226,7 +1228,11 @@ for (const [k] of blocks) { start[k] = at; at += counts[k]; }
 const starts = { front: Object.fromEntries(FRONT_LIST.map(([k]) => [k, start[k]])), preface: start.preface, guide: start.guide, unit: Object.fromEntries(units.map((u) => [u.no, start[`unit${u.no}`] + 1])), answers: start.answers, index: start.index, memo: start.memo };
 // 단원 첫 쪽(표지 쪽)은 목차에 그 단원의 첫 쪽으로 적는다 — unit 블록은 첫 쪽이 단원 표지이므로 start 그대로가 맞다
 for (const u of units) starts.unit[u.no] = start[`unit${u.no}`];
+/* 학생용(--student): 「정답 쪽에서 확인」 글을 「선생님과 확인」으로 바꾼다 — 정답 쪽이 없는 판이라 안내만 남으면 안 된다 */
+const STU_FIX = [[/Check the Answer Key at the back\./g, 'Check with your teacher.'], [/check yourself with the answer key at the back/gi, 'check your answers with your teacher'], [/④ 정답 확인/g, '④ 선생님과 확인'], [/체크? ?정답/g, '정답'], [/뒤쪽 정답으로 확인하세요\./g, '선생님과 함께 확인하세요.'], [/뒤쪽 정답으로 확인하고/g, '선생님과 확인하고'], [/Model answers are in the Answer Key\./g, 'Ask your teacher for the model answers.'], [/(?:the )?Answer Key(?: at the back)?/g, 'your teacher']];
+const stu = (h) => (STUDENT ? STU_FIX.reduce((x, [a, b]) => x.replace(a, b), h) : h);
 let final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n') + (REVIEW ? reviewSheet() : '');
+final = stu(final);
 
 const dir = path.join(outDir, bookId + (THEME !== (B.theme || 'brand') ? `-${THEME}` : ''));
 fs.mkdirSync(dir, { recursive: true });
@@ -1246,7 +1252,7 @@ if (realTotal !== total && !REVIEW) {
     starts.answers = at(/^\s*Answer Key\s*$/m, tocAt) || at(/Answer Key/, tocAt) || starts.answers;   // 목차가 두 쪽이면 목차 속 「Answer Key 정답 N」 줄을 잘못 찾으니 제목 줄만 본다
     if (!B.compact) starts.memo = at(/Notes\s*·\s*메모/, tocAt) || starts.memo;
     for (const [k] of FRONT_LIST) { const pg = at(k === 'fm1' && B.methods ? /TYPE 1/ : /^$/, tocAt); if (pg && k === 'fm1' && B.methods) starts.front[k] = pg; }
-    final = blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n');
+    final = stu(blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n'));
     interior = await pdf(final);
     realTotal = countPages(interior); total = realTotal;
     console.log('목차 쪽 번호를 한꺼번에 찍은 PDF 에서 다시 찾아 찍었다');
