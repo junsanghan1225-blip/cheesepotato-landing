@@ -4,7 +4,7 @@
  "published": "2026.11.10",
  "edition": "Draft proof · 시안",
  "theme": "classic",
- "color": "#1D7C3D",
+ "color": "#9E2E8B",
  "tint": "#F4F4F2",
  "series": {
   "en": "TOPIK SERIES",
@@ -1059,8 +1059,8 @@
  "coverLevel": {
   "code": "3~6급",
   "name": "TOPIK II 대비",
-  "bg": "#1D7C3D",
-  "bg2": "#114C25",
+  "bg": "#9E2E8B",
+  "bg2": "#6B1C5D",
   "mascot": [
    "cheese",
    5
