@@ -10,8 +10,8 @@
     "ko": "TOPIK 시리즈"
   },
   "title": {
-    "en": "TOPIK II Writing: The Day Before",
-    "ko": "TOPIK II 쓰기: 시험 전날 요약"
+    "en": "Writing: The Day Before (for TOPIK II)",
+    "ko": "쓰기 영역: 시험 전날 요약 (TOPIK II 대비)"
   },
   "sub": {
     "en": "What to look at the day before the writing test.",
@@ -461,9 +461,9 @@
       5
     ],
     "title": [
-      "TOPIK II",
-      "쓰기",
-      "시험 전날 요약"
+     "쓰기 영역",
+     "시험 전날",
+     "요약"
     ],
     "sub": "쓰기 시험 전날에 보는 핵심 정리"
   },

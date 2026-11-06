@@ -313,7 +313,7 @@ TOPIK II 쓰기 51번(실용문)과 52번(설명문) 빈칸 쓰기만 모았습�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) · Writing Practice Questions 51–52: 100 Questions (for TOPIK II)
+쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) · Writing Practice 51–52 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -691,7 +691,7 @@ TOPIK II 쓰기 53번(도표 · 자료 설명 200~300자)과 54번(논술 600~70
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) · Writing Practice Questions 53–54: 100 Questions (for TOPIK II)
+쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) · Writing Practice 53–54 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -1424,12 +1424,12 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 16. TOPIK II 쓰기: 시험 전날 요약
+## 16. 쓰기 영역: 시험 전날 요약 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 쓰기: 시험 전날 요약 |
+| 책제목 | 쓰기 영역: 시험 전날 요약 (TOPIK II 대비) |
 | 부제목 | 쓰기 시험 전날에 보는 핵심 정리 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK II 쓰기, 토픽 쓰기 요약, 51 52 53 54번, 쓰기 시험 전날, 원고지 쓰기, TOPIK II Writing |
@@ -1480,7 +1480,7 @@ TOPIK II 쓰기 시험 전날 한 번에 훑어보는 요약입니다. 시험 �
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 쓰기: 시험 전날 요약 · TOPIK II Writing: The Day Before
+쓰기 영역: 시험 전날 요약 (TOPIK II 대비) · TOPIK II Writing: The Day Before
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
