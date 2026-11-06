@@ -67,8 +67,9 @@ h1,h3,.wd-en{color:var(--ink)}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
 .crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
-.badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;
-  background:var(--soft);border:1px solid var(--line);color:var(--dim)}
+/* 알약 모양 꼬리표는 단추처럼 보여 눌러도 반응이 없다(Clarity 먹통 클릭 15~19%, 운영자 2026-11-06 「너가 잡아」) — 글자 꼬리표로 */
+.badge{display:inline-block;font-size:12.5px;font-weight:700;padding:0;margin-right:2px;border:0;border-radius:0;
+  background:none;color:var(--dim);letter-spacing:.01em}
 h1{font-size:30px;line-height:1.3;margin:12px 0 6px;letter-spacing:-.03em;font-weight:800}
 .sub{color:var(--dim);font-size:14px;margin:0 0 18px}
 .desc{font-size:17px;margin:0 0 26px}
@@ -138,7 +139,8 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
    무엇을 얻는지 넷 → 큰 단추 둘 → 유형마다 몇 개만 보이고 나머지는 접기 → 함께 쓰면 좋은 것. */
 .why{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
 @media(min-width:640px){.why{grid-template-columns:repeat(4,1fr)}}
-.why li{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px 12px 11px;font-size:13px;color:var(--dim);line-height:1.4}
+/* 차례 칸(① ② ③)은 상자가 아니라 위에 줄 하나 — 상자는 단추처럼 보여 눌러 보게 된다 */
+.why li{border:0;border-top:2px solid var(--ink);background:none;border-radius:0;padding:10px 4px 6px 0;font-size:13px;color:var(--dim);line-height:1.4}
 .why b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}.ctas .cta{flex:1 1 240px;margin:0}
 .cta.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}

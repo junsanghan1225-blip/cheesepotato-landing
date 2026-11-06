@@ -138,7 +138,7 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <style>${CSS}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in"><a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a></div></header>
+<header class="hd"><div class="hd-in"><a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a></div></header>
 <main>`;
 const foot = `</main></body></html>\n`;
 
