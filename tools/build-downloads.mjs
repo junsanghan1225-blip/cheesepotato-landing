@@ -78,7 +78,7 @@ const page = `<!DOCTYPE html>
 </head>
 <body>
 <header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
 </div></header>
 <main>
 <h1>TOPIK vocabulary list — free download</h1>
@@ -146,7 +146,7 @@ const gpage = `<!DOCTYPE html>
 </head>
 <body>
 <header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
 </div></header>
 <main>
 <h1>TOPIK grammar list — ${GR.length} patterns, free download</h1>

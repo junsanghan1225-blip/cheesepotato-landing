@@ -83,7 +83,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 ${extra}</head>
 <body>
 <header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo.png" alt=""><span>치즈감자 CheesePotato</span></a>
+  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
 </div></header>
 <main>
 `;
