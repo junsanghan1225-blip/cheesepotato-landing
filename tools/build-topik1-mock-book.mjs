@@ -189,7 +189,7 @@ const book = {
   },
   parts: [{ title: { en: 'Practice tests', ko: '실전 모의고사' }, units: unitIds }],
   methods, noGuide: true, noIndex: true, noQr: true, unitCount: N_TESTS, coverAccent: '읽기',
-  coverLevel: { code: 'TOPIK I', name: '1~2급', bg: '#E0583C', bg2: '#B8402A', mascot: ['cheese', 2], title: ['읽기', '실전 연습', '10회'], sub: '새로 만든 문제 400개 · 풀이 포함' },
+  coverLevel: { code: '1~2급', name: 'TOPIK I 대비', bg: '#E0583C', bg2: '#B8402A', mascot: ['cheese', 2], title: ['읽기', '실전 연습', '10회'], sub: '새로 만든 문제 400개 · 풀이 포함' },
   back: { items: [['10 tests · 모의고사 10회', 'Questions 31-70, 40 each · 31~70번, 회마다 40문항'], ['400 original questions · 새로 만든 문제 400개', 'In the real test format; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK I test takers · TOPIK I 응시 준비에', price: '정가 9.9달러' },
   inline,
 };

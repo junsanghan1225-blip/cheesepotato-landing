@@ -769,8 +769,8 @@
  "unitCount": 65,
  "coverAccent": "읽기",
  "coverLevel": {
-  "code": "TOPIK II",
-  "name": "3~6급",
+  "code": "3~6급",
+  "name": "TOPIK II 대비",
   "bg": "#7C1D1D",
   "bg2": "#521212",
   "mascot": [
@@ -10197,5 +10197,7 @@
     }
    ]
   }
- }
+ },
+ "isbn": "979-11-222563-1-4",
+ "isbnPrice": "9.9달러"
 }

@@ -141,11 +141,12 @@ for (const B of BOOKS) {
     howto: { en: ['At the start of each type, read the method and word pages first.', 'Solve one set at a time within its recommended time (about 1 min 24 s per question) and mark your answers in the book.', 'Check the answer key and read the explanation of every question you missed.', 'Redo the missed questions after a few days.'], ko: ['새 유형이 시작될 때마다 풀이 방법과 필요한 낱말 쪽을 먼저 읽습니다.', '유형별 문제를 한 회씩, 회 첫 쪽의 권장 시간(문항당 평균 1분 24초)에 맞춰 풀고 답안지에 표시합니다.', '정답을 확인하고, 틀린 문항의 풀이를 꼭 읽습니다.', '며칠 뒤 틀린 문항을 다시 풉니다.'] },
     parts: B.types.map((t, ti) => ({ title: { en: TYPE_INFO[t].en, ko: TYPE_INFO[t].ko }, units: unitIds.filter((id) => inline[id].stype === t) })),
     methods, methodBefore, noGuide: true, noIndex: true, noQr: true, unitCount: unitIds.length, coverAccent: '읽기',
-    coverLevel: { code: 'TOPIK II', name: '3~6급', bg: B.bg, bg2: B.bg2, mascot: ['cheese', B.mascot], pastel: true, title: ['연습문항', '읽기 영역', `${B.from}~${B.to}`], sub: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
+    coverLevel: { code: '3~6급', name: 'TOPIK II 대비', bg: B.bg, bg2: B.bg2, mascot: ['cheese', B.mascot], pastel: true, title: ['연습문항', '읽기 영역', `${B.from}~${B.to}`], sub: `새로 만든 문제 ${N}개 · ${B.sub.ko}` },
     back: { items: [[`${unitIds.length} sets · 유형별 문제 ${unitIds.length}회`, `${N} questions for exam no. ${B.from}–${B.to} · 시험 ${B.from}~${B.to}번 ${N}문항`], [`${N} original questions · 새로 만든 문제 ${N}개`, 'In the real test style; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK II test takers · TOPIK II 응시 준비에', price: '정가 9.9달러' },
     inline,
   };
   book.sub.ko = book.coverLevel.sub;
+  book.isbn = ['979-11-222563-0-7', '979-11-222563-1-4', '979-11-222563-2-1', '979-11-222563-3-8'][B.n - 1]; book.isbnPrice = '9.9달러';   // 2026-11-06 운영자가 ISBN 목록 화면으로 알려 줌(읽기 1~15 … 46~50)
   fs.writeFileSync(path.join(ROOT, `docs/books/topik2-reading-${B.n}.json`), JSON.stringify(book, null, 1) + '\n');
   console.log(`topik2-reading-${B.n}: ${kt} · ${N}문항 · ${unitIds.length}회 · 정답 분포 ${answerCount.join('/')} → docs/books/topik2-reading-${B.n}.json`);
 }

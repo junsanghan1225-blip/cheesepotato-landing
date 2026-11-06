@@ -20621,8 +20621,8 @@
  "unitCount": 50,
  "coverAccent": "단어장",
  "coverLevel": {
-  "code": "TOPIK II",
-  "name": "3~4급",
+  "code": "3~4급",
+  "name": "TOPIK II 대비",
   "bg": "#2E9E41",
   "bg2": "#1C6B2B",
   "mascot": [
