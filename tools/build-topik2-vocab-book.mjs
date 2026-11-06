@@ -151,7 +151,7 @@ const book = {
   back: { items: [[`${N_WORDS / PER} units · ${N_WORDS / PER}개 단원`, `The ${N_WORDS.toLocaleString('en-US')} most frequent ${CFG.nameEn} words · ${CFG.name} 낱말 중 자주 나오는 ${N_WORDS.toLocaleString('en-US')}개`], ['Example, checkup &amp; look-alike words · 예문 · 단원 점검 · 헷갈리는 낱말', 'Cheese = level, potato = frequency · 치즈는 급수, 감자는 빈출도'], ['Scan the QR for a match game · QR 로 짝 맞추기 게임', 'Practice the same 20 words on your phone · 같은 낱말 20개를 폰으로']], for: `For TOPIK II learners, ${CFG.nameEn} · TOPIK II ${CFG.name} 준비에`, price: '정가 6.9달러' },
   parts, noGuide: true, inline, blocks: {}, unitCount: N_WORDS / PER,
   coverAccent: '단어장',
-  coverLevel: { code: 'TOPIK II', name: CFG.name, bg: CFG.bg, bg2: CFG.bg2, mascot: CFG.mascot, title: ['중급', '단어장', `워크북 ${VOL}`], sub: `${CFG.name} 자주 나오는 낱말 1,000개` },
+  coverLevel: { code: CFG.name, name: 'TOPIK II 대비', bg: CFG.bg, bg2: CFG.bg2, mascot: CFG.mascot, title: ['중급', '단어장', `워크북 ${VOL}`], sub: `${CFG.name} 자주 나오는 낱말 1,000개` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
 /* 승인된 ISBN(한국서지표준센터 2026-10-27): 1권 979-11-222407-1-9 · 2권 979-11-222407-2-6 · 정가 6.9달러. 3권도 승인(바코드 파일 대기) */

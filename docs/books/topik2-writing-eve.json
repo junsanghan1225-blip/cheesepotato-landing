@@ -452,8 +452,8 @@
   },
   "published": "2026.11.10",
   "coverLevel": {
-    "code": "TOPIK II",
-    "name": "쓰기",
+    "code": "쓰기",
+    "name": "TOPIK II 대비",
     "bg": "#6B3FA0",
     "bg2": "#462969",
     "mascot": [

@@ -151,7 +151,7 @@ const book = {
   back: { items: [[`${UNITS} units · ${UNITS}개 단원`, `TOPIK I words ${CFG.rangeEn} · TOPIK I 낱말 ${CFG.range}번째`], ['Example, checkup & writing practice · 예문 · 점검 · 쓰기 연습', 'Cover, write, check · 가리고 쓰고 확인하기'], ['Cheese = level, potato = how often · 치즈 = 급수, 감자 = 빈출도', 'Same scale in every book of the series · 시리즈 모든 권이 같은 눈금']], for: 'For TOPIK I learners · TOPIK I 준비에', price: '정가 6.9달러' },
   parts, noGuide: true, inline, blocks: {}, unitCount: UNITS,
   coverAccent: '단어장',
-  coverLevel: { code: 'TOPIK I', name: VOL === 1 ? '1~2급' : '2급', bg: '#12704F', bg2: '#0B4A33', mascot: CFG.mascot, title: ['초급', '필수 단어장', `${VOL}권`], sub: `TOPIK I 필수 낱말 ${CFG.range}` },
+  coverLevel: { code: VOL === 1 ? '1~2급' : '2급', name: 'TOPIK I 대비', bg: '#12704F', bg2: '#0B4A33', mascot: CFG.mascot, title: ['초급', '필수 단어장', `${VOL}권`], sub: `TOPIK I 필수 낱말 ${CFG.range}` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
 book.published = '2026.11.10';   // ISBN 신청서 발행일 = 판권지 발행(tools/check-isbn.mjs)

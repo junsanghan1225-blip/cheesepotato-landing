@@ -773,15 +773,14 @@
  "unitCount": 70,
  "coverAccent": "읽기",
  "coverLevel": {
-  "code": "TOPIK II",
-  "name": "3~6급",
+  "code": "3~6급",
+  "name": "TOPIK II 대비",
   "bg": "#455F11",
-  "bg2": "#2D3F0A",
+  "bg2": "#2A3A0A",
   "mascot": [
    "cheese",
    6
   ],
-  "pastel": true,
   "title": [
    "연습문항",
    "읽기 영역",
@@ -10360,5 +10359,7 @@
     }
    ]
   }
- }
+ },
+ "isbn": "979-11-222563-3-8",
+ "isbnPrice": "9.9달러"
 }

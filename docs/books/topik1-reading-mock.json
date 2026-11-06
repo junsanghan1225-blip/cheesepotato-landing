@@ -1200,8 +1200,8 @@
  "unitCount": 10,
  "coverAccent": "읽기",
  "coverLevel": {
-  "code": "TOPIK I",
-  "name": "1~2급",
+  "code": "1~2급",
+  "name": "TOPIK I 대비",
   "bg": "#E0583C",
   "bg2": "#B8402A",
   "mascot": [
