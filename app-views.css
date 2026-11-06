@@ -7712,7 +7712,7 @@ html[lang="ja"] *, html[lang="zh"] *, html[lang^="zh-"] *, html[lang="my"] * { w
 html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-theme="dark"] .bkw-sub{color:#cdbfae}html[data-theme="dark"] .bkw-card ul,html[data-theme="dark"] .bkw-go button{background:#352a22;border-color:#4a3b30;color:#f4ece2}html[data-theme="dark"] .bkw-go .bkw-main{background:#ff914d;color:#fff}
 
 /* 폰에서 누르기 쉽게 — 작은 단추는 높이 36px 이상, 12px 미만 글자는 12px(운영자 2026-10-27 「작은 글자 · 단추 키우기」) */
-.footer-info a { display:inline-block; padding:8px 4px; min-height:36px; box-sizing:border-box; }
+.footer-info a { display:inline-block; box-sizing:border-box; }
 .cv-cat, .qa-chip { min-height:36px; }
 .lsec-help { min-width:36px; min-height:36px; }
 .my-link { min-height:36px; padding:8px 0; }
@@ -7784,7 +7784,7 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-mail-t { font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.45; word-break:keep-all; }
 .lt-mail-r { display:flex; gap:8px; margin-top:8px; }
 .lt-mail-r input { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font:inherit; font-size:15px; color:var(--ink); }
-.lt-mail-r button { flex:none; padding:10px 16px; border:1px solid var(--ink); border-radius:8px; background:var(--ink); color:#fff; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
+.lt-mail-r button { flex:none; padding:10px 16px; border:1px solid var(--orange); border-radius:8px; background:var(--orange); color:#1B1512; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
 .lt-mail-r button:disabled { opacity:.5; cursor:default; }
 .lt-mail-c { display:flex; gap:8px; align-items:flex-start; margin-top:8px; font-size:12.5px; line-height:1.45; color:var(--ink-3); }
 .lt-mail-c input { margin-top:2px; }
