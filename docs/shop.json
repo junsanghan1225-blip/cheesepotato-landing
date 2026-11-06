@@ -1149,8 +1149,8 @@
    "color": "#12704F",
    "level": "TOPIK I",
    "title": {
-    "en": "TOPIK I Reading: 10 Practice Tests",
-    "ko": "TOPIK I 읽기 실전 모의고사 10회"
+    "en": "10 Reading Practice Tests (for TOPIK I)",
+    "ko": "읽기 실전 연습 10회 (TOPIK I 대비)"
    },
    "sub": {
     "en": "400 original questions in the real test format, with explanations.",
@@ -1196,7 +1196,7 @@
    "page": {
     "headline": {
      "en": "Ten full TOPIK I reading tests, 400 questions in the real format.",
-     "ko": "TOPIK I 읽기 실전 모의고사 10회, 실제 형식 400문항"
+     "ko": "읽기 실전 연습 10회 (TOPIK I 대비), 실제 형식 400문항"
     },
     "lead": {
      "en": "Ten tests of 40 questions written in the official format by a Korean teacher. Before the tests, one page per question type shows how to solve it and the words you need.",
@@ -1523,8 +1523,8 @@
    "color": "#6B3FA0",
    "level": "TOPIK II",
    "title": {
-    "en": "TOPIK II Writing 51–52: 100 Practice Questions",
-    "ko": "TOPIK II 쓰기 51~52번 100제"
+    "en": "Writing Practice Questions 51–52: 100 Questions (for TOPIK II)",
+    "ko": "쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)"
    },
    "sub": {
     "en": "Practical and explanatory text completion, with model answers and scoring points.",
@@ -1965,8 +1965,8 @@
    "color": "#2E9E41",
    "level": "TOPIK II",
    "title": {
-    "en": "TOPIK II Vocabulary Workbook 1",
-    "ko": "TOPIK II 단어장 워크북 1"
+    "en": "Intermediate Vocabulary Workbook 1 (for TOPIK II)",
+    "ko": "중급 단어장 워크북 1 (TOPIK II 대비)"
    },
    "sub": {
     "en": "The 1,000 most frequent TOPIK II levels 3–4 words, with example sentences and writing practice.",
@@ -2509,8 +2509,8 @@
    "color": "#9E9E2E",
    "level": "TOPIK II",
    "title": {
-    "en": "TOPIK II Vocabulary Workbook 2",
-    "ko": "TOPIK II 단어장 워크북 2"
+    "en": "Intermediate Vocabulary Workbook 2 (for TOPIK II)",
+    "ko": "중급 단어장 워크북 2 (TOPIK II 대비)"
    },
    "sub": {
     "en": "The 1,000 most frequent TOPIK II level 5 words, with example sentences and writing practice.",
@@ -3053,8 +3053,8 @@
    "color": "#5F3811",
    "level": "TOPIK II",
    "title": {
-    "en": "TOPIK II Vocabulary Workbook 3",
-    "ko": "TOPIK II 단어장 워크북 3"
+    "en": "Intermediate Vocabulary Workbook 3 (for TOPIK II)",
+    "ko": "중급 단어장 워크북 3 (TOPIK II 대비)"
    },
    "sub": {
     "en": "The 1,000 most frequent TOPIK II level 6 words, with example sentences and writing practice.",
@@ -3597,8 +3597,8 @@
    "color": "#6B3FA0",
    "level": "TOPIK II",
    "title": {
-    "en": "TOPIK II Writing 53–54: 100 Practice Questions",
-    "ko": "TOPIK II 쓰기 53~54번 100제"
+    "en": "Writing Practice Questions 53–54: 100 Questions (for TOPIK II)",
+    "ko": "쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)"
    },
    "sub": {
     "en": "Describe data in 300 characters, argue in 700, with scored samples.",
@@ -4009,8 +4009,8 @@
    "color": "#12704F",
    "level": "TOPIK I",
    "title": {
-    "en": "TOPIK I Essential Vocabulary",
-    "ko": "TOPIK I 필수 단어장"
+    "en": "Beginner Essential Vocabulary (for TOPIK I)",
+    "ko": "초급 필수 단어장 (TOPIK I 대비)"
    },
    "sub": {
     "en": "All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice.",
@@ -5200,7 +5200,7 @@
    ],
    "title": {
     "en": "TOPIK II Vocabulary Workbooks 1–3 · Bundle",
-    "ko": "TOPIK II 단어장 워크북 1~3 묶음"
+    "ko": "중급 단어장 워크북 1 (TOPIK II 대비)~3 묶음"
    },
    "sub": {
     "en": "All three vocabulary workbooks in one purchase: 2,940 words in 147 units, each with example sentences, writing practice, checkups and answer keys.",

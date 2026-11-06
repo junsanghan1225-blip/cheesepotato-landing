@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* TOPIK I 필수 단어장 책의 책 틀(docs/books/topik1-vocab-1.json · -2.json)을 만든다 — 운영자 2026-10-26 「TOPIK I 필수 단어장 · 문법 워크북 고급까지 · Korean Idiom까지 쭉 이어서」.
+/* 초급 필수 단어장 (TOPIK I 대비) 책의 책 틀(docs/books/topik1-vocab-1.json · -2.json)을 만든다 — 운영자 2026-10-26 「초급 필수 단어장 (TOPIK I 대비) · 문법 워크북 고급까지 · Korean Idiom까지 쭉 이어서」.
    낱말 = vocab/data/topik1.json 1,931개를 급(1 → 2) · 많이 나오는 순(freq)으로 줄 세워 1권 1~960번째 · 2권 961~1,931번째(971개, 마지막 단원은 11개).
    책 안에서는 급 → 주제 → 많이 나오는 순, 20개씩 단원. 뜻 · 예문은 그 자료 그대로(새로 짓지 않는다). 연습은 TOPIK II 단어장과 같은 틀(뜻 쓰기 · 한국어 쓰기 · 단원 점검 · 내 문장 · QR 게임).
    node tools/build-topik1-vocab-book.mjs [권: 1 | 2]  →  node tools/build-book.mjs topik1-vocab-1 | topik1-vocab-2 [--digital|--review]
@@ -131,7 +131,7 @@ const book = {
   _note: `책 한 권의 틀: tools/build-topik1-vocab-book.mjs ${VOL} 이 만든다(손으로 고치지 않는다). node tools/build-book.mjs ${CFG.id}. 낱말 · 뜻 · 예문은 vocab/data/topik1.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.`,
   id: CFG.id, edition: 'Draft proof · 시안', theme: 'classic', color: '#12704F', tint: '#E8F3EE',
   series: { en: 'TOPIK SERIES', ko: 'TOPIK 시리즈' },
-  title: { en: `TOPIK I Essential Vocabulary ${VOL}`, ko: `TOPIK I 필수 단어장 ${VOL}` },
+  title: { en: `Beginner Essential Vocabulary (for TOPIK I) ${VOL}`, ko: `초급 필수 단어장 (TOPIK I 대비) ${VOL}` },
   sub: { en: `Words ${CFG.rangeEn} of the TOPIK I word list, ${UNITS} units with example sentences, checkups and writing practice.`, ko: `TOPIK I 필수 낱말 ${CFG.range}` },
   levelTag: 'VOCAB', level: 'TOPIK I', trim: base.trim, cheeseBase: 0, cheeseMax: 2,
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
@@ -151,7 +151,7 @@ const book = {
   back: { items: [[`${UNITS} units · ${UNITS}개 단원`, `TOPIK I words ${CFG.rangeEn} · TOPIK I 낱말 ${CFG.range}번째`], ['Example, checkup & writing practice · 예문 · 점검 · 쓰기 연습', 'Cover, write, check · 가리고 쓰고 확인하기'], ['Cheese = level, potato = how often · 치즈 = 급수, 감자 = 빈출도', 'Same scale in every book of the series · 시리즈 모든 권이 같은 눈금']], for: 'For TOPIK I learners · TOPIK I 준비에', price: '정가 6.9달러' },
   parts, noGuide: true, inline, blocks: {}, unitCount: UNITS,
   coverAccent: '단어장',
-  coverLevel: { code: 'TOPIK I', name: VOL === 1 ? '1~2급' : '2급', bg: '#12704F', bg2: '#0B4A33', mascot: CFG.mascot, title: ['TOPIK I', '필수 단어장', `${VOL}권`], sub: `TOPIK I 필수 낱말 ${CFG.range}` },
+  coverLevel: { code: 'TOPIK I', name: VOL === 1 ? '1~2급' : '2급', bg: '#12704F', bg2: '#0B4A33', mascot: CFG.mascot, title: ['초급', '필수 단어장', `${VOL}권`], sub: `TOPIK I 필수 낱말 ${CFG.range}` },
   reviewer: base.reviewer, authorBio: base.authorBio,
 };
 book.published = '2026.11.10';   // ISBN 신청서 발행일 = 판권지 발행(tools/check-isbn.mjs)
@@ -159,4 +159,4 @@ book.sub.ko = book.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 
 fs.writeFileSync(path.join(ROOT, `docs/books/${CFG.id}.json`), JSON.stringify(book, null, 1) + '\n');
 fs.mkdirSync(path.join(ROOT, 'docs/bonus'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, `docs/bonus/${CFG.id}.json`), JSON.stringify({ _note: '책 QR 보너스 연습(게임) — tools/build-topik1-vocab-book.mjs 가 단어장 자료에서 만든다(손으로 고치지 않는다)', book: CFG.id, game: true, maxCards: 20, units: bonusUnits }, null, 1) + '\n');
-console.log(`TOPIK I 필수 단어장 ${VOL}권: ${N_WORDS}개 · ${UNITS}단원(마지막 ${LAST}개) · 부 ${parts.map((p) => p.units.length).join('/')} → docs/books/${CFG.id}.json`);
+console.log(`초급 필수 단어장 (TOPIK I 대비) ${VOL}권: ${N_WORDS}개 · ${UNITS}단원(마지막 ${LAST}개) · 부 ${parts.map((p) => p.units.length).join('/')} → docs/books/${CFG.id}.json`);

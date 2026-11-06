@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* TOPIK I 필수 단어장 한 권(docs/books/topik1-vocab.json)을 만든다 — 운영자 2026-10-26 「토픽 필수 단어장은 하나에 다 넣자」.
+/* 초급 필수 단어장 (TOPIK I 대비) 한 권(docs/books/topik1-vocab.json)을 만든다 — 운영자 2026-10-26 「토픽 필수 단어장은 하나에 다 넣자」.
    1 · 2권 생성기(tools/build-topik1-vocab-book.mjs)가 만든 단원(ta-01~48 · tb-01~49)을 그대로 이어 붙인다 — 낱말 순서 · 단원 번호가 같아서
    안티가 쓴 유의어 메모(docs/vocab-book/topik1-vocab-1 · -2.notes.json)가 그대로 맞는다. 낱말 번호는 1~1,931 로 이어진다.
    node tools/build-topik1-vocab-all.mjs  →  node tools/build-book.mjs topik1-vocab [--digital|--review]
@@ -32,7 +32,7 @@ const book = {
   ...a,
   _note: '책 한 권의 틀: tools/build-topik1-vocab-all.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik1-vocab. 낱말 · 뜻 · 예문은 vocab/data/topik1.json.',
   id: 'topik1-vocab',
-  title: { en: 'TOPIK I Essential Vocabulary', ko: 'TOPIK I 필수 단어장' },
+  title: { en: 'Beginner Essential Vocabulary (for TOPIK I)', ko: '초급 필수 단어장 (TOPIK I 대비)' },
   sub: { en: `All ${N.toLocaleString('en-US')} TOPIK I words in ${U} units, with example sentences, checkups and writing practice.`, ko: `TOPIK I 필수 낱말 ${N.toLocaleString('en-US')}개` },
   preface: {
     en: [`This book holds every word of the TOPIK I word list on everykoreans.com: ${N.toLocaleString('en-US')} words, all of level 1 and level 2. Each unit has up to 20 words with part of speech, an English meaning and an example sentence. The cheese marks the level and the potato marks how often the word shows up in our TOPIK texts.`,
@@ -45,7 +45,7 @@ const book = {
   inline, bonusUnits: ids, parts, unitCount: U,
   back: { items: [[`${U} units · ${U}개 단원`, `All ${N.toLocaleString('en-US')} TOPIK I words · TOPIK I 낱말 ${N.toLocaleString('en-US')}개 전부`], a.back.items[1], a.back.items[2]], for: a.back.for, price: `정가 ${PRICE}달러` },
   /* 표지색 · 큰 글씨(운영자 2026-10-26 「표지 색 또 바꾸자 · 1,931낱말을 빼고 TOPIK 단어장 크게」): 표지만 청록, 속지는 TOPIK I 초록 그대로. 표지 부제목은 ISBN 신청서 부제목(「TOPIK I 필수 낱말 1,931개」)과 같아야 해서 작은 글씨로 남긴다 */
-  coverLevel: { ...a.coverLevel, bg: '#0E6F8C', bg2: '#08495E', mascot: ['cheese', 2], title: ['TOPIK I', '필수 단어장', ''], sub: `TOPIK I 필수 낱말 ${N.toLocaleString('en-US')}개` },
+  coverLevel: { ...a.coverLevel, bg: '#0E6F8C', bg2: '#08495E', mascot: ['cheese', 2], title: ['초급', '필수 단어장', ''], sub: `TOPIK I 필수 낱말 ${N.toLocaleString('en-US')}개` },
   innerLevel: { bg: '#12704F', bg2: '#0B4A33' },
 };
 book.sub.ko = book.coverLevel.sub;   // 표지 부제목 = 책 부제목 = ISBN 신청서 부제목(tools/check-isbn.mjs)
@@ -54,4 +54,4 @@ fs.writeFileSync(P('docs/books/topik1-vocab.json'), JSON.stringify(book, null, 1
 fs.writeFileSync(P('docs/bonus/topik1-vocab.json'), JSON.stringify({ _note: '책 QR 보너스 연습(게임) — tools/build-topik1-vocab-all.mjs 가 단어장 자료에서 만든다(손으로 고치지 않는다)', book: 'topik1-vocab', game: true, maxCards: 20, units: { ...ba.units, ...bb.units } }, null, 1) + '\n');
 for (const f of ['docs/books/topik1-vocab-1.json', 'docs/books/topik1-vocab-2.json', 'docs/bonus/topik1-vocab-1.json', 'docs/bonus/topik1-vocab-2.json']) fs.rmSync(P(f), { force: true });
 for (const d of ['bonus/topik1-vocab-1', 'bonus/topik1-vocab-2']) fs.rmSync(P(d), { recursive: true, force: true });
-console.log(`TOPIK I 필수 단어장 한 권: ${N}개 · ${U}단원 · 부 ${parts.map((p) => p.units.length).join('/')} → docs/books/topik1-vocab.json`);
+console.log(`초급 필수 단어장 (TOPIK I 대비) 한 권: ${N}개 · ${U}단원 · 부 ${parts.map((p) => p.units.length).join('/')} → docs/books/topik1-vocab.json`);
