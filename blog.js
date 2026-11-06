@@ -506,7 +506,7 @@ export const BLOG_POSTS = [
         "t": "link",
         "href": "/shop/",
         "title": "See the vocabulary workbooks",
-        "note": "TOPIK II Vocabulary Workbooks 1–3 are available as PDF"
+        "note": "Intermediate Vocabulary Workbooks 1–3 (for TOPIK II) are available as PDF"
       },
       {
         "t": "link",
@@ -639,7 +639,7 @@ export const BLOG_POSTS = [
         "t": "list",
         "ordered": false,
         "items": [
-          "TOPIK II Vocabulary Workbooks 1–3: a three-book series. Book 1 covers words 1–1,000 and Book 2 words 1,001–2,000, ranked by how often they appear in our own TOPIK II practice material. Book 3 collects 940 level-3 words that are not in Books 1 and 2.",
+          "Intermediate Vocabulary Workbooks 1–3 (for TOPIK II): a three-book series. Book 1 covers words 1–1,000 and Book 2 words 1,001–2,000, ranked by how often they appear in our own TOPIK II practice material. Book 3 collects 940 level-3 words that are not in Books 1 and 2.",
           "TOPIK II Writing 51–52: 100 original practice questions for the two fill-in-the-blank writing tasks, with accepted answers, the scoring point and the mistakes that lose marks."
         ]
       },
@@ -693,18 +693,18 @@ export const BLOG_POSTS = [
   {
     "id": "topik-ii-vocabulary-workbook-series",
     "lang": "en",
-    "title": "TOPIK II Vocabulary Workbooks 1–3: How the Series Works and How to Study With It",
+    "title": "Intermediate Vocabulary Workbooks 1–3 (for TOPIK II): How the Series Works and How to Study With It",
     "date": "2026-10-27",
     "updated": "2026-10-27",
     "tags": [
       "English",
       "TOPIK"
     ],
-    "excerpt": "How the three TOPIK II Vocabulary Workbooks are organised (1,000 + 1,000 + 940 words), what one unit contains, and a simple routine for working through them.",
+    "excerpt": "How the three Intermediate Vocabulary Workbooks (for TOPIK II) are organised (1,000 + 1,000 + 940 words), what one unit contains, and a simple routine for working through them.",
     "blocks": [
       {
         "t": "p",
-        "text": "Word lists are easy to read and hard to remember. The TOPIK II Vocabulary Workbooks turn a word list into something you write: every unit gives you 20 words, then makes you produce the meaning, the Korean word and a sentence of your own before you check the answer key."
+        "text": "Word lists are easy to read and hard to remember. The Intermediate Vocabulary Workbooks (for TOPIK II) turn a word list into something you write: every unit gives you 20 words, then makes you produce the meaning, the Korean word and a sentence of your own before you check the answer key."
       },
       {
         "t": "h",
