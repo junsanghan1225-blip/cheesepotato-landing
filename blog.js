@@ -190,7 +190,7 @@ export const BLOG_POSTS = [
       {
         "t": "link",
         "href": "/shop/topik2-writing-53-54/",
-        "title": "Writing Practice Questions 53–54: 100 Questions (for TOPIK II)",
+        "title": "Writing Practice 53–54 (for TOPIK II)",
         "note": "Model answers, scoring criteria and three scored samples for each question"
       },
       {

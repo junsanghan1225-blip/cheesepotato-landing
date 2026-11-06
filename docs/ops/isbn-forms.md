@@ -313,7 +313,7 @@ TOPIK II 쓰기 51번(실용문)과 52번(설명문) 빈칸 쓰기만 모았습�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) · Writing Practice Questions 51–52: 100 Questions (for TOPIK II)
+쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) · Writing Practice 51–52 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -691,7 +691,7 @@ TOPIK II 쓰기 53번(도표 · 자료 설명 200~300자)과 54번(논술 600~70
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) · Writing Practice Questions 53–54: 100 Questions (for TOPIK II)
+쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) · Writing Practice 53–54 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
