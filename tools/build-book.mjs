@@ -402,7 +402,7 @@ ${DIGITAL ? `<dt>Format · 형태</dt><dd>Digital edition (PDF) · 디지털판(
 <p>All sentences, tables and exercises in this book were written for it. They are original practice material.<br>이 책의 낱말 · 문장 · 연습은 모두 이 책을 위해 새로 쓴 것입니다.</p>
 <p>AI tools (including Google Gemini) were used in part. The author did all the review and editing.<br>AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자가 직접 했습니다.</p>
 <p>© ${esc(B.publisher.en)}. All rights reserved. No part of this book may be reproduced without written permission, except for brief quotations in reviews or for classroom use by the purchaser.<br>저작권법에 따라 보호받는 책으로, 무단 복제와 전재를 금합니다.</p>
-<p>TOPIK is a registered trademark of the National Institute for International Education (NIIED); it appears in this book only to describe the exam the book helps you prepare for. This book is an unofficial, independent study aid; it is not operated, endorsed or certified by NIIED or the TOPIK Center, and its questions are original, not past exam papers.<br>TOPIK 은 국립국제교육원의 등록상표이며, 이 책에서는 대비 대상 시험을 설명하는 뜻으로만 씁니다. 이 책은 비공식 · 자체 제작 학습서이며 국립국제교육원 · 한국어능력시험센터가 운영 · 제휴 · 인증하지 않았습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다.</p>
+${/^topik/.test(B.id) ? `<p>TOPIK is a registered trademark of the National Institute for International Education (NIIED); it appears in this book only to describe the exam the book helps you prepare for. This book is an unofficial, independent study aid; it is not operated, endorsed or certified by NIIED or the TOPIK Center, and its questions are original, not past exam papers.<br>TOPIK 은 국립국제교육원의 등록상표이며, 이 책에서는 대비 대상 시험을 설명하는 뜻으로만 씁니다. 이 책은 비공식 · 자체 제작 학습서이며 국립국제교육원 · 한국어능력시험센터가 운영 · 제휴 · 인증하지 않았습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다.</p>` : ''}
 <p>Typeset in Pretendard (SIL Open Font License 1.1).</p>
 </div></div>`;
 }
