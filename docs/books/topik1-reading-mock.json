@@ -11,8 +11,8 @@
   "ko": "TOPIK 시리즈"
  },
  "title": {
-  "en": "TOPIK I Reading: 10 Practice Tests",
-  "ko": "TOPIK I 읽기 실전 모의고사 10회"
+  "en": "10 Reading Practice Tests (for TOPIK I)",
+  "ko": "읽기 실전 연습 10회 (TOPIK I 대비)"
  },
  "sub": {
   "en": "400 original questions in the real test format, with explanations.",
@@ -1209,9 +1209,9 @@
    2
   ],
   "title": [
-   "TOPIK I",
    "읽기",
-   "실전 모의고사 10회"
+   "실전 연습",
+   "10회"
   ],
   "sub": "새로 만든 문제 400개 · 풀이 포함"
  },

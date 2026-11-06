@@ -1,4 +1,4 @@
-/* TOPIK I 읽기 실전 모의고사 10회 책 틀 만들기 — node tools/build-topik1-mock-book.mjs
+/* 읽기 실전 연습 10회 (TOPIK I 대비) 책 틀 만들기 — node tools/build-topik1-mock-book.mjs
    자료: topik.js(TOPIK_READING 400문항 = 시험 번호 31~70 마다 10개 · 해설 why · 짝 지문 pair).
    10회분으로 나눌 때: 번호(31~70)마다 한 문항씩, 짝 지문(49-50 …)은 같이 움직이게, 회마다 1급 · 2급 글 수와 정답 번호(①~④) 분포가 고르게 되도록
    정해진 씨앗으로 섞는다(같은 자료면 언제나 같은 결과). 결과: docs/books/topik1-reading-mock.json
@@ -175,7 +175,7 @@ const book = {
   _note: '책 한 권의 틀: tools/build-topik1-mock-book.mjs 가 만든다(손으로 고치지 않는다). node tools/build-book.mjs topik1-reading-mock. 문항은 topik.js(전부 창작, 기출 아님).',
   id: 'topik1-reading-mock', published: '2026.11.10', edition: 'Draft proof · 시안', theme: 'classic', color: '#12704F', tint: '#E8F3EE',
   series: { en: 'TOPIK SERIES', ko: 'TOPIK 시리즈' },
-  title: { en: 'TOPIK I Reading: 10 Practice Tests', ko: 'TOPIK I 읽기 실전 모의고사 10회' },
+  title: { en: '10 Reading Practice Tests (for TOPIK I)', ko: '읽기 실전 연습 10회 (TOPIK I 대비)' },
   sub: { en: '400 original questions in the real test format, with explanations.', ko: '새로 만든 문제 400개 · 풀이 포함' },
   levelTag: 'READING', level: 'TOPIK I', trim: base.trim, author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
   reviewer: base.reviewer, authorBio: base.authorBio,
@@ -189,7 +189,7 @@ const book = {
   },
   parts: [{ title: { en: 'Practice tests', ko: '실전 모의고사' }, units: unitIds }],
   methods, noGuide: true, noIndex: true, noQr: true, unitCount: N_TESTS, coverAccent: '읽기',
-  coverLevel: { code: 'TOPIK I', name: '1~2급', bg: '#E0583C', bg2: '#B8402A', mascot: ['cheese', 2], title: ['TOPIK I', '읽기', '실전 모의고사 10회'], sub: '새로 만든 문제 400개 · 풀이 포함' },
+  coverLevel: { code: 'TOPIK I', name: '1~2급', bg: '#E0583C', bg2: '#B8402A', mascot: ['cheese', 2], title: ['읽기', '실전 연습', '10회'], sub: '새로 만든 문제 400개 · 풀이 포함' },
   back: { items: [['10 tests · 모의고사 10회', 'Questions 31-70, 40 each · 31~70번, 회마다 40문항'], ['400 original questions · 새로 만든 문제 400개', 'In the real test format; not past papers · 실제 시험 형식, 기출 아님'], ['Answer sheet and explanations · 답안지와 풀이', 'Every question explained · 모든 문항에 짧은 풀이']], for: 'For TOPIK I test takers · TOPIK I 응시 준비에', price: '정가 9.9달러' },
   inline,
 };

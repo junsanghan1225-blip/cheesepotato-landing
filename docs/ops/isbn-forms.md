@@ -246,12 +246,12 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 03. TOPIK II 쓰기 51~52번 100제
+## 03. 쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 쓰기 51~52번 100제 |
+| 책제목 | 쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) |
 | 부제목 | 실용문 · 설명문 빈칸 쓰기 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK 쓰기, TOPIK II, 51번 52번, 쓰기 문제집, 한국어능력시험, 한국어 교재 |
@@ -313,7 +313,7 @@ TOPIK II 쓰기 51번(실용문)과 52번(설명문) 빈칸 쓰기만 모았습�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 쓰기 51~52번 100제 · TOPIK II Writing 51–52: 100 Practice Questions
+쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비) · Writing Practice Questions 51–52: 100 Questions (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -329,16 +329,16 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 04. TOPIK II 단어장 워크북 1
+## 04. 중급 단어장 워크북 1 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 단어장 워크북 1 |
+| 책제목 | 중급 단어장 워크북 1 (TOPIK II 대비) |
 | 부제목 | 3~4급 자주 나오는 낱말 1,000개 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK II 단어장, TOPIK II, TOPIK 어휘, 한국어 단어장, 자주 나오는 낱말, Korean vocabulary |
-| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 단어장 워크북 1~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
+| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: 중급 단어장 워크북 1 (TOPIK II 대비)~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
 
 ### 추가정보
 
@@ -384,7 +384,7 @@ TOPIK II 3~4급 낱말만 모아 공부 범위가 분명한 단어장입니다. 
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 단어장 워크북 1 · TOPIK II Vocabulary Workbook 1
+중급 단어장 워크북 1 (TOPIK II 대비) · Intermediate Vocabulary Workbook 1 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -400,16 +400,16 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 05. TOPIK II 단어장 워크북 2
+## 05. 중급 단어장 워크북 2 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 단어장 워크북 2 |
+| 책제목 | 중급 단어장 워크북 2 (TOPIK II 대비) |
 | 부제목 | 5급 자주 나오는 낱말 1,000개 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK II 단어장, TOPIK II, TOPIK 어휘, 한국어 단어장, 자주 나오는 낱말, Korean vocabulary |
-| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 단어장 워크북 1~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
+| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: 중급 단어장 워크북 1 (TOPIK II 대비)~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
 
 ### 추가정보
 
@@ -455,7 +455,7 @@ TOPIK II 5급 낱말만 모아 공부 범위가 분명한 단어장입니다. �
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 단어장 워크북 2 · TOPIK II Vocabulary Workbook 2
+중급 단어장 워크북 2 (TOPIK II 대비) · Intermediate Vocabulary Workbook 2 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -471,16 +471,16 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 06. TOPIK II 단어장 워크북 3
+## 06. 중급 단어장 워크북 3 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 단어장 워크북 3 |
+| 책제목 | 중급 단어장 워크북 3 (TOPIK II 대비) |
 | 부제목 | 6급 자주 나오는 낱말 1,000개 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK II 단어장, TOPIK 3급, TOPIK 어휘, 한국어 단어장, 3급 낱말, Korean vocabulary |
-| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 단어장 워크북 1~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
+| 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: 중급 단어장 워크북 1 (TOPIK II 대비)~3. 디지털판(PDF)이며 책 끝 정답 쪽과 단원별 QR(낱말 짝 맞추기 게임)이 있습니다. |
 
 ### 추가정보
 
@@ -526,7 +526,7 @@ TOPIK II 6급 낱말만 모아 공부 범위가 분명한 단어장입니다. �
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 단어장 워크북 3 · TOPIK II Vocabulary Workbook 3
+중급 단어장 워크북 3 (TOPIK II 대비) · Intermediate Vocabulary Workbook 3 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -542,12 +542,12 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 07. TOPIK I 읽기 실전 모의고사 10회
+## 07. 읽기 실전 연습 10회 (TOPIK I 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK I 읽기 실전 모의고사 10회 |
+| 책제목 | 읽기 실전 연습 10회 (TOPIK I 대비) |
 | 부제목 | 새로 만든 문제 400개 · 풀이 포함 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK I 읽기, TOPIK 모의고사, TOPIK I 실전, 한국어능력시험, 한국어 읽기, TOPIK reading practice test |
@@ -609,7 +609,7 @@ TOPIK I 읽기는 문항 수보다 유형에 익숙해지는 것이 중요합니
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK I 읽기 실전 모의고사 10회 · TOPIK I Reading: 10 Practice Tests
+읽기 실전 연습 10회 (TOPIK I 대비) · 10 Reading Practice Tests (for TOPIK I)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -624,12 +624,12 @@ TOPIK I 읽기 실전 모의고사 10회 · TOPIK I Reading: 10 Practice Tests
 
 ---
 
-## 08. TOPIK II 쓰기 53~54번 100제
+## 08. 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 쓰기 53~54번 100제 |
+| 책제목 | 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) |
 | 부제목 | 자료 설명 · 논술 쓰기와 채점 기준 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK 쓰기, TOPIK II 쓰기, 53번 54번, 논술, 자료 설명, 한국어능력시험 |
@@ -691,7 +691,7 @@ TOPIK II 쓰기 53번(도표 · 자료 설명 200~300자)과 54번(논술 600~70
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 쓰기 53~54번 100제 · TOPIK II Writing 53–54: 100 Practice Questions
+쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비) · Writing Practice Questions 53–54: 100 Questions (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -708,12 +708,12 @@ TOPIK II 쓰기 53~54번 100제 · TOPIK II Writing 53–54: 100 Practice Questi
 
 ---
 
-## 09. TOPIK I 필수 단어장
+## 09. 초급 필수 단어장 (TOPIK I 대비)
 
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK I 필수 단어장 |
+| 책제목 | 초급 필수 단어장 (TOPIK I 대비) |
 | 부제목 | TOPIK I 필수 낱말 1,931개 |
 | 저자명 | 준상(Junsang) |
 | 키워드 | TOPIK I 단어장, TOPIK 1급 2급 낱말, TOPIK 어휘, 한국어 단어장, 초급 한국어 단어, TOPIK I vocabulary |
@@ -767,7 +767,7 @@ TOPIK I 낱말을 처음부터 끝까지 한 권으로 정리하고 싶은 분�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK I 필수 단어장 · TOPIK I Essential Vocabulary
+초급 필수 단어장 (TOPIK I 대비) · Beginner Essential Vocabulary (for TOPIK I)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -855,14 +855,14 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 11. TOPIK II 읽기 1~15번
+## 11. 읽기 영역 연습문항 1~15 (TOPIK II 대비)
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 읽기 1~15번 |
+| 책제목 | 읽기 영역 연습문항 1~15 (TOPIK II 대비) |
 | 부제목 | 새로 만든 문제 384개 · 시험 번호 순서대로 연습 |
 | 저자명 | 준상(Junsang) |
-| 키워드 | TOPIK II 읽기 1~15번, TOPIK II 읽기 문제집, 토픽 읽기 1~15번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
+| 키워드 | 읽기 영역 연습문항 1~15 (TOPIK II 대비), TOPIK II 읽기 문제집, 토픽 읽기 1~15번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
 | 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 읽기 1~15 · 16~24 · 25~45 · 46~50번. 디지털판(PDF)이며 유형별 풀이 방법 쪽, 회마다 답안지, 책 끝 정답 · 풀이가 있습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다. |
 
 ### 추가정보
@@ -959,7 +959,7 @@ TOPIK II 읽기를 시험 번호 순서대로 연습하고 싶은 응시자에�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 읽기 1~15번 · TOPIK II Reading: Questions 1–15
+읽기 영역 연습문항 1~15 (TOPIK II 대비) · Reading Practice Questions 1–15 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -976,14 +976,14 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 12. TOPIK II 읽기 16~24번
+## 12. 읽기 영역 연습문항 16~24 (TOPIK II 대비)
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 읽기 16~24번 |
+| 책제목 | 읽기 영역 연습문항 16~24 (TOPIK II 대비) |
 | 부제목 | 새로 만든 문제 381개 · 시험 번호 순서대로 연습 |
 | 저자명 | 준상(Junsang) |
-| 키워드 | TOPIK II 읽기 16~24번, TOPIK II 읽기 문제집, 토픽 읽기 16~24번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
+| 키워드 | 읽기 영역 연습문항 16~24 (TOPIK II 대비), TOPIK II 읽기 문제집, 토픽 읽기 16~24번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
 | 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 읽기 1~15 · 16~24 · 25~45 · 46~50번. 디지털판(PDF)이며 유형별 풀이 방법 쪽, 회마다 답안지, 책 끝 정답 · 풀이가 있습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다. |
 
 ### 추가정보
@@ -1079,7 +1079,7 @@ TOPIK II 읽기를 시험 번호 순서대로 연습하고 싶은 응시자에�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 읽기 16~24번 · TOPIK II Reading: Questions 16–24
+읽기 영역 연습문항 16~24 (TOPIK II 대비) · Reading Practice Questions 16–24 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -1096,14 +1096,14 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 13. TOPIK II 읽기 25~45번
+## 13. 읽기 영역 연습문항 25~45 (TOPIK II 대비)
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 읽기 25~45번 |
+| 책제목 | 읽기 영역 연습문항 25~45 (TOPIK II 대비) |
 | 부제목 | 새로 만든 문제 455개 · 시험 번호 순서대로 연습 |
 | 저자명 | 준상(Junsang) |
-| 키워드 | TOPIK II 읽기 25~45번, TOPIK II 읽기 문제집, 토픽 읽기 25~45번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
+| 키워드 | 읽기 영역 연습문항 25~45 (TOPIK II 대비), TOPIK II 읽기 문제집, 토픽 읽기 25~45번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
 | 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 읽기 1~15 · 16~24 · 25~45 · 46~50번. 디지털판(PDF)이며 유형별 풀이 방법 쪽, 회마다 답안지, 책 끝 정답 · 풀이가 있습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다. |
 
 ### 추가정보
@@ -1208,7 +1208,7 @@ TOPIK II 읽기를 시험 번호 순서대로 연습하고 싶은 응시자에�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 읽기 25~45번 · TOPIK II Reading: Questions 25–45
+읽기 영역 연습문항 25~45 (TOPIK II 대비) · Reading Practice Questions 25–45 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호
@@ -1225,14 +1225,14 @@ AI 도구(Google Gemini 등)를 일부 사용했고, 검수와 편집은 저자�
 
 ---
 
-## 14. TOPIK II 읽기 46~50번
+## 14. 읽기 영역 연습문항 46~50 (TOPIK II 대비)
 ### 출판예정도서 정보
 | 칸 | 값 |
 |---|---|
-| 책제목 | TOPIK II 읽기 46~50번 |
+| 책제목 | 읽기 영역 연습문항 46~50 (TOPIK II 대비) |
 | 부제목 | 새로 만든 문제 379개 · 시험 번호 순서대로 연습 |
 | 저자명 | 준상(Junsang) |
-| 키워드 | TOPIK II 읽기 46~50번, TOPIK II 읽기 문제집, 토픽 읽기 46~50번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
+| 키워드 | 읽기 영역 연습문항 46~50 (TOPIK II 대비), TOPIK II 읽기 문제집, 토픽 읽기 46~50번, TOPIK 읽기 연습, 시험 번호별 문제집, TOPIK II Reading |
 | 특기사항 | 본문은 한국어와 영어를 함께 씁니다(한국어 · English). 시리즈: TOPIK II 읽기 1~15 · 16~24 · 25~45 · 46~50번. 디지털판(PDF)이며 유형별 풀이 방법 쪽, 회마다 답안지, 책 끝 정답 · 풀이가 있습니다. 문항은 모두 새로 만든 것으로 기출이 아닙니다. |
 
 ### 추가정보
@@ -1327,7 +1327,7 @@ TOPIK II 읽기를 시험 번호 순서대로 연습하고 싶은 응시자에�
 
 **판권지** (ISBN 번호 · 정가 · 발행일은 받은 뒤 책에 채워 넣는다)
 ```
-TOPIK II 읽기 46~50번 · TOPIK II Reading: Questions 46–50
+읽기 영역 연습문항 46~50 (TOPIK II 대비) · Reading Practice Questions 46–50 (for TOPIK II)
 지은이  준상 (Junsang)
 펴낸곳  에브리코리안즈 · Everykoreans
 출판사 신고번호  제 2026-000158 호

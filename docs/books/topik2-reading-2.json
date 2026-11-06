@@ -11,8 +11,8 @@
   "ko": "TOPIK 시리즈"
  },
  "title": {
-  "en": "TOPIK II Reading: Questions 16–24",
-  "ko": "TOPIK II 읽기 16~24번"
+  "en": "Reading Practice Questions 16–24 (for TOPIK II)",
+  "ko": "읽기 영역 연습문항 16~24 (TOPIK II 대비)"
  },
  "sub": {
   "en": "381 original questions: practice in exam-number order, with explanations.",
@@ -779,9 +779,9 @@
   ],
   "pastel": true,
   "title": [
-   "TOPIK II",
-   "읽기",
-   "16~24번"
+   "읽기 영역",
+   "연습문항",
+   "16~24"
   ],
   "sub": "새로 만든 문제 381개 · 시험 번호 순서대로 연습"
  },

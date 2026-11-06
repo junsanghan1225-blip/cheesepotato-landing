@@ -14,7 +14,7 @@ const F = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/ops/kdp-fields.json')
 const e = (s) => esc(s).replace(/"/g, '&quot;');
 const QR = new Set(['first-steps-workbook', 'particles-workbook', 'topik2-vocab-1000', 'topik2-vocab-2000', 'topik2-vocab-lv3']);
 const TOPIK = (k) => k.series === 'topik' || /TOPIK/.test(k.title.en);
-const NOTE_TOPIK = 'TOPIK is the name of a test run by the National Institute for International Education (NIIED). This is an independent study book and is not operated, endorsed or certified by NIIED or the TOPIK Center. All questions are newly written and are not past exam papers.';
+const NOTE_TOPIK = 'TOPIK is a registered trademark of the National Institute for International Education (NIIED), used here only to describe the exam this book helps you prepare for. This is an unofficial, independent study book and is not operated, endorsed or certified by NIIED or the TOPIK Center. All questions are newly written and are not past exam papers.';
 const NOTE_PLAIN = 'All sentences are newly written for this book.';
 
 /* KDP 가 상호작용형 책(QR · 쓰기 줄 · 웹 연습)을 내렸다(2026-10-28) — 책 틀에 kdp 칸이 있는 KDP 전용 판만 올린다. 나머지는 KDP 판을 만들 때까지 뺀다. */

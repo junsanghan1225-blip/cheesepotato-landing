@@ -103,7 +103,7 @@ export const BLOG_POSTS = [
       {
         "t": "link",
         "href": "/shop/topik1-reading-mock/",
-        "title": "TOPIK I Reading: 10 Practice Tests",
+        "title": "10 Reading Practice Tests (for TOPIK I)",
         "note": "400 original questions, solving methods for each type, answers and explanations at the back"
       },
       {
@@ -190,7 +190,7 @@ export const BLOG_POSTS = [
       {
         "t": "link",
         "href": "/shop/topik2-writing-53-54/",
-        "title": "TOPIK II Writing 53–54: 100 Practice Questions",
+        "title": "Writing Practice Questions 53–54: 100 Questions (for TOPIK II)",
         "note": "Model answers, scoring criteria and three scored samples for each question"
       },
       {
@@ -578,7 +578,7 @@ export const BLOG_POSTS = [
       },
       {
         "t": "p",
-        "text": "We are preparing TOPIK I Essential Vocabulary: all 1,931 words in 97 units, with example sentences, checkups, writing practice and an answer key. Until it is ready, you can browse the same word list for free online."
+        "text": "We are preparing Beginner Essential Vocabulary (for TOPIK I): all 1,931 words in 97 units, with example sentences, checkups, writing practice and an answer key. Until it is ready, you can browse the same word list for free online."
       },
       {
         "t": "link",
@@ -655,7 +655,7 @@ export const BLOG_POSTS = [
         "t": "list",
         "ordered": false,
         "items": [
-          "TOPIK I Essential Vocabulary: all 1,931 words of the TOPIK I word list in 97 units.",
+          "Beginner Essential Vocabulary (for TOPIK I): all 1,931 words of the TOPIK I word list in 97 units.",
           "TOPIK I Reading: 10 full practice tests, 400 original questions in the official format.",
           "TOPIK II Writing 53–54: 100 questions with a model answer, scoring criteria and three scored sample answers each.",
           "Essential Korean Idioms: 449 idioms, proverbs and four-character idioms, 30 units."
