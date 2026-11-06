@@ -25,6 +25,20 @@ const card = (k, buy) => `<a class="hm-bk" role="listitem" href="shop/${esc(k.id
           ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
         </a>`;
 
+/* 서가형(운영자 2026-11-06 「A 좋아」 — 교보문고 서가): 갈래별로 한 줄씩 표지만 꽂고, 누르면 아래 상세 칸이 바뀐다. 글 없이 표지만 둬서 덜 난잡하다. 눌러도 쪽으로 가지 않는 것은 app.js 가 맡고(JS 가 없으면 그냥 책 쪽으로 간다), 상세 칸의 단추가 책 쪽으로 보낸다. */
+const GROUPS = [['basic', '한국어 기초', 'Korean basics'], ['t1', 'TOPIK I 대비 (1~2급)', 'For TOPIK I (levels 1–2)'], ['t2', 'TOPIK II 대비 (3~6급)', 'For TOPIK II (levels 3–6)']];
+const groupOf = (k) => (/^topik1/.test(k.id) ? 't1' : /^topik2/.test(k.id) ? 't2' : 'basic');
+const spine = (k) => `<a class="hm-bk hm-bk-s${k.id === on[0].id ? ' on' : ''}" role="listitem" href="shop/${esc(k.id)}/" data-bk="${esc(k.id)}" data-en-t="${esc(k.title.en)}" data-ko-t="${esc(k.title.ko)}" data-sub-en="${esc(k.sub?.en || '')}" data-sub-ko="${esc((k.sub?.ko || '').replace(/낱말 /g, '단어 '))}" data-px="${esc(k.price)}" data-pg="${esc(k.pages.replace(/\(.*\)/, '').trim())}" data-pg-en="${esc(k.pages.replace(/\(.*\)/, '').replace(/쪽/, ' pages').trim())}" data-src="${esc(src(k))}" data-tip="${esc(k.title.ko)}" aria-label="${esc(k.title.en)} — ${esc(k.title.ko)}" data-ev="책클릭" data-ev-from="첫화면-서가">
+          <img src="${esc(src(k))}" alt="" width="300" height="426" loading="lazy" decoding="async"></a>`;
+const shelves = GROUPS.map(([g, ko, en]) => { const ks = on.filter((k) => groupOf(k) === g); return ks.length ? `<div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="${esc(en)}">${esc(ko)}</span><small data-en="${ks.length}">${ks.length}권</small></h3>
+      <div class="hm-bk-row hm-shelf-row" role="list" aria-label="${esc(ko)}">
+        ${ks.map(spine).join('\n        ')}
+      </div></div>` : ''; }).join('\n    ');
+const p0 = on[0];
+const panel = `<div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/${esc(p0.id)}/" tabindex="-1" aria-hidden="true"><img src="${esc(src(p0))}" alt="" width="300" height="426"></a>
+      <div class="hm-pan-b"><span class="hm-pan-g">${esc(p0.pages.replace(/\(.*\)/, '').trim())}</span><h3 class="hm-pan-t">${esc(p0.title.en)}</h3><p class="hm-pan-ko">${esc(p0.title.ko)}</p><p class="hm-pan-sub">${esc(p0.sub?.ko || '')}</p>
+      <p class="hm-pan-r"><span class="hm-bk-px">$${esc(p0.price)}</span><a class="hm-pan-go" href="shop/${esc(p0.id)}/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>`;
+
 /* 책 묶음(status on)이 있으면 한 줄 안내 */
 const bundle = (SHOP.bundles || []).filter((b) => b.status === 'on' && b.polar).map((b) => {
   const sum = b.books.reduce((a, id) => a + parseFloat(SHOP.books.find((k) => k.id === id).price), 0);
@@ -49,9 +63,8 @@ const html = `<!-- hm-books:start — tools/build-home-books.mjs 가 만든다(�
       <p class="lt-mail-m" aria-live="polite"></p>
       <p class="hm-lead-dl"><span data-en="No email needed. Download now:">이메일 없이 바로 받기:</span> <a href="assets/books/first-steps-workbook/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-첫걸음">첫걸음 · First Steps</a> · <a href="assets/books/topik1-vocab/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-TOPIK1단어">TOPIK I 단어장</a> · <a href="assets/books/topik2-writing-51-52/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-쓰기">TOPIK II 쓰기 51~52</a></p>
     </form>
-    <div class="hm-bk-row" role="list" aria-label="판매 중인 책" data-en-aria="Books on sale">
-        ${on.map((k) => card(k, true)).join('\n        ')}
-    </div>
+    ${shelves}
+    ${panel}
     ${bundle}
     <p class="hm-bk-all"><a class="hero-go" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
     ${soon.length ? `<h3 class="hm-books-h" data-en="Coming soon">곧 나와요</h3>
