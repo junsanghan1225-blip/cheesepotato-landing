@@ -1,0 +1,365 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 26.53,
+     "sessionsWithoutMetricPercentage": 73.47,
+     "pagesViews": 15,
+     "subTotal": 32
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 2.04,
+     "sessionsWithoutMetricPercentage": 97.96,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 8.16,
+     "sessionsWithoutMetricPercentage": 91.84,
+     "pagesViews": 6,
+     "subTotal": 6
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 2.04,
+     "sessionsWithoutMetricPercentage": 97.96,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 49,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 64.13
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 49,
+     "totalBotSessionCount": 90,
+     "distinctUserCount": 38,
+     "pagesPerSessionPercentage": 1.6734693877551021
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 444,
+     "activeTime": 274
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 16
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 13
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 9
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Other",
+     "sessionsCount": 1
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 1
+    },
+    {
+     "name": "YandexBrowser",
+     "sessionsCount": 1
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 32
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 15
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 28
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 7
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 3
+    },
+    {
+     "name": "ChromeOS",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 17
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 5
+    },
+    {
+     "name": "China",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Mongolia",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Japan",
+     "sessionsCount": 2
+    },
+    {
+     "name": "United Kingdom",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Uzbekistan",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Indonesia",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Kazakhstan",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 34
+    },
+    {
+     "name": "TOPIK 읽기 연습 문항 1999개 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "기회 영어로 · 뜻 — \"opportunity\" (gihoe) meaning in Korean",
+     "sessionsCount": 2
+    },
+    {
+     "name": "참기름 영어로 · 뜻 — \"sesame oil\" (chamgireum) meaning in Korean",
+     "sessionsCount": 2
+    },
+    {
+     "name": "\"boss\" in Korean — 사장님 (sajangnim) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"galbitang\" in Korean — 갈비탕 (galbitang) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "-(으)나 마나 뜻과 예문 · 문법 정리 — Korean grammar | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Download — CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "English | CheesePotato Blog",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Free Korean Worksheets (Printable PDF) | CheesePotato",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 10
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "accounts.google.mn",
+     "sessionsCount": 3
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "cn.bing.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "com.google.android.googlequicksearchbox",
+     "sessionsCount": 2
+    },
+    {
+     "name": "m.search.naver.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "l.threads.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 35
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EA%B8%B0%ED%9A%8C.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%B0%B8%EA%B8%B0%EB%A6%84.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/topik-reading/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/blog/how-to-say-no-in-korean-english.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/blog/tag/english.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EA%B7%9C%EC%95%BD.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EB%B9%84%EC%86%8D%EC%96%B4.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%ED%98%95%EB%8B%98.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%ED%98%95.html",
+     "visitsCount": 1
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
