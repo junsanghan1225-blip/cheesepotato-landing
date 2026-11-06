@@ -131,7 +131,7 @@ const book = {
   _note: `책 한 권의 틀: tools/build-topik2-vocab-book.mjs ${VOL} 이 만든다(손으로 고치지 않는다). node tools/build-book.mjs ${CFG.id}. 낱말 · 뜻 · 예문은 vocab/data/topik2.json. 지은이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리.`,
   id: CFG.id, edition: 'Draft proof · 시안', theme: 'classic', color: CFG.color, tint: CFG.tint,
   series: base.series,
-  title: { en: `TOPIK II Vocabulary Workbook ${VOL}`, ko: `TOPIK II 단어장 워크북 ${VOL}` },
+  title: { en: `Intermediate Vocabulary Workbook ${VOL} (for TOPIK II)`, ko: `중급 단어장 워크북 ${VOL} (TOPIK II 대비)` },
   sub: { en: `The ${N_WORDS.toLocaleString('en-US')} most frequent TOPIK II words of ${CFG.nameEn}, 20 per unit, with example sentences and writing practice.`, ko: `TOPIK II ${CFG.name} 낱말 중 자주 나오는 1,000개 · 20개씩 50단원 · 예문과 쓰기 연습` },
   levelTag: 'VOCAB', level: 'TOPIK II', trim: base.trim,
   author: base.author, authorAbout: base.authorAbout, publisher: base.publisher, web: base.web,
