@@ -19,7 +19,7 @@ const soon = SHOP.books.filter((k) => k.status === 'planned' && hasCover(k));
 const smPath = (k) => k.coverImg.replace(/^\//, '').replace(/cover\.jpg$/, 'cover-sm.jpg');
 const src = (k) => (fs.existsSync(path.join(ROOT, smPath(k))) ? smPath(k) : k.coverImg.replace(/^\//, ''));
 
-const card = (k, buy) => `<a class="hm-bk" role="listitem" href="shop/${esc(k.id)}/" data-ev="책클릭" data-ev-from="첫화면">
+const card = (k, buy) => `<a class="hm-bk" href="shop/${esc(k.id)}/" data-ev="책클릭" data-ev-from="첫화면">
           <img src="${esc(src(k))}" alt="${esc(k.title.en)} — ${esc(k.title.ko)}" width="300" height="426" loading="lazy" decoding="async">
           <b>${esc(k.title.en)}</b><span class="hm-bk-ko">${esc(k.title.ko)}</span>
           ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
@@ -28,10 +28,10 @@ const card = (k, buy) => `<a class="hm-bk" role="listitem" href="shop/${esc(k.id
 /* 서가형(운영자 2026-11-06 「A 좋아」 — 교보문고 서가): 갈래별로 한 줄씩 표지만 꽂고, 누르면 아래 상세 칸이 바뀐다. 글 없이 표지만 둬서 덜 난잡하다. 눌러도 쪽으로 가지 않는 것은 app.js 가 맡고(JS 가 없으면 그냥 책 쪽으로 간다), 상세 칸의 단추가 책 쪽으로 보낸다. */
 const GROUPS = [['basic', '한국어 기초', 'Korean basics'], ['t1', 'TOPIK I 대비 (1~2급)', 'For TOPIK I (levels 1–2)'], ['t2', 'TOPIK II 대비 (3~6급)', 'For TOPIK II (levels 3–6)']];
 const groupOf = (k) => (/^topik1/.test(k.id) ? 't1' : /^topik2/.test(k.id) ? 't2' : 'basic');
-const spine = (k) => `<a class="hm-bk hm-bk-s${k.id === on[0].id ? ' on' : ''}" role="listitem" href="shop/${esc(k.id)}/" data-bk="${esc(k.id)}" data-en-t="${esc(k.title.en)}" data-ko-t="${esc(k.title.ko)}" data-sub-en="${esc(k.sub?.en || '')}" data-sub-ko="${esc((k.sub?.ko || '').replace(/낱말 /g, '단어 '))}" data-px="${esc(k.price)}" data-pg="${esc(k.pages.replace(/\(.*\)/, '').trim())}" data-pg-en="${esc(k.pages.replace(/\(.*\)/, '').replace(/쪽/, ' pages').trim())}" data-src="${esc(src(k))}" data-tip="${esc(k.title.ko)}" aria-label="${esc(k.title.en)} — ${esc(k.title.ko)}" data-ev="책클릭" data-ev-from="첫화면-서가">
+const spine = (k) => `<a class="hm-bk hm-bk-s${k.id === on[0].id ? ' on' : ''}" href="shop/${esc(k.id)}/" data-bk="${esc(k.id)}" data-en-t="${esc(k.title.en)}" data-ko-t="${esc(k.title.ko)}" data-sub-en="${esc(k.sub?.en || '')}" data-sub-ko="${esc((k.sub?.ko || '').replace(/낱말 /g, '단어 '))}" data-px="${esc(k.price)}" data-pg="${esc(k.pages.replace(/\(.*\)/, '').trim())}" data-pg-en="${esc(k.pages.replace(/\(.*\)/, '').replace(/쪽/, ' pages').trim())}" data-src="${esc(src(k))}" data-tip="${esc(k.title.ko)}" aria-label="${esc(k.title.en)} — ${esc(k.title.ko)}" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="${esc(src(k))}" alt="" width="300" height="426" loading="lazy" decoding="async"></a>`;
 const shelves = GROUPS.map(([g, ko, en]) => { const ks = on.filter((k) => groupOf(k) === g); return ks.length ? `<div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="${esc(en)}">${esc(ko)}</span><small data-en="${ks.length}">${ks.length}권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" role="list" aria-label="${esc(ko)}">
+      <div class="hm-bk-row hm-shelf-row" aria-label="${esc(ko)}">
         ${ks.map(spine).join('\n        ')}
       </div></div>` : ''; }).join('\n    ');
 const p0 = on[0];
@@ -45,7 +45,7 @@ const bundle = (SHOP.bundles || []).filter((b) => b.status === 'on' && b.polar).
   return `<p class="hm-bundle"><a href="shop/#bundles" data-ev="책클릭" data-ev-from="첫화면-묶음"><b>${esc(b.title.en)}</b><span class="hm-bundle-r"><span class="hm-bk-px">$${esc(b.price)}</span> <s>$${sum.toFixed(2)}</s> · <span data-en="Buy the bundle →">묶음으로 사기 →</span></span></a></p>`;
 }).join('');
 
-const posts = BLOG_POSTS.slice(0, 4).map((p) => `<a class="hm-post" role="listitem" href="blog/${esc(p.id)}.html">
+const posts = BLOG_POSTS.slice(0, 4).map((p) => `<a class="hm-post" href="blog/${esc(p.id)}.html">
           <span class="hm-post-tag">${esc((p.tags || [])[0] || '')}</span>
           <b>${esc(p.title)}</b>
           <span class="hm-post-ex">${esc(p.excerpt || '')}</span>
@@ -68,11 +68,11 @@ const html = `<!-- hm-books:start — tools/build-home-books.mjs 가 만든다(�
     ${bundle}
     <p class="hm-bk-all"><a class="hero-go" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
     ${soon.length ? `<h3 class="hm-books-h" data-en="Coming soon">곧 나와요</h3>
-    <div class="hm-bk-row hm-bk-row-soon" role="list" aria-label="곧 나올 책" data-en-aria="Coming soon">
+    <div class="hm-bk-row hm-bk-row-soon" aria-label="곧 나올 책" data-en-aria="Coming soon">
         ${soon.map((k) => card(k, false)).join('\n        ')}
     </div>` : ''}
     <h3 class="hm-books-h" data-en="From the blog">블로그 · 책 이야기</h3>
-    <div class="hm-post-row" role="list" aria-label="블로그 최신 글" data-en-aria="Latest blog posts">
+    <div class="hm-post-row" aria-label="블로그 최신 글" data-en-aria="Latest blog posts">
         ${posts}
     </div>
     <p class="hm-bk-all"><a class="hm-bk-link" href="blog/" data-en="More articles →">블로그 더 보기 →</a></p>

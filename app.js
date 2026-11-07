@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=e960bb03', ja: './i18n-ja.js?v=e960bb03', zh: './i18n-zh.js?v=e960bb03', id: './i18n-id.js?v=e960bb03', ne: './i18n-ne.js?v=e960bb03', my: './i18n-my.js?v=e960bb03', ru: './i18n-ru.js?v=e960bb03', mn: './i18n-mn.js?v=e960bb03', pt: './i18n-pt.js?v=e960bb03', uz: './i18n-uz.js?v=e960bb03' };
+const I18N_URL = { vi: './i18n-vi.js?v=dfdd0049', ja: './i18n-ja.js?v=dfdd0049', zh: './i18n-zh.js?v=dfdd0049', id: './i18n-id.js?v=dfdd0049', ne: './i18n-ne.js?v=dfdd0049', my: './i18n-my.js?v=dfdd0049', ru: './i18n-ru.js?v=dfdd0049', mn: './i18n-mn.js?v=dfdd0049', pt: './i18n-pt.js?v=dfdd0049', uz: './i18n-uz.js?v=dfdd0049' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1195,7 +1195,7 @@ function applyLang(lang) {
   });
   const b = ptId('langBtn');
   b.textContent = (LANGS.find((x) => x[0] === lang) || LANGS[1])[2];
-  b.setAttribute('aria-label', '언어 · Language');
+  b.setAttribute('aria-label', `${b.textContent} · 언어 · Language`);   // 눈에 보이는 글자(EN)가 이름에 들어 있어야 한다(label-in-name)
   // 지문은 한국어 발음을 재는 것이라 번역하지 않는다. 안내 문구만 바꾼다.
   ptId('ptHint').textContent = ptRunning
     ? (en ? window.cpTr('Listening: pause when you finish and it stops on its own')

@@ -5,8 +5,8 @@
     "ko": "받침과 소리 규칙"
   },
   "sub": {
-    "en": "The 7 representative final sounds, liaison rule (연음) and pronunciation guide",
-    "ko": "받침 7개 대표음, 연음 법칙, 소리 나는 대로 읽기"
+    "en": "The 7 representative final sounds, double batchim (겹받침), liaison rule (연음) and pronunciation guide",
+    "ko": "받침 7개 대표음, 겹받침, 연음 법칙, 소리 나는 대로 읽기"
   },
   "desc": {
     "en": "Free printable Korean worksheet on 받침 (batchim / final consonants): the 7 representative sounds ([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ]), the liaison rule (연음), pronunciation practice and an answer key."
@@ -26,13 +26,48 @@
         "Pronunciation"
       ],
       "rows": [
-        ["[ㄱ]", "ㄱ, ㅋ, ㄲ", "책, 부엌, 밖", "[책], [부억], [박]"],
-        ["[ㄴ]", "ㄴ", "눈, 문, 산", "[눈], [문], [산]"],
-        ["[ㄷ]", "ㄷ, ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ", "옷, 낮, 꽃, 끝", "[옫], [낟], [꼳], [끋]"],
-        ["[ㄹ]", "ㄹ", "달, 길, 물", "[달], [길], [물]"],
-        ["[ㅁ]", "ㅁ", "밤, 봄, 사람", "[밤], [봄], [사람]"],
-        ["[ㅂ]", "ㅂ, ㅍ", "밥, 잎, 앞", "[밥], [입], [압]"],
-        ["[ㅇ]", "ㅇ", "강, 방, 공", "[강], [방], [공]"]
+        [
+          "[ㄱ]",
+          "ㄱ, ㅋ, ㄲ",
+          "책, 부엌, 밖",
+          "[책], [부억], [박]"
+        ],
+        [
+          "[ㄴ]",
+          "ㄴ",
+          "눈, 문, 산",
+          "[눈], [문], [산]"
+        ],
+        [
+          "[ㄷ]",
+          "ㄷ, ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ",
+          "옷, 낮, 꽃, 끝",
+          "[옫], [낟], [꼳], [끋]"
+        ],
+        [
+          "[ㄹ]",
+          "ㄹ",
+          "달, 길, 물",
+          "[달], [길], [물]"
+        ],
+        [
+          "[ㅁ]",
+          "ㅁ",
+          "밤, 봄, 사람",
+          "[밤], [봄], [사람]"
+        ],
+        [
+          "[ㅂ]",
+          "ㅂ, ㅍ",
+          "밥, 잎, 앞",
+          "[밥], [입], [압]"
+        ],
+        [
+          "[ㅇ]",
+          "ㅇ",
+          "강, 방, 공",
+          "[강], [방], [공]"
+        ]
       ],
       "note": "When spoken in isolation or before a consonant, all Korean final consonants simplify into one of these 7 representative sounds: [ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ]."
     },
@@ -49,11 +84,36 @@
         "Actual sound"
       ],
       "rows": [
-        ["Liaison (연음)", "Batchim moves to next vowel (ㅇ)", "한국어", "[한구거]"],
-        ["Liaison (연음)", "Batchim carries over to the next syllable", "음악", "[으막]"],
-        ["Liaison (연음)", "Batchim takes over the initial ㅇ slot", "집에", "[지베]"],
-        ["Nasalization (비음화)", "ㄱ / ㄷ / ㅂ changes to ㅇ / ㄴ / ㅁ before ㄴ / ㅁ", "국물", "[궁물]"],
-        ["Tensification (경음화)", "Plain consonant becomes tense (ㄲ/ㄸ/ㅃ/ㅆ/ㅉ) after ㄱ/ㄷ/ㅂ", "학교", "[학꾜]"]
+        [
+          "Liaison (연음)",
+          "Batchim moves to next vowel (ㅇ)",
+          "한국어",
+          "[한구거]"
+        ],
+        [
+          "Liaison (연음)",
+          "Batchim carries over to the next syllable",
+          "음악",
+          "[으막]"
+        ],
+        [
+          "Liaison (연음)",
+          "Batchim takes over the initial ㅇ slot",
+          "집에",
+          "[지베]"
+        ],
+        [
+          "Nasalization (비음화)",
+          "ㄱ / ㄷ / ㅂ changes to ㅇ / ㄴ / ㅁ before ㄴ / ㅁ",
+          "국물",
+          "[궁물]"
+        ],
+        [
+          "Tensification (경음화)",
+          "Plain consonant becomes tense (ㄲ/ㄸ/ㅃ/ㅆ/ㅉ) after ㄱ/ㄷ/ㅂ",
+          "학교",
+          "[학꾜]"
+        ]
       ],
       "note": "Liaison is the most frequent rule in everyday Korean: usually carry the final consonant sound over into the following vowel (exceptions: final ㅇ stays as 'ng', and final ㅎ is usually silent, as in 좋아 [조아])."
     },
@@ -66,18 +126,126 @@
       "text": "When a syllable ending with a batchim is followed by a syllable starting with the silent vowel placeholder ㅇ, move the final consonant sound directly into that vowel: 물 + 이 → [무리], 밥 + 을 → [바블], 옷 + 이 → [오시]. If a consonant follows, pronounce the representative sound: 옷장 → [옫짱]."
     },
     {
+      "type": "table",
+      "title": {
+        "en": "Double Final Consonants (겹받침)",
+        "ko": "겹받침: 받침이 두 개일 때"
+      },
+      "cols": [
+        "Batchim",
+        "Example words",
+        "Pronunciation",
+        "Note"
+      ],
+      "rows": [
+        [
+          "ㄳ",
+          "몫 (share)",
+          "[목]",
+          "Rare. ㄱ is spoken."
+        ],
+        [
+          "ㄵ",
+          "앉다 (to sit)",
+          "[안따]",
+          "ㄴ is spoken."
+        ],
+        [
+          "ㄶ",
+          "많다 (to be many)",
+          "[만타]",
+          "ㄴ is spoken; ㅎ joins the next ㄷ and sounds like ㅌ."
+        ],
+        [
+          "ㄺ",
+          "닭 (chicken), 읽다 (to read)",
+          "[닥], [익따]",
+          "ㄱ is spoken. Before ㄱ it is ㄹ: 읽고 [일꼬]."
+        ],
+        [
+          "ㄻ",
+          "삶 (life), 젊다 (to be young)",
+          "[삼], [점따]",
+          "ㅁ is spoken."
+        ],
+        [
+          "ㄼ",
+          "넓다 (to be wide), 여덟 (eight)",
+          "[널따], [여덜]",
+          "ㄹ is spoken. 밟다 is an exception: [밥따]."
+        ],
+        [
+          "ㄽ",
+          "곬 (a groove)",
+          "[골]",
+          "Very rare. ㄹ is spoken."
+        ],
+        [
+          "ㄾ",
+          "핥다 (to lick)",
+          "[할따]",
+          "ㄹ is spoken."
+        ],
+        [
+          "ㄿ",
+          "읊다 (to recite)",
+          "[읍따]",
+          "ㅂ is spoken."
+        ],
+        [
+          "ㅀ",
+          "싫다 (to dislike), 앓다 (to be ill)",
+          "[실타], [알타]",
+          "ㄹ is spoken; ㅎ joins the next ㄷ and sounds like ㅌ."
+        ],
+        [
+          "ㅄ",
+          "값 (price), 없다 (to not exist)",
+          "[갑], [업따]",
+          "ㅂ is spoken."
+        ]
+      ],
+      "note": "You will meet 닭, 값, 없다, 많다, 읽다 and 앉다 first. Learn these words as whole units before the rest."
+    },
+    {
+      "type": "text",
+      "title": {
+        "en": "Double Batchim Before a Vowel",
+        "ko": "겹받침 뒤에 모음이 오면"
+      },
+      "text": "Before a vowel, the second consonant moves to the next syllable and the first stays: 닭이 → [달기], 읽어요 → [일거요], 앉아요 → [안자요]. Words like 값이 → [갑씨] and 없어요 → [업써요] also get a tense ㅆ sound."
+    },
+    {
       "type": "practice",
       "title": {
         "en": "Practice A: Identify the representative final sound",
         "ko": "대표 받침 소리([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ])를 써요"
       },
       "items": [
-        { "q": "꽃 (flower) batchim sound →", "a": "ㄷ" },
-        { "q": "부엌 (kitchen) batchim sound →", "a": "ㄱ" },
-        { "q": "잎 (leaf) batchim sound →", "a": "ㅂ" },
-        { "q": "옷 (clothes) batchim sound →", "a": "ㄷ" },
-        { "q": "밖 (outside) batchim sound →", "a": "ㄱ" },
-        { "q": "빛 (light) batchim sound →", "a": "ㄷ" }
+        {
+          "q": "꽃 (flower) batchim sound →",
+          "a": "ㄷ"
+        },
+        {
+          "q": "부엌 (kitchen) batchim sound →",
+          "a": "ㄱ"
+        },
+        {
+          "q": "잎 (leaf) batchim sound →",
+          "a": "ㅂ"
+        },
+        {
+          "q": "옷 (clothes) batchim sound →",
+          "a": "ㄷ"
+        },
+        {
+          "q": "밖 (outside) batchim sound →",
+          "a": "ㄱ"
+        },
+        {
+          "q": "빛 (light) batchim sound →",
+          "a": "ㄷ"
+        }
       ]
     },
     {
@@ -87,12 +255,30 @@
         "ko": "연음 법칙대로 소리 나는 대로 써요"
       },
       "items": [
-        { "q": "한국어 →", "a": "한구거" },
-        { "q": "음악 →", "a": "으막" },
-        { "q": "집에 →", "a": "지베" },
-        { "q": "할아버지 →", "a": "하라버지" },
-        { "q": "물이 →", "a": "무리" },
-        { "q": "밥을 →", "a": "바블" }
+        {
+          "q": "한국어 →",
+          "a": "한구거"
+        },
+        {
+          "q": "음악 →",
+          "a": "으막"
+        },
+        {
+          "q": "집에 →",
+          "a": "지베"
+        },
+        {
+          "q": "할아버지 →",
+          "a": "하라버지"
+        },
+        {
+          "q": "물이 →",
+          "a": "무리"
+        },
+        {
+          "q": "밥을 →",
+          "a": "바블"
+        }
       ]
     },
     {
@@ -102,11 +288,26 @@
         "ko": "소리 나는 대로 발음을 써요"
       },
       "items": [
-        { "q": "옷이 →", "a": "오시" },
-        { "q": "앞에 →", "a": "아페" },
-        { "q": "꽃을 →", "a": "꼬츨" },
-        { "q": "빛이 →", "a": "비치" },
-        { "q": "입에 →", "a": "이베" }
+        {
+          "q": "옷이 →",
+          "a": "오시"
+        },
+        {
+          "q": "앞에 →",
+          "a": "아페"
+        },
+        {
+          "q": "꽃을 →",
+          "a": "꼬츨"
+        },
+        {
+          "q": "빛이 →",
+          "a": "비치"
+        },
+        {
+          "q": "입에 →",
+          "a": "이베"
+        }
       ]
     },
     {
@@ -116,18 +317,110 @@
         "ko": "올바른 발음을 써요"
       },
       "items": [
-        { "q": "국물 pronunciation →", "a": "궁물" },
-        { "q": "학교 pronunciation →", "a": "학꾜" },
-        { "q": "식당 pronunciation →", "a": "식땅" },
-        { "q": "책을 pronunciation →", "a": "채글" },
-        { "q": "문이 pronunciation →", "a": "무니" }
+        {
+          "q": "국물 pronunciation →",
+          "a": "궁물"
+        },
+        {
+          "q": "학교 pronunciation →",
+          "a": "학꾜"
+        },
+        {
+          "q": "식당 pronunciation →",
+          "a": "식땅"
+        },
+        {
+          "q": "책을 pronunciation →",
+          "a": "채글"
+        },
+        {
+          "q": "문이 pronunciation →",
+          "a": "무니"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice E: Double batchim before a consonant",
+        "ko": "겹받침을 소리 나는 대로 써요"
+      },
+      "hint": "Write how the word sounds, in Hangul.",
+      "items": [
+        {
+          "q": "닭 (chicken) →",
+          "a": "닥"
+        },
+        {
+          "q": "값 (price) →",
+          "a": "갑"
+        },
+        {
+          "q": "없다 (to not exist) →",
+          "a": "업따"
+        },
+        {
+          "q": "앉다 (to sit) →",
+          "a": "안따"
+        },
+        {
+          "q": "많다 (to be many) →",
+          "a": "만타"
+        },
+        {
+          "q": "넓다 (to be wide) →",
+          "a": "널따"
+        },
+        {
+          "q": "삶 (life) →",
+          "a": "삼"
+        },
+        {
+          "q": "싫다 (to dislike) →",
+          "a": "실타"
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "title": {
+        "en": "Practice F: Double batchim before a vowel",
+        "ko": "겹받침 뒤에 모음이 올 때 소리 나는 대로 써요"
+      },
+      "hint": "Write how the phrase sounds, in Hangul.",
+      "items": [
+        {
+          "q": "닭이 →",
+          "a": "달기"
+        },
+        {
+          "q": "읽어요 →",
+          "a": "일거요"
+        },
+        {
+          "q": "앉아요 →",
+          "a": "안자요"
+        },
+        {
+          "q": "값이 →",
+          "a": "갑씨"
+        },
+        {
+          "q": "없어요 →",
+          "a": "업써요"
+        },
+        {
+          "q": "젊은 →",
+          "a": "절믄"
+        }
       ]
     }
   ],
   "howto": [
     "Learn the 7 representative sounds: ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ.",
     "Practice carrying the final consonant into the next syllable when meeting a vowel (Liaison).",
-    "Complete Practice A to D and check your results with the answer key."
+    "Learn the double batchim (겹받침) you will meet in words like 닭, 값, 없다 and 읽다.",
+    "Complete Practice A to F and check your results with the answer key."
   ],
-  "koSummary": "받침의 7개 대표음([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ])과 가장 기초적인 연음 법칙, 비음화, 경음화를 한 장에 정리했습니다. 대표음 찾기와 소리 나는 대로 발음 쓰기 연습을 풀고 정답지로 확인하세요."
+  "koSummary": "받침의 7개 대표음([ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ])과 가장 기초적인 연음 법칙, 비음화, 경음화를 겹받침(닭 · 값 · 없다 · 읽다 …)까지 정리했습니다. 대표음 찾기 · 겹받침과 연음을 소리 나는 대로 쓰는 연습을 풀고 정답지로 확인하세요."
 }

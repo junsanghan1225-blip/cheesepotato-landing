@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=e960bb03" async></script>
+<script src="gtm.js?v=dfdd0049" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=e960bb03">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=e960bb03">
+<link rel="stylesheet" href="vendor/pretendard.css?v=dfdd0049">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=dfdd0049">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e960bb03" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=e960bb03"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=dfdd0049" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=dfdd0049"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -635,7 +635,7 @@ body.nav-open { overflow:hidden; }
 .label {
   display:inline-block; margin-bottom:20px;
   font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--orange-deep);
+  color:var(--orange-text, var(--orange-deep));   /* 작은 글자라 대비 4.5 이상인 짙은 주황(Lighthouse 3.88 → 5.2) */
 }
 .label::before {
   content:''; display:block; width:26px; height:2px;
@@ -837,7 +837,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-pan-ko { margin:2px 0 0; font-size:13.5px; color:var(--ink-2); }
 .hm-pan-sub { margin:6px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.5; word-break:keep-all; }
 .hm-pan-r { margin:12px 0 0; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.hm-pan-go { display:inline-block; padding:9px 14px; border-radius:5px; background:var(--orange); color:#fff; font-weight:800; font-size:14px; text-decoration:none; }
+.hm-pan-go { display:inline-block; padding:9px 14px; border-radius:5px; background:var(--orange); color:#1c1915; font-weight:800; font-size:14px; text-decoration:none; }
 @media (min-width:900px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
@@ -2423,32 +2423,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hm-lead-dl"><span data-en="No email needed. Download now:">이메일 없이 바로 받기:</span> <a href="assets/books/first-steps-workbook/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-첫걸음">첫걸음 · First Steps</a> · <a href="assets/books/topik1-vocab/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-TOPIK1단어">TOPIK I 단어장</a> · <a href="assets/books/topik2-writing-51-52/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-쓰기">TOPIK II 쓰기 51~52</a></p>
     </form>
     <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="Korean basics">한국어 기초</span><small data-en="3">3권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" role="list" aria-label="한국어 기초">
-        <a class="hm-bk hm-bk-s on" role="listitem" href="shop/first-steps-workbook/" data-bk="first-steps-workbook" data-en-t="Korean First Steps Workbook" data-ko-t="한국어 첫걸음 워크북" data-sub-en="Hangul, greetings and everyday words, write, check, repeat." data-sub-ko="한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시" data-px="9.90" data-pg="159쪽" data-pg-en="159 pages" data-src="assets/books/first-steps-workbook/cover-sm.jpg" data-tip="한국어 첫걸음 워크북" aria-label="Korean First Steps Workbook — 한국어 첫걸음 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
+      <div class="hm-bk-row hm-shelf-row" aria-label="한국어 기초">
+        <a class="hm-bk hm-bk-s on" href="shop/first-steps-workbook/" data-bk="first-steps-workbook" data-en-t="Korean First Steps Workbook" data-ko-t="한국어 첫걸음 워크북" data-sub-en="Hangul, greetings and everyday words, write, check, repeat." data-sub-ko="한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시" data-px="9.90" data-pg="159쪽" data-pg-en="159 pages" data-src="assets/books/first-steps-workbook/cover-sm.jpg" data-tip="한국어 첫걸음 워크북" aria-label="Korean First Steps Workbook — 한국어 첫걸음 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/particles-workbook/" data-bk="particles-workbook" data-en-t="Korean Particles Workbook" data-ko-t="한국어 조사 워크북" data-sub-en="20 particles, how to choose between them, and sentences to learn from." data-sub-ko="조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기" data-px="9.90" data-pg="186쪽" data-pg-en="186 pages" data-src="assets/books/particles-workbook/cover-sm.jpg" data-tip="한국어 조사 워크북" aria-label="Korean Particles Workbook — 한국어 조사 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/particles-workbook/" data-bk="particles-workbook" data-en-t="Korean Particles Workbook" data-ko-t="한국어 조사 워크북" data-sub-en="20 particles, how to choose between them, and sentences to learn from." data-sub-ko="조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기" data-px="9.90" data-pg="186쪽" data-pg-en="186 pages" data-src="assets/books/particles-workbook/cover-sm.jpg" data-tip="한국어 조사 워크북" aria-label="Korean Particles Workbook — 한국어 조사 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/particles-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/korean-idioms/" data-bk="korean-idioms" data-en-t="Essential Korean Idioms" data-ko-t="필수 관용 표현" data-sub-en="449 idioms, proverbs and four-character idioms with examples, checkups and writing practice." data-sub-ko="관용구 · 속담 · 사자성어 449개" data-px="9.90" data-pg="204쪽" data-pg-en="204 pages" data-src="assets/books/korean-idioms/cover-sm.jpg" data-tip="필수 관용 표현" aria-label="Essential Korean Idioms — 필수 관용 표현" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/korean-idioms/" data-bk="korean-idioms" data-en-t="Essential Korean Idioms" data-ko-t="필수 관용 표현" data-sub-en="449 idioms, proverbs and four-character idioms with examples, checkups and writing practice." data-sub-ko="관용구 · 속담 · 사자성어 449개" data-px="9.90" data-pg="204쪽" data-pg-en="204 pages" data-src="assets/books/korean-idioms/cover-sm.jpg" data-tip="필수 관용 표현" aria-label="Essential Korean Idioms — 필수 관용 표현" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
       </div></div>
     <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="For TOPIK I (levels 1–2)">TOPIK I 대비 (1~2급)</span><small data-en="2">2권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" role="list" aria-label="TOPIK I 대비 (1~2급)">
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik1-reading-mock/" data-bk="topik1-reading-mock" data-en-t="10 Reading Practice Tests (for TOPIK I)" data-ko-t="읽기 실전 연습 10회 (TOPIK I 대비)" data-sub-en="400 original questions in the real test format, with explanations." data-sub-ko="실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함" data-px="9.90" data-pg="206쪽" data-pg-en="206 pages" data-src="assets/books/topik1-reading-mock/cover-sm.jpg" data-tip="읽기 실전 연습 10회 (TOPIK I 대비)" aria-label="10 Reading Practice Tests (for TOPIK I) — 읽기 실전 연습 10회 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+      <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK I 대비 (1~2급)">
+        <a class="hm-bk hm-bk-s" href="shop/topik1-reading-mock/" data-bk="topik1-reading-mock" data-en-t="10 Reading Practice Tests (for TOPIK I)" data-ko-t="읽기 실전 연습 10회 (TOPIK I 대비)" data-sub-en="400 original questions in the real test format, with explanations." data-sub-ko="실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함" data-px="9.90" data-pg="206쪽" data-pg-en="206 pages" data-src="assets/books/topik1-reading-mock/cover-sm.jpg" data-tip="읽기 실전 연습 10회 (TOPIK I 대비)" aria-label="10 Reading Practice Tests (for TOPIK I) — 읽기 실전 연습 10회 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik1-reading-mock/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik1-vocab/" data-bk="topik1-vocab" data-en-t="Beginner Essential Vocabulary (for TOPIK I)" data-ko-t="초급 필수 단어장 (TOPIK I 대비)" data-sub-en="All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice." data-sub-ko="TOPIK I 필수 단어 1,931개 · 예문과 쓰기 연습" data-px="9.90" data-pg="528쪽" data-pg-en="528 pages" data-src="assets/books/topik1-vocab/cover-sm.jpg" data-tip="초급 필수 단어장 (TOPIK I 대비)" aria-label="Beginner Essential Vocabulary (for TOPIK I) — 초급 필수 단어장 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/topik1-vocab/" data-bk="topik1-vocab" data-en-t="Beginner Essential Vocabulary (for TOPIK I)" data-ko-t="초급 필수 단어장 (TOPIK I 대비)" data-sub-en="All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice." data-sub-ko="TOPIK I 필수 단어 1,931개 · 예문과 쓰기 연습" data-px="9.90" data-pg="528쪽" data-pg-en="528 pages" data-src="assets/books/topik1-vocab/cover-sm.jpg" data-tip="초급 필수 단어장 (TOPIK I 대비)" aria-label="Beginner Essential Vocabulary (for TOPIK I) — 초급 필수 단어장 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik1-vocab/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
       </div></div>
     <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="For TOPIK II (levels 3–6)">TOPIK II 대비 (3~6급)</span><small data-en="5">5권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" role="list" aria-label="TOPIK II 대비 (3~6급)">
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik2-writing-51-52/" data-bk="topik2-writing-51-52" data-en-t="Writing Practice 51–52 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-sub-en="Practical and explanatory text completion, with model answers and scoring points." data-sub-ko="실용문 · 설명문 빈칸 쓰기 · 모범 답안과 채점 포인트" data-px="6.90" data-pg="88쪽" data-pg-en="88 pages" data-src="assets/books/topik2-writing-51-52/cover-sm.jpg" data-tip="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" aria-label="Writing Practice 51–52 (for TOPIK II) — 쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+      <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK II 대비 (3~6급)">
+        <a class="hm-bk hm-bk-s" href="shop/topik2-writing-51-52/" data-bk="topik2-writing-51-52" data-en-t="Writing Practice 51–52 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-sub-en="Practical and explanatory text completion, with model answers and scoring points." data-sub-ko="실용문 · 설명문 빈칸 쓰기 · 모범 답안과 채점 포인트" data-px="6.90" data-pg="88쪽" data-pg-en="88 pages" data-src="assets/books/topik2-writing-51-52/cover-sm.jpg" data-tip="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" aria-label="Writing Practice 51–52 (for TOPIK II) — 쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-writing-51-52/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik2-vocab-1000/" data-bk="topik2-vocab-1000" data-en-t="Intermediate Vocabulary Workbook 1 (for TOPIK II)" data-ko-t="중급 단어장 워크북 1 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II levels 3–4 words, with example sentences and writing practice." data-sub-ko="TOPIK II 3~4급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="329쪽" data-pg-en="329 pages" data-src="assets/books/topik2-vocab-1000/cover-sm.jpg" data-tip="중급 단어장 워크북 1 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 1 (for TOPIK II) — 중급 단어장 워크북 1 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-1000/" data-bk="topik2-vocab-1000" data-en-t="Intermediate Vocabulary Workbook 1 (for TOPIK II)" data-ko-t="중급 단어장 워크북 1 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II levels 3–4 words, with example sentences and writing practice." data-sub-ko="TOPIK II 3~4급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="329쪽" data-pg-en="329 pages" data-src="assets/books/topik2-vocab-1000/cover-sm.jpg" data-tip="중급 단어장 워크북 1 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 1 (for TOPIK II) — 중급 단어장 워크북 1 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-vocab-1000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik2-vocab-2000/" data-bk="topik2-vocab-2000" data-en-t="Intermediate Vocabulary Workbook 2 (for TOPIK II)" data-ko-t="중급 단어장 워크북 2 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 5 words, with example sentences and writing practice." data-sub-ko="TOPIK II 5급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-2000/cover-sm.jpg" data-tip="중급 단어장 워크북 2 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 2 (for TOPIK II) — 중급 단어장 워크북 2 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-2000/" data-bk="topik2-vocab-2000" data-en-t="Intermediate Vocabulary Workbook 2 (for TOPIK II)" data-ko-t="중급 단어장 워크북 2 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 5 words, with example sentences and writing practice." data-sub-ko="TOPIK II 5급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-2000/cover-sm.jpg" data-tip="중급 단어장 워크북 2 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 2 (for TOPIK II) — 중급 단어장 워크북 2 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-vocab-2000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik2-vocab-lv3/" data-bk="topik2-vocab-lv3" data-en-t="Intermediate Vocabulary Workbook 3 (for TOPIK II)" data-ko-t="중급 단어장 워크북 3 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 6 words, with example sentences and writing practice." data-sub-ko="TOPIK II 6급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-lv3/cover-sm.jpg" data-tip="중급 단어장 워크북 3 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 3 (for TOPIK II) — 중급 단어장 워크북 3 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-lv3/" data-bk="topik2-vocab-lv3" data-en-t="Intermediate Vocabulary Workbook 3 (for TOPIK II)" data-ko-t="중급 단어장 워크북 3 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 6 words, with example sentences and writing practice." data-sub-ko="TOPIK II 6급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-lv3/cover-sm.jpg" data-tip="중급 단어장 워크북 3 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 3 (for TOPIK II) — 중급 단어장 워크북 3 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-vocab-lv3/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" role="listitem" href="shop/topik2-writing-53-54/" data-bk="topik2-writing-53-54" data-en-t="Writing Practice 53–54 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-sub-en="Describe data in 300 characters, argue in 700, with scored samples." data-sub-ko="자료 설명 · 논술 쓰기와 채점 기준" data-px="9.90" data-pg="220쪽" data-pg-en="220 pages" data-src="assets/books/topik2-writing-53-54/cover-sm.jpg" data-tip="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" aria-label="Writing Practice 53–54 (for TOPIK II) — 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
+        <a class="hm-bk hm-bk-s" href="shop/topik2-writing-53-54/" data-bk="topik2-writing-53-54" data-en-t="Writing Practice 53–54 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-sub-en="Describe data in 300 characters, argue in 700, with scored samples." data-sub-ko="자료 설명 · 논술 쓰기와 채점 기준" data-px="9.90" data-pg="220쪽" data-pg-en="220 pages" data-src="assets/books/topik2-writing-53-54/cover-sm.jpg" data-tip="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" aria-label="Writing Practice 53–54 (for TOPIK II) — 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-writing-53-54/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
       </div></div>
     <div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/first-steps-workbook/" tabindex="-1" aria-hidden="true"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426"></a>
@@ -2458,23 +2458,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hm-bk-all"><a class="hero-go" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
     
     <h3 class="hm-books-h" data-en="From the blog">블로그 · 책 이야기</h3>
-    <div class="hm-post-row" role="list" aria-label="블로그 최신 글" data-en-aria="Latest blog posts">
-        <a class="hm-post" role="listitem" href="blog/how-to-use-topik-i-reading-practice-tests.html">
+    <div class="hm-post-row" aria-label="블로그 최신 글" data-en-aria="Latest blog posts">
+        <a class="hm-post" href="blog/how-to-use-topik-i-reading-practice-tests.html">
           <span class="hm-post-tag">English</span>
           <b>How to Use 10 TOPIK I Reading Practice Tests (Without Wasting Them)</b>
           <span class="hm-post-ex">A practice test can only be taken once. Here is a simple order for using ten TOPIK I reading tests: learn each question type first, then add the clock, then keep an error log.</span>
         </a>
-        <a class="hm-post" role="listitem" href="blog/scored-sample-answers-for-topik-ii-writing.html">
+        <a class="hm-post" href="blog/scored-sample-answers-for-topik-ii-writing.html">
           <span class="hm-post-tag">English</span>
           <b>Why Scored Sample Answers Teach More Than Model Answers (TOPIK II Writing 53–54)</b>
           <span class="hm-post-ex">A model answer shows you the top of the mountain. A high, a middle and a low answer with scores show you the steps. Here is how to use scored samples to fix your own TOPIK II writing.</span>
         </a>
-        <a class="hm-post" role="listitem" href="blog/how-to-check-a-korean-workbook-before-you-buy.html">
+        <a class="hm-post" href="blog/how-to-check-a-korean-workbook-before-you-buy.html">
           <span class="hm-post-tag">English</span>
           <b>How to Check a Korean Workbook Before You Buy It: 6 Questions</b>
           <span class="hm-post-ex">Not every workbook fits every learner. Six questions you can answer in ten minutes from a sample page, so you only buy a book you will actually finish.</span>
         </a>
-        <a class="hm-post" role="listitem" href="blog/korean-idioms-and-proverbs-you-will-hear.html">
+        <a class="hm-post" href="blog/korean-idioms-and-proverbs-you-will-hear.html">
           <span class="hm-post-tag">English</span>
           <b>10 Korean Idioms and Proverbs You Will Actually Hear</b>
           <span class="hm-post-ex">Ten common Korean idioms, proverbs and four-character idioms with the literal meaning, the real meaning in English and an example sentence for each.</span>
@@ -4459,9 +4459,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=e960bb03"></script>
-<script type="module" src="app.module.js?v=e960bb03"></script>
+<script src="app.js?v=dfdd0049"></script>
+<script type="module" src="app.module.js?v=dfdd0049"></script>
 
-<script src="analytics.js?v=e960bb03" defer></script>
+<script src="analytics.js?v=dfdd0049" defer></script>
 </body>
 </html>
