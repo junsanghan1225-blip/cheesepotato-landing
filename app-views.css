@@ -5643,6 +5643,16 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .ss-in { flex:1; min-width:0; border:0; outline:none; background:transparent; font:inherit; font-size:clamp(17px,2.2vw,20px); font-weight:600; padding:16px 0; color:var(--ink); }
 .ss-in::placeholder { color:var(--ink-3); font-weight:500; }
 .ss-out { margin-top:8px; background:var(--surface); border:1px solid rgba(var(--ink-rgb),.12); border-radius:10px; padding:8px; max-height:60vh; overflow:auto; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); }
+/* 머리띠 검색 — 머리띠 바로 아래로 펼쳐지는 검색 줄(ssTopOpen, 운영자 2026-11-07). 기본 검색 엔진처럼 입력 칸 + 결과 목록 */
+.ss-wrap.ss-top { position:fixed; left:0; right:0; top:64px; z-index:59; margin:0; padding:10px var(--gut) 12px; max-width:none; background:var(--bg); border-bottom:1px solid var(--line); }
+.ss-top .ss-box, .ss-top .ss-out { max-width:720px; margin-left:auto; margin-right:auto; }
+.ss-top .ss-box { border-width:2px; padding:2px 6px 2px 14px; }
+.ss-top .ss-face { display:none; }
+.ss-top .ss-in { padding:12px 0; font-size:17px; }
+.ss-top .ss-out { margin-top:8px; max-height:min(62vh, 480px); }
+.ss-top .ss-in::-webkit-search-cancel-button { display:none; }   /* 브라우저 기본 지우기 단추 대신 우리 × 하나만 */
+.ss-x { flex:none; width:36px; height:36px; border:0; border-radius:8px; background:transparent; color:var(--ink-2); font-size:24px; line-height:1; cursor:pointer; }
+.ss-x:hover { background:var(--surface-2); }
 .ss-g + .ss-g { border-top:1px dashed rgba(var(--ink-rgb),.1); margin-top:4px; padding-top:4px; }
 .ss-gh { font-size:12px; font-weight:800; color:var(--ink-3); padding:8px 10px 4px; letter-spacing:.02em; }
 .ss-row { display:flex; align-items:baseline; gap:10px; padding:9px 10px; border-radius:7px; text-decoration:none; color:var(--ink); min-width:0; }
