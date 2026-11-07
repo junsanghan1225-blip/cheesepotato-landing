@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=0c5c0b7f', ja: './i18n-ja.js?v=0c5c0b7f', zh: './i18n-zh.js?v=0c5c0b7f', id: './i18n-id.js?v=0c5c0b7f', ne: './i18n-ne.js?v=0c5c0b7f', my: './i18n-my.js?v=0c5c0b7f', ru: './i18n-ru.js?v=0c5c0b7f', mn: './i18n-mn.js?v=0c5c0b7f', pt: './i18n-pt.js?v=0c5c0b7f', uz: './i18n-uz.js?v=0c5c0b7f' };
+const I18N_URL = { vi: './i18n-vi.js?v=590ef43a', ja: './i18n-ja.js?v=590ef43a', zh: './i18n-zh.js?v=590ef43a', id: './i18n-id.js?v=590ef43a', ne: './i18n-ne.js?v=590ef43a', my: './i18n-my.js?v=590ef43a', ru: './i18n-ru.js?v=590ef43a', mn: './i18n-mn.js?v=590ef43a', pt: './i18n-pt.js?v=590ef43a', uz: './i18n-uz.js?v=590ef43a' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
