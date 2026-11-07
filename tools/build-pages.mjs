@@ -2209,6 +2209,17 @@ function renderBlock(b, where, lang = 'ko') {
         `<span class="glinkgo">${lang === 'en' ? 'Open it →' : '보러 가기 →'}</span>` +
       `</a>`;
 
+    /* 예스24 책 쪽으로 나가는 카드(운영자 2026-11-07 「블로그에 예스24에 올린 책 홍보」). 바깥 주소는 예스24 상품 쪽만 받는다 —
+       글에 아무 주소나 실리지 않게. 새 칸으로 열고 noopener. */
+    case 'ext':
+      if (!b.href || !b.title) bad('t:"ext" 에 href 나 title 이 없다');
+      if (!/^https:\/\/www\.yes24\.com\/product\/goods\/\d+$/.test(b.href)) bad('t:"ext" 의 href 는 https://www.yes24.com/product/goods/숫자 만 받는다');
+      return `<a class="gcard" href="${esc(b.href)}" target="_blank" rel="noopener" data-ev="책클릭" data-ev-from="블로그-예스24">` +
+        `<b>${esc(b.title)}</b>` +
+        (b.note ? `<span class="gnote">${inline(b.note)}</span>` : '') +
+        `<span class="glinkgo">${lang === 'en' ? 'See it on Yes24 →' : '예스24에서 보기 →'}</span>` +
+      `</a>`;
+
     /* 사진. 파일이 실재하는지는 tools/check-blog.mjs 가 본다 — 여기서
        파일을 읽지는 않는다(굽는 일이 느려진다). alt 는 반드시 받는다. */
     case 'img':
