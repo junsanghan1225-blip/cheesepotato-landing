@@ -518,6 +518,287 @@ export const BLOG_POSTS = [
   },
   /* 책 소개 · 공부법 — 홈 책 코너 마케팅(2026-10-27) */
   {
+      "id": "native-vs-sino-korean-numbers-english",
+      "lang": "en",
+      "title": "Korean Numbers: Native Korean vs Sino-Korean, and Which One to Use",
+      "date": "2026-11-07",
+      "updated": "2026-11-07",
+      "tags": [
+          "English",
+          "Grammar"
+      ],
+      "excerpt": "Korean has two number systems. Native Korean counts things, ages and the hour; Sino-Korean handles dates, minutes, money and phone numbers. Here is the rule, examples, and the mistakes that give learners away.",
+      "blocks": [
+          {
+              "t": "p",
+              "text": "Korean has two number systems. Native Korean numbers (하나, 둘, 셋…) are used for counting things and people, for age, and for the hour on the clock. Sino-Korean numbers (일, 이, 삼…) are used for dates, minutes, money, phone numbers, floors and addresses. Most numbers you say in a day follow this split, so learning it once saves you a lot of guessing."
+          },
+          {
+              "t": "h",
+              "text": "Use native Korean numbers for counting and the hour"
+          },
+          {
+              "t": "p",
+              "text": "Native Korean numbers go from 하나 (1) to 아흔아홉 (99). They almost always come with a counter such as 개 (things), 명 (people), 잔 (cups) or 권 (books), and the first few numbers change shape in front of a counter: 하나 → 한, 둘 → 두, 셋 → 세, 넷 → 네, 스물 → 스무."
+          },
+          {
+              "t": "ex",
+              "ko": "사과 세 개 주세요.",
+              "en": "Please give me three apples."
+          },
+          {
+              "t": "ex",
+              "ko": "친구가 두 명 왔어요.",
+              "en": "Two friends came."
+          },
+          {
+              "t": "ex",
+              "ko": "저는 스무 살이에요.",
+              "en": "I am twenty years old."
+          },
+          {
+              "t": "ex",
+              "ko": "지금 세 시예요.",
+              "en": "It is three o'clock now. (the hour uses a native number)"
+          },
+          {
+              "t": "h",
+              "text": "Use Sino-Korean numbers for dates, minutes, money and phone numbers"
+          },
+          {
+              "t": "p",
+              "text": "Sino-Korean numbers (일, 이, 삼, 사, 오, 육, 칠, 팔, 구, 십) build every number above 99 and are used wherever you read a number off a label, a calendar or a price tag."
+          },
+          {
+              "t": "ex",
+              "ko": "오늘은 십일월 칠 일이에요.",
+              "en": "Today is November 7th."
+          },
+          {
+              "t": "ex",
+              "ko": "이 가방은 이만 원이에요.",
+              "en": "This bag is 20,000 won."
+          },
+          {
+              "t": "ex",
+              "ko": "제 전화번호는 공일공 일이삼사 오육칠팔이에요.",
+              "en": "My phone number is 010-1234-5678."
+          },
+          {
+              "t": "ex",
+              "ko": "저는 오 층에 살아요.",
+              "en": "I live on the fifth floor."
+          },
+          {
+              "t": "h",
+              "text": "Clock time uses both at once"
+          },
+          {
+              "t": "p",
+              "text": "The hour is native Korean and the minutes are Sino-Korean. That is why 3:15 is 「세 시 십오 분」 and not 「삼 시 십오 분」."
+          },
+          {
+              "t": "dlg",
+              "lines": [
+                  "A: 지금 몇 시예요?",
+                  "B: 세 시 십오 분이에요."
+              ]
+          },
+          {
+              "t": "h",
+              "text": "Three mistakes that give learners away"
+          },
+          {
+              "t": "quote",
+              "lines": [
+                  "세 시 (Correct: three o'clock)",
+                  "삼 시 (Incorrect: the hour takes a native number)",
+                  "한 개 (Correct: one piece)",
+                  "하나 개 (Incorrect: 하나 shortens to 한 before a counter)",
+                  "스무 살 (Correct, spoken: twenty years old)",
+                  "이십 살 (Incorrect in speech: age is counted with native numbers)"
+              ]
+          },
+          {
+              "t": "p",
+              "text": "In formal writing you will see age written with the Sino-Korean counter 세 (이십 세), which is why you may see both forms in print. In speech, use the native form."
+          },
+          {
+              "t": "h",
+              "text": "Two months are irregular"
+          },
+          {
+              "t": "p",
+              "text": "Months use Sino-Korean numbers plus 월, with two exceptions: June is 유월 (not 육월) and October is 시월 (not 십월). The other ten follow the pattern: 일월, 이월, 삼월, 사월, 오월, 칠월, 팔월, 구월, 십일월, 십이월."
+          },
+          {
+              "t": "h",
+              "text": "One more rule: big numbers have no native form"
+          },
+          {
+              "t": "p",
+              "text": "Native Korean numbers stop at 99. From 100 on you switch to Sino-Korean (백, 천, 만), even when you are counting objects, so 백 개 is correct for 100 items. Fluent speakers mix the two systems quickly because each word has its own habit, so the quickest way to get comfortable is to say real sentences aloud rather than memorise tables."
+          },
+          {
+              "t": "link",
+              "href": "/numbers-counters-worksheet/",
+              "title": "Numbers and counters worksheet",
+              "note": "Free printable practice with an answer key: native and Sino-Korean numbers and the counters that go with them"
+          },
+          {
+              "t": "link",
+              "href": "/days-months-dates-worksheet/",
+              "title": "Days, months and dates worksheet",
+              "note": "Practice 유월, 시월 and every date in a sentence"
+          },
+          {
+              "t": "link",
+              "href": "/shop/first-steps-workbook/",
+              "title": "Korean First Steps Workbook (PDF)",
+              "note": "A beginner workbook with a numbers and counters unit, answers included"
+          }
+      ]
+  },
+  {
+      "id": "e-vs-eseo-english",
+      "lang": "en",
+      "title": "에 vs 에서: Where Things Are and Where Things Happen",
+      "date": "2026-11-07",
+      "updated": "2026-11-07",
+      "tags": [
+          "English",
+          "Grammar"
+      ],
+      "excerpt": "Both particles can mean 'at' in English, which is why learners mix them up. The difference is simple: 에 marks where something exists or where you are going; 에서 marks where an action happens or where it starts.",
+      "blocks": [
+          {
+              "t": "p",
+              "text": "에 marks a place where something exists or a place you are going to, and it also marks a point in time. 에서 marks the place where an action happens and the place something starts from. Both are often translated as 'at' or 'in', which is why English speakers mix them up, but Korean decides by the verb, not by the noun."
+          },
+          {
+              "t": "h",
+              "text": "A quick test: look at the verb"
+          },
+          {
+              "t": "p",
+              "text": "If the verb is about being somewhere or moving to a place (있다, 없다, 가다, 오다, 살다), use 에. If the verb is an action done at a place (먹다, 공부하다, 일하다, 만나다, 쉬다), use 에서."
+          },
+          {
+              "t": "ex",
+              "ko": "집에 있어요.",
+              "en": "I am at home. (existing in a place)"
+          },
+          {
+              "t": "ex",
+              "ko": "집에서 쉬어요.",
+              "en": "I rest at home. (an action done there)"
+          },
+          {
+              "t": "ex",
+              "ko": "학교에 가요.",
+              "en": "I go to school. (destination)"
+          },
+          {
+              "t": "ex",
+              "ko": "학교에서 공부해요.",
+              "en": "I study at school. (an action done there)"
+          },
+          {
+              "t": "h",
+              "text": "에서 also means 'from'"
+          },
+          {
+              "t": "p",
+              "text": "에서 marks where an action starts, so it can be translated as 'from'. It pairs with 까지 ('to') when you describe a route."
+          },
+          {
+              "t": "ex",
+              "ko": "서울에서 왔어요.",
+              "en": "I came from Seoul."
+          },
+          {
+              "t": "ex",
+              "ko": "집에서 학교까지 십 분 걸려요.",
+              "en": "It takes ten minutes from home to school."
+          },
+          {
+              "t": "h",
+              "text": "에 also marks time"
+          },
+          {
+              "t": "p",
+              "text": "에 attaches to clock times, days, months and years, but not to 오늘, 어제, 내일 or 지금."
+          },
+          {
+              "t": "ex",
+              "ko": "일곱 시에 일어나요.",
+              "en": "I get up at seven."
+          },
+          {
+              "t": "ex",
+              "ko": "월요일에 시험이 있어요.",
+              "en": "I have an exam on Monday."
+          },
+          {
+              "t": "ex",
+              "ko": "어제 친구를 만났어요.",
+              "en": "I met a friend yesterday. (no 에 after 어제)"
+          },
+          {
+              "t": "h",
+              "text": "The mistakes you will hear most often"
+          },
+          {
+              "t": "quote",
+              "lines": [
+                  "학교에서 공부해요. (Correct: study at school)",
+                  "학교에 공부해요. (Incorrect: studying is an action, so use 에서)",
+                  "서울에 있어요. (Correct: I am in Seoul)",
+                  "서울에서 있어요. (Incorrect: 있다 is about existing, so use 에)"
+              ]
+          },
+          {
+              "t": "h",
+              "text": "What about 살다 (to live)?"
+          },
+          {
+              "t": "p",
+              "text": "Textbooks teach 「서울에 살아요」 with 에, and that is the form to use first. You will also hear 「서울에서 살아요」, which is natural when the speaker is talking about their life there as an ongoing activity, so do not be surprised when you meet both."
+          },
+          {
+              "t": "dlg",
+              "lines": [
+                  "A: 어디에 살아요?",
+                  "B: 부산에 살아요. 회사는 서울에 있고, 일은 집에서 해요."
+              ]
+          },
+          {
+              "t": "link",
+              "href": "/location-places-exist-worksheet/",
+              "title": "Location and existence worksheet",
+              "note": "Free printable practice with 에 and 있다/없다, with an answer key"
+          },
+          {
+              "t": "link",
+              "href": "/korean-particles-worksheet/",
+              "title": "Korean particles worksheet",
+              "note": "Sentences to complete with the right particle, answer key included"
+          },
+          {
+              "t": "link",
+              "href": "/compare/26.html",
+              "title": "All 20 Korean particles, compared",
+              "note": "See 에 and 에서 next to 은/는, 이/가, 을/를 and the rest"
+          },
+          {
+              "t": "link",
+              "href": "/shop/particles-workbook/",
+              "title": "Korean Particles Workbook (PDF)",
+              "note": "20 particles, practised in context, with answers"
+          }
+      ]
+  },
+  {
     "id": "topik-i-vocabulary-study-plan",
     "lang": "en",
     "title": "TOPIK I Vocabulary: A Study Plan for All 1,931 Words",
