@@ -885,7 +885,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-acts::before { content:''; flex-basis:100%; order:1; height:0; margin-top:-10px; }
 .hero-acts .hero-go { order:0; }
 .hero-acts .hero-how { order:2; }
-.hero-go { min-height:56px; padding:14px 26px; border:none; border-radius:10px; background:var(--ink); color:var(--surface); font:inherit; font-size:17px; font-weight:800; cursor:pointer; }
+.hero-go { min-height:64px; padding:16px 38px; border:none; border-radius:10px; background:#C4551C; color:#fff; font:inherit; font-size:19px; font-weight:800; cursor:pointer; }
+.hero-textlink { border:none; background:none; padding:0; font:inherit; color:var(--ink); font-weight:700; text-decoration:underline; text-underline-offset:3px; cursor:pointer; min-height:44px; }
 .hero-go:hover { filter:brightness(1.12); }
 .hero-how { display:inline-flex; align-items:center; min-height:56px; padding:14px 22px; border-radius:10px; background:var(--tint); color:var(--ink); font-weight:700; text-decoration:none; }
 .hero-fine { margin:12px 0 0; font-size:13.5px; color:var(--ink-2); }
@@ -914,8 +915,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
 .hm-paths .hm-door-t { padding-right:40px; }
-.hm-banner { display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:var(--surface); box-sizing:border-box; }
-@media (min-width:900px) { .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
+.hm-banner { text-decoration:none; display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:var(--surface); box-sizing:border-box; }
+@media (min-width:900px) { .hm-banner.hm-banner-simple { grid-template-columns:auto 1fr auto; } .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
 .hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; color:#fff; background:#C4551C; padding:4px 10px; border-radius:8px; }
 .hm-banner-t b { display:block; font-size:22px; letter-spacing:-.02em; }
 .hm-banner-t span { font-size:14px; color:var(--ink-2); word-break:keep-all; }
@@ -935,7 +936,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-more > .hero-app { color:var(--ink); font-weight:700; }
 .hero-more > .hero-link { color:var(--ink); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
 .hero-more > a:hover, .hero-more > button:hover { text-decoration:underline; text-underline-offset:3px; }
-@media (max-width:600px) { .hero-acts .hero-go, .hero-acts .hero-try { flex:1 1 100%; justify-content:center; text-align:center; } }
+@media (max-width:600px) { .hero-acts .hero-go { width:100%; } .hero-acts .hero-go, .hero-acts .hero-try { flex:1 1 100%; justify-content:center; text-align:center; } }
 .hero-link { font:inherit; font-size:14px; font-weight:700; color:var(--ink); background:none; border:none; padding:10px 2px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--orange); }
 .hm-proofrow { max-width:var(--max); margin:36px auto 0; padding:0 var(--gut); display:grid; gap:20px; }
 .hm-proofrow .hm-today { margin-top:0; }
@@ -2118,6 +2119,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
     </div>
 
+    <!-- 새 기능 — TOPIK 실제 시뮬레이션(3D 시험장). 길 밖의 별도 페이지라 링크다(운영자 2026-11-08 「사이드바에 토픽 실제 시뮬레이션」). -->
+    <a class="side-item side-solo" href="exam-room/" aria-label="TOPIK 실제 시험장 열기" data-en-aria="Open the TOPIK exam room" data-ev="시험장열기" data-ev-from="사이드바">
+      <span class="side-item-ico" data-ic="clock">🕒</span><span data-en="TOPIK exam room">TOPIK 시험장</span>
+    </a>
+
 
     <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
     <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
@@ -2321,15 +2327,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-sub" data-ko="한글부터 TOPIK 6급까지, 레슨이 차례대로 놓여 있어요.<br>처음부터 따라가도 되고, 3분 테스트로 내 자리에서 시작해도 돼요.">From Hangul to TOPIK level 6, the lessons are already in order.<br>Start from the very first step, or take a 3-minute test and jump in where you are.</p>
       <div class="hero-acts">
         <button class="hero-go" id="heroLevelTestBtn" type="button" data-en="Find my level and start →">내 레벨 찾고 시작하기 →</button>
-        <button class="hero-how hero-try" type="button" data-go="quiz" data-en="Try one question first">문제 하나 먼저 풀어 보기</button>
-        <a class="hero-how" href="#hmPaths" data-en="See the paths">길 둘러보기</a>
       </div>
-      <p class="hero-fine" data-en="Free · no sign-up needed · about 3 minutes">무료 · 가입 없이 바로 · 3분쯤</p>
-      <!-- 눌러 볼 곳을 한 줄로(운영자 2026-11-05 「첫 화면 단추가 너무 많다」 — 큰 단추 둘 아래는 작은 글자 링크 셋 + 믿음 한 줄) -->
+      <!-- 운영자 2026-11-08 「정신없다 · CTA 를 높이자」 — 큰 단추 하나만 남기고, 나머지는 한 줄로 -->
+      <p class="hero-fine"><span data-en="Free · no sign-up · 3 minutes">무료 · 가입 없이 · 3분쯤</span> · <button class="hero-try hero-textlink" type="button" data-go="quiz" data-en="Try one question first">문제 하나 먼저 풀어 보기</button></p>
       <div class="hero-more">
-        <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="PDF workbooks, each with a free sample →">PDF 워크북 · 책마다 무료 샘플 →</a>
         <button class="hero-link" id="heroSignupBtn" type="button" data-ko="무료 회원가입">Free sign-up</button>
         <a class="hero-app" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="첫화면" data-en="Android app">안드로이드 앱</a>
+        <a class="hero-book" href="shop/" data-ev="책클릭" data-ev-from="첫화면-한줄" data-en="PDF workbooks">PDF 워크북</a>
       </div>
       <a class="hero-trust" href="about.html" data-en="Made by a Korean teacher · 1,700+ one-to-one lessons · 2,364 original TOPIK questions →">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 2,364 →</a>
     </div>
@@ -2353,14 +2357,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hm-me" id="hmMe"></div>
   <!-- 길 넷 카드는 첫 화면에서 뺐다(운영자 2026-10-17 「얘는 홈페이지에서 빼자」). 길 고르기는 「한국어 배우기 → 길」(#learn/path)에 그대로 있다. -->
 
-  <!-- 새 기능 배너 하나(운영자 결정 2026-10-06 「배너는 번역 연습」) -->
-  <button class="hm-banner hm-intro" type="button" data-go="translate">
+  <!-- 새 기능 배너 하나(운영자 결정 2026-10-06 「배너는 번역 연습」 → 2026-11-08 「번역 말고 TOPIK 실제 시뮬레이션으로」) -->
+  <a class="hm-banner hm-intro hm-banner-simple" href="exam-room/" data-ev="시험장열기" data-ev-from="첫화면배너">
     <span class="hm-banner-tag">NEW</span>
-    <span class="hm-banner-t"><b data-en="Translate, line by line.">한 줄씩, 한국어로.</b>
-      <span data-en="Short English texts: beginner to advanced. Write each line in Korean and compare.">짧은 영어 글을 한 줄씩 한국어로 옮겨 써 봐요 — 초급부터 고급까지 45편.</span></span>
-    <span class="hm-banner-card" aria-hidden="true"><i>I’m sorry I’m late.</i><b>늦어서 죄송해요.</b></span>
-    <span class="hm-banner-go" data-en="Start →">시작하기 →</span>
-  </button>
+    <span class="hm-banner-t"><b data-en="Sit the TOPIK in a 3D classroom.">3D 교실에서 TOPIK 시험 보기</b>
+      <span data-en="The board counts down, the bell rings, and our mock tests open on your desk.">칠판 시간 · 종소리 · 책상 위 모의고사</span></span>
+    <span class="hm-banner-go" data-en="Enter →">입장하기 →</span>
+  </a>
   <!-- 제품 둘러보기(운영자 요청 2026-10-07 「메뉴 깊숙한 기능 — 첫 화면에서 무엇을 할 수 있는지 한눈에」). 여덟 칸, 누르면 그 기능으로. 모두에게 보인다. -->
   <section class="hm-tour" aria-labelledby="hmTourH">
     <p class="hm-paths-h" id="hmTourH" data-en="Everything you can do here">치즈감자로 할 수 있는 것</p>
