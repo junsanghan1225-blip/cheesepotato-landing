@@ -98,12 +98,14 @@ const ASSETS = [
   /* 들여온 남의 라이브러리도 넣는다. 자주 안 바뀌지만, 바뀌었을 때 예전
      것이 남아 있으면 원인을 찾기가 제일 어렵다. */
   'vendor/supabase-js.js', 'vendor/xlsx.js',
+  /* 3D 시험장(/exam-room/) — 자국이 박힌 주소로 받아 가야 옛 파일이 안 남는다 */
+  'exam-room.js', 'vendor/three.module.min.js',
 ];
 /* 자국이 박히는 파일. index.html 의 script·link 와, 모듈끼리 부르는 import. */
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
    들고 있다. 생성물이라 build-glossary 를 돌린 뒤에 stamp 를 돌려야 한다. */
 const HOSTS = ['index.html', 'app.module.js', 'app.js', 'courses.js', 'sentences.js', 'glossary.js',
-               'grammar-find.js', 'podcast.html', 'download/index.html'];
+               'grammar-find.js', 'podcast.html', 'download/index.html', 'exam-room/index.html', 'exam-room.js'];
 
 const V = /\?v=[0-9a-f]{8}/g;
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');

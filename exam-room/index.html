@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TOPIK 3D 시험장 · 교실에서 시간 재며 풀기 | CheesePotato</title>
+<meta name="description" content="진짜 교실에 앉은 것처럼 시간을 재 보세요. 칠판의 남은 시간, 벽시계, 종소리, 감독관 안내로 TOPIK 시험 분위기를 연습하는 3D 시험장입니다. 무료.">
+<link rel="canonical" href="https://everykoreans.com/exam-room/">
+<meta property="og:title" content="TOPIK 3D 시험장">
+<meta property="og:description" content="3D 교실에서 칠판의 남은 시간과 종소리로 시험 분위기를 연습해요.">
+<meta property="og:url" content="https://everykoreans.com/exam-room/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#1c1915">
+<script src="/gtm.js?v=ccd5780a" async></script>
+<script src="/analytics.js?v=ccd5780a" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=ccd5780a">
+<style>
+/* 3D 시험장(운영자 2026-11-08 「교실처럼 시간이랑 띄우고 3D 로 아예 개별화면으로」) — 화면 전체가 3D 교실이고, 그 위에 시험 고르기 · 조작 줄만 얹는다. */
+:root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font-family:'Pretendard Variable','Pretendard',-apple-system,'Noto Sans KR',sans-serif; overflow:hidden; }
+#scene { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; cursor:grab; }
+#scene:active { cursor:grabbing; }
+.hud { position:fixed; left:0; right:0; z-index:5; pointer-events:none; }
+.top { top:0; display:flex; justify-content:space-between; align-items:flex-start; padding:max(12px,env(safe-area-inset-top)) 16px 0; gap:12px; }
+.brand { pointer-events:auto; color:var(--paper); text-decoration:none; font-weight:800; font-size:14px; background:rgba(28,25,21,.62); padding:7px 12px; border-radius:8px; }
+.timer { pointer-events:none; text-align:right; background:rgba(28,25,21,.62); padding:6px 12px; border-radius:8px; line-height:1.2; }
+.timer b { display:block; font-size:22px; font-variant-numeric:tabular-nums; letter-spacing:.02em; }
+.timer small { font-size:11.5px; opacity:.8; }
+.sub { bottom:86px; text-align:center; padding:0 16px; }
+.sub span { display:inline-block; max-width:min(680px,100%); background:rgba(28,25,21,.78); border:1px solid rgba(246,241,231,.3); border-radius:8px; padding:10px 16px; font-size:16px; font-weight:700; opacity:0; transition:opacity .25s; }
+.sub span.on { opacity:1; }
+.bar { bottom:0; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; padding:0 12px max(14px,env(safe-area-inset-bottom)); pointer-events:auto; }
+.bar button, .panel button, .panel select, .panel input { font:inherit; }
+.bar button { border:1px solid rgba(246,241,231,.4); background:rgba(28,25,21,.72); color:var(--paper); border-radius:8px; padding:10px 14px; font-size:14px; font-weight:700; cursor:pointer; min-height:44px; }
+.bar button:hover, .bar button:focus-visible { background:rgba(246,241,231,.18); outline:none; }
+.bar .go { background:var(--orange); border-color:var(--orange); color:#1c1915; }
+.panel { position:fixed; inset:0; z-index:8; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(20,18,15,.55); backdrop-filter:blur(3px); }
+.panel[hidden] { display:none; }
+.card { width:min(560px,100%); background:var(--paper); color:var(--ink); border-radius:12px; padding:22px 20px; max-height:92vh; overflow:auto; }
+.card h1 { margin:0 0 4px; font-size:21px; }
+.card p { margin:6px 0 14px; font-size:14px; color:#5c564c; line-height:1.55; }
+.opts { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 12px; }
+.opts button { text-align:left; border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:10px 12px; cursor:pointer; min-height:56px; }
+.opts button b { display:block; font-size:15px; }
+.opts button small { color:#6d655c; font-size:12.5px; }
+.opts button[aria-pressed="true"] { border:2px solid var(--orange); padding:9px 11px; background:#fff6ee; }
+.row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:0 0 12px; font-size:14px; }
+.row input[type=number] { width:76px; padding:8px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); }
+.row label { display:flex; align-items:center; gap:6px; }
+.start { width:100%; border:0; background:var(--ink); color:var(--paper); border-radius:8px; padding:14px; font-size:16px; font-weight:800; cursor:pointer; min-height:48px; }
+.fine { font-size:12.5px; color:#6d655c; margin:12px 0 0; line-height:1.5; }
+.nogl { position:fixed; inset:0; display:none; align-items:center; justify-content:center; text-align:center; padding:24px; z-index:4; background:linear-gradient(#2f4a3c,#1c1915); }
+.nogl.on { display:flex; }
+.nogl b { display:block; font-size:min(18vw,120px); font-variant-numeric:tabular-nums; }
+@media (max-width:560px) { .opts { grid-template-columns:1fr; } .sub { bottom:132px; } }
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="3D 교실 — 끌어서 둘러볼 수 있어요" role="img"></canvas>
+<div class="nogl" id="noGl"><div><b id="noGlTime">00:00</b><p>이 기기에서는 3D 화면을 쓸 수 없어서 시계만 보여 드려요.<br>This device cannot show 3D, so only the clock is shown.</p></div></div>
+
+<div class="hud top">
+  <a class="brand" href="/">치즈감자 · CheesePotato</a>
+  <div class="timer" id="hudTimer" aria-live="off"><small id="hudLabel">시험을 고르세요</small><b id="hudTime">--:--</b></div>
+</div>
+<div class="hud sub" aria-live="polite"><span id="subtitle"></span></div>
+<div class="hud bar" id="bar" hidden>
+  <button type="button" id="bPause">일시정지 · Pause</button>
+  <button type="button" id="bSound" aria-pressed="true">종소리 켬 · Sound on</button>
+  <button type="button" id="bVoice" aria-pressed="false">감독관 음성 끔 · Voice off</button>
+  <button type="button" id="bFull">전체 화면 · Full screen</button>
+  <button type="button" id="bEnd">끝내기 · End</button>
+</div>
+
+<div class="panel" id="panel">
+  <div class="card" role="dialog" aria-labelledby="pTitle">
+    <h1 id="pTitle">TOPIK 3D 시험장 <small style="font-size:13px;font-weight:600;color:#6d655c">· Exam room</small></h1>
+    <p>교실에 앉은 것처럼 칠판의 남은 시간, 벽시계, 종소리로 시험 분위기를 연습해요. 문제는 책이나 사이트 모의고사에서 풀고, 이 화면은 시간을 재는 용도예요. <span lang="en">Solve on paper or in our mock tests; this room keeps the time.</span></p>
+    <div class="opts" id="opts" role="group" aria-label="시험 고르기">
+      <button type="button" data-min="60" data-name="TOPIK I 읽기" aria-pressed="true"><b>TOPIK I 읽기</b><small>60분 · Reading 60 min</small></button>
+      <button type="button" data-min="40" data-name="TOPIK I 듣기" aria-pressed="false"><b>TOPIK I 듣기</b><small>40분 · Listening 40 min</small></button>
+      <button type="button" data-min="70" data-name="TOPIK II 읽기" aria-pressed="false"><b>TOPIK II 읽기</b><small>70분 · Reading 70 min</small></button>
+      <button type="button" data-min="50" data-name="TOPIK II 쓰기" aria-pressed="false"><b>TOPIK II 쓰기</b><small>50분 · Writing 50 min</small></button>
+      <button type="button" data-min="60" data-name="TOPIK II 듣기" aria-pressed="false"><b>TOPIK II 듣기</b><small>60분 · Listening 60 min</small></button>
+      <button type="button" data-min="custom" data-name="직접 정하기" aria-pressed="false"><b>직접 정하기</b><small>내가 정한 시간 · Custom</small></button>
+    </div>
+    <div class="row" id="customRow" hidden><label>시간(분) · Minutes <input type="number" id="customMin" min="1" max="180" value="30" inputmode="numeric"></label></div>
+    <button type="button" class="start" id="bStart">시험 시작 · Start</button>
+    <p class="fine">공식 시험 화면이 아니라 시간과 분위기를 연습하는 도구예요. 시험 시간은 TOPIK I 듣기 40분 · 읽기 60분, TOPIK II 듣기 60분 · 쓰기 50분 · 읽기 70분이에요. 감독관 안내 문구는 연습용으로 직접 쓴 것이에요. 끌어서 둘러볼 수 있고, 소리는 시작 단추를 누른 뒤에 나와요. <span lang="en">Not an official exam screen. Drag to look around; sound starts after you press Start.</span></p>
+  </div>
+</div>
+<script type="module" src="/exam-room.js?v=ccd5780a"></script>
+</body>
+</html>
