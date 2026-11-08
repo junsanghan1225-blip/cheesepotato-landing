@@ -16,6 +16,7 @@ export function init(d) { ({ head, foot, sheets } = d); }
    책 표지는 그림 파일 없이 CSS 로 그린다(제목 · 시리즈 색 · 급) — 진짜 표지가 나오면 cover 칸에 그림 경로를 넣는다. */
 const SHOP = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/shop.json'), 'utf8'));
 const POLAR = /^https:\/\/buy\.polar\.sh\/[A-Za-z0-9_-]+$/;
+const YES24 = /^https:\/\/www\.yes24\.com\/product\/goods\/\d+$/;   // 예스24 상품 쪽만 받는다(운영자 2026-11-08)
 const pub = SHOP.publisher;
 /* 학습지 쪽 → 그 학습지가 단원으로 들어 있는 책 카드(운영자 2026-10-27 「학습지 받은 사람에게 책 안내」). 책 틀(docs/books/<id>.json)에 학습지 id 가 있으면 그 책. */
 const BOOK_AD_CSS = `<style>.bk-ad{display:flex;gap:16px;align-items:center;margin:22px 0;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--tint)}.bk-ad img{width:84px;height:auto;aspect-ratio:700/995;border-radius:2px 6px 6px 2px;box-shadow:0 6px 14px rgba(0,0,0,.18);flex:none}.bk-ad p{margin:2px 0 8px;font-size:14px;line-height:1.5}.bk-ad .btns{display:flex;gap:8px;flex-wrap:wrap}.bk-ad b.bk-ad-h{font-size:13px;color:var(--orange-deep)}@media print{.bk-ad{display:none}}</style>\n`;
@@ -208,6 +209,7 @@ function bookPage(k) {
   const sample = k.sample ? `${base}#sample` : '';
   const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}">Buy the PDF · $${esc(k.price)}</a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
   const ctaSub = k.sample ? `<a class="btn ghost" href="#sample">Free sample</a>` : '';
+  const ctaY24 = k.yes24 && YES24.test(k.yes24) ? `<a class="btn ghost" href="${esc(k.yes24)}" target="_blank" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-예스24">예스24에서 보기 <small>· Yes24 (KRW)</small></a>` : '';
   const cp = (o) => o ? `${esc(o.en)}${o.ko ? ` <small>· ${esc(o.ko)}</small>` : ''}` : '';
   const pvN = (g.previews || []).length;
   const pv = (g.previews || []).map((c, i) => `<a href="#pv${i + 1}"><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])} — ${esc(c[1])}" loading="lazy" width="1100" height="1554">${esc(c[0])} · ${esc(c[1])}</a>`).join('');
@@ -224,7 +226,7 @@ function bookPage(k) {
   <span class="pg2-chip">${esc(level)} · PDF${on ? '' : ' · Coming soon'}</span><h1>${esc(k.title.en)}</h1><div class="pg2-ko">${esc(k.title.ko)} · Junsang</div>
   <p class="pg2-lead">${esc(g.headline?.en || k.sub.en)}</p>
   <a class="rv-hero" href="#reviews" data-rv-hero hidden></a>
-  <div class="pg2-cta">${ctaMain}${ctaSub}</div></div><div class="cv">${pvN && k.coverImg ? `<div class="flip" data-flip="${pvN}"><img class="fp on" src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">${(g.previews || []).map((c, i) => `<img class="fp" data-src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="1100" height="1554">`).join('')}</div><div class="flipbar" hidden><button type="button" data-fp="-1" aria-label="Previous page">‹</button><span class="flipn">Cover</span><button type="button" data-fp="1" aria-label="Next page">›</button></div><a class="cvh" href="#preview">Look inside · 미리보기 ${pvN}쪽 ›</a>` : k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
+  <div class="pg2-cta">${ctaMain}${ctaSub}${ctaY24}</div></div><div class="cv">${pvN && k.coverImg ? `<div class="flip" data-flip="${pvN}"><img class="fp on" src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">${(g.previews || []).map((c, i) => `<img class="fp" data-src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="1100" height="1554">`).join('')}</div><div class="flipbar" hidden><button type="button" data-fp="-1" aria-label="Previous page">‹</button><span class="flipn">Cover</span><button type="button" data-fp="1" aria-label="Next page">›</button></div><a class="cvh" href="#preview">Look inside · 미리보기 ${pvN}쪽 ›</a>` : k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
 <div class="in"><div class="pg2-lay"><main class="pg2-main">
 ${notify}
 <section class="pg2-sec pg2-prob"><p>${esc(g.lead?.en || k.about.en)}</p><p class="ko">${esc(g.lead?.ko || k.about.ko)}</p></section>
@@ -281,6 +283,7 @@ export function checkShop(sheets, bad) {
   for (const k of SHOP.books) {
     if (!/^[a-z0-9-]+$/.test(k.id) || !k.title?.en || !k.title?.ko || !k.about?.en || !/^#[0-9A-Fa-f]{6}$/.test(k.color || '')) bad.push(`docs/shop.json 책 ${k.id}: id · title · about · color(#RRGGBB)`);
     if (k.polar && !POLAR.test(k.polar)) bad.push(`docs/shop.json 책 ${k.id}: polar 는 https://buy.polar.sh/… 링크`);
+    if (k.yes24 && !YES24.test(k.yes24)) bad.push(`docs/shop.json 책 ${k.id}: yes24 는 https://www.yes24.com/product/goods/숫자 링크`);
   }
 }
 
