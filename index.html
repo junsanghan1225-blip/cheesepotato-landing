@@ -897,13 +897,14 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hs-card { display:grid; grid-template-columns:52px minmax(0,1fr); gap:14px; align-items:center; width:100%; padding:14px 18px; border:none; border-radius:12px; text-align:left; font:inherit; color:#1B1512; cursor:pointer; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); transition:transform .15s; }
 .hs-card:hover { transform:translateY(-2px) rotate(0deg) !important; }
 /* 우리 색(크림 · 감자 · 주황 · 치즈) — 기초에서 고급으로 갈수록 진해진다(운영자 「우리 웹사이트에 어울리는 색으로」) */
-.hs-card.c1 { background:#F6E7CC; } .hs-card.c2 { background:#FFD9B8; } .hs-card.c3 { background:#FFB27A; } .hs-card.c4 { background:#FFDF7A; }
-.hs-ic { display:grid; place-items:center; width:52px; height:52px; border-radius:14px; background:rgba(255,255,255,.65); }
+/* 2026-11-08 운영자 「정신없다」 — 알록달록 대신 한 가지 차분한 칸(주황은 큰 단추 한 곳만) */
+.hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { background:var(--surface); color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+.hs-ic { display:grid; place-items:center; width:52px; height:52px; border-radius:12px; background:var(--tint); }
 .hs-ic .lvl-ic { width:40px; height:40px; }
 .hs-t small { display:block; font-size:12px; font-weight:700; opacity:.7; letter-spacing:.02em; }
 .hs-t b { display:block; font-size:19px; font-weight:800; margin:1px 0 6px; }
-.hs-bar { display:block; height:8px; border-radius:99px; background:rgba(255,255,255,.7); overflow:hidden; }
-.hs-bar i { display:block; height:100%; border-radius:99px; background:#C4551C; }
+.hs-bar { display:block; height:6px; border-radius:99px; background:rgba(var(--ink-rgb),.1); overflow:hidden; }
+.hs-bar i { display:block; height:100%; border-radius:99px; background:var(--ink-2); }
 @media (min-width:900px) {
   .hs-stack { padding:18px 24px; }
   .hs-card.c1 { transform:none; } .hs-card.c2 { transform:none; }
@@ -2324,17 +2325,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-copy">
       <div class="hero-badge" data-ko="● 치즈감자 · 무료 한국어 · TOPIK I·II">● Cheesepotato · Free Korean · TOPIK I & II</div>
       <h1 data-ko="맞는 순서로 배우면<br><em>누구나 한국어를 해요.</em>">Anyone can learn Korean<br><em>in the right order.</em></h1>
-      <p class="hero-sub" data-ko="한글부터 TOPIK 6급까지, 레슨이 차례대로 놓여 있어요.<br>처음부터 따라가도 되고, 3분 테스트로 내 자리에서 시작해도 돼요.">From Hangul to TOPIK level 6, the lessons are already in order.<br>Start from the very first step, or take a 3-minute test and jump in where you are.</p>
+      <p class="hero-sub" data-ko="한글부터 TOPIK 6급까지, 차례대로 배워요.">From Hangul to TOPIK level 6, one step at a time.</p>
       <div class="hero-acts">
         <button class="hero-go" id="heroLevelTestBtn" type="button" data-en="Find my level and start →">내 레벨 찾고 시작하기 →</button>
       </div>
       <!-- 운영자 2026-11-08 「정신없다 · CTA 를 높이자」 — 큰 단추 하나만 남기고, 나머지는 한 줄로 -->
-      <p class="hero-fine"><span data-en="Free · no sign-up · 3 minutes">무료 · 가입 없이 · 3분쯤</span> · <button class="hero-try hero-textlink" type="button" data-go="quiz" data-en="Try one question first">문제 하나 먼저 풀어 보기</button></p>
+      <p class="hero-fine"><span data-en="Free · no sign-up">무료 · 가입 없이</span> · <button class="hero-try hero-textlink" type="button" data-go="quiz" data-en="Try one question">문제 하나 풀어 보기</button></p>
       <!-- 가입 · 앱 · PDF 링크는 첫 화면에서 뺐다(운영자 2026-11-08 「깔끔하게」) — 헤더 · 사이드바 · 책 코너에 그대로 있다. heroSignupBtn 은 app.js 가 id 로 찾으니 안 보이게만 둔다. -->
       <span hidden>
         <button class="hero-link" id="heroSignupBtn" type="button" data-ko="무료 회원가입">Free sign-up</button>
       </span>
-      <a class="hero-trust" href="about.html" data-en="Made by a Korean teacher · 1,700+ one-to-one lessons · 2,364 original TOPIK questions →">한국어 선생님이 직접 만들었어요 · 1:1 수업 1,700회+ · TOPIK 창작 문항 2,364 →</a>
+      <a class="hero-trust" href="about.html" data-en="By a Korean teacher · 2,364 original TOPIK questions →">한국어 선생님이 만든 TOPIK 창작 문항 2,364개 →</a>
     </div>
     <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
       <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
