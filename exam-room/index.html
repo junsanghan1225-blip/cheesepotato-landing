@@ -12,9 +12,9 @@
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1c1915">
-<script src="/gtm.js?v=22ddc7f0" async></script>
-<script src="/analytics.js?v=22ddc7f0" defer></script>
-<link rel="stylesheet" href="/vendor/pretendard.css?v=22ddc7f0">
+<script src="/gtm.js?v=74aaa20f" async></script>
+<script src="/analytics.js?v=74aaa20f" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=74aaa20f">
 <style>
 /* 3D 시험장(운영자 2026-11-08 「교실처럼 시간이랑 띄우고 3D 로 아예 개별화면으로」) — 화면 전체가 3D 교실이고, 그 위에 시험 고르기 · 조작 줄만 얹는다. */
 :root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; }
@@ -66,7 +66,16 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 .paperv-top b { flex:1; font-size:15px; } .paperv-top span { font-variant-numeric:tabular-nums; font-weight:800; color:#f6b8a8; }
 .paperv-top button { font:inherit; font-size:14px; font-weight:700; border:1px solid rgba(246,241,231,.4); background:transparent; color:var(--paper); border-radius:8px; padding:8px 12px; min-height:40px; cursor:pointer; }
 .paperv iframe { flex:1; border:0; width:100%; background:#fff; }
-@media (max-width:560px) { .paperv { padding:56px 6px 64px; } .opts { grid-template-columns:1fr; } .sub { bottom:132px; } }
+@media (max-width:560px) {
+  .bar { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:0 10px max(12px,env(safe-area-inset-bottom)); }
+  .bar button { padding:6px 4px; min-height:42px; font-size:13px; line-height:1.2; }
+  #bPaper, #bSeat { grid-column:span 2; font-size:14px; } #bFull { display:none; }
+  .online { position:fixed; left:16px; top:92px; max-width:calc(100% - 32px); }
+  .pad { bottom:128px; right:10px; grid-template-columns:repeat(3,44px); grid-template-rows:repeat(2,44px); }
+  .sub { bottom:232px; } .sub span { font-size:14px; padding:8px 12px; }
+  .brand { font-size:13px; } .timer b { font-size:19px; }
+  .paperv { padding:56px 6px 64px; } .opts { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -113,6 +122,6 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     <p class="fine">공식 시험 화면이 아니라 시간과 분위기를 연습하는 도구예요. 시험 시간은 TOPIK I 듣기 40분 · 읽기 60분, TOPIK II 듣기 60분 · 쓰기 50분 · 읽기 70분이에요. 감독관 안내 문구는 연습용으로 직접 쓴 것이에요. 끌어서 둘러볼 수 있고, 소리는 시작 단추를 누른 뒤에 나와요. <span lang="en">Not an official exam screen. Drag to look around; sound starts after you press Start.</span></p>
   </div>
 </div>
-<script type="module" src="/exam-room.js?v=22ddc7f0"></script>
+<script type="module" src="/exam-room.js?v=74aaa20f"></script>
 </body>
 </html>

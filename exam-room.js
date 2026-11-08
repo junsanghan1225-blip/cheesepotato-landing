@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=22ddc7f0';
+import * as THREE from './vendor/three.module.min.js?v=74aaa20f';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -113,6 +113,13 @@ $('bStart').addEventListener('click', () => {
   min = Math.min(180, Math.round(min));
   start(picked.min === 'custom' ? `직접 ${min}분` : picked.name, min);
 });
+/* 폰(좁은 화면)에서는 아래 단추의 영어 부분을 떼어 한 줄에 더 들어가게 한다 */
+{
+  const mqS = matchMedia('(max-width:560px)');
+  const trim = () => { if (!mqS.matches) return; document.querySelectorAll('#bar button, #online').forEach((b) => { if (b.textContent.includes(' · ')) b.textContent = b.textContent.split(' · ')[0]; }); };
+  new MutationObserver(trim).observe(document.body, { childList: true, subtree: true, characterData: true });
+  trim();
+}
 $('bPause').addEventListener('click', togglePause);
 $('bEnd').addEventListener('click', () => { if (confirm('시험을 끝낼까요? End the exam?')) finish(false); });
 $('bSound').addEventListener('click', (e) => { soundOn = !soundOn; e.currentTarget.setAttribute('aria-pressed', String(soundOn)); e.currentTarget.textContent = soundOn ? '종소리 켬 · Sound on' : '종소리 끔 · Sound off'; });
@@ -531,7 +538,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=22ddc7f0');
+      const { createClient } = await import('./vendor/supabase-js.js?v=74aaa20f');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
