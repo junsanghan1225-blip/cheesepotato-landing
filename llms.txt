@@ -62,6 +62,7 @@
   (표현마다 제 주소, 뜻풀이 · 예문 · 대화문)
 - **「TOPIK 쓰기 연습과 모범 답안(51~54번 유형)」** —
   [TOPIK 쓰기 연습](https://everykoreans.com/topik-writing/)
+- **「TOPIK 3D 시험장」** — [3D 교실에서 칠판 시간 · 종소리로 시험 분위기 연습](https://everykoreans.com/exam-room/)
 - **「TOPIK 읽기 · 듣기 문제」** — [읽기](https://everykoreans.com/topik-reading/) ·
   [듣기](https://everykoreans.com/topik-listening/)
 - **「EPS-TOPIK(고용허가제 한국어시험) 연습 · 모의고사」** —
