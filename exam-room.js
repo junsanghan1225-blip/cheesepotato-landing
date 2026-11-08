@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=eabae632';
+import * as THREE from './vendor/three.module.min.js?v=d1a09c8f';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -267,17 +267,31 @@ function buildRoom() {
   /* ── 책상 · 의자 · 시험지(자리마다) ── */
   const rows = [-1.2, 0.7, 2.6, 4.5, 6.3], cols = [-3.9, -2.0, 0, 2.0, 3.9];
   const desks = []; for (const z of rows) for (const x of cols) desks.push([x, z]);
-  const topG = new THREE.BoxGeometry(0.72, 0.04, 0.5), legG = new THREE.BoxGeometry(0.04, 0.72, 0.04);
-  const seatG = new THREE.BoxGeometry(0.42, 0.04, 0.42), backG = new THREE.BoxGeometry(0.42, 0.34, 0.04), shelfG = new THREE.BoxGeometry(0.62, 0.03, 0.4);
-  const tops = new THREE.InstancedMesh(topG, mat(0xd8c19a), desks.length), legs = new THREE.InstancedMesh(legG, mat(0x555a60), desks.length * 4);
-  const seats = new THREE.InstancedMesh(seatG, mat(0x4a6fa5), desks.length), backs = new THREE.InstancedMesh(backG, mat(0x3d5d8c), desks.length), shelves = new THREE.InstancedMesh(shelfG, mat(0x777c82), desks.length);
-  const m4 = new THREE.Matrix4();
+  /* 학교 책상 · 의자(철제 틀 + 합판) — 의자는 등받이가 약간 젖혀지고 다리 사이에 가로대가 있다 */
+  const N = desks.length, steel = mat(0x6b7077), wood = mat(0xb98a52), lam = mat(0xdcc7a0);
+  const inst = (g, m, n) => new THREE.InstancedMesh(g, m, n);
+  const topsI = inst(new THREE.BoxGeometry(0.72, 0.035, 0.5), lam, N), topEdge = inst(new THREE.BoxGeometry(0.73, 0.012, 0.51), mat(0x9a8260), N);
+  const dLegs = inst(new THREE.CylinderGeometry(0.014, 0.014, 0.72, 8), steel, N * 4), dRail = inst(new THREE.BoxGeometry(0.025, 0.025, 0.44), steel, N * 2), dBar = inst(new THREE.BoxGeometry(0.6, 0.02, 0.02), steel, N * 2);
+  const trayB = inst(new THREE.BoxGeometry(0.6, 0.014, 0.38), mat(0x8a8f96), N), trayBack = inst(new THREE.BoxGeometry(0.6, 0.09, 0.014), mat(0x8a8f96), N), traySide = inst(new THREE.BoxGeometry(0.014, 0.09, 0.38), mat(0x8a8f96), N * 2);
+  const seatsI = inst(new THREE.BoxGeometry(0.42, 0.03, 0.4), wood, N), backsI = inst(new THREE.BoxGeometry(0.4, 0.17, 0.022), wood, N);
+  const postG = new THREE.BoxGeometry(0.022, 0.36, 0.022), posts = inst(postG, steel, N * 2);
+  const cLegs = inst(new THREE.CylinderGeometry(0.013, 0.013, 0.45, 8), steel, N * 4), cRail = inst(new THREE.BoxGeometry(0.02, 0.02, 0.34), steel, N * 2), cBar = inst(new THREE.BoxGeometry(0.36, 0.02, 0.02), steel, N);
+  const tops = topsI, seats = seatsI, backs = backsI;   // 눌러서 앉기(raycast) 대상
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), sc = new THREE.Vector3(1, 1, 1), pos = new THREE.Vector3();
+  const tilt = (a) => q.setFromEuler(new THREE.Euler(a, 0, 0));
+  const put = (mesh, k, x, y, z, ang = 0) => { mesh.setMatrixAt(k, m4.compose(pos.set(x, y, z), tilt(ang), sc)); };
   desks.forEach(([x, z], i) => {
-    tops.setMatrixAt(i, m4.makeTranslation(x, 0.74, z));
-    [[-0.32, -0.2], [0.32, -0.2], [-0.32, 0.2], [0.32, 0.2]].forEach(([dx, dz], k) => legs.setMatrixAt(i * 4 + k, m4.makeTranslation(x + dx, 0.37, z + dz)));
-    seats.setMatrixAt(i, m4.makeTranslation(x, 0.45, z + 0.55)); backs.setMatrixAt(i, m4.makeTranslation(x, 0.68, z + 0.75)); shelves.setMatrixAt(i, m4.makeTranslation(x, 0.52, z));
+    put(topsI, i, x, 0.74, z); put(topEdge, i, x, 0.7225, z);
+    [[-0.3, -0.19], [0.3, -0.19], [-0.3, 0.19], [0.3, 0.19]].forEach(([dx, dz], k) => put(dLegs, i * 4 + k, x + dx, 0.36, z + dz));
+    [-0.3, 0.3].forEach((dx, k) => put(dRail, i * 2 + k, x + dx, 0.7, z)); [-0.19, 0.19].forEach((dz, k) => put(dBar, i * 2 + k, x, 0.25, z + dz));
+    put(trayB, i, x, 0.62, z); put(trayBack, i, x, 0.665, z + 0.19); put(traySide, i * 2, x - 0.3, 0.665, z); put(traySide, i * 2 + 1, x + 0.3, 0.665, z);
+    const cz = z + 0.55;
+    put(seatsI, i, x, 0.45, cz, 0.04); put(backsI, i, x, 0.7, cz + 0.2, 0.14);
+    [-0.17, 0.17].forEach((dx, k) => put(posts, i * 2 + k, x + dx, 0.62, cz + 0.2, 0.14));
+    [[-0.18, -0.17], [0.18, -0.17], [-0.18, 0.17], [0.18, 0.17]].forEach(([dx, dz], k) => put(cLegs, i * 4 + k, x + dx, 0.225, cz + dz));
+    [-0.18, 0.18].forEach((dx, k) => put(cRail, i * 2 + k, x + dx, 0.2, cz)); put(cBar, i, x, 0.2, cz - 0.17);
   });
-  [tops, legs, seats, backs, shelves].forEach((o) => { if (fine) { o.castShadow = true; o.receiveShadow = true; } scene.add(o); });
+  [topsI, topEdge, dLegs, dRail, dBar, trayB, trayBack, traySide, seatsI, backsI, posts, cLegs, cRail, cBar].forEach((o) => { o.instanceMatrix.needsUpdate = true; if (fine) { o.castShadow = true; o.receiveShadow = true; } scene.add(o); });
   /* 시험지(OMR 답안지 느낌) — 자리마다 한 장 + 연필 */
   const paper = canvasTex(256, 360, (g, w, h) => {
     g.fillStyle = '#fffdf6'; g.fillRect(0, 0, w, h);
@@ -308,7 +322,7 @@ function buildRoom() {
   /* o: {skin, cloth, pants, hair, style('short'|'long'|'bun'), seated}. 얼굴은 -z 쪽(칠판 쪽)을 본다. */
   function makePerson(o) {
     const g = new THREE.Group(), sit = !!o.seated, sk = M(o.skin), cl = M(o.cloth), pn = M(o.pants), hr = M(o.hair), shoe = M(0x2a2523);
-    const hipY = sit ? 0.5 : 0.86, shY = sit ? 0.93 : 1.36, out = { g, sit, lp: [], ap: [] };
+    const hipY = sit ? 0.53 : 0.86, shY = sit ? 0.93 : 1.36, out = { g, sit, lp: [], ap: [] };
     const torso = cast(new THREE.Mesh(new THREE.CapsuleGeometry(0.14, shY - hipY + 0.06 - 0.28, 4, 10), cl));
     torso.scale.set(1.12, 1, 0.72); torso.position.y = (hipY + shY) / 2; torso.rotation.x = sit ? -0.12 : 0; g.add(torso);
     const pelvis = cast(new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.14, 0.2), pn)); pelvis.position.y = hipY; g.add(pelvis);
@@ -330,7 +344,7 @@ function buildRoom() {
     /* 다리 · 팔 */
     for (const sx of [-1, 1]) {
       if (sit) {
-        limb(g, [sx * 0.09, 0.5, 0], [sx * 0.09, 0.5, -0.4], 0.062, pn); limb(g, [sx * 0.09, 0.5, -0.4], [sx * 0.09, 0.07, -0.43], 0.05, pn);
+        limb(g, [sx * 0.09, 0.53, 0], [sx * 0.09, 0.53, -0.4], 0.062, pn); limb(g, [sx * 0.09, 0.53, -0.4], [sx * 0.09, 0.07, -0.43], 0.05, pn);
         const sh = cast(new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.055, 0.17), shoe)); sh.position.set(sx * 0.09, 0.03, -0.49); g.add(sh);
         const hand = sx > 0 ? [0.09, 0.79, -0.5] : [-0.12, 0.78, -0.44];
         limb(g, [sx * 0.2, 0.9, -0.05], [sx * 0.25, 0.72, -0.2], 0.045, cl); limb(g, [sx * 0.25, 0.72, -0.2], hand, 0.036, sk); ball(g, 0.033, sk, ...hand);
@@ -472,7 +486,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=eabae632');
+      const { createClient } = await import('./vendor/supabase-js.js?v=d1a09c8f');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
