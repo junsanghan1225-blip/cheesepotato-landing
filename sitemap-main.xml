@@ -130,6 +130,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/exam-room/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/korean-word-today/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
