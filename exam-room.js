@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=d1a09c8f';
+import * as THREE from './vendor/three.module.min.js?v=22ddc7f0';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -235,27 +235,72 @@ function buildRoom() {
   const lerpC = (a, b, k) => { const A = new THREE.Color(a), B = new THREE.Color(b); return '#' + A.lerp(B, k).getHexString(); };
   const SKY = [[0, '#8ec9f0', '#e6f4fb'], [0.45, '#5aaeee', '#dff0fa'], [0.8, '#f2b774', '#ffe3b8'], [1, '#e8805a', '#fbc99a']];
   const skyAt = (p) => { for (let i = 1; i < SKY.length; i++) if (p <= SKY[i][0]) { const k = (p - SKY[i - 1][0]) / (SKY[i][0] - SKY[i - 1][0]); return [lerpC(SKY[i - 1][1], SKY[i][1], k), lerpC(SKY[i - 1][2], SKY[i][2], k)]; } return [SKY[3][1], SKY[3][2]]; };
-  const view = canvasTex(512, 360, () => {});
-  function drawView(p) {
-    const { g } = view, w = 512, h = 360, [top, bot] = skyAt(p);
-    const sky = g.createLinearGradient(0, 0, 0, h); sky.addColorStop(0, top); sky.addColorStop(1, bot); g.fillStyle = sky; g.fillRect(0, 0, w, h);
-    const sx = 60 + p * 390, sy = 230 - Math.sin(Math.PI * Math.min(1, 0.12 + p * 0.78)) * 175;   // 해가 호를 그리며 지나간다
-    const glow = g.createRadialGradient(sx, sy, 4, sx, sy, 70); glow.addColorStop(0, 'rgba(255,248,210,.95)'); glow.addColorStop(1, 'rgba(255,248,210,0)'); g.fillStyle = glow; g.fillRect(sx - 80, sy - 80, 160, 160);
-    g.fillStyle = p > 0.8 ? '#ffd9a0' : '#fffbe0'; g.beginPath(); g.arc(sx, sy, 17, 0, 7); g.fill();
-    g.fillStyle = `rgba(255,255,255,${p > 0.8 ? 0.55 : 0.85})`; const dr = p * 60;
-    for (const [x, y, r] of [[90, 70, 38], [140, 80, 30], [330, 50, 34], [380, 62, 26]]) { g.beginPath(); g.arc(((x + dr) % 560), y, r, 0, 7); g.fill(); }
-    const dim = p > 0.8 ? 0.82 : 1;
-    g.fillStyle = lerpC('#b9c2cc', '#8f8a96', p * 0.6); for (let i = 0; i < 7; i++) { const bw = 40 + (i * 23) % 50, bh = 70 + (i * 41) % 90; g.fillRect(i * 74 + 6, h - 90 - bh, bw, bh); }
-    if (p > 0.85) { g.fillStyle = 'rgba(255,226,150,.8)'; for (let i = 0; i < 7; i++) for (let k = 0; k < 4; k++) if ((i * 3 + k) % 3 === 0) g.fillRect(i * 74 + 14 + k * 9, h - 150 - ((i * 41) % 90) + k * 12, 5, 6); }
-    g.fillStyle = lerpC('#6aa56a', '#4f7e57', p * 0.7); g.fillRect(0, h - 90, w, 90); g.fillStyle = lerpC('#4f8c55', '#3a6a45', p * 0.7); for (let i = 0; i < 9; i++) { g.beginPath(); g.arc(i * 60 + 20, h - 92, 42, Math.PI, 0); g.fill(); }
-    g.fillStyle = '#8b6b4a'; g.fillRect(0, h - 22, w, 22);
-    if (dim < 1) { g.fillStyle = 'rgba(80,40,20,.12)'; g.fillRect(0, 0, w, h); }
+  /* 창밖 파노라마(네 창이 한 장의 풍경을 나눠 본다) — 구름 · 새 · 자동차 · 나무 흔들림이 계속 움직이고, 시험 진행(p)에 따라 하늘이 바뀐다. */
+  const VW = 2048, VH = 360, view = canvasTex(VW, VH, () => {});
+  const rnd = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+  const clouds = Array.from({ length: 9 }, (_, i) => ({ x: rnd(i + 1) * VW, y: 40 + rnd(i + 20) * 110, s: 0.7 + rnd(i + 40) * 0.9, v: 4 + rnd(i + 60) * 7 }));
+  const cars = Array.from({ length: 5 }, (_, i) => ({ x: rnd(i + 80) * VW, lane: i % 2, v: (i % 2 ? -1 : 1) * (60 + rnd(i + 90) * 50), c: ['#c0392b', '#2c3e50', '#f0f0f0', '#e0a800', '#4a7fb5'][i] }));
+  const birds = Array.from({ length: 5 }, (_, i) => ({ x: rnd(i + 120) * VW, y: 60 + rnd(i + 130) * 90, v: 30 + rnd(i + 140) * 25, ph: rnd(i + 150) * 6 }));
+  function drawView(p, tm) {
+    const { g } = view, w = VW, h = VH, [top, bot] = skyAt(p), dusk = Math.max(0, (p - 0.75) / 0.25);
+    const sky = g.createLinearGradient(0, 0, 0, h * 0.75); sky.addColorStop(0, top); sky.addColorStop(1, bot); g.fillStyle = sky; g.fillRect(0, 0, w, h);
+    /* 해 */
+    const sx = 140 + p * 1750, sy = 250 - Math.sin(Math.PI * Math.min(1, 0.12 + p * 0.78)) * 190;
+    const glow = g.createRadialGradient(sx, sy, 4, sx, sy, 130); glow.addColorStop(0, 'rgba(255,246,205,.95)'); glow.addColorStop(0.25, 'rgba(255,240,190,.35)'); glow.addColorStop(1, 'rgba(255,240,190,0)'); g.fillStyle = glow; g.fillRect(sx - 140, sy - 140, 280, 280);
+    g.fillStyle = dusk > 0.1 ? '#ffd29a' : '#fffbe6'; g.beginPath(); g.arc(sx, sy, 18, 0, 7); g.fill();
+    /* 구름(천천히 흘러감) */
+    for (const c of clouds) {
+      const cx = ((c.x + tm * c.v) % (w + 300)) - 150; g.fillStyle = `rgba(255,255,255,${0.9 - dusk * 0.35})`;
+      for (const [dx, dy, r] of [[0, 0, 30], [32, -8, 26], [62, 2, 22], [-30, 6, 20], [18, 10, 24]]) { g.beginPath(); g.ellipse(cx + dx * c.s, c.y + dy * c.s, r * c.s * 1.25, r * c.s * 0.75, 0, 0, 7); g.fill(); }
+    }
+    /* 먼 산 · 아지랑이 */
+    for (const [base, amp, col, k] of [[h - 115, 40, lerpC('#9db7c9', '#a08a9a', dusk), 0.0035], [h - 100, 28, lerpC('#8aa5a0', '#8a7684', dusk), 0.006]]) {
+      g.fillStyle = col; g.beginPath(); g.moveTo(0, h); for (let x = 0; x <= w; x += 16) g.lineTo(x, base - amp * (0.55 + 0.45 * Math.sin(x * k + base)) - 14 * Math.sin(x * k * 3.1)); g.lineTo(w, h); g.fill();
+    }
+    /* 도시 건물(창에 불이 켜짐) */
+    const bcol = lerpC('#b7c0ca', '#7d7886', Math.min(1, p * 0.9));
+    for (let x = 0, i = 0; x < w; i++) {
+      const bw = 50 + rnd(i + 200) * 70, bh = 60 + rnd(i + 230) * 110, by = h - 96 - bh; g.fillStyle = bcol; g.fillRect(x, by, bw, bh + 6);
+      g.fillStyle = lerpC('#d9dee4', '#a7a2ae', p * 0.8); g.fillRect(x, by, bw, 5);
+      for (let wy = by + 14; wy < by + bh - 8; wy += 15) for (let wx = x + 7; wx < x + bw - 9; wx += 14) { const on = dusk > 0.2 && rnd(wx * 3 + wy) > 0.55; g.fillStyle = on ? 'rgba(255,224,140,.9)' : 'rgba(110,135,160,.55)'; g.fillRect(wx, wy, 7, 8); }
+      x += bw + 6 + rnd(i + 260) * 18;
+    }
+    /* 운동장 · 도로 */
+    g.fillStyle = lerpC('#79ad6f', '#587a54', p * 0.7); g.fillRect(0, h - 96, w, 96);
+    g.fillStyle = lerpC('#c79a72', '#a37b5b', p * 0.5); g.fillRect(0, h - 70, w, 20);   // 트랙
+    g.strokeStyle = 'rgba(255,255,255,.7)'; g.lineWidth = 2; g.beginPath(); g.moveTo(0, h - 60); g.lineTo(w, h - 60); g.stroke();
+    g.fillStyle = '#6d7076'; g.fillRect(0, h - 44, w, 26); g.fillStyle = 'rgba(255,255,255,.7)'; for (let x = 0; x < w; x += 70) g.fillRect(x, h - 31, 36, 3);
+    g.fillStyle = lerpC('#6aa56a', '#4a7650', p * 0.7); g.fillRect(0, h - 18, w, 18);
+    /* 자동차 */
+    for (const c of cars) {
+      const cx = (((c.x + tm * c.v) % (w + 200)) + w + 200) % (w + 200) - 100, cy = c.lane ? h - 40 : h - 32;
+      g.fillStyle = c.c; g.fillRect(cx, cy - 12, 38, 10); g.fillRect(cx + 8, cy - 20, 20, 9);
+      g.fillStyle = 'rgba(190,225,245,.9)'; g.fillRect(cx + 10, cy - 18, 7, 6); g.fillRect(cx + 19, cy - 18, 7, 6);
+      g.fillStyle = '#222'; g.beginPath(); g.arc(cx + 8, cy - 1, 4.5, 0, 7); g.arc(cx + 30, cy - 1, 4.5, 0, 7); g.fill();
+      if (dusk > 0.3) { g.fillStyle = 'rgba(255,240,170,.9)'; g.fillRect(c.v > 0 ? cx + 36 : cx, cy - 10, 3, 4); }
+    }
+    /* 가로수(바람에 살랑) */
+    for (let x = 30, i = 0; x < w; x += 110 + rnd(i + 300) * 60, i++) {
+      const sw = Math.sin(tm * 1.3 + i) * 2.5, th = 56 + rnd(i + 330) * 26;
+      g.fillStyle = '#6b4c32'; g.fillRect(x - 3, h - 98 - th * 0.3, 6, th * 0.5 + 40);
+      for (const [dx, dy, r, col] of [[0, -th, 30, '#4f8c55'], [-18, -th + 16, 22, '#47804c'], [18, -th + 14, 24, '#58985c'], [4, -th - 14, 20, '#5aa05f']]) {
+        g.fillStyle = lerpC(col, '#2f5a3a', p * 0.6); g.beginPath(); g.arc(x + dx + sw * (1 + (-dy / 60)), h - 98 + dy, r, 0, 7); g.fill();
+      }
+    }
+    /* 울타리 */
+    g.fillStyle = 'rgba(60,70,60,.75)'; for (let x = 0; x < w; x += 14) g.fillRect(x, h - 24, 2, 24); g.fillRect(0, h - 20, w, 2);
+    /* 새 */
+    g.strokeStyle = '#2d2d33'; g.lineWidth = 2;
+    for (const b of birds) { const bx = ((b.x + tm * b.v) % (w + 100)) - 50, fl = Math.sin(tm * 8 + b.ph) * 5; g.beginPath(); g.moveTo(bx - 8, b.y + fl); g.quadraticCurveTo(bx - 3, b.y - 3, bx, b.y); g.quadraticCurveTo(bx + 3, b.y - 3, bx + 8, b.y + fl); g.stroke(); }
+    if (dusk > 0) { g.fillStyle = `rgba(255,150,80,${dusk * 0.14})`; g.fillRect(0, 0, w, h); }
     view.t.needsUpdate = true;
   }
-  drawView(0);
+  drawView(0, 0);
   const viewM = new THREE.MeshBasicMaterial({ map: view.t }), curM = mat(0xd9e3d4);
   for (const z of [-4.6, -1.6, 1.4, 4.4]) {
-    plane(2.3, 1.6, viewM, -5.98, 2.0, z, Math.PI / 2);
+    { const gp = new THREE.PlaneGeometry(2.3, 1.6), k = 3 - [-4.6, -1.6, 1.4, 4.4].indexOf(z), uv = gp.attributes.uv;   // 네 창이 파노라마를 4등분해 이어서 본다
+      for (let i = 0; i < uv.count; i++) uv.setX(i, (k + uv.getX(i)) / 4);
+      const o = new THREE.Mesh(gp, viewM); o.position.set(-5.98, 2.0, z); o.rotation.y = Math.PI / 2; scene.add(o); }
     const fr = mat(0xffffff);
     box(0.05, 1.7, 0.06, fr, -5.97, 2.0, z); box(0.05, 0.06, 2.4, fr, -5.97, 1.18, z); box(0.05, 0.06, 2.4, fr, -5.97, 2.82, z); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z - 1.17); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z + 1.17);
     box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z - 1.0); box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z + 1.0);   // 커튼
@@ -486,7 +531,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=d1a09c8f');
+      const { createClient } = await import('./vendor/supabase-js.js?v=22ddc7f0');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -588,7 +633,8 @@ function buildRoom() {
   }
 
   /* ── 한 프레임 ── */
-  let t0 = performance.now(), last = t0, skyP = 0;
+  let t0 = performance.now(), last = t0, skyP = 0, lastView = 0;
+  const coarse = matchMedia('(pointer:coarse)').matches;
   function frame(now) {
     requestAnimationFrame(frame);
     if (document.hidden) { last = now; return; }
@@ -618,9 +664,10 @@ function buildRoom() {
     proctor.g.rotation.y = pDir > 0 ? Math.PI : 0; swing(proctor, t * 3.2, 0.42); proctor.g.position.y = Math.abs(Math.sin(t * 3.2)) * 0.012;
     for (const h of heads) { h.head.position.y = h.baseY - (Math.sin(t * 0.6 + h.phase) > 0.85 ? 0.025 : 0); h.head.rotation.x = -0.3 + Math.sin(t * 0.5 + h.phase) * 0.1; }
     presenceTick(now, dt, t);
+    if (now - lastView > (coarse ? 160 : 90)) { lastView = now; drawView(skyP, t); }   // 창밖은 계속 움직인다
     const prog = ex.began ? Math.min(1, Math.max(0, 1 - ex.left / Math.max(1, ex.total))) : 0;
     if (Math.abs(prog - skyP) > 0.004) {   // 창밖 시간 변화 + 햇빛
-      skyP = prog; drawView(prog);
+      skyP = prog;
       sun.color.set(lerpC('#fff3d6', '#ffa86a', Math.max(0, (prog - 0.5) / 0.5))); sun.intensity = 0.95 - prog * 0.3; sun.position.set(-7, 5.2 - prog * 3, 1.5 - prog * 3);
     }
     /* 소리: 시험 중 공기 + 연필 + 가끔 종이 */
