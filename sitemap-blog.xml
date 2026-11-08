@@ -10,8 +10,14 @@
      뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://everykoreans.com/blog/topik-3d-exam-room.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/blog/yes24-ebooks-where-to-start.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -119,13 +125,13 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/topik-writing-53-template.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://everykoreans.com/blog/topik-writing-score-tips.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -413,7 +419,7 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/topik-writing-54-structure.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -467,7 +473,7 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/which-topik-level-do-you-need.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -479,7 +485,7 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/topik-6-for-free.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
