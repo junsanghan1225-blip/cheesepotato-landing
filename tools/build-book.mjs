@@ -706,7 +706,7 @@ function writingHtml(x) {
   /* 53번 자료는 시험처럼 그래프로(숫자는 줄글에 있는 것만 — tools/lib/tw-chart.mjs, 검사 check-tw-charts). 못 읽으면 예전 목록 */
   const twp = x.data && x.q === 53 ? parseTwData(x.data) : null;
   const data = twp ? `${twChartSvg(twp, { acc: ACC, tint: TINT, variant: Number(String(x.id).split('-')[1]) || 0 })}` : x.data ? `<ul class="wd">${x.data.map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : '';
-  return `<div class="twq" style="break-inside:avoid"><div class="wp">${esc(x.passage)}</div>${data}</div><ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${B.front === '5354' ? wlines(Math.ceil(x.max / 40), 40).replace('class="wg"', 'class="wg wg2"') + selfCheckBox(x) : wgrid(x.max)}`;
+  return `<div class="twq" style="break-inside:avoid"><div class="wp">${esc(x.passage)}</div>${data}</div><ol class="wt">${x.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>${cond}${B.front === '5354' ? wlines(Math.ceil(x.max / 40), 40).replace('class="wkg"', 'class="wkg wg2"') + selfCheckBox(x) : wgrid(x.max)}`;
 }
 /* 객관식 모의고사 문항(TOPIK I 읽기 모의고사): 짝 지문은 한 번만 보이고, 보기는 ①~④. 정답 · 풀이는 정답 쪽에 */
 const CIRC = ['①', '②', '③', '④'];
