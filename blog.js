@@ -922,6 +922,298 @@ export const BLOG_POSTS = [
       ]
   },
   {
+      "id": "korean-irregular-verbs-english",
+      "lang": "en",
+      "title": "Korean Irregular Verbs: Six Patterns and How to Spot Them",
+      "date": "2026-11-08",
+      "updated": "2026-11-08",
+      "tags": [
+          "English",
+          "Grammar"
+      ],
+      "excerpt": "Most Korean irregular verbs fall into six patterns, and each one is triggered by the last letter of the stem. Here are the patterns, the polite forms, and the look-alike verbs that are not irregular.",
+      "blocks": [
+          {
+              "t": "p",
+              "text": "A Korean irregular verb is one whose stem changes when you add an ending that starts with a vowel, such as -아요/어요. Most of them fall into six patterns, and each pattern is triggered by the last letter of the stem: ㅂ, ㄷ, ㅅ, 르, ㅡ and ㅎ. Learning the patterns is much faster than memorising verbs one by one."
+          },
+          {
+              "t": "h",
+              "text": "ㅂ irregular: ㅂ becomes 우 or 와"
+          },
+          {
+              "t": "p",
+              "text": "The final ㅂ turns into 우 before -어요, and into 와 for two common verbs, 돕다 and 곱다."
+          },
+          {
+              "t": "ex",
+              "ko": "오늘은 정말 더워요.",
+              "en": "It is really hot today. (덥다 → 더워요)"
+          },
+          {
+              "t": "ex",
+              "ko": "한국어 문법이 조금 어려워요.",
+              "en": "Korean grammar is a little difficult. (어렵다 → 어려워요)"
+          },
+          {
+              "t": "ex",
+              "ko": "친구가 저를 도와요.",
+              "en": "My friend helps me. (돕다 → 도와요)"
+          },
+          {
+              "t": "h",
+              "text": "ㄷ irregular: ㄷ becomes ㄹ"
+          },
+          {
+              "t": "p",
+              "text": "Three verbs you will use all the time: 듣다 (to hear), 걷다 (to walk) and 묻다 (to ask)."
+          },
+          {
+              "t": "ex",
+              "ko": "저는 음악을 들어요.",
+              "en": "I listen to music. (듣다 → 들어요)"
+          },
+          {
+              "t": "ex",
+              "ko": "매일 삼십 분 걸어요.",
+              "en": "I walk thirty minutes every day. (걷다 → 걸어요)"
+          },
+          {
+              "t": "h",
+              "text": "ㅅ irregular: the ㅅ disappears"
+          },
+          {
+              "t": "ex",
+              "ko": "집을 지어요.",
+              "en": "They build a house. (짓다 → 지어요)"
+          },
+          {
+              "t": "ex",
+              "ko": "감기가 나아요.",
+              "en": "The cold gets better. (낫다 → 나아요)"
+          },
+          {
+              "t": "h",
+              "text": "르 irregular: an extra ㄹ appears"
+          },
+          {
+              "t": "p",
+              "text": "For verbs ending in 르, the ㅡ drops and a ㄹ is added to the syllable before it: 모르다 → 몰라요, 부르다 → 불러요, 빠르다 → 빨라요, 다르다 → 달라요."
+          },
+          {
+              "t": "ex",
+              "ko": "저는 그 사람을 몰라요.",
+              "en": "I do not know that person."
+          },
+          {
+              "t": "ex",
+              "ko": "이 기차는 정말 빨라요.",
+              "en": "This train is really fast."
+          },
+          {
+              "t": "h",
+              "text": "ㅡ irregular: the ㅡ drops"
+          },
+          {
+              "t": "p",
+              "text": "If the stem ends in ㅡ, drop it and pick 아 or 어 by looking at the syllable before it. If that syllable has ㅏ or ㅗ, use 아; otherwise use 어. A one-syllable stem like 쓰다 or 크다 takes 어."
+          },
+          {
+              "t": "ex",
+              "ko": "요즘 많이 바빠요.",
+              "en": "I am very busy these days. (바쁘다 → 바빠요)"
+          },
+          {
+              "t": "ex",
+              "ko": "이 꽃은 정말 예뻐요.",
+              "en": "This flower is really pretty. (예쁘다 → 예뻐요)"
+          },
+          {
+              "t": "ex",
+              "ko": "편지를 써요.",
+              "en": "I write a letter. (쓰다 → 써요)"
+          },
+          {
+              "t": "h",
+              "text": "ㅎ irregular: some colour and question adjectives"
+          },
+          {
+              "t": "p",
+              "text": "A handful of adjectives ending in ㅎ drop it and change the vowel to ㅐ: 어떻다 → 어때요, 그렇다 → 그래요, 파랗다 → 파래요, 노랗다 → 노래요."
+          },
+          {
+              "t": "dlg",
+              "lines": [
+                  "A: 요즘 어때요?",
+                  "B: 괜찮아요. 하늘이 정말 파래요."
+              ]
+          },
+          {
+              "t": "h",
+              "text": "Look-alike verbs that are NOT irregular"
+          },
+          {
+              "t": "p",
+              "text": "Some verbs end in the same letter but stay regular, and this is the trap that catches most learners. 입다 (to wear) is 입어요, 잡다 (to hold) is 잡아요 and 좁다 (to be narrow) is 좁아요. 받다 (to receive) is 받아요 and 닫다 (to close) is 닫아요. 웃다 (to laugh) is 웃어요 and 씻다 (to wash) is 씻어요. 좋다 (to be good) is 좋아요."
+          },
+          {
+              "t": "quote",
+              "lines": [
+                  "추워요 (Correct: 춥다 is a ㅂ irregular)",
+                  "춥어요 (Incorrect)",
+                  "입어요 (Correct: 입다 is regular)",
+                  "이워요 (Incorrect)",
+                  "들어요 (Correct: 듣다 is a ㄷ irregular, to hear)",
+                  "듣어요 (Incorrect)"
+              ]
+          },
+          {
+              "t": "p",
+              "text": "There is no rule that predicts which verb ending in ㅂ, ㄷ or ㅅ is irregular, so learn the common irregular ones as a set of about twenty verbs and treat the rest as regular."
+          },
+          {
+              "t": "link",
+              "href": "/irregular-verbs-worksheet/",
+              "title": "Irregular verbs worksheet",
+              "note": "Free printable practice with an answer key for ㅂ, ㄷ, ㅅ, 르, ㅡ and ㅎ verbs"
+          },
+          {
+              "t": "link",
+              "href": "/polite-present-worksheet/",
+              "title": "Polite present tense worksheet",
+              "note": "Practise the regular -아요/어요 forms first"
+          },
+          {
+              "t": "link",
+              "href": "/shop/first-steps-workbook/",
+              "title": "Korean First Steps Workbook (PDF)",
+              "note": "A beginner workbook with polite present verbs and answer keys"
+          }
+      ]
+  },
+  {
+      "id": "korean-counters-english",
+      "lang": "en",
+      "title": "Korean Counters: 개, 명, 마리, 권, 잔 and How to Choose",
+      "date": "2026-11-08",
+      "updated": "2026-11-08",
+      "tags": [
+          "English",
+          "Grammar"
+      ],
+      "excerpt": "In Korean you cannot just put a number in front of a noun. You need a counter, and the counter depends on what you are counting. Here are the eight counters that cover most daily life, with the word order and the usual mistakes.",
+      "blocks": [
+          {
+              "t": "p",
+              "text": "In Korean you do not put a number directly before a noun. You say the noun, then the number, then a counter that fits the thing you are counting: 사과 세 개 (three apples), 친구 두 명 (two friends), 책 네 권 (four books). The counter depends on the kind of thing, and the number is usually a native Korean number."
+          },
+          {
+              "t": "h",
+              "text": "The word order"
+          },
+          {
+              "t": "p",
+              "text": "The pattern is noun + number + counter. The first four native numbers change shape in front of a counter: 한, 두, 세, 네. Twenty becomes 스무."
+          },
+          {
+              "t": "ex",
+              "ko": "커피 한 잔 주세요.",
+              "en": "One coffee, please."
+          },
+          {
+              "t": "ex",
+              "ko": "학생이 스무 명 있어요.",
+              "en": "There are twenty students."
+          },
+          {
+              "t": "h",
+              "text": "Eight counters that cover most days"
+          },
+          {
+              "t": "p",
+              "text": "개 is the general counter for objects and is the safe default. 명 is for people, and 분 is the honorific form for people you want to respect. 마리 is for animals, 권 for books, 잔 for cups and glasses, 병 for bottles, and 장 for flat things such as paper and tickets."
+          },
+          {
+              "t": "ex",
+              "ko": "고양이가 세 마리 있어요.",
+              "en": "I have three cats. (마리 for animals)"
+          },
+          {
+              "t": "ex",
+              "ko": "책을 두 권 샀어요.",
+              "en": "I bought two books. (권 for books)"
+          },
+          {
+              "t": "ex",
+              "ko": "물 두 병 주세요.",
+              "en": "Two bottles of water, please. (병 for bottles)"
+          },
+          {
+              "t": "ex",
+              "ko": "표 한 장 주세요.",
+              "en": "One ticket, please. (장 for flat things)"
+          },
+          {
+              "t": "ex",
+              "ko": "손님이 두 분 오셨어요.",
+              "en": "Two guests have arrived. (분 for people you respect)"
+          },
+          {
+              "t": "h",
+              "text": "Some counters take Sino-Korean numbers"
+          },
+          {
+              "t": "p",
+              "text": "Most counters take native numbers, but a few take Sino-Korean ones: 층 (floors), 분 (minutes), 원 (won), 년, 월 and 일 (years, months, days). So you say 오 층, 십 분, 이천 원."
+          },
+          {
+              "t": "p",
+              "text": "One counter works in both ways. 번 means 'times' with native numbers (한 번, 두 번), and it marks a number in a list with Sino-Korean numbers (일 번, 이 번). The context tells you which one you need."
+          },
+          {
+              "t": "h",
+              "text": "Mistakes learners make"
+          },
+          {
+              "t": "quote",
+              "lines": [
+                  "친구 두 명 (Correct: 명 for people)",
+                  "친구 두 개 (Incorrect: 개 is for objects, not people)",
+                  "고양이 세 마리 (Correct: 마리 for animals)",
+                  "고양이 세 개 (Incorrect)",
+                  "사과 한 개 (Correct: 하나 becomes 한)",
+                  "사과 하나 개 (Incorrect)"
+              ]
+          },
+          {
+              "t": "p",
+              "text": "The most common error is using 개 for everything. It is not wrong for objects, but it sounds flat when a more specific counter exists, and it is wrong for people and animals."
+          },
+          {
+              "t": "p",
+              "text": "If you meet an unfamiliar thing, you can often ask the person: 「이건 어떻게 세요?」 (How do you count this?). Native speakers will tell you the right counter, and you will remember it better than from a list. The native-versus-Sino-Korean split behind all this is explained in our guide to Korean numbers."
+          },
+          {
+              "t": "link",
+              "href": "/blog/native-vs-sino-korean-numbers-english.html",
+              "title": "Korean Numbers: Native Korean vs Sino-Korean",
+              "note": "Which number system to use for age, time, dates and money"
+          },
+          {
+              "t": "link",
+              "href": "/numbers-counters-worksheet/",
+              "title": "Numbers and counters worksheet",
+              "note": "Free printable practice with an answer key"
+          },
+          {
+              "t": "link",
+              "href": "/shop/first-steps-workbook/",
+              "title": "Korean First Steps Workbook (PDF)",
+              "note": "A beginner workbook with a numbers and counters unit"
+          }
+      ]
+  },
+  {
     "id": "topik-i-vocabulary-study-plan",
     "lang": "en",
     "title": "TOPIK I Vocabulary: A Study Plan for All 1,931 Words",

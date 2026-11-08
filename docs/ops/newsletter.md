@@ -10,7 +10,7 @@
 - Resend 한도(2026-11-05 Resend 연결로 확인, 무료 요금): 하루 보내기 100 · 한 달 3,000 · 연락처 1,000 · 목록(segment) 3 · 도메인 3 · 한 번에 보내는 소식(broadcast)은 수 제한 없음. 이메일이 1,000명을 넘으면 유료 요금을 본다. 공부 알림 메일도 같은 한도를 나눠 쓴다(하루 100통).
 - 받는 사람이 늘면 「그만 받기」가 눌린 사람을 `email_leads` 에서 빼는 일(`marketing_ok` 끄기)이 필요하다 — 그때 자동으로 맞추는 함수를 만든다(지금은 사람이 적어 수동).
 
-## 첫 호 초안 (영어 + 한국어, 2026-11)
+## 첫 호 초안 (영어 + 한국어, 2026-11) — 11/11 발송 확정본(2026-11-08: 새 제목 · 블로그 링크 · 예스24 안내를 더함)
 **제목(영어)**: Free Korean samples: TOPIK writing and 10 particles done right
 **제목(한글)**: 무료 샘플 두 가지 — 토픽 쓰기와 조사
 
@@ -19,7 +19,7 @@
 >
 > **1. Try the free samples · 무료 샘플 받아 보기**
 > Every workbook has a free sample (cover, contents, first units). Two good places to start:
-> - TOPIK II Writing 51–52: https://everykoreans.com/shop/topik2-writing-51-52/
+> - Writing Practice 51–52 (for TOPIK II): https://everykoreans.com/shop/topik2-writing-51-52/
 > - Korean Particles Workbook: https://everykoreans.com/shop/particles-workbook/
 > 책마다 무료 샘플(표지 · 차례 · 첫 단원)이 있어요. 위 두 권부터 보세요.
 >
@@ -27,7 +27,12 @@
 > Ask 「누가 왔어요?」 (Who came?) and the answer takes **이/가**: 「민수**가** 왔어요.」 Talk about something already known, or compare two things, and use **은/는**: 「커피**는** 좋아해요. 차는 안 좋아해요.」
 > 「누가 · 뭐가」로 물으면 **이/가**로 답하고, 이미 아는 것을 말하거나 둘을 견주면 **은/는**을 써요.
 >
-> **3. Where do you start? · 어디서 시작할까요?**
+> **3. More tips on the blog · 블로그에서 더 보기**
+> - 은/는 vs 이/가: https://everykoreans.com/blog/eun-neun-vs-i-ga-english.html
+> - 에 vs 에서 (where things are, where things happen): https://everykoreans.com/blog/e-vs-eseo-english.html
+> - 한국에서는 예스24에서도 PDF 책을 살 수 있어요: https://everykoreans.com/blog/yes24-ebooks-where-to-start.html
+>
+> **4. Where do you start? · 어디서 시작할까요?**
 > Take the 3-minute level test: https://everykoreans.com/?lt=1
 > 3분 레벨 테스트로 내 자리를 찾아보세요.
 >
