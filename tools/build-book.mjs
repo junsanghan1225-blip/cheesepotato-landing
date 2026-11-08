@@ -324,7 +324,7 @@ const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div cla
 let secNo = '';
 /* 치즈(난이도) · 감자(빈출도) 아이콘 — 채운 것 · 빈 것 */
 /* 품사 칸: 크기는 모두 같게, 색은 품사마다(운영자 2026-10-31 「noun 마다 색 · 칸 간격 딱딱 맞춰」) */
-const POS_AB = { adjective: 'adj.', adverb: 'adv.', determiner: 'det.', numeral: 'num.', pronoun: 'pron.', 'bound noun': 'bound n.', interjection: 'interj.', particle: 'part.' };   // 칸을 좁게 — 긴 품사 이름은 줄여 쓰고 범례에 풀어 둔다
+const POS_AB = { adjective: 'adj.', adverb: 'adv.', determiner: 'det.', numeral: 'num.', pronoun: 'pron.', 'bound noun': 'bound n.', interjection: 'interj.', particle: 'part.', 'four-character idiom': '사자성어' };   // 칸을 좁게 — 긴 품사 이름은 줄여 쓰고 범례에 풀어 둔다
 const posAb = (p) => POS_AB[String(p).toLowerCase()] || p;
 const posCls = (p) => ({ noun: 'p1', verb: 'p2', adjective: 'p3', adverb: 'p4', determiner: 'p5' }[String(p).toLowerCase()] || 'p6');
 /* 난이도 · 빈출도 그림은 웹사이트의 치즈 · 감자 캐릭터(levels.js)를 쓴다 — 채움 = 진하게, 빔 = 흐리게(운영자 2026-10-31 「웹사이트 일러스트로 통일」) */
