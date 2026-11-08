@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=74aaa20f';
+import * as THREE from './vendor/three.module.min.js?v=4c748f48';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -157,8 +157,8 @@ function buildRoom() {
   const fine = matchMedia('(pointer:fine)').matches;   // 마우스가 있는 기기만 그림자(폰은 가볍게)
   if (fine) { renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; }
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0xe9e2d0, 14, 26);
-  const camera = new THREE.PerspectiveCamera(66, 1, 0.05, 40);
+  scene.fog = new THREE.Fog(0xdfeaf2, 70, 300);
+  const camera = new THREE.PerspectiveCamera(66, 1, 0.05, 500);
 
   /* 불빛 — 환경 빛 + 창에서 들어오는 햇빛(그림자) */
   scene.add(new THREE.AmbientLight(0xfff4e0, 0.95));
@@ -183,7 +183,11 @@ function buildRoom() {
   const floor = new THREE.Mesh(new THREE.PlaneGeometry(12, 16), new THREE.MeshLambertMaterial({ map: floorTex }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, 0.5); if (fine) floor.receiveShadow = true; scene.add(floor);
   const wallM = mat(0xefe8d6), woodM = mat(0x7a5632), greenM = mat(0x5f8b6f), baseM = mat(0x4a3a2a);
-  plane(12, 3.5, wallM, 0, 1.75, -7.5); plane(12, 3.5, wallM, 0, 1.75, 8.5, Math.PI); plane(16, 3.5, wallM, -6, 1.75, 0.5, Math.PI / 2); plane(16, 3.5, wallM, 6, 1.75, 0.5, -Math.PI / 2);
+  plane(12, 3.5, wallM, 0, 1.75, -7.5); plane(12, 3.5, wallM, 0, 1.75, 8.5, Math.PI); {   // 왼쪽 벽 — 창 네 개가 진짜로 뚫려 있어서 바깥(3D 풍경)이 보인다
+    const WX = -6.0, seg = (z0, z1, y0, y1) => box(0.04, y1 - y0, z1 - z0, wallM, WX, (y0 + y1) / 2, (z0 + z1) / 2);
+    seg(-7.5, 8.5, 0, 1.2); seg(-7.5, 8.5, 2.8, 3.5);
+    [[-7.5, -5.75], [-3.45, -2.75], [-0.45, 0.25], [2.55, 3.25], [5.55, 8.5]].forEach(([a, b]) => seg(a, b, 1.2, 2.8));
+  } plane(16, 3.5, wallM, 6, 1.75, 0.5, -Math.PI / 2);
   const ceilTex = canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#f5f2ea'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(120,115,100,.35)'; g.lineWidth = 2; g.strokeRect(0, 0, w, h); for (let i = 0; i < 60; i++) { g.fillStyle = 'rgba(150,145,130,.12)'; g.fillRect((i * 37) % w, (i * 71) % h, 3, 3); } }).t;
   ceilTex.wrapS = ceilTex.wrapT = THREE.RepeatWrapping; ceilTex.repeat.set(10, 13);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(12, 16), new THREE.MeshLambertMaterial({ map: ceilTex })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, 3.5, 0.5); scene.add(ceil);
@@ -242,72 +246,81 @@ function buildRoom() {
   const lerpC = (a, b, k) => { const A = new THREE.Color(a), B = new THREE.Color(b); return '#' + A.lerp(B, k).getHexString(); };
   const SKY = [[0, '#8ec9f0', '#e6f4fb'], [0.45, '#5aaeee', '#dff0fa'], [0.8, '#f2b774', '#ffe3b8'], [1, '#e8805a', '#fbc99a']];
   const skyAt = (p) => { for (let i = 1; i < SKY.length; i++) if (p <= SKY[i][0]) { const k = (p - SKY[i - 1][0]) / (SKY[i][0] - SKY[i - 1][0]); return [lerpC(SKY[i - 1][1], SKY[i][1], k), lerpC(SKY[i - 1][2], SKY[i][2], k)]; } return [SKY[3][1], SKY[3][2]]; };
-  /* 창밖 파노라마(네 창이 한 장의 풍경을 나눠 본다) — 구름 · 새 · 자동차 · 나무 흔들림이 계속 움직이고, 시험 진행(p)에 따라 하늘이 바뀐다. */
-  const VW = 2048, VH = 360, view = canvasTex(VW, VH, () => {});
+  /* ── 창밖: 진짜 3D 풍경(2층 높이에서 본 운동장 · 가로수 · 도로 · 건물 · 산). 몸을 움직이면 시차가 생겨 그림이 아니라 바깥으로 보인다. ── */
+  const G = -3.2;   // 땅 높이(교실이 2층)
   const rnd = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
-  const clouds = Array.from({ length: 9 }, (_, i) => ({ x: rnd(i + 1) * VW, y: 40 + rnd(i + 20) * 110, s: 0.7 + rnd(i + 40) * 0.9, v: 4 + rnd(i + 60) * 7 }));
-  const cars = Array.from({ length: 5 }, (_, i) => ({ x: rnd(i + 80) * VW, lane: i % 2, v: (i % 2 ? -1 : 1) * (60 + rnd(i + 90) * 50), c: ['#c0392b', '#2c3e50', '#f0f0f0', '#e0a800', '#4a7fb5'][i] }));
-  const birds = Array.from({ length: 5 }, (_, i) => ({ x: rnd(i + 120) * VW, y: 60 + rnd(i + 130) * 90, v: 30 + rnd(i + 140) * 25, ph: rnd(i + 150) * 6 }));
-  function drawView(p, tm) {
-    const { g } = view, w = VW, h = VH, [top, bot] = skyAt(p), dusk = Math.max(0, (p - 0.75) / 0.25);
-    const sky = g.createLinearGradient(0, 0, 0, h * 0.75); sky.addColorStop(0, top); sky.addColorStop(1, bot); g.fillStyle = sky; g.fillRect(0, 0, w, h);
-    /* 해 */
-    const sx = 140 + p * 1750, sy = 250 - Math.sin(Math.PI * Math.min(1, 0.12 + p * 0.78)) * 190;
-    const glow = g.createRadialGradient(sx, sy, 4, sx, sy, 130); glow.addColorStop(0, 'rgba(255,246,205,.95)'); glow.addColorStop(0.25, 'rgba(255,240,190,.35)'); glow.addColorStop(1, 'rgba(255,240,190,0)'); g.fillStyle = glow; g.fillRect(sx - 140, sy - 140, 280, 280);
-    g.fillStyle = dusk > 0.1 ? '#ffd29a' : '#fffbe6'; g.beginPath(); g.arc(sx, sy, 18, 0, 7); g.fill();
-    /* 구름(천천히 흘러감) */
-    for (const c of clouds) {
-      const cx = ((c.x + tm * c.v) % (w + 300)) - 150; g.fillStyle = `rgba(255,255,255,${0.9 - dusk * 0.35})`;
-      for (const [dx, dy, r] of [[0, 0, 30], [32, -8, 26], [62, 2, 22], [-30, 6, 20], [18, 10, 24]]) { g.beginPath(); g.ellipse(cx + dx * c.s, c.y + dy * c.s, r * c.s * 1.25, r * c.s * 0.75, 0, 0, 7); g.fill(); }
-    }
-    /* 먼 산 · 아지랑이 */
-    for (const [base, amp, col, k] of [[h - 115, 40, lerpC('#9db7c9', '#a08a9a', dusk), 0.0035], [h - 100, 28, lerpC('#8aa5a0', '#8a7684', dusk), 0.006]]) {
-      g.fillStyle = col; g.beginPath(); g.moveTo(0, h); for (let x = 0; x <= w; x += 16) g.lineTo(x, base - amp * (0.55 + 0.45 * Math.sin(x * k + base)) - 14 * Math.sin(x * k * 3.1)); g.lineTo(w, h); g.fill();
-    }
-    /* 도시 건물(창에 불이 켜짐) */
-    const bcol = lerpC('#b7c0ca', '#7d7886', Math.min(1, p * 0.9));
-    for (let x = 0, i = 0; x < w; i++) {
-      const bw = 50 + rnd(i + 200) * 70, bh = 60 + rnd(i + 230) * 110, by = h - 96 - bh; g.fillStyle = bcol; g.fillRect(x, by, bw, bh + 6);
-      g.fillStyle = lerpC('#d9dee4', '#a7a2ae', p * 0.8); g.fillRect(x, by, bw, 5);
-      for (let wy = by + 14; wy < by + bh - 8; wy += 15) for (let wx = x + 7; wx < x + bw - 9; wx += 14) { const on = dusk > 0.2 && rnd(wx * 3 + wy) > 0.55; g.fillStyle = on ? 'rgba(255,224,140,.9)' : 'rgba(110,135,160,.55)'; g.fillRect(wx, wy, 7, 8); }
-      x += bw + 6 + rnd(i + 260) * 18;
-    }
-    /* 운동장 · 도로 */
-    g.fillStyle = lerpC('#79ad6f', '#587a54', p * 0.7); g.fillRect(0, h - 96, w, 96);
-    g.fillStyle = lerpC('#c79a72', '#a37b5b', p * 0.5); g.fillRect(0, h - 70, w, 20);   // 트랙
-    g.strokeStyle = 'rgba(255,255,255,.7)'; g.lineWidth = 2; g.beginPath(); g.moveTo(0, h - 60); g.lineTo(w, h - 60); g.stroke();
-    g.fillStyle = '#6d7076'; g.fillRect(0, h - 44, w, 26); g.fillStyle = 'rgba(255,255,255,.7)'; for (let x = 0; x < w; x += 70) g.fillRect(x, h - 31, 36, 3);
-    g.fillStyle = lerpC('#6aa56a', '#4a7650', p * 0.7); g.fillRect(0, h - 18, w, 18);
-    /* 자동차 */
-    for (const c of cars) {
-      const cx = (((c.x + tm * c.v) % (w + 200)) + w + 200) % (w + 200) - 100, cy = c.lane ? h - 40 : h - 32;
-      g.fillStyle = c.c; g.fillRect(cx, cy - 12, 38, 10); g.fillRect(cx + 8, cy - 20, 20, 9);
-      g.fillStyle = 'rgba(190,225,245,.9)'; g.fillRect(cx + 10, cy - 18, 7, 6); g.fillRect(cx + 19, cy - 18, 7, 6);
-      g.fillStyle = '#222'; g.beginPath(); g.arc(cx + 8, cy - 1, 4.5, 0, 7); g.arc(cx + 30, cy - 1, 4.5, 0, 7); g.fill();
-      if (dusk > 0.3) { g.fillStyle = 'rgba(255,240,170,.9)'; g.fillRect(c.v > 0 ? cx + 36 : cx, cy - 10, 3, 4); }
-    }
-    /* 가로수(바람에 살랑) */
-    for (let x = 30, i = 0; x < w; x += 110 + rnd(i + 300) * 60, i++) {
-      const sw = Math.sin(tm * 1.3 + i) * 2.5, th = 56 + rnd(i + 330) * 26;
-      g.fillStyle = '#6b4c32'; g.fillRect(x - 3, h - 98 - th * 0.3, 6, th * 0.5 + 40);
-      for (const [dx, dy, r, col] of [[0, -th, 30, '#4f8c55'], [-18, -th + 16, 22, '#47804c'], [18, -th + 14, 24, '#58985c'], [4, -th - 14, 20, '#5aa05f']]) {
-        g.fillStyle = lerpC(col, '#2f5a3a', p * 0.6); g.beginPath(); g.arc(x + dx + sw * (1 + (-dy / 60)), h - 98 + dy, r, 0, 7); g.fill();
-      }
-    }
-    /* 울타리 */
-    g.fillStyle = 'rgba(60,70,60,.75)'; for (let x = 0; x < w; x += 14) g.fillRect(x, h - 24, 2, 24); g.fillRect(0, h - 20, w, 2);
-    /* 새 */
-    g.strokeStyle = '#2d2d33'; g.lineWidth = 2;
-    for (const b of birds) { const bx = ((b.x + tm * b.v) % (w + 100)) - 50, fl = Math.sin(tm * 8 + b.ph) * 5; g.beginPath(); g.moveTo(bx - 8, b.y + fl); g.quadraticCurveTo(bx - 3, b.y - 3, bx, b.y); g.quadraticCurveTo(bx + 3, b.y - 3, bx + 8, b.y + fl); g.stroke(); }
-    if (dusk > 0) { g.fillStyle = `rgba(255,150,80,${dusk * 0.14})`; g.fillRect(0, 0, w, h); }
-    view.t.needsUpdate = true;
+  const skyC = canvasTex(8, 256, () => {});
+  const skyM = new THREE.Mesh(new THREE.SphereGeometry(400, 24, 16), new THREE.MeshBasicMaterial({ map: skyC.t, side: THREE.BackSide, fog: false, depthWrite: false }));
+  skyM.renderOrder = -2; scene.add(skyM);
+  const groundM = new THREE.MeshLambertMaterial({ color: 0x79ad6f });
+  { const gr = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), groundM); gr.rotation.x = -Math.PI / 2; gr.position.set(-300, G, 0); scene.add(gr); }
+  const strip = (xc, w, col, y = 0.02) => { const o = new THREE.Mesh(new THREE.PlaneGeometry(w, 900), mat(col)); o.rotation.x = -Math.PI / 2; o.position.set(xc, G + y, 0); scene.add(o); return o; };
+  strip(-10, 3.2, 0xc79a72); strip(-18.6, 2.4, 0xbdb7aa); strip(-24, 8, 0x5f6368, 0.03); strip(-30.2, 2.4, 0xbdb7aa);
+  { const dm = new THREE.InstancedMesh(new THREE.BoxGeometry(0.18, 0.02, 1.6), mat(0xf2f2ee), 160), mm = new THREE.Matrix4(); for (let i = 0; i < 160; i++) { mm.makeTranslation(-24, G + 0.06, -300 + i * 3.8); dm.setMatrixAt(i, mm); } scene.add(dm); }
+  { const fm = new THREE.InstancedMesh(new THREE.BoxGeometry(0.06, 1.2, 0.06), mat(0x3f4a42), 240), mm = new THREE.Matrix4(); for (let i = 0; i < 240; i++) { mm.makeTranslation(-7.5, G + 0.6, -60 + i * 0.5); fm.setMatrixAt(i, mm); } scene.add(fm);
+    const rail = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.06, 120), mat(0x3f4a42)); rail.position.set(-7.5, G + 1.05, 0); scene.add(rail); }
+  /* 가로수 · 나무 */
+  const trunkG = new THREE.CylinderGeometry(0.22, 0.3, 3.2, 8), leafG = new THREE.IcosahedronGeometry(1.7, 1), leafMats = [0x4f8c55, 0x47804c, 0x58985c].map((c) => mat(c)), trunkM = mat(0x6b4c32), swayers = [];
+  const addTree = (x, z, sc) => {
+    const t = new THREE.Group(); t.position.set(x, G, z); t.scale.setScalar(sc);
+    const tr = new THREE.Mesh(trunkG, trunkM); tr.position.y = 1.6; t.add(tr);
+    const crown = new THREE.Group(); crown.position.y = 3.2; t.add(crown);
+    [[0, 1.2, 0, 1], [-1.1, 0.4, 0.3, 0.8], [1.1, 0.5, -0.2, 0.85], [0.2, 0.3, 1, 0.75]].forEach(([dx, dy, dz, sc2], i) => { const l = new THREE.Mesh(leafG, leafMats[i % 3]); l.position.set(dx, dy, dz); l.scale.setScalar(sc2); crown.add(l); });
+    scene.add(t); swayers.push({ crown, ph: rnd(x * 3 + z) * 6 });
+  };
+  for (let z = -60; z <= 60; z += 6.5) addTree(-20 + rnd(z) * 1.5, z + rnd(z + 3) * 2, 0.8 + rnd(z + 9) * 0.25);
+  for (let z = -70; z <= 70; z += 9) addTree(-40 + rnd(z + 1) * 4, z + rnd(z + 5) * 3, 1.4 + rnd(z + 2) * 0.5);
+  /* 건물(창에 불이 켜짐 — 해질 무렵) */
+  const facade = canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = '#c4ccd6'; g.fillRect(0, 0, w, h);
+    for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) { g.fillStyle = '#7d93ab'; g.fillRect(c * 64 + 12, r * 64 + 14, 40, 36); g.fillStyle = 'rgba(255,255,255,.28)'; g.fillRect(c * 64 + 12, r * 64 + 14, 40, 8); }
+  }), lit = canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
+    for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) if (rnd(r * 4 + c + 7) > 0.45) { g.fillStyle = '#ffd98a'; g.fillRect(c * 64 + 12, r * 64 + 14, 40, 36); }
+  }), bMats = [];
+  for (let z = -260, i = 0; z < 260; i++) {
+    const bw = 16 + rnd(i + 11) * 18, bh = 22 + rnd(i + 21) * 55, bd = 18, x = -105 - rnd(i + 31) * 40;
+    const tx = facade.t.clone(), tl = lit.t.clone(); tx.needsUpdate = tl.needsUpdate = true; tx.wrapS = tx.wrapT = tl.wrapS = tl.wrapT = THREE.RepeatWrapping;
+    tx.repeat.set(Math.round(bw / 4), Math.round(bh / 4)); tl.repeat.copy(tx.repeat);
+    const bm = new THREE.MeshLambertMaterial({ map: tx, emissiveMap: tl, emissive: 0xffffff, emissiveIntensity: 0, color: new THREE.Color().setHSL(0.58 + rnd(i) * 0.05, 0.08, 0.75 + rnd(i + 5) * 0.15) }); bMats.push(bm);
+    const b = new THREE.Mesh(new THREE.BoxGeometry(bd, bh, bw), bm); b.position.set(x, G + bh / 2, z + bw / 2); scene.add(b);
+    z += bw + 3 + rnd(i + 41) * 6;
   }
-  drawView(0, 0);
-  const viewM = new THREE.MeshBasicMaterial({ map: view.t }), curM = mat(0xd9e3d4);
+  /* 먼 산 */
+  const mtn = canvasTex(1024, 128, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#9db7c9'); gr.addColorStop(1, '#c9dbe6'); g.fillStyle = gr; g.beginPath(); g.moveTo(0, h); for (let x = 0; x <= w; x += 8) g.lineTo(x, h - 30 - 60 * (0.5 + 0.5 * Math.sin(x * 0.011)) * (0.6 + 0.4 * Math.sin(x * 0.037 + 1)) - 12 * Math.sin(x * 0.09)); g.lineTo(w, h); g.fill(); });
+  const mtnM = new THREE.MeshBasicMaterial({ map: mtn.t, transparent: true, fog: false }); { const m = new THREE.Mesh(new THREE.PlaneGeometry(900, 110), mtnM); m.position.set(-300, G + 50, 0); m.rotation.y = Math.PI / 2; scene.add(m); }
+  /* 자동차(도로를 오간다) */
+  const carG = new THREE.BoxGeometry(1.8, 0.7, 4.2), cabG = new THREE.BoxGeometry(1.5, 0.6, 2.2), whG = new THREE.CylinderGeometry(0.34, 0.34, 0.25, 12); whG.rotateZ(Math.PI / 2);
+  const cars = [0xc0392b, 0x2c3e50, 0xefefef, 0xe0a800, 0x4a7fb5, 0x2e8b57].map((c, i) => {
+    const g = new THREE.Group(), cm = mat(c), body = new THREE.Mesh(carG, cm); body.position.y = 0.75; g.add(body);
+    const cab = new THREE.Mesh(cabG, mat(0x9fc5dc)); cab.position.set(0, 1.35, -0.2); g.add(cab);
+    for (const [wx, wz] of [[-0.9, 1.3], [0.9, 1.3], [-0.9, -1.3], [0.9, -1.3]]) { const w = new THREE.Mesh(whG, mat(0x222222)); w.position.set(wx, 0.34, wz); g.add(w); }
+    const dir = i % 2 ? -1 : 1; g.position.set(dir > 0 ? -22.2 : -25.8, G + 0.04, -100 + rnd(i + 70) * 200); g.rotation.y = dir > 0 ? Math.PI : 0;
+    scene.add(g); return { g, v: dir * (7 + rnd(i + 90) * 6) };
+  });
+  /* 구름 · 해 · 새 */
+  const cloudTex = canvasTex(256, 128, (g) => { g.fillStyle = 'rgba(255,255,255,.95)'; for (const [x, y, r] of [[70, 76, 34], [110, 60, 40], [155, 70, 36], [195, 80, 26], [40, 84, 22]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); } }).t;
+  const cloudS = Array.from({ length: 9 }, (_, i) => { const m = new THREE.SpriteMaterial({ map: cloudTex, fog: false, transparent: true, opacity: 0.9 }), sp = new THREE.Sprite(m); sp.scale.set(90 + rnd(i) * 60, 45 + rnd(i + 3) * 25, 1); sp.position.set(-250 - rnd(i + 5) * 60, 40 + rnd(i + 9) * 70, -260 + rnd(i + 13) * 520); scene.add(sp); return { sp, v: 1.2 + rnd(i + 17) * 1.8 }; });
+  const sunTex = canvasTex(128, 128, (g) => { const r = g.createRadialGradient(64, 64, 4, 64, 64, 64); r.addColorStop(0, 'rgba(255,250,215,1)'); r.addColorStop(0.18, 'rgba(255,240,180,.9)'); r.addColorStop(0.3, 'rgba(255,230,160,.25)'); r.addColorStop(1, 'rgba(255,230,160,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128); }).t;
+  const sunS = new THREE.Sprite(new THREE.SpriteMaterial({ map: sunTex, fog: false, transparent: true, depthWrite: false })); sunS.scale.set(120, 120, 1); scene.add(sunS);
+  const birdG = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-1.2, 0, 0), new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(1.2, 0, 0)]);
+  const birds = Array.from({ length: 6 }, (_, i) => { const l = new THREE.Line(birdG, new THREE.LineBasicMaterial({ color: 0x2d2d33 })); l.position.set(-60 - rnd(i + 120) * 40, 6 + rnd(i + 130) * 14, -60 + rnd(i + 140) * 120); scene.add(l); return { l, v: 4 + rnd(i + 150) * 3, ph: rnd(i + 160) * 6 }; });
+  function applySky(p) {
+    const [top, bot] = skyAt(p), dusk = Math.max(0, (p - 0.75) / 0.25), g = skyC.g;
+    const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, top); gr.addColorStop(0.5, bot); gr.addColorStop(1, bot); g.fillStyle = gr; g.fillRect(0, 0, 8, 256); skyC.t.needsUpdate = true;
+    scene.fog.color.set(bot); groundM.color.set(lerpC('#79ad6f', '#587a54', p * 0.7));
+    bMats.forEach((m) => { m.emissiveIntensity = dusk * 0.9; }); mtnM.color.set(lerpC('#ffffff', '#e8b8a8', dusk));
+    sunS.position.set(-260, 25 + Math.sin(Math.PI * Math.min(1, 0.12 + p * 0.78)) * 70, 90 - p * 180); sunS.material.color.set(lerpC('#ffffff', '#ffb878', dusk));
+  }
+  function outsideTick(t, dt) {
+    for (const s of swayers) s.crown.rotation.z = Math.sin(t * 1.1 + s.ph) * 0.03, s.crown.rotation.x = Math.cos(t * 0.9 + s.ph) * 0.02;
+    for (const c of cars) { c.g.position.z += c.v * dt; if (c.g.position.z > 110) c.g.position.z = -110; if (c.g.position.z < -110) c.g.position.z = 110; }
+    for (const c of cloudS) { c.sp.position.z += c.v * dt; if (c.sp.position.z > 300) c.sp.position.z = -300; }
+    for (const b of birds) { b.l.position.z += b.v * dt; if (b.l.position.z > 70) b.l.position.z = -70; b.l.scale.y = 0.6 + Math.sin(t * 9 + b.ph) * 0.9; }
+  }
+  applySky(0);
+  const curM = mat(0xd9e3d4);
   for (const z of [-4.6, -1.6, 1.4, 4.4]) {
-    { const gp = new THREE.PlaneGeometry(2.3, 1.6), k = 3 - [-4.6, -1.6, 1.4, 4.4].indexOf(z), uv = gp.attributes.uv;   // 네 창이 파노라마를 4등분해 이어서 본다
-      for (let i = 0; i < uv.count; i++) uv.setX(i, (k + uv.getX(i)) / 4);
-      const o = new THREE.Mesh(gp, viewM); o.position.set(-5.98, 2.0, z); o.rotation.y = Math.PI / 2; scene.add(o); }
     const fr = mat(0xffffff);
     box(0.05, 1.7, 0.06, fr, -5.97, 2.0, z); box(0.05, 0.06, 2.4, fr, -5.97, 1.18, z); box(0.05, 0.06, 2.4, fr, -5.97, 2.82, z); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z - 1.17); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z + 1.17);
     box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z - 1.0); box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z + 1.0);   // 커튼
@@ -538,7 +551,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=74aaa20f');
+      const { createClient } = await import('./vendor/supabase-js.js?v=4c748f48');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -640,8 +653,7 @@ function buildRoom() {
   }
 
   /* ── 한 프레임 ── */
-  let t0 = performance.now(), last = t0, skyP = 0, lastView = 0;
-  const coarse = matchMedia('(pointer:coarse)').matches;
+  let t0 = performance.now(), last = t0, skyP = 0;
   function frame(now) {
     requestAnimationFrame(frame);
     if (document.hidden) { last = now; return; }
@@ -671,10 +683,10 @@ function buildRoom() {
     proctor.g.rotation.y = pDir > 0 ? Math.PI : 0; swing(proctor, t * 3.2, 0.42); proctor.g.position.y = Math.abs(Math.sin(t * 3.2)) * 0.012;
     for (const h of heads) { h.head.position.y = h.baseY - (Math.sin(t * 0.6 + h.phase) > 0.85 ? 0.025 : 0); h.head.rotation.x = -0.3 + Math.sin(t * 0.5 + h.phase) * 0.1; }
     presenceTick(now, dt, t);
-    if (now - lastView > (coarse ? 160 : 90)) { lastView = now; drawView(skyP, t); }   // 창밖은 계속 움직인다
+    outsideTick(t, dt);   // 창밖은 계속 움직인다
     const prog = ex.began ? Math.min(1, Math.max(0, 1 - ex.left / Math.max(1, ex.total))) : 0;
     if (Math.abs(prog - skyP) > 0.004) {   // 창밖 시간 변화 + 햇빛
-      skyP = prog;
+      skyP = prog; applySky(prog);
       sun.color.set(lerpC('#fff3d6', '#ffa86a', Math.max(0, (prog - 0.5) / 0.5))); sun.intensity = 0.95 - prog * 0.3; sun.position.set(-7, 5.2 - prog * 3, 1.5 - prog * 3);
     }
     /* 소리: 시험 중 공기 + 연필 + 가끔 종이 */
