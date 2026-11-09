@@ -1,8 +1,8 @@
 /* OX 퀴즈 (/ox/) — 이름은 그냥 「OX 퀴즈」(운영자 2026-11-09), 캐릭터만 햄스터 — 운영자 2026-11-09 「메타버스처럼 OX 퀴즈 · 모여서 O 가 정답이면 X 에 있으면 죽는 느낌 · 캐릭터는 햄스터」 1단계.
    1단계는 서버 없이 이 기기에서만 돈다: 함께 뛰는 햄스터는 컴퓨터가 움직인다(2단계에서 실제 접속자와 함께).
    문항은 ox-questions.js(우리 TOPIK I 낱말 자료에서 만든 생성물). 3D 는 three.js(vendor, MIT). */
-import * as THREE from './vendor/three.module.min.js?v=850b857f';
-import { OX } from './ox-questions.js?v=850b857f';
+import * as THREE from './vendor/three.module.min.js?v=5d22d45d';
+import { OX } from './ox-questions.js?v=5d22d45d';
 
 const $ = (id) => document.getElementById(id);
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
@@ -447,7 +447,7 @@ async function startLive() {
   dl('ox_live_join', { cp_who: meKind });
   liveTick();
   try {
-    const { createClient } = await import('./vendor/supabase-js.js?v=850b857f');
+    const { createClient } = await import('./vendor/supabase-js.js?v=5d22d45d');
     // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
     const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
     myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
