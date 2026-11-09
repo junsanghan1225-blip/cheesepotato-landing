@@ -21,6 +21,8 @@ const KEY = Deno.env.get('GEMINI_API_KEY') ?? Deno.env.get('GOOGLE_API_KEY') ?? 
 const MODEL = Deno.env.get('GEMINI_MODEL') ?? 'gemini-2.5-flash';
 const SITE = 'https://everykoreans.com';
 const LIMIT = { free: 0, pro: 30 };   // 2026-10-28 운영자 「쓰기 AI 분석은 프로로」: 무료는 AI 채점 없음(Pro 만)
+// 2026-11-09 운영자 「쓰기 수익성 개선 1~5 다 해줘」: 무료 회원은 평생 딱 1번 맛보기(db/add_writing_free_taste.sql).
+// 표가 아직 없으면(SQL 전) rpc 가 실패 → 예전처럼 pro_only 로 막는다.
 const MAX = { 53: [7, 7, 16], 54: [12, 12, 26] } as Record<number, number[]>;
 
 const CORS = {
@@ -58,11 +60,22 @@ Deno.serve(async (req) => {
   if (n < 50) return json({ error: 'short' }, 400);
 
   const { data: pro } = await admin.rpc('is_pro', { uid: user.id });
-  if (!pro) return json({ error: 'pro_only' }, 403);   // 횟수를 세기 전에 막는다 — 무료는 Gemini 도 부르지 않는다
-  const limit = LIMIT.pro;
-  const { data: used, error: ue } = await admin.rpc('writing_usage_bump', { uid: user.id });
-  if (ue) { console.error(ue); return json({ error: 'server' }, 500); }
-  if (used > limit) return json({ error: 'daily_limit', limit, pro: !!pro }, 429);
+  let taste = false;
+  if (!pro) {
+    // 맛보기: 처음 한 번만 true(같은 사람이 동시에 두 번 보내도 하나만 통과). 그 뒤로는 Gemini 도 부르지 않고 막는다.
+    const { data: first, error: te } = await admin.rpc('writing_free_taste_take', { uid: user.id });
+    if (te) console.error(te);
+    if (te || !first) return json({ error: 'pro_only', taste_used: !te }, 403);
+    taste = true;
+  }
+  const limit = taste ? 1 : LIMIT.pro;
+  let used = 1;
+  if (!taste) {
+    const { data: u, error: ue } = await admin.rpc('writing_usage_bump', { uid: user.id });
+    if (ue) { console.error(ue); return json({ error: 'server' }, 500); }
+    used = u;
+    if (used > limit) return json({ error: 'daily_limit', limit, pro: !!pro }, 429);
+  }
 
   const [cMax, sMax, lMax] = MAX[it.q];
   const total = cMax + sMax + lMax;
@@ -133,12 +146,13 @@ ${answer}
     return json({
       ...out, max: { content: cMax, structure: sMax, language: lMax, total },
       total: out.content.score + out.structure.score + out.language.score,
-      chars: n, left: Math.max(0, limit - used), pro: !!pro,
+      chars: n, left: Math.max(0, limit - used), pro: !!pro, taste,
     });
   } catch (e) {
     console.error(e);
     // AI 쪽 실패는 학생 탓이 아니다 — 센 횟수를 되돌린다
-    await admin.from('writing_usage').update({ n: used - 1 }).eq('user_id', user.id)
+    if (taste) await admin.from('writing_free_taste').delete().eq('user_id', user.id);   // 맛보기도 돌려준다
+    else await admin.from('writing_usage').update({ n: used - 1 }).eq('user_id', user.id)
       .eq('day', new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10));
     return json({ error: 'ai' }, 502);
   } finally { clearTimeout(timer); }
