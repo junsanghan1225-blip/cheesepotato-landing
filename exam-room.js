@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=8d29a7bc';
+import * as THREE from './vendor/three.module.min.js?v=e1ea2496';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -570,6 +570,60 @@ function buildRoom() {
     }
     return [nx, nz];
   }
+  /* ── 내 팔(1인칭) — 앉아 있으면 책상 위에 내 두 손이 보인다. 시험 중에는 오른손이 연필로 쓰고,
+     시험지(팝업)를 열어 풀고 있으면 더 바쁘게 움직인다(운영자 2026-11-09 「문제 풀 때 팔 움직이는 기믹」). ── */
+  const myArms = new THREE.Group(); scene.add(myArms);
+  const myR = {};
+  {
+    const sk = M(0xe6b894), cl = M(0x3d4a5c), cuff = M(0x2f3a4a);
+    /* 손: 손바닥 + 손가락 넷(살짝 굽음) + 엄지 — 관절 끝(end)에 붙는다. grip 이면 연필을 쥔 모양 */
+    const makeHand = (end, side, grip) => {
+      ball(end, 0.034, sk, 0, -0.03, 0, 1.15, 1.05, 0.55);   // 손바닥
+      for (let f = 0; f < 4; f++) {
+        const fx = (f - 1.5) * 0.017 * side, fl = [0.04, 0.047, 0.045, 0.036][f];
+        const fg = new THREE.Group(); fg.position.set(fx, -0.062, 0); fg.rotation.x = grip ? -1.1 : -0.3; end.add(fg);
+        fg.add(cast(new THREE.Mesh(capG(0.0085, fl), sk)));
+      }
+      const th = new THREE.Group(); th.position.set(-0.028 * side, -0.035, -0.006); th.rotation.set(grip ? -0.8 : -0.2, 0, side * (grip ? 0.9 : 0.7)); end.add(th);
+      th.add(cast(new THREE.Mesh(capG(0.0095, 0.04), sk)));
+    };
+    /* 팔 하나: 소매(팔꿈치 → 손목 근처) + 소맷부리 + 손목 → 손 */
+    const myArm = (el, wr, side, grip) => {
+      const mid = el.clone().lerp(wr, 0.78);
+      const fo = joint(myArms, el, mid, 0.044, cl);                       // 소매 속 팔뚝(돌리는 곳)
+      const cf = new THREE.Mesh(new THREE.CylinderGeometry(0.046, 0.046, 0.018, 14), cuff); cf.position.y = 0.004; fo.end.add(cf);   // 소맷부리
+      const w = joint(fo.end, V(0, 0, 0), toLocal(myArms, fo.end, wr), 0.03, sk);   // 손목
+      makeHand(w.end, side, grip);
+      return { fo, w };
+    };
+    const R = myArm(V(0.27, 0.8, 0.44), V(0.085, 0.8, 0.075), 1, true);
+    const pen = new THREE.Group(); pen.position.set(0.004, -0.058, -0.012); pen.rotation.set(-0.95, 0.1, -0.45); R.w.end.add(pen);
+    { const body = new THREE.Mesh(new THREE.CylinderGeometry(0.0055, 0.0055, 0.15, 8), M(0xf2c744)); body.position.y = 0.035; pen.add(body);
+      const tip = new THREE.Mesh(new THREE.ConeGeometry(0.0055, 0.022, 8), M(0xe9d3a8)); tip.position.y = -0.051; tip.rotation.x = Math.PI; pen.add(tip);
+      const er = new THREE.Mesh(new THREE.CylinderGeometry(0.0058, 0.0058, 0.016, 8), M(0xe48c9a)); er.position.y = 0.117; pen.add(er); }
+    const L = myArm(V(-0.29, 0.8, 0.42), V(-0.13, 0.797, 0.06), -1, false);
+    const fo = R.fo, lf = L.fo;
+    Object.assign(myR, { fo, lf });
+  }
+  let armSeat = -1;
+  const hidePencil = (i, hide) => { const [x, z] = desks[i]; pencils.setMatrixAt(i, hide ? m4.makeScale(0, 0, 0) : m4.makeTranslation(x + 0.24, 0.766, z + 0.06)); pencils.instanceMatrix.needsUpdate = true; };
+  function placeArms(i) {
+    if (armSeat >= 0) hidePencil(armSeat, false);
+    armSeat = i; const [x, z] = desks[i]; myArms.position.set(x, 0, z); hidePencil(i, true);
+  }
+  placeArms(mySeat);
+  function armsTick(t, dt) {
+    myArms.visible = me.seated && goal.t >= 1;
+    if (!myArms.visible) return;
+    if (armSeat !== me.seat) placeArms(me.seat);
+    const solving = !$('paperV').hidden, writing = ex.began && ex.running && (solving || Math.sin(t * 0.35) > -0.2);
+    const k = Math.min(1, dt * 6), amp = solving ? 1.4 : 1;
+    const a = myR.fo.anim.rotation, b = myR.lf.anim.rotation;
+    a.z += ((writing ? Math.sin(t * 9.5) * 0.045 * amp + Math.sin(t * 2.1) * 0.02 : 0) - a.z) * k;   // 글자를 쓰는 작은 좌우
+    a.x += ((writing ? Math.sin(t * 13) * 0.03 * amp : -0.06) - a.x) * k;                          // 위아래(쓸 때 연필이 닿았다 떨어짐)
+    a.y += ((writing ? Math.sin(t * 0.8) * 0.06 : 0) - a.y) * k;                                    // 줄을 따라 천천히 옮겨 감
+    b.x += ((Math.sin(t * 0.6) * 0.012) - b.x) * k;                                                 // 왼손은 거의 가만히
+  }
   function sitAt(i) {
     const p = seatPos(i);
     Object.assign(goal, { x: p.x, z: p.z, eye: 1.16, t: 0 }); me.seated = true; me.seat = i; me.yaw = 0; me.pitch = -0.04; vYaw = vPitch = 0;
@@ -663,7 +717,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=8d29a7bc');
+      const { createClient } = await import('./vendor/supabase-js.js?v=e1ea2496');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -797,6 +851,7 @@ function buildRoom() {
     proctor.g.rotation.y = pDir > 0 ? Math.PI : 0; swing(proctor, t * 3.2, 0.42);
     for (const h of heads) if (h.p.g.visible) animSeated(h.p, t, dt);
     presenceTick(now, dt, t);
+    armsTick(t, dt);
     outsideTick(t, dt);   // 창밖은 계속 움직인다
     const prog = ex.began ? Math.min(1, Math.max(0, 1 - ex.left / Math.max(1, ex.total))) : 0;
     if (Math.abs(prog - skyP) > 0.004) {   // 창밖 시간 변화 + 햇빛
