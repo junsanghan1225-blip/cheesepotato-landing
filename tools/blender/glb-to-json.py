@@ -1,6 +1,7 @@
 # .glb(Blender 에서 만든 교실 소품) → 시험장이 바로 읽는 가벼운 JSON(assets/3d/classroom.json).
 #
 #   python3 tools/blender/glb-to-json.py <입력.glb> assets/3d/classroom.json      (bpy 가 깔린 파이썬)
+#   두 번째 묶음(교탁 · 칠판 틀 · 시계 · 창틀 · 게시판 · 스피커 · 쓰레기통) → assets/3d/classroom2.json
 #
 # 왜 .glb 를 그대로 안 쓰나: 브라우저에서 .glb 를 읽으려면 three.js 의 GLTFLoader(4천 줄)를 따로 들여와야 하는데,
 # 이 사이트는 CSP 때문에 import map 을 못 쓰고, 로더가 three 를 다른 주소로 한 번 더 불러오면 깨진다.
@@ -39,7 +40,7 @@ def col(m):
 
 res = {}
 for o in bpy.context.scene.objects:
-    if o.type != 'MESH' or o.name.split('.')[0] not in ('desk', 'chair', 'locker', 'door'): continue
+    if o.type != 'MESH': continue   # 이름은 물체 이름 그대로(desk · chair … · teacher_desk · board_frame …)
     name = o.name.split('.')[0]
     me = o.data; me.calc_loop_triangles()
     cn = me.corner_normals if hasattr(me, 'corner_normals') else None   # 모서리마다의 법선(각진 곳은 각지게, 둥근 다리는 둥글게)
@@ -60,6 +61,7 @@ for o in bpy.context.scene.objects:
         mp = diffuse_map(m)
         e = {'mat': m.name if m else '', 'rgb': [1, 1, 1] if mp else rgb, 'rough': rough, 'metal': metal, 'pos': p['pos'], 'nrm': p['nrm']}
         if mp and p['uv']: e['map'] = mp; e['uv'] = p['uv']
+        if m and 'glass' in m.name.lower(): e['glass'] = True   # 시험장이 반투명으로 그린다
         out_parts.append(e)
     res[name] = out_parts
     print(name, sum(len(p['pos']) // 9 for p in out_parts), '삼각형')
