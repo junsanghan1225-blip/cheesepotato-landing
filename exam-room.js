@@ -2,8 +2,8 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=5efe3b4a';
-import { leaveNudge } from './leave-nudge.js?v=5efe3b4a';
+import * as THREE from './vendor/three.module.min.js?v=ed16ae84';
+import { leaveNudge } from './leave-nudge.js?v=ed16ae84';
 leaveNudge('exam_room');
 
 const $ = (id) => document.getElementById(id);
@@ -270,18 +270,19 @@ function buildRoom() {
   const lampM = new THREE.MeshBasicMaterial({ color: 0xfffbe8 });
   for (const z of [-4.5, -0.5, 3.5, 7]) for (const x of [-2.6, 2.6]) box(1.9, 0.05, 0.3, lampM, x, 3.47, z);
   for (const [x, z] of [[-3.6, 1.2], [3.6, 1.2]]) { box(0.9, 0.12, 0.9, mat(0xf2f2ee), x, 3.44, z); box(0.55, 0.02, 0.55, mat(0xd8d8d2), x, 3.375, z); }   // 천장 에어컨
-  for (const [x, z] of [[-4.6, -6.6], [4.6, -6.6]]) { box(0.3, 0.45, 0.28, mat(0x2b2b2b), x, 2.95, z); const sp = new THREE.Mesh(new THREE.CircleGeometry(0.1, 16), mat(0x555555)); sp.position.set(x, 2.93, z + 0.145); scene.add(sp); }   // 듣기 시험 스피커
+  const old2 = { speaker: [], window_frame: [] };   // Blender 소품 2묶음이 받아지면 숨길 옛 상자들
+  for (const [x, z] of [[-4.6, -6.6], [4.6, -6.6]]) { old2.speaker.push(box(0.3, 0.45, 0.28, mat(0x2b2b2b), x, 2.95, z)); const sp = new THREE.Mesh(new THREE.CircleGeometry(0.1, 16), mat(0x555555)); sp.position.set(x, 2.93, z + 0.145); scene.add(sp); old2.speaker.push(sp); }   // 듣기 시험 스피커
   for (const [x, z] of [[0, -2], [0, 4]]) { const d = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.04, 12), mat(0xf5f5f5)); d.position.set(x, 3.47, z); scene.add(d); }
 
   /* ── 앞쪽: 칠판 · 시계 · 교탁 · 모니터 · 한글 표 · 정숙 팻말 ── */
-  box(6.9, 1.62, 0.06, woodM, 0, 1.78, -7.46);
+  old2.board_frame = [box(6.9, 1.62, 0.06, woodM, 0, 1.78, -7.46)];
   const board = canvasTex(1024, 256, () => {});
   const boardMesh = new THREE.Mesh(new THREE.PlaneGeometry(6.6, 1.5), new THREE.MeshBasicMaterial({ map: board.t }));
   boardMesh.position.set(0, 1.78, -7.425); scene.add(boardMesh);
-  box(6.7, 0.07, 0.14, woodM, 0, 1.0, -7.4);
+  old2.board_frame.push(box(6.7, 0.07, 0.14, woodM, 0, 1.0, -7.4));
   for (const [x, c] of [[-2.6, 0xf5f5f0], [-2.3, 0xf2d86a], [-2.0, 0xe8a0a8]]) box(0.12, 0.03, 0.03, mat(c), x, 1.05, -7.38);
   const clock = canvasTex(256, 256, () => {});
-  { const rim = new THREE.Mesh(new THREE.CircleGeometry(0.325, 40), mat(0x2b2b2b)); rim.position.set(3.85, 3.0, -7.43); scene.add(rim); }
+  { const rim = new THREE.Mesh(new THREE.CircleGeometry(0.325, 40), mat(0x2b2b2b)); rim.position.set(3.85, 3.0, -7.43); scene.add(rim); old2.clock_frame = [rim]; }
   const clockMesh = new THREE.Mesh(new THREE.CircleGeometry(0.28, 40), new THREE.MeshBasicMaterial({ map: clock.t }));
   clockMesh.position.set(3.85, 3.0, -7.425); scene.add(clockMesh);
   /* 한글 자모 표(왼쪽 앞벽) */
@@ -298,7 +299,7 @@ function buildRoom() {
   const sign = canvasTex(256, 128, (g, w, h) => { g.fillStyle = '#b3261e'; g.fillRect(0, 0, w, h); g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '800 44px "Pretendard Variable",sans-serif'; g.fillText('시험 중', w / 2, 62); g.font = '700 28px "Pretendard Variable",sans-serif'; g.fillText('정숙 · 휴대전화 끔', w / 2, 104); }).t;
   plane(0.9, 0.45, new THREE.MeshBasicMaterial({ map: sign }), 5.2, 2.2, -7.45);
   /* 교탁 + 노트북 + 서류 + 듣기 시험용 작은 스피커 */
-  box(1.5, 0.9, 0.7, woodM, 2.6, 0.45, -6.4, true); box(1.56, 0.06, 0.76, mat(0x9a7448), 2.6, 0.93, -6.4);
+  old2.teacher_desk = [box(1.5, 0.9, 0.7, woodM, 2.6, 0.45, -6.4, true), box(1.56, 0.06, 0.76, mat(0x9a7448), 2.6, 0.93, -6.4)];
   box(0.36, 0.015, 0.25, mat(0x888888), 2.35, 0.97, -6.45); { const sc = box(0.36, 0.23, 0.012, mat(0x222222), 2.35, 1.08, -6.57); sc.rotation.x = -0.2; }
   box(0.28, 0.03, 0.2, mat(0xffffff), 2.95, 0.97, -6.4); box(0.26, 0.02, 0.18, mat(0xf3efe0), 2.97, 1.0, -6.38);
   box(0.16, 0.14, 0.14, mat(0x222222), 3.2, 1.0, -6.55);
@@ -307,7 +308,7 @@ function buildRoom() {
   lockCols.forEach((c, i) => { box(0.62, 1.5, 0.4, mat(c), -3.4 + i * 0.64, 0.75, 8.28); box(0.02, 0.1, 0.02, mat(0x444444), -3.4 + i * 0.64 + 0.2, 0.9, 8.07); });
   /* 오른쪽: 소화기 + 쓰레기통(문은 위에서 — 누르면 복도로 나가는 문 하나만, 2026-11-09 문이 둘이던 것 정리) */
   box(0.14, 0.4, 0.14, mat(0xcf2b2b), 5.9, 0.35, 4.6); box(0.05, 0.08, 0.05, mat(0x222222), 5.9, 0.6, 4.6);
-  { const bin = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.14, 0.38, 14), mat(0x6c757d)); bin.position.set(5.5, 0.19, -6.9); scene.add(bin); }
+  { const bin = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.14, 0.38, 14), mat(0x6c757d)); bin.position.set(5.5, 0.19, -6.9); scene.add(bin); old2.bin = [bin]; }
 
   /* ── 창(왼쪽 벽): 바깥 풍경 · 커튼 · 틀 ── */
   /* 창밖 풍경 — 시험이 흐를수록 아침 → 한낮 → 노을로 바뀐다(p: 0~1). 햇빛 색 · 방향도 같이. */
@@ -390,14 +391,14 @@ function buildRoom() {
   const curM = mat(0xd9e3d4);
   for (const z of [-4.6, -1.6, 1.4, 4.4]) {
     const fr = mat(0xffffff);
-    box(0.05, 1.7, 0.06, fr, -5.97, 2.0, z); box(0.05, 0.06, 2.4, fr, -5.97, 1.18, z); box(0.05, 0.06, 2.4, fr, -5.97, 2.82, z); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z - 1.17); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z + 1.17);
+    old2.window_frame.push(box(0.05, 1.7, 0.06, fr, -5.97, 2.0, z), box(0.05, 0.06, 2.4, fr, -5.97, 1.18, z), box(0.05, 0.06, 2.4, fr, -5.97, 2.82, z), box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z - 1.17), box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z + 1.17));
     box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z - 1.0); box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z + 1.0);   // 커튼
   }
   /* 오른쪽 벽 게시판 — 치즈감자 소식(운영자 2026-11-09 「우리 홍보 게시판처럼 예쁘게」). 누르면 그 쪽이 새 탭으로 열린다. */
   const posters = [];
   {
     const BX = 5.95, BZ = -2.2, BY = 1.95;
-    box(0.05, 1.42, 4.5, mat(0x8a6a44), 5.985, BY, BZ);                // 나무 틀
+    old2.notice_board = [box(0.05, 1.42, 4.5, mat(0x8a6a44), 5.985, BY, BZ)];                // 나무 틀
     const cork = canvasTex(512, 160, (g, w, h) => { g.fillStyle = '#c9a06a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(${90 + (i % 50)},${60 + (i % 30)},30,${0.08 + (i % 7) * 0.02})`; g.fillRect((i * 97) % w, (i * 53) % h, 2, 2); } }).t;
     { const c = new THREE.Mesh(new THREE.PlaneGeometry(4.36, 1.3), new THREE.MeshLambertMaterial({ map: cork })); c.position.set(BX, BY, BZ); c.rotation.y = -Math.PI / 2; scene.add(c); }
     /* 위쪽 이름표 띠 */
@@ -479,9 +480,8 @@ function buildRoom() {
   [topsI, topEdge, dLegs, dRail, dBar, trayB, trayBack, traySide, seatsI, backsI, posts, cLegs, cRail, cBar].forEach((o) => { o.instanceMatrix.needsUpdate = true; if (fine) { o.castShadow = true; o.receiveShadow = true; } scene.add(o); });
   /* Blender 로 만든 소품(assets/3d/classroom.json, tools/blender/) — 받아지면 상자 모양을 이것으로 바꾼다(운영자 2026-11-09 「Blender 방법 1」).
      상자 모양은 숨기기만 한다 — 누르면 앉기 · 문 열기(raycast)는 그 상자로 계속 판다. 못 받으면 상자 그대로. */
-  fetch('/assets/3d/classroom.json').then((r) => (r.ok ? r.json() : null)).then((P) => {
-    if (!P || !P.desk || !P.chair) return;
-    const texCache = {};
+  const texCache = {};
+  const propsPlacer = (P) => {
     const build = (name) => (P[name] || []).map((part) => {
       const g = new THREE.BufferGeometry();
       g.setAttribute('position', new THREE.Float32BufferAttribute(part.pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(part.nrm, 3));
@@ -492,15 +492,21 @@ function buildRoom() {
         m.map = texCache[part.map];
       }
       if (part.metal > 0.5) m.color.multiplyScalar(1.25);   // 쇠는 램버트에서 어둡게 보여 조금 밝게
+      if (part.glass) { m.transparent = true; m.opacity = 0.22; m.depthWrite = false; }   // 시계 유리 등
       return { g, m };
     });
     const place = (name, list) => {   // list: [x, y, z, ry]
       for (const { g, m } of build(name)) {
         const im = new THREE.InstancedMesh(g, m, list.length);
         list.forEach(([x, y, z, ry], k) => im.setMatrixAt(k, m4.compose(pos.set(x, y, z), q.setFromEuler(new THREE.Euler(0, ry || 0, 0)), sc)));
-        im.instanceMatrix.needsUpdate = true; if (fine) { im.castShadow = true; im.receiveShadow = true; } scene.add(im);
+        im.instanceMatrix.needsUpdate = true; if (fine && !m.transparent) { im.castShadow = true; im.receiveShadow = true; } scene.add(im);
       }
     };
+    return place;
+  };
+  fetch('/assets/3d/classroom.json').then((r) => (r.ok ? r.json() : null)).then((P) => {
+    if (!P || !P.desk || !P.chair) return;
+    const place = propsPlacer(P);
     place('desk', desks.map(([x, z]) => [x, 0, z, 0]));
     place('chair', desks.map(([x, z]) => [x, 0, z + 0.55, 0]));
     [topsI, topEdge, dLegs, dRail, dBar, trayB, trayBack, traySide, seatsI, backsI, posts, cLegs, cRail, cBar].forEach((o) => { o.visible = false; });
@@ -510,6 +516,26 @@ function buildRoom() {
       place('door', [[6.62, 0, 6.6, 0], ...others.map((d) => [6.17, 0, d.z, Math.PI / 2])]);
       door.visible = false; doorGlass.visible = false; others.forEach((d) => { d.mesh.visible = false; d.glass.visible = false; });
     }
+  }).catch(() => {});
+  /* 2묶음: 교탁 · 칠판 틀 · 벽시계 테두리 · 창틀 · 게시판 틀 · 스피커 · 쓰레기통(운영자 Blender, 2026-11-09).
+     칠판 판 · 시계 숫자판 · 게시판 소식은 지금처럼 살아 있는 그림 그대로 — 틀만 바꾼다. 벽에 거는 것은 원점이 뒷면 가운데. */
+  fetch('/assets/3d/classroom2.json').then((r) => (r.ok ? r.json() : null)).then((P) => {
+    if (!P) return;
+    const place = propsPlacer(P), PI = Math.PI;
+    const spots = {
+      teacher_desk: [[2.6, 0, -6.4, PI]],
+      board_frame: [[0, 1.78, -7.5, PI]],
+      clock_frame: [[3.85, 3.0, -7.5, PI]],
+      window_frame: [-4.6, -1.6, 1.4, 4.4].map((z) => [-6.0, 2.0, z, -PI / 2]),
+      notice_board: [[6.0, 1.95, -2.2, PI / 2]],
+      speaker: [[-4.6, 2.95, -6.74, PI], [4.6, 2.95, -6.74, PI]],
+      bin: [[5.5, 0, -6.9, 0]],
+    };
+    for (const [name, list] of Object.entries(spots)) {
+      if (!P[name]) continue;
+      place(name, list); (old2[name] || []).forEach((o) => { o.visible = false; });
+    }
+    if (P.clock_frame) clockMesh.position.z = -7.47;   // 숫자판을 새 유리 뒤로
   }).catch(() => {});
   /* 시험지(OMR 답안지 느낌) — 자리마다 한 장 + 연필 */
   const paper = canvasTex(256, 360, (g, w, h) => {
@@ -845,7 +871,7 @@ function buildRoom() {
        이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
     void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=5efe3b4a');
+      const { createClient } = await import('./vendor/supabase-js.js?v=ed16ae84');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
