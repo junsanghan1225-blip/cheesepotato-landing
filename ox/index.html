@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>햄스터 OX 퀴즈 · 한국어 낱말 | CheesePotato</title>
+<meta name="description" content="햄스터가 되어 O와 X로 달려가는 한국어 낱말 퀴즈. 틀리면 바닥이 꺼져요. TOPIK I 낱말 400문항, 무료. A Korean word OX quiz with hamsters.">
+<link rel="canonical" href="https://everykoreans.com/ox/">
+<meta property="og:title" content="햄스터 OX 퀴즈">
+<meta property="og:description" content="햄스터가 되어 O와 X로 달려가는 한국어 낱말 퀴즈.">
+<meta property="og:url" content="https://everykoreans.com/ox/">
+<meta property="og:image" content="https://everykoreans.com/logo-256.png">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#1c1915">
+<script src="/gtm.js?v=a2dd8bba" async></script>
+<script src="/analytics.js?v=a2dd8bba" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=a2dd8bba">
+<style>
+/* 햄스터 OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
+:root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; --o:#2f6fd6; --x:#d6452f; }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font-family:'Pretendard Variable','Pretendard',-apple-system,'Noto Sans KR',sans-serif; overflow:hidden; }
+#scene { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; }
+.hud { position:fixed; left:0; right:0; z-index:5; pointer-events:none; }
+.top { top:0; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:max(12px,env(safe-area-inset-top)) 14px 0; }
+.brand { pointer-events:auto; color:var(--paper); text-decoration:none; font-weight:800; font-size:14px; background:rgba(28,25,21,.66); padding:7px 12px; border-radius:8px; }
+.stat { text-align:right; background:rgba(28,25,21,.66); padding:6px 12px; border-radius:8px; font-size:13px; line-height:1.35; }
+.stat b { font-size:17px; font-variant-numeric:tabular-nums; }
+.qbox { top:62px; display:flex; justify-content:center; padding:0 14px; }
+.q { width:min(720px,100%); background:rgba(255,253,246,.95); color:var(--ink); border-radius:12px; padding:14px 18px 12px; border:1px solid var(--line); }
+.q small { display:flex; justify-content:space-between; font-size:12.5px; font-weight:700; color:#6d655c; }
+.q .qt { margin-top:6px; font-size:clamp(20px,4.6vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.3; word-break:keep-all; }
+.q .qt em { font-style:normal; color:var(--orange); }
+.q .qe { margin-top:4px; font-size:14px; color:#5c564c; }
+.bar { height:6px; border-radius:6px; background:#e7dfcf; margin-top:10px; overflow:hidden; }
+.bar i { display:block; height:100%; width:100%; background:var(--ink); transform-origin:left; }
+.msg { top:46%; text-align:center; padding:0 16px; }
+.msg span { display:inline-block; font-size:clamp(28px,7vw,54px); font-weight:900; letter-spacing:-.03em; padding:10px 22px; border-radius:12px; opacity:0; transform:scale(.9); transition:opacity .2s, transform .2s; }
+.msg span.on { opacity:1; transform:none; }
+.msg .ok { background:var(--o); color:#fff; } .msg .ng { background:var(--x); color:#fff; } .msg .info { background:rgba(28,25,21,.8); color:#fff; font-size:clamp(20px,4.5vw,30px); }
+.pick { bottom:0; display:flex; gap:10px; justify-content:center; padding:0 14px max(14px,env(safe-area-inset-bottom)); pointer-events:auto; }
+.pick button { flex:1; max-width:260px; min-height:68px; border:0; border-radius:12px; font:inherit; font-size:34px; font-weight:900; color:#fff; cursor:pointer; }
+.pick .bo { background:var(--o); } .pick .bx { background:var(--x); }
+.pick button[aria-pressed="true"] { outline:4px solid #fff; outline-offset:-4px; }
+.pick button:disabled { opacity:.45; cursor:default; }
+.panel { position:fixed; inset:0; z-index:8; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(20,18,15,.55); backdrop-filter:blur(3px); }
+.panel[hidden] { display:none; }
+.card { width:min(520px,100%); background:var(--paper); color:var(--ink); border-radius:12px; padding:22px 20px; max-height:92vh; overflow:auto; }
+.card h1 { margin:0 0 4px; font-size:22px; }
+.card p { margin:6px 0 14px; font-size:14.5px; color:#5c564c; line-height:1.6; }
+.card ol { margin:0 0 14px; padding-left:20px; font-size:14.5px; line-height:1.7; color:#3e3830; }
+.who { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 14px; }
+.who button { border:1px solid var(--line); background:#fff; border-radius:10px; padding:10px; font:inherit; cursor:pointer; text-align:left; color:var(--ink); }
+.who button b { display:block; font-size:16px; } .who button small { color:#6d655c; font-size:12.5px; }
+.who button[aria-pressed="true"] { border:2px solid var(--orange); padding:9px; background:#fff6ee; }
+.who i { display:inline-block; width:14px; height:14px; border-radius:50%; vertical-align:-2px; margin-right:6px; }
+.go { width:100%; border:0; background:var(--ink); color:var(--paper); border-radius:8px; padding:14px; font:inherit; font-size:16px; font-weight:800; cursor:pointer; min-height:48px; }
+.fine { font-size:12.5px; color:#6d655c; margin:12px 0 0; line-height:1.5; }
+.res { font-size:15px; line-height:1.7; margin:0 0 12px; }
+.res b { font-size:28px; }
+.links { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.links a { font-size:14px; font-weight:700; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 12px; text-decoration:none; background:#fff; }
+.nogl { position:fixed; inset:0; display:none; z-index:4; background:#2a3b2f; }
+.nogl.on { display:block; }
+@media (max-width:560px) { .q .qe { font-size:13px; } .pick button { min-height:60px; font-size:30px; } }
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="햄스터들이 모인 OX 퀴즈 운동장" role="img"></canvas>
+<div class="nogl" id="noGl"></div>
+
+<div class="hud top">
+  <a class="brand" href="/">치즈감자 · CheesePotato</a>
+  <div class="stat" aria-live="off"><span id="sLive">남은 햄스터</span> <b id="sAlive">-</b><br><span>맞힌 문제</span> <b id="sScore">0</b></div>
+</div>
+<div class="hud qbox" id="qWrap" hidden>
+  <div class="q">
+    <small><span id="qNo">1 / 15</span><span id="qSec">10초</span></small>
+    <div class="qt" id="qText"></div>
+    <div class="qe" id="qEn"></div>
+    <div class="bar"><i id="qBar"></i></div>
+  </div>
+</div>
+<div class="hud msg" aria-live="polite"><span id="msg"></span></div>
+<div class="hud pick" id="pick" hidden>
+  <button type="button" class="bo" id="bO" aria-pressed="false" aria-label="O 로 가기">O</button>
+  <button type="button" class="bx" id="bX" aria-pressed="false" aria-label="X 로 가기">X</button>
+</div>
+
+<div class="panel" id="panel">
+  <div class="card" role="dialog" aria-labelledby="pT">
+    <h1 id="pT">햄스터 OX 퀴즈 <small style="font-size:13px;font-weight:600;color:#6d655c">· Korean word OX</small></h1>
+    <p>햄스터가 되어 낱말 뜻이 맞으면 <b style="color:var(--o)">O</b>, 틀리면 <b style="color:var(--x)">X</b> 쪽으로 달려가요. 시간이 끝나면 틀린 쪽 바닥이 꺼져요. <span lang="en">Run to O if the meaning is right, X if it is wrong.</span></p>
+    <ol>
+      <li>한 판에 15문제, 문제마다 10초예요.</li>
+      <li>아래 O · X 단추를 누르거나, 운동장을 눌러도 돼요(키보드는 ← →).</li>
+      <li>떨어져도 끝까지 같이 풀 수 있어요. 맞힌 문제 수가 내 점수예요.</li>
+    </ol>
+    <div class="who" id="who" role="group" aria-label="햄스터 고르기">
+      <button type="button" data-who="cheese" aria-pressed="true"><b><i style="background:#e0a04a"></i>치즈</b><small>첫째 · 노란 햄스터</small></button>
+      <button type="button" data-who="gamja" aria-pressed="false"><b><i style="background:#9a9a96"></i>감자</b><small>둘째 · 회색 햄스터</small></button>
+    </div>
+    <button type="button" class="go" id="bGo">시작 · Start</button>
+    <p class="fine">TOPIK I 낱말 400문항에서 섞어 나와요. 함께 뛰는 햄스터들은 아직 컴퓨터가 움직이는 친구들이에요(다음에 실제 접속자와 함께 뛰는 판을 열 예정). <a href="/about.html">치즈와 감자 이야기 →</a></p>
+  </div>
+</div>
+<div class="panel" id="end" hidden>
+  <div class="card" role="dialog" aria-labelledby="eT">
+    <h1 id="eT">끝!</h1>
+    <p class="res" id="eRes"></p>
+    <button type="button" class="go" id="bAgain">한 판 더 · Play again</button>
+    <div class="links">
+      <a href="/topik1-words/">TOPIK I 낱말 공부</a>
+      <a href="/?lt=1">3분 레벨테스트</a>
+      <a href="/exam-room/">3D 시험장</a>
+    </div>
+  </div>
+</div>
+<script type="module" src="/ox.js?v=a2dd8bba"></script>
+</body>
+</html>
