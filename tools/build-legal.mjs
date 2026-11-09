@@ -102,7 +102,7 @@ const ROWS = [
   ['TOPIK 유형별 연습 문제 917개', 'TOPIK practice questions by type (917)', '✓', '✓'],
   ['EPS-TOPIK 연습 · 모의고사', 'EPS-TOPIK practice and mock tests', '✓', '✓'],
   ['TOPIK 모의고사', 'TOPIK mock tests', '1회차', '<b>전 회차 + 회차별 성적 추이</b>'],
-  ['TOPIK 쓰기 53·54번 AI 채점', 'AI scoring for TOPIK writing Q53–54', 'Pro 전용', '<b>하루 30번</b>'],
+  ['TOPIK 쓰기 53·54번 AI 채점', 'AI scoring for TOPIK writing Q53–54', '처음 1번 무료 (로그인)', '<b>하루 30번</b>'],
   ['AI 발음 진단 · 한국어 도우미', 'AI pronunciation feedback · Korean helper', '하루 20번 (로그인)', '<b>하루 100번</b>'],
   ['TOPIK 약점 리포트 · 합격 계획표', 'TOPIK weak-spot report · exam plan', '가장 약한 유형 하나', '<b>전체 리포트 + 계획표</b>'],
   ['TOPIK 모의고사 인쇄본(PDF · 문제지 · 답안지 · 정답)', 'Printable TOPIK mock exams (PDF · paper, answer sheet, key)', '제1 · 2회', '<b>전 회차</b>'],
