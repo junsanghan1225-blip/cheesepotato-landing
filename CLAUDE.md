@@ -101,7 +101,7 @@
   | `difficulty.js`(TOPIK 문항 난이도 1·2·3 — 안티가 매긴 값) | `docs/difficulty/<묶음>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-difficulty-task.md`, 검사 `node tools/difficulty-list.mjs <묶음> --check`) → `node tools/build-difficulty.mjs` |
   | `bonus/`(책 QR 보너스 연습 — 단원마다 낱말 카드 · 퀴즈 · 빈칸 쪽, 책 QR 이 여는 곳) | `docs/bonus/<책 id>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-bonus-task.md`, 검사 `check-bonus`) → `node tools/build-bonus.mjs` |
   | `podcast-episodes.json`(팟캐스트 올리기 쪽 에피소드 목록) | `docs/podcast/ep*.md`(대본) → `node tools/build-podcast.mjs` |
-  | `ox-questions.js`(햄스터 OX 퀴즈 `/ox/` 문항 — 낱말 뜻 O/X) | `vocab-topik1.js`(짧은 뜻) → `node tools/build-ox.mjs` |
+  | `ox-questions.js`(햄스터 OX 퀴즈 `/ox/` 문항 — 일곱 갈래) | `vocab-topik1.js` · `grammar-pairs.js` · `expressions.js` + 숫자 · 높임말 규칙 → `node tools/build-ox.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **책 표지 색은 안 겹치게**(운영자 2026-10-26 「앞으로 표지는 절대로 안 겹치게」): 새 책의 표지 색(`coverLevel.bg`)은 이미 있는 책들과 달라야 한다 — `node tools/check-cover-colors.mjs`(CI · preflight 에 들어 있음, 겹치면 실패), 빈 색은 `--suggest`. 예외는 이미 같은 보라로 나간 TOPIK II 책 여섯뿐.
 - **검사:** 올리기 전에 **`node tools/preflight.mjs` 한 줄** — 자국 찍기 · 확인, 문법, CI(`check.yml`)의 검사 전부를 같은 차례로.

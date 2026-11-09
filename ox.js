@@ -1,8 +1,8 @@
 /* 햄스터 OX 퀴즈 (/ox/) — 운영자 2026-11-09 「메타버스처럼 OX 퀴즈 · 모여서 O 가 정답이면 X 에 있으면 죽는 느낌 · 캐릭터는 햄스터」 1단계.
    1단계는 서버 없이 이 기기에서만 돈다: 함께 뛰는 햄스터는 컴퓨터가 움직인다(2단계에서 실제 접속자와 함께).
    문항은 ox-questions.js(우리 TOPIK I 낱말 자료에서 만든 생성물). 3D 는 three.js(vendor, MIT). */
-import * as THREE from './vendor/three.module.min.js?v=a2dd8bba';
-import { OX } from './ox-questions.js?v=a2dd8bba';
+import * as THREE from './vendor/three.module.min.js?v=e43fef61';
+import { OX } from './ox-questions.js?v=e43fef61';
 
 const $ = (id) => document.getElementById(id);
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
@@ -146,7 +146,12 @@ function goSide(h, side) {
 
 function startRound() {
   audio();
-  const pool = [...OX].sort(() => Math.random() - 0.5).slice(0, N_Q);
+  /* 한 판에 여러 갈래가 섞이게: 갈래마다 돌아가며 하나씩 뽑는다(낱말 뜻만 계속 나오지 않게) */
+  const by = {}; for (const q of OX) (by[q.k] = by[q.k] || []).push(q);
+  const kinds = Object.keys(by).sort(() => Math.random() - 0.5), pool = [];
+  for (const k of kinds) by[k].sort(() => Math.random() - 0.5);
+  for (let i = 0; pool.length < N_Q; i++) { const k = kinds[i % kinds.length]; const q = by[k].pop(); if (q) pool.push(q); if (i > 200) break; }
+  pool.sort(() => Math.random() - 0.5);
   round = { qs: pool, i: -1, score: 0, outAt: 0, t0: 0 };
   spawn();
   $('panel').hidden = true; $('end').hidden = true; $('qWrap').hidden = false; $('pick').hidden = false;
@@ -159,8 +164,9 @@ function nextQ() {
   const q = round.qs[round.i];
   phase = 'ask'; round.t0 = performance.now(); round.lastTick = 0;
   $('qNo').textContent = `${round.i + 1} / ${round.qs.length}`;
-  $('qText').innerHTML = `「<em>${esc(q.w)}</em>」의 뜻은 <span lang="en">“${esc(q.m)}”</span>`;
-  $('qEn').textContent = '이 뜻이 맞으면 O, 틀리면 X · Right meaning? O or X';
+  $('qKind').textContent = KIND[q.k] || '';
+  $('qText').innerHTML = q.q.split('\n').map((l) => esc(l).replace(/「([^」]+)」/g, '「<em>$1</em>」')).join('<br>');
+  $('qEn').textContent = '맞으면 O, 틀리면 X · True? O · False? X';
   $('bO').disabled = $('bX').disabled = false;
   for (const h of [me, ...bots]) { h.side = 0; }
   /* 모두 가운데 줄 근처로 모였다가 다시 고른다 */
@@ -168,6 +174,8 @@ function nextQ() {
   bots.filter((b) => b.alive).forEach((b, k) => { b.tx = (Math.random() - 0.5) * 1.2; b.tz = -FIELD.z + 1 + (k / Math.max(1, bots.length)) * (FIELD.z * 2 - 2); b.decideAt = 0.8 + Math.random() * 6.5; b.swapAt = Math.random() < 0.25 ? b.decideAt + 1 + Math.random() * 2 : 0; b.choice = Math.random() < b.acc ? (q.a ? 1 : 2) : (q.a ? 2 : 1); });
   paintPick(); paintStat();
 }
+/* 갈래 이름(문제 위 작은 글자) */
+const KIND = { meaning: '낱말 뜻 · Word meaning', pos: '품사 · Part of speech', grammar: '문법 · Grammar', expr: '속담 · 관용 표현 · Expressions', hanja: '사자성어 한자 · Hanja', number: '숫자 읽기 · Reading numbers', honor: '높임말 · Honorifics' };
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 function paintPick() { $('bO').setAttribute('aria-pressed', String(me.side === 1)); $('bX').setAttribute('aria-pressed', String(me.side === 2)); }
 function paintStat() {
@@ -198,7 +206,7 @@ function reveal() {
   phase = 'reveal'; round.t0 = performance.now();
   const q = round.qs[round.i], good = q.a ? 1 : 2;
   $('bO').disabled = $('bX').disabled = true;
-  $('qEn').textContent = q.a ? `정답 O · 「${q.w}」 = ${q.m}` : `정답 X · 「${q.w}」 = ${q.r} (“${q.m}”가 아니에요)`;
+  $('qEn').textContent = `정답 ${q.a ? 'O' : 'X'} · ${q.e}`;
   const meRight = me.side === good;
   if (meRight) { round.score++; sOk(); say(me.alive ? '정답! 살았어요' : '정답!', 'ok'); }
   else { sNg(); say(me.alive ? '앗, 떨어져요!' : '아쉬워요', 'ng'); }

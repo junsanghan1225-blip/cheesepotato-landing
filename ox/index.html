@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>햄스터 OX 퀴즈 · 한국어 낱말 | CheesePotato</title>
-<meta name="description" content="햄스터가 되어 O와 X로 달려가는 한국어 낱말 퀴즈. 틀리면 바닥이 꺼져요. TOPIK I 낱말 400문항, 무료. A Korean word OX quiz with hamsters.">
+<meta name="description" content="햄스터가 되어 O와 X로 달려가는 한국어 OX 퀴즈. 낱말 뜻 · 품사 · 문법 · 속담 · 사자성어 · 숫자 읽기 · 높임말 600여 문항, 틀리면 바닥이 꺼져요. 무료. A Korean OX quiz with hamsters.">
 <link rel="canonical" href="https://everykoreans.com/ox/">
 <meta property="og:title" content="햄스터 OX 퀴즈">
 <meta property="og:description" content="햄스터가 되어 O와 X로 달려가는 한국어 낱말 퀴즈.">
@@ -12,9 +12,9 @@
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1c1915">
-<script src="/gtm.js?v=a2dd8bba" async></script>
-<script src="/analytics.js?v=a2dd8bba" defer></script>
-<link rel="stylesheet" href="/vendor/pretendard.css?v=a2dd8bba">
+<script src="/gtm.js?v=e43fef61" async></script>
+<script src="/analytics.js?v=e43fef61" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=e43fef61">
 <style>
 /* 햄스터 OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
 :root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; --o:#2f6fd6; --x:#d6452f; }
@@ -29,7 +29,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 .qbox { top:62px; display:flex; justify-content:center; padding:0 14px; }
 .q { width:min(720px,100%); background:rgba(255,253,246,.95); color:var(--ink); border-radius:12px; padding:14px 18px 12px; border:1px solid var(--line); }
 .q small { display:flex; justify-content:space-between; font-size:12.5px; font-weight:700; color:#6d655c; }
-.q .qt { margin-top:6px; font-size:clamp(20px,4.6vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.3; word-break:keep-all; }
+.q .qt { margin-top:6px; font-size:clamp(18px,4.2vw,27px); font-weight:800; letter-spacing:-.02em; line-height:1.3; word-break:keep-all; }
 .q .qt em { font-style:normal; color:var(--orange); }
 .q .qe { margin-top:4px; font-size:14px; color:#5c564c; }
 .bar { height:6px; border-radius:6px; background:#e7dfcf; margin-top:10px; overflow:hidden; }
@@ -75,7 +75,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 </div>
 <div class="hud qbox" id="qWrap" hidden>
   <div class="q">
-    <small><span id="qNo">1 / 15</span><span id="qSec">10초</span></small>
+    <small><span><span id="qNo">1 / 15</span> · <span id="qKind"></span></span><span id="qSec">10초</span></small>
     <div class="qt" id="qText"></div>
     <div class="qe" id="qEn"></div>
     <div class="bar"><i id="qBar"></i></div>
@@ -101,7 +101,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
       <button type="button" data-who="gamja" aria-pressed="false"><b><i style="background:#9a9a96"></i>감자</b><small>둘째 · 회색 햄스터</small></button>
     </div>
     <button type="button" class="go" id="bGo">시작 · Start</button>
-    <p class="fine">TOPIK I 낱말 400문항에서 섞어 나와요. 함께 뛰는 햄스터들은 아직 컴퓨터가 움직이는 친구들이에요(다음에 실제 접속자와 함께 뛰는 판을 열 예정). <a href="/about.html">치즈와 감자 이야기 →</a></p>
+    <p class="fine">낱말 뜻 · 품사 · 문법 · 속담 · 관용 표현 · 사자성어 한자 · 숫자 읽기 · 높임말이 한 판에 섞여 나와요(600여 문항). 함께 뛰는 햄스터들은 아직 컴퓨터가 움직이는 친구들이에요(다음에 실제 접속자와 함께 뛰는 판을 열 예정). <a href="/about.html">치즈와 감자 이야기 →</a></p>
   </div>
 </div>
 <div class="panel" id="end" hidden>
@@ -116,6 +116,6 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     </div>
   </div>
 </div>
-<script type="module" src="/ox.js?v=a2dd8bba"></script>
+<script type="module" src="/ox.js?v=e43fef61"></script>
 </body>
 </html>
