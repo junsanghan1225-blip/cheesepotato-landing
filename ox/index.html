@@ -12,9 +12,9 @@
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1c1915">
-<script src="/gtm.js?v=111c42af" async></script>
-<script src="/analytics.js?v=111c42af" defer></script>
-<link rel="stylesheet" href="/vendor/pretendard.css?v=111c42af">
+<script src="/gtm.js?v=98b854a5" async></script>
+<script src="/analytics.js?v=98b854a5" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=98b854a5">
 <style>
 /* OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
 :root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; --o:#2f6fd6; --x:#d6452f; }
@@ -76,7 +76,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 </div>
 <div class="hud qbox" id="qWrap" hidden>
   <div class="q">
-    <small><span><span id="qNo">1 / 15</span> · <span id="qKind"></span></span><span id="qSec">10초</span></small>
+    <small><span><span id="qNo">1 / 15</span> · <span id="qKind"></span></span><span id="qSec">12초</span></small>
     <div class="qt" id="qText"></div>
     <div class="qe" id="qEn"></div>
     <div class="bar"><i id="qBar"></i></div>
@@ -93,18 +93,18 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     <h1 id="pT">OX 퀴즈 <small style="font-size:13px;font-weight:600;color:#6d655c">· Korean OX quiz</small></h1>
     <p>햄스터가 되어 낱말 뜻이 맞으면 <b style="color:var(--o)">O</b>, 틀리면 <b style="color:var(--x)">X</b> 쪽으로 달려가요. 시간이 끝나면 틀린 쪽 바닥이 꺼져요. <span lang="en">Run to O if the meaning is right, X if it is wrong.</span></p>
     <ol>
-      <li>한 판에 15문제, 문제마다 10초예요.</li>
+      <li>한 판에 15문제, 문제마다 12초예요.</li>
       <li>오른쪽 아래 조이스틱을 끌어서 햄스터를 O나 X 쪽으로 걸어가게 해요(컴퓨터는 방향키 · WASD). 시간이 끝날 때 서 있는 쪽이 내 답이에요.</li>
-      <li>떨어져도 끝까지 같이 풀 수 있어요. 맞힌 문제 수가 내 점수예요.</li>
+      <li>틀려서 떨어지면 옆 벤치에 앉아 다음 판을 기다려요. 맞힌 문제 수가 내 점수예요.</li>
     </ol>
     <div class="who" id="who" role="group" aria-label="햄스터 고르기">
       <button type="button" data-who="cheese" aria-pressed="true"><b><i style="background:#e0a04a"></i>치즈</b><small>첫째 · 노란 햄스터</small></button>
       <button type="button" data-who="gamja" aria-pressed="false"><b><i style="background:#9a9a96"></i>감자</b><small>둘째 · 회색 햄스터</small></button>
     </div>
     <button type="button" class="go" id="bLive" style="background:#e4631f;color:#1c1915;margin-bottom:8px">함께 하기 · 실시간 · Live with others</button>
-    <p class="fine" id="liveNote" hidden style="margin:0 0 10px;color:#b3261e">함께 하기는 로그인한 사람만 할 수 있어요. <a href="/#account">로그인 · Sign in →</a> 로그인 없이 혼자 연습은 바로 돼요.</p>
+    
     <button type="button" class="go" id="bGo" style="background:#fff;color:#1c1915;border:1px solid var(--line)">혼자 연습 · Solo practice</button>
-    <p class="fine">낱말 뜻 · 품사 · 문법 · 속담 · 관용 표현 · 사자성어 한자 · 숫자 읽기 · 높임말이 한 판에 섞여 나와요(600여 문항). 「함께 하기」는 모두가 같은 시계로 같은 문제를 풀어요(14초마다 한 문제, 15문제가 한 판). 다른 접속자는 이름 없이 햄스터로만 보이고, 사람이 적으면 컴퓨터 햄스터가 함께 뛰어요. 「혼자 연습」은 컴퓨터 햄스터와 바로 시작해요. <a href="/about.html">치즈와 감자 이야기 →</a></p>
+    <p class="fine">낱말 뜻 · 품사 · 문법 · 속담 · 관용 표현 · 사자성어 한자 · 숫자 읽기 · 높임말이 한 판에 섞여 나와요(600여 문항). 「함께 하기」는 모두가 같은 시계로 같은 문제를 풀어요(16초마다 한 문제, 15문제가 한 판). 다른 접속자는 이름 없이 햄스터로만 보이고, 사람이 적으면 컴퓨터 햄스터가 함께 뛰어요. 「혼자 연습」은 컴퓨터 햄스터와 바로 시작해요. <a href="/about.html">치즈와 감자 이야기 →</a></p>
   </div>
 </div>
 <div class="panel" id="end" hidden>
@@ -119,6 +119,6 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     </div>
   </div>
 </div>
-<script type="module" src="/ox.js?v=111c42af"></script>
+<script type="module" src="/ox.js?v=98b854a5"></script>
 </body>
 </html>
