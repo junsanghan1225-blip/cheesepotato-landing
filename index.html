@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=410bf309" async></script>
+<script src="gtm.js?v=e1ea2496" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=410bf309">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=410bf309">
+<link rel="stylesheet" href="vendor/pretendard.css?v=e1ea2496">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=e1ea2496">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=410bf309" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=410bf309"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=e1ea2496" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=e1ea2496"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -988,6 +988,10 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 [data-ic="open"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M2%205h6a4%204%200%200%201%204%204v12a3%203%200%200%200-3-3H2Z%22/%3E%3Cpath%20d%3D%22M22%205h-6a4%204%200%200%200-4%204v12a3%203%200%200%201%203-3h7Z%22/%3E%3C/svg%3E"); }
 [data-ic="work"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%227%22%20width%3D%2218%22%20height%3D%2213%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22M8%207V5a2%202%200%200%201%202-2h4a2%202%200%200%201%202%202v2M3%2013h18%22/%3E%3C/svg%3E"); }
 [data-ic="target"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221%22/%3E%3C/svg%3E"); }
+/* 문제를 푸는 동안에는 시험 · 영역 고르기 줄과 큰 제목을 접는다 — 문항이 화면 위쪽에서 바로 보이게(운영자 2026-11-09) */
+#tqWrap:has(#tqPlay:not(.hidden)) #tqSkillBar { display:none; }
+#lsecWrap:has(#tqPlay:not(.hidden)) > .bd-sec-title { display:none; }
+[data-ic="clock"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22/%3E%3Cpath%20d%3D%22M12%207v5l3%202%22/%3E%3C/svg%3E"); }
 [data-ic="plane"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M17.8%2019.2%2016%2011l3.5-3.5A2.1%202.1%200%200%200%2016.5%204.5L13%208%204.8%206.2l-1.6%201.6L10%2011.5%207%2014.5H4l-1%201%204%202%202%204%201-1v-3l3-3%203.7%206.8Z%22/%3E%3C/svg%3E"); }
 #sideNav.side-calm .side-item, #sideNav.side-calm .nav-link { flex-shrink:0; gap:0; padding:9px 12px; margin:0; font-size:15px; font-weight:500; color:var(--ink); min-height:0; }
 .side-calm .side-path { font-weight:800; }
@@ -2706,10 +2710,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- 언어 안내(운영자 2026-10-17 「홈페이지에서 언어 지원하는 거 정확히 명시」) — 화면 12개 / 낱말 뜻 영어 + 9개 / 레슨 · 문제는 한국어. 화면 언어를 바꾸거나 낱말 뜻 언어(GLOSS_LANGS)가 바뀌면 여기도 고친다. -->
     <div class="footer-info ft-note" style="margin-top:6px">
-      <span data-en="Languages:">언어 안내:</span>
-      <span data-en="the screen (menus, buttons, tips) is in 12 languages. Korean, English, Vietnamese, Japanese, Chinese, Indonesian, Nepali, Burmese, Russian, Mongolian, Portuguese, Uzbek (some newer screens may still show English).">화면(메뉴 · 단추 · 안내)은 12개 언어 — 한국어 · English · Tiếng Việt · 日本語 · 中文 · Bahasa Indonesia · नेपाली · မြန်မာ · Русский · Монгол · Português · Oʻzbekcha (새로 생긴 화면은 일부가 영어로 보일 수 있어요).</span>
-      <span data-en="Word meanings: English plus Japanese, Chinese, Vietnamese, Russian, Spanish, French, Arabic, Mongolian and Indonesian.">낱말 뜻: 영어 + 일본어 · 중국어 · 베트남어 · 러시아어 · 스페인어 · 프랑스어 · 아랍어 · 몽골어 · 인도네시아어.</span>
-      <span data-en="Lessons, exercises and reading passages are in Korean (with English help) and are not translated.">레슨 · 문제 · 읽기 지문은 한국어(영어 설명 함께)이고 번역하지 않아요.</span>
+      <span data-en="Screen in 12 languages · word meanings in 10 · lessons in Korean.">화면 12개 언어 · 낱말 뜻 10개 언어 · 레슨은 한국어.</span>
+      <a href="about.html#languages" data-en="Details">자세히</a>
     </div>
     <div class="footer-info" style="margin-top:6px">
       <span data-en="Word meanings from the">낱말 뜻풀이 출처:</span>
@@ -4462,9 +4464,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=410bf309"></script>
-<script type="module" src="app.module.js?v=410bf309"></script>
+<script src="app.js?v=e1ea2496"></script>
+<script type="module" src="app.module.js?v=e1ea2496"></script>
 
-<script src="analytics.js?v=410bf309" defer></script>
+<script src="analytics.js?v=e1ea2496" defer></script>
 </body>
 </html>
