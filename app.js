@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=00c24c2e', ja: './i18n-ja.js?v=00c24c2e', zh: './i18n-zh.js?v=00c24c2e', id: './i18n-id.js?v=00c24c2e', ne: './i18n-ne.js?v=00c24c2e', my: './i18n-my.js?v=00c24c2e', ru: './i18n-ru.js?v=00c24c2e', mn: './i18n-mn.js?v=00c24c2e', pt: './i18n-pt.js?v=00c24c2e', uz: './i18n-uz.js?v=00c24c2e' };
+const I18N_URL = { vi: './i18n-vi.js?v=111c42af', ja: './i18n-ja.js?v=111c42af', zh: './i18n-zh.js?v=111c42af', id: './i18n-id.js?v=111c42af', ne: './i18n-ne.js?v=111c42af', my: './i18n-my.js?v=111c42af', ru: './i18n-ru.js?v=111c42af', mn: './i18n-mn.js?v=111c42af', pt: './i18n-pt.js?v=111c42af', uz: './i18n-uz.js?v=111c42af' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1107,13 +1107,17 @@ let lastSlug = '';
 
    sub 가 없으면 여태처럼 화면 이름만 남긴다. 화면 안으로 들어갔는데 주소가
    그대로면 새로고침했을 때 갈래 목록으로 튕긴다 — 실제로 그랬다. */
+const EMBEDDED = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
 window.cpMark = function (view, sub) {
   if (routeBusy) return;                 // 주소를 읽고 여는 중이면 다시 안 쓴다
   const base = VIEW_SLUG[view] ?? '';
   const slug = sub ? `${base}/${sub}` : base;
   if (location.hash.replace(/^#/, '') === slug) { lastSlug = slug; return; }   // 같은 자리면 히스토리를 안 늘린다
   lastSlug = slug;
-  history.pushState(null, '', slug ? '#' + slug : location.pathname + location.search);
+  /* 3D 시험장의 시험지 창(iframe) 안에서 열렸으면 기록을 쌓지 않는다(운영자 2026-11-09 「핸드폰에서 시험장이 나가지지 않아」) —
+     iframe 의 기록은 바깥 쪽과 같은 「뒤로」 줄에 쌓여서, 폰의 뒤로를 누르면 접어 둔 시험지 안만 뒤로 가고 시험장은 안 나가졌다. */
+  if (EMBEDDED) history.replaceState(null, '', slug ? '#' + slug : location.pathname + location.search);
+  else history.pushState(null, '', slug ? '#' + slug : location.pathname + location.search);
 };
 
 /* 라우터가 화면을 몰고 있는 중인가. 모듈 쪽 나가기 확인이 두 번 뜨지 않게
@@ -1130,7 +1134,7 @@ function cpApply(slug) {
   const view = SLUG_VIEW[head] || 'home';
   /* 떠나면 안 되는 것이 돌고 있으면(모의고사) 먼저 묻는다. 「머문다」를
      고르면 주소를 되돌리고 화면은 손대지 않는다. */
-  if (slug !== lastSlug && window.cpBlockLeave && window.cpBlockLeave()) {
+  if (slug !== lastSlug && !EMBEDDED && window.cpBlockLeave && window.cpBlockLeave()) {
     history.pushState(null, '', lastSlug ? '#' + lastSlug : location.pathname + location.search);
     return;
   }
