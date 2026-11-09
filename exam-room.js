@@ -2,8 +2,8 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=98b854a5';
-import { leaveNudge } from './leave-nudge.js?v=98b854a5';
+import * as THREE from './vendor/three.module.min.js?v=3a9aa85c';
+import { leaveNudge } from './leave-nudge.js?v=3a9aa85c';
 leaveNudge('exam_room');
 
 const $ = (id) => document.getElementById(id);
@@ -12,6 +12,7 @@ const fmt = (sec) => { const s = Math.max(0, Math.ceil(sec)); return `${pad(Math
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
 /* 반(운영자 2026-11-09 「반 문 열고 나가면 A반부터 E반까지」) — 주소 ?room=B. 반마다 실시간 접속이 따로, 복도에서 반마다 몇 명인지 본다. */
 const ROOMS = ['A', 'B', 'C', 'D', 'E'];
+const DOOR_Z = 7.2, HALL = { x0: 6.35, x1: 9.0, z0: 0, z1: 0 };   // 문 자리 · 복도 크기(복도 길이는 반 수로 정한다)
 const ROOM = (() => { const r = (new URLSearchParams(location.search).get('room') || 'A').toUpperCase(); return ROOMS.includes(r) ? r : 'A'; })();
 
 /* ══ 시험 시계 ═══════════════════════════════════════════════
@@ -195,22 +196,71 @@ function buildRoom() {
     const WX = -6.0, seg = (z0, z1, y0, y1) => box(0.04, y1 - y0, z1 - z0, wallM, WX, (y0 + y1) / 2, (z0 + z1) / 2);
     seg(-7.5, 8.5, 0, 1.2); seg(-7.5, 8.5, 2.8, 3.5);
     [[-7.5, -5.75], [-3.45, -2.75], [-0.45, 0.25], [2.55, 3.25], [5.55, 8.5]].forEach(([a, b]) => seg(a, b, 1.2, 2.8));
-  } plane(16, 3.5, wallM, 6, 1.75, 0.5, -Math.PI / 2);
+  }
+  /* 오른쪽 벽 — 뒤쪽에 진짜 문 구멍(z 6.62~7.78)이 있어 복도로 걸어 나간다(운영자 2026-11-09 「복도랑 다 이어지게 · 전부 3D 로」) */
+  box(0.1, 3.5, 14.12, wallM, 6.03, 1.75, -0.44); box(0.1, 3.5, 0.72, wallM, 6.03, 1.75, 8.14); box(0.1, 1.3, 1.16, wallM, 6.03, 2.85, 7.2);
   /* 오른쪽 벽 뒤쪽의 교실 문 — 누르거나 걸어가면 복도(반 고르기) */
   const doorM = mat(0x8a6a44), frameM = mat(0x5a4330);
   box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 6.62); box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 7.78); box(0.08, 0.08, 1.24, frameM, 5.95, 2.22, 7.2);
-  const door = box(0.05, 2.14, 1.08, doorM, 5.96, 1.07, 7.2);
-  box(0.03, 0.5, 0.36, mat(0xcfe3ea), 5.93, 1.55, 7.2);   // 문 유리
-  box(0.07, 0.05, 0.16, mat(0xc9b07a), 5.92, 1.05, 6.86);  // 손잡이
+  const door = box(1.08, 2.14, 0.05, doorM, 6.62, 1.07, 6.6);   // 활짝 열려 복도 쪽 벽에 붙어 있다
+  box(0.36, 0.5, 0.03, mat(0xcfe3ea), 6.62, 1.55, 6.57);   // 문 유리
   const doorSign = canvasTex(256, 128, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.textAlign = 'center'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.fillText(`${ROOM}반`, w / 2, 56); g.font = '600 26px "Pretendard Variable",sans-serif'; g.fillStyle = '#f6b8a8'; g.fillText('문 · 복도로 나가기', w / 2, 100); });
   const doorSignM = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.45), new THREE.MeshBasicMaterial({ map: doorSign.t }));
   doorSignM.position.set(5.95, 2.6, 7.2); doorSignM.rotation.y = -Math.PI / 2; scene.add(doorSignM);
   door.userData.door = true; doorSignM.userData.door = true;
   const doorHits = [door, doorSignM];
+  /* ── 3D 복도: 문 밖으로 길게. 반마다 문 + 벽에서 튀어나온 팻말(반 이름 · 지금 몇 명). 다른 반 문으로 걸어 들어가면 그 반으로. ── */
+  const RI = ROOMS.indexOf(ROOM);
+  const hallDoors = ROOMS.map((r, i) => ({ r, z: DOOR_Z + (i - RI) * 17 }));
+  HALL.z0 = Math.min(...hallDoors.map((d) => d.z)) - 6; HALL.z1 = Math.max(...hallDoors.map((d) => d.z)) + 6;
+  {
+    const L = HALL.z1 - HALL.z0, zc = (HALL.z0 + HALL.z1) / 2, hx = 7.76;
+    const tile = canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#d9d3c4'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(90,80,60,.25)'; g.lineWidth = 3; g.strokeRect(0, 0, w, h); g.fillStyle = 'rgba(120,105,80,.08)'; g.fillRect(0, 0, w / 2, h / 2); g.fillRect(w / 2, h / 2, w / 2, h / 2); });
+    tile.t.wrapS = tile.t.wrapT = THREE.RepeatWrapping; tile.t.repeat.set(3, L / 1.1);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(3.4, L), new THREE.MeshLambertMaterial({ map: tile.t })); fl.rotation.x = -Math.PI / 2; fl.position.set(hx, 0.002, zc); scene.add(fl);
+    const cl = new THREE.Mesh(new THREE.PlaneGeometry(3.4, L), mat(0xf3efe6)); cl.rotation.x = Math.PI / 2; cl.position.set(hx, 3.2, zc); scene.add(cl);
+    const hallWall = mat(0xe8e0cc), hallBand = mat(0x6f8f7a);
+    // 안쪽 벽(교실 쪽) — 내 교실 벽(-7.6~8.6) 바깥만
+    if (HALL.z0 < -7.6) { box(0.1, 3.2, -7.6 - HALL.z0, hallWall, 6.1, 1.6, (HALL.z0 - 7.6) / 2); box(0.02, 0.9, -7.6 - HALL.z0, hallBand, 6.16, 0.45, (HALL.z0 - 7.6) / 2); }
+    if (HALL.z1 > 8.6) { box(0.1, 3.2, HALL.z1 - 8.6, hallWall, 6.1, 1.6, (HALL.z1 + 8.6) / 2); box(0.02, 0.9, HALL.z1 - 8.6, hallBand, 6.16, 0.45, (HALL.z1 + 8.6) / 2); }
+    box(0.02, 0.9, 14.12, hallBand, 6.09, 0.45, -0.44); box(0.02, 0.9, 0.72, hallBand, 6.09, 0.45, 8.14);
+    // 바깥 벽 + 창 + 사물함
+    box(0.1, 3.2, L, hallWall, 9.46, 1.6, zc); box(0.02, 0.9, L, hallBand, 9.4, 0.45, zc);
+    const glass = new THREE.MeshBasicMaterial({ color: 0xcfe6f2 });
+    for (let z = HALL.z0 + 2; z < HALL.z1 - 1; z += 3.4) { const w = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 1.1), glass); w.position.set(9.39, 1.95, z); w.rotation.y = -Math.PI / 2; scene.add(w); box(0.06, 0.06, 2.3, frameM, 9.38, 1.38, z); }
+    const lockerM = mat(0x7f8f9a);
+    for (let z = HALL.z0 + 1.2; z < HALL.z1 - 1; z += 3.4) { box(0.5, 1.3, 1.1, lockerM, 9.12, 0.65, z + 1.7); }
+    box(3.4, 3.2, 0.1, hallWall, hx, 1.6, HALL.z0); box(3.4, 3.2, 0.1, hallWall, hx, 1.6, HALL.z1);
+    const lampM = new THREE.MeshBasicMaterial({ color: 0xfffbea });
+    for (let z = HALL.z0 + 2; z < HALL.z1; z += 4) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 1.4), lampM); l.position.set(hx, 3.17, z); scene.add(l); }
+    // 반마다 문 + 팻말
+    hallDoors.forEach((d) => {
+      if (d.r !== ROOM) {
+        box(0.08, 2.2, 0.08, frameM, 6.18, 1.1, d.z - 0.58); box(0.08, 2.2, 0.08, frameM, 6.18, 1.1, d.z + 0.58); box(0.08, 0.08, 1.24, frameM, 6.18, 2.22, d.z);
+        const dd = box(0.05, 2.14, 1.08, doorM, 6.17, 1.07, d.z); dd.userData.room = d.r; d.mesh = dd;
+        box(0.02, 0.5, 0.36, mat(0xcfe3ea), 6.2, 1.55, d.z);
+      }
+      d.tex = canvasTex(256, 112, () => {});
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(0.86, 0.38), new THREE.MeshBasicMaterial({ map: d.tex.t }));
+      m.position.set(6.62, 2.62, d.z + 0.63); scene.add(m);
+      const m2 = m.clone(); m2.rotation.y = Math.PI; m2.position.z = d.z + 0.61; m2.userData.room = d.r; scene.add(m2); d.sign2 = m2;   // 뒷면도 글자가 바로 읽히게 한 장 더 box(0.9, 0.04, 0.04, frameM, 6.62, 2.83, d.z + 0.62); d.sign = m; m.userData.room = d.r;
+    });
+  }
+  function paintSigns(count) {
+    for (const d of hallDoors) {
+      const { g, t } = d.tex, w = 256, h = 112, here = d.r === ROOM, n = count ? count[d.r] || 0 : null;
+      g.fillStyle = here ? '#e4631f' : '#1c1915'; g.fillRect(0, 0, w, h); g.strokeStyle = '#f6f1e7'; g.lineWidth = 4; g.strokeRect(4, 4, w - 8, h - 8);
+      g.fillStyle = '#f6f1e7'; g.textAlign = 'center'; g.font = '800 50px "Pretendard Variable",sans-serif'; g.fillText(`${d.r}반`, w / 2, 60);
+      g.font = '600 24px "Pretendard Variable",sans-serif'; g.fillText(here ? (n != null ? `지금 여기 · ${n}명` : '지금 여기') : (n != null ? `지금 ${n}명` : 'TOPIK 시험장'), w / 2, 94);
+      t.needsUpdate = true;
+    }
+  }
+  paintSigns(null);
+  window.__paintSigns = paintSigns;
   const ceilTex = canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#f5f2ea'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(120,115,100,.35)'; g.lineWidth = 2; g.strokeRect(0, 0, w, h); for (let i = 0; i < 60; i++) { g.fillStyle = 'rgba(150,145,130,.12)'; g.fillRect((i * 37) % w, (i * 71) % h, 3, 3); } }).t;
   ceilTex.wrapS = ceilTex.wrapT = THREE.RepeatWrapping; ceilTex.repeat.set(10, 13);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(12, 16), new THREE.MeshLambertMaterial({ map: ceilTex })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, 3.5, 0.5); scene.add(ceil);
-  for (const [w, x, z, ry] of [[12, 0, -7.49, 0], [16, -5.99, 0.5, Math.PI / 2], [16, 5.99, 0.5, -Math.PI / 2], [12, 0, 8.49, Math.PI]]) {   // 아래 초록 띠 + 걸레받이
+  for (const [w, x, z, ry] of [[12, 0, -7.49, 0], [16, -5.99, 0.5, Math.PI / 2], [14.12, 5.99, -0.44, -Math.PI / 2], [0.72, 5.99, 8.14, -Math.PI / 2], [12, 0, 8.49, Math.PI]]) {   // 아래 초록 띠 + 걸레받이
     plane(w, 0.9, greenM, x, 0.45, z, ry);
     const bx = ry === 0 || ry === Math.PI ? new THREE.BoxGeometry(w, 0.1, 0.03) : new THREE.BoxGeometry(0.03, 0.1, w);
     const b = new THREE.Mesh(bx, baseM); b.position.set(x * 0.998, 0.05, z * 0.998); scene.add(b);
@@ -255,8 +305,7 @@ function buildRoom() {
   /* 사물함(뒤쪽 벽) */
   const lockCols = [0xc9d3dd, 0xb8c4d0, 0xc9d3dd, 0xb8c4d0, 0xc9d3dd, 0xb8c4d0];
   lockCols.forEach((c, i) => { box(0.62, 1.5, 0.4, mat(c), -3.4 + i * 0.64, 0.75, 8.28); box(0.02, 0.1, 0.02, mat(0x444444), -3.4 + i * 0.64 + 0.2, 0.9, 8.07); });
-  /* 오른쪽: 문(작은 창 · 팻말) + 소화기 + 쓰레기통 */
-  box(0.06, 2.1, 1.0, mat(0x8a6a44), 5.96, 1.05, 5.8); { const win = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.5), new THREE.MeshBasicMaterial({ color: 0xcfe6f7 })); win.position.set(5.925, 1.5, 5.8); win.rotation.y = -Math.PI / 2; scene.add(win); }
+  /* 오른쪽: 소화기 + 쓰레기통(문은 위에서 — 누르면 복도로 나가는 문 하나만, 2026-11-09 문이 둘이던 것 정리) */
   box(0.14, 0.4, 0.14, mat(0xcf2b2b), 5.9, 0.35, 4.6); box(0.05, 0.08, 0.05, mat(0x222222), 5.9, 0.6, 4.6);
   { const bin = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.14, 0.38, 14), mat(0x6c757d)); bin.position.set(5.5, 0.19, -6.9); scene.add(bin); }
 
@@ -576,8 +625,16 @@ function buildRoom() {
   const keys = {};
   let nearDoor = false;
   const R = 0.26, LIM = { x0: -5.5, x1: 5.5, z0: -6.1, z1: 8.0 };
+  const inRoom = (x, z) => x >= LIM.x0 && x <= LIM.x1 && z >= LIM.z0 && z <= LIM.z1;
+  const inDoorway = (x, z) => x > LIM.x1 - 0.01 && x < HALL.x0 + 0.01 && Math.abs(z - DOOR_Z) < 0.36;
+  const inHall = (x, z) => x >= HALL.x0 && x <= HALL.x1 && z >= HALL.z0 + 0.4 && z <= HALL.z1 - 0.4;
+  const walkable = (x, z) => inRoom(x, z) || inDoorway(x, z) || inHall(x, z);
   function collide(nx, nz) {
-    nx = Math.max(LIM.x0, Math.min(LIM.x1, nx)); nz = Math.max(LIM.z0, Math.min(LIM.z1, nz));
+    if (!walkable(nx, nz)) {   // 벽에 막히면 벽을 따라 미끄러진다
+      if (walkable(nx, me.z)) nz = me.z; else if (walkable(me.x, nz)) nx = me.x;
+      else { nx = Math.max(LIM.x0, Math.min(LIM.x1, nx)); nz = Math.max(LIM.z0, Math.min(LIM.z1, nz)); if (!walkable(nx, nz)) { nx = me.x; nz = me.z; } }
+    }
+    if (!inRoom(nx, nz)) return [nx, nz];
     for (const [x0, x1, z0, z1] of rects) {
       if (nx > x0 - R && nx < x1 + R && nz > z0 - R && nz < z1 + R) {
         const dl = nx - (x0 - R), dr = (x1 + R) - nx, df = nz - (z0 - R), db = (z1 + R) - nz, m = Math.min(dl, dr, df, db);
@@ -739,21 +796,14 @@ function buildRoom() {
     }
     updateSeatBtn();
   }
-  /* ── 복도: 반 고르기 ── */
+  /* ── 복도로 나가기(문 · 단추) — 일어나서 문 밖 복도에 선다 ── */
   let hallCount = {};
-  function drawHall() {
-    const box = $('hallDoors'); if (!box) return;
-    box.innerHTML = ROOMS.map((r) => {
-      const n = hallCount[r] || 0, here = r === ROOM;
-      return `<a class="hdoor${here ? ' here' : ''}" href="${here ? '#' : `?room=${r}`}" data-room="${r}"><b>${r}반</b><span>${chan ? `${n}명` : ''}</span><small>${here ? '지금 여기 · You are here' : '들어가기 · Enter'}</small></a>`;
-    }).join('');
+  function goHall() {
+    const toPlus = RI < (ROOMS.length - 1) / 2;   // 다른 반이 더 많은 쪽을 보고 선다(A · B 반은 +z, D · E 반은 -z)
+    me.seated = false; Object.assign(goal, { x: 7.7, z: DOOR_Z + (toPlus ? 0.4 : -0.4), eye: 1.62, t: 0 }); me.yaw = toPlus ? Math.PI : 0; me.pitch = 0; vYaw = vPitch = 0; updateSeatBtn();
+    dl('exam_room_hall', { cp_room: ROOM });
   }
-  function openHall() { drawHall(); $('hall').hidden = false; dl('exam_room_hall', { cp_room: ROOM }); }
-  $('hall')?.addEventListener('click', (e) => {
-    const a = e.target.closest('.hdoor');
-    if (e.target.closest('#hallBack') || (a && a.dataset.room === ROOM) || e.target === $('hall')) { e.preventDefault(); $('hall').hidden = true; }
-  });
-  $('bHall')?.addEventListener('click', openHall);
+  $('bHall')?.addEventListener('click', goHall);
   async function joinPresence() {
     let ok = false;
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
@@ -761,7 +811,7 @@ function buildRoom() {
        이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
     void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=98b854a5');
+      const { createClient } = await import('./vendor/supabase-js.js?v=3a9aa85c');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -771,7 +821,7 @@ function buildRoom() {
       lobby = sb.channel('exam-room-hall', { config: { presence: { key: myKey } } });
       lobby.on('presence', { event: 'sync' }, () => {
         const st = lobby.presenceState(); hallCount = {}; for (const k of Object.keys(st)) { const r = st[k][st[k].length - 1]?.r; if (r) hallCount[r] = (hallCount[r] || 0) + 1; }
-        drawHall();
+        paintSigns(hallCount);
       }).subscribe((status) => { if (status === 'SUBSCRIBED') lobby.track({ r: ROOM }); });
     } catch (e) { chan = null; setOnline(''); }
   }
@@ -832,8 +882,8 @@ function buildRoom() {
       ray.setFromCamera(ndc, camera);
       const ph = ray.intersectObjects(posters.map((p) => p.m), false)[0];
       if (ph && ph.distance < 9) { window.open(ph.object.userData.href, '_blank', 'noopener'); drag = null; return; }   // 게시판 포스터 → 그 쪽을 새 탭으로
-      const dh = ray.intersectObjects(doorHits, false)[0];
-      if (dh && dh.distance < 14) { openHall(); drag = null; return; }
+      const dh = ray.intersectObjects([...doorHits, ...hallDoors.map((d) => d.mesh).filter(Boolean), ...hallDoors.map((d) => d.sign), ...hallDoors.map((d) => d.sign2)], false)[0];
+      if (dh && dh.distance < 14) { const r = dh.object.userData.room; if (r && r !== ROOM) location.href = `?room=${r}`; else goHall(); drag = null; return; }
       const hit = ray.intersectObjects([sheets, seats, backs, tops], false)[0];
       if (hit && hit.instanceId != null) {
         if (hit.instanceId === me.seat && me.seated) { if (hit.object === sheets || hit.object === tops) openPaper(); }
@@ -887,8 +937,7 @@ function buildRoom() {
         const sp = 1.7 * dt, cy = Math.cos(me.yaw), sy = Math.sin(me.yaw);
         const dx = (-sy * f + cy * sd) * sp, dz = (-cy * f - sy * sd) * sp;
         const [nx, nz] = collide(me.x + dx, me.z + dz); me.x = nx; me.z = nz; goal.x = nx; goal.z = nz; updateSeatBtn();
-        const atDoor = me.x > 5.3 && Math.abs(me.z - 7.2) < 0.6;
-        if (atDoor && !nearDoor) openHall(); nearDoor = atDoor;
+        if (me.x < HALL.x0 + 0.3) for (const d of hallDoors) if (d.r !== ROOM && Math.abs(me.z - d.z) < 0.6 && !nearDoor) { nearDoor = true; location.href = `?room=${d.r}`; }
       }
     }
     /* 자리 옮기는 중(부드럽게) */
