@@ -2,12 +2,15 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=111c42af';
+import * as THREE from './vendor/three.module.min.js?v=20132756';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
 const fmt = (sec) => { const s = Math.max(0, Math.ceil(sec)); return `${pad(Math.floor(s / 60))}:${pad(s % 60)}`; };
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
+/* 반(운영자 2026-11-09 「반 문 열고 나가면 A반부터 E반까지」) — 주소 ?room=B. 반마다 실시간 접속이 따로, 복도에서 반마다 몇 명인지 본다. */
+const ROOMS = ['A', 'B', 'C', 'D', 'E'];
+const ROOM = (() => { const r = (new URLSearchParams(location.search).get('room') || 'A').toUpperCase(); return ROOMS.includes(r) ? r : 'A'; })();
 
 /* ══ 시험 시계 ═══════════════════════════════════════════════
    벽시계 시간으로 끝나는 때(endAt)를 잡아 둔다 — 탭이 뒤로 가도 시간이 어긋나지 않는다(실제 시험처럼). */
@@ -191,6 +194,17 @@ function buildRoom() {
     seg(-7.5, 8.5, 0, 1.2); seg(-7.5, 8.5, 2.8, 3.5);
     [[-7.5, -5.75], [-3.45, -2.75], [-0.45, 0.25], [2.55, 3.25], [5.55, 8.5]].forEach(([a, b]) => seg(a, b, 1.2, 2.8));
   } plane(16, 3.5, wallM, 6, 1.75, 0.5, -Math.PI / 2);
+  /* 오른쪽 벽 뒤쪽의 교실 문 — 누르거나 걸어가면 복도(반 고르기) */
+  const doorM = mat(0x8a6a44), frameM = mat(0x5a4330);
+  box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 6.62); box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 7.78); box(0.08, 0.08, 1.24, frameM, 5.95, 2.22, 7.2);
+  const door = box(0.05, 2.14, 1.08, doorM, 5.96, 1.07, 7.2);
+  box(0.03, 0.5, 0.36, mat(0xcfe3ea), 5.93, 1.55, 7.2);   // 문 유리
+  box(0.07, 0.05, 0.16, mat(0xc9b07a), 5.92, 1.05, 6.86);  // 손잡이
+  const doorSign = canvasTex(256, 128, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.textAlign = 'center'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.fillText(`${ROOM}반`, w / 2, 56); g.font = '600 26px "Pretendard Variable",sans-serif'; g.fillStyle = '#f6b8a8'; g.fillText('문 · 복도로 나가기', w / 2, 100); });
+  const doorSignM = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.45), new THREE.MeshBasicMaterial({ map: doorSign.t }));
+  doorSignM.position.set(5.95, 2.6, 7.2); doorSignM.rotation.y = -Math.PI / 2; scene.add(doorSignM);
+  door.userData.door = true; doorSignM.userData.door = true;
+  const doorHits = [door, doorSignM];
   const ceilTex = canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#f5f2ea'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(120,115,100,.35)'; g.lineWidth = 2; g.strokeRect(0, 0, w, h); for (let i = 0; i < 60; i++) { g.fillStyle = 'rgba(150,145,130,.12)'; g.fillRect((i * 37) % w, (i * 71) % h, 3, 3); } }).t;
   ceilTex.wrapS = ceilTex.wrapT = THREE.RepeatWrapping; ceilTex.repeat.set(10, 13);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(12, 16), new THREE.MeshLambertMaterial({ map: ceilTex })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, 3.5, 0.5); scene.add(ceil);
@@ -558,6 +572,7 @@ function buildRoom() {
   const rects = desks.map(([x, z]) => [x - 0.4, x + 0.4, z - 0.28, z + 0.82]);
   rects.push([1.8, 3.4, -6.8, -6.0]);   // 교탁
   const keys = {};
+  let nearDoor = false;
   const R = 0.26, LIM = { x0: -5.5, x1: 5.5, z0: -6.1, z1: 8.0 };
   function collide(nx, nz) {
     nx = Math.max(LIM.x0, Math.min(LIM.x1, nx)); nz = Math.max(LIM.z0, Math.min(LIM.z1, nz));
@@ -688,7 +703,7 @@ function buildRoom() {
   /* ── 다른 수험생(로그인한 사람만, 이름 없이) — Supabase 실시간(presence). 새 표 · SQL 은 필요 없다. ── */
   const remotes = new Map(), SB_URL = 'https://tjgoevtvobvmlyefgxel.supabase.co';
   const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqZ29ldnR2b2J2bWx5ZWZneGVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3NDc0MDUsImV4cCI6MjA5NjMyMzQwNX0.G0x83cTqrVrCRaadtQs_4Ywg84QLxB1z6xFzlfM5Nfc';
-  let chan = null, myKey = '', lastSent = '', lastSendAt = 0, firstSync = true;
+  let chan = null, lobby = null, myKey = '', lastSent = '', lastSendAt = 0, firstSync = true;
   const cur = () => ({ s: me.seated ? me.seat : -1, x: +me.x.toFixed(2), z: +me.z.toFixed(2), y: +me.yaw.toFixed(2) });
   const setOnline = (txt) => { const e = $('online'); if (e) { e.textContent = txt; e.hidden = !txt; } };
   function dropRemote(key) {
@@ -698,7 +713,7 @@ function buildRoom() {
   }
   function onSync() {
     const st = chan.presenceState(), keys = Object.keys(st);
-    setOnline(`지금 ${keys.length}명 접속 중 · ${keys.length} online`);
+    setOnline(`${ROOM}반 · 지금 ${keys.length}명 · ${keys.length} online${keys.length === 1 ? ' (나 혼자 — 복도에서 다른 반 보기)' : ''}`);
     for (const key of [...remotes.keys()]) if (!st[key]) dropRemote(key);
     keys.forEach((key, n) => {
       if (key === myKey) return;
@@ -722,17 +737,40 @@ function buildRoom() {
     }
     updateSeatBtn();
   }
+  /* ── 복도: 반 고르기 ── */
+  let hallCount = {};
+  function drawHall() {
+    const box = $('hallDoors'); if (!box) return;
+    box.innerHTML = ROOMS.map((r) => {
+      const n = hallCount[r] || 0, here = r === ROOM;
+      return `<a class="hdoor${here ? ' here' : ''}" href="${here ? '#' : `?room=${r}`}" data-room="${r}"><b>${r}반</b><span>${chan ? `${n}명` : ''}</span><small>${here ? '지금 여기 · You are here' : '들어가기 · Enter'}</small></a>`;
+    }).join('');
+  }
+  function openHall() { drawHall(); $('hall').hidden = false; dl('exam_room_hall', { cp_room: ROOM }); }
+  $('hall')?.addEventListener('click', (e) => {
+    const a = e.target.closest('.hdoor');
+    if (e.target.closest('#hallBack') || (a && a.dataset.room === ROOM) || e.target === $('hall')) { e.preventDefault(); $('hall').hidden = true; }
+  });
+  $('bHall')?.addEventListener('click', openHall);
   async function joinPresence() {
     let ok = false;
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
-    if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
+    /* 2026-11-09 운영자 「실시간 1명으로 계속 떠 있어 · 실제로 같이 움직일 수 있게」 — 로그인한 사람만 보이게 했더니 손님이 대부분이라 늘 혼자였다.
+       이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
+    void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=111c42af');
+      const { createClient } = await import('./vendor/supabase-js.js?v=20132756');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
-      chan = sb.channel('exam-room-1', { config: { presence: { key: myKey } } });
+      chan = sb.channel(`exam-room-${ROOM}`, { config: { presence: { key: myKey } } });
       chan.on('presence', { event: 'sync' }, onSync).subscribe((status) => { if (status === 'SUBSCRIBED') chan.track(cur()); });
+      /* 복도 — 모든 반이 같이 들어와 「나는 B반」만 알린다. 복도 문마다 몇 명인지 여기서 센다. */
+      lobby = sb.channel('exam-room-hall', { config: { presence: { key: myKey } } });
+      lobby.on('presence', { event: 'sync' }, () => {
+        const st = lobby.presenceState(); hallCount = {}; for (const k of Object.keys(st)) { const r = st[k][st[k].length - 1]?.r; if (r) hallCount[r] = (hallCount[r] || 0) + 1; }
+        drawHall();
+      }).subscribe((status) => { if (status === 'SUBSCRIBED') lobby.track({ r: ROOM }); });
     } catch (e) { chan = null; setOnline(''); }
   }
   function presenceTick(now, dt, t) {
@@ -756,7 +794,7 @@ function buildRoom() {
     g.fillStyle = 'rgba(255,255,255,.04)'; for (let i = 0; i < 30; i++) g.fillRect((i * 173) % w, (i * 61) % h, 140, 7);
     g.textAlign = 'center'; g.fillStyle = '#f3f1e6';
     if (!ex.began) {
-      g.font = '700 54px "Pretendard Variable",sans-serif'; g.fillText('TOPIK 시험장', w / 2, 104);
+      g.font = '700 54px "Pretendard Variable",sans-serif'; g.fillText(`TOPIK 시험장 · ${ROOM}반`, w / 2, 104);
       g.font = '600 30px "Pretendard Variable",sans-serif'; g.fillStyle = '#d9d6c4'; g.fillText('시험을 고르고 시작을 눌러요', w / 2, 160);
     } else {
       g.font = '600 32px "Pretendard Variable",sans-serif'; g.fillStyle = '#d9d6c4'; g.fillText(`${ex.name}  ·  ${ex.over ? '시험 종료' : '남은 시간'}`, w / 2, 52);
@@ -792,6 +830,8 @@ function buildRoom() {
       ray.setFromCamera(ndc, camera);
       const ph = ray.intersectObjects(posters.map((p) => p.m), false)[0];
       if (ph && ph.distance < 9) { window.open(ph.object.userData.href, '_blank', 'noopener'); drag = null; return; }   // 게시판 포스터 → 그 쪽을 새 탭으로
+      const dh = ray.intersectObjects(doorHits, false)[0];
+      if (dh && dh.distance < 14) { openHall(); drag = null; return; }
       const hit = ray.intersectObjects([sheets, seats, backs, tops], false)[0];
       if (hit && hit.instanceId != null) {
         if (hit.instanceId === me.seat && me.seated) { if (hit.object === sheets || hit.object === tops) openPaper(); }
@@ -845,6 +885,8 @@ function buildRoom() {
         const sp = 1.7 * dt, cy = Math.cos(me.yaw), sy = Math.sin(me.yaw);
         const dx = (-sy * f + cy * sd) * sp, dz = (-cy * f - sy * sd) * sp;
         const [nx, nz] = collide(me.x + dx, me.z + dz); me.x = nx; me.z = nz; goal.x = nx; goal.z = nz; updateSeatBtn();
+        const atDoor = me.x > 5.3 && Math.abs(me.z - 7.2) < 0.6;
+        if (atDoor && !nearDoor) openHall(); nearDoor = atDoor;
       }
     }
     /* 자리 옮기는 중(부드럽게) */
