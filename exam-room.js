@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=61473d59';
+import * as THREE from './vendor/three.module.min.js?v=8d29a7bc';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -328,9 +328,62 @@ function buildRoom() {
     box(0.05, 1.7, 0.06, fr, -5.97, 2.0, z); box(0.05, 0.06, 2.4, fr, -5.97, 1.18, z); box(0.05, 0.06, 2.4, fr, -5.97, 2.82, z); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z - 1.17); box(0.05, 1.7, 0.05, fr, -5.97, 2.0, z + 1.17);
     box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z - 1.0); box(0.06, 1.9, 0.34, curM, -5.9, 2.0, z + 1.0);   // 커튼
   }
-  /* 오른쪽 벽 게시판 */
-  box(0.04, 1.2, 4.2, mat(0xc89a5a), 5.97, 1.9, -2.2);
-  [0xfff2a8, 0xbfe3c8, 0xf7c4c4, 0xc9d9f2, 0xfff2a8, 0xf3d9ff].forEach((c, i) => box(0.02, 0.5, 0.55, mat(c), 5.94, 1.85 + ((i % 2) ? 0.22 : -0.12), -3.9 + i * 0.68));
+  /* 오른쪽 벽 게시판 — 치즈감자 소식(운영자 2026-11-09 「우리 홍보 게시판처럼 예쁘게」). 누르면 그 쪽이 새 탭으로 열린다. */
+  const posters = [];
+  {
+    const BX = 5.95, BZ = -2.2, BY = 1.95;
+    box(0.05, 1.42, 4.5, mat(0x8a6a44), 5.985, BY, BZ);                // 나무 틀
+    const cork = canvasTex(512, 160, (g, w, h) => { g.fillStyle = '#c9a06a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(${90 + (i % 50)},${60 + (i % 30)},30,${0.08 + (i % 7) * 0.02})`; g.fillRect((i * 97) % w, (i * 53) % h, 2, 2); } }).t;
+    { const c = new THREE.Mesh(new THREE.PlaneGeometry(4.36, 1.3), new THREE.MeshLambertMaterial({ map: cork })); c.position.set(BX, BY, BZ); c.rotation.y = -Math.PI / 2; scene.add(c); }
+    /* 위쪽 이름표 띠 */
+    const title = canvasTex(1024, 96, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.textBaseline = 'middle'; g.fillText('치즈감자 소식', 28, h / 2 + 2); g.fillStyle = '#e4631f'; g.font = '700 30px "Pretendard Variable",sans-serif'; g.textAlign = 'right'; g.fillText('everykoreans.com', w - 28, h / 2 + 2); });
+    { const t = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 0.16), new THREE.MeshBasicMaterial({ map: title.t })); t.position.set(BX - 0.012, BY + 0.53, BZ - 1.2); t.rotation.y = -Math.PI / 2; scene.add(t); }
+    const pinM = mat(0xc0392b), pinG = new THREE.SphereGeometry(0.018, 10, 8);
+    const pin = (x, y, z) => { const p = new THREE.Mesh(pinG, pinM); p.position.set(x - 0.02, y, z); scene.add(p); };
+    /* 글 포스터(종이) */
+    const textPoster = (w, h, draw) => canvasTex(Math.round(w * 600), Math.round(h * 600), (g, cw, ch) => { g.fillStyle = '#fffdf6'; g.fillRect(0, 0, cw, ch); draw(g, cw, ch); }).t;
+    const fontK = (wt, px) => `${wt} ${px}px "Pretendard Variable",Pretendard,sans-serif`;
+    const items = [
+      { z: -4.05, y: 0.02, w: 0.6, h: 0.78, href: '/?lt=1', draw: (g, w, h) => {
+        g.fillStyle = '#C4551C'; g.fillRect(0, 0, w, 14);
+        g.fillStyle = '#1c1915'; g.font = fontK(800, 30); g.fillText('3분이면 돼요', 30, 74);
+        g.font = fontK(800, 50); g.fillText('내 레벨', 30, 150); g.fillText('찾기', 30, 212);
+        g.fillStyle = '#5c564c'; g.font = fontK(600, 24); g.fillText('Find your level', 30, 262); g.fillText('in 3 minutes', 30, 294);
+        g.fillStyle = '#1c1915'; g.fillRect(30, h - 104, w - 60, 62); g.fillStyle = '#fff'; g.font = fontK(800, 26); g.fillText('무료 · 시작하기 →', 50, h - 63);
+      } },
+      { z: -3.35, y: 0.06, w: 0.44, h: 0.62, cover: 'first-steps-workbook', href: '/shop/first-steps-workbook/' },
+      { z: -2.82, y: -0.05, w: 0.44, h: 0.62, cover: 'topik2-vocab-1000', href: '/shop/topik2-vocab-1000/' },
+      { z: -2.2, y: 0.03, w: 0.62, h: 0.8, href: '/shop/', draw: (g, w, h) => {
+        g.fillStyle = '#2f4d3f'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(255,255,255,.6)'; g.lineWidth = 3; g.setLineDash([10, 8]); g.strokeRect(18, 18, w - 36, h - 36); g.setLineDash([]);
+        g.fillStyle = '#f2d86a'; g.font = fontK(800, 26); g.fillText('FREE SAMPLE', 40, 84);
+        g.fillStyle = '#fff'; g.font = fontK(800, 50); g.fillText('책마다', 40, 160); g.fillText('무료 샘플', 40, 222);
+        g.fillStyle = 'rgba(255,255,255,.8)'; g.font = fontK(600, 24); g.fillText('PDF 워크북 · 정답 포함', 40, 280); g.fillText('Each workbook has', 40, 330); g.fillText('a free sample', 40, 362);
+        g.fillStyle = '#fff'; g.font = fontK(800, 26); g.fillText('everykoreans.com/shop', 40, h - 60);
+      } },
+      { z: -1.58, y: -0.04, w: 0.44, h: 0.62, cover: 'topik2-writing-51-52', href: '/shop/topik2-writing-51-52/' },
+      { z: -1.05, y: 0.05, w: 0.44, h: 0.62, cover: 'particles-workbook', href: '/shop/particles-workbook/' },
+      { z: -0.42, y: 0.0, w: 0.6, h: 0.78, href: '/topik-writing/', draw: (g, w, h) => {
+        g.fillStyle = '#FDF0E2'; g.fillRect(0, 0, w, h);
+        g.fillStyle = '#C4551C'; g.font = fontK(800, 26); g.fillText('TOPIK 연습', 30, 70);
+        g.fillStyle = '#1c1915'; g.font = fontK(800, 76); g.fillText('2,364', 30, 170);
+        g.font = fontK(700, 28); g.fillText('창작 문항', 30, 216);
+        g.fillStyle = '#5c564c'; g.font = fontK(600, 23); g.fillText('읽기 · 듣기 · 쓰기', 30, 266); g.fillText('기출이 아닌 새 문제', 30, 298); g.fillText('Original practice', 30, 348); g.fillText('questions', 30, 378);
+      } },
+    ];
+    const loader = new THREE.TextureLoader();
+    for (const it of items) {
+      let map;
+      if (it.cover) { map = loader.load(`/assets/books/${it.cover}/cover-sm.jpg`); map.colorSpace = THREE.SRGBColorSpace; }
+      else map = textPoster(it.w, it.h, it.draw);
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(it.w, it.h), new THREE.MeshLambertMaterial({ map }));
+      m.position.set(BX - 0.015, BY - 0.06 + it.y, it.z); m.rotation.y = -Math.PI / 2; m.rotation.z = ((it.z * 13) % 1 - 0.5) * 0.06;
+      m.userData.href = it.href; scene.add(m); posters.push({ m, it });
+      if (!it.cover) { /* 종이 그림자 대신 얇은 테두리 */ }
+      pin(BX - 0.015, BY - 0.06 + it.y + it.h / 2 - 0.04, it.z);
+    }
+    /* 글꼴이 늦게 오면 글 포스터를 다시 그린다 */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { for (const { m, it } of posters) if (!it.cover) { m.material.map = textPoster(it.w, it.h, it.draw); m.material.needsUpdate = true; } });
+  }
 
   /* ── 책상 · 의자 · 시험지(자리마다) ── */
   const rows = [-1.2, 0.7, 2.6, 4.5, 6.3], cols = [-3.9, -2.0, 0, 2.0, 3.9];
@@ -378,51 +431,78 @@ function buildRoom() {
   /* 가방(몇몇 책상 옆 바닥) */
   desks.forEach(([x, z], i) => { if ((i * 5) % 4 === 0) box(0.3, 0.34, 0.16, mat([0x5b6c8f, 0x8f5b5b, 0x4e7a63, 0x444444][i % 4]), x + 0.5, 0.17, z + 0.62, true); });
 
-  /* ── 사람 만들기: 머리 · 눈 · 머리카락 · 목 · 몸통 · 팔 · 다리 · 신발 ── */
+  /* ── 사람 만들기: 관절(어깨 · 팔꿈치 · 엉덩이 · 무릎)이 있는 둥근 몸 ──
+     팔다리는 캡슐(끝이 둥근 원기둥)을 관절 그룹에 달아서, 관절을 돌리면 아래 마디가 따라 움직인다. */
   const matCache = new Map(), M = (c) => { if (!matCache.has(c)) matCache.set(c, mat(c)); return matCache.get(c); };
-  const UP = new THREE.Vector3(0, 1, 0);
-  function limb(parent, p1, p2, r, m) {
-    const a = new THREE.Vector3(...p1), b = new THREE.Vector3(...p2), len = a.distanceTo(b);
-    const o = cast(new THREE.Mesh(new THREE.CylinderGeometry(r, r * 0.88, len, 8), m));
-    o.position.copy(a).add(b).multiplyScalar(0.5); o.quaternion.setFromUnitVectors(UP, b.clone().sub(a).normalize()); parent.add(o); return o;
+  const DOWN = new THREE.Vector3(0, -1, 0), V = (x, y, z) => new THREE.Vector3(x, y, z);
+  const capCache = new Map();
+  const capG = (r, len) => { const k = `${r}_${len.toFixed(3)}`; if (!capCache.has(k)) { const g = new THREE.CapsuleGeometry(r, Math.max(0.001, len - 2 * r), 5, 12); g.translate(0, -len / 2, 0); capCache.set(k, g); } return capCache.get(k); };
+  const sphG = new THREE.SphereGeometry(1, 16, 12);
+  const ball = (parent, r, m, x, y, z, sx = 1, sy = 1, sz = 1) => { const o = cast(new THREE.Mesh(sphG, m)); o.position.set(x, y, z); o.scale.set(r * sx, r * sy, r * sz); parent.add(o); return o; };
+  /* 관절 하나: parent 안의 from 자리에 붙고, to 쪽을 향한 마디(len)를 단다. 돌릴 곳은 .anim, 다음 관절은 .end */
+  function joint(parent, from, to, r, m) {
+    const piv = new THREE.Group(); piv.position.copy(from); parent.add(piv);
+    const dir = to.clone().sub(from), len = dir.length();   // from · to 는 parent 안의 좌표
+    piv.quaternion.setFromUnitVectors(DOWN, dir.normalize());
+    const anim = new THREE.Group(); piv.add(anim);
+    anim.add(cast(new THREE.Mesh(capG(r, len), m)));
+    const end = new THREE.Group(); end.position.y = -len; anim.add(end);
+    return { piv, anim, end };
   }
-  const ball = (parent, r, m, x, y, z, sy = 1) => { const o = cast(new THREE.Mesh(new THREE.SphereGeometry(r, 10, 8), m)); o.position.set(x, y, z); o.scale.y = sy; parent.add(o); return o; };
+  /* body 안의 점을 다른 관절(node) 안의 좌표로 */
+  const toLocal = (body, node, v) => { node.updateWorldMatrix(true, false); body.updateWorldMatrix(true, false); return node.worldToLocal(body.localToWorld(v.clone())); };
+  /* 손 · 신발은 마디 끝(end)에 단다 */
+  const hand = (j, sk) => ball(j.end, 0.032, sk, 0, -0.02, 0, 0.85, 1.15, 0.6);
+  const shoe = (j, m) => { const o = cast(new THREE.Mesh(capG(0.045, 0.2), m)); o.rotation.x = Math.PI / 2; o.position.set(0, -0.03, 0.06); o.scale.set(1.1, 1, 0.75); j.end.add(o); };
   /* o: {skin, cloth, pants, hair, style('short'|'long'|'bun'), seated}. 얼굴은 -z 쪽(칠판 쪽)을 본다. */
   function makePerson(o) {
-    const g = new THREE.Group(), sit = !!o.seated, sk = M(o.skin), cl = M(o.cloth), pn = M(o.pants), hr = M(o.hair), shoe = M(0x2a2523);
-    const hipY = sit ? 0.53 : 0.86, shY = sit ? 0.93 : 1.36, out = { g, sit, lp: [], ap: [] };
-    const torso = cast(new THREE.Mesh(new THREE.CapsuleGeometry(0.14, shY - hipY + 0.06 - 0.28, 4, 10), cl));
-    torso.scale.set(1.12, 1, 0.72); torso.position.y = (hipY + shY) / 2; torso.rotation.x = sit ? -0.12 : 0; g.add(torso);
-    const pelvis = cast(new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.14, 0.2), pn)); pelvis.position.y = hipY; g.add(pelvis);
-    const neck = cast(new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.048, 0.09, 8), sk)); neck.position.set(0, shY + 0.03, sit ? -0.02 : 0); g.add(neck);
+    const g = new THREE.Group(), sit = !!o.seated, sk = M(o.skin), cl = M(o.cloth), pn = M(o.pants), hr = M(o.hair), sh = M(0x2a2523);
+    const hipY = sit ? 0.53 : 0.88, shY = sit ? 0.94 : 1.38, out = { g, sit };
+    /* 몸통: 위가 넓은 상체 + 허리 + 골반 — 앉으면 조금 앞으로 기운다 */
+    const body = new THREE.Group(); body.position.y = hipY; body.rotation.x = sit ? -0.1 : 0; g.add(body); out.body = body;
+    const H = shY - hipY;
+    { const ch = cast(new THREE.Mesh(sphG, cl)); ch.scale.set(0.175, H * 0.38, 0.115); ch.position.y = H * 0.68; body.add(ch);   // 가슴 · 어깨
+      const wa = cast(new THREE.Mesh(sphG, cl)); wa.scale.set(0.15, H * 0.36, 0.1); wa.position.y = H * 0.36; body.add(wa);        // 허리
+      const pv = cast(new THREE.Mesh(sphG, pn)); pv.scale.set(0.16, 0.1, 0.11); pv.position.y = 0.03; body.add(pv); }               // 골반
+    const nk = cast(new THREE.Mesh(capG(0.042, 0.11), sk)); nk.position.y = H + 0.07; body.add(nk);
     /* 머리 */
-    const head = new THREE.Group(); head.position.set(0, shY + 0.17, sit ? -0.04 : 0); g.add(head); out.head = head;
-    ball(head, 0.108, sk, 0, 0, 0, 1.1);
+    const head = new THREE.Group(); head.position.set(0, H + 0.17, -0.005); body.add(head); out.head = head;
+    ball(head, 0.1, sk, 0, 0, 0, 0.94, 1.12, 1.0);
+    ball(head, 0.07, sk, 0, -0.045, -0.028, 0.9, 0.8, 1);   // 턱
     for (const sx of [-1, 1]) {
-      ball(head, 0.014, M(0x1c1815), sx * 0.037, 0.008, -0.098);   // 눈
-      ball(head, 0.02, sk, sx * 0.107, -0.005, 0.004);              // 귀
-      const br = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.007, 0.006), hr); br.position.set(sx * 0.037, 0.042, -0.099); head.add(br);   // 눈썹
+      ball(head, 0.016, M(0xf6f3ee), sx * 0.034, 0.008, -0.088, 1, 0.75, 0.5);   // 흰자
+      ball(head, 0.009, M(0x1c1815), sx * 0.034, 0.008, -0.096);                  // 눈동자
+      ball(head, 0.022, sk, sx * 0.096, -0.004, 0.004, 0.5, 1, 0.8);              // 귀
+      const br = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.006, 0.006), hr); br.position.set(sx * 0.034, 0.038, -0.092); br.rotation.z = -sx * 0.12; head.add(br);   // 눈썹
     }
-    ball(head, 0.014, sk, 0, -0.018, -0.108);                       // 코
-    { const mo = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.007, 0.006), M(0xb5524a)); mo.position.set(0, -0.056, -0.102); head.add(mo); }   // 입
-    { const cap = new THREE.Mesh(new THREE.SphereGeometry(0.117, 14, 10, 0, Math.PI * 2, 0, Math.PI * 0.43), hr); cap.position.set(0, 0.014, 0.012); cap.scale.y = 1.08; head.add(cap);
-      const bk = new THREE.Mesh(new THREE.SphereGeometry(0.117, 14, 10, 0, Math.PI, 0, Math.PI * 0.72), hr); bk.position.set(0, 0.006, 0.012); bk.rotation.y = 0; bk.scale.y = 1.08; head.add(bk); }
-    if (o.style === 'long') { const lh = cast(new THREE.Mesh(new THREE.CapsuleGeometry(0.075, 0.2, 4, 8), hr)); lh.position.set(0, -0.14, 0.075); lh.scale.z = 0.55; head.add(lh); }
-    if (o.style === 'bun') ball(head, 0.05, hr, 0, 0.115, 0.07);
-    /* 다리 · 팔 */
+    ball(head, 0.014, sk, 0, -0.016, -0.1, 0.8, 1.1, 1);   // 코
+    { const mo = new THREE.Mesh(new THREE.BoxGeometry(0.026, 0.005, 0.005), M(0xa8564e)); mo.position.set(0, -0.055, -0.094); head.add(mo); }   // 입
+    { const cap = new THREE.Mesh(new THREE.SphereGeometry(0.108, 18, 12, 0, Math.PI * 2, 0, Math.PI * 0.42), hr); cap.position.set(0, 0.016, 0.01); cap.scale.set(0.98, 1.12, 1.04); head.add(cap);
+      const bk = new THREE.Mesh(new THREE.SphereGeometry(0.108, 18, 12, 0, Math.PI, 0, Math.PI * 0.7), hr); bk.position.set(0, 0.006, 0.012); bk.scale.set(0.98, 1.12, 1.04); head.add(bk); }
+    if (o.style === 'long') { const lh = cast(new THREE.Mesh(capG(0.07, 0.3), hr)); lh.position.set(0, -0.02, 0.07); lh.scale.z = 0.5; head.add(lh); }
+    if (o.style === 'bun') ball(head, 0.045, hr, 0, 0.1, 0.075);
+    /* 팔 — 어깨에 둥근 관절, 팔꿈치 · 손목은 캡슐 끝이 이어 준다 */
+    out.arms = []; out.legs = [];
     for (const sx of [-1, 1]) {
-      if (sit) {
-        limb(g, [sx * 0.09, 0.53, 0], [sx * 0.09, 0.53, -0.4], 0.062, pn); limb(g, [sx * 0.09, 0.53, -0.4], [sx * 0.09, 0.07, -0.43], 0.05, pn);
-        const sh = cast(new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.055, 0.17), shoe)); sh.position.set(sx * 0.09, 0.03, -0.49); g.add(sh);
-        const hand = sx > 0 ? [0.09, 0.79, -0.5] : [-0.12, 0.78, -0.44];
-        limb(g, [sx * 0.2, 0.9, -0.05], [sx * 0.25, 0.72, -0.2], 0.045, cl); limb(g, [sx * 0.25, 0.72, -0.2], hand, 0.036, sk); ball(g, 0.033, sk, ...hand);
-      } else {
-        const lg = new THREE.Group(); lg.position.set(sx * 0.09, hipY, 0); g.add(lg); out.lp.push(lg);
-        limb(lg, [0, 0, 0], [0, -0.78, 0], 0.058, pn); const sh = cast(new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.055, 0.17), shoe)); sh.position.set(0, -0.83, -0.03); lg.add(sh);
-        const ag = new THREE.Group(); ag.position.set(sx * 0.2, shY - 0.04, 0); g.add(ag); out.ap.push(ag);
-        limb(ag, [0, 0, 0], [0, -0.27, 0], 0.045, cl); limb(ag, [0, -0.27, 0], [0, -0.55, 0], 0.036, sk); ball(ag, 0.033, sk, 0, -0.57, 0);
-      }
+      const sp = V(sx * 0.165, H * 0.86, 0);
+      ball(body, 0.052, cl, sp.x, sp.y, sp.z);
+      let el, wr;
+      if (sit) {   // 책상 위: 오른손은 글씨, 왼손은 시험지를 누른다(몸이 기운 만큼 위치를 몸 안 좌표로)
+        el = sx > 0 ? V(0.215, 0.22, -0.27) : V(-0.23, 0.21, -0.25);
+        wr = sx > 0 ? V(0.075, 0.25, -0.5) : V(-0.11, 0.25, -0.47);
+      } else { el = V(sx * 0.2, H * 0.86 - 0.27, 0.02); wr = V(sx * 0.21, H * 0.86 - 0.52, -0.03); }
+      const up = joint(body, sp, el, 0.044, cl), fo = joint(up.end, V(0, 0, 0), toLocal(body, up.end, wr), 0.035, sk);
+      hand(fo, sk); out.arms.push({ up, fo });
     }
+    /* 다리 */
+    for (const sx of [-1, 1]) {
+      const hp = V(sx * 0.09, 0.02, 0);
+      let kn, an;
+      if (sit) { kn = V(sx * 0.1, 0.03, -0.4); an = V(sx * 0.1, -0.44, -0.44); } else { kn = V(sx * 0.09, -0.42, 0.01); an = V(sx * 0.09, -0.82, 0); }
+      const th = joint(body, hp, kn, 0.064, pn), sn = joint(th.end, V(0, 0, 0), toLocal(body, th.end, an), 0.05, pn);
+      shoe(sn, sh); out.legs.push({ th, sn });
+    }
+    out.ph = Math.random() * 6; out.mode = 'write'; out.until = 0;
     return out;
   }
   const skin = [0xf0c9a5, 0xe6b894, 0xd9a47c, 0xc58c63, 0xf5d3b8], cloth = [0x2f3d57, 0x6b4a63, 0x3d5b4b, 0x7a6a3a, 0x4a4a52, 0x8a4b3b, 0xb6b0a2, 0x5a7aa0], pants = [0x2a2f3a, 0x3b3a3a, 0x4a5568, 0x5a4a3a];
@@ -434,13 +514,42 @@ function buildRoom() {
     if ((i * 7) % 5 === 0) return;      // 빈자리도 섞는다
     occupied.add(i);
     const p = makePerson({ ...looks(i), seated: true }); p.g.position.set(x, 0, z + 0.55); scene.add(p.g);
-    fakeBySeat.set(i, p.g); heads.push({ head: p.head, baseY: p.head.position.y, phase: (i * 0.9) % 6 });
+    fakeBySeat.set(i, p.g); heads.push({ p, head: p.head });
   });
   const proctor = makePerson({ skin: 0xe6b894, cloth: 0x2c3340, pants: 0x22262e, hair: 0x1f1b18, style: 'short', seated: false });
-  { const tag = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.1, 0.01), mat(0xf4efe0)); tag.position.set(0.08, 1.2, -0.11); proctor.g.add(tag); }
+  { const tag = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.09, 0.01), mat(0xf4efe0)); tag.position.set(0.08, 0.38, -0.115); proctor.body.add(tag); }
   proctor.g.position.set(-1, 0, -5.6); scene.add(proctor.g);
   let pDir = 1;
-  const swing = (p, ph, amp) => { if (p.lp.length) { p.lp[0].rotation.x = Math.sin(ph) * amp; p.lp[1].rotation.x = -Math.sin(ph) * amp; p.ap[0].rotation.x = -Math.sin(ph) * amp * 0.8; p.ap[1].rotation.x = Math.sin(ph) * amp * 0.8; } };
+  /* 걷기: 엉덩이가 앞뒤로, 무릎은 다리가 앞으로 올 때 굽고, 팔은 반대로, 팔꿈치는 살짝 굽은 채 */
+  const swing = (p, ph, amp) => {
+    if (p.sit) return;
+    const s = Math.sin(ph);
+    p.legs[0].th.anim.rotation.x = s * amp; p.legs[1].th.anim.rotation.x = -s * amp;
+    p.legs[0].sn.anim.rotation.x = -Math.max(0, Math.sin(ph + 1.3)) * amp * 1.5; p.legs[1].sn.anim.rotation.x = -Math.max(0, Math.sin(ph + 1.3 + Math.PI)) * amp * 1.5;
+    p.arms[0].up.anim.rotation.x = -s * amp * 0.7; p.arms[1].up.anim.rotation.x = s * amp * 0.7;
+    p.arms[0].fo.anim.rotation.x = 0.25 + Math.max(0, -s) * 0.3 * (amp > 0 ? 1 : 0); p.arms[1].fo.anim.rotation.x = 0.25 + Math.max(0, s) * 0.3 * (amp > 0 ? 1 : 0);
+    p.body.rotation.y = s * amp * 0.12; p.body.position.y = 0.88 + Math.abs(Math.cos(ph)) * 0.015 * (amp > 0 ? 1 : 0);
+  };
+  /* 앉은 사람: 쓰기(손이 작게 움직임) · 생각(고개 들고 펜 멈춤) · 기지개(가끔) 를 번갈아 */
+  function animSeated(p, t, dt) {
+    if (t > p.until) {
+      const r = Math.random();
+      p.mode = r < 0.68 ? 'write' : r < 0.93 ? 'think' : 'stretch';
+      p.until = t + (p.mode === 'write' ? 4 + Math.random() * 8 : p.mode === 'think' ? 2 + Math.random() * 3 : 2.4);
+    }
+    const k = Math.min(1, dt * 3), lerp = (o, key, v) => { o[key] += (v - o[key]) * k; };
+    const w = p.mode === 'write', th = p.mode === 'think', st = p.mode === 'stretch';
+    const [L, R] = p.arms;
+    lerp(R.fo.anim.rotation, 'z', w ? Math.sin(t * 9 + p.ph) * 0.07 : 0);
+    lerp(R.fo.anim.rotation, 'x', w ? Math.sin(t * 5.3 + p.ph) * 0.05 : th ? -0.35 : 0);
+    lerp(R.up.anim.rotation, 'x', st ? -2.2 : th ? -0.15 : 0);
+    lerp(L.up.anim.rotation, 'x', st ? -2.2 : 0);
+    lerp(R.up.anim.rotation, 'z', st ? -0.25 : 0); lerp(L.up.anim.rotation, 'z', st ? 0.25 : 0);
+    lerp(p.head.rotation, 'x', w ? -0.42 + Math.sin(t * 0.7 + p.ph) * 0.04 : th ? 0.02 : 0.15);
+    lerp(p.head.rotation, 'y', th ? Math.sin(t * 0.4 + p.ph) * 0.25 : 0);
+    lerp(p.body.rotation, 'x', w ? -0.16 : st ? 0.08 : -0.06);
+    p.body.scale.y = 1 + Math.sin(t * 1.7 + p.ph) * 0.008;   // 숨쉬기
+  }
 
   /* ── 움직임: 내 자리 · 걷기 · 충돌 ── */
   const mySeat = desks.findIndex(([x, z]) => x === 0 && z === 2.6);
@@ -536,7 +645,7 @@ function buildRoom() {
         const look = looks(100 + n * 7 + key.charCodeAt(0));
         const p = makePerson({ ...look, seated: m.s >= 0 }); scene.add(p.g);
         r = { p, seat: -1, x: m.x, z: m.z, yaw: m.y, tx: m.x, tz: m.z, ty: m.y, ph: 0 }; remotes.set(key, r);
-        if (m.s >= 0) { r.seat = m.s; remoteSeats.set(m.s, key); occupied.add(m.s); if (fakeBySeat.has(m.s)) fakeBySeat.get(m.s).visible = false; const sp = seatPos(m.s); p.g.position.set(sp.x, 0, sp.z - 0.07); heads.push({ head: p.head, baseY: p.head.position.y, phase: n, remoteKey: key }); }
+        if (m.s >= 0) { r.seat = m.s; remoteSeats.set(m.s, key); occupied.add(m.s); if (fakeBySeat.has(m.s)) fakeBySeat.get(m.s).visible = false; const sp = seatPos(m.s); p.g.position.set(sp.x, 0, sp.z - 0.07); heads.push({ p, head: p.head, remoteKey: key }); }
         else p.g.position.set(m.x, 0, m.z);
       }
       if (m.s < 0) { r.tx = m.x; r.tz = m.z; r.ty = m.y; }
@@ -554,7 +663,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=61473d59');
+      const { createClient } = await import('./vendor/supabase-js.js?v=8d29a7bc');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -617,6 +726,8 @@ function buildRoom() {
     if (drag && moved < 7 && $('panel').hidden) {   // 끌지 않고 눌렀다 — 의자 · 책상을 눌렀으면 그 자리로
       const r = cv.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
       ray.setFromCamera(ndc, camera);
+      const ph = ray.intersectObjects(posters.map((p) => p.m), false)[0];
+      if (ph && ph.distance < 9) { window.open(ph.object.userData.href, '_blank', 'noopener'); drag = null; return; }   // 게시판 포스터 → 그 쪽을 새 탭으로
       const hit = ray.intersectObjects([sheets, seats, backs, tops], false)[0];
       if (hit && hit.instanceId != null) {
         if (hit.instanceId === me.seat && me.seated) { if (hit.object === sheets || hit.object === tops) openPaper(); }
@@ -683,8 +794,8 @@ function buildRoom() {
     camera.rotation.set(0, 0, 0); camera.rotateY(me.yaw + Math.sin(t * 0.18) * 0.005); camera.rotateX(me.pitch + Math.sin(t * 0.23) * 0.004);
     /* 감독관 천천히 오가기 · 수험생 고개 끄덕임 */
     proctor.g.position.z += pDir * 0.32 * dt; if (proctor.g.position.z > 7.2) pDir = -1; if (proctor.g.position.z < -5.6) pDir = 1;
-    proctor.g.rotation.y = pDir > 0 ? Math.PI : 0; swing(proctor, t * 3.2, 0.42); proctor.g.position.y = Math.abs(Math.sin(t * 3.2)) * 0.012;
-    for (const h of heads) { h.head.position.y = h.baseY - (Math.sin(t * 0.6 + h.phase) > 0.85 ? 0.025 : 0); h.head.rotation.x = -0.3 + Math.sin(t * 0.5 + h.phase) * 0.1; }
+    proctor.g.rotation.y = pDir > 0 ? Math.PI : 0; swing(proctor, t * 3.2, 0.42);
+    for (const h of heads) if (h.p.g.visible) animSeated(h.p, t, dt);
     presenceTick(now, dt, t);
     outsideTick(t, dt);   // 창밖은 계속 움직인다
     const prog = ex.began ? Math.min(1, Math.max(0, 1 - ex.left / Math.max(1, ex.total))) : 0;
