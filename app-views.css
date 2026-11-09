@@ -1841,6 +1841,8 @@ a.gp-use-src:hover { color:var(--orange); }
   background:var(--surface-2); padding:8px; overflow-x:auto;
 }
 .tw-grid { display:flex; flex-direction:column; }
+.tw-cols { margin-top:14px; font:inherit; font-size:14px; font-weight:700; color:var(--ink-2); background:none; border:1px solid var(--line); border-radius:8px; padding:8px 12px; cursor:pointer; min-height:40px; }
+.tw-cols[hidden] { display:none; }
 .tw-grid-row { display:flex; }
 .tw-cell {
   width:var(--tw-cs, 19px); height:var(--tw-cs, 19px); flex:none; box-sizing:border-box;
