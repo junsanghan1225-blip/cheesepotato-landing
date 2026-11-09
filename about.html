@@ -93,6 +93,12 @@ main.ab { max-width:none; padding:0; }
   .ab-nums > div:nth-child(-n+2) { border-top:0; }
   .ab-books { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
+.ab-name { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:30px 0 0; }
+.ab-name figure { margin:0; }
+.ab-name img { display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:10px; border:1px solid var(--line); }
+.ab-name figcaption { margin-top:12px; font-size:15px; line-height:1.55; color:var(--ink-2); }
+.ab-name figcaption b { display:block; font-size:20px; letter-spacing:-.02em; color:var(--ink); }
+.ab-name figcaption .n { font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--orange-deep); display:block; margin-bottom:2px; }
 @media (max-width:720px) {
   .ab-row { grid-template-columns:1fr; gap:18px; }
   .ab-items li { grid-template-columns:1fr; }
@@ -127,6 +133,23 @@ main.ab { max-width:none; padding:0; }
 </div></section>
 
 <div class="wrap">
+
+<section class="ab-row" aria-labelledby="s0">
+  <div class="ab-label" id="s0">00<small>Where the name comes from<i class="ko" lang="ko">이름이 시작된 곳</i></small></div>
+  <div>
+    <p class="ab-state">CheesePotato started with two hamsters: Cheese first, then Potato.</p>
+    <div class="ab-body">
+      <p>The name comes from our two hamsters. The first is Cheese, the golden one. The second is Potato, the grey one. This site started from their names.</p>
+      <p class="ko" lang="ko">치즈감자라는 이름은 우리 햄스터 두 마리에게서 왔어요. 첫째가 노란 치즈, 둘째가 회색 감자. 이 사이트는 두 아이의 이름에서 시작했습니다.</p>
+    </div>
+    <div class="ab-name">
+      <figure><img src="assets/about/cheese.jpg" width="720" height="960" loading="lazy" alt="Cheese, a golden hamster, peeking out of a white cloth">
+        <figcaption><span class="n">01 · FIRST</span><b>Cheese · 치즈</b>The first one, golden.<br><span class="ko" lang="ko">첫째, 노란 햄스터.</span></figcaption></figure>
+      <figure><img src="assets/about/gamja.jpg" width="720" height="960" loading="lazy" alt="Potato, a small grey hamster, held in a hand">
+        <figcaption><span class="n">02 · SECOND</span><b>Potato · 감자</b>The second one, grey.<br><span class="ko" lang="ko">둘째, 회색 햄스터.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
 
 <section class="ab-row" aria-labelledby="s1">
   <div class="ab-label" id="s1">01<small>Who we are<i class="ko" lang="ko">우리는</i></small></div>
