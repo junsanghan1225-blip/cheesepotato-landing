@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>햄스터 OX 퀴즈 · 한국어 낱말 | CheesePotato</title>
+<title>한국어 OX 퀴즈 | CheesePotato</title>
 <meta name="description" content="햄스터가 되어 O와 X로 달려가는 한국어 OX 퀴즈. 낱말 뜻 · 품사 · 문법 · 속담 · 사자성어 · 숫자 읽기 · 높임말 600여 문항, 틀리면 바닥이 꺼져요. 무료. A Korean OX quiz with hamsters.">
 <link rel="canonical" href="https://everykoreans.com/ox/">
-<meta property="og:title" content="햄스터 OX 퀴즈">
+<meta property="og:title" content="한국어 OX 퀴즈">
 <meta property="og:description" content="햄스터가 되어 O와 X로 달려가는 한국어 낱말 퀴즈.">
 <meta property="og:url" content="https://everykoreans.com/ox/">
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1c1915">
-<script src="/gtm.js?v=a8567a10" async></script>
-<script src="/analytics.js?v=a8567a10" defer></script>
-<link rel="stylesheet" href="/vendor/pretendard.css?v=a8567a10">
+<script src="/gtm.js?v=0f76cfe7" async></script>
+<script src="/analytics.js?v=0f76cfe7" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=0f76cfe7">
 <style>
-/* 햄스터 OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
+/* OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
 :root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; --o:#2f6fd6; --x:#d6452f; }
 * { box-sizing:border-box; }
 html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font-family:'Pretendard Variable','Pretendard',-apple-system,'Noto Sans KR',sans-serif; overflow:hidden; }
@@ -62,6 +62,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 .links a { font-size:14px; font-weight:700; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 12px; text-decoration:none; background:#fff; }
 .nogl { position:fixed; inset:0; display:none; z-index:4; background:#2a3b2f; }
 .nogl.on { display:block; }
+@media (min-width:900px) { .qbox { justify-content:flex-start; } .q { width:min(440px,36vw); } }
 @media (max-width:560px) { .q .qe { font-size:13px; } .joy { width:116px; height:116px; } }
 </style>
 </head>
@@ -70,7 +71,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 <div class="nogl" id="noGl"></div>
 
 <div class="hud top">
-  <a class="brand" href="/">치즈감자 · CheesePotato</a>
+  <div style="display:flex;gap:8px;pointer-events:auto"><a class="brand" href="/">치즈감자 · CheesePotato</a><button type="button" class="brand" id="bMute" aria-pressed="false" style="border:0;font:inherit;font-weight:800;font-size:14px;cursor:pointer">소리 켬</button></div>
   <div class="stat" aria-live="off"><span id="sLive">남은 햄스터</span> <b id="sAlive">-</b><br><span>맞힌 문제</span> <b id="sScore">0</b></div>
 </div>
 <div class="hud qbox" id="qWrap" hidden>
@@ -89,7 +90,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 
 <div class="panel" id="panel">
   <div class="card" role="dialog" aria-labelledby="pT">
-    <h1 id="pT">햄스터 OX 퀴즈 <small style="font-size:13px;font-weight:600;color:#6d655c">· Korean word OX</small></h1>
+    <h1 id="pT">OX 퀴즈 <small style="font-size:13px;font-weight:600;color:#6d655c">· Korean OX quiz</small></h1>
     <p>햄스터가 되어 낱말 뜻이 맞으면 <b style="color:var(--o)">O</b>, 틀리면 <b style="color:var(--x)">X</b> 쪽으로 달려가요. 시간이 끝나면 틀린 쪽 바닥이 꺼져요. <span lang="en">Run to O if the meaning is right, X if it is wrong.</span></p>
     <ol>
       <li>한 판에 15문제, 문제마다 10초예요.</li>
@@ -118,6 +119,6 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     </div>
   </div>
 </div>
-<script type="module" src="/ox.js?v=a8567a10"></script>
+<script type="module" src="/ox.js?v=0f76cfe7"></script>
 </body>
 </html>
