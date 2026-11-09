@@ -74,7 +74,7 @@
 ## 🙋 운영자 — 급한 순서
 - 🔎 **Pro 연간 책 포함 — 확인(2026-10-28)**: Polar 대시보드 → Pro (Yearly) 결제 링크에 「Free trial」이 **꺼져 있는지** 보기(켜져 있으면 체험 7일 동안 책 10권을 받을 수 있다). 14일 환불 안에 받고 환불하는 경우는 약속이라 그대로 두되, 심하면 구매자별 워터마크(결정 대기).
 ### 🔥 이번 주 (몇 분씩)
-- 🆕 **쓰기 AI 채점 무료 맛보기 켜기(2026-11-09)** — ① Supabase SQL Editor 에서 `db/add_writing_free_taste.sql` 돌리기 ② Edge Functions → `grade-writing` 에 새 `supabase/functions/grade-writing/index.ts` 붙여 넣고 다시 배포. 둘 다 끝나야 「로그인하면 1번 무료」가 실제로 된다(그 전에는 예전처럼 막힘). 다음 월요일에 GA4 `ai_grade_blocked` · `ai_grade_taste` · `begin_checkout` 숫자 보기.
+- ✅ **쓰기 AI 채점 무료 맛보기 켜기(2026-11-09) — 끝남**(운영자 「배포했어」: SQL `add_writing_free_taste.sql` · `grade-writing` 다시 배포). 다음 월요일에 GA4 `ai_grade_blocked` · `ai_grade_taste` · `begin_checkout` 숫자 보기.
 - 🌙 **2026-11-02 마무리 상태(「잘자」)**
   - 운영자: ① **안티에 두 지시서 전달** — `antigravity-topik2-reading-supplement-task.md`(읽기 보충 112문항 → `ag/topik2-reading-7`) · `antigravity-mock-simplify-task.md`(모의고사 후반부 어휘 쉽게, 123문항 → `ag/mock-simplify`). ② **ISBN 승인 기다림**(읽기 4권 + 학습지 초급 신청함, 나머지 5권은 다음 주) → 승인 나면 판권쪽 · 바코드. ③ **예스24 4권 등록**(첫걸음 · 조사 · 읽기 모의고사 · 관용 표현, 카테고리 `국어 외국어 > 국어` 안쪽 항목 확인). ④ **저작권위원회 · 국립국제교육원 답 기다림**(메일 보냄). ⑤ 정하기: 이미 올린 예스24 6권 · Polar PDF 를 AI 표시 넣은 새 PDF 로 바꿀지 · 읽기 4권 쪽 구성 확인.
   - Claude: 모의고사(TOPIK I) 최종 PDF 는 안티 어휘 결과 합친 뒤 · 읽기 4권(II) 최종 PDF 는 보충 112문항 합친 뒤. 상점 쪽수 · 쪽 표기는 그때 한꺼번에. 이번 수정(점검 쪽 · 따라 풀기 · 번호 정렬)은 작업 브랜치에 있고 `main` 머지는 운영자 「머지해줘」 대기(이번엔 GitHub 웹에서 눌러야 할 수 있음 — PR 도구 연결이 끊김).
