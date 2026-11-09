@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=e1ea2496';
+import * as THREE from './vendor/three.module.min.js?v=a2dd8bba';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -336,7 +336,7 @@ function buildRoom() {
     const cork = canvasTex(512, 160, (g, w, h) => { g.fillStyle = '#c9a06a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(${90 + (i % 50)},${60 + (i % 30)},30,${0.08 + (i % 7) * 0.02})`; g.fillRect((i * 97) % w, (i * 53) % h, 2, 2); } }).t;
     { const c = new THREE.Mesh(new THREE.PlaneGeometry(4.36, 1.3), new THREE.MeshLambertMaterial({ map: cork })); c.position.set(BX, BY, BZ); c.rotation.y = -Math.PI / 2; scene.add(c); }
     /* 위쪽 이름표 띠 */
-    const title = canvasTex(1024, 96, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.textBaseline = 'middle'; g.fillText('치즈감자 소식', 28, h / 2 + 2); g.fillStyle = '#e4631f'; g.font = '700 30px "Pretendard Variable",sans-serif'; g.textAlign = 'right'; g.fillText('everykoreans.com', w - 28, h / 2 + 2); });
+    const title = canvasTex(1024, 96, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.textBaseline = 'middle'; g.fillText('치즈감자 소식', 28, h / 2 + 2); });
     { const t = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 0.16), new THREE.MeshBasicMaterial({ map: title.t })); t.position.set(BX - 0.012, BY + 0.53, BZ - 1.2); t.rotation.y = -Math.PI / 2; scene.add(t); }
     const pinM = mat(0xc0392b), pinG = new THREE.SphereGeometry(0.018, 10, 8);
     const pin = (x, y, z) => { const p = new THREE.Mesh(pinG, pinM); p.position.set(x - 0.02, y, z); scene.add(p); };
@@ -358,7 +358,6 @@ function buildRoom() {
         g.fillStyle = '#f2d86a'; g.font = fontK(800, 26); g.fillText('FREE SAMPLE', 40, 84);
         g.fillStyle = '#fff'; g.font = fontK(800, 50); g.fillText('책마다', 40, 160); g.fillText('무료 샘플', 40, 222);
         g.fillStyle = 'rgba(255,255,255,.8)'; g.font = fontK(600, 24); g.fillText('PDF 워크북 · 정답 포함', 40, 280); g.fillText('Each workbook has', 40, 330); g.fillText('a free sample', 40, 362);
-        g.fillStyle = '#fff'; g.font = fontK(800, 26); g.fillText('everykoreans.com/shop', 40, h - 60);
       } },
       { z: -1.58, y: -0.04, w: 0.44, h: 0.62, cover: 'topik2-writing-51-52', href: '/shop/topik2-writing-51-52/' },
       { z: -1.05, y: 0.05, w: 0.44, h: 0.62, cover: 'particles-workbook', href: '/shop/particles-workbook/' },
@@ -717,7 +716,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=e1ea2496');
+      const { createClient } = await import('./vendor/supabase-js.js?v=a2dd8bba');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);

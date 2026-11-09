@@ -3200,6 +3200,7 @@ urls.push({ loc: '/korean-proverb/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/my-korean-name/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/korean-birthday/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/exam-room/', freq: 'monthly', pri: '0.7' });   // 3D 시험장(2026-11-08)
+urls.push({ loc: '/ox/', freq: 'monthly', pri: '0.7' });   // 햄스터 OX 퀴즈(2026-11-09)
 urls.push({ loc: '/korean-word-today/', freq: 'daily', pri: '0.6' });
 urls.push({ loc: '/hangul-worksheet/', freq: 'monthly', pri: '0.7' });
 urls.push({ loc: '/numbers-worksheet/', freq: 'monthly', pri: '0.7' });
