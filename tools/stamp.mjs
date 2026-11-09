@@ -101,7 +101,7 @@ const ASSETS = [
   /* 3D 시험장(/exam-room/) — 자국이 박힌 주소로 받아 가야 옛 파일이 안 남는다 */
   'exam-room.js', 'vendor/three.module.min.js',
   /* 햄스터 OX 퀴즈(/ox/) */
-  'ox.js', 'ox-questions.js',
+  'ox.js', 'ox-questions.js', 'leave-nudge.js',  /* 시험장 · OX 에서 손님이 나갈 때 로그인 안내 한 번 */
 ];
 /* 자국이 박히는 파일. index.html 의 script·link 와, 모듈끼리 부르는 import. */
 /* glossary.js 도 자국을 박는 자리다 — 그 안의 GLOSS_LANGS 가 언어팩 주소를
