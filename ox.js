@@ -1,8 +1,8 @@
 /* 햄스터 OX 퀴즈 (/ox/) — 운영자 2026-11-09 「메타버스처럼 OX 퀴즈 · 모여서 O 가 정답이면 X 에 있으면 죽는 느낌 · 캐릭터는 햄스터」 1단계.
    1단계는 서버 없이 이 기기에서만 돈다: 함께 뛰는 햄스터는 컴퓨터가 움직인다(2단계에서 실제 접속자와 함께).
    문항은 ox-questions.js(우리 TOPIK I 낱말 자료에서 만든 생성물). 3D 는 three.js(vendor, MIT). */
-import * as THREE from './vendor/three.module.min.js?v=e43fef61';
-import { OX } from './ox-questions.js?v=e43fef61';
+import * as THREE from './vendor/three.module.min.js?v=cc98d815';
+import { OX } from './ox-questions.js?v=cc98d815';
 
 const $ = (id) => document.getElementById(id);
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
@@ -123,15 +123,17 @@ function makeHamster(kind, scale = 1) {
 
 /* ── 한 판 ── */
 const BOT_KINDS = ['snow', 'cocoa', 'cream', 'panda', 'gamja', 'cheese', 'snow', 'cream', 'cocoa', 'gamja', 'panda'];
-let me = null, bots = [], round = null, phase = 'intro', meKind = 'cheese';
+let me = null, bots = [], round = null, phase = 'intro', meKind = 'cheese', mode = 'solo';
+const remotes = new Map();   // 함께 하기: 다른 접속자 햄스터(키 → 햄스터)
 const ring = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.72, 32), new THREE.MeshBasicMaterial({ color: 0xff8a3d, side: THREE.DoubleSide }));
 ring.rotation.x = -Math.PI / 2; scene.add(ring);
 const arrow = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.34, 4), new THREE.MeshBasicMaterial({ color: 0xff8a3d })); arrow.rotation.x = Math.PI; scene.add(arrow);
 
-function spawn() {
+function spawn(nBots = BOTS) {
   for (const h of [me, ...bots]) if (h) scene.remove(h.m.g);
-  me = { m: makeHamster(meKind, 1.05), x: 0, z: 2.2, tx: 0, tz: 2.2, y: 0, vy: 0, side: 0, alive: true, isMe: true, hop: 0 };
-  bots = BOT_KINDS.slice(0, BOTS).map((k, i) => ({ m: makeHamster(k, 0.9 + (i % 3) * 0.06), x: (i % 6 - 2.5) * 0.9, z: -2 + Math.floor(i / 6) * 1.6 + (i % 2) * 0.3, tx: 0, tz: 0, y: 0, vy: 0, side: 0, alive: true, acc: 0.55 + Math.random() * 0.32, decideAt: 0, swapAt: 0, hop: Math.random() * 6, spot: -1 }));
+  const mz = mode === 'live' ? -3 + Math.random() * 6 : 2.2;
+  me = { m: makeHamster(meKind, 1.05), x: 0, z: mz, tx: 0, tz: mz, y: 0, vy: 0, side: 0, alive: true, isMe: true, hop: 0 };
+  bots = BOT_KINDS.slice(0, nBots).map((k, i) => ({ m: makeHamster(k, 0.9 + (i % 3) * 0.06), x: (i % 6 - 2.5) * 0.9, z: -2 + Math.floor(i / 6) * 1.6 + (i % 2) * 0.3, tx: 0, tz: 0, y: 0, vy: 0, side: 0, alive: true, acc: 0.55 + Math.random() * 0.32, decideAt: 0, swapAt: 0, hop: Math.random() * 6, spot: -1 }));
   for (const b of bots) { b.tx = b.x; b.tz = b.z; }
   for (const h of [me, ...bots]) { h.m.g.position.set(h.x, 0, h.z); scene.add(h.m.g); }
 }
@@ -140,19 +142,24 @@ const randIn = (side) => ({ x: (side === 1 ? -1 : 1) * (1.1 + Math.random() * (F
 function goSide(h, side) {
   if (h.side === side) return;
   h.side = side; const p = randIn(side);
-  if (h.isMe) { p.x = side === 1 ? -FIELD.x / 2 : FIELD.x / 2; p.z = 1.6; }
+  if (h.isMe && mode !== 'live') { p.x = side === 1 ? -FIELD.x / 2 : FIELD.x / 2; p.z = 1.6; }   // 혼자일 때는 늘 같은 자리(찾기 쉽게) · 함께일 때는 겹치지 않게 아무 데나
   h.tx = p.x; h.tz = p.z;
 }
 
+/* 한 판에 여러 갈래가 섞이게: 갈래마다 돌아가며 하나씩 뽑는다(낱말 뜻만 계속 나오지 않게). rand 를 주면 그 순서로(함께 하기는 모두 같은 씨앗) */
+function buildPool(rand) {
+  const sh = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const by = {}; for (const q of OX) (by[q.k] = by[q.k] || []).push(q);
+  const kinds = sh(Object.keys(by).sort()), pool = [];
+  for (const k of kinds) sh(by[k]);
+  for (let i = 0; pool.length < N_Q && i < 300; i++) { const q = by[kinds[i % kinds.length]].pop(); if (q) pool.push(q); }
+  return sh(pool);
+}
+const seeded = (n) => { let x = (n * 2654435761) % 4294967296; return () => { x = (x * 1664525 + 1013904223) % 4294967296; return x / 4294967296; }; };
 function startRound() {
   audio();
-  /* 한 판에 여러 갈래가 섞이게: 갈래마다 돌아가며 하나씩 뽑는다(낱말 뜻만 계속 나오지 않게) */
-  const by = {}; for (const q of OX) (by[q.k] = by[q.k] || []).push(q);
-  const kinds = Object.keys(by).sort(() => Math.random() - 0.5), pool = [];
-  for (const k of kinds) by[k].sort(() => Math.random() - 0.5);
-  for (let i = 0; pool.length < N_Q; i++) { const k = kinds[i % kinds.length]; const q = by[k].pop(); if (q) pool.push(q); if (i > 200) break; }
-  pool.sort(() => Math.random() - 0.5);
-  round = { qs: pool, i: -1, score: 0, outAt: 0, t0: 0 };
+  mode = 'solo';
+  round = { qs: buildPool(Math.random), i: -1, score: 0, outAt: 0, t0: 0 };
   spawn();
   $('panel').hidden = true; $('end').hidden = true; $('qWrap').hidden = false; $('pick').hidden = false;
   dl('ox_start', { cp_who: meKind });
@@ -162,7 +169,7 @@ function nextQ() {
   round.i++;
   if (round.i >= round.qs.length) return finish();
   const q = round.qs[round.i];
-  phase = 'ask'; round.t0 = performance.now(); round.lastTick = 0;
+  phase = 'ask'; round.t0 = performance.now(); round.lastTick = 0; round.fallen = false; panO.position.y = panX.position.y = -0.15;
   $('qNo').textContent = `${round.i + 1} / ${round.qs.length}`;
   $('qKind').textContent = KIND[q.k] || '';
   $('qText').innerHTML = q.q.split('\n').map((l) => esc(l).replace(/「([^」]+)」/g, '「<em>$1</em>」')).join('<br>');
@@ -170,7 +177,7 @@ function nextQ() {
   $('bO').disabled = $('bX').disabled = false;
   for (const h of [me, ...bots]) { h.side = 0; }
   /* 모두 가운데 줄 근처로 모였다가 다시 고른다 */
-  me.tx = 0; me.tz = 1.6;
+  me.tx = 0; me.tz = mode === 'live' ? me.tz : 1.6;
   bots.filter((b) => b.alive).forEach((b, k) => { b.tx = (Math.random() - 0.5) * 1.2; b.tz = -FIELD.z + 1 + (k / Math.max(1, bots.length)) * (FIELD.z * 2 - 2); b.decideAt = 0.8 + Math.random() * 6.5; b.swapAt = Math.random() < 0.25 ? b.decideAt + 1 + Math.random() * 2 : 0; b.choice = Math.random() < b.acc ? (q.a ? 1 : 2) : (q.a ? 2 : 1); });
   paintPick(); paintStat();
 }
@@ -179,8 +186,9 @@ const KIND = { meaning: '낱말 뜻 · Word meaning', pos: '품사 · Part of sp
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 function paintPick() { $('bO').setAttribute('aria-pressed', String(me.side === 1)); $('bX').setAttribute('aria-pressed', String(me.side === 2)); }
 function paintStat() {
-  const alive = [me, ...bots].filter((h) => h.alive).length;
-  $('sAlive').textContent = `${alive} / ${bots.length + 1}`; $('sScore').textContent = String(round ? round.score : 0);
+  const everyone = [me, ...bots, ...remotes.values()], alive = everyone.filter((h) => h.alive).length;
+  $('sAlive').textContent = `${alive} / ${everyone.length}`;
+  $('sLive').textContent = mode === 'live' ? `함께 ${remotes.size + 1}명 · 남은 햄스터` : '남은 햄스터'; $('sScore').textContent = String(round ? round.score : 0);
 }
 function pick(side) { if (phase !== 'ask') return; goSide(me, side); paintPick(); tone(side === 1 ? 520 : 400, 0.08, 'triangle', 0.06); }
 $('bO').addEventListener('click', () => pick(1));
@@ -213,7 +221,7 @@ function reveal() {
   /* 틀린 쪽 바닥이 꺼진다 */
   round.drop = good === 1 ? panX : panO; round.dropMid = true;
   setTimeout(sFall, 250);
-  for (const h of [me, ...bots]) {
+  for (const h of [me, ...bots, ...remotes.values()]) {
     if (!h.alive || h.side === good) continue;
     h.falling = true; h.vy = 0.5;
     if (h.isMe) { h.alive = false; round.outAt = round.outAt || round.i + 1; }
@@ -222,7 +230,9 @@ function reveal() {
 }
 function afterFall() {
   for (const b of bots) if (b.falling) { b.falling = false; b.alive = false; b.spot = bots.filter((x) => !x.alive && x.spot >= 0).length; const s = standSpot(b.spot); b.x = b.tx = s.x; b.z = b.tz = s.z; b.y = s.y; b.vy = 0; b.m.g.rotation.set(0, 0, 0); }
-  if (me.falling) { me.falling = false; me.y = 0; me.vy = 0; me.x = me.tx = 0; me.z = me.tz = 1.6; me.m.g.rotation.set(0, 0, 0); ghost(me, true); }
+  for (const r of remotes.values()) if (r.falling) { r.falling = false; r.y = 0; r.vy = 0; r.x = r.tx; r.z = r.tz; r.m.g.rotation.set(0, 0, 0); r.alive = false; ghost(r, true); }
+  if (me.falling) { me.falling = false; me.y = 0; me.vy = 0; me.x = me.tx = 0; me.z = me.tz = mode === 'live' ? me.tz : 1.6; me.m.g.rotation.set(0, 0, 0); ghost(me, true); }
+  sendMe(true);
   paintStat();
 }
 function ghost(h, on) { h.m.g.traverse((o) => { if (o.material) { o.material = o.material.clone(); o.material.transparent = on; o.material.opacity = on ? 0.45 : 1; } }); }
@@ -242,6 +252,77 @@ document.querySelectorAll('#who button').forEach((b) => b.addEventListener('clic
   if (phase === 'intro') { spawn(); }
 }));
 
+/* ── 함께 하기(2단계) — 서버 없이 모두가 같은 시계로 같은 문제를 본다 ──
+   14초 한 칸(10초 고르기 + 4초 정답), 16칸이 한 판(15문제 + 쉬는 칸). 판 번호가 씨앗이라 누구나 같은 순서.
+   다른 접속자는 Supabase 실시간(presence)으로 — 로그인한 사람만, 이름 없이. 새 표 · SQL 은 필요 없다. */
+const SLOT = 14000, RLEN = 16;
+const SB_URL = 'https://tjgoevtvobvmlyefgxel.supabase.co';
+const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqZ29ldnR2b2J2bWx5ZWZneGVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3NDc0MDUsImV4cCI6MjA5NjMyMzQwNX0.G0x83cTqrVrCRaadtQs_4Ywg84QLxB1z6xFzlfM5Nfc';
+let chan = null, myKey = '', lastSent = '', lastSendAt = 0;
+const signedIn = () => { try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); return !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) { return false; } };
+const botsFor = () => Math.max(0, 6 - remotes.size);   // 사람이 적으면 컴퓨터 햄스터로 채운다(내 화면에만)
+function newLiveRound(r) {
+  round = { r, qs: buildPool(seeded(r)), i: -1, score: 0, outAt: 0, t0: 0, live: true };
+  spawn(botsFor()); phase = 'wait'; paintStat(); sendMe(true);
+}
+function liveTick() {
+  const ms = Date.now(), s = Math.floor(ms / SLOT), r = Math.floor(s / RLEN), i = s % RLEN, el = (ms % SLOT) / 1000;
+  if (!round || round.r !== r) newLiveRound(r);
+  if (i === RLEN - 1) {   // 쉬는 칸: 이번 판 점수 · 다음 판까지
+    if (phase !== 'break') {
+      phase = 'break'; $('qKind').textContent = '쉬는 시간 · Break'; $('qNo').textContent = '';
+      $('qText').innerHTML = `이번 판 맞힌 문제 <em>${round.score}</em> / ${round.qs.length}`;
+      $('bO').disabled = $('bX').disabled = true; dl('ox_live_end', { cp_score: round.score });
+    }
+    $('qEn').textContent = `다음 판까지 ${Math.ceil(14 - el)}초 · Next round soon`; $('qSec').textContent = '';
+    return;
+  }
+  if (round.i !== i) {
+    if (el < ASK - 1.5) { round.i = i - 1; nextQ(); round.t0 = performance.now() - el * 1000; }
+    else if (round.waitI !== i) {   // 문제 중간에 들어왔다 — 다음 문제부터
+      round.waitI = i; phase = 'wait'; $('qKind').textContent = ''; $('qNo').textContent = `${i + 1} / ${N_Q}`;
+      $('qText').textContent = '다음 문제부터 같이 풀어요'; $('qEn').textContent = 'Joining from the next question'; $('bO').disabled = $('bX').disabled = true;
+    }
+  }
+}
+const cur = () => ({ k: meKind, s: me ? me.side : 0, x: me ? +me.tx.toFixed(2) : 0, z: me ? +me.tz.toFixed(2) : 0, al: me && me.alive ? 1 : 0 });
+function sendMe(force) {
+  if (!chan) return;
+  const now = performance.now(); if (!force && now - lastSendAt < 300) return;
+  const c = cur(), j = JSON.stringify(c); if (j === lastSent) return;
+  lastSent = j; lastSendAt = now; try { chan.track(c); } catch (e) { /* 다음에 다시 */ }
+}
+function onSync() {
+  const st = chan.presenceState();
+  for (const key of [...remotes.keys()]) if (!st[key]) { scene.remove(remotes.get(key).m.g); remotes.delete(key); }
+  for (const key of Object.keys(st)) {
+    if (key === myKey) continue;
+    const m = st[key][st[key].length - 1]; if (!m) continue;
+    let r = remotes.get(key);
+    if (!r) { r = { m: makeHamster(LOOK[m.k] ? m.k : 'cheese', 1), x: m.x, z: m.z, tx: m.x, tz: m.z, y: 0, vy: 0, side: m.s, alive: !!m.al, hop: 0, remote: true }; r.m.g.position.set(r.x, 0, r.z); scene.add(r.m.g); remotes.set(key, r); if (!r.alive) ghost(r, true); }
+    r.tx = m.x; r.tz = m.z; r.side = m.s;
+    if (!r.falling && !!m.al !== r.alive) { r.alive = !!m.al; ghost(r, !r.alive); }
+  }
+  paintStat();
+}
+async function startLive() {
+  audio();
+  if (!signedIn()) { $('liveNote').hidden = false; return; }
+  mode = 'live'; round = null;
+  $('panel').hidden = true; $('end').hidden = true; $('qWrap').hidden = false; $('pick').hidden = false;
+  dl('ox_live_join', { cp_who: meKind });
+  liveTick();
+  try {
+    const { createClient } = await import('./vendor/supabase-js.js?v=cc98d815');
+    // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
+    const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
+    myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
+    chan = sb.channel('ox-live-1', { config: { presence: { key: myKey } } });
+    chan.on('presence', { event: 'sync' }, onSync).subscribe((status) => { if (status === 'SUBSCRIBED') sendMe(true); });
+  } catch (e) { chan = null; }   // 연결이 안 돼도 같은 시계로 혼자(컴퓨터 햄스터와) 계속된다
+}
+$('bLive').addEventListener('click', startLive);
+
 /* ── 그리기 ── */
 function resize() {
   if (!renderer) return;
@@ -256,6 +337,7 @@ let last = performance.now();
 function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now; const t = now / 1000;
+  if (mode === 'live') liveTick();
   if (round && phase === 'ask') {
     const el = (now - round.t0) / 1000, left = Math.max(0, ASK - el);
     $('qSec').textContent = `${Math.ceil(left)}초`; $('qBar').style.transform = `scaleX(${left / ASK})`;
@@ -267,10 +349,10 @@ function frame(now) {
     const d = round.drop, k = Math.min(1, el / 0.5);
     if (el < 2.2) d.position.y = -0.15 - 6 * k * k; else d.position.y += (-0.15 - d.position.y) * Math.min(1, dt * 6);
     if (el > 1.9 && !round.fallen) { round.fallen = true; afterFall(); }
-    if (el > REVEAL) { round.fallen = false; panO.position.y = panX.position.y = -0.15; nextQ(); }
+    if (mode === 'solo' && el > REVEAL) nextQ();
   }
   /* 햄스터 움직임: 목표로 종종걸음(통통 튀며) · 떨어지면 빙글 */
-  const all = me ? [me, ...bots] : [];
+  const all = me ? [me, ...bots, ...remotes.values()] : [];
   for (const h of all) {
     const g = h.m.g;
     if (h.falling) { h.vy -= 18 * dt; h.y += h.vy * dt; g.rotation.x += dt * 5; g.rotation.z += dt * 3; g.position.set(h.x, h.y, h.z); continue; }
@@ -282,7 +364,7 @@ function frame(now) {
     h.m.body.scale.set(1 + bounce * 0.3, 1 - bounce * 0.5, 1 + bounce * 0.3);   // 착지할 때 찌그러짐
     h.m.head.rotation.x = Math.sin(t * 2 + h.hop) * 0.05;
   }
-  if (me) { ring.position.set(me.x, 0.02 + (me.falling ? me.y : 0), me.z); ring.visible = !me.falling; arrow.position.set(me.x, 1.6 + Math.sin(t * 4) * 0.08 + (me.falling ? me.y : 0), me.z); }
+  if (me) { sendMe(false); ring.position.set(me.x, 0.02 + (me.falling ? me.y : 0), me.z); ring.visible = !me.falling; arrow.position.set(me.x, 1.6 + Math.sin(t * 4) * 0.08 + (me.falling ? me.y : 0), me.z); }
   if (renderer) renderer.render(scene, camera);
 }
 spawn();

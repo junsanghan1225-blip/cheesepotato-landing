@@ -2,7 +2,7 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=e43fef61';
+import * as THREE from './vendor/three.module.min.js?v=cc98d815';
 
 const $ = (id) => document.getElementById(id);
 const pad = (n) => String(n).padStart(2, '0');
@@ -656,11 +656,20 @@ function buildRoom() {
     if (k === 'e') $('bSeat').click();
   });
   addEventListener('keyup', (e) => { keys[e.key.toLowerCase()] = false; });
-  /* 화면 속 방향 단추(폰) — 누르고 있는 동안 이동 */
-  document.querySelectorAll('#pad button').forEach((b) => {
-    const k = b.dataset.k, on = (e) => { e.preventDefault(); keys[k] = true; if (me.seated) standUp(); }, off = () => { keys[k] = false; };
-    b.addEventListener('pointerdown', on); b.addEventListener('pointerup', off); b.addEventListener('pointerleave', off); b.addEventListener('pointercancel', off);
-  });
+  /* 조이스틱(폰) — 동그라미 안에서 손가락을 끄는 만큼 그 방향 · 그 세기로 걷는다(운영자 2026-11-09 「핸드폰에서 조이스틱으로」) */
+  const joy = { x: 0, y: 0, id: null };
+  {
+    const base = $('pad'), knob = $('padKnob'), R = 46;
+    const set = (e) => {
+      const r = base.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      let dx = e.clientX - cx, dy = e.clientY - cy; const d = Math.hypot(dx, dy); if (d > R) { dx *= R / d; dy *= R / d; }
+      knob.style.transform = `translate(${dx}px, ${dy}px)`; joy.x = dx / R; joy.y = dy / R;
+    };
+    base.addEventListener('pointerdown', (e) => { e.preventDefault(); joy.id = e.pointerId; base.setPointerCapture(e.pointerId); if (me.seated) standUp(); set(e); });
+    base.addEventListener('pointermove', (e) => { if (e.pointerId === joy.id) set(e); });
+    const end = (e) => { if (e.pointerId !== joy.id) return; joy.id = null; joy.x = joy.y = 0; knob.style.transform = ''; };
+    base.addEventListener('pointerup', end); base.addEventListener('pointercancel', end);
+  }
   /* 시험지 풀기: 사이트의 실제 모의고사를 큰 화면(iframe)으로 연다 — 칠판 시간은 계속 간다 */
   function openPaper() {
     const ii = /II/.test(ex.name) ? 'II' : 'I', reading = /읽기/.test(ex.name) || !ex.began;
@@ -716,7 +725,7 @@ function buildRoom() {
     try { const raw = localStorage.getItem('sb-tjgoevtvobvmlyefgxel-auth-token'), j = raw && JSON.parse(raw); ok = !!(j && (j.access_token || (j.currentSession && j.currentSession.access_token))); } catch (e) {}
     if (!ok) { setOnline('로그인하면 다른 수험생과 함께 앉을 수 있어요 · Sign in to see others'); return; }
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=e43fef61');
+      const { createClient } = await import('./vendor/supabase-js.js?v=cc98d815');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -828,7 +837,8 @@ function buildRoom() {
     const t = (now - t0) / 1000;
     /* 걷기 */
     if (!me.seated && goal.t >= 1) {
-      const f = (keys.w || keys.arrowup ? 1 : 0) - (keys.s || keys.arrowdown ? 1 : 0), sd = (keys.d || keys.arrowright ? 1 : 0) - (keys.a || keys.arrowleft ? 1 : 0);
+      const jm = Math.hypot(joy.x, joy.y) > 0.15;   // 조이스틱 가운데 근처는 멈춤
+      const f = jm ? -joy.y : (keys.w || keys.arrowup ? 1 : 0) - (keys.s || keys.arrowdown ? 1 : 0), sd = jm ? joy.x : (keys.d || keys.arrowright ? 1 : 0) - (keys.a || keys.arrowleft ? 1 : 0);
       if (f || sd) {
         const sp = 1.7 * dt, cy = Math.cos(me.yaw), sy = Math.sin(me.yaw);
         const dx = (-sy * f + cy * sd) * sp, dz = (-cy * f - sy * sd) * sp;
