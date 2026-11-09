@@ -2,8 +2,8 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=3a9aa85c';
-import { leaveNudge } from './leave-nudge.js?v=3a9aa85c';
+import * as THREE from './vendor/three.module.min.js?v=3fb76f2e';
+import { leaveNudge } from './leave-nudge.js?v=3fb76f2e';
 leaveNudge('exam_room');
 
 const $ = (id) => document.getElementById(id);
@@ -203,14 +203,14 @@ function buildRoom() {
   const doorM = mat(0x8a6a44), frameM = mat(0x5a4330);
   box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 6.62); box(0.08, 2.2, 0.08, frameM, 5.95, 1.1, 7.78); box(0.08, 0.08, 1.24, frameM, 5.95, 2.22, 7.2);
   const door = box(1.08, 2.14, 0.05, doorM, 6.62, 1.07, 6.6);   // 활짝 열려 복도 쪽 벽에 붙어 있다
-  box(0.36, 0.5, 0.03, mat(0xcfe3ea), 6.62, 1.55, 6.57);   // 문 유리
+  const doorGlass = box(0.36, 0.5, 0.03, mat(0xcfe3ea), 6.62, 1.55, 6.57);   // 문 유리
   const doorSign = canvasTex(256, 128, (g, w, h) => { g.fillStyle = '#1c1915'; g.fillRect(0, 0, w, h); g.fillStyle = '#f6f1e7'; g.textAlign = 'center'; g.font = '800 46px "Pretendard Variable",sans-serif'; g.fillText(`${ROOM}반`, w / 2, 56); g.font = '600 26px "Pretendard Variable",sans-serif'; g.fillStyle = '#f6b8a8'; g.fillText('문 · 복도로 나가기', w / 2, 100); });
   const doorSignM = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.45), new THREE.MeshBasicMaterial({ map: doorSign.t }));
   doorSignM.position.set(5.95, 2.6, 7.2); doorSignM.rotation.y = -Math.PI / 2; scene.add(doorSignM);
   door.userData.door = true; doorSignM.userData.door = true;
   const doorHits = [door, doorSignM];
   /* ── 3D 복도: 문 밖으로 길게. 반마다 문 + 벽에서 튀어나온 팻말(반 이름 · 지금 몇 명). 다른 반 문으로 걸어 들어가면 그 반으로. ── */
-  const RI = ROOMS.indexOf(ROOM);
+  const RI = ROOMS.indexOf(ROOM), hallLockers = [];
   const hallDoors = ROOMS.map((r, i) => ({ r, z: DOOR_Z + (i - RI) * 17 }));
   HALL.z0 = Math.min(...hallDoors.map((d) => d.z)) - 6; HALL.z1 = Math.max(...hallDoors.map((d) => d.z)) + 6;
   {
@@ -229,7 +229,7 @@ function buildRoom() {
     const glass = new THREE.MeshBasicMaterial({ color: 0xcfe6f2 });
     for (let z = HALL.z0 + 2; z < HALL.z1 - 1; z += 3.4) { const w = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 1.1), glass); w.position.set(9.39, 1.95, z); w.rotation.y = -Math.PI / 2; scene.add(w); box(0.06, 0.06, 2.3, frameM, 9.38, 1.38, z); }
     const lockerM = mat(0x7f8f9a);
-    for (let z = HALL.z0 + 1.2; z < HALL.z1 - 1; z += 3.4) { box(0.5, 1.3, 1.1, lockerM, 9.12, 0.65, z + 1.7); }
+    for (let z = HALL.z0 + 1.2; z < HALL.z1 - 1; z += 3.4) { hallLockers.push({ z: z + 1.7, m: box(0.5, 1.3, 1.1, lockerM, 9.12, 0.65, z + 1.7) }); }
     box(3.4, 3.2, 0.1, hallWall, hx, 1.6, HALL.z0); box(3.4, 3.2, 0.1, hallWall, hx, 1.6, HALL.z1);
     const lampM = new THREE.MeshBasicMaterial({ color: 0xfffbea });
     for (let z = HALL.z0 + 2; z < HALL.z1; z += 4) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 1.4), lampM); l.position.set(hx, 3.17, z); scene.add(l); }
@@ -238,7 +238,7 @@ function buildRoom() {
       if (d.r !== ROOM) {
         box(0.08, 2.2, 0.08, frameM, 6.18, 1.1, d.z - 0.58); box(0.08, 2.2, 0.08, frameM, 6.18, 1.1, d.z + 0.58); box(0.08, 0.08, 1.24, frameM, 6.18, 2.22, d.z);
         const dd = box(0.05, 2.14, 1.08, doorM, 6.17, 1.07, d.z); dd.userData.room = d.r; d.mesh = dd;
-        box(0.02, 0.5, 0.36, mat(0xcfe3ea), 6.2, 1.55, d.z);
+        d.glass = box(0.02, 0.5, 0.36, mat(0xcfe3ea), 6.2, 1.55, d.z);
       }
       d.tex = canvasTex(256, 112, () => {});
       const m = new THREE.Mesh(new THREE.PlaneGeometry(0.86, 0.38), new THREE.MeshBasicMaterial({ map: d.tex.t }));
@@ -477,6 +477,34 @@ function buildRoom() {
     [-0.18, 0.18].forEach((dx, k) => put(cRail, i * 2 + k, x + dx, 0.2, cz)); put(cBar, i, x, 0.2, cz - 0.17);
   });
   [topsI, topEdge, dLegs, dRail, dBar, trayB, trayBack, traySide, seatsI, backsI, posts, cLegs, cRail, cBar].forEach((o) => { o.instanceMatrix.needsUpdate = true; if (fine) { o.castShadow = true; o.receiveShadow = true; } scene.add(o); });
+  /* Blender 로 만든 소품(assets/3d/classroom.json, tools/blender/) — 받아지면 상자 모양을 이것으로 바꾼다(운영자 2026-11-09 「Blender 방법 1」).
+     상자 모양은 숨기기만 한다 — 누르면 앉기 · 문 열기(raycast)는 그 상자로 계속 판다. 못 받으면 상자 그대로. */
+  fetch('/assets/3d/classroom.json').then((r) => (r.ok ? r.json() : null)).then((P) => {
+    if (!P || !P.desk || !P.chair) return;
+    const build = (name) => (P[name] || []).map((part) => {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.Float32BufferAttribute(part.pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(part.nrm, 3));
+      const m = new THREE.MeshLambertMaterial(); m.color.setRGB(part.rgb[0], part.rgb[1], part.rgb[2]);
+      if (part.metal > 0.5) m.color.multiplyScalar(1.25);   // 쇠는 램버트에서 어둡게 보여 조금 밝게
+      return { g, m };
+    });
+    const place = (name, list) => {   // list: [x, y, z, ry]
+      for (const { g, m } of build(name)) {
+        const im = new THREE.InstancedMesh(g, m, list.length);
+        list.forEach(([x, y, z, ry], k) => im.setMatrixAt(k, m4.compose(pos.set(x, y, z), q.setFromEuler(new THREE.Euler(0, ry || 0, 0)), sc)));
+        im.instanceMatrix.needsUpdate = true; if (fine) { im.castShadow = true; im.receiveShadow = true; } scene.add(im);
+      }
+    };
+    place('desk', desks.map(([x, z]) => [x, 0, z, 0]));
+    place('chair', desks.map(([x, z]) => [x, 0, z + 0.55, 0]));
+    [topsI, topEdge, dLegs, dRail, dBar, trayB, trayBack, traySide, seatsI, backsI, posts, cLegs, cRail, cBar].forEach((o) => { o.visible = false; });
+    if (P.locker) { place('locker', hallLockers.map((l) => [9.12, 0, l.z, Math.PI / 2])); hallLockers.forEach((l) => { l.m.visible = false; }); }
+    if (P.door) {
+      const others = hallDoors.filter((d) => d.mesh);
+      place('door', [[6.62, 0, 6.6, 0], ...others.map((d) => [6.17, 0, d.z, Math.PI / 2])]);
+      door.visible = false; doorGlass.visible = false; others.forEach((d) => { d.mesh.visible = false; d.glass.visible = false; });
+    }
+  }).catch(() => {});
   /* 시험지(OMR 답안지 느낌) — 자리마다 한 장 + 연필 */
   const paper = canvasTex(256, 360, (g, w, h) => {
     g.fillStyle = '#fffdf6'; g.fillRect(0, 0, w, h);
@@ -811,7 +839,7 @@ function buildRoom() {
        이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
     void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=3a9aa85c');
+      const { createClient } = await import('./vendor/supabase-js.js?v=3fb76f2e');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
