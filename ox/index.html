@@ -12,9 +12,9 @@
 <meta property="og:image" content="https://everykoreans.com/logo-256.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1c1915">
-<script src="/gtm.js?v=34ed3d43" async></script>
-<script src="/analytics.js?v=34ed3d43" defer></script>
-<link rel="stylesheet" href="/vendor/pretendard.css?v=34ed3d43">
+<script src="/gtm.js?v=a8567a10" async></script>
+<script src="/analytics.js?v=a8567a10" defer></script>
+<link rel="stylesheet" href="/vendor/pretendard.css?v=a8567a10">
 <style>
 /* 햄스터 OX 퀴즈(운영자 2026-11-09 「메타버스처럼 실시간 OX · 캐릭터는 햄스터」 1단계) — 화면 전체가 3D 운동장, 위에 문제 · 아래에 O / X 단추. */
 :root { --ink:#1c1915; --paper:#f6f1e7; --line:#cfc6b4; --orange:#e4631f; --o:#2f6fd6; --x:#d6452f; }
@@ -38,11 +38,11 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 .msg span { display:inline-block; font-size:clamp(28px,7vw,54px); font-weight:900; letter-spacing:-.03em; padding:10px 22px; border-radius:12px; opacity:0; transform:scale(.9); transition:opacity .2s, transform .2s; }
 .msg span.on { opacity:1; transform:none; }
 .msg .ok { background:var(--o); color:#fff; } .msg .ng { background:var(--x); color:#fff; } .msg .info { background:rgba(28,25,21,.8); color:#fff; font-size:clamp(20px,4.5vw,30px); }
-.pick { bottom:0; display:flex; gap:10px; justify-content:center; padding:0 14px max(14px,env(safe-area-inset-bottom)); pointer-events:auto; }
-.pick button { flex:1; max-width:260px; min-height:68px; border:0; border-radius:12px; font:inherit; font-size:34px; font-weight:900; color:#fff; cursor:pointer; }
-.pick .bo { background:var(--o); } .pick .bx { background:var(--x); }
-.pick button[aria-pressed="true"] { outline:4px solid #fff; outline-offset:-4px; }
-.pick button:disabled { opacity:.45; cursor:default; }
+.pick { bottom:0; display:flex; align-items:flex-end; justify-content:space-between; gap:10px; padding:0 18px max(18px,env(safe-area-inset-bottom)); pointer-events:none; }
+.where { pointer-events:none; font-size:15px; font-weight:800; background:rgba(28,25,21,.72); color:#fff; padding:10px 14px; border-radius:10px; margin-bottom:34px; }
+.where[data-side="1"] { background:var(--o); } .where[data-side="2"] { background:var(--x); }
+.joy { pointer-events:auto; width:128px; height:128px; border-radius:50%; background:rgba(28,25,21,.4); border:2px solid rgba(255,255,255,.7); display:grid; place-items:center; touch-action:none; cursor:grab; }
+.joy i { width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.92); box-shadow:0 2px 6px rgba(0,0,0,.3); pointer-events:none; transition:transform .06s; }
 .panel { position:fixed; inset:0; z-index:8; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(20,18,15,.55); backdrop-filter:blur(3px); }
 .panel[hidden] { display:none; }
 .card { width:min(520px,100%); background:var(--paper); color:var(--ink); border-radius:12px; padding:22px 20px; max-height:92vh; overflow:auto; }
@@ -62,7 +62,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 .links a { font-size:14px; font-weight:700; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 12px; text-decoration:none; background:#fff; }
 .nogl { position:fixed; inset:0; display:none; z-index:4; background:#2a3b2f; }
 .nogl.on { display:block; }
-@media (max-width:560px) { .q .qe { font-size:13px; } .pick button { min-height:60px; font-size:30px; } }
+@media (max-width:560px) { .q .qe { font-size:13px; } .joy { width:116px; height:116px; } }
 </style>
 </head>
 <body>
@@ -83,8 +83,8 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
 </div>
 <div class="hud msg" aria-live="polite"><span id="msg"></span></div>
 <div class="hud pick" id="pick" hidden>
-  <button type="button" class="bo" id="bO" aria-pressed="false" aria-label="O 로 가기">O</button>
-  <button type="button" class="bx" id="bX" aria-pressed="false" aria-label="X 로 가기">X</button>
+  <div class="where" id="where" data-side="0">가운데 — O나 X 쪽으로</div>
+  <div class="joy" id="joy" role="application" aria-label="조이스틱 — 끌어서 햄스터를 움직여요 (키보드는 방향키 · WASD)"><i id="joyKnob"></i></div>
 </div>
 
 <div class="panel" id="panel">
@@ -93,7 +93,7 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     <p>햄스터가 되어 낱말 뜻이 맞으면 <b style="color:var(--o)">O</b>, 틀리면 <b style="color:var(--x)">X</b> 쪽으로 달려가요. 시간이 끝나면 틀린 쪽 바닥이 꺼져요. <span lang="en">Run to O if the meaning is right, X if it is wrong.</span></p>
     <ol>
       <li>한 판에 15문제, 문제마다 10초예요.</li>
-      <li>아래 O · X 단추를 누르거나, 운동장을 눌러도 돼요(키보드는 ← →).</li>
+      <li>오른쪽 아래 조이스틱을 끌어서 햄스터를 O나 X 쪽으로 걸어가게 해요(컴퓨터는 방향키 · WASD). 시간이 끝날 때 서 있는 쪽이 내 답이에요.</li>
       <li>떨어져도 끝까지 같이 풀 수 있어요. 맞힌 문제 수가 내 점수예요.</li>
     </ol>
     <div class="who" id="who" role="group" aria-label="햄스터 고르기">
@@ -118,6 +118,6 @@ html, body { margin:0; height:100%; background:#1c1915; color:var(--paper); font
     </div>
   </div>
 </div>
-<script type="module" src="/ox.js?v=34ed3d43"></script>
+<script type="module" src="/ox.js?v=a8567a10"></script>
 </body>
 </html>

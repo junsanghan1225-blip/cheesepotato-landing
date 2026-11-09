@@ -1,8 +1,8 @@
 /* 햄스터 OX 퀴즈 (/ox/) — 운영자 2026-11-09 「메타버스처럼 OX 퀴즈 · 모여서 O 가 정답이면 X 에 있으면 죽는 느낌 · 캐릭터는 햄스터」 1단계.
    1단계는 서버 없이 이 기기에서만 돈다: 함께 뛰는 햄스터는 컴퓨터가 움직인다(2단계에서 실제 접속자와 함께).
    문항은 ox-questions.js(우리 TOPIK I 낱말 자료에서 만든 생성물). 3D 는 three.js(vendor, MIT). */
-import * as THREE from './vendor/three.module.min.js?v=34ed3d43';
-import { OX } from './ox-questions.js?v=34ed3d43';
+import * as THREE from './vendor/three.module.min.js?v=a8567a10';
+import { OX } from './ox-questions.js?v=a8567a10';
 
 const $ = (id) => document.getElementById(id);
 const dl = (ev, extra) => { try { (window.dataLayer = window.dataLayer || []).push({ event: ev, ...extra }); } catch (e) { /* 기록만 빠진다 */ } };
@@ -173,39 +173,55 @@ function nextQ() {
   $('qNo').textContent = `${round.i + 1} / ${round.qs.length}`;
   $('qKind').textContent = KIND[q.k] || '';
   $('qText').innerHTML = q.q.split('\n').map((l) => esc(l).replace(/「([^」]+)」/g, '「<em>$1</em>」')).join('<br>');
-  $('qEn').textContent = '맞으면 O, 틀리면 X · True? O · False? X';
-  $('bO').disabled = $('bX').disabled = false;
+  $('qEn').textContent = '맞으면 O 쪽, 틀리면 X 쪽에 서요 · Stand on O if true, X if false';
+  canMove = true;
   for (const h of [me, ...bots]) { h.side = 0; }
   /* 모두 가운데 줄 근처로 모였다가 다시 고른다 */
-  me.tx = 0; me.tz = mode === 'live' ? me.tz : 1.6;
+  me.tx = me.x; me.tz = me.z;   // 내 햄스터는 서 있던 자리 그대로(직접 걸어 다닌다)
   bots.filter((b) => b.alive).forEach((b, k) => { b.tx = (Math.random() - 0.5) * 1.2; b.tz = -FIELD.z + 1 + (k / Math.max(1, bots.length)) * (FIELD.z * 2 - 2); b.decideAt = 0.8 + Math.random() * 6.5; b.swapAt = Math.random() < 0.25 ? b.decideAt + 1 + Math.random() * 2 : 0; b.choice = Math.random() < b.acc ? (q.a ? 1 : 2) : (q.a ? 2 : 1); });
-  paintPick(); paintStat();
+  me.side = sideOf(me.x); paintPick(); paintStat();
 }
 /* 갈래 이름(문제 위 작은 글자) */
 const KIND = { meaning: '낱말 뜻 · Word meaning', pos: '품사 · Part of speech', grammar: '문법 · Grammar', expr: '속담 · 관용 표현 · Expressions', hanja: '사자성어 한자 · Hanja', number: '숫자 읽기 · Reading numbers', honor: '높임말 · Honorifics' };
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-function paintPick() { $('bO').setAttribute('aria-pressed', String(me.side === 1)); $('bX').setAttribute('aria-pressed', String(me.side === 2)); }
+function paintPick() { const w = $('where'); if (!w) return; w.textContent = me.side === 1 ? 'O 쪽에 있어요' : me.side === 2 ? 'X 쪽에 있어요' : '가운데 — O나 X 쪽으로'; w.dataset.side = String(me.side); }
 function paintStat() {
   const everyone = [me, ...bots, ...remotes.values()], alive = everyone.filter((h) => h.alive).length;
   $('sAlive').textContent = `${alive} / ${everyone.length}`;
   $('sLive').textContent = mode === 'live' ? `함께 ${remotes.size + 1}명 · 남은 햄스터` : '남은 햄스터'; $('sScore').textContent = String(round ? round.score : 0);
 }
-function pick(side) { if (phase !== 'ask') return; goSide(me, side); paintPick(); tone(side === 1 ? 520 : 400, 0.08, 'triangle', 0.06); }
-$('bO').addEventListener('click', () => pick(1));
-$('bX').addEventListener('click', () => pick(2));
+/* 내 햄스터는 조이스틱(폰 · 마우스로 끌기)이나 방향키 · WASD 로 직접 걸어 O 나 X 쪽에 선다(운영자 2026-11-09 「눌러서 넘어가지 말고 조이스틱으로 왔다갔다」).
+   정답을 보여 줄 때 서 있는 쪽이 내 답 — 가운데 줄 위에 있으면 고르지 않은 것으로 본다. */
+let canMove = false;
+const joy = { x: 0, y: 0, id: null }, keys = {};
+{
+  const base = $('joy'), knob = $('joyKnob'), R = 46;
+  const set = (e) => { const r = base.getBoundingClientRect(); let dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2); const d = Math.hypot(dx, dy); if (d > R) { dx *= R / d; dy *= R / d; } knob.style.transform = `translate(${dx}px, ${dy}px)`; joy.x = dx / R; joy.y = dy / R; };
+  base.addEventListener('pointerdown', (e) => { e.preventDefault(); audio(); joy.id = e.pointerId; base.setPointerCapture(e.pointerId); set(e); });
+  base.addEventListener('pointermove', (e) => { if (e.pointerId === joy.id) set(e); });
+  const end = (e) => { if (e.pointerId !== joy.id) return; joy.id = null; joy.x = joy.y = 0; knob.style.transform = ''; };
+  base.addEventListener('pointerup', end); base.addEventListener('pointercancel', end);
+}
+const KEYMAP = { arrowleft: 'l', a: 'l', arrowright: 'r', d: 'r', arrowup: 'u', w: 'u', arrowdown: 'd', s: 'd' };
 addEventListener('keydown', (e) => {
   const k = e.key.toLowerCase();
-  if (k === 'arrowleft' || k === 'o') pick(1);
-  if (k === 'arrowright' || k === 'x') pick(2);
+  if (KEYMAP[k]) { keys[KEYMAP[k]] = true; e.preventDefault(); }
   if ((k === 'enter' || k === ' ') && !$('panel').hidden) $('bGo').click();
 });
-/* 운동장을 눌러도 그쪽으로 */
-const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
-$('scene').addEventListener('pointerup', (e) => {
-  if (phase !== 'ask') return;
-  ndc.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
-  const hit = ray.intersectObjects([panO, panX], false)[0]; if (hit) pick(hit.object === panO ? 1 : 2);
-});
+addEventListener('keyup', (e) => { const k = KEYMAP[e.key.toLowerCase()]; if (k) keys[k] = false; });
+function moveMe(dt) {
+  if (!me || me.falling) { if (me) me.moving = false; return; }
+  let vx = joy.x, vz = joy.y;
+  if (Math.hypot(vx, vz) < 0.15) { vx = (keys.r ? 1 : 0) - (keys.l ? 1 : 0); vz = (keys.d ? 1 : 0) - (keys.u ? 1 : 0); const m = Math.hypot(vx, vz); if (m > 1) { vx /= m; vz /= m; } }
+  me.moving = canMove && Math.hypot(vx, vz) > 0.05;
+  if (me.moving) {
+    const sp = 5.5 * dt;
+    me.x = Math.max(-FIELD.x + 0.35, Math.min(FIELD.x - 0.35, me.x + vx * sp)); me.z = Math.max(-FIELD.z + 0.35, Math.min(FIELD.z - 0.35, me.z + vz * sp));
+    me.m.g.rotation.y = Math.atan2(vx, vz);
+  }
+  me.tx = me.x; me.tz = me.z;
+  const sd = sideOf(me.x); if (sd !== me.side) { me.side = sd; paintPick(); if (sd) tone(sd === 1 ? 520 : 400, 0.06, 'triangle', 0.05); }
+}
 
 let msgT = 0;
 function say(text, cls, ms = 1800) { const m = $('msg'); m.className = `on ${cls}`; m.textContent = text; clearTimeout(msgT); msgT = setTimeout(() => { m.className = ''; }, ms); }
@@ -213,7 +229,7 @@ function say(text, cls, ms = 1800) { const m = $('msg'); m.className = `on ${cls
 function reveal() {
   phase = 'reveal'; round.t0 = performance.now();
   const q = round.qs[round.i], good = q.a ? 1 : 2;
-  $('bO').disabled = $('bX').disabled = true;
+  canMove = false;
   $('qEn').textContent = `정답 ${q.a ? 'O' : 'X'} · ${q.e}`;
   const meRight = me.side === good;
   if (meRight) { round.score++; sOk(); say(me.alive ? '정답! 살았어요' : '정답!', 'ok'); }
@@ -272,7 +288,7 @@ function liveTick() {
     if (phase !== 'break') {
       phase = 'break'; $('qKind').textContent = '쉬는 시간 · Break'; $('qNo').textContent = '';
       $('qText').innerHTML = `이번 판 맞힌 문제 <em>${round.score}</em> / ${round.qs.length}`;
-      $('bO').disabled = $('bX').disabled = true; dl('ox_live_end', { cp_score: round.score });
+      canMove = false; dl('ox_live_end', { cp_score: round.score });
     }
     $('qEn').textContent = `다음 판까지 ${Math.ceil(14 - el)}초 · Next round soon`; $('qSec').textContent = '';
     return;
@@ -281,7 +297,7 @@ function liveTick() {
     if (el < ASK - 1.5) { round.i = i - 1; nextQ(); round.t0 = performance.now() - el * 1000; }
     else if (round.waitI !== i) {   // 문제 중간에 들어왔다 — 다음 문제부터
       round.waitI = i; phase = 'wait'; $('qKind').textContent = ''; $('qNo').textContent = `${i + 1} / ${N_Q}`;
-      $('qText').textContent = '다음 문제부터 같이 풀어요'; $('qEn').textContent = 'Joining from the next question'; $('bO').disabled = $('bX').disabled = true;
+      $('qText').textContent = '다음 문제부터 같이 풀어요'; $('qEn').textContent = 'Joining from the next question'; canMove = false;
     }
   }
 }
@@ -313,7 +329,7 @@ async function startLive() {
   dl('ox_live_join', { cp_who: meKind });
   liveTick();
   try {
-    const { createClient } = await import('./vendor/supabase-js.js?v=34ed3d43');
+    const { createClient } = await import('./vendor/supabase-js.js?v=a8567a10');
     // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
     const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
     myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
@@ -352,12 +368,14 @@ function frame(now) {
     if (mode === 'solo' && el > REVEAL) nextQ();
   }
   /* 햄스터 움직임: 목표로 종종걸음(통통 튀며) · 떨어지면 빙글 */
+  moveMe(dt);
   const all = me ? [me, ...bots, ...remotes.values()] : [];
   for (const h of all) {
     const g = h.m.g;
     if (h.falling) { h.vy -= 18 * dt; h.y += h.vy * dt; g.rotation.x += dt * 5; g.rotation.z += dt * 3; g.position.set(h.x, h.y, h.z); continue; }
-    const dx = h.tx - h.x, dz = h.tz - h.z, dist = Math.hypot(dx, dz), sp = (h.isMe ? 6 : 4.6) * dt;
-    if (dist > 0.03) { const s = Math.min(1, sp / dist); h.x += dx * s; h.z += dz * s; h.hop += dt * 14; g.rotation.y = Math.atan2(dx, dz); }
+    const dx = h.tx - h.x, dz = h.tz - h.z, dist = h.isMe ? (h.moving ? 1 : 0) : Math.hypot(dx, dz), sp = 4.6 * dt;
+    if (h.isMe && h.moving) { h.hop += dt * 14; }
+    else if (dist > 0.03) { const s = Math.min(1, sp / dist); h.x += dx * s; h.z += dz * s; h.hop += dt * 14; g.rotation.y = Math.atan2(dx, dz); }
     else { h.hop += dt * 2; g.rotation.y += (0 - g.rotation.y) * Math.min(1, dt * 4); }   // 멈추면 앞(화면 쪽)을 본다
     const bounce = dist > 0.03 ? Math.abs(Math.sin(h.hop)) * 0.18 : Math.abs(Math.sin(h.hop)) * 0.02;
     g.position.set(h.x, (h.y || 0) + bounce, h.z);
