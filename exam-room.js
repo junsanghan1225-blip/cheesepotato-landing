@@ -2,8 +2,8 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=3fb76f2e';
-import { leaveNudge } from './leave-nudge.js?v=3fb76f2e';
+import * as THREE from './vendor/three.module.min.js?v=5efe3b4a';
+import { leaveNudge } from './leave-nudge.js?v=5efe3b4a';
 leaveNudge('exam_room');
 
 const $ = (id) => document.getElementById(id);
@@ -481,10 +481,16 @@ function buildRoom() {
      상자 모양은 숨기기만 한다 — 누르면 앉기 · 문 열기(raycast)는 그 상자로 계속 판다. 못 받으면 상자 그대로. */
   fetch('/assets/3d/classroom.json').then((r) => (r.ok ? r.json() : null)).then((P) => {
     if (!P || !P.desk || !P.chair) return;
+    const texCache = {};
     const build = (name) => (P[name] || []).map((part) => {
       const g = new THREE.BufferGeometry();
       g.setAttribute('position', new THREE.Float32BufferAttribute(part.pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(part.nrm, 3));
       const m = new THREE.MeshLambertMaterial(); m.color.setRGB(part.rgb[0], part.rgb[1], part.rgb[2]);
+      if (part.map && part.uv) {   // Poly Haven 나무결(CC0) — 512px JPG, 같은 그림은 한 번만 받는다
+        g.setAttribute('uv', new THREE.Float32BufferAttribute(part.uv, 2));
+        if (!texCache[part.map]) { const tx = new THREE.TextureLoader().load(`/assets/3d/${part.map}`); tx.colorSpace = THREE.SRGBColorSpace; tx.wrapS = tx.wrapT = THREE.RepeatWrapping; tx.anisotropy = 4; texCache[part.map] = tx; }
+        m.map = texCache[part.map];
+      }
       if (part.metal > 0.5) m.color.multiplyScalar(1.25);   // 쇠는 램버트에서 어둡게 보여 조금 밝게
       return { g, m };
     });
@@ -839,7 +845,7 @@ function buildRoom() {
        이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
     void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=3fb76f2e');
+      const { createClient } = await import('./vendor/supabase-js.js?v=5efe3b4a');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
