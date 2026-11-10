@@ -143,12 +143,12 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
-.ex{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
+.ex{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:8px 0;font-size:16px;color:var(--ink)}
 .dlg{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:var(--card)}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
-.bub{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:15px}
+.bub{cursor:pointer;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:15px}
 .line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
 .cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:8px;background:var(--cta);color:var(--cta-ink);
   text-decoration:none;font-weight:700;text-align:center;font-size:16px}
@@ -927,7 +927,7 @@ function twHub(items) {
     '<h1>TOPIK II 쓰기 연습 — 모범답안과 AI 채점(1번 무료 · Pro)</h1>',
     `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
     `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
-    hubCtas(['/#learn/topik/II/writing', '바로 써 보기', 'Write now — model answers are free, AI scoring is Pro']),
+    hubCtas(['/#learn/topik/II/writing/w53-1', 'AI 채점 받아 보기 · 1번 무료', 'Write Q53 and get one free AI score (sign in)'], ['/?utm_source=hub#learn/topik/II/writing', '51번부터 써 보기', 'Start from Q51: model answers are free']),
     hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(1번 무료 · Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
     twBookTop(),
     '<h2>유형별 문항 · Tasks by type</h2>',

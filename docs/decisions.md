@@ -395,3 +395,7 @@
 - 2026-11-09: Blender 방법 1 — tools/blender/classroom-assets.py(5.2 창 Context 오류 고쳐 bmesh 로) 로 만든 책상 · 의자 · 사물함 · 문을 tools/blender/glb-to-json.py 로 assets/3d/classroom.json(405KB · gzip 32KB) 로 바꿔 시험장에 넣음(InstancedMesh, 상자 모양은 숨기기만 — 앉기 · 문 누르기는 그대로). GLTFLoader 는 CSP(import map 불가)와 three 두 번 불러오기 문제로 안 씀. 데스크톱 Blender MCP 로 Poly Haven 재질을 입힌 .glb 가 오면 같은 도구로 바꾸기만 하면 됨.
 - 2026-11-09: 운영자가 데스크톱 Blender MCP 로 만든 교실 소품(Poly Haven CC0 나무결 · 쇠 재질, 삼각형 1~2.8천) 을 시험장에 넣음 — glb-to-json.py 에 UV · 나무결 그림(512px JPG, assets/3d/) 옮기기를 더함. classroom.json 856KB(gzip 76KB) + 그림 2장 63KB.
 - 2026-11-09: 운영자 Blender 소품 2묶음(교탁 · 칠판 틀 · 벽시계 테두리 · 창틀 · 게시판 틀 · 스피커 · 쓰레기통, Poly Haven CC0) → assets/3d/classroom2.json(887KB · gzip 85KB). 칠판 판 · 시계 숫자판 · 게시판 소식은 살아 있는 그림 그대로, 틀만 교체(옛 상자는 숨김). 시계 유리는 반투명.
+- 2026-11-10: 데드클릭 목표 「세션의 1%」 — analytics.js 에 요소별 기록 `dead_click`(0.7초 안에 화면 변화 없는 누름, 한 방문 8번까지 · cp_el · cp_page · cp_kind) + `tools/dead-click-audit.mjs`(폰 17쪽 의심 요소 찾기). 고친 것: 첫 화면 숫자 칸 → 링크, 상점 급수 카드 → 첫 학습지 링크, 예문 상자(.ex · .bub) 누르면 읽어 줌, 소개 쪽 시험장 그림 → 링크, 3D 캔버스 누름은 반응으로 셈. 1% 는 며칠 뒤 Clarity · GA4 로 확인.
+- 2026-11-10: 쓰기 → 결제 길 — 쓰기 첫 쪽 CTA 를 53번 바로(AI 채점 1번 무료), 원고지 「AI 채점 받기」 를 주 단추로, 큰 칸(10칸) 원고지는 쓴 줄 + 6줄만 그림, 쓰기에서 온 Pro 화면은 「쓴 글을 AI 가 하루 30번 채점」 머리글, 로그인 뒤 하던 곳으로 돌아옴(cp_after_login).
+- 2026-11-10: 이메일 모으기 — 이메일 내면 그 자리에서 샘플 PDF 바로 내려받기, 이메일 없이 받으면 한 번만 「메일로 받기」 권유(source …-after, 이벤트 lead_nudge_view), 첫 화면 단추 「샘플 받기」.
+- 2026-11-10: 폰 화면 점검 — 누르는 곳은 높이 · 폭 30px 이상(맨 아래 링크 · 상점 · 책 쪽 링크 · 문법 쪽 글자 링크 · 탐색 링크에 여백). 줄 모양은 그대로, 누르는 칸만 넓힘. 가로 스크롤 0(390 · 1280).
