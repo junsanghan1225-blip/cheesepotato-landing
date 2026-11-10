@@ -1,0 +1,349 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 10.34,
+     "sessionsWithoutMetricPercentage": 89.66,
+     "pagesViews": 6,
+     "subTotal": 14
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 1.72,
+     "sessionsWithoutMetricPercentage": 98.28,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 12.07,
+     "sessionsWithoutMetricPercentage": 87.93,
+     "pagesViews": 12,
+     "subTotal": 12
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 1.72,
+     "sessionsWithoutMetricPercentage": 98.28,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 58,
+     "sessionsWithMetricPercentage": 1.72,
+     "sessionsWithoutMetricPercentage": 98.28,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 67.46
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 58,
+     "totalBotSessionCount": 60,
+     "distinctUserCount": 52,
+     "pagesPerSessionPercentage": 2.1724137931034484
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 240,
+     "activeTime": 134
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 20
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 13
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 9
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 6
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 3
+    },
+    {
+     "name": "YandexBrowser",
+     "sessionsCount": 1
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 43
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 12
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 3
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 33
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 9
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 6
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 17
+    },
+    {
+     "name": "Poland",
+     "sessionsCount": 11
+    },
+    {
+     "name": "Uzbekistan",
+     "sessionsCount": 6
+    },
+    {
+     "name": "France",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Japan",
+     "sessionsCount": 3
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 3
+    },
+    {
+     "name": "China",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Iraq",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Réunion",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 22
+    },
+    {
+     "name": "TOPIK 3D 시험장 · 교실에서 시간 재며 풀기 | CheesePotato",
+     "sessionsCount": 7
+    },
+    {
+     "name": "TOPIK 읽기 연습 문항 2111개 | CheesePotato",
+     "sessionsCount": 7
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "TOPIK II 읽기 13번 연습 — 종이책의 재활용 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Writing Practice 51–52 (for TOPIK II) — Everykoreans | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Writing Practice 53–54 (for TOPIK II) — Everykoreans | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "한국어 OX 퀴즈 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "햄스터 OX 퀴즈 · 한국어 낱말 | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 23
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 5
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "com.google.android.googlequicksearchbox",
+     "sessionsCount": 1
+    },
+    {
+     "name": "m.search.naver.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 23
+    },
+    {
+     "url": "https://everykoreans.com/exam-room/",
+     "visitsCount": 7
+    },
+    {
+     "url": "https://everykoreans.com/topik-reading/",
+     "visitsCount": 7
+    },
+    {
+     "url": "https://everykoreans.com/ox/",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/topik-vocabulary-list/",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shop/topik2-writing-51-52/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/shop/topik2-writing-53-54/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/topik-reading/t2-013.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/about.html",
+     "visitsCount": 1
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
