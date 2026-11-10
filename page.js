@@ -43,7 +43,15 @@
     const s = e.target.closest('[data-say]');
     if (s) { say(s); return; }
     const li = e.target.closest('.opts[data-ans] > li');
-    if (li) pick(li);
+    if (li) { pick(li); return; }
+    /* 예문 상자 · 대화 말풍선을 누르면 읽어 준다 — 상자처럼 생겨서 눌러 보는 사람이 많은데 아무 일도 없었다(데드클릭, 2026-11-10).
+       한글이 든 것만, 글을 긁어 고르는 중이면 그대로 둔다. */
+    const ex = e.target.closest('.ex, .bub');
+    if (ex && !e.target.closest('a, button') && /[가-힣]/.test(ex.textContent) && !String(window.getSelection?.() || '')) {
+      tts(ex.textContent.trim().slice(0, 200));
+      ex.style.outline = '2px solid #e4631f'; ex.style.outlineOffset = '2px';
+      setTimeout(() => { ex.style.outline = ''; ex.style.outlineOffset = ''; }, 900);
+    }
   });
   document.addEventListener('keydown', (e) => {
     if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('.opts[data-ans] > li')) { e.preventDefault(); pick(e.target); }

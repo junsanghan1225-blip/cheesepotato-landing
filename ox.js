@@ -1,9 +1,9 @@
 /* OX 퀴즈 (/ox/) — 이름은 그냥 「OX 퀴즈」(운영자 2026-11-09), 캐릭터만 햄스터 — 운영자 2026-11-09 「메타버스처럼 OX 퀴즈 · 모여서 O 가 정답이면 X 에 있으면 죽는 느낌 · 캐릭터는 햄스터」 1단계.
    1단계는 서버 없이 이 기기에서만 돈다: 함께 뛰는 햄스터는 컴퓨터가 움직인다(2단계에서 실제 접속자와 함께).
    문항은 ox-questions.js(우리 TOPIK I 낱말 자료에서 만든 생성물). 3D 는 three.js(vendor, MIT). */
-import * as THREE from './vendor/three.module.min.js?v=ed16ae84';
-import { OX } from './ox-questions.js?v=ed16ae84';
-import { leaveNudge } from './leave-nudge.js?v=ed16ae84';
+import * as THREE from './vendor/three.module.min.js?v=7e42f4bf';
+import { OX } from './ox-questions.js?v=7e42f4bf';
+import { leaveNudge } from './leave-nudge.js?v=7e42f4bf';
 leaveNudge('ox');
 
 const $ = (id) => document.getElementById(id);
@@ -54,6 +54,7 @@ function musicTick() {
 /* ── 3D ── */
 let renderer = null;
 try { renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true }); } catch (e) { renderer = null; }
+{ let taps = 0; $('scene').addEventListener('click', () => { $('scene').dataset.taps = String(++taps); }); }   // 3D 화면 누르기를 Clarity 가 데드클릭으로 세지 않게(누른 횟수를 속성에)
 if (!renderer) $('noGl').classList.add('on');
 const fine = matchMedia('(pointer:fine)').matches;
 const scene = new THREE.Scene();
@@ -463,7 +464,7 @@ async function startLive() {
   dl('ox_live_join', { cp_who: meKind });
   liveTick();
   try {
-    const { createClient } = await import('./vendor/supabase-js.js?v=ed16ae84');
+    const { createClient } = await import('./vendor/supabase-js.js?v=7e42f4bf');
     // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
     const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
     myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);

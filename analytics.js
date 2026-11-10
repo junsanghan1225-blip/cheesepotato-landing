@@ -190,3 +190,36 @@
     if (secs === 30 || secs === 60 || secs === 120) dl('engaged_time', { seconds: secs, page: path, kind: kind });
   }, 5000);
 })();
+
+/* 데드클릭 기록(운영자 2026-11-10 「데드클릭 잡으면 바로 수정 · 1%까지」) — Clarity 는 「몇 번」만 알려 주고 「어느 요소」는 안 알려 준다.
+   눌렀는데 0.7초 안에 화면(DOM) · 주소 · 스크롤이 하나도 안 바뀌면 그 요소를 dead_click 으로 남긴다:
+   cp_el = 태그 · id · 클래스 두 개 | 글 앞 24자, cp_page = 쪽(해시 첫 두 토막까지), cp_kind = text(글 · 상자) / button(단추인데 반응 없음).
+   링크 · 입력칸 · 캔버스(3D) · 동영상은 뺀다. 한 방문에 8개까지만. Clarity 에도 딱지(deadclick)로 달아 녹화를 걸러 볼 수 있다.
+   GA4 에서 보려면 맞춤 측정기준 cp_el · cp_page 를 등록해야 한다(docs/todo.md). */
+(function () {
+  if (!window.MutationObserver) return;
+  var SKIP = 'a[href],input,select,textarea,label,summary,canvas,video,audio,iframe,[contenteditable],[data-nodead]';
+  var BTN = 'button,[role="button"],[role="tab"],[onclick]';
+  var n = 0;
+  var desc = function (t) {
+    var c = typeof t.className === 'string' ? t.className.trim().split(/\s+/).slice(0, 2).join('.') : '';
+    var tx = (t.innerText || t.alt || '').replace(/\s+/g, ' ').trim().slice(0, 24);
+    return (t.tagName || '').toLowerCase() + (t.id ? '#' + t.id : '') + (c ? '.' + c : '') + (tx ? '|' + tx : '');
+  };
+  document.addEventListener('click', function (ev) {
+    var t = ev.target;
+    if (n >= 8 || !t || !t.closest || t.closest(SKIP)) return;
+    var changed = false, h0 = location.href, y0 = window.scrollY;
+    var mo = new MutationObserver(function () { changed = true; });
+    try { mo.observe(document.documentElement, { subtree: true, childList: true, attributes: true, characterData: true }); } catch (e) { return; }
+    setTimeout(function () {
+      mo.disconnect();
+      if (changed || location.href !== h0 || Math.abs(window.scrollY - y0) > 2 || document.hidden) return;
+      try { if (String(window.getSelection && window.getSelection()).length) return; } catch (e) {}   // 글을 긁어 고른 것은 데드클릭이 아니다
+      n++;
+      var b = t.closest(BTN), el = desc(b || t), page = location.pathname + location.hash.split('/').slice(0, 2).join('/');
+      try { (window.dataLayer = window.dataLayer || []).push({ event: 'dead_click', cp_el: el, cp_page: page, cp_kind: b ? 'button' : 'text' }); } catch (e) {}
+      try { if (window.clarity) { window.clarity('event', 'dead_click'); window.clarity('set', 'deadclick', el); } } catch (e) {}
+    }, 700);
+  }, true);
+})();

@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=ed16ae84" async></script>
+<script src="gtm.js?v=7e42f4bf" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=ed16ae84">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=ed16ae84">
+<link rel="stylesheet" href="vendor/pretendard.css?v=7e42f4bf">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=7e42f4bf">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=ed16ae84" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=ed16ae84"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7e42f4bf" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=7e42f4bf"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -727,7 +727,8 @@ body.nav-open { overflow:hidden; }
 .hero h1 { font-size:clamp(31px, 8.6vw, 40px); line-height:1.16; letter-spacing:-.045em; word-break:keep-all; }
 .hero h1 br { display:inline; }
 .hm-proof { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-l); overflow:hidden; margin-top:4px; }
-.hm-proof > div { background:var(--surface); padding:12px 14px; display:flex; flex-direction:column; min-width:0; }
+.hm-proof > div, .hm-proof > a { background:var(--surface); padding:12px 14px; display:flex; flex-direction:column; min-width:0; text-decoration:none; color:inherit; }
+.hm-proof > a:hover b, .hm-proof > a:focus-visible b { color:var(--orange-deep); }   /* 숫자 칸을 누르는 사람이 있어 그 자료로 가는 링크로(데드클릭, 2026-11-10) */
 .hm-proof b { font-size:22px; font-weight:800; letter-spacing:-.03em; font-variant-numeric:tabular-nums; color:var(--ink); }
 .hm-proof span { font-size:12.5px; color:var(--ink-3); }
 .hm-users { margin:14px 0 0; font-size:14.5px; color:var(--ink-2); line-height:1.6; word-break:keep-all; }
@@ -2398,10 +2399,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hm-proofbox">
       <div class="hm-proof">
-        <div aria-label="TOPIK 문항 2,476개"><b>2,476</b><span data-en="TOPIK practice questions">TOPIK 연습 문항</span></div>
-        <div aria-label="낱말 7,970개"><b>7,970</b><span data-en="dictionary words">사전 낱말</span></div>
-        <div aria-label="레슨 401개"><b>401</b><span data-en="lessons in 97 courses">레슨 · 코스 97개</span></div>
-        <div aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></div>
+        <a href="#learn/topik" aria-label="TOPIK 문항 2,476개"><b>2,476</b><span data-en="TOPIK practice questions">TOPIK 연습 문항</span></a>
+        <a href="/dictionary/" aria-label="낱말 7,970개"><b>7,970</b><span data-en="dictionary words">사전 낱말</span></a>
+        <a href="#learn" aria-label="레슨 401개"><b>401</b><span data-en="lessons in 97 courses">레슨 · 코스 97개</span></a>
+        <a href="/sentence/" aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></a>
       </div>
       <!-- 함께 공부한 사람 — 운영자가 준 구글 애널리틱스 숫자(지난 28일 · 2026-09-07 ~ 10-04). 날짜를 같이 적어 오래된 숫자로 읽히지 않게 -->
       <p class="hm-users" data-ko="최근 4주 동안 <b>1,534명</b>이 치즈감자를 찾아왔어요 · 한 사람 평균 <b>3분 36초</b> 머물렀어요 <small>Google Analytics · 2026.9.30 ~ 10.27</small>">In the last 4 weeks <b>1,534 people</b> visited · <b>3 min 36 s</b> engaged each on average <small>Google Analytics · Sep 30 – Oct 27, 2026</small></p>
@@ -4467,9 +4468,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=ed16ae84"></script>
-<script type="module" src="app.module.js?v=ed16ae84"></script>
+<script src="app.js?v=7e42f4bf"></script>
+<script type="module" src="app.module.js?v=7e42f4bf"></script>
 
-<script src="analytics.js?v=ed16ae84" defer></script>
+<script src="analytics.js?v=7e42f4bf" defer></script>
 </body>
 </html>
