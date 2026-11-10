@@ -7807,3 +7807,9 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-leave-t { font-size:15px; font-weight:800; color:var(--ink); padding-right:22px; }
 .lt-leave .lt-mail { margin-top:8px; padding-top:0; border-top:0; }
 .lt-leave-x { position:absolute; top:6px; right:8px; width:28px; height:28px; border:0; background:none; font-size:20px; line-height:1; color:var(--ink-3); cursor:pointer; }
+
+/* 누르는 곳 키우기(2026-11-10 폰 점검) — 글 속 작은 링크(높이 15~18px)는 손가락이 빗나가 「눌렀는데 아무 일 없음」이 된다. 글자 크기는 그대로, 눌리는 넓이만 44px 가깝게. */
+.tq-pane-note a { display:inline-block; padding:11px 0; }
+.lt-textlink { padding:12px 10px; min-height:44px; }
+.hm-why a { display:inline-block; padding:10px 0; }
+.footer-info a { display:inline-block; padding:6px 7px; margin:0 -3px; }
