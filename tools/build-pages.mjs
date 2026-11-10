@@ -927,7 +927,7 @@ function twHub(items) {
     '<h1>TOPIK II 쓰기 연습 — 모범답안과 AI 채점(1번 무료 · Pro)</h1>',
     `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
     `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
-    hubCtas(['/#learn/topik/II/writing', '바로 써 보기', 'Write now — model answers are free, AI scoring is Pro']),
+    hubCtas(['/#learn/topik/II/writing/w53-1', 'AI 채점 받아 보기 · 1번 무료', 'Write Q53 and get one free AI score (sign in)'], ['/?utm_source=hub#learn/topik/II/writing', '51번부터 써 보기', 'Start from Q51: model answers are free']),
     hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(1번 무료 · Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
     twBookTop(),
     '<h2>유형별 문항 · Tasks by type</h2>',

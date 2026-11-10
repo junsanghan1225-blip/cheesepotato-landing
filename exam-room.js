@@ -2,8 +2,8 @@
    화면 전체가 3D 교실이다: 칠판에 남은 시간, 벽시계(지금 시각), 종소리, 감독관 안내 글.
    문제를 푸는 곳이 아니라 「시간과 분위기」를 재는 도구다 — 문제는 책이나 사이트 모의고사에서 푼다.
    3D 는 three.js(vendor/three.module.min.js, MIT)로 그린다. 3D 를 못 쓰는 기기는 시계만 크게 보여 준다. */
-import * as THREE from './vendor/three.module.min.js?v=7e42f4bf';
-import { leaveNudge } from './leave-nudge.js?v=7e42f4bf';
+import * as THREE from './vendor/three.module.min.js?v=d73279b7';
+import { leaveNudge } from './leave-nudge.js?v=d73279b7';
 leaveNudge('exam_room');
 
 const $ = (id) => document.getElementById(id);
@@ -871,7 +871,7 @@ function buildRoom() {
        이제 손님도 이름 없이 함께 보인다(주고받는 것은 자리 · 위치 · 방향뿐, 저장하지 않는다). */
     void ok;
     try {
-      const { createClient } = await import('./vendor/supabase-js.js?v=7e42f4bf');
+      const { createClient } = await import('./vendor/supabase-js.js?v=d73279b7');
       // 이 화면은 보기만 한다 — 로그인 세션은 건드리지 않는다(갱신 토큰 충돌 방지).
       const sb = createClient(SB_URL, SB_ANON, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
       myKey = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)).slice(0, 12);
