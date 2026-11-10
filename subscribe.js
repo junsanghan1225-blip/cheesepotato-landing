@@ -10,17 +10,35 @@
   Array.prototype.forEach.call(document.querySelectorAll('form[data-lead]'), function (form) {
     var msg = form.querySelector('.lead-msg');
     var say = function (t, bad) { if (msg) { msg.textContent = t; msg.className = 'lead-msg' + (bad ? ' bad' : ' ok'); } };
+    /* 이메일 없이 먼저 받은 사람에게 한 번만 묻는다 — 받고 나서가 가장 마음이 열린 때다. 링크는 그대로 내려받는다. */
+    var box = form.parentNode;
+    if (box) box.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[download][href$=".pdf"]');
+      if (!a || form.classList.contains('done') || form.getAttribute('data-news')) return;
+      setTimeout(function () {
+        form.setAttribute('data-news', '1');
+        var tips = form.querySelector('.lead-tips'); if (tips) tips.style.display = 'none';
+        var b = form.querySelector('button[type=submit]'); if (b) b.textContent = 'Yes, email me · 메일로 받기';
+        say('Got it? Want the next free sample by email when it is out? · 받으셨나요? 새 무료 샘플이 나오면 메일로 알려 드릴까요?', false);
+        track('lead_nudge_view', { place: form.getAttribute('data-lead') });
+      }, 900);
+    });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var email = (form.elements.email.value || '').trim();
       if (form.elements.company && form.elements.company.value) return;   // 사람이 안 보는 칸이 채워지면 봇 — 조용히 무시
       if (!OK.test(email) || email.length > 254) { say('Please enter a valid email. · 이메일을 확인해 주세요.', true); return; }
       var btn = form.querySelector('button[type=submit]'); if (btn) btn.disabled = true;
-      var body = JSON.stringify({ email: email, source: form.getAttribute('data-lead').slice(0, 80), lang: (document.documentElement.lang || '').slice(0, 12), marketing_ok: !!(form.elements.tips && form.elements.tips.checked) });
+      var news = form.getAttribute('data-news') === '1';   // 샘플을 먼저 받은 뒤 「메일로 받기」를 누른 사람 — 단추 글이 곧 동의다
+      var body = JSON.stringify({ email: email, source: (form.getAttribute('data-lead') + (news ? '-after' : '')).slice(0, 80), lang: (document.documentElement.lang || '').slice(0, 12), marketing_ok: news || !!(form.elements.tips && form.elements.tips.checked) });
       fetch(URL, { method: 'POST', headers: { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' }, body: body })
         .then(function (r) {
           /* 201 = 새로 받음, 409 = 이미 있는 이메일 — 둘 다 「됐다」로 보인다(누가 신청했는지 드러내지 않는다) */
-          if (r.ok || r.status === 409) { track('이메일신청', { place: form.getAttribute('data-lead') }); say('Thank you! Your sample is ready below. · 감사합니다. 아래에서 샘플을 받으세요.', false); form.classList.add('done'); }
+          if (r.ok || r.status === 409) { track('이메일신청', { place: form.getAttribute('data-lead') }); form.classList.add('done');
+            /* 이메일을 낸 사람은 한 번에 받는다 — 전에는 「아래에서 받으세요」라 단추를 또 눌러야 해서, 다들 이메일 없이 받는 쪽만 눌렀다(샘플 10 · 이메일 1, 2026-11-10). */
+            var dl = !news && form.parentNode && form.parentNode.querySelector('a[download][href$=".pdf"]');
+            if (dl) { try { var a = document.createElement('a'); a.href = dl.href; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } catch (e2) {} }
+            say(news ? 'Thank you! We will email you when a new free sample is out. · 고마워요! 새 무료 샘플이 나오면 메일로 알려 드릴게요.' : dl ? 'Thank you! Your download has started. If not, use the link below. · 감사합니다. 내려받기가 시작됐어요. 안 되면 아래 링크를 눌러 주세요.' : 'Thank you! Your sample is ready below. · 감사합니다. 아래에서 샘플을 받으세요.', false); }
           else { say('Could not save your email, but you can still download the sample below. · 이메일 저장은 못 했지만 아래에서 샘플을 받을 수 있어요.', true); if (btn) btn.disabled = false; }
         })
         .catch(function () { say('Could not save your email, but you can still download the sample below. · 이메일 저장은 못 했지만 아래에서 샘플을 받을 수 있어요.', true); if (btn) btn.disabled = false; });
