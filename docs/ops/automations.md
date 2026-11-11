@@ -18,3 +18,4 @@
 | 매일 아침 「오늘 계획」 | 한국 8:07 새 대화로 오늘 숫자 · 할 일 3개(운영자 1 + Claude 2) 알림 | 예약 작업 `trig_019Ucr3Go8DG2iDEfssaPqXR`(Claude 앱 예약 작업) · 기준 `docs/ops/daily-plan.md` | 2026-11-05 켬 — 첫 실행(11/6 아침)에 저장소를 읽는지 확인 |
 | 쪽 점수 검사(Lighthouse) | `tools/lighthouse-check.mjs` · `.github/workflows/lighthouse.yml` | 없음 | 화면 파일 PR · 매주 월 06:17 KST · 손으로(Run workflow) | 알려 주는 용도(실패 안 시킴), 결과는 실행 화면 Summary 표 |
 - Polar 표지 바꾸기: `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt node tools/polar-cover.mjs <책 id> <그림.jpg> --apply` (2026-11-11)
+- 예스24 e북 대량등록 엑셀: `python3 tools/yes24-bulk.py <파일.xlsx>` — 틀 `docs/ops/templates/yes24-ebook-bulk-template.xlsx`(운영자 2026-11-11). 개별 등록 복사판은 `tools/yes24-html.py`.
