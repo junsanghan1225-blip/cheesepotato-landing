@@ -20,7 +20,7 @@ const light = (h, w) => mix(h, [255, 255, 255], w), dark = (h, w) => mix(h, [0, 
 const warm = (h) => { const [r, g, b] = hex(h); return r > 170 && r > g + 40 && r > b + 40; };   // 주황 · 빨강 바탕이면 주황 스티커가 묻힌다
 
 // 읽기 4권: 큰 글자 밑의 노란 형광펜 물결 밑줄(운영자 2026-11-11 「물결 좋아」)
-const WAVE = '<svg class="ul" viewBox="0 0 300 16" style="position:absolute;left:44px;top:206px;width:270px;height:16px;overflow:visible"><path d="M2 9Q22 0 42 9T82 9T122 9T162 9T202 9T242 9T282 9" fill="none" stroke="#FFD23F" stroke-width="6.5" stroke-linecap="round"/></svg>';
+const WAVE = '<svg class="ul" viewBox="0 0 300 16" style="position:absolute;left:44px;top:196px;width:270px;height:16px;overflow:visible"><path d="M2 9Q22 0 42 9T82 9T122 9T162 9T202 9T242 9T282 9" fill="none" stroke="#FFD23F" stroke-width="6.5" stroke-linecap="round"/></svg>';
 const B = (id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/books', id + '.json'), 'utf8'));
 // 책마다: 큰 글자 · 영어 · 시리즈 칸 · 라벨 · 노란 띠 · 띠 아래 · 무늬 · STEP 세 칸([제목, 설명]) — 사실은 책 틀 · 상점 소개 그대로
 const BOOKS = [
@@ -69,7 +69,7 @@ const page = (c) => {
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
 .cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${c.patOp ? `.pat{opacity:${c.patOp}}` : ''}${shadowCss(bg, deep, tint)}
-${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}${c.hero === '읽기' ? '.cv.e .tag .n{font-size:27px;padding:3px 14px 5px;box-shadow:3px 3px 0 var(--deep)}' : ''}.cv.e .mas.one1 svg{width:100%;height:100%}`;
+${c.hero === '쓰기' ? '.cv.e .hero{font-size:131px;top:67px}' : c.hero === '읽기' ? '.cv.e .hero{font-size:118px;top:72px}' : ''}.cv.e .tag .n{white-space:nowrap}${c.hero === '읽기' ? '.cv.e .tag .n{font-size:27px;padding:3px 14px 5px;box-shadow:3px 3px 0 var(--deep)}' : ''}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div>${c.hero === '읽기' ? WAVE : ''}<div class="en">${c.en}</div>
 <div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
