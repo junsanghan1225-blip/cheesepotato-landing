@@ -9,7 +9,7 @@ import { cheeseLevel } from '../../levels.js';
 // 운영자 2026-11-11 「쓰기 · 읽기는 5~8% 작게」 — 받침 글자라 같은 크기면 더 커 보인다(140 → 131px).
 const DIR = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(DIR, '../..');
-const master = fs.readFileSync(path.join(DIR, 'writing-51-52.html'), 'utf8');
+const master = fs.readFileSync(path.join(DIR, '_base.html')   /* 운영자가 확정한 쓰기 51~52 v2.8 그대로 — 모든 표지의 틀(손으로만 고친다) */, 'utf8');
 const CSS = master.slice(master.indexOf('<style>') + 7, master.indexOf('</style>')).replace('.cv.e .hero{font-size:131px;top:67px}', '');
 const LOGO = master.match(/<div class="pub">(<svg[\s\S]*?<\/svg>)<\/div>/)[1];
 const CUBE = master.match(/<div class="mas one1">(<svg[\s\S]*?<\/svg>)<\/div>/)[1];   // 4급 블록 치즈(얼굴 하나)
@@ -47,23 +47,26 @@ const PAT = {
 };
 const icon = (n) => n === 4 ? CUBE : cheeseLevel(n).icon.replace('class="lvl-ic"', '');
 
+// 배지(운영자 2026-11-11 「배지는 통일 · 1~2 / 3~4 / 5 / 6 정도 · 색도 정해서 각각 다르게」): 급수 네 칸만 쓴다.
+// 책이 어느 칸인지는 책 틀의 치즈 단계(coverLevel.mascot — 이미 책마다 정해 둔 급수)로: 1 · 2 → 1~2급, 3 · 4 → 3~4급, 5 → 5급, 6 → 6급.
+const BAND = (g) => g <= 2 ? ['1~2급', '#2F6FD6'] : g <= 4 ? ['3~4급', '#E8742C'] : g === 5 ? ['5급', '#D6336C'] : ['6급', '#23305E'];
 const page = (c) => {
   const b = B(c.id), L = b.coverLevel, bg = L.bg;
-  const deep = bg === '#4B2A85' ? '#2a1552' : dark(bg, .55), tint = bg === '#4B2A85' ? '#B9A4F0' : light(bg, .55), box1 = light(bg, .88), stk = warm(bg) ? dark(bg, .45) : '#e8742c';
+  const [band, badge] = BAND(L.mascot[1]);
+  const deep = bg === '#4B2A85' ? '#2a1552' : dark(bg, .55), tint = bg === '#4B2A85' ? '#B9A4F0' : light(bg, .55), box1 = light(bg, .88);
   const code = c.code || L.code, name = L.name;
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
-.cv.e .lv{background:${stk}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}
+.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}
 ${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div><div class="en">${c.en}</div>
-<div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${code}</b><i>${name}</i></div>
+<div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
 <div class="tag"><div class="k">${c.k}</div><br><div class="n">${c.n}</div><div class="s">${c.s}</div></div><div class="paper">
 <div class="st">${st}</div><div class="foot"><div class="au"><span class="by"><span><b>저자</b>준상(Junsang)</span></span></div><div class="pub">${LOGO}</div></div></div></div></body></html>`;
 };
 for (const c of BOOKS) {
-  if (c.id === 'topik2-writing-51-52') continue;   // 기준 표지(writing-51-52.html)는 운영자가 확정한 그대로 둔다 — 손으로만 고친다
-  const f = path.join(DIR, c.id + '.html');
+  const f = path.join(DIR, (c.id === 'topik2-writing-51-52' ? 'writing-51-52' : c.id) + '.html');
   fs.writeFileSync(f, page(c));
 }
 console.log(BOOKS.length, '권 →', DIR);
