@@ -5,7 +5,7 @@
 // 입체 그림자는 어둡힌 것. 글은 상점 · 책 뒤표지에 이미 적힌 사실만(없는 숫자 · 「1위」 같은 말은 넣지 않는다).
 import fs from 'fs';
 import path from 'path';
-import { cheeseLevel } from '../../levels.js';
+import { cheeseLevel, potatoLevel } from '../../levels.js';
 // 운영자 2026-11-11 「쓰기 · 읽기는 5~8% 작게」 — 받침 글자라 같은 크기면 더 커 보인다(140 → 131px).
 const DIR = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(DIR, '../..');
@@ -19,6 +19,8 @@ const mix = (h, t, w) => '#' + hex(h).map((c, i) => Math.round(c + (t[i] - c) * 
 const light = (h, w) => mix(h, [255, 255, 255], w), dark = (h, w) => mix(h, [0, 0, 0], w);
 const warm = (h) => { const [r, g, b] = hex(h); return r > 170 && r > g + 40 && r > b + 40; };   // 주황 · 빨강 바탕이면 주황 스티커가 묻힌다
 
+// 읽기 4권: 큰 글자 밑의 노란 형광펜 물결 밑줄(운영자 2026-11-11 「물결 좋아」)
+const WAVE = '<svg class="ul" viewBox="0 0 300 16" style="position:absolute;left:44px;top:196px;width:270px;height:16px;overflow:visible"><path d="M2 9Q22 0 42 9T82 9T122 9T162 9T202 9T242 9T282 9" fill="none" stroke="#FFD23F" stroke-width="6.5" stroke-linecap="round"/></svg>';
 const B = (id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/books', id + '.json'), 'utf8'));
 // 책마다: 큰 글자 · 영어 · 시리즈 칸 · 라벨 · 노란 띠 · 띠 아래 · 무늬 · STEP 세 칸([제목, 설명]) — 사실은 책 틀 · 상점 소개 그대로
 const BOOKS = [
@@ -29,10 +31,15 @@ const BOOKS = [
   { id: 'topik2-writing-eve', hero: '쓰기', en: 'WRITING', ser: '쓰기 03', k: '시험 전날', n: '핵심 요약', s: '쓰기 시험 전날에 보는 핵심 정리', pat: 'grid', code: '3~6급',
     st: [['볼 것', '유형마다<br>한 쪽'], ['넘길 것', '전날엔<br>덜어 내기'], ['당일 준비', '시간 · 연필 ·<br>답안지']] },
   ...[['1', '1~15', '384', '01'], ['2', '16~24', '381', '02'], ['3', '25~45', '455', '03'], ['4', '46~50', '379', '04']].map(([v, r, q, ser]) => (
-    { id: `topik2-reading-${v}`, hero: '읽기', en: 'READING', ser: `읽기 ${ser}`, k: '연습문항', n: `${r}번 · ${q}제`, s: '시험 번호 순서대로 푸는 연습문항', pat: 'lines',
+    { id: `topik2-reading-${v}`, hero: '읽기', en: 'READING', ser: `읽기 ${ser}`, k: '연습문항', n: `${r}번 · ${q}제`, s: '시험 번호 순서대로 푸는 연습문항', pat: 'grid',
       st: [['유형 익히기', '번호마다<br>묻는 것'], ['번호대로 풀기', '시험 순서<br>그대로'], ['풀이 확인', '모든 문항에<br>짧은 풀이']] })),
   { id: 'topik1-reading-mock', hero: '실전', en: 'MOCK TESTS', ser: '모의 01', k: '읽기 실전 연습', n: '10회 · 400문항', s: 'TOPIK I 읽기 31~70번, 실제 시험 형식', pat: 'grid',
     st: [['유형 익히기', '8유형 풀이 방법 ·<br>필요한 단어'], ['한 회 풀기', '40문항 ·<br>답안지'], ['채점 · 풀이', '정답과<br>짧은 풀이']] },
+  // 워크북 2권(운영자 2026-11-11 「조사 워크북이랑 첫걸음 워크북도 다시」) — 같은 틀 · 감자 캐릭터 · 레벨 배지(A1 · A1–A2)
+  { id: 'first-steps-workbook', hero: '첫걸음', heroPx: 96, heroTop: 84, en: 'FIRST STEPS', ser: '워크북 01', k: '입문 워크북', n: '한글부터 23단원', s: '한글 · 인사 · 생활 낱말을 쓰며 익히기', pat: 'grid', barText: '한국어 워크북 시리즈', potato: 1, band: ['A1', '#2F6FD6'],
+    st: [['한글 쓰기', '자음 · 모음 ·<br>받침'], ['인사 · 낱말', '생활에 쓰는<br>말 익히기'], ['쓰고 확인', '답 맞춰 보며<br>되풀이']] },
+  { id: 'particles-workbook', hero: '조사', heroPx: 124, heroTop: 70, en: 'PARTICLES', ser: '워크북 02', k: '조사 워크북', n: '조사 20개', s: '언제 어떤 조사를 쓰는지 맥락으로 익히기', pat: 'grid', barText: '한국어 워크북 시리즈', potato: 2, band: ['A1–A2', '#2F6FD6'],
+    st: [['조사 익히기', '뜻과 쓰임<br>한눈에'], ['골라 쓰기', '맥락 보고<br>알맞은 조사'], ['문장으로 익히기', '짧은 문장<br>따라 쓰기']] },
   { id: 'topik1-vocab', hero: '단어', en: 'VOCABULARY', ser: '단어 초급', k: '초급 필수 단어장', n: '1,931단어', s: 'TOPIK I 낱말 1급 · 2급 전부', pat: 'dots',
     st: [['낱말 보기', '품사 · 뜻 ·<br>예문'], ['가리고 쓰기', '뜻 보고<br>한국어로'], ['확인하기', '치즈 급수 ·<br>감자 빈출도']] },
   ...[['topik2-vocab-1000', '중급 1', '3~4급'], ['topik2-vocab-2000', '중급 2', '5급'], ['topik2-vocab-lv3', '중급 3', '6급']].map(([id, ser, g]) => (
@@ -42,7 +49,7 @@ const BOOKS = [
 
 const PAT = {
   grid: `.pat{background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px),linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px)!important;background-size:22px 26px,22px 26px,22px 13px!important}`,
-  lines: `.pat{background-image:repeating-linear-gradient(#fff 0 1px,transparent 1px 15px)!important;background-size:auto!important;background-position:0 6px!important}`,
+  lines: `.pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='30'%3E%3Cg stroke='%23fff' stroke-width='1.2' stroke-linecap='round'%3E%3Cline x1='0' y1='7' x2='118' y2='7'/%3E%3Cline x1='128' y1='7' x2='160' y2='7'/%3E%3Cline x1='0' y1='22' x2='62' y2='22'/%3E%3Cline x1='72' y1='22' x2='150' y2='22'/%3E%3C/g%3E%3C/svg%3E")!important;background-size:170px 30px!important;background-position:0 4px!important}`,   // 읽기: 글줄 무늬(짧은 선이 이어진 모양)
   dots: `.pat{background-image:radial-gradient(#fff 1.4px,transparent 1.6px)!important;background-size:16px 16px!important}`,
 };
 const icon = (n) => n === 4 ? CUBE : cheeseLevel(n).icon.replace('class="lvl-ic"', '');
@@ -61,21 +68,23 @@ const shadowCss = (bg, deep, tint) => {
 };
 const page = (c) => {
   const b = B(c.id), L = b.coverLevel, bg = L.bg;
-  const [band, badge] = BAND(L.mascot[1]);
+  const [band, badge] = c.band || BAND(L.mascot[1]);
   const deep = bg === '#4B2A85' ? '#2a1552' : dark(bg, .55), tint = bg === '#4B2A85' ? '#B9A4F0' : light(bg, .55), box1 = light(bg, .88);
   const code = c.code || L.code, name = L.name;
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
-.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${shadowCss(bg, deep, tint)}
-${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
+.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${c.patOp ? `.pat{opacity:${c.patOp}}` : ''}${shadowCss(bg, deep, tint)}
+${c.heroPx ? `.cv.e .hero{font-size:${c.heroPx}px;top:${c.heroTop}px}` : c.hero === '쓰기' ? '.cv.e .hero{font-size:131px;top:67px}' : c.hero === '읽기' ? '.cv.e .hero{font-size:118px;top:72px}' : ''}.cv.e .tag .n{white-space:nowrap}${c.hero === '읽기' ? '.cv.e .tag .n{font-size:27px;padding:3px 14px 5px;box-shadow:3px 3px 0 var(--deep)}' : ''}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
-  return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div><div class="en">${c.en}</div>
-<div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
+  return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>${c.barText || '한국어능력시험 대비'}</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div>${c.hero === '읽기' ? WAVE : ''}<div class="en">${c.en}</div>
+<div class="mas one1">${c.potato ? potatoLevel(c.potato).icon.replace('class="lvl-ic"', '') : icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
 <div class="tag"><div class="k">${c.k}</div><br><div class="n">${c.n}</div><div class="s">${c.s}</div></div><div class="paper">
 <div class="st">${st}</div><div class="foot"><div class="au"><span class="by"><span><b>저자</b>준상(Junsang)</span></span></div><div class="pub">${LOGO}</div></div></div></div></body></html>`;
 };
 for (const c of BOOKS) {
   if (c.hero === '단어') continue;   // 단어장 4권은 build-vocab.mjs(큰 글자 겹줄 방식)
+  if (c.id === 'particles-workbook') continue;   // 조사 워크북은 손으로 만든 코드 편집기 그림 표지(2026-11-11 확정) — 덮어쓰지 않는다
+  if (c.id === 'topik1-reading-mock') continue;   // 읽기 실전 10회는 손으로 다듬은 제주 지도 표지(2026-11-11 확정) — 이 도구로 덮어쓰지 않는다
   const f = path.join(DIR, (c.id === 'topik2-writing-51-52' ? 'writing-51-52' : c.id) + '.html');
   fs.writeFileSync(f, page(c));
 }

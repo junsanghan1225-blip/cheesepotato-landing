@@ -59,10 +59,10 @@ const rng = (chunk, sep) => { const lo = Math.min(...chunk.map((q) => q.slot)), 
 const EXAMPLES = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/examples/reading-examples.json'), 'utf8'));   // 따로 만든 예시 + 단계별 풀이 · 팁(운영자 2026-11-02)
 const recMin = (n) => Math.max(1, Math.round(n * 84 / 60));
 const BOOKS = [
-  { n: 1, from: 1, to: 15, bg: '#2E9E79', bg2: '#1C614B', mascot: 3, ink: '#2E9E79' },
-  { n: 2, from: 16, to: 24, bg: '#5F1111', bg2: '#3A0A0A', mascot: 4, ink: '#5F1111' },
-  { n: 3, from: 25, to: 45, bg: '#9E2E8B', bg2: '#611C56', mascot: 5, ink: '#9E2E8B' },
-  { n: 4, from: 46, to: 50, bg: '#455F11', bg2: '#2A3A0A', mascot: 6, ink: '#455F11' },
+  { n: 1, from: 1, to: 15, bg: '#1D7236', bg2: '#114420', mascot: 3, ink: '#2E9E79' },
+  { n: 2, from: 16, to: 24, bg: '#2B62B6', bg2: '#1A3B6D', mascot: 4, ink: '#5F1111' },
+  { n: 3, from: 25, to: 45, bg: '#721D25', bg2: '#441116', mascot: 5, ink: '#9E2E8B' },
+  { n: 4, from: 46, to: 50, bg: '#6F6F2A', bg2: '#434319', mascot: 6, ink: '#455F11' },
 ];
 /* 얇던 유형의 풀이 단계를 빈칸 채우기만큼 자세하게(운영자 2026-11-03 「풀이 방법이 빈칸 채우기만 됐어 · 나머지도 다」): 단계 6개 안팎 + 보기 속 예 */
 Object.assign(TYPE_INFO.paraphrase, { steps: [
