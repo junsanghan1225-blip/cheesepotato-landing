@@ -19,6 +19,8 @@ const mix = (h, t, w) => '#' + hex(h).map((c, i) => Math.round(c + (t[i] - c) * 
 const light = (h, w) => mix(h, [255, 255, 255], w), dark = (h, w) => mix(h, [0, 0, 0], w);
 const warm = (h) => { const [r, g, b] = hex(h); return r > 170 && r > g + 40 && r > b + 40; };   // 주황 · 빨강 바탕이면 주황 스티커가 묻힌다
 
+// 읽기 4권: 큰 글자 밑의 노란 형광펜 물결 밑줄(운영자 2026-11-11 「물결 좋아」)
+const WAVE = '<svg class="ul" viewBox="0 0 300 16" style="position:absolute;left:44px;top:206px;width:270px;height:16px;overflow:visible"><path d="M2 9Q22 0 42 9T82 9T122 9T162 9T202 9T242 9T282 9" fill="none" stroke="#FFD23F" stroke-width="6.5" stroke-linecap="round"/></svg>';
 const B = (id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/books', id + '.json'), 'utf8'));
 // 책마다: 큰 글자 · 영어 · 시리즈 칸 · 라벨 · 노란 띠 · 띠 아래 · 무늬 · STEP 세 칸([제목, 설명]) — 사실은 책 틀 · 상점 소개 그대로
 const BOOKS = [
@@ -42,7 +44,7 @@ const BOOKS = [
 
 const PAT = {
   grid: `.pat{background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px),linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px)!important;background-size:22px 26px,22px 26px,22px 13px!important}`,
-  lines: `.pat{background-image:repeating-linear-gradient(#fff 0 1px,transparent 1px 15px)!important;background-size:auto!important;background-position:0 6px!important}`,
+  lines: `.pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='30'%3E%3Cg stroke='%23fff' stroke-width='1.2' stroke-linecap='round'%3E%3Cline x1='0' y1='7' x2='118' y2='7'/%3E%3Cline x1='128' y1='7' x2='160' y2='7'/%3E%3Cline x1='0' y1='22' x2='62' y2='22'/%3E%3Cline x1='72' y1='22' x2='150' y2='22'/%3E%3C/g%3E%3C/svg%3E")!important;background-size:170px 30px!important;background-position:0 4px!important}`,   // 읽기: 글줄 무늬(짧은 선이 이어진 모양)
   dots: `.pat{background-image:radial-gradient(#fff 1.4px,transparent 1.6px)!important;background-size:16px 16px!important}`,
 };
 const icon = (n) => n === 4 ? CUBE : cheeseLevel(n).icon.replace('class="lvl-ic"', '');
@@ -69,13 +71,14 @@ const page = (c) => {
 .cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${shadowCss(bg, deep, tint)}
 ${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
-  return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div><div class="en">${c.en}</div>
+  return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div>${c.hero === '읽기' ? WAVE : ''}<div class="en">${c.en}</div>
 <div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
 <div class="tag"><div class="k">${c.k}</div><br><div class="n">${c.n}</div><div class="s">${c.s}</div></div><div class="paper">
 <div class="st">${st}</div><div class="foot"><div class="au"><span class="by"><span><b>저자</b>준상(Junsang)</span></span></div><div class="pub">${LOGO}</div></div></div></div></body></html>`;
 };
 for (const c of BOOKS) {
   if (c.hero === '단어') continue;   // 단어장 4권은 build-vocab.mjs(큰 글자 겹줄 방식)
+  if (c.id === 'topik1-reading-mock') continue;   // 읽기 실전 10회는 손으로 다듬은 제주 지도 표지(2026-11-11 확정) — 이 도구로 덮어쓰지 않는다
   const f = path.join(DIR, (c.id === 'topik2-writing-51-52' ? 'writing-51-52' : c.id) + '.html');
   fs.writeFileSync(f, page(c));
 }
