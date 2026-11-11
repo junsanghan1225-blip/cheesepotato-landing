@@ -210,7 +210,7 @@ function bookPage(k) {
   const sample = k.sample ? `${base}#sample` : '';
   const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}">Buy the PDF · $${esc(k.price)}</a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
   const ctaSub = k.sample ? `<a class="btn ghost" href="#sample">Free sample</a>` : '';
-  const ctaY24 = k.yes24 && YES24.test(k.yes24) ? `<a class="btn ghost" href="${esc(k.yes24)}" target="_blank" rel="noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-예스24">예스24에서 보기 <small>· Yes24 (KRW)</small></a>` : '';
+  // 예스24 단추는 뺐다(운영자 2026-11-11 「이건 빼자」) — shop.json 의 yes24 주소는 그대로 둔다.
   const cp = (o) => o ? `${esc(o.en)}${o.ko ? ` <small>· ${esc(o.ko)}</small>` : ''}` : '';
   const pvN = (g.previews || []).length;
   const pv = (g.previews || []).map((c, i) => `<a href="#pv${i + 1}"><img src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])} — ${esc(c[1])}" loading="lazy" width="1100" height="1554">${esc(c[0])} · ${esc(c[1])}</a>`).join('');
@@ -228,7 +228,7 @@ const proBox = (id, where) => `<div class="pg2-pro"><span class="ph">PRO · 연�
   <span class="pg2-chip">${esc(level)} · PDF${on ? '' : ' · Coming soon'}</span><h1>${esc(k.title.en)}</h1><div class="pg2-ko">${esc(k.title.ko)} · Junsang</div>
   <p class="pg2-lead">${esc(g.headline?.en || k.sub.en)}</p>
   <a class="rv-hero" href="#reviews" data-rv-hero hidden></a>
-  <div class="pg2-cta">${ctaMain}${ctaSub}${ctaY24}</div></div><div class="cv">${pvN && k.coverImg ? `<div class="flip" data-flip="${pvN}"><img class="fp on" src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">${(g.previews || []).map((c, i) => `<img class="fp" data-src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="1100" height="1554">`).join('')}</div><div class="flipbar" hidden><button type="button" data-fp="-1" aria-label="Previous page">‹</button><span class="flipn">Cover</span><button type="button" data-fp="1" aria-label="Next page">›</button></div><a class="cvh" href="#preview">Look inside · 미리보기 ${pvN}쪽 ›</a>` : k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
+  <div class="pg2-cta">${ctaMain}${ctaSub}</div></div><div class="cv">${pvN && k.coverImg ? `<div class="flip" data-flip="${pvN}"><img class="fp on" src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">${(g.previews || []).map((c, i) => `<img class="fp" data-src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="1100" height="1554">`).join('')}</div><div class="flipbar" hidden><button type="button" data-fp="-1" aria-label="Previous page">‹</button><span class="flipn">Cover</span><button type="button" data-fp="1" aria-label="Next page">›</button></div><a class="cvh" href="#preview">Look inside · 미리보기 ${pvN}쪽 ›</a>` : k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
 <div class="in"><div class="pg2-lay"><main class="pg2-main">
 ${notify}
 <section class="pg2-sec pg2-prob"><p>${esc(g.lead?.en || k.about.en)}</p><p class="ko">${esc(g.lead?.ko || k.about.ko)}</p></section>
