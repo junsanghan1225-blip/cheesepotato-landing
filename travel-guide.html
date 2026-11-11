@@ -3,583 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>치즈감자 여행 한국어 포켓 가이드 | Travel Korean Pocket Brochure</title>
-  <meta name="description" content="여행에서 바로 쓰는 한국어 표현을 한 장에 모은 무료 포켓 가이드. A free one-page pocket guide of Korean phrases for travel.">
+  <title>여행 한국어 포켓 가이드 (A4 2쪽 인쇄 / PDF) | 치즈감자 CheesePotato</title>
+  <meta name="description" content="여행에서 바로 쓰는 한국어 표현 43개를 7개 상황별로 모은 무료 포켓 가이드. 지갑이나 여권 사이에 넣는 A4 2쪽 인쇄 / PDF. A free two-page A4 pocket guide of Korean phrases for travel.">
   <link rel="canonical" href="https://everykoreans.com/travel-guide.html">
   <link rel="icon" href="favicon-32.png">
+  <link rel="stylesheet" href="/vendor/pretendard.css">
+  <link rel="stylesheet" href="/page.css">
+  <!-- 여행 포켓 가이드의 모양(운영자 2026-11-11 「템플릿이 아직도 예전」 → 2번: 모양과 인쇄 구성까지 다시) — 「선생님의 워크북」: 종이 바탕 · 검정 잉크 · 얇은 줄 · 번호 차례 표. 자료는 travel-data.js 그대로. -->
   <style>
-    :root {
-      --ink: #0f172a;
-      --ink-2: #334155;
-      --ink-3: #64748b;
-      --border: #cbd5e1;
-      --surface: #ffffff;
-      --surface-2: #f8fafc;
-      --surface-3: #f1f5f9;
-      --orange: #ea580c;
-      --orange-bg: #fff7ed;
-      --orange-border: #fdba74;
-      --green: #10b981;
-      --green-bg: #ecfdf5;
-      --green-border: #a7f3d0;
-      --purple: #8b5cf6;
-      --purple-bg: #f5f3ff;
-      --purple-border: #ddd6fe;
-      --radius: 12px;
-      --shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06);
+    main.tg { max-width: 1040px; padding-top: 44px; }
+    .tg h1 { font-size: clamp(28px, 5vw, 38px); }
+    .tg .lede { color: var(--ink-3); font-size: 14.5px; margin-top: 4px; }
+    .tg-bar { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: flex-end; justify-content: space-between; margin: 26px 0 0; padding: 16px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .tg-lv { display: flex; gap: 0; border: 1.5px solid var(--ink); border-radius: 5px; overflow: hidden; background: var(--surface); }
+    .tg-lv button { font: inherit; font-size: 14px; font-weight: 700; color: var(--ink); background: none; border: 0; border-right: 1.5px solid var(--ink); padding: 8px 15px; cursor: pointer; }
+    .tg-lv button:last-child { border-right: 0; }
+    .tg-lv button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+    .tg-desc { flex: 1 1 280px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+    .tg-desc b { color: var(--ink); }
+    .tg-print { font: inherit; font-size: 14px; font-weight: 700; color: #fff; background: var(--ink); border: 0; border-radius: 5px; padding: 9px 16px; cursor: pointer; }
+    .tg-print:hover { background: var(--orange-deep); }
+    .tg-links { font-size: 13px; margin-top: 10px; color: var(--ink-3); }
+    .tg-links a { margin-right: 14px; }
+    .tg-tips { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 22px 0 0; }
+    .tg-tips p { font-size: 13.5px; line-height: 1.65; color: var(--ink-2); padding-left: 38px; position: relative; }
+    .tg-tips p i { position: absolute; left: 0; top: 1px; font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 5px; padding: 0 5px; line-height: 1.5; }
+    .tg-sec { margin-top: 34px; }
+    .tg-sec h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 4px; padding: 0 0 7px; border-top: 0; border-bottom: 2px solid var(--ink); font-size: 20px; }
+    .tg-sec h2 i { font-style: normal; font-size: 13px; font-weight: 800; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .tg-sec h2 small { font-size: 12.5px; font-weight: 600; color: var(--ink-3); letter-spacing: 0; }
+    .ph { display: grid; grid-template-columns: 150px minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2px 18px; align-items: baseline; padding: 9px 2px; border-bottom: 1px solid var(--line); }
+    .ph .sit { font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
+    .ph .ko { font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; word-break: keep-all; }
+    .ph .pr { font-size: 12.5px; color: var(--orange-deep); line-height: 1.45; }
+    .ph .en { font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+    .ph .lvl { font-size: 10.5px; font-weight: 800; color: var(--ink); border: 1.3px solid var(--ink); border-radius: 4px; padding: 0 5px; margin-right: 7px; white-space: nowrap; vertical-align: 1px; }
+    .ph.sub { border-bottom: 0; padding-top: 3px; padding-bottom: 3px; }
+    .ph.last { border-bottom: 1px solid var(--line); padding-bottom: 9px; }
+    .vocab { margin-top: 10px; padding: 9px 0 0; }
+    .vocab h3 { font-size: 12.5px; font-weight: 800; color: var(--ink-3); margin: 0 0 6px; letter-spacing: .02em; }
+    .vocab ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 18px; }
+    .vocab li { margin: 0; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+    .vocab li b { color: var(--ink); font-weight: 800; }
+    .tg-foot { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--ink-3); }
+    @media (max-width: 760px) {
+      main.tg { padding: 30px 16px 70px; }
+      .tg-tips { grid-template-columns: 1fr; gap: 10px; }
+      .ph { grid-template-columns: 1fr; gap: 1px; padding: 11px 2px; }
+      .ph .sit { margin-bottom: 1px; }
+      .ph.sub .sit { display: none; }
+      .vocab ul { grid-template-columns: 1fr 1fr; }
+      .tg-lv { width: 100%; }
+      .tg-lv button { flex: 1; padding: 9px 4px; font-size: 13px; }
+      .tg-foot { flex-direction: column; }
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
-      background: #f1f5f9; color: var(--ink); line-height: 1.5;
-      padding-bottom: 60px;
-    }
-
-    /* ── 상단 고정 네비 (화면 전용) ────────────────── */
-    .top-actions {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border); padding: 12px 24px;
-    }
-    .top-actions-inner {
-      max-width: 1060px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-    }
-    .top-brand {
-      display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--ink);
-    }
-    .top-brand span.logo { font-size: 20px; }
-    .top-btns {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-    }
-
-    .btn-print {
-      display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px;
-      border-radius: 999px; border: none; background: var(--orange); color: #fff;
-      font-size: 13.5px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28); transition: all .15s ease;
-    }
-    .btn-print:hover { background: #c2410c; transform: translateY(-1px); }
-    .btn-link {
-      display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
-      border-radius: 999px; border: 1.5px solid var(--border); background: #fff;
-      font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none;
-      transition: all .15s ease;
-    }
-    .btn-link:hover { border-color: var(--orange); color: var(--orange); }
-
-    /* ── 메인 대형 세그먼트 토글 바 (화면 전용) ───────── */
-    .toggle-section {
-      max-width: 1040px; margin: 24px auto 0; padding: 0 16px;
-    }
-    .toggle-card {
-      background: var(--surface); border: 1.5px solid var(--border); border-radius: 16px;
-      padding: 18px 22px; box-shadow: var(--shadow);
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    }
-    .toggle-label {
-      display: flex; flex-direction: column; gap: 2px;
-    }
-    .toggle-label h3 { font-size: 15px; font-weight: 800; color: var(--ink); }
-    .toggle-label p { font-size: 12px; color: var(--ink-3); }
-
-    .segmented-control {
-      display: flex; align-items: center; background: var(--surface-3);
-      padding: 5px; border-radius: 12px; border: 1px solid var(--border); gap: 4px;
-    }
-    .seg-btn {
-      display: flex; align-items: center; gap: 6px; border: none; background: transparent;
-      padding: 8px 16px; border-radius: 9px; font-size: 13px; font-weight: 700;
-      color: var(--ink-2); cursor: pointer; transition: all .18s ease; white-space: nowrap;
-    }
-    .seg-btn:hover { color: var(--ink); }
-    .seg-btn.active {
-      background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-    .seg-btn.active.is-easy { color: #059669; }
-    .seg-btn.active.is-std { color: #ea580c; }
-    .seg-btn.active.is-pro { color: #7c3aed; }
-    .seg-btn.active.is-all { color: var(--ink); }
-
-    /* ── 팜플렛 문서 본체 (A4 규격) ────────────────── */
-    .brochure-wrap {
-      max-width: 1040px; margin: 18px auto 0; padding: 0 16px;
-    }
-    .brochure-sheet {
-      background: #fff; border: 1px solid var(--border); border-radius: 18px;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05); padding: 36px 40px;
-    }
-
-    /* 팜플렛 머리말 */
-    .sheet-header {
-      text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 24px;
-    }
-    .sheet-badges {
-      display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;
-    }
-    .badge-tag {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.5px; padding: 3px 8px;
-      border-radius: 6px; background: var(--orange-bg); color: var(--orange);
-      border: 1px solid var(--orange-border); text-transform: uppercase;
-    }
-    .badge-brand {
-      font-size: 11px; font-weight: 700; color: var(--ink-3);
-    }
-    .sheet-title {
-      font-size: 27px; font-weight: 900; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 6px;
-    }
-    .sheet-subtitle {
-      font-size: 14px; color: var(--ink-2); font-weight: 500; word-break: keep-all;
-    }
-
-    /* 난이도 안내 배너 */
-    .mode-status-banner {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      margin-top: 14px; padding: 10px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 600;
-      background: var(--surface-2); border: 1px solid var(--border);
-    }
-    .mode-status-banner b { font-weight: 800; }
-
-    /* 치즈 & 감자 선생님 꿀팁 박스 */
-    .teacher-tips {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px;
-    }
-    .tip-box {
-      padding: 13px 15px; border-radius: 12px; border: 1.5px solid var(--border);
-      background: var(--surface-2); font-size: 12.5px; line-height: 1.5; word-break: keep-all;
-    }
-    .tip-box.cheese { border-color: #fed7aa; background: #fffbeb; }
-    .tip-box.potato { border-color: #ddd6fe; background: #faf5ff; }
-    .tip-head {
-      font-weight: 800; font-size: 13px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
-    }
-    .tip-box.cheese .tip-head { color: #b45309; }
-    .tip-box.potato .tip-head { color: #6d28d9; }
-
-    /* ── 7대 테마 섹션 그리드 ───────────────────────── */
-    .sections-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-    }
-
-    .theme-card {
-      border: 1.5px solid var(--border); border-radius: 14px; background: #fff;
-      overflow: hidden; display: flex; flex-direction: column;
-      break-inside: avoid; page-break-inside: avoid;
-    }
-
-    .theme-header {
-      background: var(--surface-3); border-bottom: 1.5px solid var(--border);
-      padding: 11px 15px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .theme-title {
-      font-size: 15px; font-weight: 800; color: var(--ink); display: flex; align-items: center; gap: 8px;
-    }
-    .theme-en {
-      font-size: 11.5px; font-weight: 600; color: var(--ink-3);
-    }
-
-    .theme-body {
-      padding: 16px; display: flex; flex-direction: column; gap: 14px; flex: 1;
-    }
-
-    /* 필수 구문 블록 */
-    .phrases-block h4, .words-block h4 {
-      font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
-      color: var(--ink-3); margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
-    }
-    .phrase-item {
-      padding: 12px 0; border-bottom: 1px dashed var(--border);
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .phrase-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-    /* 구문 헤더 & 미니 토글 */
-    .pi-top {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    }
-    .pi-title {
-      font-size: 12px; font-weight: 700; color: var(--ink-3);
-    }
-
-    /* 구문별 인라인 미니 토글 (화면 전용) */
-    .item-toggle {
-      display: flex; align-items: center; background: var(--surface-2); border: 1px solid var(--border);
-      border-radius: 6px; padding: 2px; gap: 2px;
-    }
-    .it-btn {
-      border: none; background: transparent; font-size: 10.5px; font-weight: 700;
-      padding: 2px 6px; border-radius: 4px; color: var(--ink-3); cursor: pointer;
-      transition: all .12s ease;
-    }
-    .it-btn:hover { color: var(--ink); }
-    .it-btn.active.easy { background: var(--green-bg); color: #059669; font-weight: 800; }
-    .it-btn.active.std { background: var(--orange-bg); color: #ea580c; font-weight: 800; }
-    .it-btn.active.pro { background: var(--purple-bg); color: #7c3aed; font-weight: 800; }
-
-    /* 단일 버전 노출 스타일 */
-    .single-tier-view {
-      display: flex; flex-direction: column; gap: 2px;
-    }
-    .stv-badge {
-      align-self: flex-start; font-size: 10px; font-weight: 800; padding: 1px 6px;
-      border-radius: 4px; text-transform: uppercase; margin-bottom: 3px;
-    }
-    .stv-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-    .stv-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
-    .stv-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
-
-    .stv-ko {
-      font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.35;
-    }
-    .stv-pron {
-      font-size: 12px; color: var(--orange); font-weight: 600;
-    }
-    .stv-en {
-      font-size: 12.5px; color: var(--ink-2); font-weight: 500;
-    }
-
-    /* 3단계 전체 비교 노출 스타일 */
-    .all-tier-stack {
-      display: flex; flex-direction: column; gap: 6px; background: var(--surface-2);
-      border-radius: 8px; padding: 8px 10px; border: 1px solid var(--border);
-    }
-    .all-tier-row {
-      display: flex; align-items: flex-start; gap: 8px; font-size: 13px;
-    }
-    .atr-badge {
-      flex: none; font-size: 9.5px; font-weight: 800; padding: 1px 5px; border-radius: 3px;
-      margin-top: 2px; text-transform: uppercase;
-    }
-    .atr-badge.easy { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-    .atr-badge.std { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
-    .atr-badge.pro { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
-
-    .atr-content { flex: 1; min-width: 0; }
-    .atr-ko { font-weight: 800; color: var(--ink); line-height: 1.3; }
-    .atr-pron { font-size: 10.5px; color: var(--orange); font-weight: 600; }
-    .atr-en { font-size: 11px; color: var(--ink-2); font-weight: 500; }
-
-    /* 단어장 박스 */
-    .words-block {
-      background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
-      padding: 12px; margin-top: auto;
-    }
-    .words-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px;
-    }
-    .word-item {
-      font-size: 12px; line-height: 1.35;
-    }
-    .word-ko { font-weight: 700; color: var(--ink); }
-    .word-en { color: var(--ink-3); font-size: 11px; }
-
-    /* 팜플렛 꼬리말 */
-    .sheet-footer {
-      margin-top: 30px; padding-top: 16px; border-top: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-3);
-    }
-
-    /* ── @media print 인쇄 및 PDF 저장 전용 스타일 ──── */
+    /* ── 인쇄: A4 두 쪽에 담는다(두 단 · 작은 글씨). 3단계 비교는 문장이 세 배라 세~네 쪽 ── */
+    @page { size: A4; margin: 9mm 9mm; }
     @media print {
-      body { background: #fff; padding: 0; }
-      .no-print { display: none !important; }
-      .brochure-wrap { max-width: 100%; margin: 0; padding: 0; }
-      .brochure-sheet {
-        border: none; box-shadow: none; border-radius: 0; padding: 0;
-      }
-      .sections-grid { gap: 14px; }
-      .theme-card {
-        border: 1px solid #94a3b8; page-break-inside: avoid; break-inside: avoid;
-      }
-      .theme-header { background: #f8fafc; border-bottom: 1px solid #94a3b8; }
-      .words-block { background: #f8fafc; border: 1px solid #cbd5e1; }
-      @page {
-        size: A4;
-        margin: 10mm 10mm;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .brochure-sheet { padding: 22px 16px; }
-      .sections-grid { grid-template-columns: 1fr; }
-      .teacher-tips { grid-template-columns: 1fr; }
-      .sheet-title { font-size: 22px; }
-      .toggle-card { flex-direction: column; align-items: flex-start; }
-      .segmented-control { width: 100%; overflow-x: auto; }
-      .seg-btn { flex: 1; justify-content: center; }
+      body { background: #fff; color: #000; line-height: 1.35; }
+      .no-print, .hd { display: none !important; }
+      main.tg { max-width: none; padding: 0; }
+      .tg h1 { font-size: 17pt; margin: 0; }
+      .tg .lede { font-size: 8pt; margin: 1mm 0 0; }
+      .tg-tips { margin: 3mm 0 0; gap: 0 6mm; }
+      .tg-tips p { font-size: 7.4pt; line-height: 1.4; padding-left: 8mm; }
+      .tg-tips p i { font-size: 6.4pt; }
+      .tg-body { column-count: 2; column-gap: 7mm; margin-top: 3mm; }
+      .tg-sec { margin-top: 0; margin-bottom: 3.2mm; }
+      .tg-sec h2 { font-size: 10pt; padding-bottom: 1mm; break-after: avoid; }
+      .tg-sec h2 small { font-size: 6.8pt; }
+      .ph { grid-template-columns: 1fr 1fr; gap: 0 3mm; padding: 1.1mm 0; border-color: #bbb; break-inside: avoid; }
+      .ph .sit { grid-column: 1 / -1; font-size: 6.2pt; color: #666; }
+      .ph .ko { grid-column: 1 / -1; font-size: 9pt; }
+      .ph .pr { font-size: 6.6pt; color: #333; }
+      .ph .en { font-size: 6.6pt; color: #333; }
+      .ph .lvl { font-size: 5.6pt; margin-right: 1.5mm; }
+      .ph.sub { padding: .3mm 0; }
+      .ph.sub .sit { display: none; }
+      .vocab { margin-top: 1.4mm; padding-top: 1mm; break-inside: avoid; }
+      .vocab h3 { font-size: 6.4pt; margin-bottom: 1mm; }
+      .vocab ul { grid-template-columns: 1fr 1fr; gap: .6mm 3mm; }
+      .vocab li { font-size: 6.6pt; line-height: 1.3; }
+      .tg-foot { margin-top: 2mm; padding-top: 1.5mm; font-size: 6.4pt; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 네비 바 (화면 전용) -->
-  <header class="top-actions no-print">
-    <div class="top-actions-inner">
-      <div class="top-brand">
-        <span class="logo">🧀🥔</span>
-        <span>치즈감자 여행 한국어 포켓 팜플렛</span>
+  <header class="hd no-print"><div class="hd-in">
+    <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
+  </div></header>
+
+  <main class="tg">
+    <h1>여행 한국어 포켓 가이드</h1>
+    <p class="lede" id="tgLede">지갑이나 여권 사이에 끼워 두는 A4 2쪽 치트시트 · 인쇄하거나 PDF 로 저장 · 무료</p>
+
+    <div class="tg-bar no-print">
+      <div class="tg-lv" id="tgLv" role="group" aria-label="난이도 선택">
+        <button type="button" data-lvl="easy" aria-pressed="false">쉬움</button>
+        <button type="button" data-lvl="std" aria-pressed="true">보통</button>
+        <button type="button" data-lvl="pro" aria-pressed="false">정확</button>
+        <button type="button" data-lvl="all" aria-pressed="false">3단계 비교</button>
       </div>
-      <div class="top-btns">
-        <a href="blog/travel-korean-survival-guide.html" class="btn-link">✍️ 블로그 가이드</a>
-        <a href="record-travel.html" class="btn-link">🎙️ 직접 녹음 스튜디오</a>
-        <button type="button" class="btn-print" onclick="window.print()">
-          🖨️ 현재 버전 PDF 다운로드 / 인쇄
-        </button>
-      </div>
+      <p class="tg-desc" id="tgDesc"></p>
+      <button type="button" class="tg-print" id="tgPrint">인쇄 / PDF 저장</button>
     </div>
-  </header>
+    <p class="tg-links no-print"><a href="/blog/travel-korean-survival-guide.html">여행 한국어 블로그 가이드</a><a href="/record-travel.html">직접 녹음하는 스튜디오</a></p>
 
-  <!-- ── 큼직한 메인 세그먼트 토글 바 (화면 전용) ── -->
-  <div class="toggle-section no-print">
-    <div class="toggle-card">
-      <div class="toggle-label">
-        <h3>난이도 버전 선택 (Difficulty Toggle)</h3>
-        <p>내 한국어 실력에 맞는 버전을 탭하면 모든 구문이 실시간으로 전환됩니다</p>
-      </div>
-
-      <div class="segmented-control" id="mainSegControl">
-        <button type="button" class="seg-btn is-easy" data-lvl="easy">
-          🟢 쉬운 버전 (단어 위주)
-        </button>
-        <button type="button" class="seg-btn is-std active" data-lvl="std">
-          🟡 보통 버전 (자연스러운 존댓말)
-        </button>
-        <button type="button" class="seg-btn is-pro" data-lvl="pro">
-          🟣 정확한 버전 (정중한 격식체)
-        </button>
-        <button type="button" class="seg-btn is-all" data-lvl="all">
-          📋 3단계 전체 비교
-        </button>
-      </div>
+    <div class="tg-tips">
+      <p><i>팁 1</i>한국어가 서툴 땐 <b>「쉬운 버전」</b>으로 핵심 단어 뒤에 <b>「~요」</b>만 붙여도 한국 분들이 잘 알아들으세요. 물과 반찬은 대부분 무료 리필이니 편하게 말씀하세요.</p>
+      <p><i>팁 2</i>대중교통을 환승할 땐 내릴 때도 반드시 카드를 찍으세요. 택시를 탈 땐 지도의 한국어 주소를 보여 주고, 정중하게 말하고 싶다면 <b>「정확한 버전」</b>을 연습해 두세요.</p>
     </div>
-  </div>
 
-  <div class="brochure-wrap">
-    <div class="brochure-sheet">
+    <div class="tg-body" id="tgBody"></div>
 
-      <!-- 헤더 -->
-      <div class="sheet-header">
-        <div class="sheet-badges">
-          <span class="badge-tag">POCKET GUIDE</span>
-          <span class="badge-brand">CheesePotato · everykoreans.com</span>
-        </div>
-        <h1 class="sheet-title">🇰🇷 여행 한국어 생존 가이드 & 단어장</h1>
-        <p class="sheet-subtitle">비행기 안에서 가볍게 읽고, 여행지에서 접어 들고 다니며 상황에 맞게 꺼내 쓰는 7대 실전집</p>
-
-        <!-- 현재 활성 모드 표시 배너 -->
-        <div class="mode-status-banner" id="modeStatusBanner">
-          <span>선택된 모드:</span>
-          <b id="modeStatusText">🟡 보통 버전 (Standard) — 일상에서 가장 추천하는 자연스러운 존댓말</b>
-        </div>
-      </div>
-
-      <!-- 치즈 & 감자 선생님 여행 꿀팁 -->
-      <div class="teacher-tips">
-        <div class="tip-box cheese">
-          <div class="tip-head">🧀 치즈 선생님의 상냥한 여행 꿀팁</div>
-          <div>"한국어가 서툴 땐 <b>‘쉬운 버전’</b>으로 핵심 단어 뒤에 <b>‘~요’</b>만 붙여도 한국 분들이 찰떡같이 알아들으세요! 물과 반찬은 대부분 무료 리필이니 편하게 말씀하세요 💛"</div>
-        </div>
-        <div class="tip-box potato">
-          <div class="tip-head">🥔 감자 선생님의 확실한 여행 꿀팁</div>
-          <div>"대중교통 환승할 땐 내릴 때도 반드시 카드를 찍어라! 택시 탈 땐 지도의 한국어 주소를 보여주고, 정중하게 말하고 싶다면 <b>‘정확한 버전’</b>을 연습해둬라 ⚡"</div>
-        </div>
-      </div>
-
-      <!-- 7개 테마 섹션 그리드 -->
-      <div class="sections-grid" id="sectionsGrid"></div>
-
-      <!-- 푸터 -->
-      <div class="sheet-footer">
-        <span>🧀🥔 Cheesepotato (치즈감자) · Free Korean Learning for Everyone</span>
-        <span>https://everykoreans.com</span>
-      </div>
-
+    <div class="tg-foot">
+      <span>치즈감자 CheesePotato · Free Korean Learning for Everyone</span>
+      <span>https://everykoreans.com</span>
     </div>
-  </div>
+  </main>
 
   <script type="module">
     import { TRAVEL_CATEGORIES, TRAVEL_PHRASES, TRAVEL_VOCAB } from './travel-data.js';
 
-    // 기본 난이도: 'std' (보통 버전)
-    let globalLvl = 'std';
-
-    // 각 문장 항목별 개별 오버라이드 맵 { [phraseId]: 'easy' | 'std' | 'pro' }
-    const itemOverrides = new Map();
-
-    const MODE_DESCS = {
-      easy: '🟢 쉬운 버전 (Easy) — 단어 위주, 당장 입에서 나오는 가장 짧고 빠른 생존 표현',
-      std:  '🟡 보통 버전 (Standard) — 일상에서 가장 추천하는 자연스러운 존댓말',
-      pro:  '🟣 정확한 버전 (Accurate) — 격식 있고 정중한 완벽한 문장',
-      all:  '📋 3단계 전체 비교 (All Tiers) — 쉬움 / 보통 / 정확을 한눈에 나란히 비교 학습',
+    const LV = { easy: '쉬움', std: '보통', pro: '정확' };
+    const DESC = {
+      easy: '<b>쉬운 버전</b> · 단어 위주. 당장 입에서 나오는 가장 짧은 표현',
+      std: '<b>보통 버전</b> · 일상에서 가장 많이 쓰는 자연스러운 존댓말',
+      pro: '<b>정확한 버전</b> · 격식 있고 정중한 완전한 문장',
+      all: '<b>3단계 비교</b> · 쉬움 · 보통 · 정확을 한 문장씩 나란히 (인쇄하면 3~4쪽)',
     };
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    let lvl = 'std';
 
-    function updateModeBanner() {
-      const banner = document.getElementById('modeStatusText');
-      if (banner) banner.textContent = MODE_DESCS[globalLvl] || '';
+    const row = (title, t, tag, cls) => `<div class="ph${cls}"><span class="sit">${title}</span><b class="ko">${esc(t.ko)}</b><span class="pr">${tag}${esc(t.pron)}</span><span class="en">${esc(t.en)}</span></div>`;
+
+    function render() {
+      document.getElementById('tgDesc').innerHTML = DESC[lvl];
+      document.querySelectorAll('#tgLv button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lvl === lvl)));
+      const body = document.getElementById('tgBody');
+      body.innerHTML = TRAVEL_CATEGORIES.map((cat, i) => {
+        const ph = TRAVEL_PHRASES.filter((p) => p.cat === cat.id);
+        const rows = ph.map((p) => {
+          if (lvl !== 'all') return row(esc(p.title), p[lvl] || p.std, '', '');
+          return ['easy', 'std', 'pro'].map((k, j) => row(j === 0 ? esc(p.title) : '', p[k], `<span class="lvl">${LV[k]}</span>`, (j ? ' sub' : '') + (j === 2 ? ' last' : ''))).join('');
+        }).join('');
+        const words = (TRAVEL_VOCAB[cat.id] || []).map((w) => `<li><b>${esc(w.ko)}</b> ${esc(w.en)}</li>`).join('');
+        return `<section class="tg-sec"><h2><i>${String(i + 1).padStart(2, '0')}</i>${esc(cat.ko)}<small>${esc(cat.en)}</small></h2>${rows}${words ? `<div class="vocab"><h3>꼭 알아 둘 낱말</h3><ul>${words}</ul></div>` : ''}</section>`;
+      }).join('');
+      document.getElementById('tgLede').textContent = `지갑이나 여권 사이에 끼워 두는 A4 2쪽 치트시트 · ${TRAVEL_CATEGORIES.length}개 상황 ${TRAVEL_PHRASES.length}개 표현 · 인쇄하거나 PDF 로 저장 · 무료`;
     }
 
-    function renderGuide() {
-      const container = document.getElementById('sectionsGrid');
-      container.innerHTML = '';
-      updateModeBanner();
-
-      TRAVEL_CATEGORIES.forEach((cat) => {
-        const phrases = TRAVEL_PHRASES.filter(p => p.cat === cat.id);
-        const words = TRAVEL_VOCAB[cat.id] || [];
-
-        const card = document.createElement('div');
-        card.className = 'theme-card';
-
-        // 카드 상단 헤더
-        const head = `
-          <div class="theme-header">
-            <div class="theme-title">
-              <span>${cat.emoji}</span>
-              <span>${cat.ko}</span>
-            </div>
-            <span class="theme-en">${cat.en}</span>
-          </div>
-        `;
-
-        // 구문 목록 HTML
-        const phrasesBlock = document.createElement('div');
-        phrasesBlock.className = 'phrases-block';
-        phrasesBlock.innerHTML = `<h4>🗣️ 실전 구문</h4>`;
-
-        phrases.forEach(p => {
-          const itemDiv = document.createElement('div');
-          itemDiv.className = 'phrase-item';
-          itemDiv.id = `pi-${p.id}`;
-
-          // 현재 이 문장에 적용할 레벨 (개별 오버라이드가 있으면 우선, 없으면 글로벌 레벨)
-          const activeLvl = (globalLvl === 'all')
-            ? 'all'
-            : (itemOverrides.get(p.id) || globalLvl);
-
-          // 상단 제목 및 개별 미니 토글 바
-          const topRow = document.createElement('div');
-          topRow.className = 'pi-top';
-          topRow.innerHTML = `
-            <span class="pi-title">${p.title}</span>
-            <div class="item-toggle no-print" id="toggle-${p.id}">
-              <button type="button" class="it-btn easy${activeLvl === 'easy' ? ' active' : ''}" data-lvl="easy">쉬움</button>
-              <button type="button" class="it-btn std${activeLvl === 'std' ? ' active' : ''}" data-lvl="std">보통</button>
-              <button type="button" class="it-btn pro${activeLvl === 'pro' ? ' active' : ''}" data-lvl="pro">정확</button>
-            </div>
-          `;
-
-          // 본문 콘텐츠 (단일 모드 vs 전체 비교 모드)
-          const contentDiv = document.createElement('div');
-          contentDiv.className = 'pi-content';
-          contentDiv.id = `content-${p.id}`;
-
-          renderItemContent(contentDiv, p, activeLvl);
-
-          // 미니 토글 버튼 이벤트 바인딩
-          topRow.querySelectorAll('.it-btn').forEach(btn => {
-            btn.addEventListener('click', (ev) => {
-              ev.stopPropagation();
-              const chosenLvl = btn.dataset.lvl;
-              itemOverrides.set(p.id, chosenLvl);
-              topRow.querySelectorAll('.it-btn').forEach(b => b.classList.remove('active'));
-              btn.classList.add('active');
-              renderItemContent(contentDiv, p, chosenLvl);
-            });
-          });
-
-          itemDiv.appendChild(topRow);
-          itemDiv.appendChild(contentDiv);
-          phrasesBlock.appendChild(itemDiv);
-        });
-
-        // 필수 단어 목록 HTML
-        const wordsHtml = words.map(w => `
-          <div class="word-item">
-            <span class="word-ko">${w.ko}</span>
-            <span class="word-en">(${w.en})</span>
-          </div>
-        `).join('');
-
-        const wordsBlock = `
-          <div class="words-block">
-            <h4>📚 필수 단어 (Vocabulary)</h4>
-            <div class="words-grid">
-              ${wordsHtml}
-            </div>
-          </div>
-        `;
-
-        const body = document.createElement('div');
-        body.className = 'theme-body';
-        body.appendChild(phrasesBlock);
-        body.insertAdjacentHTML('beforeend', wordsBlock);
-
-        card.innerHTML = head;
-        card.appendChild(body);
-        container.appendChild(card);
-      });
-    }
-
-    // 개별 구문의 본문 렌더링 헬퍼
-    function renderItemContent(el, p, lvl) {
-      if (lvl === 'all') {
-        el.innerHTML = `
-          <div class="all-tier-stack">
-            <div class="all-tier-row">
-              <span class="atr-badge easy">쉬움</span>
-              <div class="atr-content">
-                <div class="atr-ko">${p.easy.ko}</div>
-                <div class="atr-pron">${p.easy.pron}</div>
-                <div class="atr-en">${p.easy.en}</div>
-              </div>
-            </div>
-            <div class="all-tier-row">
-              <span class="atr-badge std">보통</span>
-              <div class="atr-content">
-                <div class="atr-ko">${p.std.ko}</div>
-                <div class="atr-pron">${p.std.pron}</div>
-                <div class="atr-en">${p.std.en}</div>
-              </div>
-            </div>
-            <div class="all-tier-row">
-              <span class="atr-badge pro">정확</span>
-              <div class="atr-content">
-                <div class="atr-ko">${p.pro.ko}</div>
-                <div class="atr-pron">${p.pro.pron}</div>
-                <div class="atr-en">${p.pro.en}</div>
-              </div>
-            </div>
-          </div>
-        `;
-      } else {
-        const item = p[lvl] || p.std;
-        const badgeName = lvl === 'easy' ? '쉬운 표현' : lvl === 'std' ? '보통 표현' : '정확한 표현';
-        el.innerHTML = `
-          <div class="single-tier-view">
-            <span class="stv-badge ${lvl}">${badgeName}</span>
-            <div class="stv-ko">${item.ko}</div>
-            <div class="stv-pron">${item.pron}</div>
-            <div class="stv-en">${item.en}</div>
-          </div>
-        `;
-      }
-    }
-
-    // ── 메인 세그먼트 토글 이벤트 ─────────────────────────────
-    document.querySelectorAll('#mainSegControl .seg-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#mainSegControl .seg-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        globalLvl = btn.dataset.lvl;
-        // 글로벌 토글 시 개별 오버라이드 리셋
-        itemOverrides.clear();
-        renderGuide();
-      });
+    document.getElementById('tgLv').addEventListener('click', (ev) => {
+      const b = ev.target.closest('button'); if (!b) return;
+      lvl = b.dataset.lvl; render();
     });
-
-    renderGuide();
+    document.getElementById('tgPrint').addEventListener('click', () => window.print());
+    render();
   </script>
 </body>
 </html>
