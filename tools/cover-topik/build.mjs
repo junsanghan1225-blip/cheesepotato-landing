@@ -69,7 +69,7 @@ const page = (c) => {
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
 .cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${c.patOp ? `.pat{opacity:${c.patOp}}` : ''}${shadowCss(bg, deep, tint)}
-${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
+${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}${c.hero === '읽기' ? '.cv.e .tag .n{font-size:27px;padding:3px 14px 5px;box-shadow:3px 3px 0 var(--deep)}' : ''}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div>${c.hero === '읽기' ? WAVE : ''}<div class="en">${c.en}</div>
 <div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${band}</b><i>${name}</i></div>
