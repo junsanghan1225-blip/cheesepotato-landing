@@ -6,10 +6,11 @@
 import fs from 'fs';
 import path from 'path';
 import { cheeseLevel } from '../../levels.js';
+// 운영자 2026-11-11 「쓰기 · 읽기는 5~8% 작게」 — 받침 글자라 같은 크기면 더 커 보인다(140 → 131px).
 const DIR = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(DIR, '../..');
 const master = fs.readFileSync(path.join(DIR, 'writing-51-52.html'), 'utf8');
-const CSS = master.slice(master.indexOf('<style>') + 7, master.indexOf('</style>'));
+const CSS = master.slice(master.indexOf('<style>') + 7, master.indexOf('</style>')).replace('.cv.e .hero{font-size:131px;top:67px}', '');
 const LOGO = master.match(/<div class="pub">(<svg[\s\S]*?<\/svg>)<\/div>/)[1];
 const CUBE = master.match(/<div class="mas one1">(<svg[\s\S]*?<\/svg>)<\/div>/)[1];   // 4급 블록 치즈(얼굴 하나)
 
@@ -53,7 +54,7 @@ const page = (c) => {
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
 .cv.e .lv{background:${stk}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}
-.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
+${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div><div class="en">${c.en}</div>
 <div class="mas one1">${icon(L.mascot[1])}</div><div class="lv"><b>${code}</b><i>${name}</i></div>
