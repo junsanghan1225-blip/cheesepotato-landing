@@ -150,18 +150,38 @@ const hand = [
   ['/hangul-worksheet/', 'Hangul name tracing', '내 이름 따라 쓰기', 'A1'],
   ['/worksheet/', 'Grammar worksheets', '문법 학습지', 'all'],
 ];
+/* 학습지 목록(운영자 2026-11-11 「목록이랑 UI 개선 · 정신이 없어」): 알약 + 긴 영어 설명 줄줄이 → 급별로 묶은 번호 차례 표(한국어 먼저 · 한 줄 요약 · 얇은 줄). 영어 설명 문장은 메타 설명 · 목록 JSON 에 있다. */
+const WL_CSS = `<style>
+.wl-jump{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.wl-jump a{font-size:13px;font-weight:800;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:5px;padding:5px 11px;background:var(--surface)}.wl-jump a:hover{background:var(--ink);color:#fff}
+.wl h2{display:flex;align-items:baseline;gap:10px;margin:30px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--ink);font-size:19px}.wl h2 small{font-size:12px;font-weight:700;color:var(--ink-3)}
+.wl-row{display:grid;grid-template-columns:34px minmax(0,1.25fr) minmax(0,1fr) 38px;gap:4px 14px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.wl-row:hover{background:rgba(0,0,0,.035)}.wl-row i{font-style:normal;font-size:12px;font-weight:800;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.wl-row .t b{display:block;font-size:15.5px;line-height:1.35;word-break:keep-all}.wl-row .t em{display:block;font-style:normal;font-size:12px;color:var(--ink-3);line-height:1.35;margin-top:1px}
+.wl-row .s{font-size:13px;color:var(--ink-2,var(--ink-3));line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wl-row .lv{font-size:11px;font-weight:800;text-align:center;border:1.5px solid var(--ink);border-radius:5px;padding:1px 0}
+@media(max-width:700px){.wl-row{grid-template-columns:28px minmax(0,1fr) 36px;padding:12px 2px}.wl-row .s{grid-column:2/3;-webkit-line-clamp:2}.wl-row .lv{grid-row:1;grid-column:3}}
+</style>
+`;
 function hubPage() {
-  const rows = [...hand.map(([u, en, ko, lv]) => [u, en, ko, lv, '']), ...sheets.map((w) => [`/${w.id}-worksheet/`, w.title.en, w.title.ko, w.level, w.desc.en])];
-  return head('Free Korean Worksheets (Printable PDF)', 'Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.', '/worksheets/') +
+  const all = [...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv, sub: '' })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level, sub: w.sub.ko }))];
+  const groups = [['all', '전체 · 모든 급', '여러 급에서 쓰는 학습지'], ['A1', 'A1 입문', '한글 · 생활 낱말 · 기본 문법'], ['A2', 'A2 초급', '연결 · 높임 · 불규칙 · 간접 인용']];
+  let no = 0;
+  const sec = groups.map(([k, name, note]) => {
+    const rows = all.filter((x) => x.lv === k); if (!rows.length) return '';
+    return `<h2 id="${k.toLowerCase()}">${name} <small>${rows.length}편 · ${note}</small></h2>\n` + rows.map((x) => `<a class="wl-row" href="${x.u}"><i>${String(++no).padStart(2, '0')}</i><span class="t"><b>${esc(x.ko)}</b><em>${esc(x.en)}</em></span>${x.sub ? `<span class="s">${esc(x.sub)}</span>` : '<span class="s"></span>'}<span class="lv">${esc(x.lv === 'all' ? '전체' : x.lv)}</span></a>`).join('\n');
+  }).join('\n');
+  const cnt = (k) => all.filter((x) => x.lv === k).length;
+  return head('Free Korean Worksheets (Printable PDF)', 'Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.', '/worksheets/', WL_CSS) +
 `<h1>Free Korean worksheets</h1>
-<p>학습지 모음 · print, save as PDF or Word · every worksheet has an answer key</p>
-<div class="box">
-${rows.map(([u, en, ko, lv, d]) => `  <p><a class="btn sub" href="${u}"><span style="text-align:left"><b>${esc(en)}</b> · ${esc(ko)}${lv ? ` · ${esc(lv)}` : ''}</span></a>${d ? `<br><small>${esc(d)}</small>` : ''}</p>`).join('\n')}
+<p>학습지 모음 · ${all.length}편 · 인쇄하거나 PDF · Word 로 저장 · 모든 학습지에 정답지가 있어요</p>
+<nav class="wl-jump" aria-label="급별 바로가기"><a href="#all">전체 ${cnt('all')}</a><a href="#a1">A1 입문 ${cnt('A1')}</a><a href="#a2">A2 초급 ${cnt('A2')}</a></nav>
+<div class="wl">
+${sec}
 </div>
 <div class="next">
-  <h3>Want a worksheet we do not have yet?</h3>
-  <p>Teachers: tell us the topic — new worksheets are added every week.</p>
-  <div class="btns"><a class="btn sub" href="/for-teachers.html">For teachers — free class tools</a></div>
+  <h3>없는 학습지가 있나요?</h3>
+  <p>교사 선생님은 주제를 알려 주세요. 새 학습지를 계속 더하고 있어요. <small>Teachers: tell us the topic.</small></p>
+  <div class="btns"><a class="btn sub" href="/for-teachers.html">교사용 무료 수업 도구 · For teachers</a></div>
 </div>
 <p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/for-teachers.html">For teachers</a></p>
 ` + foot;
