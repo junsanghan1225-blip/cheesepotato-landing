@@ -31,7 +31,7 @@ const BOOKS = [
   { id: 'topik2-writing-eve', hero: '쓰기', en: 'WRITING', ser: '쓰기 03', k: '시험 전날', n: '핵심 요약', s: '쓰기 시험 전날에 보는 핵심 정리', pat: 'grid', code: '3~6급',
     st: [['볼 것', '유형마다<br>한 쪽'], ['넘길 것', '전날엔<br>덜어 내기'], ['당일 준비', '시간 · 연필 ·<br>답안지']] },
   ...[['1', '1~15', '384', '01'], ['2', '16~24', '381', '02'], ['3', '25~45', '455', '03'], ['4', '46~50', '379', '04']].map(([v, r, q, ser]) => (
-    { id: `topik2-reading-${v}`, hero: '읽기', en: 'READING', ser: `읽기 ${ser}`, k: '연습문항', n: `${r}번 · ${q}제`, s: '시험 번호 순서대로 푸는 연습문항', pat: 'lines',
+    { id: `topik2-reading-${v}`, hero: '읽기', en: 'READING', ser: `읽기 ${ser}`, k: '연습문항', n: `${r}번 · ${q}제`, s: '시험 번호 순서대로 푸는 연습문항', pat: 'grid',
       st: [['유형 익히기', '번호마다<br>묻는 것'], ['번호대로 풀기', '시험 순서<br>그대로'], ['풀이 확인', '모든 문항에<br>짧은 풀이']] })),
   { id: 'topik1-reading-mock', hero: '실전', en: 'MOCK TESTS', ser: '모의 01', k: '읽기 실전 연습', n: '10회 · 400문항', s: 'TOPIK I 읽기 31~70번, 실제 시험 형식', pat: 'grid',
     st: [['유형 익히기', '8유형 풀이 방법 ·<br>필요한 단어'], ['한 회 풀기', '40문항 ·<br>답안지'], ['채점 · 풀이', '정답과<br>짧은 풀이']] },
@@ -68,7 +68,7 @@ const page = (c) => {
   const code = c.code || L.code, name = L.name;
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
-.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${shadowCss(bg, deep, tint)}
+.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${c.patOp ? `.pat{opacity:${c.patOp}}` : ''}${shadowCss(bg, deep, tint)}
 ${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div>${c.hero === '읽기' ? WAVE : ''}<div class="en">${c.en}</div>
