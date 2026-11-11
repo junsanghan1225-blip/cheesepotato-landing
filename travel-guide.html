@@ -3,39 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>여행 한국어 포켓 가이드 (A4 2쪽 인쇄 / PDF) | 치즈감자 CheesePotato</title>
-  <meta name="description" content="여행에서 바로 쓰는 한국어 표현 43개를 7개 상황별로 모은 무료 포켓 가이드. 지갑이나 여권 사이에 넣는 A4 2쪽 인쇄 / PDF. A free two-page A4 pocket guide of Korean phrases for travel.">
+  <title>여행 한국어 포켓 가이드 (상황별 A4 한 장) | 치즈감자 CheesePotato</title>
+  <meta name="description" content="공항 · 교통 · 숙소 · 식당 · 쇼핑 · 관광 · 약국, 상황마다 따로 쓰는 여행 한국어 표현 43개. 상황별 A4 한 장 PDF 무료. Free one-page A4 Korean phrase cards for travel, one per situation.">
   <link rel="canonical" href="https://everykoreans.com/travel-guide.html">
   <link rel="icon" href="favicon-32.png">
   <link rel="stylesheet" href="/vendor/pretendard.css">
   <link rel="stylesheet" href="/page.css">
-  <!-- 여행 포켓 가이드의 모양(운영자 2026-11-11 「템플릿이 아직도 예전」 → 2번: 모양과 인쇄 구성까지 다시) — 「선생님의 워크북」: 종이 바탕 · 검정 잉크 · 얇은 줄 · 번호 차례 표. 자료는 travel-data.js 그대로. -->
+  <!-- 여행 포켓 가이드(운영자 2026-11-11 「이렇게 말고 나눠주라고 각각」): 상황 7개를 한 묶음이 아니라 상황마다 따로(보기 · A4 한 장 PDF). ?cat=air 처럼 한 상황만 열 수 있다. 모양은 「선생님의 워크북」. 자료는 travel-data.js. -->
   <style>
+    [hidden] { display: none !important; }
     main.tg { max-width: 1040px; padding-top: 44px; }
     .tg h1 { font-size: clamp(28px, 5vw, 38px); }
     .tg .lede { color: var(--ink-3); font-size: 14.5px; margin-top: 4px; }
-    .tg-bar { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: flex-end; justify-content: space-between; margin: 26px 0 0; padding: 16px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
-    .tg-lv { display: flex; gap: 0; border: 1.5px solid var(--ink); border-radius: 5px; overflow: hidden; background: var(--surface); }
+    .tg-back { display: inline-block; font-size: 13px; font-weight: 700; margin-bottom: 14px; }
+    .tg-bar { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin: 26px 0 0; padding: 16px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .tg-lv { display: flex; border: 1.5px solid var(--ink); border-radius: 5px; overflow: hidden; background: var(--surface); }
     .tg-lv button { font: inherit; font-size: 14px; font-weight: 700; color: var(--ink); background: none; border: 0; border-right: 1.5px solid var(--ink); padding: 8px 15px; cursor: pointer; }
     .tg-lv button:last-child { border-right: 0; }
     .tg-lv button[aria-pressed="true"] { background: var(--ink); color: #fff; }
     .tg-desc { flex: 1 1 280px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
     .tg-desc b { color: var(--ink); }
-    .tg-print { display: inline-block; text-decoration: none; font: inherit; font-size: 14px; font-weight: 700; color: #fff; background: var(--ink); border: 0; border-radius: 5px; padding: 9px 16px; cursor: pointer; }
-    .tg-print:hover { background: var(--orange-deep); }
     .tg-links { font-size: 13px; margin-top: 10px; color: var(--ink-3); }
     .tg-links a { margin-right: 14px; }
-    .tg-pdf { font-size: 13px; margin-top: 6px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 2px 14px; align-items: baseline; }
-    .tg-pdf b { color: var(--ink); }
-    .tg-link { font: inherit; font-size: 13px; color: var(--orange-deep); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-    .tg-pdf span { font-size: 12px; }
+    .tg-btn { display: inline-block; text-decoration: none; font: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--surface); border: 1.5px solid var(--ink); border-radius: 5px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+    .tg-btn:hover { background: var(--ink); color: #fff; }
+    .tg-btn.dark { background: var(--ink); color: #fff; }
+    .tg-btn.dark:hover { background: var(--orange-deep); border-color: var(--orange-deep); }
+    /* 상황 목차: 번호 · 이름 · 구문 수 · 보기 / PDF */
+    .tg-index { margin-top: 26px; border-top: 2px solid var(--ink); }
+    .tg-ix { display: grid; grid-template-columns: 34px minmax(0, 1.4fr) auto auto; gap: 6px 14px; align-items: center; padding: 13px 4px; border-bottom: 1px solid var(--line); }
+    .tg-ix i { font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .tg-ix .t b { display: block; font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.35; }
+    .tg-ix .t em { display: block; font-style: normal; font-size: 12.5px; color: var(--ink-3); }
+    .tg-ix .n { font-size: 12.5px; font-weight: 700; color: var(--ink-3); white-space: nowrap; }
+    .tg-ix .b { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
     .tg-tips { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 22px 0 0; }
     .tg-tips p { font-size: 13.5px; line-height: 1.65; color: var(--ink-2); padding-left: 38px; position: relative; }
     .tg-tips p i { position: absolute; left: 0; top: 1px; font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 5px; padding: 0 5px; line-height: 1.5; }
     .tg-sec { margin-top: 34px; }
-    .tg-sec h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 4px; padding: 0 0 7px; border-top: 0; border-bottom: 2px solid var(--ink); font-size: 20px; }
+    .tg-sec h2 { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 4px; padding: 0 0 7px; border-top: 0; border-bottom: 2px solid var(--ink); font-size: 20px; }
     .tg-sec h2 i { font-style: normal; font-size: 13px; font-weight: 800; color: var(--ink-3); font-variant-numeric: tabular-nums; }
     .tg-sec h2 small { font-size: 12.5px; font-weight: 600; color: var(--ink-3); letter-spacing: 0; }
+    .tg-sec h2 .tg-hbtn { margin-left: auto; display: flex; gap: 6px; }
     .ph { display: grid; grid-template-columns: 150px minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2px 18px; align-items: baseline; padding: 9px 2px; border-bottom: 1px solid var(--line); }
     .ph .sit { font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
     .ph .ko { font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; word-break: keep-all; }
@@ -53,6 +62,10 @@
     @media (max-width: 760px) {
       main.tg { padding: 30px 16px 70px; }
       .tg-tips { grid-template-columns: 1fr; gap: 10px; }
+      .tg-ix { grid-template-columns: 28px minmax(0, 1fr); }
+      .tg-ix .n { grid-column: 2; }
+      .tg-ix .b { grid-column: 2; justify-content: flex-start; }
+      .tg-sec h2 .tg-hbtn { margin-left: 0; width: 100%; }
       .ph { grid-template-columns: 1fr; gap: 1px; padding: 11px 2px; }
       .ph .sit { margin-bottom: 1px; }
       .ph.sub .sit { display: none; }
@@ -61,8 +74,8 @@
       .tg-lv button { flex: 1; padding: 9px 4px; font-size: 13px; }
       .tg-foot { flex-direction: column; }
     }
-    /* ── 인쇄: A4 두 쪽에 담는다(두 단 · 작은 글씨). 3단계 비교는 문장이 세 배라 세~네 쪽 ── */
-    @page { size: A4; margin: 9mm 9mm; }
+    /* ── 인쇄: 한 번에 한 상황, A4 한 장(?cat=… 일 때). 전체 목록 화면에서 인쇄하면 일곱 상황이 두 단으로 나온다 ── */
+    @page { size: A4; margin: 10mm 11mm; }
     @media print {
       body { background: #fff; color: #000; line-height: 1.35; }
       .no-print, .hd { display: none !important; }
@@ -89,6 +102,48 @@
       .vocab ul { grid-template-columns: 1fr 1fr; gap: .6mm 3mm; }
       .vocab li { font-size: 6.6pt; line-height: 1.3; }
       .tg-foot { margin-top: 2mm; padding-top: 1.5mm; font-size: 6.4pt; }
+      /* 한 상황만 인쇄: 한 단 · 큰 글씨 · 한 장 */
+      body.tg-single .tg-body { column-count: 1; margin-top: 4mm; }
+      body.tg-single .tg-sec h2 { font-size: 16pt; padding-bottom: 2mm; }
+      body.tg-single .tg-sec h2 small { font-size: 9pt; }
+      body.tg-single .ph { grid-template-columns: 1fr 1fr; padding: 2.4mm 0; }
+      body.tg-single .ph .sit { font-size: 8pt; }
+      body.tg-single .ph .ko { font-size: 13pt; }
+      body.tg-single .ph .pr, body.tg-single .ph .en { font-size: 8.6pt; }
+      body.tg-single .ph .lvl { font-size: 7pt; }
+      body.tg-single .ph.sub { padding: .8mm 0; }
+      body.tg-single .ph.sub .ko { font-size: 11.5pt; }
+      body.tg-single .vocab { margin-top: 5mm; }
+      body.tg-single .vocab h3 { font-size: 9pt; }
+      body.tg-single .vocab ul { grid-template-columns: 1fr 1fr 1fr; gap: 1.2mm 4mm; }
+      body.tg-single .vocab li { font-size: 9pt; }
+      body.tg-single .tg-foot { margin-top: 6mm; font-size: 8pt; }
+      body.tg-single[data-lvl="all"] .tg-body { margin-top: 2mm; }
+      body.tg-single[data-lvl="all"] .tg-sec h2 { font-size: 14pt; padding-bottom: 1.2mm; }
+      body.tg-single[data-lvl="all"] .ph { padding: 1mm 0 .6mm; }
+      body.tg-single[data-lvl="all"] .ph .sit { font-size: 7pt; }
+      body.tg-single[data-lvl="all"] .ph .ko { font-size: 10.5pt; }
+      body.tg-single[data-lvl="all"] .ph.sub .ko { font-size: 9.6pt; }
+      body.tg-single[data-lvl="all"] .ph .pr, body.tg-single[data-lvl="all"] .ph .en { font-size: 7.2pt; }
+      body.tg-single[data-lvl="all"] .ph.sub { padding: .2mm 0; }
+      body.tg-single[data-lvl="all"] .ph.last { padding-bottom: 1mm; }
+      body.tg-single[data-lvl="all"] .vocab { margin-top: 2mm; }
+      body.tg-single[data-lvl="all"] .vocab li { font-size: 8pt; }
+      body.tg-single[data-lvl="all"] .tg-foot { margin-top: 2mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph { padding: .4mm 0 .2mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg h1, body.tg-single.tg-dense[data-lvl="all"] h1 { font-size: 14pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .vocab { margin-top: 1mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg-foot { margin-top: .5mm; padding-top: 1mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg-body { margin-top: 1mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg .lede { font-size: 6.5pt; margin: 0; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg-sec h2 { font-size: 12pt; padding-bottom: .8mm; }
+      body.tg-single.tg-dense[data-lvl="all"] .tg-sec { margin-bottom: 0; }
+      body.tg-single.tg-dense[data-lvl="all"] .vocab li { font-size: 7pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph .sit { font-size: 6.4pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph .ko { font-size: 9pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph.sub .ko { font-size: 8.4pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph .pr, body.tg-single.tg-dense[data-lvl="all"] .ph .en { font-size: 6.4pt; }
+      body.tg-single.tg-dense[data-lvl="all"] .ph .sit { font-size: 6pt; }
     }
   </style>
 </head>
@@ -99,8 +154,9 @@
   </div></header>
 
   <main class="tg">
-    <h1>여행 한국어 포켓 가이드</h1>
-    <p class="lede" id="tgLede">지갑이나 여권 사이에 끼워 두는 A4 2쪽 치트시트 · 인쇄하거나 PDF 로 저장 · 무료</p>
+    <a class="tg-back no-print" id="tgBack" href="/travel-guide.html" hidden>← 전체 상황 목록</a>
+    <h1 id="tgTitle">여행 한국어 포켓 가이드</h1>
+    <p class="lede" id="tgLede"></p>
 
     <div class="tg-bar no-print">
       <div class="tg-lv" id="tgLv" role="group" aria-label="난이도 선택">
@@ -110,12 +166,13 @@
         <button type="button" data-lvl="all" aria-pressed="false">3단계 비교</button>
       </div>
       <p class="tg-desc" id="tgDesc"></p>
-      <a class="tg-print" id="tgPdf" href="/assets/travel/korean-travel-pocket-guide-standard.pdf" download>A4 PDF 받기 (보통)</a>
+      <button type="button" class="tg-btn dark" id="tgPrint" hidden>인쇄 (A4)</button>
     </div>
     <p class="tg-links no-print"><a href="/blog/travel-korean-survival-guide.html">여행 한국어 블로그 가이드</a><a href="/record-travel.html">직접 녹음하는 스튜디오</a></p>
-    <p class="tg-pdf no-print">받은 PDF 는 항상 A4(210×297mm)예요. 열어서 「실제 크기」로 인쇄하세요. <button type="button" class="tg-link" id="tgPrint">브라우저로 바로 인쇄</button> <span>브라우저 인쇄는 용지가 기기 설정(Letter 등)을 따라요.</span></p>
 
-    <div class="tg-tips">
+    <div class="tg-index no-print" id="tgIndex"></div>
+
+    <div class="tg-tips" id="tgTips">
       <p><i>팁 1</i>한국어가 서툴 땐 <b>「쉬운 버전」</b>으로 핵심 단어 뒤에 <b>「~요」</b>만 붙여도 한국 분들이 잘 알아들으세요. 물과 반찬은 대부분 무료 리필이니 편하게 말씀하세요.</p>
       <p><i>팁 2</i>대중교통을 환승할 땐 내릴 때도 반드시 카드를 찍으세요. 택시를 탈 땐 지도의 한국어 주소를 보여 주고, 정중하게 말하고 싶다면 <b>「정확한 버전」</b>을 연습해 두세요.</p>
     </div>
@@ -124,7 +181,7 @@
 
     <div class="tg-foot">
       <span>치즈감자 CheesePotato · Free Korean Learning for Everyone</span>
-      <span>https://everykoreans.com</span>
+      <span>https://everykoreans.com/travel-guide.html</span>
     </div>
   </main>
 
@@ -136,31 +193,60 @@
       easy: '<b>쉬운 버전</b> · 단어 위주. 당장 입에서 나오는 가장 짧은 표현',
       std: '<b>보통 버전</b> · 일상에서 가장 많이 쓰는 자연스러운 존댓말',
       pro: '<b>정확한 버전</b> · 격식 있고 정중한 완전한 문장',
-      all: '<b>3단계 비교</b> · 쉬움 · 보통 · 정확을 한 문장씩 나란히 (인쇄하면 3~4쪽)',
+      all: '<b>3단계 비교</b> · 쉬움 · 보통 · 정확을 한 문장씩 나란히',
     };
     const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    let lvl = 'std';
-    const PDF = { easy: ['easy', '쉬움'], std: ['standard', '보통'], pro: ['formal', '정확'], all: ['all-tiers', '3단계 비교 · 4쪽'] };
+    const q = new URLSearchParams(location.search);
+    const only = TRAVEL_CATEGORIES.find((c) => c.id === q.get('cat'));   // 한 상황만 열기(?cat=air)
+    const full = q.get('cat') === 'all';   // 일곱 상황을 한 묶음으로(?cat=all, 인쇄는 두 단)
+    let lvl = ['easy', 'std', 'pro', 'all'].includes(q.get('lvl')) ? q.get('lvl') : 'std';
+    const pdfUrl = (id, kind) => `/assets/travel/korean-travel-pocket-guide-${id}-${kind}.pdf`;
+    const count = (id) => TRAVEL_PHRASES.filter((p) => p.cat === id).length;
+    const no = (i) => String(i + 1).padStart(2, '0');
 
     const row = (title, t, tag, cls) => `<div class="ph${cls}"><span class="sit">${title}</span><b class="ko">${esc(t.ko)}</b><span class="pr">${tag}${esc(t.pron)}</span><span class="en">${esc(t.en)}</span></div>`;
 
-    function render() {
-      document.getElementById('tgDesc').innerHTML = DESC[lvl];
-      const pdf = document.getElementById('tgPdf');
-      pdf.href = `/assets/travel/korean-travel-pocket-guide-${PDF[lvl][0]}.pdf`;
-      pdf.textContent = `A4 PDF 받기 (${PDF[lvl][1]})`;
-      document.querySelectorAll('#tgLv button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lvl === lvl)));
-      const body = document.getElementById('tgBody');
-      body.innerHTML = TRAVEL_CATEGORIES.map((cat, i) => {
-        const ph = TRAVEL_PHRASES.filter((p) => p.cat === cat.id);
-        const rows = ph.map((p) => {
-          if (lvl !== 'all') return row(esc(p.title), p[lvl] || p.std, '', '');
-          return ['easy', 'std', 'pro'].map((k, j) => row(j === 0 ? esc(p.title) : '', p[k], `<span class="lvl">${LV[k]}</span>`, (j ? ' sub' : '') + (j === 2 ? ' last' : ''))).join('');
-        }).join('');
-        const words = (TRAVEL_VOCAB[cat.id] || []).map((w) => `<li><b>${esc(w.ko)}</b> ${esc(w.en)}</li>`).join('');
-        return `<section class="tg-sec"><h2><i>${String(i + 1).padStart(2, '0')}</i>${esc(cat.ko)}<small>${esc(cat.en)}</small></h2>${rows}${words ? `<div class="vocab"><h3>꼭 알아 둘 낱말</h3><ul>${words}</ul></div>` : ''}</section>`;
+    function section(cat, i, withBtns) {
+      const ph = TRAVEL_PHRASES.filter((p) => p.cat === cat.id);
+      const rows = ph.map((p) => {
+        if (lvl !== 'all') return row(esc(p.title), p[lvl] || p.std, '', '');
+        return ['easy', 'std', 'pro'].map((k, j) => row(j === 0 ? esc(p.title) : '', p[k], `<span class="lvl">${LV[k]}</span>`, (j ? ' sub' : '') + (j === 2 ? ' last' : ''))).join('');
       }).join('');
-      document.getElementById('tgLede').textContent = `지갑이나 여권 사이에 끼워 두는 A4 2쪽 치트시트 · ${TRAVEL_CATEGORIES.length}개 상황 ${TRAVEL_PHRASES.length}개 표현 · 인쇄하거나 PDF 로 저장 · 무료`;
+      const words = (TRAVEL_VOCAB[cat.id] || []).map((w) => `<li><b>${esc(w.ko)}</b> ${esc(w.en)}</li>`).join('');
+      const btns = withBtns ? `<span class="tg-hbtn no-print"><a class="tg-btn" href="?cat=${cat.id}&amp;lvl=${lvl}">이 상황만 보기</a></span>` : '';
+      return `<section class="tg-sec" id="${cat.id}"><h2><i>${no(i)}</i>${esc(cat.ko)}<small>${esc(cat.en)}</small>${btns}</h2>${rows}${words ? `<div class="vocab"><h3>꼭 알아 둘 낱말</h3><ul>${words}</ul></div>` : ''}</section>`;
+    }
+
+    function render() {
+      document.body.dataset.lvl = lvl;
+      document.getElementById('tgDesc').innerHTML = DESC[lvl];
+      document.querySelectorAll('#tgLv button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lvl === lvl)));
+      // 목록 화면에는 상황별 내용을 늘어놓지 않는다(운영자 「나눠주라고 각각」) — 「이 상황만 보기」로 한 상황씩 연다.
+      document.getElementById('tgBody').innerHTML = only ? section(only, TRAVEL_CATEGORIES.indexOf(only), false) : full ? TRAVEL_CATEGORIES.map((c, i) => section(c, i, false)).join('') : '';
+      if (!only && !full) document.getElementById('tgIndex').querySelectorAll('a[href^="?cat="]').forEach((a) => { a.href = `${a.getAttribute('href').split('&')[0]}&lvl=${lvl}`; });
+    }
+
+    function head() {
+      const one = !!only;
+      document.body.classList.toggle('tg-single', one);
+      document.body.classList.toggle('tg-dense', one && count(only.id) >= 8);   // 표현이 많은 상황(식당)은 3단계 비교도 한 장에 담게 글씨를 조금 줄인다
+      document.getElementById('tgBack').hidden = !(one || full);
+      document.getElementById('tgIndex').hidden = one || full;
+      document.getElementById('tgTips').hidden = one;
+      document.getElementById('tgPrint').hidden = !(one || full);
+      if (one) {
+        const i = TRAVEL_CATEGORIES.indexOf(only);
+        document.getElementById('tgTitle').textContent = `여행 한국어 · ${no(i)} ${only.ko}`;
+        document.getElementById('tgLede').textContent = `${only.en} · ${only.desc} · 표현 ${count(only.id)}개`;
+        document.title = `여행 한국어 포켓 가이드 · ${only.ko} | 치즈감자 CheesePotato`;
+      } else if (full) {
+        document.getElementById('tgTitle').textContent = '여행 한국어 포켓 가이드 · 전체';
+        document.getElementById('tgLede').textContent = `${TRAVEL_CATEGORIES.length}개 상황 ${TRAVEL_PHRASES.length}개 표현을 한 번에 · A4 두 단`;
+        document.title = '여행 한국어 포켓 가이드 · 전체 | 치즈감자 CheesePotato';
+      } else {
+        document.getElementById('tgLede').textContent = `공항 · 교통 · 숙소 · 식당 · 쇼핑 · 관광 · 약국, 상황마다 따로 · ${TRAVEL_CATEGORIES.length}개 상황 ${TRAVEL_PHRASES.length}개 표현 · 상황별 A4 한 장 PDF · 무료`;
+        document.getElementById('tgIndex').innerHTML = TRAVEL_CATEGORIES.map((c, i) => `<div class="tg-ix"><i>${no(i)}</i><span class="t"><b>${esc(c.ko)}</b><em>${esc(c.en)} · ${esc(c.desc)}</em></span><span class="n">표현 ${count(c.id)}개</span><span class="b"><a class="tg-btn" href="?cat=${c.id}&amp;lvl=std">이 상황만 보기</a><a class="tg-btn dark" href="${pdfUrl(c.id, 'standard')}" download>A4 PDF · 보통</a><a class="tg-btn" href="${pdfUrl(c.id, 'all-tiers')}" download>A4 PDF · 3단계</a></span></div>`).join('') + `<div class="tg-ix"><i>전체</i><span class="t"><b>전체 한 번에</b><em>일곱 상황 ${TRAVEL_PHRASES.length}개 표현을 한 묶음으로 · 보통 2쪽 · 3단계 비교 4쪽</em></span><span class="n">표현 ${TRAVEL_PHRASES.length}개</span><span class="b"><a class="tg-btn" href="?cat=all&amp;lvl=std">전체 보기</a><a class="tg-btn dark" href="${pdfUrl('full', 'standard')}" download>A4 PDF · 보통</a><a class="tg-btn" href="${pdfUrl('full', 'all-tiers')}" download>A4 PDF · 3단계</a></span></div>`;
+      }
     }
 
     document.getElementById('tgLv').addEventListener('click', (ev) => {
@@ -168,6 +254,7 @@
       lvl = b.dataset.lvl; render();
     });
     document.getElementById('tgPrint').addEventListener('click', () => window.print());
+    head();
     render();
   </script>
 </body>
