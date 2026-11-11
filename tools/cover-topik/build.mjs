@@ -75,6 +75,7 @@ ${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : '
 <div class="st">${st}</div><div class="foot"><div class="au"><span class="by"><span><b>저자</b>준상(Junsang)</span></span></div><div class="pub">${LOGO}</div></div></div></div></body></html>`;
 };
 for (const c of BOOKS) {
+  if (c.hero === '단어') continue;   // 단어장 4권은 build-vocab.mjs(큰 글자 겹줄 방식)
   const f = path.join(DIR, (c.id === 'topik2-writing-51-52' ? 'writing-51-52' : c.id) + '.html');
   fs.writeFileSync(f, page(c));
 }
