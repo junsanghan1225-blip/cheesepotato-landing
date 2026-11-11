@@ -1388,7 +1388,7 @@ const NEWFRONT = await (async () => {
   await np.close();
   return `data:image/jpeg;base64,${buf.toString('base64')}`;
 })();
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}${lvPastel}.front.newf:after{display:none}</style></head><body>
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}${lvPastel}.front.newf:after{display:none}${NEWFRONT ? `.back{background:#F6F0E2 !important}.back .ser{color:${LV.bg}}.back .pts b{color:${LV.bg}}.back li:before{background:${LV.bg}}.mk2{display:none}` : ''}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
