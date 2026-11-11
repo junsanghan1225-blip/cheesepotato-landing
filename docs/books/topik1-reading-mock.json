@@ -1202,8 +1202,8 @@
  "coverLevel": {
   "code": "1~2급",
   "name": "TOPIK I 대비",
-  "bg": "#E0583C",
-  "bg2": "#B8402A",
+  "bg": "#2E9EA3",
+  "bg2": "#14575C",
   "mascot": [
    "cheese",
    2
