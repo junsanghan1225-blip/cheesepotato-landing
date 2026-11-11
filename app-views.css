@@ -3430,205 +3430,76 @@ a.gp-use-src:hover { color:var(--orange); }
 }
 .lsec-help:hover { color: var(--orange-deep); border-color: var(--orange); }
 
-/* ── 여행 한국어 (Travel Korean) 섹션 스타일 ─────────────── */
-.tv-hd-bar {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.tv-ext-links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.tv-ext-btn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
-  background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r);
-  font-size: 13px; font-weight: 700; color: var(--ink-2); text-decoration: none;
-  transition: all .16s ease;
-}
-.tv-ext-btn:hover { border-color: var(--orange); color: var(--orange-deep); transform: translateY(-1px); }
+/* ── 여행 한국어 (Travel Korean) ─────────────────────────────
+   운영자 2026-11-11 「여기는 아직도 그대로」: 이모지 아이콘 카드 · 그림자 · 알약 배지 → 「선생님의 워크북」(번호 차례 표 · 얇은 줄 · 잉크 · 작은 모서리). */
+.tv-hd-bar { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; margin-bottom: 8px; }
+.tv-ext-links { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; }
+.tv-ext-btn { font-size: 13px; font-weight: 700; color: var(--orange-deep); text-decoration: underline; text-underline-offset: 3px; padding: 3px 0; }
+.tv-ext-btn:hover { color: var(--ink); }
 
-/* ── 7대 상황별 메인 그리드 카드 ──────────────────────── */
-.tv-cat-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px; margin-top: 18px;
-}
-.tv-cat-card {
-  background: var(--surface); border: 2px solid var(--line); border-radius: var(--r-xl);
-  padding: 24px 22px; cursor: pointer; text-align: left; font-family: inherit;
-  display: flex; flex-direction: column; justify-content: space-between;
-  transition: all .2s ease; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
-}
-.tv-cat-card:hover {
-  transform: translateY(-3px); border-color: var(--orange);
-  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
-}
-.tv-cat-top-row {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-}
-.tv-cat-icon {
-  font-size: 30px; width: 54px; height: 54px; border-radius: 16px;
-  background: var(--surface-2); display: flex; align-items: center; justify-content: center;
-}
-.tv-cat-count {
-  font-size: 11.5px; font-weight: 700; color: var(--orange-deep);
-  background: rgba(255, 145, 77, 0.12); padding: 3px 8px; border-radius: 6px;
-}
-.tv-cat-title {
-  font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 14px;
-}
-.tv-cat-desc {
-  font-size: 13px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; word-break: keep-all;
-}
-.tv-cat-foot {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line-2);
-  font-size: 12.5px; font-weight: 700; color: var(--orange-deep);
-}
+/* 상황 목록: 번호 · 이름 + 한 줄 설명 · 구문 수 · 화살표 */
+.tv-cat-grid { display: block; margin-top: 14px; border-top: 2px solid var(--ink); }
+.tv-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto 22px; gap: 4px 14px; align-items: baseline; width: 100%; padding: 14px 4px; background: none; border: 0; border-bottom: 1px solid var(--line); text-align: left; font-family: inherit; color: var(--ink); cursor: pointer; }
+.tv-row:hover { background: rgba(var(--ink-rgb), .035); }
+.tv-no { font-style: normal; font-size: 12px; font-weight: 800; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tv-rt b { display: block; font-size: 17px; font-weight: 800; line-height: 1.35; word-break: keep-all; }
+.tv-rt em { display: block; font-style: normal; font-size: 13px; color: var(--ink-3); line-height: 1.45; margin-top: 1px; word-break: keep-all; }
+.tv-rc { font-size: 12.5px; font-weight: 700; color: var(--ink-3); white-space: nowrap; }
+.tv-ra { font-weight: 800; color: var(--ink); text-align: right; }
 
-/* 상황 상세 화면 상단 바 */
-.tv-detail-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-  margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid var(--line-2);
-}
-.tv-back-btn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
-  border-radius: var(--r); border: 1.5px solid var(--line); background: var(--surface);
-  font-size: 13px; font-weight: 700; color: var(--ink-2); cursor: pointer; font-family: inherit;
-  transition: all .15s ease;
-}
-.tv-back-btn:hover { border-color: var(--orange); color: var(--orange-deep); }
-.tv-detail-title {
-  font-size: 20px; font-weight: 900; color: var(--ink); display: flex; align-items: center; gap: 8px;
-}
+/* 상황 상세 */
+.tv-detail-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 14px; flex-wrap: wrap; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.tv-back-btn { font-family: inherit; font-size: 13px; font-weight: 700; color: var(--orange-deep); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.tv-back-btn:hover { color: var(--ink); }
+.tv-detail-title { font-size: 20px; font-weight: 900; color: var(--ink); }
 
-/* ── 여행 한국어 세련된 난이도 세그먼트 토글 ──────────────── */
-.tv-level-row {
-  display: flex; align-items: center; justify-content: flex-start;
-  margin: 6px 0 16px;
-}
-.tv-seg-control {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: var(--surface-2); border: 1.5px solid var(--line-2);
-  border-radius: var(--r-xl); padding: 5px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
-  user-select: none; max-width: 100%; overflow-x: auto;
-  scrollbar-width: none;
-}
+/* 난이도 선택: 칸 붙은 네모 단추(눌린 것은 잉크색) */
+.tv-level-row { display: flex; margin: 4px 0 8px; }
+.tv-seg-control { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 5px; overflow: hidden; background: var(--surface); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .tv-seg-control::-webkit-scrollbar { display: none; }
-
-.tv-seg-btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  border: none; background: transparent; outline: none;
-  font-family: inherit; font-size: 13.5px; font-weight: 700;
-  color: var(--ink-3); padding: 8px 16px; border-radius: var(--r);
-  cursor: pointer; transition: all .18s cubic-bezier(.16, 1, .3, 1);
-  white-space: nowrap; line-height: 1.3;
-}
-.tv-seg-btn:hover {
-  color: var(--ink); background: rgba(var(--ink-rgb), .04);
-}
-.tv-seg-btn.active {
-  background: var(--surface);
-  color: var(--ink); font-weight: 800;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-.tv-seg-btn.active.is-easy { color: #059669; }
-.tv-seg-btn.active.is-std { color: var(--orange-deep); }
-.tv-seg-btn.active.is-pro { color: #7c3aed; }
-.tv-seg-btn.active.is-all { color: var(--ink); }
-
-.tv-seg-ico {
-  font-size: 13px; line-height: 1; flex-shrink: 0;
-  display: inline-flex; align-items: center; justify-content: center;
-}
-.tv-seg-txt {
-  letter-spacing: -0.01em;
-}
-
+.tv-seg-btn { font-family: inherit; font-size: 13.5px; font-weight: 700; color: var(--ink); background: none; border: 0; border-right: 1.5px solid var(--ink); padding: 8px 15px; cursor: pointer; white-space: nowrap; line-height: 1.3; }
+.tv-seg-btn:last-child { border-right: 0; }
+.tv-seg-btn.active { background: var(--ink); color: #fff; }
 @media (max-width: 640px) {
-  .tv-seg-control {
-    width: 100%; display: flex;
-  }
-  .tv-seg-btn {
-    flex: 1; justify-content: center; padding: 7px 8px; font-size: 12px; gap: 4px;
-  }
+  .tv-seg-control { width: 100%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+  .tv-seg-btn { white-space: normal; padding: 9px 6px; font-size: 12.5px; border-right: 0; border-bottom: 1.5px solid var(--ink); }
+  .tv-seg-btn:nth-child(odd) { border-right: 1.5px solid var(--ink); }
+  .tv-seg-btn:nth-child(n+3) { border-bottom: 0; }
 }
 
-.tv-cats-bar {
-  display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 14px; margin-top: 8px;
-  scrollbar-width: thin;
-}
-.tv-cat-btn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
-  background: var(--surface); border: 1.5px solid var(--line); border-radius:8px;
-  font-size: 13px; font-weight: 700; color: var(--ink-2); cursor: pointer;
-  white-space: nowrap; transition: all .16s ease;
-}
-.tv-cat-btn:hover { border-color: var(--orange); }
-.tv-cat-btn.active {
-  background: var(--orange); border-color: var(--orange); color: #fff;
-  box-shadow:0 1px 0 rgba(var(--ink-rgb),.08);
+/* 구문: 번호 · 상황 이름 + 한국어 · 발음 · 영어 · 오른쪽에 듣기 / 담기 */
+.tv-content-list { display: block; margin-top: 0; }
+.tv-ph { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 4px 14px; align-items: start; padding: 14px 4px; border-bottom: 1px solid var(--line); }
+.tv-ph-body { min-width: 0; }
+.tv-card-title { font-size: 12.5px; font-weight: 700; color: var(--ink-3); margin-bottom: 3px; }
+.tv-tier { display: flex; align-items: flex-start; gap: 10px; padding: 3px 0; }
+.tv-tier-t { flex: 1; min-width: 0; }
+.tv-tag { flex: none; font-size: 11px; font-weight: 800; color: var(--ink); border: 1.3px solid var(--ink); border-radius: 4px; padding: 0 6px; margin-top: 4px; white-space: nowrap; }
+.tv-ko-line { display: block; font-size: 19px; font-weight: 800; color: var(--ink); line-height: 1.35; word-break: keep-all; }
+.tv-pron-line { display: block; font-size: 13px; font-weight: 600; color: var(--orange-deep); margin-top: 1px; }
+.tv-en-line { display: block; font-size: 13.5px; color: var(--ink-2); line-height: 1.4; }
+.tv-tip { font-size: 12.5px; color: var(--ink-3); margin-top: 5px; line-height: 1.5; }
+.tv-acts { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; padding-top: 2px; }
+.tv-btn-audio { font-family: inherit; font-size: 12.5px; font-weight: 700; color: var(--ink); background: var(--surface); border: 1.5px solid var(--ink); border-radius: 5px; padding: 5px 12px; cursor: pointer; white-space: nowrap; }
+.tv-btn-audio:hover { background: var(--ink); color: #fff; }
+.tv-btn-wb { font-family: inherit; font-size: 12px; font-weight: 700; color: var(--ink-3); background: none; border: 0; padding: 6px 2px; cursor: pointer; white-space: nowrap; }
+.tv-btn-wb:hover { color: var(--ink); text-decoration: underline; }
+@media (max-width: 640px) {
+  .tv-ph { grid-template-columns: 28px minmax(0, 1fr); }
+  .tv-acts { grid-column: 2; flex-direction: row; align-items: center; gap: 10px; padding-top: 4px; }
+  .tv-row { grid-template-columns: 28px minmax(0, 1fr) 20px; }
+  .tv-rc { grid-column: 2; grid-row: 2; }
+  .tv-ra { grid-row: 1; grid-column: 3; }
 }
 
-.tv-content-list {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 16px; margin-top: 18px;
-}
-.tv-card {
-  background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r-l);
-  padding: 20px; display: flex; flex-direction: column; gap: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.02); transition: border-color .16s ease;
-}
-.tv-card:hover { border-color: rgba(255, 145, 77, 0.5); }
-.tv-card-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
-}
-.tv-card-title { font-size: 12px; font-weight: 700; color: var(--ink-3); }
-.tv-card-badge {
-  font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px;
-}
-.tv-card-badge.easy { background: rgba(18, 112, 79, 0.08); color: var(--green); }
-.tv-card-badge.std { background: rgba(255, 145, 77, 0.12); color: var(--orange-deep); }
-.tv-card-badge.pro { background: rgba(139, 92, 246, 0.1); color: #7c3aed; }
-
-.tv-ko-line {
-  font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.35; word-break: keep-all;
-}
-.tv-pron-line { font-size: 13px; font-weight: 600; color: var(--orange-deep); margin-top: 2px; }
-.tv-en-line { font-size: 13.5px; color: var(--ink-2); line-height: 1.4; }
-
-.tv-card-bottom {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--line-2);
-}
-.tv-btn-audio {
-  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px;
-  border-radius: var(--r); border: 1.5px solid var(--line); background: var(--surface);
-  font-size: 12.5px; font-weight: 700; color: var(--ink); cursor: pointer;
-  transition: all .15s ease;
-}
-.tv-btn-audio:hover { border-color: var(--orange); color: var(--orange-deep); }
-.tv-btn-wb {
-  border: none; background: transparent; font-size: 12px; font-weight: 700;
-  color: var(--ink-3); cursor: pointer; padding: 6px 8px;
-}
-.tv-btn-wb:hover { color: var(--ink); }
-
-/* 하단 상황별 필수 단어장 박스 */
-.tv-vocab-section {
-  grid-column: 1 / -1; background: var(--surface-2); border: 1.5px solid var(--line-2);
-  border-radius: var(--r-l); padding: 18px 20px; margin-top: 10px;
-}
-.tv-vocab-title {
-  font-size: 13.5px; font-weight: 800; color: var(--ink); margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-}
-.tv-vocab-chips {
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.tv-vocab-chip {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-  padding: 6px 12px; font-size: 12.5px;
-}
-.tv-vocab-chip b { color: var(--ink); }
-.tv-vocab-chip span { color: var(--ink-3); font-size: 11.5px; margin-left: 4px; }
+/* 낱말: 번호 없이 줄글처럼 나열, 누르면 발음 */
+.tv-vocab-section { margin-top: 18px; }
+.tv-vocab-title { font-size: 12.5px; font-weight: 800; color: var(--ink-3); letter-spacing: .02em; margin-bottom: 6px; }
+.tv-vocab-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0 18px; }
+.tv-vocab-chip { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; text-align: left; font-family: inherit; font-size: 13.5px; color: var(--ink); background: none; border: 0; border-bottom: 1px solid var(--line-2); padding: 7px 2px; cursor: pointer; }
+.tv-vocab-chip:hover { background: rgba(var(--ink-rgb), .035); }
+.tv-vocab-chip b { font-weight: 800; }
+.tv-vocab-chip span { color: var(--ink-3); font-size: 12px; }
 /* ══ 휴대폰 ════════════════════════════════════════════════════
    휴대폰에서 배우기를 열면 큰 머리글이 첫 화면을 다 먹고, 카드는 한
    화면에 한 장씩만 보였다. 갈래 안으로 들어가서도 같은 머리글이 다시
