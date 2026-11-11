@@ -1324,6 +1324,7 @@
 {"en":"How your study<br>is going","ko":"","n":1},
 {"en":"I am starting Korean from zero. Where do I begin?","ko":"","n":1},
 {"en":"I can","ko":"할 수 있어요","n":1},
+{"en":"I can’t read Hangul yet → start with the alphabet","ko":"한글을 아직 못 읽어요 → 한글부터 시작","n":1},
 {"en":"I finished","ko":"다 말했어요","n":1},
 {"en":"I got L{0} ({1}) on the CheesePotato Korean level test 🧀 What level are you?","ko":"치즈감자 한국어 레벨테스트에서 L{0} {1} 나왔어요 🧀 나는 몇 단계일까?","n":1},
 {"en":"I got TOPIK level {0} ({1}) on the CheesePotato level test 🧀 What level are you?","ko":"치즈감자 레벨테스트에서 TOPIK {0}급 {1} 나왔어요 🧀 나는 몇 급일까?","n":1},
