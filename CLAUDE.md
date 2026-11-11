@@ -100,6 +100,7 @@
   | `books-out/`(책 PDF — 파는 파일이라 저장소에 안 둔다) | `docs/books/<id>.json`(책 틀) + `docs/worksheets/*.json` → `node tools/build-book.mjs <id>`(계획 `docs/plans/books.md`) |
   | `difficulty.js`(TOPIK 문항 난이도 1·2·3 — 안티가 매긴 값) | `docs/difficulty/<묶음>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-difficulty-task.md`, 검사 `node tools/difficulty-list.mjs <묶음> --check`) → `node tools/build-difficulty.mjs` |
   | `bonus/`(책 QR 보너스 연습 — 단원마다 낱말 카드 · 퀴즈 · 빈칸 쪽, 책 QR 이 여는 곳) | `docs/bonus/<책 id>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-bonus-task.md`, 검사 `check-bonus`) → `node tools/build-bonus.mjs` |
+  | `assets/travel/korean-travel-pocket-guide-*.pdf`(여행 포켓 가이드 A4 PDF 네 가지 — 쉬움 · 보통 · 정확 · 3단계) | `travel-data.js` · `travel-guide.html` → `node tools/build-travel-pdf.mjs` |
   | `podcast-episodes.json`(팟캐스트 올리기 쪽 에피소드 목록) | `docs/podcast/ep*.md`(대본) → `node tools/build-podcast.mjs` |
   | `ox-questions.js`(OX 퀴즈 `/ox/` 문항 — 일곱 갈래) | `vocab-topik1.js` · `grammar-pairs.js` · `expressions.js` + 숫자 · 높임말 규칙 → `node tools/build-ox.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
