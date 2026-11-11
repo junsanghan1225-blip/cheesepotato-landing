@@ -1378,7 +1378,7 @@ const lvPastel = LV?.pastel ? (() => { const D = LV.bg, P1 = toPastel(D, .8), P2
 /* TOPIK 새 앞표지(운영자 2026-11-11 「이걸로 최종」 — tools/cover-topik/): 같은 그림을 인쇄 크기로 찍어 앞표지 자리에 넣는다(책등 · 뒤표지는 아래 그대로).
    그림은 재단선 안쪽(182×257mm)을 위 · 아래 · 오른쪽 여유(3mm)까지 살짝 늘려 채운다 — 가장자리가 색 면이라 티가 안 난다. 옛 표지로 만들려면 --oldcover. */
 const NEWFRONT = await (async () => {
-  if (args.includes('--oldcover') || B.id === 'topik1-reading-mock') return '';   // 읽기 실전 10회는 표지를 다시 디자인하는 중(운영자 2026-11-11) — 새 표지가 확정되면 이 줄을 뺀다
+  if (args.includes('--oldcover') || B.id === 'topik1-reading-mock' || /^topik2-reading-/.test(B.id)) return '';   // 읽기 실전 · 읽기 영역 4권은 표지를 다시 디자인하는 중(운영자 2026-11-11) — 새 표지가 확정되면 이 줄을 뺀다
   const nm = B.id === 'topik2-writing-51-52' ? 'writing-51-52' : B.id;
   if (!fs.existsSync(path.join(ROOT, 'tools/cover-topik', nm + '.html'))) return '';
   const np = await browser.newPage({ viewport: { width: 380, height: 537 }, deviceScaleFactor: 3300 / 380 });
