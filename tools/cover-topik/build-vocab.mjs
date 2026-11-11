@@ -30,7 +30,7 @@ const CSS = `*{box-sizing:border-box;margin:0}body{margin:0;font-family:'Pretend
 .cv{width:380px;height:537px;position:relative;overflow:hidden;color:#fff}
 .bar{position:absolute;left:22px;right:22px;top:20px;border:1px solid rgba(255,255,255,.9);display:grid;grid-template-columns:1fr auto;font-size:10px;font-weight:800}.bar span{padding:6px 0 6px .4em;text-align:center;letter-spacing:.4em}.bar em{font-style:normal;background:#fff;color:var(--deep);padding:6px 10px;display:flex;align-items:center;gap:5px;letter-spacing:.04em}.bar em small{font-size:6.5px;letter-spacing:.14em;color:#8a7fa6;font-weight:800}
 .t1{position:absolute;left:28px;top:66px;font-size:12px;font-weight:800;letter-spacing:.18em;opacity:.85}
-.t2{position:absolute;left:28px;top:86px;display:flex;align-items:center;gap:12px}.t2 span{font-size:50px;font-weight:900;letter-spacing:-.05em;line-height:1}.t2 em{font-style:normal;color:#fff;font-weight:900;font-size:15px;padding:6px 14px;border-radius:99px;background:var(--deep)}
+.t2{position:absolute;left:28px;top:86px;display:flex;align-items:center;gap:12px}.t2 span{font-size:58px;font-weight:900;letter-spacing:-.02em;line-height:1}.t2 em{font-style:normal;color:#fff;font-weight:900;font-size:15px;padding:6px 14px;border-radius:99px;background:var(--deep)}
 .rule{position:absolute;left:28px;right:28px;top:152px;border-top:1.5px solid rgba(255,255,255,.55)}.small{position:absolute;left:28px;top:162px;font-size:11px;font-weight:600;opacity:.9}
 .big{position:absolute;left:0;top:186px;width:380px;height:330px}
 .stk{position:absolute;right:16px;top:276px;width:85px;height:85px;border-radius:50%;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);border:2.5px solid #fff;box-shadow:3px 3px 0 var(--deep)}.stk:before{content:'';position:absolute;inset:4px;border:1.2px dashed rgba(255,255,255,.75);border-radius:50%}.stk b{font-size:24px;font-weight:900;line-height:1}.stk i{font-style:normal;font-size:9px;font-weight:800;margin-top:3px}
@@ -43,7 +43,7 @@ for (const c of BOOKS) {
   const cols = ['#ffffff', light(bg, .62), '#FFE28A'];
   fs.writeFileSync(path.join(OUT, c.id + '.html'), `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}</style></head><body><div class="cv" style="background:${bg};--bg:${bg};--deep:${deep}">
 <div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div>
-<div class="t1">${c.t1}</div><div class="t2"><span>단어장</span><em>${c.n}</em></div><div class="rule"></div><div class="small">${c.small}</div>
+<div class="t1">${c.t1}</div><div class="t2"><span>VOCA</span><em>${c.n}</em></div><div class="rule"></div><div class="small">${c.small}</div>
 <svg class="big" viewBox="0 0 380 330">${(NUM = c.n, stripes(cols, bg, GLYPH))}</svg>
 <div class="stk" style="background:${bc}"><b>${band}</b><i>${exam} 대비</i></div>
 <div class="bot"><div class="bi"><b>뜻 · 예문 · 쓰기</b><span>${c.b2}</span></div><div class="rt"><div class="au"><b>저자</b>준상(Junsang)</div><div class="pubw">${LOGO}</div></div></div></div></body></html>`);
