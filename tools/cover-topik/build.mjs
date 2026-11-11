@@ -50,6 +50,15 @@ const icon = (n) => n === 4 ? CUBE : cheeseLevel(n).icon.replace('class="lvl-ic"
 // 배지(운영자 2026-11-11 「배지는 통일 · 1~2 / 3~4 / 5 / 6 정도 · 색도 정해서 각각 다르게」): 급수 네 칸만 쓴다.
 // 책이 어느 칸인지는 책 틀의 치즈 단계(coverLevel.mascot — 이미 책마다 정해 둔 급수)로: 1 · 2 → 1~2급, 3 · 4 → 3~4급, 5 → 5급, 6 → 6급.
 const BAND = (g) => g <= 2 ? ['1~2급', '#2F6FD6'] : g <= 4 ? ['3~4급', '#E8742C'] : g === 5 ? ['5급', '#D6336C'] : ['6급', '#23305E'];
+// 큰 글자 입체 그림자(운영자 2026-11-11 「배경이 옅은 색이면 그림자 크기를 줄여서 — 너무 진해」): 바탕 밝기(상대 휘도)에 따라
+// 밝은 바탕(0.2 이상)은 짧고 덜 어둡게, 중간(0.1~0.2)은 조금 짧게, 어두운 바탕은 확정본(쓰기 51~52) 그대로.
+const lum = (h) => { const c = hex(h).map((v) => v / 255).map((v) => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
+const shadowCss = (bg, deep, tint) => {
+  const L = lum(bg); if (L < .1) return '';
+  const [n, d] = L >= .2 ? [8, dark(bg, .36)] : [14, dark(bg, .46)];
+  const a = [.5, 1, 1.5, 2, 2.5, 3].map((x) => `${x}px ${x}px 0 ${tint}`), b = Array.from({ length: n }, (_, i) => `${(i + 7) / 2}px ${(i + 7) / 2}px 0 ${d}`);
+  return `.cv.e .hero{text-shadow:${[...a, ...b].join(',')}!important}`;
+};
 const page = (c) => {
   const b = B(c.id), L = b.coverLevel, bg = L.bg;
   const [band, badge] = BAND(L.mascot[1]);
@@ -57,7 +66,7 @@ const page = (c) => {
   const code = c.code || L.code, name = L.name;
   const vars = `--bg:${bg};--deep:${deep};--tint:${tint};--acc:#FFD23F`;
   const extra = `.cv.e{${vars};background:${bg}!important}.cv.e .st div{background:${box1};border-color:${light(bg, .7)}}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
-.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}
+.cv.e .lv{background:${badge}}.cv.e .st div:nth-child(even):before{background:#e8742c}${PAT[c.pat]}${shadowCss(bg, deep, tint)}
 ${/^(쓰기|읽기)$/.test(c.hero) ? '.cv.e .hero{font-size:131px;top:67px}' : ''}.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}`;
   const st = c.st.map(([t, d], i) => `<div data-n="STEP ${i + 1}"><b>${t}</b><span>${d}</span></div>`).join('');
   return `<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>${CSS}${extra}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>${c.ser}</em></div><div class="hero">${c.hero}</div><div class="en">${c.en}</div>
