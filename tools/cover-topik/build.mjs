@@ -84,6 +84,7 @@ ${c.heroPx ? `.cv.e .hero{font-size:${c.heroPx}px;top:${c.heroTop}px}` : c.hero 
 for (const c of BOOKS) {
   if (c.hero === '단어') continue;   // 단어장 4권은 build-vocab.mjs(큰 글자 겹줄 방식)
   if (c.id === 'particles-workbook') continue;   // 조사 워크북은 손으로 만든 코드 편집기 그림 표지(2026-11-11 확정) — 덮어쓰지 않는다
+  if (c.id === 'first-steps-workbook') continue;   // 첫걸음 워크북은 손으로 만든 말풍선 표지(2026-11-11 확정) — 이 도구로 덮어쓰지 않는다
   if (c.id === 'topik1-reading-mock') continue;   // 읽기 실전 10회는 손으로 다듬은 제주 지도 표지(2026-11-11 확정) — 이 도구로 덮어쓰지 않는다
   const f = path.join(DIR, (c.id === 'topik2-writing-51-52' ? 'writing-51-52' : c.id) + '.html');
   fs.writeFileSync(f, page(c));
