@@ -1196,7 +1196,7 @@ const server = http.createServer((req, res) => {
   if (u === '/__book.html') { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end(pages.get('cur')); }
   const f = path.join(ROOT, u);
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end(); }
-  const mt = { '.css': 'text/css', '.woff2': 'font/woff2', '.png': 'image/png', '.svg': 'image/svg+xml', '.js': 'text/javascript' }[path.extname(f)] || 'application/octet-stream';
+  const mt = { '.css': 'text/css', '.woff2': 'font/woff2', '.png': 'image/png', '.svg': 'image/svg+xml', '.js': 'text/javascript', '.html': 'text/html; charset=utf-8' }[path.extname(f)] || 'application/octet-stream';
   res.writeHead(200, { 'content-type': mt }); fs.createReadStream(f).pipe(res);
 });
 await new Promise((r) => server.listen(0, r));
@@ -1375,7 +1375,20 @@ const lvFront = LV ? `<div class="front lvc"><div class="fr"></div><div class="t
 const toPastel = (h, t) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(h.slice(i, i + 2), 16) * (1 - t) + 255 * t).toString(16).padStart(2, '0')).join('').toUpperCase();
 const lvPastel = LV?.pastel ? (() => { const D = LV.bg, P1 = toPastel(D, .8), P2 = toPastel(D, .64); return `.front.lvc{background:radial-gradient(ellipse at 72% 74%,${P1} 0%,${P2} 78%);color:#1d1a17}
 .lvc .fr{border-color:${D}}.lvc .r1,.lvc .r3{background:${D}}.lvc .orn:before,.lvc .orn:after{background:${D}}.lvc .tt h1{color:${D}}.lvc .lvb{background:${D};color:#fff}.lvc .lvb span{color:#fff}.lvc .sub{opacity:1;color:#4a443d}.lvc .en{color:#1d1a17}.lvc .au,.lvc .au small{color:#1d1a17}` })() : '';
-const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}${lvPastel}</style></head><body>
+/* TOPIK 새 앞표지(운영자 2026-11-11 「이걸로 최종」 — tools/cover-topik/): 같은 그림을 인쇄 크기로 찍어 앞표지 자리에 넣는다(책등 · 뒤표지는 아래 그대로).
+   그림은 재단선 안쪽(182×257mm)을 위 · 아래 · 오른쪽 여유(3mm)까지 살짝 늘려 채운다 — 가장자리가 색 면이라 티가 안 난다. 옛 표지로 만들려면 --oldcover. */
+const NEWFRONT = await (async () => {
+  if (args.includes('--oldcover') || B.id === 'topik1-reading-mock') return '';   // 읽기 실전 10회는 표지를 다시 디자인하는 중(운영자 2026-11-11) — 새 표지가 확정되면 이 줄을 뺀다
+  const nm = B.id === 'topik2-writing-51-52' ? 'writing-51-52' : B.id;
+  if (!fs.existsSync(path.join(ROOT, 'tools/cover-topik', nm + '.html'))) return '';
+  const np = await browser.newPage({ viewport: { width: 380, height: 537 }, deviceScaleFactor: 3300 / 380 });
+  await np.goto(`${BASE}/tools/cover-topik/${nm}.html`, { waitUntil: 'networkidle' });
+  await np.evaluate(() => document.fonts.ready);
+  const buf = await (await np.$('.cv')).screenshot({ type: 'jpeg', quality: 93 });
+  await np.close();
+  return `data:image/jpeg;base64,${buf.toString('base64')}`;
+})();
+const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/vendor/pretendard.css"><style>${coverCss}${classicCover}${lvCss}${lvPastel}.front.newf:after{display:none}</style></head><body>
 <div class="back"><div class="ser">${esc(B.series.en)} · ${esc(B.level)}</div>
 <h3>${esc(B.sub.ko)}</h3><h4>${esc(B.sub.en)}</h4>
 <p>${esc(B.preface.ko[0])}</p>
@@ -1385,7 +1398,7 @@ const coverHtml = `<!doctype html><html><head><meta charset="utf-8"><link rel="s
 <div class="pr"><b>${B.back?.price || (B.isbn ? `정가 ${B.isbnPrice}` : '정가 ○○,○○○원')}</b>${B.isbn ? '' : ' (예정)'}<br>${esc(B.publisher.ko)}<br>${logoSvg({ fg: '#14264A', one: true, height: '4.4mm' })}</div>
 ${CLASSIC ? `<div class="mk2"><i>${potatoLevel(3).icon}</i><i>${cheeseLevel(2).icon}</i></div>` : ''}${ISBN_BC ? `<div class="bar bc"><img src="${ISBN_BC}" alt="ISBN ${esc(B.isbn)}"></div>` : `<div class="bar">ISBN barcode<br>발급 후 이 자리에 · 40×25mm 이상</div>`}</div>
 <div class="spine"><div class="t">${esc(B.title.ko)} <small>${esc(B.title.en)}</small></div><div class="p">${logoSvg({ fg: '#fff', one: true, rotate: true, width: '3.4mm' })}</div></div>
-${LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
+${NEWFRONT ? `<div class="front newf" style="padding:0"><img src="${NEWFRONT}" alt="" style="position:absolute;left:0;top:0;width:100%;height:100%"></div>` : LV ? lvFront : `<div class="front"><div class="g"${B.coverGlyphPt ? ` style="font-size:${Number(B.coverGlyphPt)}pt"` : ''}>${B.coverArt === 'steps' ? STEPS_SVG : esc(B.coverGlyph || "ㄱㄴㄷ ㄹㅁㅂ ㅅㅇㅈ ㅊㅋㅌ ㅍㅎ 가나 다라")}</div><div class="c1"></div><div class="c2"></div>
 <div class="z"><div class="ser">${esc(B.series.en)}</div><h1>${hlTitle(B.title.ko)}</h1><h2>${esc(B.title.en)}</h2><div class="rule"></div><p class="sub">${esc(B.sub.en)}</p>
 <div class="lv"><span class="badge">${esc(B.level)} · ${esc(B.levelTag || "BEGINNER")}</span><div class="by"><b>${esc(B.author.ko)} · ${esc(B.author.en)}</b><span>${logoSvg({ fg: '#fff', one: true, height: '3.6mm' })}</span></div></div></div></div>`}
 </body></html>`;
