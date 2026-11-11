@@ -1,109 +1,16 @@
-<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>*{box-sizing:border-box;margin:0}
-body{background:#ece8e0;font-family:'Pretendard Variable',sans-serif;padding:30px;display:grid;grid-template-columns:repeat(2,380px);gap:30px}
-.cv{width:380px;height:537px;position:relative;overflow:hidden;background:#4B2A85;color:#fff;--bg:#4B2A85;--deep:#2a1552;--acc:#FFD23F}
-.pat{position:absolute;inset:0;opacity:.09;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:22px 26px}
-.bar{position:absolute;left:22px;right:22px;top:20px;border:1.5px solid rgba(255,255,255,.9);display:grid;grid-template-columns:1fr auto;font-size:10.5px;font-weight:800}
-.bar span{padding:6px 0 6px .4em;text-align:center;letter-spacing:.4em}.bar em{font-style:normal;background:#fff;color:var(--deep);padding:6px 10px}
-.hero{position:absolute;left:0;right:0;top:70px;text-align:center;font-size:150px;font-weight:900;letter-spacing:-.06em;line-height:1.05;-webkit-text-stroke:1.5px #fff;
-text-shadow:1px 1px 0 var(--acc),2px 2px 0 var(--acc),3px 3px 0 var(--acc),3px 3px 0 var(--deep),4px 4px 0 var(--deep),5px 5px 0 var(--deep),6px 6px 0 var(--deep),7px 7px 0 var(--deep),8px 8px 0 var(--deep),9px 9px 0 var(--deep),10px 10px 0 var(--deep)}
-.en{position:absolute;right:30px;top:76px;writing-mode:vertical-rl;font-size:10px;font-weight:800;letter-spacing:.2em;color:var(--acc)}
-.mas{position:absolute;left:24px;top:200px;width:62px;height:62px}.mas svg{width:100%;height:100%}
-.lv{position:absolute;right:16px;top:206px;width:78px;height:78px;border-radius:50%;background:#e8742c;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-10deg);border:2px solid #fff}
-.lv:before{content:'';position:absolute;inset:4px;border:1.2px dashed rgba(255,255,255,.75);border-radius:50%}
-.lv b{font-size:22px;font-weight:900;line-height:1}.lv i{font-style:normal;font-size:8.5px;font-weight:800;margin-top:3px}
-.tag{position:absolute;left:0;right:0;top:268px;text-align:center}
-.tag .k{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.12em;margin-bottom:7px;border-bottom:2px solid var(--acc);padding-bottom:2px}
-.tag .n{display:inline-block;background:var(--acc);color:var(--deep);box-shadow:4px 4px 0 var(--deep);font-size:38px;font-weight:900;letter-spacing:-.03em;padding:4px 18px 6px;border-radius:5px;line-height:1.1}
-.tag .s{font-size:12.5px;font-weight:600;margin-top:10px}
-.paper{position:absolute;left:0;right:0;bottom:0;height:140px;background:#f6f0e2;color:#1d1b19;border-top:3px solid var(--acc)}
-.pA{position:absolute;left:18px;right:18px;top:16px;display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid #1d1b19;border-bottom:1px solid #1d1b19}
-.pA div{padding:11px 12px 12px}.pA div+div{border-left:1px solid #cfc6b5}
-.pA b{display:block;font-size:28px;font-weight:900;color:var(--bg);letter-spacing:-.03em;line-height:1}
-.pA span{display:block;font-size:11px;font-weight:700;margin-top:6px}
-.pB{position:absolute;left:18px;right:18px;top:16px}
-.pB div{display:grid;grid-template-columns:28px 1fr;align-items:baseline;padding:9px 0;border-bottom:1px solid #cfc6b5}
-.pB div:first-child{border-top:1.5px solid #1d1b19}.pB div:last-child{border-bottom:1px solid #1d1b19}
-.pB i{font-style:normal;font-size:12px;font-weight:900;color:#e8742c}
-.pB b{font-size:15px;font-weight:800;letter-spacing:-.02em}.pB b em{font-style:normal;font-weight:900;color:var(--bg)}
-.foot{position:absolute;left:18px;right:18px;bottom:12px;display:flex;justify-content:space-between;align-items:flex-end}
-.au{font-size:10.5px;font-weight:700}.au small{display:block;font-size:7.5px;color:#7a746a;margin-top:3px;font-weight:500}
-.pub{line-height:0;padding-bottom:2px}
-.cap{font-size:13px;margin-top:8px;color:#3a352f}
-.paper{height:165px}
-.tag{top:248px}
-.mas{top:180px}.lv{top:186px}
-.pv{position:absolute;top:12px;height:100px;border:1px solid #1d1b19;background:#fff;display:block}
-.pvl{position:absolute;left:18px;top:14px;width:160px;font-size:11px;font-weight:700;line-height:1.6}
-.pvl b{display:block;font-size:17px;font-weight:900;color:var(--bg);letter-spacing:-.02em;margin-bottom:5px;line-height:1.2}
-.pvl i{font-style:normal;color:#e8742c;font-weight:900;margin-right:4px}
-.qr{position:absolute;left:18px;top:14px;width:86px;height:86px;background:#fff;padding:5px;border:1px solid #1d1b19}.qr svg{width:100%;height:100%;display:block}
-.qrt{position:absolute;left:114px;top:16px;width:110px;font-size:10.5px;font-weight:700;line-height:1.45}
-.qrt b{display:block;font-size:16px;font-weight:900;color:var(--bg);line-height:1.2;margin-bottom:5px;letter-spacing:-.02em}
-.foot{bottom:10px}
-.hl{position:absolute;left:0;right:0;top:11px;text-align:center;font-size:14px;font-weight:900;color:var(--bg);letter-spacing:-.02em}
-.st{position:absolute;left:12px;right:12px;top:36px;display:grid;grid-template-columns:repeat(4,1fr) 12px 62px;gap:4px;align-items:stretch}
-.st div{border-radius:8px;padding:6px 4px 7px;text-align:center;background:#ece4f7}
-.st div:nth-child(even){background:#fbe9c9}
-.st div b{display:block;font-size:10.5px;font-weight:900;color:#1d1b19;padding-bottom:4px;margin-bottom:4px;border-bottom:1px dashed #b9aecb}
-.st div span{display:block;font-size:8.5px;font-weight:600;line-height:1.35;color:#3d3832}
-.st .pl{background:none!important;padding:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#e8742c}
-.st .bn{background:#ffd9b8!important}
-.st .bn b{border-bottom-color:#e8a978}
-.cv.e .hero{top:62px;font-size:140px}.cv.e .mas{top:174px}.cv.e .lv{top:178px}.cv.e .tag{top:240px}
-.cv.e .paper{height:150px}
-.cv.e .hl{top:16px;font-size:14.5px}
-.cv.e .st{top:16px;left:50%;right:auto;transform:translateX(-50%);width:300px;grid-template-columns:repeat(3,1fr);gap:8px}
-.cv.e .st div{padding:10px 6px 11px}
-.cv.e .foot{border-top:1px solid #ddd3c1;padding-top:8px}
-/* ── 디테일(v2.0) ── */
-.cv.e{box-shadow:0 0 0 1px rgba(0,0,0,.08);--tint:#B9A4F0}
-.cv.e:after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
- background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-.cv.e .pat{opacity:.07;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px),linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px);background-size:22px 26px,22px 26px,22px 13px}
-.cv.e .bar{border-width:1px;font-size:10px}
-.cv.e .bar em{font-size:10px;letter-spacing:.04em;display:flex;align-items:center;gap:5px}
-.cv.e .bar em small{font-size:6.5px;letter-spacing:.14em;color:#8a7fa6;font-weight:800}
-.cv.e .hero{text-shadow:0.5px 0.5px 0 var(--tint),1px 1px 0 var(--tint),1.5px 1.5px 0 var(--tint),2px 2px 0 var(--tint),2.5px 2.5px 0 var(--tint),3px 3px 0 var(--tint),3.5px 3.5px 0 var(--deep),4.0px 4.0px 0 var(--deep),4.5px 4.5px 0 var(--deep),5.0px 5.0px 0 var(--deep),5.5px 5.5px 0 var(--deep),6.0px 6.0px 0 var(--deep),6.5px 6.5px 0 var(--deep),7.0px 7.0px 0 var(--deep),7.5px 7.5px 0 var(--deep),8.0px 8.0px 0 var(--deep),8.5px 8.5px 0 var(--deep),9.0px 9.0px 0 var(--deep),9.5px 9.5px 0 var(--deep),10.0px 10.0px 0 var(--deep),10.5px 10.5px 0 var(--deep),11.0px 11.0px 0 var(--deep),11.5px 11.5px 0 var(--deep),12.0px 12.0px 0 var(--deep),12.5px 12.5px 0 var(--deep),13.0px 13.0px 0 var(--deep)}
-.cv.e .mas:after{content:'';position:absolute;left:16%;right:16%;bottom:2px;height:6px;border-radius:50%;background:rgba(0,0,0,.22)}
-.cv.e .lv{box-shadow:3px 3px 0 var(--deep);border-width:2.5px}
-.cv.e .lv b{letter-spacing:-.02em}.cv.e .lv i{letter-spacing:.02em}
-.cv.e .tag .k{border-bottom:0;padding:0;display:inline-flex;align-items:center;gap:8px;letter-spacing:.18em}
-.cv.e .tag .k:before,.cv.e .tag .k:after{content:'';width:22px;height:1.5px;background:var(--acc)}
-.cv.e .tag .n{border:1.5px solid var(--deep);box-shadow:4px 4px 0 var(--deep);font-variant-numeric:tabular-nums}
-.cv.e .tag .s{font-size:12px;letter-spacing:.01em;opacity:.92}
-.cv.e .paper{background:#f6f0e2 repeating-linear-gradient(transparent 0 15px,rgba(120,100,70,.06) 15px 16px)}
-.cv.e .st{gap:14px;width:316px}
-.cv.e .st div{position:relative;border:1px solid rgba(75,42,133,.18);padding:14px 6px 11px}
-.cv.e .st div:nth-child(even){border-color:rgba(200,140,40,.28)}
-.cv.e .st div:before{content:attr(data-n);position:absolute;left:50%;top:-7px;transform:translateX(-50%);background:var(--bg);color:#fff;font-size:7px;font-weight:900;letter-spacing:.12em;padding:2px 7px;border-radius:5px}
-.cv.e .st div:nth-child(even):before{background:#e8742c}
-.cv.e .st div:not(:last-child):after{content:'';position:absolute;right:-10px;top:50%;width:5px;height:5px;border-top:1.5px solid #b9aecb;border-right:1.5px solid #b9aecb;transform:translateY(-50%) rotate(45deg)}
-.cv.e .st div b{font-size:11.5px;letter-spacing:-.01em}
-.cv.e .foot{border-top-color:#ddd3c1}
-.cv.e .au{letter-spacing:-.01em}
-.cv.e .st div b{font-size:11.5px}.cv.e .st div span{font-size:9px}
-.cv.e .st .q{background:#fff!important;border:1px solid #d8cfe6;padding:5px 4px 6px;text-align:center}
-.cv.e .st .q svg{width:44px!important;height:44px!important;display:block;margin:0 auto 2px}
-.cv.e .st .q p{margin:0}
-.cv.e .st .q b{border:0;padding:0;margin:0;font-size:9.5px;color:var(--bg)}
-.cv.e .st .q span{font-size:7.5px;line-height:1.25}
-.cv.d .hero{top:58px;font-size:132px}.cv.d .en{top:70px}.cv.d .mas{top:160px}.cv.d .lv{top:164px}.cv.d .tag{top:222px}.cv.d .tag .n{font-size:34px}
-.cv.d .paper{height:212px}
-.cv.d .st{grid-template-columns:repeat(4,1fr)}
-.ck{position:absolute;left:18px;top:100px;font-size:10.5px;font-weight:700;line-height:1.95}
-.ck div{display:block}
-.ck i{display:inline-block;vertical-align:-2px;margin-right:6px;width:12px;height:12px;border:1.5px solid var(--bg);border-radius:3px;position:relative;flex:none}
-.ck i:after{content:'';position:absolute;left:2.5px;top:0;width:4px;height:7px;border:solid #e8742c;border-width:0 2px 2px 0;transform:rotate(40deg)}
-.ck em{font-style:normal;color:var(--bg);font-weight:900}
-.qb{position:absolute;right:18px;top:98px;width:64px;border:1.5px solid var(--bg);border-radius:8px;background:#fff;padding:5px 5px 0;text-align:center}
-.qb svg{width:100%;height:auto;display:block}
-.qb span{display:block;font-size:8.5px;font-weight:900;color:#fff;background:var(--bg);margin:4px -5px 0;padding:3px 0;border-radius:0 0 6px 6px}.cv.e .mas.soft{width:76px;height:76px;left:8px;top:170px}.cv.e .mas.soft:after{display:none}.cv.e .mas.soft svg{width:100%;height:100%;filter:drop-shadow(3px 3px 0 #2a1552)}
-body.one{padding:0;display:block;background:#fff}.cv.e .mas.one1{width:78px;height:78px;left:24px;top:156px}.cv.e .mas.one1:after{display:none}.cv.e .mas.one1 svg{width:100%;height:100%}.cv.e .lv{width:85px;height:85px;right:14px;top:166px}.cv.e .lv b{font-size:23.9px}.cv.e .lv i{font-size:9.2px}.cv.e .au{font-size:6.6px;font-weight:600;color:#3d3832;display:flex;flex-direction:column}.cv.e .au .by{display:flex;align-items:center;gap:5px}.cv.e .au .by b{color:var(--bg);font-weight:800;margin-right:3px}.cv.e .st{top:26px}.cv.e .foot{align-items:center}.cv.e .pub{padding-bottom:0}.cv.e .mas.one1:before{content:'';position:absolute;left:18%;right:18%;bottom:6px;height:7px;border-radius:50%;background:rgba(20,8,50,.35);filter:blur(1.5px)}.cv.e .mas.one1 svg{position:relative}.cv.e .au small{font-size:5.25px;margin-top:2px}.cv.e{--bg:#0E6F8C;--deep:#06323f;--tint:#93becb;--acc:#FFD23F;background:#0E6F8C!important}.cv.e .st div{background:#e2eef1;border-color:#b7d4dd}.cv.e .st div:nth-child(even){background:#fbe9c9;border-color:rgba(200,140,40,.28)}
-.cv.e .lv{background:#2F6FD6}.cv.e .st div:nth-child(even):before{background:#e8742c}.pat{background-image:radial-gradient(#fff 1.4px,transparent 1.6px)!important;background-size:16px 16px!important}.cv.e .hero{text-shadow:0.5px 0.5px 0 #93becb,1px 1px 0 #93becb,1.5px 1.5px 0 #93becb,2px 2px 0 #93becb,2.5px 2.5px 0 #93becb,3px 3px 0 #93becb,3.5px 3.5px 0 #083c4c,4px 4px 0 #083c4c,4.5px 4.5px 0 #083c4c,5px 5px 0 #083c4c,5.5px 5.5px 0 #083c4c,6px 6px 0 #083c4c,6.5px 6.5px 0 #083c4c,7px 7px 0 #083c4c,7.5px 7.5px 0 #083c4c,8px 8px 0 #083c4c,8.5px 8.5px 0 #083c4c,9px 9px 0 #083c4c,9.5px 9.5px 0 #083c4c,10px 10px 0 #083c4c!important}
-.cv.e .tag .n{white-space:nowrap}.cv.e .mas.one1 svg{width:100%;height:100%}</style></head><body class="one"><div class="cv e"><div class="pat"></div><div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>단어 초급</em></div><div class="hero">단어</div><div class="en">VOCABULARY</div>
-<div class="mas one1"><svg  viewBox="0 0 96 96" aria-hidden="true"><path d="M18 30h60v38c-6 4-10-2-16 2s-10-4-16 0-10-4-16 0-8-2-12 0z" fill="#FFD166" stroke="#D99A1C" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28" cy="40" r="3" fill="#E3A12A"/><circle cx="70" cy="44" r="2.5" fill="#E3A12A"/><circle cx="66" cy="60" r="2" fill="#E3A12A"/><circle cx="43.63" cy="50" r="2.1849999999999996" fill="#2A1A12"/><circle cx="52.37" cy="50" r="2.1849999999999996" fill="#2A1A12"/>
-    <circle cx="44.39" cy="49.24" r="0.76" fill="#fff"/><circle cx="53.129999999999995" cy="49.24" r="0.76" fill="#fff"/>
-    <ellipse cx="40.400000000000006" cy="53.42" rx="2.4699999999999998" ry="1.52" fill="#F39A7E" opacity=".75"/>
-    <ellipse cx="55.599999999999994" cy="53.42" rx="2.4699999999999998" ry="1.52" fill="#F39A7E" opacity=".75"/><path d="M44.2 54.275q3.8 3.8 7.6 0" fill="none" stroke="#3A2418" stroke-width="1.71" stroke-linecap="round"/></svg></div><div class="lv"><b>1~2급</b><i>TOPIK I 대비</i></div>
-<div class="tag"><div class="k">초급 필수 단어장</div><br><div class="n">1,931단어</div><div class="s">TOPIK I 낱말 1급 · 2급 전부</div></div><div class="paper">
-<div class="st"><div data-n="STEP 1"><b>낱말 보기</b><span>품사 · 뜻 ·<br>예문</span></div><div data-n="STEP 2"><b>가리고 쓰기</b><span>뜻 보고<br>한국어로</span></div><div data-n="STEP 3"><b>확인하기</b><span>치즈 급수 ·<br>감자 빈출도</span></div></div><div class="foot"><div class="au"><span class="by"><span><b>저자</b>준상(Junsang)</span></span></div><div class="pub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83 9" height="11px" shape-rendering="crispEdges" role="img" aria-label="every koreans"><path d="M35 0h2v1h-2zM35 1h2v1h-2zM1 2h4v1h-4zM7 2h2v1h-2zM11 2h2v1h-2zM15 2h4v1h-4zM21 2h5v1h-5zM28 2h2v1h-2zM32 2h2v1h-2zM35 2h2v1h-2zM38 2h2v1h-2zM49 2h5v1h-5zM57 2h4v1h-4zM64 2h4v1h-4zM70 2h5v1h-5zM78 2h5v1h-5zM0 3h2v1h-2zM4 3h2v1h-2zM7 3h2v1h-2zM11 3h2v1h-2zM14 3h2v1h-2zM18 3h2v1h-2zM21 3h3v1h-3zM25 3h2v1h-2zM28 3h2v1h-2zM32 3h2v1h-2zM35 3h4v1h-4zM49 3h3v1h-3zM53 3h2v1h-2zM56 3h2v1h-2zM60 3h2v1h-2zM67 3h2v1h-2zM70 3h3v1h-3zM74 3h2v1h-2zM77 3h2v1h-2zM0 4h6v1h-6zM7 4h2v1h-2zM11 4h2v1h-2zM14 4h6v1h-6zM21 4h2v1h-2zM28 4h2v1h-2zM32 4h2v1h-2zM35 4h3v1h-3zM49 4h2v1h-2zM56 4h6v1h-6zM64 4h5v1h-5zM70 4h2v1h-2zM74 4h2v1h-2zM78 4h4v1h-4zM0 5h2v1h-2zM8 5h4v1h-4zM14 5h2v1h-2zM21 5h2v1h-2zM29 5h5v1h-5zM35 5h4v1h-4zM49 5h2v1h-2zM56 5h2v1h-2zM63 5h2v1h-2zM67 5h2v1h-2zM70 5h2v1h-2zM74 5h2v1h-2zM81 5h2v1h-2zM1 6h5v1h-5zM9 6h2v1h-2zM15 6h5v1h-5zM21 6h2v1h-2zM32 6h2v1h-2zM35 6h2v1h-2zM38 6h2v1h-2zM49 6h2v1h-2zM57 6h5v1h-5zM64 6h5v1h-5zM70 6h2v1h-2zM74 6h2v1h-2zM77 6h5v1h-5zM32 7h2v1h-2zM28 8h5v1h-5z" fill="#1d1b19"/><path d="M43 2h4v1h-4zM42 3h1v1h-1zM47 3h1v1h-1zM42 4h1v1h-1zM47 4h1v1h-1zM42 5h1v1h-1zM47 5h1v1h-1zM43 6h4v1h-4z" fill="#1d1b19"/><path d="M43 3h2v1h-2zM43 4h1v1h-1z" fill="#F6C443"/><path d="M45 3h2v1h-2zM44 4h3v1h-3zM43 5h4v1h-4z" fill="#D49B5A"/></svg></div></div></div></div></body></html>
+<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/vendor/pretendard.css><style>*{box-sizing:border-box;margin:0}body{margin:0;font-family:'Pretendard Variable',sans-serif;background:#fff}
+.cv{width:380px;height:537px;position:relative;overflow:hidden;color:#fff}
+.bar{position:absolute;left:22px;right:22px;top:20px;border:1px solid rgba(255,255,255,.9);display:grid;grid-template-columns:1fr auto;font-size:10px;font-weight:800}.bar span{padding:6px 0 6px .4em;text-align:center;letter-spacing:.4em}.bar em{font-style:normal;background:#fff;color:var(--deep);padding:6px 10px;display:flex;align-items:center;gap:5px;letter-spacing:.04em}.bar em small{font-size:6.5px;letter-spacing:.14em;color:#8a7fa6;font-weight:800}
+.t1{position:absolute;left:28px;top:66px;font-size:12px;font-weight:800;letter-spacing:.18em;opacity:.85}
+.t2{position:absolute;left:28px;top:86px;display:flex;align-items:center;gap:12px}.t2 span{font-size:50px;font-weight:900;letter-spacing:-.05em;line-height:1}.t2 em{font-style:normal;color:#fff;font-weight:900;font-size:15px;padding:6px 14px;border-radius:99px;background:var(--deep)}
+.rule{position:absolute;left:28px;right:28px;top:152px;border-top:1.5px solid rgba(255,255,255,.55)}.small{position:absolute;left:28px;top:162px;font-size:11px;font-weight:600;opacity:.9}
+.big{position:absolute;left:0;top:186px;width:380px;height:330px}
+.stk{position:absolute;right:16px;top:276px;width:85px;height:85px;border-radius:50%;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);border:2.5px solid #fff;box-shadow:3px 3px 0 var(--deep)}.stk:before{content:'';position:absolute;inset:4px;border:1.2px dashed rgba(255,255,255,.75);border-radius:50%}.stk b{font-size:24px;font-weight:900;line-height:1}.stk i{font-style:normal;font-size:9px;font-weight:800;margin-top:3px}
+.bot{position:absolute;left:0;right:0;bottom:0;height:78px;background:#f6f0e2;color:#1d1b19;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-top:3px solid #FFD23F}
+.bi b{display:block;font-size:14px;font-weight:900}.bi span{display:block;font-size:10px;color:#6b655c;margin-top:3px;font-weight:600}
+.rt{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.au{font-size:7px;font-weight:600;color:#3d3832}.au b{font-weight:800;margin-right:3px;color:var(--bg)}.pubw{line-height:0}.pubw svg{height:11px;width:auto}</style></head><body><div class="cv" style="background:#0E6F8C;--bg:#0E6F8C;--deep:#073846">
+<div class="bar"><span>한국어능력시험 대비</span><em><small>SERIES</small>단어 초급</em></div>
+<div class="t1">TOPIK I · 초급 필수</div><div class="t2"><span>단어장</span><em>1,931</em></div><div class="rule"></div><div class="small">TOPIK I 낱말 1급 · 2급 전부 · 뜻 · 예문 · 쓰기 연습</div>
+<svg class="big" viewBox="0 0 380 330"><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#ffffff" stroke-width="58" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#0E6F8C" stroke-width="50" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#a3c8d3" stroke-width="42" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#0E6F8C" stroke-width="34" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#FFE28A" stroke-width="26" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#0E6F8C" stroke-width="18" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="none" stroke="#0E6F8C" stroke-width="4" stroke-linejoin="round">단</text><text x="190" y="300" text-anchor="middle" font-size="330" font-weight="900" font-family="Pretendard Variable" fill="#0E6F8C">단</text></svg>
+<div class="stk" style="background:#2F6FD6"><b>1~2급</b><i>TOPIK I 대비</i></div>
+<div class="bot"><div class="bi"><b>뜻 · 예문 · 쓰기</b><span>+ 가리고 쓰고 확인하기 + 치즈 · 감자 표시</span></div><div class="rt"><div class="au"><b>저자</b>준상(Junsang)</div><div class="pubw"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83 9" height="11px" shape-rendering="crispEdges" role="img" aria-label="every koreans"><path d="M35 0h2v1h-2zM35 1h2v1h-2zM1 2h4v1h-4zM7 2h2v1h-2zM11 2h2v1h-2zM15 2h4v1h-4zM21 2h5v1h-5zM28 2h2v1h-2zM32 2h2v1h-2zM35 2h2v1h-2zM38 2h2v1h-2zM49 2h5v1h-5zM57 2h4v1h-4zM64 2h4v1h-4zM70 2h5v1h-5zM78 2h5v1h-5zM0 3h2v1h-2zM4 3h2v1h-2zM7 3h2v1h-2zM11 3h2v1h-2zM14 3h2v1h-2zM18 3h2v1h-2zM21 3h3v1h-3zM25 3h2v1h-2zM28 3h2v1h-2zM32 3h2v1h-2zM35 3h4v1h-4zM49 3h3v1h-3zM53 3h2v1h-2zM56 3h2v1h-2zM60 3h2v1h-2zM67 3h2v1h-2zM70 3h3v1h-3zM74 3h2v1h-2zM77 3h2v1h-2zM0 4h6v1h-6zM7 4h2v1h-2zM11 4h2v1h-2zM14 4h6v1h-6zM21 4h2v1h-2zM28 4h2v1h-2zM32 4h2v1h-2zM35 4h3v1h-3zM49 4h2v1h-2zM56 4h6v1h-6zM64 4h5v1h-5zM70 4h2v1h-2zM74 4h2v1h-2zM78 4h4v1h-4zM0 5h2v1h-2zM8 5h4v1h-4zM14 5h2v1h-2zM21 5h2v1h-2zM29 5h5v1h-5zM35 5h4v1h-4zM49 5h2v1h-2zM56 5h2v1h-2zM63 5h2v1h-2zM67 5h2v1h-2zM70 5h2v1h-2zM74 5h2v1h-2zM81 5h2v1h-2zM1 6h5v1h-5zM9 6h2v1h-2zM15 6h5v1h-5zM21 6h2v1h-2zM32 6h2v1h-2zM35 6h2v1h-2zM38 6h2v1h-2zM49 6h2v1h-2zM57 6h5v1h-5zM64 6h5v1h-5zM70 6h2v1h-2zM74 6h2v1h-2zM77 6h5v1h-5zM32 7h2v1h-2zM28 8h5v1h-5z" fill="#1d1b19"/><path d="M43 2h4v1h-4zM42 3h1v1h-1zM47 3h1v1h-1zM42 4h1v1h-1zM47 4h1v1h-1zM42 5h1v1h-1zM47 5h1v1h-1zM43 6h4v1h-4z" fill="#1d1b19"/><path d="M43 3h2v1h-2zM43 4h1v1h-1z" fill="#F6C443"/><path d="M45 3h2v1h-2zM44 4h3v1h-3zM43 5h4v1h-4z" fill="#D49B5A"/></svg></div></div></div></div></body></html>
