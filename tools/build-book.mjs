@@ -779,6 +779,19 @@ const omrHtml = (s) => {
 };
 const qw = (items) => { const m = Math.max(...items.filter((x) => !/_{3}/.test(x.q)).map((x) => [...x.q].length), 0); return m <= 12 ? '30%' : m <= 16 ? '36%' : m <= 22 ? '46%' : m <= 34 ? '60%' : '72%'; };
 const UMIN = {};   // 단원 몸통을 쪽 높이만큼 늘려 스스로 점검 표를 쪽 맨 아래로 내린다(2차 측정에서 채움)
+/* 넉넉한 쪽 나누기(운영자 2026-11-12 「너무 답답해 · 구간별로 나누고 쪽수 늘어도 괜찮아 · 한 페이지에 한 구간, 두 구간까지」) — 칸마다 대략의 높이(mm)를 어림해 한 쪽에 최대 두 칸까지만 담는다 */
+const secMm = (s) => { const n = (s.items || s.rows || s.cards || s.chains || []).length;
+  switch (s.type) { case 'table': return 16 + n * 9.5; case 'text': return 16 + ((s.text || '').length / 85) * 5; case 'practice': return s.think ? 16 + n * 30 : 30 + n * 13;
+    case 'pchoose': return 16 + n * 20; case 'pwrong': return 16 + n * 22; case 'psplit': case 'pfix': case 'pfill': return 20 + n * 30; case 'pcompare': return 16 + n * 36; case 'pcards': return 16 + Math.ceil(n / 2) * 36;
+    case 'pshow': return 130; case 'pmock': return 150; case 'pplan': return 130; case 'flow': return 60; default: return 60; } };
+function airyBody(parts, secs, u) {
+  if (!B.airy || u.id === 'pt-guide') return parts.join('\n');
+  let cur = 0, cnt = 0, cap = 130; const CAP = 215;
+  return parts.map((h, i) => { const w = secMm(secs[i]) + (i === parts.length - 1 ? 36 : 0); let brk = false;
+    if (cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
+    cur += w; cnt++;
+    const av = w <= 190 ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
+}
 function unitBlock(u) {
   /* 풀이 순서 쪽(walkthrough)이 있는 안내 단원은 예전 「글의 틀 · 읽는 법」 두 칸을 대신한다 */
   const secs = wtSpec()[u.id] ? u.sections.filter((s, i) => !(i < 2 && (s.type === 'flow' || s.type === 'text'))) : u.sections;
@@ -793,7 +806,7 @@ function unitBlock(u) {
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const kcount = {};
-  const body = secs.map((s, si) => {
+  const body0 = secs.map((s, si) => {
     /* 쓰기 책: 번호는 종류마다 따로(연습 1-1 · 연습 1-2, 핵심 정리 1-1 …), 실전 문제는 문제 번호 그대로(운영자 2026-10-30 「번호 정리 제대로」) */
     if (B.front) { const lb = s.type === 'writing' ? '실전 문제' : s.type === 'text' ? (() => { const kk = CLASSIC ? kindOf(u, si, s) : 'ref'; return kk === 'tip' || kk === 'warn' ? '팁 · 주의' : kk === 'ref' ? LAB.text : BLK[kk][1]; })() : LAB[s.type]; kcount[lb] = (kcount[lb] || 0) + 1; secNo = s.type === 'writing' ? String(parseInt(s.title.en, 10) || kcount[lb]) : `${u.no}-${kcount[lb]}`; }
     else secNo = `${u.no}-${si + 1}`;
@@ -973,8 +986,9 @@ Object.assign(P, {
     if (s.type === 'selfcheck') return `<div class="sec slf${s.compact ? ' sckc' : ''}${!s.compact && s.key ? ' sckk' : ''}">${sr(si)}${s.compact ? '' : secLabel(s)}${selfHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq${s.raw._ref ? ' wqref' : ''}">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP && B.splitSections ? s.items.map((x, k) => thinkBlock(x.q, k)).join('') : s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
-  }).join('\n');
+    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP && B.splitSections ? s.items.map((x, k) => thinkBlock(x.q, k)).join('') : s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}${B.airy && s.items.length >= 10 && s.items.every((x) => /_{3}/.test(x.q)) ? ' dn' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
+  });
+  const body = airyBody(body0, secs, u);
   if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${u._head}${walkHtml(u.id).a ? '' : unitQr(u)}${appCheck(u)}${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}${walkHtml(u.id).a ? '' : unitQr(u)}</div>`;
 }
@@ -1209,6 +1223,7 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
+${B.airy ? '.sec{margin-bottom:9mm}.sec>h3{margin-bottom:4.6mm}.sec table td,.sec table th{padding-top:2.2mm;padding-bottom:2.2mm}.note{padding:3mm 4mm;line-height:1.75}.pq,.ex .pq{margin-bottom:6mm}.pbk{margin:3mm 0}.pr .q .en .cx{display:inline;margin-left:2.4mm}.pr.dn{column-count:2;column-gap:9mm}.pr.dn li{break-inside:avoid}.pr.dn li.fill{grid-template-columns:6mm 1fr}.dif{margin-bottom:4mm}.thq{margin-bottom:5mm}.sc{margin-top:6mm}.open .tl{height:7mm}.bx{margin-top:5mm}.pcs{gap:4mm}.pcd{padding:3mm 4mm}' : ''}
 .mk{display:grid;grid-template-columns:96mm 1fr;gap:6mm;align-items:start}.mkp{border:.3mm solid #b9c3d6;border-radius:2mm;padding:3mm 3.4mm;background:#fff;box-shadow:.6mm .6mm 0 #e6e9f0}.mkh{font:700 6.6pt 'DejaVu Sans Mono','Menlo',monospace;color:#9a9288;margin-bottom:2.4mm;letter-spacing:.06em}
 .mkr{position:relative;margin:0 0 3mm;padding-left:6.4mm;min-height:7mm}.bdg{position:absolute;left:0;top:.4mm;width:5mm;height:5mm;border-radius:50%;background:#16A34A;color:#fff;font:800 7.4pt/5mm 'Pretendard Variable',sans-serif;text-align:center;font-style:normal}
 .mkr table{font-size:7.8pt;background:#14264A;color:#e9eefc;border-collapse:separate;border-spacing:0;border-radius:1.6mm;overflow:hidden;width:100%}.mkr th{color:#8fd0a5;border:0;background:transparent;font-size:6.4pt;padding:1mm 2.4mm .3mm}.mkr td{border:0;color:#e9eefc;padding:.5mm 2.4mm}
@@ -1321,7 +1336,7 @@ const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u =
 const counts = {};
 /* 점검 칸 넘침 막기(운영자 2026-11-12 「간격 줄이기」) — 단원 맨 끝의 「나의 점검」 칸이 새 쪽으로 혼자 넘어가 빈 쪽이 되면, 그 단원만 간격을 한 단계씩 촘촘하게 해 칸이 앞쪽에 들어가게 한다(1단계 → 2단계 → 그래도 안 되면 칸을 뺀다) */
 const tightCss = (u, lv) => `<style>.blk.${unitCss(u)} .sec{margin-bottom:${lv > 1 ? 2.6 : 3.4}mm}.blk.${unitCss(u)} .pq{margin:${lv > 1 ? 1.5 : 2}mm 0}.blk.${unitCss(u)} .pbk{margin:${lv > 1 ? .7 : 1.1}mm 0}.blk.${unitCss(u)} .tl{height:${lv > 1 ? 4.6 : 5.4}mm}.blk.${unitCss(u)} .sc{margin-top:1mm}</style>`;
-if (B.splitSections) {
+if (B.splitSections && !B.airy) {
   for (let bi = 0; bi < blocks.length; bi++) {
     const m = /^unit(\d+)$/.exec(blocks[bi][0]); if (!m) continue;
     const u = units.find((x) => x.no === +m[1]); if (!u || !isStudyUnit(u)) continue;
