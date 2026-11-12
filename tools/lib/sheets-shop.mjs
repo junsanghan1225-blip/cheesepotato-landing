@@ -112,7 +112,8 @@ function bundlesHtml() {
   }).join('');
 }
 function shopPage() {
-  const books = SHOP.books.map((k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`).join('\n');
+  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`;
+  const books = (SHOP.series || []).map((g) => { const ks = g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean); return `<h2 class="bk-series" id="series-${esc(g.id)}">${esc(g.title.en)} · ${esc(g.title.ko)} <small style="font-weight:600;font-size:.6em;color:var(--ink-3)">· ${ks.length}권</small></h2>\n<div class="bk-grid">\n${ks.map(bookItem).join('\n')}\n</div>`; }).join('\n');
   const packs = SHOP.packs.map((p) => {
     const ws = packSheets(p);
     return `<div class="shop-card"><a class="shop-pk lv-${esc(p.ws || p.level)}" href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}" title="See a sheet from this pack · 이 묶음의 학습지 보기"><b>${ws.length}</b><small>${esc(p.ws ? WS_LV[p.ws] : p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></a>
@@ -126,9 +127,7 @@ function shopPage() {
 `${shopHead()}
 <h1 id="books">Books</h1>
 <p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers. These books are independent study aids and are not operated, endorsed or certified by NIIED or the TOPIK Center.</p>
-<div class="bk-grid">
 ${books}
-</div>
 ${bundlesHtml()}<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
 <p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
 ${packs}
@@ -283,6 +282,10 @@ export function checkShop(sheets, bad) {
     if (!sheets.some((w) => w.id === id)) bad.push(`docs/shop.json singles: 없는 학습지 ${id}`);
     if (u && !POLAR.test(u)) bad.push(`docs/shop.json singles.${id}: polar 는 https://buy.polar.sh/… 링크`);
   }
+  /* 시리즈(첫 화면 서가 · 상점 목록의 묶음 단위) — 모든 책이 시리즈 하나에 정확히 한 번 들어 있어야 한다(운영자 2026-11-11 「시리즈별로 나열」) */
+  const inSeries = (SHOP.series || []).flatMap((g) => g.books || []);
+  for (const k of SHOP.books) if (inSeries.filter((id) => id === k.id).length !== 1) bad.push(`docs/shop.json series: 책 ${k.id} 이 시리즈에 정확히 한 번 들어 있어야 한다`);
+  for (const id of inSeries) if (!SHOP.books.some((k) => k.id === id)) bad.push(`docs/shop.json series: 없는 책 ${id}`);
   for (const k of SHOP.books) {
     if (!/^[a-z0-9-]+$/.test(k.id) || !k.title?.en || !k.title?.ko || !k.about?.en || !/^#[0-9A-Fa-f]{6}$/.test(k.color || '')) bad.push(`docs/shop.json 책 ${k.id}: id · title · about · color(#RRGGBB)`);
     if (k.polar && !POLAR.test(k.polar)) bad.push(`docs/shop.json 책 ${k.id}: polar 는 https://buy.polar.sh/… 링크`);
