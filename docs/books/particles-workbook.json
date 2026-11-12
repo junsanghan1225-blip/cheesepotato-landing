@@ -406,12 +406,42 @@
           ]
         },
         {
-          "type": "text",
+          "type": "pshow",
+          "noIndex": true,
           "title": {
-            "en": "Four habits that work",
-            "ko": "효과 보는 습관 네 가지"
+            "en": "Study like this",
+            "ko": "이렇게 공부하세요!"
           },
-          "text": "1. Ask two questions about each noun: what is its job (who / where / with what / how many)? does it end in a consonant?\n2. Keep an error log: copy every sentence you miss onto one page and reread it before each new unit.\n3. Say first, then write. Saying makes the particle sound natural; writing fixes the spelling.\n4. Listen for particles: pick one a day and count how often you hear it in Korean you watch or listen to.\n1. 낱말마다 두 가지를 물어요: 「무슨 역할인가(누가 · 어디 · 무엇으로 · 얼마나)」, 「받침이 있나」.\n2. 틀린 문장 노트: 틀린 문장을 한 쪽에 모아 새 단원 전에 다시 읽어요.\n3. 먼저 말하고, 그다음 쓰세요. 말하면 소리가 익고, 쓰면 맞춤법이 잡힙니다.\n4. 들으며 찾기: 하루에 조사 하나를 정해 보고 듣는 한국어에서 몇 번 나오는지 세어 보세요."
+          "items": [
+            {
+              "kind": "lego",
+              "cap": {
+                "en": "Read the sentence as blocks. The coloured block is the particle.",
+                "ko": "문장을 블록으로 읽어요. 색깔 블록이 조사예요."
+              }
+            },
+            {
+              "kind": "color",
+              "cap": {
+                "en": "Each particle keeps its colour in the whole book.",
+                "ko": "조사마다 색이 정해져 있어요. 책 어디서나 같아요."
+              }
+            },
+            {
+              "kind": "diff",
+              "cap": {
+                "en": "Same sentence, only the particle changes. Say each one aloud.",
+                "ko": "같은 문장에서 조사만 바뀌어요. 하나씩 소리 내어 읽어요."
+              }
+            },
+            {
+              "kind": "mini",
+              "cap": {
+                "en": "Mini test at the end of each part, like the real exam. Answers are at the back.",
+                "ko": "부 끝의 미니 테스트는 시험지 모양이에요. 정답은 뒤쪽에 있어요."
+              }
+            }
+          ]
         }
       ]
     },
