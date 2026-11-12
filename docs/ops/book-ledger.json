@@ -19,16 +19,16 @@
   "particles-workbook": {
    "krw": "13,900",
    "qa": "통과(주의 1)",
-   "pages": 238,
+   "pages": 242,
    "date": "20261112",
-   "ver": 6,
+   "ver": 7,
    "last": {
-    "ver": 6,
+    "ver": 7,
     "date": "20261112",
-    "pages": 238,
-    "sha256": "9631b9b7eb81abbcea7140d41c4ae153cbcab1999fbb47f26229e78b992e6e17",
-    "commit": "b818d0f72c",
-    "file": "에브리코리안즈_예스24_한국어조사워크북_v6_20261112.zip"
+    "pages": 242,
+    "sha256": "525497c618b988cd913255c2d227de534ecef9fec5774cc3846c29e103466900",
+    "commit": "3b829fd9e6",
+    "file": "에브리코리안즈_예스24_한국어조사워크북_v7_20261112.zip"
    }
   },
   "topik2-writing-51-52": {
