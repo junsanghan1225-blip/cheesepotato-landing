@@ -361,7 +361,7 @@ const krForms = (stem) => {
 };
 const cheeseIc = (on) => `<span class="ic2 ic2c${on ? '' : ' off'}">${cheeseLevel(2).icon.replace('viewBox="0 0 96 96"', 'viewBox="15 27 66 48" preserveAspectRatio="xMidYMid meet"')}</span>`;   // 그림 둘레 빈 칸을 잘라 크게
 const potatoIc = (on) => `<span class="ic2 ic2p${on ? '' : ' off'}">${potatoLevel(3).icon.replace('viewBox="0 0 96 96"', 'viewBox="23 20 50 72" preserveAspectRatio="xMidYMid meet"')}</span>`;
-const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' ? ' class="ce"' : ''}>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' || B.splitSections ? ' class="ce"' : ''}>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 /* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
 const tagHtml = (arr) => arr.map((t) => `<span class="tg">${esc(t.trim())}</span>`).join('');
