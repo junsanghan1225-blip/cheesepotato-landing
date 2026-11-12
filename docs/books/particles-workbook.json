@@ -5418,11 +5418,11 @@
               "en": "I drink milk every morning.",
               "opts": [
                 "가",
-                "를",
+                "이",
                 "의",
-                "이"
+                "를"
               ],
-              "answer": 2
+              "answer": 4
             },
             {
               "q": "저기 새 가게___ 생겼어요.",
@@ -5558,7 +5558,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 5 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음으로 가세요. 6~8개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 5개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n점수: ____ / 10"
         }
       ]
     },
@@ -5630,15 +5630,15 @@
               "en": "The book is on the desk.",
               "opts": [
                 "에서",
-                "에",
+                "에게",
                 "를",
-                "에게"
+                "에"
               ],
-              "answer": 2
+              "answer": 4
             },
             {
-              "q": "어머니___ 전화를 했어요.",
-              "en": "I called my mother.",
+              "q": "친구___ 전화를 했어요.",
+              "en": "I called my friend.",
               "opts": [
                 "를",
                 "에",
@@ -5726,7 +5726,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n점수: ____ / 10"
         }
       ]
     },
@@ -5750,7 +5750,7 @@
           },
           "items": [
             {
-              "q": "친구___ 같이 점심을 먹었어요.",
+              "q": "저는 친구___ 같이 점심을 먹었어요.",
               "en": "I had lunch with a friend.",
               "opts": [
                 "도",
@@ -5786,12 +5786,12 @@
               "q": "저는 책도 좋아하고 영화___ 좋아해요.",
               "en": "I like books, and I like movies too.",
               "opts": [
-                "도",
+                "이나",
                 "만",
                 "밖에",
-                "이나"
+                "도"
               ],
-              "answer": 1
+              "answer": 4
             },
             {
               "q": "커피___ 차를 마실래요?",
@@ -5829,11 +5829,11 @@
             {
               "segs": [
                 "저는",
+                "오늘",
                 "빵밖에",
-                "먹었어요",
-                "오늘"
+                "먹었어요"
               ],
-              "answer": 2,
+              "answer": 3,
               "fix": "빵만",
               "en": "I only ate bread today.",
               "why": {
@@ -5876,7 +5876,7 @@
                 "오늘",
                 "커피이나",
                 "차를",
-                "마실래요"
+                "마실래요?"
               ],
               "answer": 2,
               "fix": "커피나",
@@ -5894,7 +5894,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n점수: ____ / 10"
         }
       ]
     },
@@ -5976,12 +5976,12 @@
               "q": "이 가방은 가죽___ 만들었어요.",
               "en": "This bag is made of leather.",
               "opts": [
-                "으로",
+                "보다",
                 "에",
                 "를",
-                "보다"
+                "으로"
               ],
-              "answer": 1
+              "answer": 4
             }
           ]
         },
@@ -6006,7 +6006,7 @@
               "en": "It takes about an hour from home to school.",
               "why": {
                 "en": "'About an hour' uses 쯤. 마다 means 'every'.",
-                "ko": "대략의 양은 쯤이에요. 마다는 「~ 때마다」예요."
+                "ko": "대략의 양은 쯤이에요. 마다는 「빠짐없이 모두」라는 뜻이에요(한 시간마다 = 매시간)."
               }
             },
             {
@@ -6062,7 +6062,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 9\n7 or more: move on. 5 to 6: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 4 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 9\n7개 이상이면 다음으로 가세요. 5~6개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 4개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n점수: ____ / 10"
         }
       ]
     },
@@ -6123,22 +6123,22 @@
               "en": "I went by taxi.",
               "opts": [
                 "에",
-                "로",
+                "를",
                 "에서",
-                "를"
+                "로"
               ],
-              "answer": 2
+              "answer": 4
             },
             {
               "q": "이 책은 재미있지만 저 책___ 재미없어요.",
               "en": "This book is fun, but that book is not. ▸ contrast",
               "opts": [
-                "가",
                 "은",
+                "가",
                 "를",
                 "도"
               ],
-              "answer": 2
+              "answer": 1
             },
             {
               "q": "월요일___ 금요일까지 일해요.",
@@ -6180,11 +6180,11 @@
             {
               "segs": [
                 "친구는",
+                "어제",
                 "회사에게",
-                "전화했어요",
-                "어제"
+                "전화했어요"
               ],
-              "answer": 2,
+              "answer": 3,
               "fix": "회사에",
               "en": "My friend called the company yesterday.",
               "why": {
@@ -6209,17 +6209,17 @@
             },
             {
               "segs": [
-                "이것은",
-                "제",
-                "친구가",
-                "가방이에요"
+                "수업은",
+                "아홉 시에부터",
+                "열두 시까지",
+                "해요"
               ],
-              "answer": 3,
-              "fix": "친구의",
-              "en": "This is my friend's bag.",
+              "answer": 2,
+              "fix": "아홉 시부터",
+              "en": "Class is from nine to twelve.",
               "why": {
-                "en": "Belonging takes 의: 제 친구의 가방.",
-                "ko": "「누구의 무엇」은 의를 써요."
+                "en": "부터 attaches straight to the time, with no 에: 아홉 시부터.",
+                "ko": "부터는 시간 바로 뒤에 붙어요. 「에부터」가 아니라 「아홉 시부터」예요."
               }
             }
           ]
@@ -6230,7 +6230,7 @@
             "en": "Score it",
             "ko": "점수 매기기"
           },
-          "text": "Score: ____ / 10\n9 or more: move on. 6 to 8: re-read the Watch out boxes in this part, then write your mistakes in the mistake log. 5 or fewer: redo the Fill in practice in this part, then take this test again after 3 days.\n점수: ____ / 10\n9개 이상이면 다음으로 가세요. 6~8개면 이 부의 「조심할 것」을 다시 읽고 틀린 문장을 기록하세요. 5개 이하면 이 부의 채우기를 다시 하고 3일 뒤 이 테스트를 다시 풀어 보세요."
+          "text": "Score: ____ / 10\n점수: ____ / 10"
         }
       ]
     }
