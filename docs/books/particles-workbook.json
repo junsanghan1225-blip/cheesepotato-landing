@@ -4992,7 +4992,7 @@
               "a": "에서"
             },
             {
-              "q": "친구___ 편지를 썼어요. (person)",
+              "q": "친구___ 편지를 썼어요. (to a person)",
               "a": "에게 / 한테"
             },
             {
@@ -5008,7 +5008,7 @@
               "a": "한테 / 에게"
             },
             {
-              "q": "친구___ 점심을 먹었어요. (spoken)",
+              "q": "친구___ 점심을 먹었어요. (with · spoken)",
               "a": "랑"
             },
             {
@@ -5054,7 +5054,7 @@
               "a": "나"
             },
             {
-              "q": "천 원___ 없어요. (negative)",
+              "q": "천 원___ 없어요. (only · with a negative)",
               "a": "밖에"
             },
             {
@@ -5070,7 +5070,7 @@
               "a": "은"
             },
             {
-              "q": "도서관___ 책을 읽어요.",
+              "q": "공원___ 운동해요.",
               "a": "에서"
             }
           ]
@@ -5495,7 +5495,7 @@
                 "가",
                 "를",
                 "의",
-                "도"
+                "에"
               ],
               "answer": 3
             },
@@ -5503,10 +5503,10 @@
               "q": "수업은 오후 두 시___ 시작해요.",
               "en": "Class starts at two p.m.",
               "opts": [
-                "에서",
+                "를",
                 "에",
-                "에게",
-                "까지"
+                "가",
+                "의"
               ],
               "answer": 2
             }
@@ -5554,7 +5554,7 @@
             {
               "segs": [
                 "제",
-                "친구가",
+                "친구를",
                 "이름은",
                 "민수예요"
               ],
@@ -5570,15 +5570,15 @@
               "segs": [
                 "저는",
                 "매일",
-                "학교에서",
+                "학교의",
                 "가요"
               ],
               "answer": 3,
               "fix": "학교에",
               "en": "I go to school every day.",
               "why": {
-                "en": "Going to a place takes 에 (destination), not 에서 (where an action happens).",
-                "ko": "가는 곳(도착점)에는 에를 써요. 에서는 행동이 일어나는 곳이에요."
+                "en": "Going to a place takes 에. 의 shows possession.",
+                "ko": "가는 곳에는 에를 써요. 의는 「~의」(소유)예요."
               }
             }
           ]
@@ -5630,7 +5630,7 @@
                 "에서",
                 "에",
                 "한테",
-                "로"
+                "을"
               ],
               "answer": 3
             },
@@ -5650,9 +5650,9 @@
               "en": "I had lunch with a friend.",
               "opts": [
                 "랑",
-                "도",
-                "만",
-                "밖에"
+                "를",
+                "에서",
+                "의"
               ],
               "answer": 1
             },
@@ -5859,17 +5859,17 @@
           "items": [
             {
               "segs": [
-                "저는",
-                "오늘",
-                "빵밖에",
+                "오늘은",
+                "혼자",
+                "밥을만",
                 "먹었어요"
               ],
               "answer": 3,
-              "fix": "빵만",
-              "en": "I only ate bread today.",
+              "fix": "밥만",
+              "en": "Today I ate only rice, alone.",
               "why": {
-                "en": "밖에 always needs a negative ending (안 먹었어요). For a positive sentence use 만.",
-                "ko": "밖에는 뒤에 부정이 와야 해요(안 먹었어요). 긍정이면 「빵만」이에요."
+                "en": "만 takes the place of 을/를. Do not stack them: 밥만.",
+                "ko": "만은 을/를 자리에 와요. 겹쳐 쓰지 않고 「밥만」이라고 해요."
               }
             },
             {
@@ -5891,12 +5891,12 @@
               "segs": [
                 "저는",
                 "사과를",
-                "귤을도",
-                "좋아해요"
+                "좋아하고",
+                "귤을도 좋아해요"
               ],
-              "answer": 3,
-              "fix": "귤도",
-              "en": "I like apples and tangerines too.",
+              "answer": 4,
+              "fix": "귤도 좋아해요",
+              "en": "I like apples and I like tangerines too.",
               "why": {
                 "en": "도 takes the place of 을/를. Do not stack them: 귤도.",
                 "ko": "도는 을/를 자리에 와요. 겹쳐 쓰지 않고 「귤도」라고 해요."
@@ -6384,8 +6384,8 @@
               "answer": 1
             },
             {
-              "q": "저는 동생___ 같이 시장에 갔어요.",
-              "en": "I went to the market with my younger sibling.",
+              "q": "저는 언니___ 같이 시장에 갔어요.",
+              "en": "I went to the market with my older sister.",
               "opts": [
                 "에서",
                 "를",
@@ -6534,30 +6534,30 @@
               "segs": [
                 "우리는",
                 "내일",
-                "부산을",
+                "부산의",
                 "가요"
               ],
               "answer": 3,
               "fix": "부산에",
               "en": "We are going to Busan tomorrow.",
               "why": {
-                "en": "Going to a place takes 에, not 을/를.",
-                "ko": "가는 곳에는 에를 써요."
+                "en": "Going to a place takes 에. 의 shows possession.",
+                "ko": "가는 곳에는 에를 써요. 의는 「~의」(소유)예요."
               }
             },
             {
               "segs": [
                 "저는",
-                "회사에",
-                "점심을",
-                "먹었어요"
+                "어제",
+                "친구와",
+                "공원에 운동했어요"
               ],
-              "answer": 2,
-              "fix": "회사에서",
-              "en": "I ate lunch at the company.",
+              "answer": 4,
+              "fix": "공원에서 운동했어요",
+              "en": "I exercised in the park with a friend yesterday.",
               "why": {
-                "en": "Where an action happens takes 에서: 회사에서.",
-                "ko": "행동이 일어나는 곳에는 에서를 써요."
+                "en": "Where an action happens takes 에서: 공원에서.",
+                "ko": "행동이 일어나는 곳에는 에서를 써요: 「공원에서」."
               }
             },
             {
@@ -6607,14 +6607,14 @@
             },
             {
               "segs": [
-                "아침마다",
                 "저는",
-                "조깅를",
-                "해요"
+                "아침마다",
+                "열심히",
+                "조깅를 해요"
               ],
-              "answer": 3,
-              "fix": "조깅을",
-              "en": "I jog every morning.",
+              "answer": 4,
+              "fix": "조깅을 해요",
+              "en": "I jog hard every morning.",
               "why": {
                 "en": "조깅 ends in a consonant (ㅇ), so the object marker is 을.",
                 "ko": "조깅은 받침(ㅇ)이 있어서 「조깅을」이에요."
@@ -6652,17 +6652,17 @@
             },
             {
               "segs": [
-                "일요일에마다",
+                "아침에마다",
                 "저는",
-                "시장에",
-                "가요"
+                "우유를",
+                "마셔요"
               ],
               "answer": 1,
-              "fix": "일요일마다",
-              "en": "I go to the market every Sunday.",
+              "fix": "아침마다",
+              "en": "I drink milk every morning.",
               "why": {
-                "en": "마다 attaches straight to the noun: 일요일마다, with no 에.",
-                "ko": "마다는 명사 바로 뒤에 붙어요. 「일요일마다」예요."
+                "en": "마다 attaches straight to the noun: 아침마다, with no 에.",
+                "ko": "마다는 명사 바로 뒤에 붙어요. 「아침마다」예요."
               }
             }
           ]
