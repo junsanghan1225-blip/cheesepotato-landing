@@ -812,7 +812,7 @@ function unitBlock(u) {
     else secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : B.splitSections && /^Particle/i.test(s.cols[0]) ? ' class="cdt"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}${B.splitSections && /^Particle/i.test(s.cols[0]) && i === 0 ? ` style="color:${pcol(c)}"` : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
@@ -1223,6 +1223,9 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
+.sec table.cdt{background:#14264A;border-collapse:separate;border-spacing:0;border-radius:2mm;overflow:hidden;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;color:#e9eefc}
+.sec table.cdt th{background:transparent;border:0;color:#8fd0a5;font-size:6.8pt;font-weight:700;padding:3mm 4mm 1.4mm;text-align:left}.sec table.cdt th:before{content:'// '}.sec table.cdt th{white-space:nowrap}
+.sec table.cdt td{border:0;border-top:.2mm solid rgba(255,255,255,.1);color:#e9eefc;padding:2.4mm 4mm;font-size:9pt}.sec table.cdt td:first-child{font-weight:800;font-size:10pt;width:26mm}.sec table.cdt td:last-child{color:#9fb0d8;font-family:'Pretendard Variable','Noto Sans KR',sans-serif;font-size:8.2pt}
 ${B.airy ? '.sec{margin-bottom:9mm}.sec>h3{margin-bottom:4.6mm}.sec table td,.sec table th{padding-top:2.2mm;padding-bottom:2.2mm}.note{padding:3mm 4mm;line-height:1.75}.pq,.ex .pq{margin-bottom:6mm}.pbk{margin:3mm 0}.pr .q .en .cx{display:inline;margin-left:2.4mm}.pr.dn{column-count:2;column-gap:9mm}.pr.dn li{break-inside:avoid}.pr.dn li.fill{grid-template-columns:6mm 1fr}.dif{margin-bottom:4mm}.thq{margin-bottom:5mm}.sc{margin-top:6mm}.open .tl{height:7mm}.bx{margin-top:5mm}.pcs{gap:4mm}.pcd{padding:3mm 4mm}' : ''}
 .mk{display:grid;grid-template-columns:96mm 1fr;gap:6mm;align-items:start}.mkp{border:.3mm solid #b9c3d6;border-radius:2mm;padding:3mm 3.4mm;background:#fff;box-shadow:.6mm .6mm 0 #e6e9f0}.mkh{font:700 6.6pt 'DejaVu Sans Mono','Menlo',monospace;color:#9a9288;margin-bottom:2.4mm;letter-spacing:.06em}
 .mkr{position:relative;margin:0 0 3mm;padding-left:6.4mm;min-height:7mm}.bdg{position:absolute;left:0;top:.4mm;width:5mm;height:5mm;border-radius:50%;background:#16A34A;color:#fff;font:800 7.4pt/5mm 'Pretendard Variable',sans-serif;text-align:center;font-style:normal}
