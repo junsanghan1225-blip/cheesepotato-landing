@@ -5406,82 +5406,149 @@
       },
       "sections": [
         {
-          "type": "practice",
+          "type": "pchoose",
+          "noIndex": true,
           "title": {
-            "en": "Choose one",
-            "ko": "고르기"
+            "en": "Choose the particle",
+            "ko": "알맞은 조사 고르기"
           },
-          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "나는 매일 아침 우유___ 마셔요.  (a) 가  (b) 를  (c) 의  (I drink milk every morning.)",
-              "a": "(b) 를"
+              "q": "나는 매일 아침 우유___ 마셔요.",
+              "en": "I drink milk every morning.",
+              "opts": [
+                "가",
+                "를",
+                "의",
+                "이"
+              ],
+              "answer": 2
             },
             {
-              "q": "저기 새 가게___ 생겼어요.  (a) 는  (b) 를  (c) 가  (A new shop opened over there. ▸ new information)",
-              "a": "(c) 가"
+              "q": "저기 새 가게___ 생겼어요.",
+              "en": "A new shop opened over there. ▸ new information",
+              "opts": [
+                "는",
+                "를",
+                "가",
+                "의"
+              ],
+              "answer": 3
             },
             {
-              "q": "이 사람___ 우리 형이에요.  (a) 은  (b) 이  (c) 를  (This person is my older brother. ▸ topic)",
-              "a": "(a) 은"
+              "q": "이 사람___ 우리 형이에요.",
+              "en": "This person is my older brother. ▸ topic",
+              "opts": [
+                "은",
+                "이",
+                "를",
+                "의"
+              ],
+              "answer": 1
+            },
+            {
+              "q": "A: 누가 왔어요? B: 민수___ 왔어요.",
+              "en": "Who came? Minsu did.",
+              "opts": [
+                "는",
+                "가",
+                "를",
+                "의"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "이것은 제 친구___ 가방이에요.",
+              "en": "This is my friend's bag.",
+              "opts": [
+                "가",
+                "를",
+                "의",
+                "도"
+              ],
+              "answer": 3
+            },
+            {
+              "q": "저는 한국 음악___ 좋아해요.",
+              "en": "I like Korean music.",
+              "opts": [
+                "가",
+                "을",
+                "의",
+                "에서"
+              ],
+              "answer": 2
             }
           ]
         },
         {
-          "type": "practice",
+          "type": "pwrong",
+          "noIndex": true,
           "title": {
-            "en": "Spot the mistake",
-            "ko": "틀린 곳 고치기"
+            "en": "Which underlined part is wrong?",
+            "ko": "밑줄 친 곳 중 틀린 것은?"
           },
-          "hint": "One particle is wrong. Write the correct sentence.",
+          "hint": "Each sentence has one wrong underlined part. Choose its number.",
           "items": [
             {
-              "q": "동생이 책가 읽어요. →",
-              "a": "동생이 책을 읽어요."
+              "segs": [
+                "동생이",
+                "책가",
+                "매일",
+                "읽어요"
+              ],
+              "answer": 2,
+              "fix": "책을",
+              "en": "The younger sibling reads books every day.",
+              "why": {
+                "en": "책 ends in a consonant, and the thing being read is the object: 책을.",
+                "ko": "책은 받침이 있고 읽는 대상이라 「책을」이에요."
+              }
             },
             {
-              "q": "제 친구가 이름은 민수예요. →",
-              "a": "제 친구의 이름은 민수예요."
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Match the context",
-            "ko": "맥락 맞추기"
-          },
-          "hint": "Write the particle that fits the context.",
-          "items": [
-            {
-              "q": "You answer a 「누가?」 question. 이/가 or 은/는? →",
-              "a": "이/가"
+              "segs": [
+                "제",
+                "친구가",
+                "이름은",
+                "민수예요"
+              ],
+              "answer": 2,
+              "fix": "친구의",
+              "en": "My friend's name is Minsu.",
+              "why": {
+                "en": "Belonging ('my friend's name') takes 의: 제 친구의 이름.",
+                "ko": "「누구의 무엇」은 의를 써요: 제 친구의 이름."
+              }
             },
             {
-              "q": "You are contrasting coffee and tea. 이/가 or 은/는? →",
-              "a": "은/는"
+              "segs": [
+                "오늘",
+                "날씨를",
+                "정말",
+                "좋아요"
+              ],
+              "answer": 2,
+              "fix": "날씨가",
+              "en": "The weather is really nice today.",
+              "why": {
+                "en": "좋다 describes the weather, so 날씨 is the subject: 날씨가.",
+                "ko": "좋다는 날씨를 설명하는 말이라 주어 「날씨가」예요."
+              }
             },
             {
-              "q": "The thing you read gets 을/를 or 의? →",
-              "a": "을/를"
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Say it in Korean",
-            "ko": "한국어로 쓰기"
-          },
-          "hint": "Write one sentence. Model answers are in the Answer Key.",
-          "items": [
-            {
-              "q": "I like Korean music.",
-              "a": "저는 한국 음악을 좋아해요."
-            },
-            {
-              "q": "My friend's book is on the desk.",
-              "a": "친구의 책이 책상 위에 있어요."
+              "segs": [
+                "어머니는",
+                "시장에서",
+                "사과가",
+                "샀어요"
+              ],
+              "answer": 3,
+              "fix": "사과를",
+              "en": "Mother bought apples at the market.",
+              "why": {
+                "en": "샀어요 acts on 사과, so it is the object: 사과를.",
+                "ko": "샀어요가 하는 일의 대상이라 목적어 「사과를」이에요."
+              }
             }
           ]
         },
@@ -5507,78 +5574,149 @@
       },
       "sections": [
         {
-          "type": "practice",
+          "type": "pchoose",
+          "noIndex": true,
           "title": {
-            "en": "Choose one",
-            "ko": "고르기"
+            "en": "Choose the particle",
+            "ko": "알맞은 조사 고르기"
           },
-          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "주말에 공원___ 운동해요.  (a) 에  (b) 에서  (c) 에게  (I exercise at the park on weekends.)",
-              "a": "(b) 에서"
+              "q": "주말에 공원___ 운동해요.",
+              "en": "I exercise in the park on weekends.",
+              "opts": [
+                "에",
+                "에서",
+                "에게",
+                "를"
+              ],
+              "answer": 2
             },
             {
-              "q": "동생___ 생일 선물을 줬어요.  (a) 에서  (b) 에  (c) 한테  (I gave my younger sibling a birthday present.)",
-              "a": "(c) 한테"
+              "q": "동생___ 생일 선물을 줬어요.",
+              "en": "I gave my younger sibling a birthday present.",
+              "opts": [
+                "에서",
+                "에",
+                "한테",
+                "로"
+              ],
+              "answer": 3
             },
             {
-              "q": "수업은 오후 두 시___ 시작해요.  (a) 에  (b) 에서  (c) 에게  (Class starts at two p.m.)",
-              "a": "(a) 에"
+              "q": "수업은 오후 두 시___ 시작해요.",
+              "en": "Class starts at two p.m.",
+              "opts": [
+                "에",
+                "에서",
+                "에게",
+                "까지"
+              ],
+              "answer": 1
+            },
+            {
+              "q": "집에서 학교___ 걸어서 십 분 걸려요.",
+              "en": "It takes ten minutes on foot from home to school.",
+              "opts": [
+                "부터",
+                "까지",
+                "에서",
+                "한테"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "책이 책상 위___ 있어요.",
+              "en": "The book is on the desk.",
+              "opts": [
+                "에서",
+                "에",
+                "를",
+                "에게"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "어머니___ 전화를 했어요.",
+              "en": "I called my mother.",
+              "opts": [
+                "를",
+                "에",
+                "한테",
+                "에서"
+              ],
+              "answer": 3
             }
           ]
         },
         {
-          "type": "practice",
+          "type": "pwrong",
+          "noIndex": true,
           "title": {
-            "en": "Spot the mistake",
-            "ko": "틀린 곳 고치기"
+            "en": "Which underlined part is wrong?",
+            "ko": "밑줄 친 곳 중 틀린 것은?"
           },
-          "hint": "One particle is wrong. Write the correct sentence.",
+          "hint": "Each sentence has one wrong underlined part. Choose its number.",
           "items": [
             {
-              "q": "저는 매일 학교에서 가요. →",
-              "a": "저는 매일 학교에 가요."
+              "segs": [
+                "저는",
+                "매일",
+                "학교에서",
+                "가요"
+              ],
+              "answer": 3,
+              "fix": "학교에",
+              "en": "I go to school every day.",
+              "why": {
+                "en": "Going to a place takes 에 (destination), not 에서 (where an action happens).",
+                "ko": "가는 곳(도착점)에는 에를 써요. 에서는 행동이 일어나는 곳이에요."
+              }
             },
             {
-              "q": "친구에 편지를 썼어요. →",
-              "a": "친구에게 편지를 썼어요. / 친구한테 편지를 썼어요."
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Match the context",
-            "ko": "맥락 맞추기"
-          },
-          "hint": "Write the particle that fits the context.",
-          "items": [
-            {
-              "q": "You say where an action happens. 에 or 에서? →",
-              "a": "에서"
+              "segs": [
+                "어제",
+                "친구에",
+                "편지를",
+                "썼어요"
+              ],
+              "answer": 2,
+              "fix": "친구에게",
+              "en": "I wrote a letter to a friend yesterday.",
+              "why": {
+                "en": "People take 에게/한테, not 에.",
+                "ko": "사람에게는 에게/한테를 써요. 에는 사람에게 쓰지 않아요."
+              }
             },
             {
-              "q": "You say where something simply exists. 에 or 에서? →",
-              "a": "에"
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Say it in Korean",
-            "ko": "한국어로 쓰기"
-          },
-          "hint": "Write one sentence. Model answers are in the Answer Key.",
-          "items": [
-            {
-              "q": "I go to the library at nine.",
-              "a": "저는 아홉 시에 도서관에 가요."
+              "segs": [
+                "우리는",
+                "매일",
+                "도서관에",
+                "공부해요"
+              ],
+              "answer": 3,
+              "fix": "도서관에서",
+              "en": "We study at the library every day.",
+              "why": {
+                "en": "Studying is an action in a place: 도서관에서.",
+                "ko": "공부는 도서관 안에서 하는 행동이라 「도서관에서」예요."
+              }
             },
             {
-              "q": "I called my mother from the office.",
-              "a": "회사에서 어머니께 전화했어요."
+              "segs": [
+                "매주",
+                "월요일에서",
+                "금요일까지",
+                "일해요"
+              ],
+              "answer": 2,
+              "fix": "월요일부터",
+              "en": "I work from Monday to Friday every week.",
+              "why": {
+                "en": "A starting time takes 부터. 에서 marks a starting place.",
+                "ko": "시간이 시작할 때는 부터를 써요. 에서는 장소가 시작할 때 써요."
+              }
             }
           ]
         },
@@ -5604,78 +5742,149 @@
       },
       "sections": [
         {
-          "type": "practice",
+          "type": "pchoose",
+          "noIndex": true,
           "title": {
-            "en": "Choose one",
-            "ko": "고르기"
+            "en": "Choose the particle",
+            "ko": "알맞은 조사 고르기"
           },
-          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "친구___ 같이 점심을 먹었어요.  (a) 도  (b) 랑  (c) 만  (I had lunch together with a friend.)",
-              "a": "(b) 랑"
+              "q": "친구___ 같이 점심을 먹었어요.",
+              "en": "I had lunch with a friend.",
+              "opts": [
+                "도",
+                "랑",
+                "만",
+                "밖에"
+              ],
+              "answer": 2
             },
             {
-              "q": "저는 커피___ 마셔요. 다른 건 안 마셔요.  (a) 만  (b) 도  (c) 밖에  (I only drink coffee. I drink nothing else.)",
-              "a": "(a) 만"
+              "q": "저는 커피___ 마셔요. 다른 건 안 마셔요.",
+              "en": "I drink only coffee. I do not drink anything else.",
+              "opts": [
+                "만",
+                "도",
+                "밖에",
+                "까지"
+              ],
+              "answer": 1
             },
             {
-              "q": "지갑에 오천 원___ 없어요.  (a) 만  (b) 도  (c) 밖에  (I have only 5,000 won in my wallet. ▸ too little)",
-              "a": "(c) 밖에"
+              "q": "지갑에 오천 원___ 없어요.",
+              "en": "I have only five thousand won in my wallet.",
+              "opts": [
+                "만",
+                "도",
+                "밖에",
+                "이나"
+              ],
+              "answer": 3
+            },
+            {
+              "q": "저는 책도 좋아하고 영화___ 좋아해요.",
+              "en": "I like books, and I like movies too.",
+              "opts": [
+                "도",
+                "만",
+                "밖에",
+                "이나"
+              ],
+              "answer": 1
+            },
+            {
+              "q": "커피___ 차를 마실래요?",
+              "en": "Would you like coffee or tea?",
+              "opts": [
+                "와",
+                "나",
+                "도",
+                "밖에"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "숙제가 많아서 세 시간___ 했어요.",
+              "en": "There was so much homework that I worked on it for as long as three hours.",
+              "opts": [
+                "밖에",
+                "만",
+                "이나",
+                "와"
+              ],
+              "answer": 3
             }
           ]
         },
         {
-          "type": "practice",
+          "type": "pwrong",
+          "noIndex": true,
           "title": {
-            "en": "Spot the mistake",
-            "ko": "틀린 곳 고치기"
+            "en": "Which underlined part is wrong?",
+            "ko": "밑줄 친 곳 중 틀린 것은?"
           },
-          "hint": "One particle is wrong. Write the correct sentence.",
+          "hint": "Each sentence has one wrong underlined part. Choose its number.",
           "items": [
             {
-              "q": "천 원밖에 있어요. →",
-              "a": "천 원밖에 없어요."
+              "segs": [
+                "저는",
+                "빵밖에",
+                "먹었어요",
+                "오늘"
+              ],
+              "answer": 2,
+              "fix": "빵만",
+              "en": "I only ate bread today.",
+              "why": {
+                "en": "밖에 always needs a negative ending (안 먹었어요). For a positive sentence use 만.",
+                "ko": "밖에는 뒤에 부정이 와야 해요(안 먹었어요). 긍정이면 「빵만」이에요."
+              }
             },
             {
-              "q": "한 시간이나 잤어요. (I meant: I slept only one hour.) →",
-              "a": "한 시간밖에 못 잤어요. / 한 시간만 잤어요."
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Match the context",
-            "ko": "맥락 맞추기"
-          },
-          "hint": "Write the particle that fits the context.",
-          "items": [
-            {
-              "q": "You offer a choice between two drinks. (이)나 or 도? →",
-              "a": "(이)나"
+              "segs": [
+                "저는",
+                "언니이랑",
+                "같이",
+                "영화를 봤어요"
+              ],
+              "answer": 2,
+              "fix": "언니랑",
+              "en": "I watched a movie with my older sister.",
+              "why": {
+                "en": "언니 ends in a vowel, so 랑 (not 이랑): 언니랑.",
+                "ko": "언니는 받침이 없어서 「랑」을 써요: 언니랑."
+              }
             },
             {
-              "q": "You add one more person: “me too”. 도 or 만? →",
-              "a": "도"
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Say it in Korean",
-            "ko": "한국어로 쓰기"
-          },
-          "hint": "Write one sentence. Model answers are in the Answer Key.",
-          "items": [
-            {
-              "q": "I eat only vegetables.",
-              "a": "저는 채소만 먹어요."
+              "segs": [
+                "책와",
+                "연필과",
+                "가방이",
+                "있어요"
+              ],
+              "answer": 1,
+              "fix": "책과",
+              "en": "There are a book, a pencil and a bag.",
+              "why": {
+                "en": "책 ends in a consonant, so 과 (not 와): 책과.",
+                "ko": "책은 받침이 있어서 「과」를 써요: 책과."
+              }
             },
             {
-              "q": "I went to the park with my sister.",
-              "a": "저는 언니랑 공원에 갔어요."
+              "segs": [
+                "오늘",
+                "커피이나",
+                "차를",
+                "마실래요"
+              ],
+              "answer": 2,
+              "fix": "커피나",
+              "en": "Shall we have coffee or tea today?",
+              "why": {
+                "en": "커피 ends in a vowel, so 나 (not 이나): 커피나.",
+                "ko": "커피는 받침이 없어서 「나」를 써요: 커피나."
+              }
             }
           ]
         },
@@ -5701,78 +5910,149 @@
       },
       "sections": [
         {
-          "type": "practice",
+          "type": "pchoose",
+          "noIndex": true,
           "title": {
-            "en": "Choose one",
-            "ko": "고르기"
+            "en": "Choose the particle",
+            "ko": "알맞은 조사 고르기"
           },
-          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "저는 지하철___ 회사에 가요.  (a) 에  (b) 로  (c) 를  (I go to work by subway.)",
-              "a": "(b) 로"
+              "q": "저는 지하철___ 회사에 가요.",
+              "en": "I go to work by subway.",
+              "opts": [
+                "에",
+                "로",
+                "를",
+                "보다"
+              ],
+              "answer": 2
             },
             {
-              "q": "오늘은 어제___ 더 추워요.  (a) 보다  (b) 처럼  (c) 마다  (Today is colder than yesterday.)",
-              "a": "(a) 보다"
+              "q": "오늘은 어제___ 더 추워요.",
+              "en": "Today is colder than yesterday.",
+              "opts": [
+                "보다",
+                "처럼",
+                "마다",
+                "쯤"
+              ],
+              "answer": 1
             },
             {
-              "q": "그 아이는 천사___ 착해요.  (a) 마다  (b) 쯤  (c) 처럼  (That child is as kind as an angel.)",
-              "a": "(c) 처럼"
+              "q": "그 아이는 천사___ 착해요.",
+              "en": "That child is as kind as an angel.",
+              "opts": [
+                "마다",
+                "쯤",
+                "처럼",
+                "보다"
+              ],
+              "answer": 3
+            },
+            {
+              "q": "학교가 집에서 십 분___ 걸려요.",
+              "en": "It takes about ten minutes from home to school.",
+              "opts": [
+                "쯤",
+                "마다",
+                "처럼",
+                "으로"
+              ],
+              "answer": 1
+            },
+            {
+              "q": "일요일___ 교회에 가요.",
+              "en": "I go to church every Sunday.",
+              "opts": [
+                "쯤",
+                "마다",
+                "보다",
+                "로"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "이 가방은 가죽___ 만들었어요.",
+              "en": "This bag is made of leather.",
+              "opts": [
+                "으로",
+                "에",
+                "를",
+                "보다"
+              ],
+              "answer": 1
             }
           ]
         },
         {
-          "type": "practice",
+          "type": "pwrong",
+          "noIndex": true,
           "title": {
-            "en": "Spot the mistake",
-            "ko": "틀린 곳 고치기"
+            "en": "Which underlined part is wrong?",
+            "ko": "밑줄 친 곳 중 틀린 것은?"
           },
-          "hint": "One particle is wrong. Write the correct sentence.",
+          "hint": "Each sentence has one wrong underlined part. Choose its number.",
           "items": [
             {
-              "q": "한 시간마다 걸려요. (I meant: It takes about an hour.) →",
-              "a": "한 시간쯤 걸려요."
+              "segs": [
+                "집에서",
+                "학교까지",
+                "한 시간마다",
+                "걸려요"
+              ],
+              "answer": 3,
+              "fix": "한 시간쯤",
+              "en": "It takes about an hour from home to school.",
+              "why": {
+                "en": "'About an hour' uses 쯤. 마다 means 'every'.",
+                "ko": "대략의 양은 쯤이에요. 마다는 「~ 때마다」예요."
+              }
             },
             {
-              "q": "연필을 써요. (I meant: I write with a pencil.) →",
-              "a": "연필로 써요."
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Match the context",
-            "ko": "맥락 맞추기"
-          },
-          "hint": "Write the particle that fits the context.",
-          "items": [
-            {
-              "q": "Something happens every Sunday. 마다 or 쯤? →",
-              "a": "마다"
+              "segs": [
+                "저는",
+                "편지를",
+                "연필을",
+                "써요"
+              ],
+              "answer": 3,
+              "fix": "연필로",
+              "en": "I write a letter with a pencil.",
+              "why": {
+                "en": "A tool takes (으)로: 연필로 (with a pencil).",
+                "ko": "도구에는 (으)로를 써요: 연필로."
+              }
             },
             {
-              "q": "You give an approximate time: around ten o'clock. 쯤 or 보다? →",
-              "a": "쯤"
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Say it in Korean",
-            "ko": "한국어로 쓰기"
-          },
-          "hint": "Write one sentence. Model answers are in the Answer Key.",
-          "items": [
-            {
-              "q": "I go to school by bus every day.",
-              "a": "저는 날마다 버스로 학교에 가요."
+              "segs": [
+                "저는",
+                "버스으로",
+                "학교에",
+                "가요"
+              ],
+              "answer": 2,
+              "fix": "버스로",
+              "en": "I go to school by bus.",
+              "why": {
+                "en": "버스 ends in a vowel, so 로 (not 으로): 버스로.",
+                "ko": "버스는 받침이 없어서 「로」를 써요."
+              }
             },
             {
-              "q": "My bag is bigger than my friend's bag.",
-              "a": "제 가방이 친구 가방보다 커요."
+              "segs": [
+                "오늘은",
+                "어제처럼",
+                "더",
+                "추워요"
+              ],
+              "answer": 2,
+              "fix": "어제보다",
+              "en": "Today is colder than yesterday.",
+              "why": {
+                "en": "'Colder than' uses 보다 with 더: 어제보다 더 추워요.",
+                "ko": "「~보다 더」는 비교예요. 처럼은 「같게」예요."
+              }
             }
           ]
         },
@@ -5798,82 +6078,149 @@
       },
       "sections": [
         {
-          "type": "practice",
+          "type": "pchoose",
+          "noIndex": true,
           "title": {
-            "en": "Choose one",
-            "ko": "고르기"
+            "en": "Choose the particle",
+            "ko": "알맞은 조사 고르기"
           },
-          "hint": "Pick the best option. The English line gives the meaning.",
           "items": [
             {
-              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.  (a) 가  (b) 는  (c) 를  (Who is the student? I am.)",
-              "a": "(a) 가"
+              "q": "A: 누가 학생이에요? B: 제___ 학생이에요.",
+              "en": "Who is the student? I am.",
+              "opts": [
+                "가",
+                "는",
+                "를",
+                "도"
+              ],
+              "answer": 1
             },
             {
-              "q": "저는 도서관___ 책을 읽어요.  (a) 에  (b) 에서  (c) 로  (I read books at the library. ▸ action place)",
-              "a": "(b) 에서"
+              "q": "저는 도서관___ 책을 읽어요.",
+              "en": "I read books at the library.",
+              "opts": [
+                "에",
+                "에서",
+                "로",
+                "에게"
+              ],
+              "answer": 2
             },
             {
-              "q": "회사___ 이메일을 보냈어요.  (a) 한테  (b) 에게  (c) 에  (I sent an email to the company. ▸ organization)",
-              "a": "(c) 에"
+              "q": "회사___ 이메일을 보냈어요.",
+              "en": "I sent an email to the company.",
+              "opts": [
+                "한테",
+                "에게",
+                "에",
+                "에서"
+              ],
+              "answer": 3
             },
             {
-              "q": "택시___ 갔어요.  (a) 에  (b) 로  (c) 에서  (I went by taxi.)",
-              "a": "(b) 로"
+              "q": "택시___ 갔어요.",
+              "en": "I went by taxi.",
+              "opts": [
+                "에",
+                "로",
+                "에서",
+                "를"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "이 책은 재미있지만 저 책___ 재미없어요.",
+              "en": "This book is fun, but that book is not. ▸ contrast",
+              "opts": [
+                "가",
+                "은",
+                "를",
+                "도"
+              ],
+              "answer": 2
+            },
+            {
+              "q": "월요일___ 금요일까지 일해요.",
+              "en": "I work from Monday to Friday.",
+              "opts": [
+                "에서",
+                "부터",
+                "에게",
+                "로"
+              ],
+              "answer": 2
             }
           ]
         },
         {
-          "type": "practice",
+          "type": "pwrong",
+          "noIndex": true,
           "title": {
-            "en": "Spot the mistake",
-            "ko": "틀린 곳 고치기"
+            "en": "Which underlined part is wrong?",
+            "ko": "밑줄 친 곳 중 틀린 것은?"
           },
-          "hint": "One particle is wrong. Write the correct sentence.",
+          "hint": "Each sentence has one wrong underlined part. Choose its number.",
           "items": [
             {
-              "q": "저는 서울로 살아요. (I meant: I live in Seoul.) →",
-              "a": "저는 서울에 살아요. / 저는 서울에서 살아요."
+              "segs": [
+                "저는",
+                "지금",
+                "서울로",
+                "살아요"
+              ],
+              "answer": 3,
+              "fix": "서울에",
+              "en": "I live in Seoul now.",
+              "why": {
+                "en": "Where you live takes 에: 서울에 살아요. 로 shows direction or tool.",
+                "ko": "사는 곳에는 에를 써요. 로는 방향이나 도구예요."
+              }
             },
             {
-              "q": "월요일에서 금요일까지 일해요. (I meant: from Monday to Friday.) →",
-              "a": "월요일부터 금요일까지 일해요."
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Match the context",
-            "ko": "맥락 맞추기"
-          },
-          "hint": "Write the particle that fits the context.",
-          "items": [
-            {
-              "q": "커피나 차를 마셔요 / 커피도 차도 마셔요. Which one means “both”? →",
-              "a": "커피도 차도 마셔요 (도 … 도 = both)"
+              "segs": [
+                "친구는",
+                "회사에게",
+                "전화했어요",
+                "어제"
+              ],
+              "answer": 2,
+              "fix": "회사에",
+              "en": "My friend called the company yesterday.",
+              "why": {
+                "en": "A company is a place, not a person: 회사에 (not 에게).",
+                "ko": "회사는 사람이 아니라 장소예요. 「회사에」가 맞아요."
+              }
             },
             {
-              "q": "People and animals get 에게/한테. A company or a place gets what? →",
-              "a": "에"
-            }
-          ]
-        },
-        {
-          "type": "practice",
-          "title": {
-            "en": "Say it in Korean",
-            "ko": "한국어로 쓰기"
-          },
-          "hint": "Write one sentence. Model answers are in the Answer Key.",
-          "items": [
-            {
-              "q": "I study at home, but I sleep at a hotel.",
-              "a": "저는 집에서 공부하지만 호텔에서 자요."
+              "segs": [
+                "서울에서",
+                "부산까지",
+                "기차를",
+                "갔어요"
+              ],
+              "answer": 3,
+              "fix": "기차로",
+              "en": "I went from Seoul to Busan by train.",
+              "why": {
+                "en": "A means of transport takes (으)로: 기차로.",
+                "ko": "타고 가는 것(교통수단)에는 (으)로를 써요."
+              }
             },
             {
-              "q": "It takes ten minutes from my house to the station.",
-              "a": "우리 집에서 역까지 십 분 걸려요."
+              "segs": [
+                "이것은",
+                "제",
+                "친구가",
+                "가방이에요"
+              ],
+              "answer": 3,
+              "fix": "친구의",
+              "en": "This is my friend's bag.",
+              "why": {
+                "en": "Belonging takes 의: 제 친구의 가방.",
+                "ko": "「누구의 무엇」은 의를 써요."
+              }
             }
           ]
         },
