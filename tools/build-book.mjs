@@ -1194,7 +1194,14 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
-.bkb.pp .b{border-color:var(--pc,${ACC});background:color-mix(in srgb,var(--pc,${ACC}) 13%,#fff)}.bkb.pp .b .p{color:var(--pc,${ACC});font-weight:800}.bkb.pp .t{color:var(--pc,${ACC})}
+/* 레고 블록(운영자 2026-11-12 「코딩 스타일에 레고 결합 느낌으로」) — 위에 스터드 두 개 · 맞닿은 칸 · 조사 블록은 조사 색 */
+.pbk .bl,.cmp .bl{gap:3mm .7mm}.bg{gap:.7mm}.bg .pl,.bl>.pl{display:none}
+.bkb .b{position:relative;margin-top:1.5mm;background:#1F3A68;color:#fff;border:0;border-radius:1.2mm;box-shadow:inset 0 -.8mm 0 rgba(0,0,0,.3);font-family:'Pretendard Variable','Noto Sans KR',sans-serif}
+.bkb .b:before,.bkb .b:after{content:'';position:absolute;top:-1.2mm;width:22%;min-width:1.5mm;height:1.4mm;border-radius:.7mm .7mm 0 0;background:inherit}.bkb .b:before{left:16%}.bkb .b:after{right:16%}
+.bkb.pp .b{background:var(--pc,${ACC});color:#fff}.bkb.pp .b .p{color:#fff;font-weight:800;text-decoration:none;border:0}
+.bkb .b.e{background:transparent;box-shadow:none;border:.3mm dashed #9aa7bf;color:#9aa7bf}.bkb .b.e:before,.bkb .b.e:after{display:none}
+.bkb.wr .b{outline:.5mm solid #E11D48;outline-offset:.4mm}
+.bkb .t{font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;font-size:6.4pt;color:#4A5C86}.bkb .t:before{content:'// '}.bkb.pp .t{color:var(--pc,${ACC});font-weight:700}
 .dif .l1 .p{text-decoration-thickness:.35mm}.pcd .s u{font-weight:800}
 .sec>.note,.sec>div>.note{background:#EEF1F7;border:0;border-left:1mm solid #14264A;border-radius:0 2mm 2mm 0;padding:2mm 3.6mm 2.2mm;color:#1d1a17}
 .sec>.note:before{content:'// note';display:block;font:700 6.8pt 'DejaVu Sans Mono','Menlo',monospace;color:#4A5C86;margin-bottom:.8mm}
