@@ -117,7 +117,7 @@ const bkSecs = (id) => { const b = PBLK[id]; if (!b) return null;
   if (b.compare) return { replace: /^Side by side/, head: [
       { type: 'pcompare', noIndex: true, title: { en: 'Same sentence, two particles', ko: '한 문장 · 조사를 바꿔 나란히 보기' }, items: b.compare, rule: b.rule } ],
     tail: [
-      { type: 'pchoose', noIndex: true, title: { en: 'Which fits the situation?', ko: '상황을 보고 알맞은 말 고르기' }, items: b.situations.map((x) => ({ ctx: x.ctx, q: x.q, en: '', opts: x.opts, answer: x.answer, why: x.why })) },
+      /* 「상황을 보고 알맞은 말 고르기」는 학생에게 너무 어려워 뺐다(운영자 2026-11-12) */
       { type: 'pfill', noIndex: true, title: { en: 'Fill the particle blocks', ko: '비어 있는 블록에 조사를 쓰세요' }, items: b.fill2, pool: b.pool },
       { type: 'pchoose', noIndex: true, why: true, title: { en: 'Explain the difference', ko: '어떻게 다를까요?' }, items: [b.explain] } ] };
   if (b.fix) return { head: [], tail: [
