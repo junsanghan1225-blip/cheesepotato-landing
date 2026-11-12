@@ -9,6 +9,7 @@
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
 | 조사 워크북 미니 테스트 50문항 검수(채팅 표만, 브랜치 없음) | `antigravity-particles-minitest-task.md` + `particles-minitest-review-text.md` | — | 1 | 1 | 1 | 2026-11-12 표 도착 · 검토해 넣음(정답 ④ 0개 → 단원마다 ④ 배정, 시간말 뒤바뀜 · 복수 정답 · 비문 고침). 안 받은 것: mt-6 고르기 1번 「제가」 그대로 |
+| 조사 워크북 새 구성 검수(미니 테스트 2~4 · 최종 시험 30 · 종합 연습 1~3, 채팅 표만) | `antigravity-particles-minitest-task.md` 2차 + `particles-minitest-review-text-v2.md` | — | 1 | 0 | 0 | 2026-11-12 운영자에게 보냄 — 표가 오면 Claude 가 `docs/books/particles-workbook.json` 고침 |
 | KDP 이야기 책 영어 번역 다듬기(40편, 영어만) | `antigravity-kdp-polish-task.md` | `ag/kdp-polish-N` | 4 | 4 | 4 | 2026-10-28 4묶음 모두 검토해 넣음 — ePub 다시 만듦 |
 | KDP 이야기 책 2권 새 이야기(A2~B1, 40편) | `antigravity-kdp-stories2-task.md` | `ag/kdp-stories2-N` | 4 | 1 | 1 | 2026-10-29 1묶음(1~10번) 검토해 넣음(고친 것: 1번 \"wrapped\" 군더더기). 6번 팬케이크는 1권 19번과 주제가 비슷 — 다음 묶음 때 겹침 주의. 다음은 11~20번 |
 | KDP 전용 새 책 1 「Korean Short Stories for Beginners」 이야기(40편) | `antigravity-kdp-stories-task.md` | `ag/kdp-stories-N` | 4 | 4 | 4 | 2026-10-28 **40편 모두 넣음**(31~40 은 280~300자, 검사 이상 없음). 다음: 영어 번역 다듬기 · `tools/build-kdp-original.mjs`(ePub) |
