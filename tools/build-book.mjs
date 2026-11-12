@@ -309,7 +309,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { strokes: '참고', pcards: '참고', psplit: '참고', pcompare: '구분', pchoose: '연습', pfix: '연습', pfill: '연습', selfcheck: '점검', omr: '답안지', flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', dialog: '대화', faces: '점검', family: '핵심 정리', clock: '연습', pricetags: '연습', calendar: '연습', roommap: '연습', menu: '연습', timeline: '연습', scenes: '연습', namecard: '연습', cards: '핵심 정리', chart: '핵심 정리', principle: '핵심 정리', weeks: '핵심 정리', habits: '핵심 정리', keyexp: '핵심 표현', idiomkey: '중요 표현', illus: '연습', dlgfill: '연습', blocks: '연습', wordorder: '연습', matchlines: '연습', distscene: '연습', weekplan: '연습', bodymap: '연습', exceptions: '핵심 정리', picwords: '연습', receipt: '연습', forecast: '연습', streetmap: '연습', mcq: '문제', omr: '답안지' };
+const LAB = { strokes: '참고', pcards: '참고', psplit: '참고', pcompare: '구분', pchoose: '연습', pwrong: '연습', pfix: '연습', pfill: '연습', selfcheck: '점검', omr: '답안지', flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', dialog: '대화', faces: '점검', family: '핵심 정리', clock: '연습', pricetags: '연습', calendar: '연습', roommap: '연습', menu: '연습', timeline: '연습', scenes: '연습', namecard: '연습', cards: '핵심 정리', chart: '핵심 정리', principle: '핵심 정리', weeks: '핵심 정리', habits: '핵심 정리', keyexp: '핵심 표현', idiomkey: '중요 표현', illus: '연습', dlgfill: '연습', blocks: '연습', wordorder: '연습', matchlines: '연습', distscene: '연습', weekplan: '연습', bodymap: '연습', exceptions: '핵심 정리', picwords: '연습', receipt: '연습', forecast: '연습', streetmap: '연습', mcq: '문제', omr: '답안지' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -344,7 +344,7 @@ const krForms = (stem) => {
 };
 const cheeseIc = (on) => `<span class="ic2 ic2c${on ? '' : ' off'}">${cheeseLevel(2).icon.replace('viewBox="0 0 96 96"', 'viewBox="15 27 66 48" preserveAspectRatio="xMidYMid meet"')}</span>`;   // 그림 둘레 빈 칸을 잘라 크게
 const potatoIc = (on) => `<span class="ic2 ic2p${on ? '' : ' off'}">${potatoLevel(3).icon.replace('viewBox="0 0 96 96"', 'viewBox="23 20 50 72" preserveAspectRatio="xMidYMid meet"')}</span>`;
-const secLabel = (s, lab) => `<h3>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' ? ' class="ce"' : ''}>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 /* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
 const tagHtml = (arr) => arr.map((t) => `<span class="tg">${esc(t.trim())}</span>`).join('');
@@ -427,7 +427,9 @@ const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-/.test(u.id);
 /* 책 ↔ 앱 점검 칸 — 단원 끝에 「책에서 풀기 → 단원 처음 QR 로 앱 점검 → 점수 적기 → 복습 날짜」 흐름을 한눈에(운영자 2026-10-24 「책을 하면서 앱까지 같이」). 보너스 연습이 있는 단원에만 붙는다. */
 const appCheck = (u) => KDP || YES24 || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
-const selfCheck = (u) => !isStudyUnit(u) ? '' : `<div class="sc"><h4>My check · 나의 점검</h4>
+/* 한 줄판(운영자 2026-11-12 「간격 줄이기」) — 책 틀 splitSections 책은 점검 칸을 한 줄 높이로 줄여, 단원 맨 끝에서 칸만 새 쪽으로 넘어가 빈 쪽이 되는 일을 막는다 */
+const NOCHK = new Set(), TIGHT = {};   // 점검 칸이 새 쪽으로 넘어가 빈 쪽이 되는 단원(2차 측정에서 채움 — 아래 쪽수 세기 반복문)
+const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>My check · 나의 점검</h4><b>내 규칙</b> <span class="tl"></span> <b>자신</b> ${cb} 아직 ${cb} 거의 ${cb} 확실 <b>다시 보기</b> ${cb} 1일 ${cb} 3일 ${cb} 7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
 const studyMap = () => {
@@ -930,6 +932,7 @@ Object.assign(P, {
     if (s.type === 'pcompare') return `<div class="sec">${sr(si)}${secLabel(s)}${s.items.map((c, k) => `<div class="cmp"><div class="h"><span>${k + 1}. ${esc(c.title.ko)}</span><i>한 문장 · 조사만 바꾸기</i></div><div class="two" style="grid-template-columns:repeat(${c.sides.length},1fr)">${c.sides.map((sd, j) => `<div class="side"><div class="tg"><b>${'ABC'[j]}</b>${esc(sd.label)}</div><div class="row">${bkRow(sd.blocks)}</div><div class="mean"><span class="chip">${esc(sd.chip)}</span><br>${esc(sd.mean)}<small>${esc(sd.en)}</small></div></div>`).join('')}</div></div>`).join('')}${s.rule ? `<div class="rule2"><b>한 줄로 기억해요</b> &nbsp;${esc(s.rule.ko)}<small style="display:block;color:#777;font-size:7.8pt;margin-top:.6mm">${esc(s.rule.en)}</small></div>` : ''}</div>`;
     if (s.type === 'pchoose') return `<div class="sec">${sr(si)}${secLabel(s)}${s.items.map((q, k) => `<div class="pq${k === 0 ? ' f1' : ''}">${q.ctx ? `<div class="cx">${esc(q.ctx)}</div>` : ''}<div class="m"><b>${k + 1}.</b>${esc(q.q).replace(/_{3,}/g, '<span class="bl0"></span>')}</div>${q.en ? `<div class="e">${esc(q.en)}</div>` : ''}<div class="pcc${q.opts.some((o) => o.length > 13) ? ' lg' : ''}">${q.opts.map((o, j) => `<span><i>${'①②③④'[j]}</i>${esc(o)}</span>`).join('')}</div>${s.why ? '<div class="wy">왜? <span></span></div>' : ''}</div>`).join('')}</div>`;
     if (s.type === 'pfix') return `<div class="sec">${sr(si)}${secLabel(s)}${s.items.map((q, k) => `<div class="pbk${k === 0 ? ' f1' : ''}"><b class="n">${k + 1}</b><div>${bkRow(q.blocks, '<span class="fx">→ 고친 조사 <i></i></span>')}<div class="en">${esc(q.en)}</div></div></div>`).join('')}</div>`;
+    if (s.type === 'pwrong') return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}${s.items.map((q, k) => `<div class="pq pw${k === 0 ? ' f1' : ''}"><div class="m"><b>${k + 1}.</b>${q.segs.map((g, j) => `<span class="pu"><i>${'①②③④'[j]}</i><u>${esc(g)}</u></span>`).join(' ')}</div>${q.en ? `<div class="e">${esc(q.en)}</div>` : ''}<div class="pwa">정답 · Answer <span></span></div></div>`).join('')}</div>`;
     if (s.type === 'pfill') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="pool"><em>보기 · Choices</em>${s.pool.map((o) => `<b>${esc(o)}</b>`).join('')}</div>${s.items.map((q, k) => `<div class="pbk${k === 0 ? ' f1' : ''}"><b class="n">${k + 1}</b><div>${bkRow(q.blocks)}<div class="en">${esc(q.en)}</div></div></div>`).join('')}</div>`;
     if (s.type === 'flow') return `<div class="sec">${sr(si)}${secLabel(s)}<div class="flow">${s.steps.map((st) => `<div class="fs${st.blank ? ' bl' : ''}"><b>${esc(st.ko)}</b><span>${esc(st.en)}</span></div>`).join('<i class="ar">→</i>')}</div></div>`;
     if (s.type === 'example') return `<div class="sec">${sr(si)}${secLabel(s)}${exampleHtml(s)}</div>`;
@@ -971,6 +974,7 @@ function answersBlock() {
       h += `<div class="set a"><b>Checkup</b> ${s.match.answer.map((a, i) => `${i + 1}) ${a}`).join(' &nbsp;·&nbsp; ')} &nbsp;|&nbsp; ${s.cloze.items.map((x, i) => `${s.match.words.length + i + 1}) ${esc(x.a)}`).join(' &nbsp;·&nbsp; ')}</div>`;
     }
     for (const s of u.sections.filter((x) => x.type === 'pchoose')) h += `<div class="set a"><b>Choose the particle</b> ${s.items.map((x, i) => `${i + 1}) ${'①②③④'[x.answer - 1]} ${esc(x.opts[x.answer - 1])}`).join(' &nbsp;·&nbsp; ')}</div>`;
+    for (const s of u.sections.filter((x) => x.type === 'pwrong')) h += `<div class="set a"><b>Which underlined part is wrong?</b> ${s.items.map((x, i) => `${i + 1}) ${'①②③④'[x.answer - 1]} ${esc(x.segs[x.answer - 1])} → ${esc(x.fix)}`).join(' &nbsp;·&nbsp; ')}</div><div class="set a"><b>Why · 왜?</b> ${s.items.map((x, i) => `${i + 1}) ${esc(x.why.en)} ${esc(x.why.ko)}`).join(' &nbsp;·&nbsp; ')}</div>`;
     for (const s of u.sections.filter((x) => x.type === 'pfix')) h += `<div class="set a"><b>Find the wrong particle</b> ${s.items.map((x, i) => `${i + 1}) ${esc(x.blocks.find((b) => b.wrong).right)}`).join(' &nbsp;·&nbsp; ')}</div>`;
     for (const s of u.sections.filter((x) => x.type === 'pfill')) h += `<div class="set a"><b>Fill the particle block</b> ${s.items.map((x, i) => `${i + 1}) ${x.blocks.filter((b) => b.blank).map((b) => esc(b.p)).join(' · ')}`).join(' &nbsp;·&nbsp; ')}</div>`;
     for (const s of u.sections.filter((x) => x.type === 'practice')) {
@@ -1142,7 +1146,17 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .pr li{border-bottom:0;min-height:8.4mm}.pr li:before{content:counter(q) '.';border:0;border-radius:0;background:transparent;color:${ACC};width:6mm;height:auto;font-size:9pt;font-weight:800;justify-content:flex-start;margin:0}
 .pr li{display:grid;grid-template-columns:6mm var(--qw,48%) 1fr;column-gap:3mm;align-items:end;padding:1mm 0}.pr li.fill{grid-template-columns:6mm 1fr}.pr li.fill .ln{display:none}
 .sc{margin-top:5mm;padding:2.6mm 3.4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT};break-inside:avoid}.sc h4{display:block;background:none;border:0;padding:0;font-size:9pt;color:${ACC};letter-spacing:.04em;margin:0 0 1.5mm;font-weight:800}.sc .r b{display:block;font-size:8.4pt;margin-bottom:.6mm}.sc .tl{display:block;height:6.4mm;border-bottom:.25mm solid #9aa7bf}.sc .r2{margin-top:2mm;font-size:8pt;line-height:1.9}.sc .r2 span{display:block}.sc .r2 b{margin-right:1.5mm}
-${B.splitSections ? '.sc{margin-top:3mm;padding:2mm 3.4mm}.sc .tl{height:5mm}.sc .r2{margin-top:1.4mm;line-height:1.7}' : ''}
+${B.splitSections ? '.open .tl{height:6mm}.sec{margin-bottom:4.2mm}.sc{margin-top:1.4mm;padding:1.1mm 3mm}.sc h4{margin:0 0 .8mm}.sc .tl{height:3.6mm}.sc .r b{margin-bottom:.2mm}.sc .r2{margin-top:.8mm;line-height:1.45}.scx{display:block;padding:1mm 3mm;font-size:6.8pt;line-height:1.7;white-space:nowrap;break-inside:auto}.scx h4{display:inline;margin:0 3mm 0 0}.scx b{font-weight:800;margin-left:1.6mm}.scx .tl{display:inline-block;width:24mm;height:3.4mm;vertical-align:bottom;border-bottom:.3mm solid ${ACC}}' : ''}
+/* 틀린 곳 고르기 문항(pwrong) — 밑줄 친 곳마다 ① ② ③ ④ (운영자 2026-11-12 「미니 테스트는 문제처럼 고르게」) */
+.pw .m{display:flex;flex-wrap:wrap;gap:1.6mm 3.6mm;align-items:baseline;font-size:10.5pt;font-weight:500}.pw .m b{flex:0 0 auto}
+.pw .pu{display:inline-flex;align-items:baseline;gap:.9mm}.pw .pu i{font-style:normal;font-size:8pt;color:${ACC};font-weight:800}.pw .pu u{text-decoration:none;border-bottom:.45mm solid ${ACC};padding:0 .7mm .5mm}
+.pwa{margin-top:1.6mm;font-size:8pt;color:#6b7280;font-weight:700}.pwa span{display:inline-block;width:10mm;border-bottom:.35mm solid #222;margin-left:2mm}
+${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩하는 느낌」) — 연습 칸의 제목줄을 편집기 위 막대처럼: 세 점 · 짙은 남색 바탕. 힌트는 // 주석처럼, 번호는 줄 번호처럼 */
+.sec>h3.ce{background-color:#1F3A68;background-image:radial-gradient(circle at 4.2mm 50%,#FF6B5B 0,#FF6B5B .9mm,transparent 1mm),radial-gradient(circle at 7mm 50%,#FFC83D 0,#FFC83D .9mm,transparent 1mm),radial-gradient(circle at 9.8mm 50%,#38C172 0,#38C172 .9mm,transparent 1mm);color:#fff;padding:1.5mm 3mm 1.5mm 13mm;margin:0 0 2.6mm;border-radius:1.8mm}
+.sec>h3.ce:before{display:none}
+.sec>h3.ce small{color:#c9d3ea}.sec>h3.ce .lab{background:rgba(255,255,255,.16);border-color:transparent;color:#fff}
+.sec>.hint{font-family:'DejaVu Sans Mono','Menlo',monospace;font-size:7.8pt;color:#2F7A4F}.sec>.hint:before{content:'// '}
+.pq .m b,.pbk .n{font-family:'DejaVu Sans Mono','Menlo',monospace;background:#EEF1F7;color:#4A5C86;padding:.2mm 1.4mm;border-radius:1mm;font-size:8.4pt}` : ''}
 ${B.splitSections || B.keepHeads ? '.sec>.hint{break-after:avoid}.sec>h3+.hint+*{break-before:avoid}' : ''}
 .cb{display:inline-block;width:3.2mm;height:3.2mm;border:.3mm solid ${ACC};border-radius:.6mm;margin:0 .8mm 0 1.6mm;vertical-align:-.5mm;background:#fff}
 .sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
@@ -1219,6 +1233,23 @@ const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u =
   ...(B.selfStudy ? [['mlog', mistakeLog(2)]] : []), ...(STUDENT ? [] : [['answers', answersBlock()]]), ...(B.noIndex ? [] : [['index', indexBlock(entries)]]),
 ];
 const counts = {};
+/* 점검 칸 넘침 막기(운영자 2026-11-12 「간격 줄이기」) — 단원 맨 끝의 「나의 점검」 칸이 새 쪽으로 혼자 넘어가 빈 쪽이 되면, 그 단원만 간격을 한 단계씩 촘촘하게 해 칸이 앞쪽에 들어가게 한다(1단계 → 2단계 → 그래도 안 되면 칸을 뺀다) */
+const tightCss = (u, lv) => `<style>.blk.${unitCss(u)} .sec{margin-bottom:${lv > 1 ? 2.6 : 3.4}mm}.blk.${unitCss(u)} .pq{margin:${lv > 1 ? 1.5 : 2}mm 0}.blk.${unitCss(u)} .pbk{margin:${lv > 1 ? .7 : 1.1}mm 0}.blk.${unitCss(u)} .tl{height:${lv > 1 ? 4.6 : 5.4}mm}.blk.${unitCss(u)} .sc{margin-top:1mm}</style>`;
+if (B.splitSections) {
+  for (let bi = 0; bi < blocks.length; bi++) {
+    const m = /^unit(\d+)$/.exec(blocks[bi][0]); if (!m) continue;
+    const u = units.find((x) => x.no === +m[1]); if (!u || !isStudyUnit(u)) continue;
+    NOCHK.add(u.id); const nNo = countPages(await pdf(unitBlock(u))); NOCHK.delete(u.id);
+    let best = countPages(await pdf(blocks[bi][1])), bestLv = 0;
+    for (const lv of [1, 2]) {                       // 간격을 한 단계씩 촘촘하게 — 쪽이 줄어드는 가장 느슨한 단계를 고른다
+      if (best <= nNo) break;
+      TIGHT[u.id] = lv; const n = countPages(await pdf(tightCss(u, lv) + unitBlock(u)));
+      if (n < best) { best = n; bestLv = lv; }
+    }
+    if (best > nNo) { NOCHK.add(u.id); blocks[bi][1] = unitBlock(u); console.log(`  점검 칸 ${u.id}: 들어갈 자리가 없어 뺌(${nNo}쪽)`); continue; }
+    if (bestLv) { TIGHT[u.id] = bestLv; blocks[bi][1] = tightCss(u, bestLv) + unitBlock(u); console.log(`  점검 칸 ${u.id}: 간격 ${bestLv}단계 → ${best}쪽`); } else delete TIGHT[u.id];
+  }
+}
 for (const [k, html] of blocks) { counts[k] = countPages(await pdf(html)); if (process.env.BOOK_DEBUG) { console.log("  블록", k, counts[k]); if (k === "unit1") fs.writeFileSync("/tmp/blk-unit1.pdf", await pdf(html)); } }
 let total = Object.values(counts).reduce((a, b) => a + b, 0);
 const memoPages = (total + 1) % 2 === 0 ? 1 : 2;   // 메모 쪽은 1~2쪽 — 총 쪽수는 짝수(인쇄 · 제본)
@@ -1286,6 +1317,7 @@ if (REVIEW) {
       else if (x.type === 'psplit') x.rows.forEach((r, n) => md.push(`${n + 1}. ${r.ko} = ${r.blocks.map((b) => `[${b.t ?? '(' + b.p + ')'}:${b.role}]`).join(' ')}  (${r.en})`));
       else if (x.type === 'pchoose') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q} (${q.en})  ${q.opts.map((o, j) => `${j + 1}.${o}`).join(' ')}  →  **${q.answer}** ${q.why}`));
       else if (x.type === 'pcompare') x.items.forEach((c, n) => md.push(`${n + 1}. ${c.title.ko}: ${c.sides.map((sd) => `[${sd.label}] ${sd.ko} (${sd.chip})`).join(' / ')}`));
+      else if (x.type === 'pwrong') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.segs.map((g, j) => `${'①②③④'[j]} ${g}`).join(' ')} = ${'①②③④'[q.answer - 1]} → ${q.fix}`));
       else if (x.type === 'pfix') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.ko} = ${q.blocks.map((b) => `[${b.t ?? b.p}${b.wrong ? '✗→' + b.right : ''}]`).join(' ')}`));
       else if (x.type === 'pfill') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.ko} = ${q.blocks.map((b) => (b.blank ? '[___]' : `[${b.t ?? b.p}]`)).join(' ')} → **${q.blocks.find((b) => b.blank).p}**`));
       else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }

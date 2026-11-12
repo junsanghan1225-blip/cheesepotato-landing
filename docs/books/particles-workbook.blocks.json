@@ -2844,7 +2844,7 @@
     "q": "노래를 부르고 춤___ 춰요.",
     "en": "I sing and dance too.",
     "opts": [
-     "를",
+     "에",
      "도"
     ],
     "answer": 2,
@@ -3108,7 +3108,7 @@
     "opts": [
      "만",
      "도",
-     "를"
+     "에서"
     ],
     "answer": 1,
     "why": "Eating only vegetables exclusively takes 만."
@@ -3670,7 +3670,7 @@
     "en": "Shall we go hiking or something on the weekend?",
     "opts": [
      "이나",
-     "을",
+     "가",
      "에"
     ],
     "answer": 1,
@@ -4474,7 +4474,7 @@
     "en": "Around what time shall we meet? Let's meet around one.",
     "opts": [
      "쯤",
-     "에"
+     "를"
     ],
     "answer": 1,
     "why": "Asking or stating approximate time takes 쯤."
@@ -4495,7 +4495,7 @@
     "opts": [
      "쯤",
      "에",
-     "를"
+     "로"
     ],
     "answer": 1,
     "why": "Requesting an approximate quantity takes 쯤."
@@ -5655,11 +5655,11 @@
    "가"
   ],
   "explain": {
-   "q": "민수는 왔어요. / 민수가 왔어요. 두 문장은 어떻게 다를까요?",
-   "en": "Minsu came. How do the two sentences differ?",
+   "q": "「누가 왔어요?」라고 물었어요. 알맞은 대답은 어느 쪽일까요?",
+   "en": "Someone asks 「누가 왔어요?」 (Who came?). Which answer fits?",
    "opts": [
-    "는: 민수에 대해 말해요",
-    "가: 누가 왔는지 알려 줘요"
+    "민수는 왔어요.",
+    "민수가 왔어요."
    ],
    "answer": 2,
    "why": "가 answers who came; 는 talks about Minsu."
@@ -5928,11 +5928,11 @@
    "가"
   ],
   "explain": {
-   "q": "그 고양이는 작아요. / 그 고양이가 작아요. 두 문장은 맥락이 어떻게 다를까요?",
-   "en": "That cat is small. How do the two sentences differ in context?",
+   "q": "이미 이야기에 나온 고양이를 다시 말해요. 알맞은 문장은 어느 쪽일까요?",
+   "en": "You are talking again about a cat that was already mentioned. Which sentence fits?",
    "opts": [
-    "는: 이미 아는 고양이에 대해 말해요",
-    "가: 어느 고양이가 작은지 골라 줘요"
+    "그 고양이는 작아요.",
+    "그 고양이가 작아요."
    ],
    "answer": 1,
    "why": "은/는 discusses a known cat as the topic, whereas 이/가 picks out which cat is small."
@@ -7634,11 +7634,11 @@
    "q": "물만 있어요. / 물밖에 없어요. 두 문장의 문법적인 차이는 무엇일까요?",
    "en": "I only have water. What is the grammatical difference?",
    "opts": [
-    "만은 긍정 서술어와 쓰고, 밖에는 부정 서술어와 써요",
+    "밖에는 부정 서술어와만 쓰고, 만은 긍정 · 부정 모두 써요",
     "만은 사람에게만 쓰고, 밖에는 사물에만 써요"
    ],
    "answer": 1,
-   "why": "만 works with positive verbs like 있어요, while 밖에 requires negative words like 없어요."
+   "why": "밖에 requires a negative ending (물밖에 없어요), while 만 works with both positive and negative endings."
   }
  },
  "ct-na": {
