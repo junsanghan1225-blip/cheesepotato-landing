@@ -4040,7 +4040,7 @@
             "en": "Watch out",
             "ko": "조심할 것"
           },
-          "text": "매일 is one word and 날마다 is a particle. Both are natural."
+          "text": "매일 is one word, while 날마다 is 날 + the particle 마다. Both are natural."
         },
         {
           "type": "practice",
@@ -4493,7 +4493,7 @@
             "en": "Watch out",
             "ko": "조심할 것"
           },
-          "text": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 연필로 (연필 ends in ㄹ → 로).\nㄹ 받침은 로(지하철로 · 연필로), 그 밖의 받침은 으로(손으로 · 오른쪽으로)."
+          "text": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 오른쪽으로.\nㄹ 받침은 로(지하철로 · 연필로), 그 밖의 받침은 으로(손으로 · 오른쪽으로)."
         },
         {
           "type": "practice",
@@ -5074,7 +5074,7 @@
             },
             {
               "q": "친구___ 도서관___ 공부했어요. (with / at)",
-              "a": "랑 / 하고 · 에서"
+              "a": "랑 (하고) · 에서"
             },
             {
               "q": "아침 7시___ 일어나서 버스___ 학교에 가요. (time / by)",

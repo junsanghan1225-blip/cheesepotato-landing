@@ -272,7 +272,7 @@
     ]
    },
    "warn": {
-    "en": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 연필로 (연필 ends in ㄹ → 로).",
+    "en": "Words ending in ㄹ take 로: 지하철로, 서울로. All other consonants take 으로: 손으로, 오른쪽으로.",
     "ko": "ㄹ 받침은 로(지하철로 · 연필로), 그 밖의 받침은 으로(손으로 · 오른쪽으로)."
    },
    "items": [
