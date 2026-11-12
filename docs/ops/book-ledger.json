@@ -21,14 +21,14 @@
    "qa": "통과(주의 1)",
    "pages": 234,
    "date": "20261112",
-   "ver": 14,
+   "ver": 15,
    "last": {
-    "ver": 14,
+    "ver": 15,
     "date": "20261112",
     "pages": 234,
-    "sha256": "8862e7ea891decbd247ce23e09c7f77d46b34ec18bc1ba91d264cff0137e07ac",
-    "commit": "e6e316ab1e",
-    "file": "에브리코리안즈_예스24_한국어조사워크북_v14_20261112.zip"
+    "sha256": "064165fc2f57c696dfb3114e9be71622ca5f3efa22275fd1f01294cf73be56b9",
+    "commit": "ee18048935",
+    "file": "에브리코리안즈_예스24_한국어조사워크북_v15_20261112.zip"
    }
   },
   "topik2-writing-51-52": {

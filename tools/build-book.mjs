@@ -1194,6 +1194,10 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
+.gd .d b{font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;color:#1F3A68}.gd .d b:before{content:'// ';color:#4A8F6A}
+.gd .mini table{background:#14264A;color:#e9eefc;border-collapse:separate;border-spacing:0;border-radius:2mm;overflow:hidden;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace}
+.gd .mini th{background:transparent;color:#8fd0a5;border:0;font-size:7pt;padding:1.6mm 3mm .6mm}.gd .mini td{border:0;color:#e9eefc;padding:.9mm 3mm}.gd .mini tr:last-child td{padding-bottom:1.8mm}
+.gd .mini .pr .q{font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;background:#14264A;color:#e9eefc;border-radius:1.2mm;padding:.8mm 2.4mm}
 /* 레고 블록(운영자 2026-11-12 「코딩 스타일에 레고 결합 느낌으로」) — 위에 스터드 두 개 · 맞닿은 칸 · 조사 블록은 조사 색 */
 .pbk .bl,.cmp .bl{gap:3mm .7mm}.bg{gap:.7mm}.bg .pl,.bl>.pl{display:none}
 .bkb .b{position:relative;margin-top:1.5mm;background:#1F3A68;color:#fff;border:0;border-radius:1.2mm;box-shadow:inset 0 -.8mm 0 rgba(0,0,0,.3);font-family:'Pretendard Variable','Noto Sans KR',sans-serif}
