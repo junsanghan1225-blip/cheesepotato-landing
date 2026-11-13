@@ -169,6 +169,13 @@ main{max-width:none;padding:0 0 70px}.hd-in{max-width:1120px}.pg2 table{min-widt
 .pg2-bundle{margin-top:14px;padding:12px;border-radius:8px;background:var(--tint);font-size:14px}.pg2-bar{display:none}
 @media(max-width:900px){.pg2-hg{grid-template-columns:1fr}.pg2-hero .cv{max-width:180px;order:-1}.pg2-hero h1{font-size:29px}.pg2-lay{grid-template-columns:minmax(0,1fr);margin-top:-34px}.pg2-card{display:none}.pg2-main{padding:4px 16px 18px;border-radius:16px}.pg2-steps,.pg2-feat,.pg2-two{grid-template-columns:1fr}.pg2-pv,.pg2-more{grid-template-columns:repeat(2,1fr)}.pg2-prob .q{font-size:21px}.pg2 h2{font-size:21px}.pg2-spec th{width:110px}
 .pg2-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--surface);border-top:1px solid var(--line);padding:9px 14px;gap:10px;align-items:center}.pg2-bar b{font-size:20px;color:var(--ink)}.pg2-bar .btn{flex:1;padding:11px}}
+
+.pg2-det{border-top:1px solid #d9d5ca;padding-top:34px}.pg2-det .dn{display:inline-block;font:800 13px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;border:1.5px solid var(--ink);padding:6px 9px;border-radius:5px;margin-bottom:12px}.pg2-det h2 small,.drd small,.dex small,.dsp figcaption small{font-weight:500;color:var(--ink-3)}.dsub{margin:0 0 6px;font-size:16px;line-height:1.7}.dsub.ko{color:var(--ink-3);font-size:14px;margin-bottom:16px}
+.dch{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}.dch span{color:#fff;font-weight:800;font-size:15px;padding:6px 14px;border-radius:5px}
+.dsp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0}.dsp figure{margin:0;min-width:0}.dsp figcaption{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;margin-bottom:8px;line-height:1.3}.dsp figcaption i{font-style:normal;flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font:800 12px/28px ui-monospace,monospace;text-align:center}.dsp img{display:block;width:100%;height:auto;border:1px solid #d9d5ca;border-radius:8px;background:#fff}
+.drd{list-style:none;margin:10px 0 0;padding:0;border-top:1px solid var(--ink)}.drd li{display:grid;grid-template-columns:170px 1fr;gap:4px 14px;padding:12px 2px;border-bottom:1px solid #d9d5ca;font-size:14px}.drd li b{font-size:15px}.drd li em{grid-column:2;font-style:normal;color:var(--c2,#c0501c);font-weight:800;font-size:12px}
+.dex{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}.dex div{border:1px solid #d9d5ca;border-radius:8px;padding:14px;font-size:14px}.dex b{display:block;font-size:15px;margin-bottom:4px}.dex p{margin:0 0 4px;line-height:1.55}.dex p.ko{color:var(--ink-3);font-size:13px}
+@media(max-width:640px){.dsp,.dex{grid-template-columns:1fr}.drd li{grid-template-columns:1fr}.drd li em{grid-column:1}}
 </style>\n`;
 
 
@@ -221,6 +228,14 @@ function bookPage(k) {
   const notify = !on ? `<div class="lead-box" id="notify" style="margin:18px 0 0"><b>Tell me when it is out · 나오면 알려 주세요</b><p>Leave your email and we will write to you once when this book is available.</p><form data-lead="notify-${esc(k.id)}" novalidate><div class="lead-row"><input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email" required><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="lead-hp"><input type="checkbox" name="tips" checked hidden><button class="btn main" type="submit">Notify me</button></div><p class="lead-msg" role="status" aria-live="polite"></p></form></div>` : '';
   const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: k.title.en, description: k.sub.en, sku: k.id, ...(k.coverImg ? { image: `https://everykoreans.com${k.coverImg}` } : {}), brand: { '@type': 'Brand', name: pub.en }, ...(isbn ? { isbn } : {}), ...(on ? { offers: { '@type': 'Offer', price: k.price, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `https://everykoreans.com${base}` } } : {}) })}</script>\n`;
 const proBox = (id, where) => `<div class="pg2-pro"><span class="ph">PRO · 연간 구독</span><b>Free with CheesePotato Pro (Yearly) · Pro 연간이면 무료</b><p>Subscribe to Pro Yearly ($39 a year) and download this book, and every other PDF book in the shop, at no extra cost, for as long as your subscription is active.</p><p style="color:var(--ink-3)">Pro 연간 구독($39/년) 중에는 이 책을 포함한 상점의 모든 PDF 책을 추가 비용 없이 받을 수 있어요.</p><small>Monthly Pro and the exam pass do not include books · 월간 Pro · 시험 패스에는 책이 포함되지 않아요.</small><a class="go" href="/#pro" data-ev="Pro클릭" data-ev-from="책쪽-${where}">See Pro Yearly · Pro 연간 보기 →</a></div>`;
+  /* 책 쪽 「이 책은 이렇게」 구간(운영자 2026-11-13 「메인사이트도 상세페이지처럼 · 일단 조사 워크북만」) — shop.json page.detail 이 있는 책만. 번호 · 큰 제목 · 책 화면 한 쌍(번호 라벨) · 색 칩 · 차례 */
+  const dsec = (g.detail || []).map((d) => {
+    const imgs = d.images ? `<div class="dsp">${d.images.map(([n, c], i) => `<figure><figcaption><i>${String(i + 1).padStart(2, '0')}</i>${esc(c.en)} <small>· ${esc(c.ko)}</small></figcaption><img src="/assets/books/${esc(k.id)}/detail/${esc(n)}.jpg" alt="${esc(c.en)}" loading="lazy" width="820" height="${n === 'plan' ? 575 : 880}"></figure>`).join('')}</div>` : '';
+    const chips = d.chips ? `<div class="dch">${d.chips.map(([t, c]) => `<span style="background:${esc(c)}">${esc(t)}</span>`).join('')}</div>` : '';
+    const road = d.road ? `<ol class="drd">${d.road.map(([a, b, c, e]) => `<li><b>${esc(a)} <small>· ${esc(b)}</small></b><span>${esc(c)}</span>${e ? `<em>${esc(e)}</em>` : ''}</li>`).join('')}</ol>` : '';
+    const ex = d.extras ? `<div class="dex">${d.extras.map(([t, x]) => `<div><b>${esc(t.en)} <small>· ${esc(t.ko)}</small></b><p>${esc(x.en)}</p><p class="ko">${esc(x.ko)}</p></div>`).join('')}</div>` : '';
+    return `<section class="pg2-sec pg2-det"><span class="dn">${esc(d.no)}</span><h2>${esc(d.h.en)} <small>· ${esc(d.h.ko)}</small></h2>${d.sub ? `<p class="dsub">${esc(d.sub.en)}</p><p class="dsub ko">${esc(d.sub.ko)}</p>` : ''}${chips}${imgs}${road}${ex}</section>`;
+  }).join('');
   const head2 = `${BOOK_CSS}<style>.pg2{--c1:${c1};--c2:${c2}}</style>\n${SHOP_CSS}${ld}`;
   const body = `<div class="pg2">
 <section class="pg2-hero"><div class="in"><div class="crumb"><a href="/shop/">Books</a> › ${esc(level)} › ${esc(k.title.en)}</div><div class="pg2-hg"><div>
@@ -231,6 +246,7 @@ const proBox = (id, where) => `<div class="pg2-pro"><span class="ph">PRO · 연�
 <div class="in"><div class="pg2-lay"><main class="pg2-main">
 ${notify}
 <section class="pg2-sec pg2-prob"><p>${esc(g.lead?.en || k.about.en)}</p><p class="ko">${esc(g.lead?.ko || k.about.ko)}</p></section>
+${dsec}
 ${pvN ? `<section class="pg2-sec" id="preview"><h2>Look inside · 미리보기</h2><p style="color:var(--ink-3);margin:-6px 0 12px">${esc(g.previewNote.en)} <small>· ${esc(g.previewNote.ko)}</small></p><div class="pg2-pv">${pv}</div>${lb}</section>` : ''}
 ${k.sample ? `<section class="pg2-sec">${sampleBox(k)}</section>` : ''}
 ${on ? `<section class="pg2-sec pg2-prom">${proBox(k.id, 'main')}</section>` : ''}

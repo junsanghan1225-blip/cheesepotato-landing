@@ -98,7 +98,7 @@ for (const [uid, secs] of Object.entries(THINK)) {
   secs.forEach((x, n) => {
     const w = `think ${uid}[${n}]`;
     if (x.type !== 'practice' || !x.title?.en || !x.title?.ko) throw new Error(`${w}: type practice · title.en/ko`);
-    if (!Array.isArray(x.items) || x.items.length < 3 || x.items.length > 8) throw new Error(`${w}: 문제 3~8개`);
+    if (!Array.isArray(x.items) || x.items.length < 2 || x.items.length > 8) throw new Error(`${w}: 문제 2~8개`);
     x.items.forEach((q, k) => { if (typeof q.q !== 'string' || typeof q.a !== 'string' || !q.q.trim() || !q.a.trim()) throw new Error(`${w} 문제 ${k + 1}: q · a 문자열`); if (/—/.test(JSON.stringify(q) + JSON.stringify(x.title) + (x.hint || ''))) throw new Error(`${w}: 줄표(—)는 쓰지 않는다`); });
   });
 }
@@ -117,9 +117,9 @@ const bkSecs = (id) => { const b = PBLK[id]; if (!b) return null;
   if (b.compare) return { replace: /^Side by side/, head: [
       { type: 'pcompare', noIndex: true, title: { en: 'Same sentence, two particles', ko: '한 문장 · 조사를 바꿔 나란히 보기' }, items: b.compare, rule: b.rule } ],
     tail: [
-      { type: 'pchoose', noIndex: true, title: { en: 'Which fits the situation?', ko: '상황을 보고 알맞은 말 고르기' }, items: b.situations.map((x) => ({ ctx: x.ctx, q: x.q, en: '', opts: x.opts, answer: x.answer, why: x.why })) },
+      /* 「상황을 보고 알맞은 말 고르기」는 학생에게 너무 어려워 뺐다(운영자 2026-11-12) */
       { type: 'pfill', noIndex: true, title: { en: 'Fill the particle blocks', ko: '비어 있는 블록에 조사를 쓰세요' }, items: b.fill2, pool: b.pool },
-      { type: 'pchoose', noIndex: true, why: true, title: { en: 'Explain the difference', ko: '어떻게 다를까요?' }, items: [b.explain] } ] };
+      /* 「어떻게 다를까요?」(어감 차이 설명)는 학생에게 너무 어려워 뺐다(운영자 2026-11-13) */ ] };
   if (b.fix) return { head: [], tail: [
       { type: 'pchoose', noIndex: true, title: { en: 'Trap round: choose', ko: '함정 라운드 · 고르기' }, items: b.choose },
       { type: 'pfix', noIndex: true, title: { en: 'Find the wrong particle', ko: '틀린 조사 블록을 찾아 고치세요' }, items: b.fix },
@@ -326,7 +326,7 @@ td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a82
 
 /* ── 블록 만들기 ── */
 const pair = (o, cls = '') => `<p class="en${cls}">${esc(o.en)}</p>`;
-const LAB = { strokes: '참고', pcards: '참고', psplit: '참고', pcompare: '구분', pchoose: '연습', pwrong: '연습', pshow: '참고', pfix: '연습', pfill: '연습', selfcheck: '점검', omr: '답안지', flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', dialog: '대화', faces: '점검', family: '핵심 정리', clock: '연습', pricetags: '연습', calendar: '연습', roommap: '연습', menu: '연습', timeline: '연습', scenes: '연습', namecard: '연습', cards: '핵심 정리', chart: '핵심 정리', principle: '핵심 정리', weeks: '핵심 정리', habits: '핵심 정리', keyexp: '핵심 표현', idiomkey: '중요 표현', illus: '연습', dlgfill: '연습', blocks: '연습', wordorder: '연습', matchlines: '연습', distscene: '연습', weekplan: '연습', bodymap: '연습', exceptions: '핵심 정리', picwords: '연습', receipt: '연습', forecast: '연습', streetmap: '연습', mcq: '문제', omr: '답안지' };
+const LAB = { strokes: '참고', pcards: '참고', psplit: '참고', pcompare: '구분', pchoose: '연습', pwrong: '연습', pshow: '참고', pmock: '참고', pplan: '참고', pfix: '연습', pfill: '연습', selfcheck: '점검', omr: '답안지', flow: '글의 틀', table: '핵심 정리', plan: '핵심 정리', vocab: '낱말', checkup: '점검', compare: '구분', text: '참고', practice: '연습', writing: '문제', example: '예시', dialog: '대화', faces: '점검', family: '핵심 정리', clock: '연습', pricetags: '연습', calendar: '연습', roommap: '연습', menu: '연습', timeline: '연습', scenes: '연습', namecard: '연습', cards: '핵심 정리', chart: '핵심 정리', principle: '핵심 정리', weeks: '핵심 정리', habits: '핵심 정리', keyexp: '핵심 표현', idiomkey: '중요 표현', illus: '연습', dlgfill: '연습', blocks: '연습', wordorder: '연습', matchlines: '연습', distscene: '연습', weekplan: '연습', bodymap: '연습', exceptions: '핵심 정리', picwords: '연습', receipt: '연습', forecast: '연습', streetmap: '연습', mcq: '문제', omr: '답안지' };
 /* 정석풍 블록 — 핵심 정리 · 참고 · 연습 + 팁(TIP) · 주의(WARNING) · 더 알아보기(MORE). 표 끝 설명과 글 칸이 어느 블록인지는 책 틀의 blocks(「단원id:칸번호」)에서 — 없으면 표 설명은 TIP, 글 칸은 참고. */
 const BLK = { tip: ['TIP', '팁'], warn: ['WARNING', '주의'], more: ['MORE', '더 알아보기'], pattern: ['PATTERN', '문형'] };
 const kindOf = (u, si, s) => (B.blocks || {})[`${u.id}:${si + 1}`] || (s.type === 'table' ? 'tip' : 'ref');
@@ -337,7 +337,13 @@ const legend = (kind) => `<div class="lg">${BIC[kind]}${BLK[kind][0]}<small>${BL
 const underlineHl = (text, hl) => { let h = esc(text); for (const w of hl || []) h = h.replace(esc(w), `<u class="hl">${esc(w)}</u>`); return h; };
 const patHtml = (rows) => `<div class="bx pattern">${legend('pattern')}<div class="pp">${rows.map((r) => `<div class="pt1"><div class="fl">${r.p.map(([t, k], i) => `${i ? '<i class="lk">+</i>' : ''}<span class="nd ${k === 's' ? 'sl' : 'fx'}">${esc(t)}</span>`).join('')}<span class="mn">→&nbsp; ${esc(r.en)}</span></div>${r.ex ? `<div class="eg"><b>e.g.</b> ${underlineHl(r.ex, r.hl)}${r.exEn ? ` <span>(${esc(r.exEn)})</span>` : ''}</div>` : ''}</div>`).join('')}</div></div>`;
 const blockHtml = (u, si, s, text) => { const k = kindOf(u, si, s); const pat = (B.patterns || {})[`${u.id}:${si + 1}`]; return k === 'pattern' && pat ? patHtml(pat) : boxHtml(k === 'pattern' ? 'tip' : k, text).replace('class="bx ', s.title && s.title.en === 'Form' ? 'class="bx fm ' : 'class="bx '); };
-const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${esc(text)}</div></div>`;
+/* 영어 · 한국어가 한 문단에 이어 붙은 글은 두 덩이로 나눠 경계선을 둔다(운영자 2026-11-13 「한국어랑 경계 조금 나눠줘」) */
+const enKo = (t) => { const x = String(t || ''); if (!B.splitSections || !/[가-힣]/.test(x) || !/[A-Za-z]{3}/.test(x)) return esc(x);
+  let i = x.indexOf('\n'); let a, b;
+  if (i > 0 && /[A-Za-z]/.test(x.slice(0, i)) && /[가-힣]/.test(x.slice(i))) { a = x.slice(0, i); b = x.slice(i + 1); }
+  else { const m = /([.!?”"')])\s+(?=[가-힣「『])/.exec(x.replace(/[가-힣][^]*$/, (r) => r)); const k = x.search(/(?<=[.!?”"')])\s+[가-힣「『]/); if (k <= 0) return esc(x); a = x.slice(0, k); b = x.slice(k).trim(); }
+  return `<span class="en">${esc(a.trim())}</span><span class="ko">${esc(b.trim())}</span>`; };
+const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${enKo(text)}</div></div>`;
 let secNo = '';
 /* 치즈(난이도) · 감자(빈출도) 아이콘 — 채운 것 · 빈 것 */
 /* 품사 칸: 크기는 모두 같게, 색은 품사마다(운영자 2026-10-31 「noun 마다 색 · 칸 간격 딱딱 맞춰」) */
@@ -361,7 +367,7 @@ const krForms = (stem) => {
 };
 const cheeseIc = (on) => `<span class="ic2 ic2c${on ? '' : ' off'}">${cheeseLevel(2).icon.replace('viewBox="0 0 96 96"', 'viewBox="15 27 66 48" preserveAspectRatio="xMidYMid meet"')}</span>`;   // 그림 둘레 빈 칸을 잘라 크게
 const potatoIc = (on) => `<span class="ic2 ic2p${on ? '' : ' off'}">${potatoLevel(3).icon.replace('viewBox="0 0 96 96"', 'viewBox="23 20 50 72" preserveAspectRatio="xMidYMid meet"')}</span>`;
-const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' ? ' class="ce"' : ''}>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
+const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' || B.splitSections ? ' class="ce"' : ''}>${CLASSIC ? `<em class="lab">${lab || (s.type === 'writing' && B.front ? '실전 문제' : LAB[s.type])} ${secNo}</em>` : ''}<span>${esc(s.title.en)}</span>${s.title.ko ? `<small>${esc(s.title.ko)}</small>` : ''}</h3>`;
 /* 문제 글 끝의 (영어 뜻)은 한국어 줄 밑 작은 글씨 한 줄로 내린다 — 줄 중간에 어중간하게 걸쳐 읽기 힘들던 것(운영자 2026-10-23). */
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
 const tagHtml = (arr) => arr.map((t) => `<span class="tg">${esc(t.trim())}</span>`).join('');
@@ -446,7 +452,7 @@ const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-|^fin-/.test(u.id);
 const appCheck = (u) => KDP || YES24 || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
 /* 한 줄판(운영자 2026-11-12 「간격 줄이기」) — 책 틀 splitSections 책은 점검 칸을 한 줄 높이로 줄여, 단원 맨 끝에서 칸만 새 쪽으로 넘어가 빈 쪽이 되는 일을 막는다 */
 const NOCHK = new Set(), TIGHT = {};   // 점검 칸이 새 쪽으로 넘어가 빈 쪽이 되는 단원(2차 측정에서 채움 — 아래 쪽수 세기 반복문)
-const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>My check · 나의 점검</h4><b>내 규칙</b> <span class="tl"></span> <b>자신</b> ${cb} 아직 ${cb} 거의 ${cb} 확실 <b>다시 보기</b> ${cb} 1일 ${cb} 3일 ${cb} 7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
+const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>// my check</h4><b>내 규칙</b><span class="tl"></span><b>복습</b>${cb}1일 ${cb}3일 ${cb}7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
 const studyMap = () => {
@@ -660,6 +666,14 @@ function partPage(p) {
   const many = p.sheets.length > 16;   // 단어장처럼 단원이 많으면 짧게 쓰고 두 줄로 나눠 부 표지 밖으로 넘치지 않게
   const list = p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); return `Unit ${String(u.no).padStart(2, '0')} &nbsp; ${esc(many ? s.title.en.split(' · ')[0] : s.title.en)}`; }).join('<br>');
   const lvRows = p.sheets.length <= 16 ? p.sheets.map((s) => { const u = units.find((x) => x.id === s.id); const [nm, lv] = s.title.en.split(' · '); return `<div class="ur"><b>${String(u.no).padStart(2, '0')}</b><span>${esc(s.title.ko.split(' · ')[0])}</span><em>${esc((lv || '').replace(/^Level\s*/i, 'Lv '))}</em></div>`; }).join('') : '';
+  /* 코드 편집기 모양 부 표지(운영자 2026-11-12 「우리 표지와 안 맞는다 · 코드 스타일로 예쁘게」) — 표지의 편집기 창과 같은 짙은 남색 · 세 점 · 줄 번호 */
+  if (B.splitSections && LV && lvRows) { const nn = String(p.no).padStart(2, '0'); const rows = [];
+    const L = (cls, h) => { rows.push(`<div class="cl ${cls}"><i>${rows.length + 1}</i><span>${h}</span></div>`); };
+    L('', '<span class="c">// PART</span>'); L('bg', nn); L('', '<span class="k">const</span> <span class="v">part</span> = {');
+    L('in', `<span class="p">title</span>: <span class="s">"${esc(p.title.ko)}"</span>,`); L('in', `<span class="p">en</span>: <span class="s">"${esc(p.title.en)}"</span>,`); L('in', '<span class="p">units</span>: [');
+    for (const sh of p.sheets) { const u = units.find((x) => x.id === sh.id); const nm = sh.title.ko.split(' · ')[0]; L('in2', `<b class="un">${String(u.no).padStart(2, '0')}</b> <span class="s">${esc(nm)}</span>${/미니 테스트|종합 연습|최종 연습/.test(nm) ? '<span class="c"> // test</span>' : ''},`); }
+    L('in', '],'); L('', '}');
+    return `<div class="blk pd lv ed"><div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="tab">part-${nn}.kr</span><span class="ser">${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'} · ${esc(LV.code)}</span></div><div class="code">${rows.join('')}</div></div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`; }
   if (LV && lvRows) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'}</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list ulist">${lvRows}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
   if (LV) return `<div class="blk pd lv"><div class="fr"></div><div class="ptp"><span>${KDP ? 'KOREAN STUDY SERIES' : 'KOREAN WORKBOOK SERIES'}</span><span>${esc(LV.code)} · ${esc(LV.name)}</span></div><div class="no">PART</div><div class="big">${String(p.no).padStart(2, '0')}</div><div class="orn"></div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3><div class="list${many ? ' mc' : ''}${p.sheets.length > 24 ? ' mc3' : ''}">${list}</div><div class="ft"><div class="mini">${lvMascot}</div>${logoSvg({ fg: LVG[0], one: true, height: '4mm' })}</div></div>`;
   return `<div class="blk pd"><div class="no">PART ${p.no}</div><div class="big">${String(p.no).padStart(2, '0')}</div><h2>${esc(p.title.ko)}</h2><h3>${esc(p.title.en)}</h3>
@@ -779,6 +793,19 @@ const omrHtml = (s) => {
 };
 const qw = (items) => { const m = Math.max(...items.filter((x) => !/_{3}/.test(x.q)).map((x) => [...x.q].length), 0); return m <= 12 ? '30%' : m <= 16 ? '36%' : m <= 22 ? '46%' : m <= 34 ? '60%' : '72%'; };
 const UMIN = {};   // 단원 몸통을 쪽 높이만큼 늘려 스스로 점검 표를 쪽 맨 아래로 내린다(2차 측정에서 채움)
+/* 넉넉한 쪽 나누기(운영자 2026-11-12 「너무 답답해 · 구간별로 나누고 쪽수 늘어도 괜찮아 · 한 페이지에 한 구간, 두 구간까지」) — 칸마다 대략의 높이(mm)를 어림해 한 쪽에 최대 두 칸까지만 담는다 */
+const secMm = (s) => { const n = (s.items || s.rows || s.cards || s.chains || []).length;
+  switch (s.type) { case 'table': return 16 + n * 9.5; case 'text': return 16 + ((s.text || '').length / 85) * 5; case 'practice': return s.think ? 16 + n * 30 : 30 + n * 13;
+    case 'pchoose': return 16 + n * 20; case 'pwrong': return 16 + n * 22; case 'psplit': case 'pfix': case 'pfill': return 20 + n * 30; case 'pcompare': return 16 + n * 36; case 'pcards': return 16 + Math.ceil(n / 2) * 36;
+    case 'pshow': return 130; case 'pmock': return 150; case 'pplan': return 130; case 'flow': return 60; default: return 60; } };
+function airyBody(parts, secs, u) {
+  if (!B.airy || u.id === 'pt-guide') return parts.join('\n');
+  let cur = 0, cnt = 0, cap = 130; const CAP = 215;
+  return parts.map((h, i) => { const w = secMm(secs[i]) + (i === parts.length - 1 ? 36 : 0); let brk = false;
+    if (cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
+    cur += w; cnt++;
+    const av = w <= 190 ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
+}
 function unitBlock(u) {
   /* 풀이 순서 쪽(walkthrough)이 있는 안내 단원은 예전 「글의 틀 · 읽는 법」 두 칸을 대신한다 */
   const secs = wtSpec()[u.id] ? u.sections.filter((s, i) => !(i < 2 && (s.type === 'flow' || s.type === 'text'))) : u.sections;
@@ -793,18 +820,18 @@ function unitBlock(u) {
   }
   const sr = (i) => (REVIEW ? `<span class="src">${esc(u.id)} · §${i + 1} · ${esc(secs[i].type)}</span>` : '');
   const kcount = {};
-  const body = secs.map((s, si) => {
+  const body0 = secs.map((s, si) => {
     /* 쓰기 책: 번호는 종류마다 따로(연습 1-1 · 연습 1-2, 핵심 정리 1-1 …), 실전 문제는 문제 번호 그대로(운영자 2026-10-30 「번호 정리 제대로」) */
     if (B.front) { const lb = s.type === 'writing' ? '실전 문제' : s.type === 'text' ? (() => { const kk = CLASSIC ? kindOf(u, si, s) : 'ref'; return kk === 'tip' || kk === 'warn' ? '팁 · 주의' : kk === 'ref' ? LAB.text : BLK[kk][1]; })() : LAB[s.type]; kcount[lb] = (kcount[lb] || 0) + 1; secNo = s.type === 'writing' ? String(parseInt(s.title.en, 10) || kcount[lb]) : `${u.no}-${kcount[lb]}`; }
     else secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : B.splitSections && /^Particle/i.test(s.cols[0]) ? ' class="cdt"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}${B.splitSections && /^Particle/i.test(s.cols[0]) && i === 0 ? ` style="color:${pcol(c)}"` : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, B.front && (k === 'tip' || k === 'warn') ? '팁 · 주의' : BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
-      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
+      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${enKo(s.text)}</div></div>`;
     }
     /* 낱말 목록(운영자 2026-10-25 「단어장 형식 · 난이도는 치즈로 빈출도는 감자로」): 낱말마다 번호 · 큰 낱말 · 뜻 · 예문 · 치즈(급) · 감자(자주 나오는 정도) */
     if (s.type === 'vocab') {
@@ -944,6 +971,16 @@ Object.assign(P, {
       return `<div class="sec fcs"><div class="fct"><b>${esc(s.title.en)}</b><small>${esc(s.title.ko)}</small></div><div class="fcr">${[['M7.6 15.8 Q12 11.8 16.4 15.8', 'Hard', '어려웠어요'], ['M8.2 15.2 H15.8', 'OK', '보통이에요'], ['M7.4 14.2 Q12 19 16.6 14.2', 'Easy', '쉬웠어요']].map(([m, en, ko]) => `<span>${fc(m)}<em>${en}<small>${ko}</small></em></span>`).join('')}</div></div>`;
     }
     if (s.type === 'strokes') return `<div class="sec">${sr(si)}${secLabel(s)}${s.hint ? `<div class="hint">${esc(s.hint)}</div>` : ''}<div class="stk">${s.chains.map((ch) => `<div class="stkr">${ch.map((c, i) => `${i ? '<span class="stka">→<small>+ 획</small></span>' : ''}<div class="stkg">${strokeSvg(c, ch[i - 1])}<b>${c}</b></div>`).join('')}</div>`).join('')}</div>${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}</div>`;
+    if (s.type === 'pmock') { const bd = (n) => `<i class="bdg">${n}</i>`;
+      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="mk"><div class="mkp"><div class="mkh">UNIT 02 · N이/가</div>
+<div class="mkr">${bd(1)}<table><thead><tr><th>Korean</th><th>English</th></tr></thead><tbody><tr><td>비가 내려요.</td><td>Rain falls.</td></tr><tr><td>바람이 불어요.</td><td>The wind blows.</td></tr></tbody></table></div>
+<div class="mkr">${bd(2)}<div class="pbk"><div>${bkRow([{ t: '비', role: '주어 말' }, { p: '가', role: '주어 조사' }, { t: '와요', role: '서술어' }])}</div></div></div>
+<div class="mkr">${bd(3)}<div class="mkcol"><span style="background:${pcol('이')}">이/가</span><span style="background:${pcol('은')}">은/는</span><span style="background:${pcol('을')}">을/를</span><span style="background:${pcol('에')}">에</span></div></div>
+<div class="mkr">${bd(4)}<div class="mkw"><b>1.</b> 비<span class="bl"></span> 와요.<small>It is raining.</small></div></div>
+<div class="mkr">${bd(5)}<div class="ex"><div class="pq"><div class="m"><b>1.</b>저기 새 가게<span class="bl0"></span>생겼어요.</div><div class="pcc"><span><i>①</i>는</span><span><i>②</i>를</span><span><i>③</i>가</span><span><i>④</i>의</span></div></div></div></div>
+<div class="mkr">${bd(6)}<div class="mkk">1) 가 · 2) 이 · 3) 를</div></div></div>
+<div class="mkn">${s.notes.map((n, k) => `<div class="mkx">${bd(k + 1)}<div><b>${esc(n.ko)}</b>${esc(n.en)}</div></div>`).join('')}</div></div></div>`; }
+    if (s.type === 'pplan') return `<div class="sec" style="break-before:page">${sr(si)}${secLabel(s)}<table class="plan"><thead><tr><th>When · 언제</th><th>What · 무엇을</th><th>Time · 시간</th></tr></thead><tbody>${s.rows.map((r) => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>`;
     if (s.type === 'pshow') { const scr = { lego: () => `<div class="pbk"><div>${bkRow([{ t: '저기', role: '장소' }, { t: '학생', role: '주어 말' }, { p: '이', role: '주어 조사' }, { t: '있어요', role: '서술어' }])}</div></div>`,
       color: () => `<div class="pcl">${[['은/는', '은'], ['이/가', '이'], ['을/를', '을'], ['에', '에'], ['에서', '에서'], ['에게/한테', '에게'], ['의', '의'], ['도', '도'], ['만', '만'], ['(으)로', '로']].map(([l, k]) => `<span style="background:${pcol(k)}">${l}</span>`).join('')}</div>`,
       diff: () => `<div class="dif"><div class="sh">// 물 ○ 마셔요</div><div class="row"><b>A</b><div><div class="l1">${bkText([{ t: '물' }, { p: '도' }, { t: '마셔요' }])}<span class="c">// 더하여 함께</span></div></div></div><div class="row"><b>B</b><div><div class="l1">${bkText([{ t: '물' }, { p: '만' }, { t: '마셔요' }])}<span class="c">// 오직 그것 하나</span></div></div></div></div>`,
@@ -963,8 +1000,9 @@ Object.assign(P, {
     if (s.type === 'selfcheck') return `<div class="sec slf${s.compact ? ' sckc' : ''}${!s.compact && s.key ? ' sckk' : ''}">${sr(si)}${s.compact ? '' : secLabel(s)}${selfHtml(s)}</div>`;
     if (s.type === 'omr') return `<div class="sec omr">${sr(si)}${secLabel(s)}${omrHtml(s)}</div>`;
     if (s.type === 'writing') return `<div class="sec wq${s.raw._ref ? ' wqref' : ''}">${sr(si)}${secLabel(s)}${writingHtml(s.raw)}</div>`;
-    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP && B.splitSections ? s.items.map((x, k) => thinkBlock(x.q, k)).join('') : s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
-  }).join('\n');
+    return `<div class="sec"${s.items.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}${KDP ? `<div class="hint">${s.items.every((x) => openAns(x.a)) ? 'Say your own sentences aloud. · 내 문장을 소리 내어 말해 보세요.' : 'Cover the answer below each question, say it aloud or work it out in your head, then check. · 문제 아래 정답을 가리고 소리 내어 말하거나 머릿속으로 풀어 본 뒤 확인하세요.'}</div>` : s.hint ? `<div class="hint">${esc(s.hint)}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? ' Answers are in the small upside-down box below. · 정답은 아래 작은 거꾸로 상자에 있어요.' : ''}</div>` : ''}${s.think && !KDP && B.splitSections ? s.items.map((x, k) => thinkBlock(x.q, k)).join('') : s.think && !KDP ? `<ol class="pr th">${s.items.map((x) => `<li><span class="q">${esc(x.q).replace(/_{3,}/g, '<span class="bl"></span>')}</span><span class="tl"></span><span class="tl"></span></li>`).join('')}</ol>` : `<ol class="pr${KDP ? ' kdp' : ''}${B.airy && s.items.length >= 10 && s.items.every((x) => /_{3}/.test(x.q)) ? ' dn' : ''}" style="--qw:${qw(s.items)}">${s.items.map((x) => KDP ? `<li class="kq"><span class="q">${esc(x.q.replace(/\s*→\s*$/, '').replace(/^Write\b/, 'Say')).replace(/_{3,}/g, '<span class="bl"></span>')}</span>${openAns(x.a) ? '' : `<span class="kans">→ ${esc(x.a)}</span>`}</li>` : `<li${(() => { let c = liCls(x.q); if (s.items.some((y) => isOpen(y.q)) && !/\bopen\b|\bfill\b/.test(c)) c = ('open ' + c).trim(); return c ? ` class="${c}"` : ''; })()}>${qLine(x.q, s.items.some((y) => isOpen(y.q)))}</li>`).join('')}</ol>`}${YES24 && !STUDENT && !s.think && !s.items.every((x) => openAns(x.a)) ? `<div class="yrev"><span>${s.items.map((x, i) => (openAns(x.a) ? '' : `${i + 1}) ${esc(x.a)}`)).filter(Boolean).join(' &nbsp;·&nbsp; ')}</span></div>` : ''}</div>`;
+  });
+  const body = airyBody(body0, secs, u);
   if (CLASSIC) return dialogueOpener(u) + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${u._head}${walkHtml(u.id).a ? '' : unitQr(u)}${appCheck(u)}${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}</div>`;
   return dialogueOpener(u) + open + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}${UMIN[u.id] ? `;display:flex;flex-direction:column;min-height:${UMIN[u.id]}mm` : ''}">${walkHtml(u.id).a ? walkHtml(u.id).a + '</div>' + walkHtml(u.id).b.replace(/<\/div>$/, unitQr(u) + '</div>') + `<div class="blk ${unitCss(u)}" style="page:${unitCss(u)}">` : ''}${body}${lookalike(u)}${selfCheck(u)}${walkHtml(u.id).a ? '' : unitQr(u)}</div>`;
 }
@@ -1199,6 +1237,30 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
+.note .en,.bx .tt .en{display:block}.note .ko,.bx .tt .ko{display:block;margin-top:2.6mm;padding-top:2.6mm;border-top:.25mm dashed #b9c3d6;color:#4A5C86;font-size:.96em}.bx .tt .ko{border-top-color:rgba(255,255,255,.22);color:#9fb0d8}
+.sc.scx{background:#0F3D33;border:0;border-radius:2mm;color:#d6f1e6;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;font-size:7.4pt;padding:2.2mm 4mm;margin-top:7mm;white-space:nowrap}
+.sc.scx h4{color:#7fe3b4;font-size:7.4pt;font-weight:700;letter-spacing:0;margin:0 4mm 0 0}.sc.scx b{color:#d6f1e6;font-weight:700;margin:0 1.6mm 0 0}.sc.scx .tl{display:inline-block;width:46mm;height:3.4mm;vertical-align:bottom;border-bottom:.3mm solid #5fb994;margin-right:5mm}
+.sc.scx .cb{display:inline-block;width:2.8mm;height:2.8mm;border:.3mm solid #7fe3b4;border-radius:.6mm;background:transparent;vertical-align:-.5mm;margin-right:1mm}
+.pd.lv.ed{background:#14264A !important;color:#e9eefc !important;padding:0 !important}.pd.lv.ed .win{position:absolute;left:14mm;right:14mm;top:16mm;bottom:34mm;border:.4mm solid #34508a;border-radius:3mm;background:#101f3d;overflow:hidden}
+.pd.lv.ed .bar{display:flex;align-items:center;gap:4mm;height:10mm;padding:0 5mm;background:#1b3160;border-bottom:.3mm solid #34508a}.pd.lv.ed .dots{display:flex;gap:1.8mm}.pd.lv.ed .dots i{width:2.2mm;height:2.2mm;border-radius:50%;display:block}.pd.lv.ed .dots i:nth-child(1){background:#FF6B5B}.pd.lv.ed .dots i:nth-child(2){background:#FFC83D}.pd.lv.ed .dots i:nth-child(3){background:#38C172}
+.pd.lv.ed .tab{font:700 7.4pt 'DejaVu Sans Mono','Menlo',monospace;color:#e9eefc;padding:1mm 3mm;background:#101f3d;border-radius:1mm 1mm 0 0}.pd.lv.ed .ser{margin-left:auto;font:600 6.4pt 'DejaVu Sans Mono','Menlo',monospace;letter-spacing:.14em;color:#8fa4d6}
+.pd.lv.ed .code{padding:9mm 7mm 0 0;font:500 10.4pt/1.75 'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace}.pd.lv.ed .cl{display:flex;align-items:baseline}.pd.lv.ed .cl>i{flex:none;width:12mm;text-align:right;padding-right:5mm;font-style:normal;font-size:7.6pt;color:#4d6399}
+.pd.lv.ed .cl.in>span{padding-left:7mm}.pd.lv.ed .cl.in2>span{padding-left:14mm}.pd.lv.ed .cl.bg{line-height:1;align-items:flex-start}.pd.lv.ed .cl.bg>i{padding-top:7mm}.pd.lv.ed .cl.bg>span{font:900 112pt/1 'Pretendard Variable','Noto Sans KR',sans-serif;color:#F0E6CC;letter-spacing:-.04em;padding:3mm 0 5mm}
+.pd.lv.ed .c{color:#8fd0a5}.pd.lv.ed .k{color:#FFA270}.pd.lv.ed .v{color:#9fc4ff}.pd.lv.ed .p{color:#c5a8ff}.pd.lv.ed .s{color:#F0E6CC;font-family:'Pretendard Variable','Noto Sans KR',sans-serif;font-weight:700;font-size:11pt}.pd.lv.ed .un{color:#FFC877;font-weight:700;margin-right:2mm}
+.pd.lv.ed .ft{position:absolute;left:14mm;right:14mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.sec table.cdt{background:#14264A;border-collapse:separate;border-spacing:0;border-radius:2mm;overflow:hidden;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;color:#e9eefc}
+.sec table.cdt th{background:transparent;border:0;color:#8fd0a5;font-size:6.8pt;font-weight:700;padding:3mm 4mm 1.4mm;text-align:left}.sec table.cdt th:before{content:'// '}.sec table.cdt th{white-space:nowrap}
+.sec table.cdt td{border:0;border-top:.2mm solid rgba(255,255,255,.1);color:#e9eefc;padding:2.4mm 4mm;font-size:9pt}.sec table.cdt td:first-child{font-weight:800;font-size:10pt;width:26mm}.sec table.cdt td:last-child{color:#9fb0d8;font-family:'Pretendard Variable','Noto Sans KR',sans-serif;font-size:8.2pt}
+${B.airy ? '.sec{margin-bottom:9mm}.sec>h3{margin-bottom:4.6mm}.sec table td,.sec table th{padding-top:2.2mm;padding-bottom:2.2mm}.note{padding:3mm 4mm;line-height:1.75}.pq,.ex .pq{margin-bottom:6mm}.pbk{margin:3mm 0}.pr .q .en .cx{display:inline;margin-left:2.4mm}.pr.dn{column-count:2;column-gap:9mm}.pr.dn li{break-inside:avoid}.pr.dn li.fill{grid-template-columns:6mm 1fr}.dif{margin-bottom:4mm}.thq{margin-bottom:5mm}.sc{margin-top:6mm}.open .tl{height:7mm}.bx{margin-top:5mm}.pcs{gap:4mm}.pcd{padding:3mm 4mm}' : ''}
+.mk{display:grid;grid-template-columns:96mm 1fr;gap:6mm;align-items:start}.mkp{border:.3mm solid #b9c3d6;border-radius:2mm;padding:3mm 3.4mm;background:#fff;box-shadow:.6mm .6mm 0 #e6e9f0}.mkh{font:700 6.6pt 'DejaVu Sans Mono','Menlo',monospace;color:#9a9288;margin-bottom:2.4mm;letter-spacing:.06em}
+.mkr{position:relative;margin:0 0 3mm;padding-left:6.4mm;min-height:7mm}.bdg{position:absolute;left:0;top:.4mm;width:5mm;height:5mm;border-radius:50%;background:#16A34A;color:#fff;font:800 7.4pt/5mm 'Pretendard Variable',sans-serif;text-align:center;font-style:normal}
+.mkr table{font-size:7.8pt;background:#14264A;color:#e9eefc;border-collapse:separate;border-spacing:0;border-radius:1.6mm;overflow:hidden;width:100%}.mkr th{color:#8fd0a5;border:0;background:transparent;font-size:6.4pt;padding:1mm 2.4mm .3mm}.mkr td{border:0;color:#e9eefc;padding:.5mm 2.4mm}
+.mkcol{display:flex;gap:1mm;flex-wrap:wrap}.mkcol span{color:#fff;font-weight:800;font-size:7.8pt;padding:.6mm 2mm;border-radius:1mm}
+.mkw{font-size:9.6pt}.mkw b{color:#1F3A68}.mkw .bl{display:inline-block;width:11mm;border-bottom:.3mm solid #222;margin:0 1mm}.mkw small{display:block;font-size:6.8pt;color:#868b96}
+.mkr .ex .pq{margin:0}.mkr .ex .pq .m,.mkr .ex .pq .pcc span{font-size:8.6pt}.mkr .bkb .b{font-size:9pt;padding:.9mm 1.6mm}.mkk{border:.25mm dashed #9aa4bb;border-radius:1.2mm;padding:1mm 2mm;font:500 6.8pt 'DejaVu Sans Mono','Menlo',monospace;color:#4A5C86;transform:rotate(180deg);display:inline-block}
+.mkn{display:flex;flex-direction:column;gap:3.4mm}.mkx{display:flex;gap:2.4mm;font-size:7.8pt;line-height:1.5;color:#6b7690}.mkx .bdg{position:static;flex:none}.mkx b{display:block;color:#1d1a17;font-size:9pt;margin-bottom:.4mm}
+table.plan{width:100%;border-collapse:collapse}table.plan th{text-align:left;font-size:8pt;color:#1F3A68;border-bottom:.4mm solid #1F3A68;padding:1.6mm 2.4mm}table.plan td{padding:3mm 2.4mm;border-bottom:.2mm solid #c9d0de;font-size:9pt;line-height:1.55;vertical-align:top}table.plan td:first-child{font-weight:800;color:#1F3A68;white-space:nowrap;width:30mm}table.plan td:last-child{white-space:nowrap;width:24mm;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;font-size:8pt;color:#4A5C86}table.plan tr:nth-child(4) td{border-bottom:.5mm solid #1F3A68}
+.gd .row{padding:.6mm 0 .9mm}.gd .mini{transform:none}
 .shw{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.shc{border:.3mm solid #c9d0de;border-radius:2mm;overflow:hidden;break-inside:avoid;background:#fff}
 .shh{background:#14264A;color:#8fd0a5;font:700 6.8pt 'DejaVu Sans Mono','Menlo',monospace;padding:.8mm 3mm}.shs{padding:2.4mm 3mm;min-height:24mm;display:flex;align-items:center}.shs>*{width:100%}
 .shk{padding:1.6mm 3mm 2mm;border-top:.2mm solid #dfe3ec;font-size:7.6pt;line-height:1.5;color:#6b7690}.shk b{display:block;color:#1d1a17;font-size:8.6pt;margin-bottom:.4mm}
@@ -1302,7 +1364,7 @@ const blocks = B.compact ? parts.flatMap((p) => p.sheets.map((sh) => { const u =
 const counts = {};
 /* 점검 칸 넘침 막기(운영자 2026-11-12 「간격 줄이기」) — 단원 맨 끝의 「나의 점검」 칸이 새 쪽으로 혼자 넘어가 빈 쪽이 되면, 그 단원만 간격을 한 단계씩 촘촘하게 해 칸이 앞쪽에 들어가게 한다(1단계 → 2단계 → 그래도 안 되면 칸을 뺀다) */
 const tightCss = (u, lv) => `<style>.blk.${unitCss(u)} .sec{margin-bottom:${lv > 1 ? 2.6 : 3.4}mm}.blk.${unitCss(u)} .pq{margin:${lv > 1 ? 1.5 : 2}mm 0}.blk.${unitCss(u)} .pbk{margin:${lv > 1 ? .7 : 1.1}mm 0}.blk.${unitCss(u)} .tl{height:${lv > 1 ? 4.6 : 5.4}mm}.blk.${unitCss(u)} .sc{margin-top:1mm}</style>`;
-if (B.splitSections) {
+if (B.splitSections && !B.airy) {
   for (let bi = 0; bi < blocks.length; bi++) {
     const m = /^unit(\d+)$/.exec(blocks[bi][0]); if (!m) continue;
     const u = units.find((x) => x.no === +m[1]); if (!u || !isStudyUnit(u)) continue;
