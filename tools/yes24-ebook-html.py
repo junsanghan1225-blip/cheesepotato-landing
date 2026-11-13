@@ -48,6 +48,7 @@ review = '''조사는 한국어를 배우는 분들이 가장 오래 헷갈리�
 한글을 읽을 수 있는 초급 학습자, 조사만 따로 다시 다지고 싶은 학습자, 조사 문제가 필요한 한국어 선생님께 맞습니다.
 
 이 책은 독자적으로 만든 학습서입니다. 문장은 모두 새로 만든 것입니다.'''
+DET = [('한국어 조사 워크북 · 조사 20개, 한 권으로 정리', 92), ('조사 20개 · 미니 테스트 5회 · 정답 쪽과 QR', 54), ('조사마다 정해진 색과 블록으로 쪼개 보기', 113), ('한 문장에서 조사만 바꿔 비교하기', 91), ('시험지 모양 미니 테스트와 최종 시험 30문항', 84), ('이렇게 공부하세요 · 공부 계획표', 84), ('4묶음 + 최종 연습 구성', 64), ('혼자서도 끝까지 · 지은이 소개', 57), ('책 정보', 28), ('에브리코리안즈 한국어 학습서 라인업', 224)]
 tags = '한국어 조사, 은는 이가, 에 에서, 한국어 문법, 조사 문제집, 한국어 워크북, 한국어 학습, 외국인 한국어, TOPIK 문법, Korean particles'
 def field(label, text, hint='', big=False, star=False):
     return f'<div class="f"><div class="fh"><b>{"*" if star else ""}{e(label)}</b>{f"<small>{e(hint)}</small>" if hint else ""}<button type="button">복사</button></div><pre class="v{" big" if big else ""}">{e(text)}</pre></div>'
@@ -72,7 +73,8 @@ body = ''.join([
  files('표지이미지', f'파일: {isbn}_cover.jpg (가로 1500px · 1200px 이상 · 10MB 이하)'),
  files('전자책 파일', f'파일: {isbn}.pdf ({pages}쪽 · 약 11MB · 200MB 이하 · 보호 없음)\n※ PDF 파일 교체 전 유의사항(수험서 카테고리): 이미 올린 파일은 쪽수가 달라(236쪽 → {pages}쪽) 교체가 안 되니 새 상품으로 올리거나 개정판 절차를 예스24에 문의'),
  manual('미리보기 설정', '「미리보기 생성」 · 책 앞부분(시작하기 + 1부 일부) 비율을 정하세요. 쪽수 기준으로는 앞 21쪽 정도가 사이트 무료 샘플과 같습니다'),
- files('상세이미지', '파일: 에브리코리안즈_예스24등록_조사워크북_상세이미지_v1.jpg (가로 940px · 3.0MB 이하 · 약 0.6MB)'),
+ manual('상세이미지 — 먼저 읽기', '예스24 상세이미지는 10칸이고 칸마다 파일 1장(3.0MB 이하 · 가로 940 권장)과 「이미지 설명」을 넣습니다. 긴 상세이미지를 10장으로 나눠 두었습니다. 칸 1부터 차례로 [찾기]로 01.jpg~10.jpg 를 고르고, 아래 설명을 붙여 넣으세요.'),
+]) + ''.join(field(f'상세이미지 {i:02d} 설명', d, f'칸 {i} · 파일 {i:02d}.jpg (가로 940px · 약 {k}KB)') for i, (d, k) in enumerate(DET, 1)) + ''.join([
 ])
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>예스24 전자책 등록 복사판 · 조사 워크북</title>
 <style>
