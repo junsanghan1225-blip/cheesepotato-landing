@@ -797,6 +797,7 @@ const UMIN = {};   // 단원 몸통을 쪽 높이만큼 늘려 스스로 점검 
 const secMm = (s) => { const n = (s.items || s.rows || s.cards || s.chains || []).length;
   switch (s.type) { case 'table': return 16 + n * 9.5; case 'text': return 16 + ((s.text || '').length / 85) * 5; case 'practice': return s.think ? 16 + n * 30 : 30 + n * 13;
     case 'pchoose': return 16 + n * 20; case 'pwrong': return 16 + n * 22; case 'psplit': case 'pfix': case 'pfill': return 20 + n * 30; case 'pcompare': return 16 + n * 36; case 'pcards': return 16 + Math.ceil(n / 2) * 36;
+    case 'cards': return 20 + Math.ceil(n / (s.cols || 4)) * 30; case 'blocks': return 20 + n * 20; case 'matchlines': return 24 + n * 14; case 'chart': return 130; case 'illus': return 150; case 'clock': case 'pricetags': return 110; case 'keyexp': return 20 + n * 24; case 'dialog': return 24 + (s.lines || []).length * 15; case 'dlgfill': return 20 + n * 30; case 'habits': return 20 + n * 34; case 'weeks': return 150; case 'plan': return 110; case 'strokes': return 100; case 'vocab': return 20 + n * 12; case 'faces': return 60;
     case 'pshow': return 130; case 'pmock': return 150; case 'pplan': return 130; case 'flow': return 60; default: return 60; } };
 function airyBody(parts, secs, u) {
   if (!B.airy || u.id === 'pt-guide') return parts.join('\n');
@@ -1211,6 +1212,17 @@ ${B.splitSections ? '.open .tl{height:5.4mm}.sec{margin-bottom:3.4mm}.sc{margin-
 /*thq*/.thq{margin:0 0 2.2mm;break-inside:avoid}.thq .qs{font-weight:700;font-size:9.6pt;margin-bottom:1mm}.thq .qs b{color:#1F3A68;margin-right:2mm}
 .thq .code{background:#14264A;color:#e9eefc;border-radius:2mm;padding:1.1mm 4mm;font:500 9.2pt/1.5 'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace}.thq .cl i{font-style:normal;color:#7f93c4;font-weight:800;display:inline-block;width:5mm}.thq .bl{display:inline-block;width:12mm;border-bottom:.3mm solid #e9eefc}.thq .gl{font:400 7.8pt 'Pretendard Variable','Noto Sans KR',sans-serif;color:#9fb0d8}
 .thq .ans{display:flex;align-items:baseline;gap:2mm;margin-top:1mm;font-size:8pt;color:#6b7690}.thq .ans u{flex:1;border-bottom:.25mm solid #b9c3d6;height:4.4mm;text-decoration:none}
+${B.fresh ? `/* 첫걸음 워크북 새 속지(운영자 2026-11-13 「표지에 맞는 새 스타일 · 넉넉한 간격」) — 표지의 초록 말풍선 느낌: 둥근 머리띠 · 말풍선 꼬리가 달린 상자 · 둥근 번호 */
+.sec{margin-bottom:9mm}.sec>h3{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:3.4mm;row-gap:0;align-items:center;background:${TINT};border:0;border-left:2.2mm solid ${ACC};border-radius:0 3.2mm 3.2mm 0;padding:2.6mm 4mm;margin:0 0 4.6mm;font-size:12pt}
+.sec>h3:before{display:none}.sec>h3 .lab{grid-row:1/span 2;background:${ACC};color:#fff;border:0;border-radius:2.2mm;padding:1.4mm 3mm;font-size:7.6pt;letter-spacing:.03em}.sec>h3>span{font-weight:800;color:#12402F}.sec>h3 small{grid-column:2;font-size:8.2pt;color:#5d7a6c;margin:0}
+table{border-collapse:separate;border-spacing:0;border:.3mm solid ${ACC};border-radius:3mm;overflow:hidden}th{background:${ACC};color:#fff;border:0;font-size:7.8pt;padding:2.2mm 3.4mm;vertical-align:middle}td{padding:2.6mm 3.4mm;border-bottom:.2mm solid #dfe8e2;line-height:1.5}tbody tr:last-child td{border-bottom:0}tbody tr:nth-child(even) td{background:${TINT}}
+.bx{--bg:#EAF2EE;border:0;border-radius:3.4mm;background:var(--bg);padding:4.4mm 4.8mm 3.4mm;margin-top:6mm;margin-bottom:5mm}.bx:after{content:'';position:absolute;left:9mm;bottom:-2.6mm;border:2.6mm solid transparent;border-top-color:var(--bg);border-bottom:0}
+.bx.tip{--bg:#FFF4D6;--c:#8a5a00}.bx.warn{--bg:#FDE7E2;--c:#B3322D}.bx.more{--bg:#E8EDF3;--c:#445775;border-style:solid}.bx.pattern{--bg:${TINT};--c:${ACC}}
+.bx .lg{position:absolute;left:4mm;top:-2.8mm;background:var(--c);color:#fff;padding:.7mm 2.8mm;border-radius:2mm;font-size:6.8pt;letter-spacing:.1em}.bx .lg svg{stroke:#fff}.bx .lg small{color:#fff;opacity:.9}.bx .tt{font-size:9pt;line-height:1.65}
+.note{background:${TINT};border:0;border-radius:3mm;padding:3.2mm 4.4mm;line-height:1.7}
+.pr li{padding:1.8mm 0;margin-bottom:1.2mm}.pr li:before{border-radius:50%;background:${ACC};color:#fff;width:5.6mm;height:5.6mm;line-height:5.6mm;font-size:8pt;text-align:center;display:inline-block;margin-right:2mm;border:0}
+.sc{border:0;background:${TINT};border-radius:3mm}
+` : ''}
 /* 틀린 곳 고르기 문항(pwrong) — 밑줄 친 곳마다 ① ② ③ ④ (운영자 2026-11-12 「미니 테스트는 문제처럼 고르게」) */
 .pw .m{display:flex;flex-wrap:wrap;gap:1.6mm 3.6mm;align-items:baseline;font-size:10.5pt;font-weight:500}.pw .m b{flex:0 0 auto}
 .pw .pu{display:inline-flex;align-items:baseline;gap:.9mm}.pw .pu i{font-style:normal;font-size:8pt;color:${ACC};font-weight:800}.pw .pu u{text-decoration:none;border-bottom:.45mm solid ${ACC};padding:0 .7mm .5mm}
