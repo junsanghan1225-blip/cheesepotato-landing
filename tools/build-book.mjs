@@ -803,7 +803,7 @@ function airyBody(parts, secs, u) {
   if (!B.airy || u.id === 'pt-guide') return parts.join('\n');
   let cur = 0, cnt = 0, cap = 130; const CAP = 215;
   return parts.map((h, i) => { const w = secMm(secs[i]) + (i === parts.length - 1 ? 36 : 0); let brk = false;
-    if (cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
+    if (!B.flow && cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
     cur += w; cnt++;
     const av = w <= 190 && !(B.fresh && i === 0 && w > 80 && !/class="bx /.test(h)) ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
 }
