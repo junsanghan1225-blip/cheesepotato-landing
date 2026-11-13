@@ -805,7 +805,7 @@ function airyBody(parts, secs, u) {
   return parts.map((h, i) => { const w = secMm(secs[i]) + (i === parts.length - 1 ? 36 : 0); let brk = false;
     if (!B.flow && cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
     cur += w; cnt++;
-    const av = w <= 190 && !(B.fresh && i === 0 && w > 80 && !/class="bx /.test(h)) ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
+    const av = B.flow ? 'break-inside:avoid' : w <= 190 && !(B.fresh && i === 0 && w > 80 && !/class="bx /.test(h)) ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
 }
 function unitBlock(u) {
   /* 풀이 순서 쪽(walkthrough)이 있는 안내 단원은 예전 「글의 틀 · 읽는 법」 두 칸을 대신한다 */
