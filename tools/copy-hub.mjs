@@ -17,6 +17,7 @@ const run = (cmd, args) => execFileSync(cmd, args, { cwd: ROOT, stdio: ['ignore'
 const tabs = [   // [이름, 만드는 법, 파일 글자, 묶음] — 묶음 순서대로 보인다(운영자 2026-11-02 「복사판 난잡 · 깔끔하게」)
   ['ISBN 신청', () => run('python3', ['tools/isbn-html.py', path.join(tmp, 'e.html')]), 'e', '지금 등록'],
   ['예스24 도서등록', () => run('python3', ['tools/yes24-html.py', path.join(tmp, 'h.html')]), 'h', '지금 등록'],
+  ['예스24 전자책 등록(조사)', () => run('python3', ['tools/yes24-ebook-html.py', path.join(tmp, 'k.html')]), 'k', '지금 등록'],
   ['예스24 소개 글', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f', '지금 등록'],
   ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c', '다른 판매처'],
   ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd', '다른 판매처'],
