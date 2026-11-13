@@ -88,7 +88,6 @@
         "hangul-tense",
         "hangul-batchim",
         "hangul-reading",
-        "fd-1",
         "ft-1"
       ]
     },
@@ -105,6 +104,7 @@
         "question-words",
         "polite-present",
         "basic-verbs-adjectives",
+        "fd-1",
         "fd-2",
         "ft-2"
       ]
@@ -2904,7 +2904,10 @@
             4,
             2
           ]
-        }
+        },
+          {"type": "cards", "title": {"en": "Signs and places", "ko": "간판과 안내판"}, "hint": "You will see these on streets and in stations. Read each one aloud, then guess where you are.", "cols": 4, "items": [{"big": "출구", "sound": "exit", "cls": "tn"}, {"big": "입구", "sound": "entrance", "cls": "tn"}, {"big": "화장실", "sound": "restroom", "cls": "tn"}, {"big": "지하철", "sound": "subway", "cls": "tn"}, {"big": "은행", "sound": "bank", "cls": "tn"}, {"big": "병원", "sound": "hospital", "cls": "tn"}, {"big": "학교", "sound": "school", "cls": "tn"}, {"big": "약국", "sound": "pharmacy", "cls": "tn"}]},
+          {"type": "cards", "title": {"en": "A menu board", "ko": "메뉴판 읽기"}, "hint": "Read the menu aloud from left to right. You already know every letter.", "cols": 4, "items": [{"big": "김밥", "sound": "gimbap", "cls": "tn"}, {"big": "라면", "sound": "ramyeon", "cls": "tn"}, {"big": "냉면", "sound": "cold noodles", "cls": "tn"}, {"big": "불고기", "sound": "bulgogi", "cls": "tn"}, {"big": "김치찌개", "sound": "kimchi stew", "cls": "tn"}, {"big": "떡볶이", "sound": "tteokbokki", "cls": "tn"}, {"big": "커피", "sound": "coffee", "cls": "tn"}, {"big": "녹차", "sound": "green tea", "cls": "tn"}]},
+          {"type": "matchlines", "title": {"en": "Practice C: Read the sign", "ko": "간판을 읽어요"}, "hint": "Write the letter of the place or meaning.", "pairs": [["출구", "exit"], ["화장실", "restroom"], ["지하철", "subway"], ["병원", "hospital"], ["약국", "pharmacy"], ["은행", "bank"]], "order": [2, 0, 4, 1, 5, 3]}
       ]
     }
   },
