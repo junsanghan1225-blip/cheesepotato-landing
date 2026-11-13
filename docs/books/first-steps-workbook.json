@@ -1146,35 +1146,20 @@
             "en": "Read this first",
             "ko": "먼저 읽으세요"
           },
-          "text": "Twenty minutes a day is enough. Small and regular beats long and rare. This book has 23 topics in 5 parts, and each part ends with a mini test. The plan below fits them into eight weeks; take longer if you need to. A plan you finish at your own speed is a good plan.\n하루 20분이면 충분합니다. 길게 한 번보다 짧게 매일이 낫습니다. 이 책은 5부에 주제 23개가 있고, 부마다 미니 테스트로 끝납니다. 아래 계획은 이것을 8주에 담았습니다. 시간이 더 필요하면 늘려도 좋습니다. 내 속도로 끝내는 계획이 좋은 계획입니다."
+          "text": "Twenty minutes a day is enough. Small and regular beats long and rare. Take longer if you need to.\n하루 20분이면 충분합니다. 길게 한 번보다 짧게 매일이 낫습니다. 시간이 더 필요하면 늘려도 좋습니다."
         },
         {
-          "type": "flow",
+          "type": "pplan",
+          "noIndex": true,
           "title": {
-            "en": "One unit in four steps · about 20 minutes",
-            "ko": "한 단원 네 단계 · 약 20분"
+            "en": "Study plan",
+            "ko": "공부 계획표"
           },
-          "steps": [
-            {
-              "ko": "① 소리 내어 읽기: 표를 처음부터 끝까지",
-              "en": "Read the tables aloud, top to bottom",
-              "blank": false
-            },
-            {
-              "ko": "② 가리고 말하기: 영어 칸을 가리고 한국어로",
-              "en": "Cover the English and say the Korean",
-              "blank": false
-            },
-            {
-              "ko": "③ 연습 A~D: 연필로 책에 바로",
-              "en": "Do practice A to D in pencil, right in the book",
-              "blank": true
-            },
-            {
-              "ko": "④ 정답 확인: 틀린 것에 표시",
-              "en": "Check the key and mark every miss",
-              "blank": false
-            }
+          "rows": [
+            ["매일 · Every day", "한 단원 · 읽기 → 가리고 말하기 → 연습 쓰기 → 정답 확인 · One unit: read, cover and say, write, check", "20분 · 20 min"],
+            ["다음 날 · Next day", "틀린 문제만 다시 · Redo only the missed questions", "5분 · 5 min"],
+            ["3일 뒤 · Day 3", "표를 가리고 낱말 열 개 말하기 · Cover the table and say ten words", "5분 · 5 min"],
+            ["7일 뒤 · Day 7", "부 끝의 미니 테스트 한 번 · The mini test at the end of the part", "10분 · 10 min"]
           ]
         },
         {

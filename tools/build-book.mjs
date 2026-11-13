@@ -798,14 +798,14 @@ const secMm = (s) => { const n = (s.items || s.rows || s.cards || s.chains || []
   switch (s.type) { case 'table': return 16 + n * 9.5; case 'text': return 16 + ((s.text || '').length / 85) * 5; case 'practice': return s.think ? 16 + n * 30 : 30 + n * 13;
     case 'pchoose': return 16 + n * 20; case 'pwrong': return 16 + n * 22; case 'psplit': case 'pfix': case 'pfill': return 20 + n * 30; case 'pcompare': return 16 + n * 36; case 'pcards': return 16 + Math.ceil(n / 2) * 36;
     case 'cards': return 20 + Math.ceil(n / (s.cols || 4)) * 30; case 'blocks': return 20 + n * 20; case 'matchlines': return 24 + n * 14; case 'chart': return 130; case 'illus': return 150; case 'clock': case 'pricetags': return 110; case 'keyexp': return 20 + n * 24; case 'dialog': return 24 + (s.lines || []).length * 15; case 'dlgfill': return 20 + n * 30; case 'habits': return 20 + n * 34; case 'weeks': return 150; case 'plan': return 110; case 'strokes': return 100; case 'vocab': return 20 + n * 12; case 'faces': return 60;
-    case 'pshow': return 130; case 'pmock': return 150; case 'pplan': return 130; case 'flow': return 60; default: return 60; } };
+    case 'pshow': return 130; case 'pmock': return 150; case 'pplan': return B.fresh ? 62 : 130; case 'flow': return 60; default: return 60; } };
 function airyBody(parts, secs, u) {
   if (!B.airy || u.id === 'pt-guide') return parts.join('\n');
   let cur = 0, cnt = 0, cap = 130; const CAP = 215;
   return parts.map((h, i) => { const w = secMm(secs[i]) + (i === parts.length - 1 ? 36 : 0); let brk = false;
     if (cnt > 0 && (cnt >= 2 || cur + w > cap)) { brk = true; cur = 0; cnt = 0; cap = CAP; }
     cur += w; cnt++;
-    const av = w <= 190 ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
+    const av = w <= 190 && !(B.fresh && i === 0 && w > 80) ? 'break-inside:avoid' : ''; return h.replace(/^<div class="sec"( style="([^"]*)")?/, (m0, a, st) => `<div class="sec" style="${[st, av, brk ? 'break-before:page' : ''].filter(Boolean).join(';')}"`); }).join('\n');
 }
 function unitBlock(u) {
   /* 풀이 순서 쪽(walkthrough)이 있는 안내 단원은 예전 「글의 틀 · 읽는 법」 두 칸을 대신한다 */
@@ -981,7 +981,7 @@ Object.assign(P, {
 <div class="mkr">${bd(5)}<div class="ex"><div class="pq"><div class="m"><b>1.</b>저기 새 가게<span class="bl0"></span>생겼어요.</div><div class="pcc"><span><i>①</i>는</span><span><i>②</i>를</span><span><i>③</i>가</span><span><i>④</i>의</span></div></div></div></div>
 <div class="mkr">${bd(6)}<div class="mkk">1) 가 · 2) 이 · 3) 를</div></div></div>
 <div class="mkn">${s.notes.map((n, k) => `<div class="mkx">${bd(k + 1)}<div><b>${esc(n.ko)}</b>${esc(n.en)}</div></div>`).join('')}</div></div></div>`; }
-    if (s.type === 'pplan') return `<div class="sec" style="break-before:page">${sr(si)}${secLabel(s)}<table class="plan"><thead><tr><th>When · 언제</th><th>What · 무엇을</th><th>Time · 시간</th></tr></thead><tbody>${s.rows.map((r) => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>`;
+    if (s.type === 'pplan') return `<div class="sec"${B.fresh ? '' : ' style="break-before:page"'}>${sr(si)}${secLabel(s)}<table class="plan"><thead><tr><th>When · 언제</th><th>What · 무엇을</th><th>Time · 시간</th></tr></thead><tbody>${s.rows.map((r) => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>`;
     if (s.type === 'pshow') { const scr = { lego: () => `<div class="pbk"><div>${bkRow([{ t: '저기', role: '장소' }, { t: '학생', role: '주어 말' }, { p: '이', role: '주어 조사' }, { t: '있어요', role: '서술어' }])}</div></div>`,
       color: () => `<div class="pcl">${[['은/는', '은'], ['이/가', '이'], ['을/를', '을'], ['에', '에'], ['에서', '에서'], ['에게/한테', '에게'], ['의', '의'], ['도', '도'], ['만', '만'], ['(으)로', '로']].map(([l, k]) => `<span style="background:${pcol(k)}">${l}</span>`).join('')}</div>`,
       diff: () => `<div class="dif"><div class="sh">// 물 ○ 마셔요</div><div class="row"><b>A</b><div><div class="l1">${bkText([{ t: '물' }, { p: '도' }, { t: '마셔요' }])}<span class="c">// 더하여 함께</span></div></div></div><div class="row"><b>B</b><div><div class="l1">${bkText([{ t: '물' }, { p: '만' }, { t: '마셔요' }])}<span class="c">// 오직 그것 하나</span></div></div></div></div>`,
@@ -1220,7 +1220,7 @@ table{border-collapse:separate;border-spacing:0;border:.3mm solid ${ACC};border-
 .bx.tip{--bg:#FFF4D6;--c:#8a5a00}.bx.warn{--bg:#FDE7E2;--c:#B3322D}.bx.more{--bg:#E8EDF3;--c:#445775;border-style:solid}.bx.pattern{--bg:${TINT};--c:${ACC}}
 .bx .lg{position:absolute;left:4mm;top:-2.8mm;background:var(--c);color:#fff;padding:.7mm 2.8mm;border-radius:2mm;font-size:6.8pt;letter-spacing:.1em}.bx .lg svg{stroke:#fff}.bx .lg small{color:#fff;opacity:.9}.bx .tt{font-size:9pt;line-height:1.65}
 .note{background:${TINT};border:0;border-radius:3mm;padding:3.2mm 4.4mm;line-height:1.7}
-.pr li{padding:1.8mm 0;margin-bottom:1.2mm}.pr li:before{border-radius:50%;background:${ACC};color:#fff;width:5.6mm;height:5.6mm;line-height:5.6mm;font-size:8pt;text-align:center;display:inline-block;margin-right:2mm;border:0}
+.pr li{padding:1.8mm 0;margin-bottom:1.2mm}.pr li{grid-template-columns:9mm var(--qw,48%) 1fr;column-gap:2mm;padding:2.4mm 0;margin-bottom:2mm}.pr li.fill{grid-template-columns:9mm 1fr}.pr li.two.fill{grid-template-columns:9mm 1fr}.pr li:before{margin-right:0}.cal th{background:${ACC};color:#fff;font-size:9.4pt}.cal th.su{color:#ffc9bf}.pr li:before{border-radius:50%;background:${ACC};color:#fff;width:5.6mm;height:5.6mm;line-height:5.6mm;font-size:8pt;text-align:center;display:inline-block;margin-right:2mm;border:0}
 .sc{border:0;background:${TINT};border-radius:3mm}
 ` : ''}
 /* 틀린 곳 고르기 문항(pwrong) — 밑줄 친 곳마다 ① ② ③ ④ (운영자 2026-11-12 「미니 테스트는 문제처럼 고르게」) */
@@ -1303,7 +1303,7 @@ ${B.splitSections || B.keepHeads ? '.sec>.hint{break-after:avoid}.sec>h3+.hint+*
 .sm h2,.ml h2{font-size:17pt;margin-bottom:1mm}.sm .k,.ml .k{font-size:9pt;color:#44506a;margin-bottom:3mm;line-height:1.55}
 .sm-t,.ml-t{width:100%;border-collapse:collapse;font-size:8.6pt}.sm-t th,.ml-t th{background:${TINT};border:.25mm solid #b9c3d6;padding:1.2mm;font-size:7.8pt}.sm-t td,.ml-t td{border:.25mm solid #cfd6e2;padding:.9mm 1.6mm;vertical-align:middle}
 .sm-t{table-layout:fixed}.sm-t th.un,.sm-t td.un{width:11mm;text-align:center;font-weight:800;color:${ACC}}.sm-t th.pn{text-align:left}.sm-t td.pn{font-size:9pt}.sm-t th.tk,.sm-t td:nth-child(n+3){width:21mm;text-align:center}.sm-t th.tk small{display:block;font-weight:500;color:#5a6780;font-size:7pt;margin-top:.3mm}.sm-t tr.gp td{background:#f3f5fa;font-weight:800;color:${ACC};font-size:8pt;letter-spacing:.03em;text-align:left;padding:1mm 2mm}.sm-t .cb{margin:0}.ml-t td{height:15.2mm}
-.pr li.open{display:block;position:relative;padding:1.4mm 0 1mm 6mm}.pr li.open:before{position:absolute;left:0;top:1.6mm}.pr li.open .q{display:block}.pr li.open .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
+.pr li.open{display:block;position:relative;padding:1.4mm 0 1mm ${B.fresh ? '9mm' : '6mm'}}.pr li.open:before{position:absolute;left:0;top:1.6mm}.pr li.open .q{display:block}.pr li.open .tl{display:block;height:7.2mm;border-bottom:.25mm solid #9aa7bf}
 table.ctx{table-layout:fixed}table.ctx th:nth-child(1){width:15%}table.ctx th:nth-child(4){width:27%}table.ctx td:last-child{white-space:nowrap}
 .tg{display:inline-block;padding:.2mm 2mm;margin:0 1mm .5mm 0;border-radius:99px;background:${TINT};border:.25mm solid ${ACC};color:${ACC};font-size:7.4pt;font-weight:700;line-height:1.5;white-space:nowrap}
 .pr .q .en .cx{display:block;margin-top:.6mm}
