@@ -160,6 +160,9 @@ const withCtx = (s0, id) => { const bs = bkSecs(id); if (bs) { if (bs.replace) {
 const sheet = (id) => { const s00 = withCtx(sheetBase(id), id); const ov = (B.overrides || {})[id]; const s0 = ov ? { ...s00, sections: ov.all ? ov.all.map((x) => (typeof x === 'number' ? s00.sections[x] : x)) : s00.sections.map((x, i) => ov[i] || x) } : s00;   /* 책 틀 overrides: 학습지 쪽의 표 한 개를 이 책에서만 다른 모양(가족도 …)으로 바꾼다 */
     /* 뺀 연습 때문에 「Practice B」부터 시작하는 일이 없게, 이 책에서 한 학습지 안의 Practice 글자를 A, B, C … 로 다시 매긴다 */
    if (ov) { let n = 0; s0.sections = s0.sections.map((x) => (x.title?.en && /^Practice [A-Z]:/.test(x.title.en) ? { ...x, title: { ...x.title, en: x.title.en.replace(/^Practice [A-Z]:/, 'Practice ' + String.fromCharCode(65 + n++) + ':') } } : x)); }
+  /* 읽는 차례(운영자 2026-11-13 「연습을 설명 바로 뒤에 붙이는 순서로」): 설명 칸 k개 · 연습 m개를 순서대로 짝지어 연습 j를 설명 floor(j·k/m) 바로 뒤에 둔다. 연습 글자(A, B …)와 연습끼리 차례는 그대로 */
+  if (B.flow && !/^(fd|ft|fs)-/.test(id)) { const PR = new Set(['practice', 'matchlines', 'blocks']), ex = s0.sections.filter((x) => !PR.has(x.type)), pr = s0.sections.filter((x) => PR.has(x.type));
+    if (ex.length && pr.length && ex.every((x) => !x.think)) { const out = []; ex.forEach((x, i) => { out.push(x); pr.forEach((q, j) => { if (Math.floor((j * ex.length) / pr.length) === i) out.push(q); }); }); s0.sections = out; } }
   const t = THINK[id]; return t ? { ...s0, sections: [...s0.sections, ...t.map((x) => ({ ...x, think: true }))] } : s0; };
 /* 삽화 공통 색(운영자 2026-11-01 「삽화가 너무 초등학생 수준 · 퀄리티 올려줘」): 선 그림 대신 색을 채운 납작한 그림 — 벽 · 바닥 · 나무색 · 살색 · 포인트 주황 */
 const IL = { wall: '#F7F2E8', floor: '#E6D9BF', wood: '#D9B27C', wood2: '#C99A64', skin: '#F4D6B8', hair: '#3A2F2A', org: '#E8642C', sky: '#DCEBF5', leaf: '#9CC9A8', pants: '#3B4A5A', cheese: '#F2C94C', potato: '#B98852' };
