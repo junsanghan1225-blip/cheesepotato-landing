@@ -5,7 +5,7 @@
    출판사 · 저자 · 정가/판매가 · 대여 · 상품설명(HTML) · 저자소개 · 목차 · 출판사서평 · 카드뉴스 · 표지 · 전자책 파일 · 미리보기 · 상세이미지.
    목차 · 쪽수 · 구성 숫자는 docs/books/particles-workbook.json 과 장부(book-ledger.json)에서 읽는다. 가격 · 카테고리 · 발매일은 운영자가 정한다(아래 표시)."""
 import sys, json, html, re
-out = sys.argv[1]; day = sys.argv[2] if len(sys.argv) > 2 else '20261113'
+out = sys.argv[1]; day = sys.argv[2] if len(sys.argv) > 2 else '20261110'
 e = html.escape
 B = json.load(open('docs/books/particles-workbook.json', encoding='utf8'))
 L = json.load(open('docs/ops/book-ledger.json', encoding='utf8'))['books']['particles-workbook']
@@ -61,7 +61,7 @@ body = ''.join([
  manual('연령제한 · 언어설정 · 읽기방향 · 합본/체험판', '연령제한: 전체 / 언어설정: 한국어 + 영어 둘 다 체크 / 읽기방향: LTR(좌→우) / 합본·체험판: 일반'),
  field('전자책 ISBN', isbn, '숫자 13자리', False, True), manual('종이책 ISBN · ISSN · UCI · ECN', '비워 둡니다(종이책 없음)'),
  field('컨텐츠 관리 ID', 'EK-EB-02-particles-workbook', '우리가 정한 관리 번호 · 필수 아님'),
- field('발매일', day, '판권쪽 발행일은 2026.11.10(ISBN 신청일). 서비스 시작일은 토 · 일 · 공휴일 선택 불가 — 평일로', False, True),
+ field('발매일', day, '책 판권쪽 발행일(2026.11.10)과 같게 · 서비스시작일은 따로(토 · 일 · 공휴일 선택 불가)', False, True),
  manual('B2B 판매여부 · 서비스시작일', 'B2B: 도서관 등 단체 판매(정산은 계약서대로)를 원하면 「예」, 아니면 「아니오」 / 서비스시작일: 「즉시반영」 또는 평일 날짜'),
  field('출판사', '에브리코리안즈', '', False, True), field('저자 및 역자', '준상(Junsang)', '저자 칸에 입력 후 저장', False, True),
  field('전자책 정가', price, '원 · 10원 단위(운영자가 정함: 장부의 정가 ' + str(L.get('krw')) + '원)', False, True), field('판매가', price, '정가와 같게(할인 최대 10%)', False, True), manual('화폐단위 · 상시대여', '원 / 상시대여: 대여불가'),
@@ -87,7 +87,7 @@ pre.v{{margin:0;padding:8px 10px;white-space:pre-wrap;word-break:break-word;font
 .man{{border-style:dashed}}.man button{{display:none}}.fl{{border-color:#9bb8d8}}.fl button{{display:none}}.top{{background:#fff7e0;border:1px solid #e6d9a8;border-radius:8px;padding:10px 12px;margin:12px 0;font-size:14px;color:#222}}
 </style></head><body>
 <header><b>예스24 전자책 등록 복사판 · 한국어 조사 워크북</b> · 양식 칸 순서대로. 실선 칸은 「복사」→ 붙여 넣기, 점선 칸은 직접 고르기, 파란 칸은 파일 올리기.</header>
-<main><div class="top"><b>미리 정해 주세요</b>: ① 전자책 정가(장부 {e(str(L.get('krw')))}원) ② 카테고리 ③ 발매일 · 서비스시작일(평일) ④ B2B 여부 ⑤ 예스24 기존 상품(236쪽)을 개정판으로 바꿀지, 새 상품으로 올릴지.</div>{body}</main>
+<main><div class="top"><b>미리 정해 주세요</b>: ① 전자책 정가(장부 {e(str(L.get('krw')))}원) ② 카테고리 ③ 서비스시작일(평일 · 발매일은 2026.11.10으로 고정) ④ B2B 여부 ⑤ 예스24 기존 상품(236쪽)을 개정판으로 바꿀지, 새 상품으로 올릴지.</div>{body}</main>
 <script>
 document.addEventListener('click',function(ev){{var b=ev.target.closest('button');if(!b)return;var t=b.closest('.f').querySelector('pre').textContent;
 function done(){{b.textContent='복사됨 ✓';b.className='ok';setTimeout(function(){{b.textContent='복사';b.className='';}},1500);}}
