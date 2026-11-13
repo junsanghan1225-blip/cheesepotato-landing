@@ -666,14 +666,6 @@
       "hint": "Between nouns = or. After numbers/time = as many as.",
       "items": [
         {
-          "q": "사과나 배를 먹어요 / 사과를 열 개나 먹었어요.  What do the two (이)나 mean?",
-          "a": "사과나 배 means apples or pears (choice). 열 개나 means as many as ten (surprising large amount)."
-        },
-        {
-          "q": "커피를 세 잔이나 마셨어요!  Why does the speaker use 이나 here instead of 을?",
-          "a": "이나 emphasizes astonishment that three cups is unexpectedly many. 을 would just state the amount neutrally."
-        },
-        {
           "q": "책 세 권이나 / 책 세 권나.  Which is correct, and why?",
           "a": "세 권이나 is correct. 권 ends in a consonant (ㄴ), so it requires 이나. 나 is used only after vowels."
         },
@@ -697,10 +689,6 @@
       },
       "hint": "Places pair with 에서, times pair with 부터.",
       "items": [
-        {
-          "q": "아침부터 저녁까지 일해요 / 집에서 회사까지 걸어요.  Why do they use different start particles?",
-          "a": "아침 and 저녁 are time points, taking 부터. 집 and 회사 are physical locations, taking 에서."
-        },
         {
           "q": "서울부터 부산까지 가요. / 서울에서 부산까지 가요.  Which is more natural for physical travel distance?",
           "a": "서울에서 is more natural. Physical spatial distance from a location starts with 에서."
