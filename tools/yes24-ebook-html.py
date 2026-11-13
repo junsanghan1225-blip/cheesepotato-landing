@@ -69,7 +69,7 @@ body = ''.join([
  field('상품설명 (HTML 탭에 붙여 넣기)', desc_html, 'HTML', True), field('상품설명 (TEXT 탭에 쓸 때)', desc_text, 'TEXT', True),
  manual('동영상 트레일러', '없음(비워 둠)'),
  field('저자소개', author_bio, 'TEXT', True), field('목차(구성)', TOC, 'TEXT — 부 · 단원 차례(새 구성)', True), field('출판사서평', review, 'TEXT', True),
- files('카드뉴스 이미지', '파일: 에브리코리안즈_예스24등록_조사워크북_카드뉴스_v3.zip\n(안에 01.jpg ~ 08.jpg · 1080×1080 · 장당 500KB 이하 · JPEG)'),
+ files('카드뉴스 이미지', '파일: cardnews_particles.zip (이 zip 하나만 올립니다 — 다른 zip 안에 넣지 마세요)\n안에 폴더 particles_cardnews/ · 파일 particles_cardnews_01.jpg ~ _08.jpg (예스24 샘플 zip 과 같은 모양 · 1080×1080 · 장당 500KB 이하 · JPEG)'),
  files('표지이미지', f'파일: {isbn}_cover.jpg (가로 1500px · 1200px 이상 · 10MB 이하)'),
  files('전자책 파일', f'파일: {isbn}.pdf ({pages}쪽 · 약 11MB · 200MB 이하 · 보호 없음)\n※ PDF 파일 교체 전 유의사항(수험서 카테고리): 이미 올린 파일은 쪽수가 달라(236쪽 → {pages}쪽) 교체가 안 되니 새 상품으로 올리거나 개정판 절차를 예스24에 문의'),
  manual('미리보기 설정', '「미리보기 생성」 · 책 앞부분(시작하기 + 1부 일부) 비율을 정하세요. 쪽수 기준으로는 앞 21쪽 정도가 사이트 무료 샘플과 같습니다'),
