@@ -337,7 +337,13 @@ const legend = (kind) => `<div class="lg">${BIC[kind]}${BLK[kind][0]}<small>${BL
 const underlineHl = (text, hl) => { let h = esc(text); for (const w of hl || []) h = h.replace(esc(w), `<u class="hl">${esc(w)}</u>`); return h; };
 const patHtml = (rows) => `<div class="bx pattern">${legend('pattern')}<div class="pp">${rows.map((r) => `<div class="pt1"><div class="fl">${r.p.map(([t, k], i) => `${i ? '<i class="lk">+</i>' : ''}<span class="nd ${k === 's' ? 'sl' : 'fx'}">${esc(t)}</span>`).join('')}<span class="mn">→&nbsp; ${esc(r.en)}</span></div>${r.ex ? `<div class="eg"><b>e.g.</b> ${underlineHl(r.ex, r.hl)}${r.exEn ? ` <span>(${esc(r.exEn)})</span>` : ''}</div>` : ''}</div>`).join('')}</div></div>`;
 const blockHtml = (u, si, s, text) => { const k = kindOf(u, si, s); const pat = (B.patterns || {})[`${u.id}:${si + 1}`]; return k === 'pattern' && pat ? patHtml(pat) : boxHtml(k === 'pattern' ? 'tip' : k, text).replace('class="bx ', s.title && s.title.en === 'Form' ? 'class="bx fm ' : 'class="bx '); };
-const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${esc(text)}</div></div>`;
+/* 영어 · 한국어가 한 문단에 이어 붙은 글은 두 덩이로 나눠 경계선을 둔다(운영자 2026-11-13 「한국어랑 경계 조금 나눠줘」) */
+const enKo = (t) => { const x = String(t || ''); if (!B.splitSections || !/[가-힣]/.test(x) || !/[A-Za-z]{3}/.test(x)) return esc(x);
+  let i = x.indexOf('\n'); let a, b;
+  if (i > 0 && /[A-Za-z]/.test(x.slice(0, i)) && /[가-힣]/.test(x.slice(i))) { a = x.slice(0, i); b = x.slice(i + 1); }
+  else { const m = /([.!?”"')])\s+(?=[가-힣「『])/.exec(x.replace(/[가-힣][^]*$/, (r) => r)); const k = x.search(/(?<=[.!?”"')])\s+[가-힣「『]/); if (k <= 0) return esc(x); a = x.slice(0, k); b = x.slice(k).trim(); }
+  return `<span class="en">${esc(a.trim())}</span><span class="ko">${esc(b.trim())}</span>`; };
+const boxHtml = (kind, text) => `<div class="bx ${kind}">${legend(kind)}<div class="tt">${enKo(text)}</div></div>`;
 let secNo = '';
 /* 치즈(난이도) · 감자(빈출도) 아이콘 — 채운 것 · 빈 것 */
 /* 품사 칸: 크기는 모두 같게, 색은 품사마다(운영자 2026-10-31 「noun 마다 색 · 칸 간격 딱딱 맞춰」) */
@@ -446,7 +452,7 @@ const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-|^fin-/.test(u.id);
 const appCheck = (u) => KDP || YES24 || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
 /* 한 줄판(운영자 2026-11-12 「간격 줄이기」) — 책 틀 splitSections 책은 점검 칸을 한 줄 높이로 줄여, 단원 맨 끝에서 칸만 새 쪽으로 넘어가 빈 쪽이 되는 일을 막는다 */
 const NOCHK = new Set(), TIGHT = {};   // 점검 칸이 새 쪽으로 넘어가 빈 쪽이 되는 단원(2차 측정에서 채움 — 아래 쪽수 세기 반복문)
-const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>My check · 나의 점검</h4><b>내 규칙</b> <span class="tl"></span> <b>자신</b> ${cb} 아직 ${cb} 거의 ${cb} 확실 <b>다시 보기</b> ${cb} 1일 ${cb} 3일 ${cb} 7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
+const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>// my check</h4><b>내 규칙</b><span class="tl"></span><b>복습</b>${cb}1일 ${cb}3일 ${cb}7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
 <div class="r"><b>My rule in my own words · 내 말로 규칙 쓰기</b><span class="tl"></span><span class="tl"></span></div>
 <div class="r2"><span><b>How sure am I? · 얼마나 자신 있나요</b> ${cb} Not yet · 아직 ${cb} Almost · 거의 ${cb} Sure · 확실</span><span><b>Come back · 다시 보기</b> ${cb} Day 1 · 1일 ${cb} Day 3 · 3일 ${cb} Day 7 · 7일</span></div></div>`;
 const studyMap = () => {
@@ -825,7 +831,7 @@ function unitBlock(u) {
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
       if (k !== 'ref') return `<div class="sec">${sr(si)}${secLabel(s, B.front && (k === 'tip' || k === 'warn') ? '팁 · 주의' : BLK[k][1])}${blockHtml(u, si, s, s.text)}</div>`;
-      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${esc(s.text)}</div></div>`;
+      return `<div class="sec">${sr(si)}${secLabel(s)}<div class="note">${enKo(s.text)}</div></div>`;
     }
     /* 낱말 목록(운영자 2026-10-25 「단어장 형식 · 난이도는 치즈로 빈출도는 감자로」): 낱말마다 번호 · 큰 낱말 · 뜻 · 예문 · 치즈(급) · 감자(자주 나오는 정도) */
     if (s.type === 'vocab') {
@@ -1231,6 +1237,10 @@ ${B.splitSections ? `/* 코드 편집기 모양(운영자 2026-11-12 「코딩�
 .bx .tt{font-size:8.8pt;line-height:1.55}.bx .eg{color:#c9d3ea}.bx .eg span{color:#9fb0d8}.bx .eg u.hl{text-decoration-color:#FFA270}
 .nd.sl{background:transparent;border-color:#7f93c4;color:#FFC877}.nd.fx{background:#FFA270;color:#14264A}.lk{color:#7f93c4}.mn{color:#e9eefc}
 .sec>h3 .lab,.ref .lab{font-family:'DejaVu Sans Mono','Menlo',monospace}
+.note .en,.bx .tt .en{display:block}.note .ko,.bx .tt .ko{display:block;margin-top:2.6mm;padding-top:2.6mm;border-top:.25mm dashed #b9c3d6;color:#4A5C86;font-size:.96em}.bx .tt .ko{border-top-color:rgba(255,255,255,.22);color:#9fb0d8}
+.sc.scx{background:#0F3D33;border:0;border-radius:2mm;color:#d6f1e6;font-family:'DejaVu Sans Mono','Menlo','Noto Sans KR',monospace;font-size:7.4pt;padding:2.2mm 4mm;margin-top:7mm;white-space:nowrap}
+.sc.scx h4{color:#7fe3b4;font-size:7.4pt;font-weight:700;letter-spacing:0;margin:0 4mm 0 0}.sc.scx b{color:#d6f1e6;font-weight:700;margin:0 1.6mm 0 0}.sc.scx .tl{display:inline-block;width:46mm;height:3.4mm;vertical-align:bottom;border-bottom:.3mm solid #5fb994;margin-right:5mm}
+.sc.scx .cb{display:inline-block;width:2.8mm;height:2.8mm;border:.3mm solid #7fe3b4;border-radius:.6mm;background:transparent;vertical-align:-.5mm;margin-right:1mm}
 .pd.lv.ed{background:#14264A !important;color:#e9eefc !important;padding:0 !important}.pd.lv.ed .win{position:absolute;left:14mm;right:14mm;top:16mm;bottom:34mm;border:.4mm solid #34508a;border-radius:3mm;background:#101f3d;overflow:hidden}
 .pd.lv.ed .bar{display:flex;align-items:center;gap:4mm;height:10mm;padding:0 5mm;background:#1b3160;border-bottom:.3mm solid #34508a}.pd.lv.ed .dots{display:flex;gap:1.8mm}.pd.lv.ed .dots i{width:2.2mm;height:2.2mm;border-radius:50%;display:block}.pd.lv.ed .dots i:nth-child(1){background:#FF6B5B}.pd.lv.ed .dots i:nth-child(2){background:#FFC83D}.pd.lv.ed .dots i:nth-child(3){background:#38C172}
 .pd.lv.ed .tab{font:700 7.4pt 'DejaVu Sans Mono','Menlo',monospace;color:#e9eefc;padding:1mm 3mm;background:#101f3d;border-radius:1mm 1mm 0 0}.pd.lv.ed .ser{margin-left:auto;font:600 6.4pt 'DejaVu Sans Mono','Menlo',monospace;letter-spacing:.14em;color:#8fa4d6}
