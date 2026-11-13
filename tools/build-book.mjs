@@ -119,7 +119,7 @@ const bkSecs = (id) => { const b = PBLK[id]; if (!b) return null;
     tail: [
       /* 「상황을 보고 알맞은 말 고르기」는 학생에게 너무 어려워 뺐다(운영자 2026-11-12) */
       { type: 'pfill', noIndex: true, title: { en: 'Fill the particle blocks', ko: '비어 있는 블록에 조사를 쓰세요' }, items: b.fill2, pool: b.pool },
-      { type: 'pchoose', noIndex: true, why: true, title: { en: 'Explain the difference', ko: '어떻게 다를까요?' }, items: [b.explain] } ] };
+      /* 「어떻게 다를까요?」(어감 차이 설명)는 학생에게 너무 어려워 뺐다(운영자 2026-11-13) */ ] };
   if (b.fix) return { head: [], tail: [
       { type: 'pchoose', noIndex: true, title: { en: 'Trap round: choose', ko: '함정 라운드 · 고르기' }, items: b.choose },
       { type: 'pfix', noIndex: true, title: { en: 'Find the wrong particle', ko: '틀린 조사 블록을 찾아 고치세요' }, items: b.fix },
