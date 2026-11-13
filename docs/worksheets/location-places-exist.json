@@ -213,11 +213,11 @@
       },
       "items": [
         {
-          "q": "The book is on the desk: 책이 책상 ___ 에 있어요 →",
+          "q": "The book is on the desk: 책이 책상 ___에 있어요 →",
           "a": "위"
         },
         {
-          "q": "The cat is under the chair: 고양이가 의자 ___ 에 있어요 →",
+          "q": "The cat is under the chair: 고양이가 의자 ___에 있어요 →",
           "a": "아래 / 밑"
         },
         {

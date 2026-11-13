@@ -1,6 +1,9 @@
 {
   "_note": "책 한 권의 틀: node tools/build-book.mjs first-steps-workbook. 단원 = 학습지(docs/worksheets/<id>.json) 순서. 지은이 · 펴낸이 · 신고번호 · ISBN · 정가 · 발행일은 비어 있는 자리다(출판 준비가 되면 운영자가 채운다). 글은 우리 사이트 학습지를 책 쪽으로 옮긴 것.",
   "id": "first-steps-workbook",
+  "fresh": true,
+  "airy": true,
+  "flow": true,
   "keepHeads": true,
   "published": "2026.11.10",
   "isbn": "979-11-222407-5-7",
@@ -86,7 +89,6 @@
         "hangul-tense",
         "hangul-batchim",
         "hangul-reading",
-        "fd-1",
         "ft-1"
       ]
     },
@@ -103,6 +105,7 @@
         "question-words",
         "polite-present",
         "basic-verbs-adjectives",
+        "fd-1",
         "fd-2",
         "ft-2"
       ]
@@ -1144,35 +1147,20 @@
             "en": "Read this first",
             "ko": "먼저 읽으세요"
           },
-          "text": "Twenty minutes a day is enough. Small and regular beats long and rare. This book has 23 topics in 5 parts, and each part ends with a mini test. The plan below fits them into eight weeks; take longer if you need to. A plan you finish at your own speed is a good plan.\n하루 20분이면 충분합니다. 길게 한 번보다 짧게 매일이 낫습니다. 이 책은 5부에 주제 23개가 있고, 부마다 미니 테스트로 끝납니다. 아래 계획은 이것을 8주에 담았습니다. 시간이 더 필요하면 늘려도 좋습니다. 내 속도로 끝내는 계획이 좋은 계획입니다."
+          "text": "Twenty minutes a day is enough. Small and regular beats long and rare. Take longer if you need to.\n하루 20분이면 충분합니다. 길게 한 번보다 짧게 매일이 낫습니다. 시간이 더 필요하면 늘려도 좋습니다."
         },
         {
-          "type": "flow",
+          "type": "pplan",
+          "noIndex": true,
           "title": {
-            "en": "One unit in four steps · about 20 minutes",
-            "ko": "한 단원 네 단계 · 약 20분"
+            "en": "Study plan",
+            "ko": "공부 계획표"
           },
-          "steps": [
-            {
-              "ko": "① 소리 내어 읽기: 표를 처음부터 끝까지",
-              "en": "Read the tables aloud, top to bottom",
-              "blank": false
-            },
-            {
-              "ko": "② 가리고 말하기: 영어 칸을 가리고 한국어로",
-              "en": "Cover the English and say the Korean",
-              "blank": false
-            },
-            {
-              "ko": "③ 연습 A~D: 연필로 책에 바로",
-              "en": "Do practice A to D in pencil, right in the book",
-              "blank": true
-            },
-            {
-              "ko": "④ 정답 확인: 틀린 것에 표시",
-              "en": "Check the key and mark every miss",
-              "blank": false
-            }
+          "rows": [
+            ["매일 · Every day", "한 단원 · 읽기 → 가리고 말하기 → 연습 쓰기 → 정답 확인 · One unit: read, cover and say, write, check", "20분 · 20 min"],
+            ["다음 날 · Next day", "틀린 문제만 다시 · Redo only the missed questions", "5분 · 5 min"],
+            ["3일 뒤 · Day 3", "표를 가리고 낱말 열 개 말하기 · Cover the table and say ten words", "5분 · 5 min"],
+            ["7일 뒤 · Day 7", "부 끝의 미니 테스트 한 번 · The mini test at the end of the part", "10분 · 10 min"]
           ]
         },
         {
@@ -1562,7 +1550,7 @@
             },
             {
               "who": "B",
-              "ko": "아니요, 회사원이에요. 하나는요?",
+              "ko": "아니요, 회사원이에요. 하나 씨는요?",
               "en": "No, I work at a company. And you, Hana?"
             },
             {
@@ -1606,7 +1594,7 @@
               "~는요?",
               "같은 질문을 되물어요",
               "And you? / What about ~?",
-              "하나는요?"
+              "하나 씨는요?"
             ],
             [
               "제 친구예요",
@@ -1634,7 +1622,7 @@
               "Everyday speech"
             ],
             [
-              "하나는요?",
+              "하나 씨는요?",
               "And you, Hana?",
               "는요 returns the question"
             ],
@@ -1679,7 +1667,7 @@
               "pre": "반가워요!",
               "post": "",
               "hint": "수진 씨에게 되물어요(~는요?)",
-              "ans": "수진은요?"
+              "ans": "수진 씨는요?"
             }
           ]
         }
@@ -1739,7 +1727,7 @@
             },
             {
               "who": "B",
-              "ko": "오빠는 지금 어디예요?",
+              "ko": "오빠는 지금 어디에 있어요?",
               "en": "Where is your older brother now?"
             },
             {
@@ -2917,7 +2905,10 @@
             4,
             2
           ]
-        }
+        },
+          {"type": "cards", "title": {"en": "Signs and places", "ko": "간판과 안내판"}, "hint": "You will see these on streets and in stations. Read each one aloud, then guess where you are.", "cols": 4, "items": [{"big": "출구", "sound": "exit", "cls": "tn"}, {"big": "입구", "sound": "entrance", "cls": "tn"}, {"big": "화장실", "sound": "restroom", "cls": "tn"}, {"big": "지하철", "sound": "subway", "cls": "tn"}, {"big": "은행", "sound": "bank", "cls": "tn"}, {"big": "병원", "sound": "hospital", "cls": "tn"}, {"big": "학교", "sound": "school", "cls": "tn"}, {"big": "약국", "sound": "pharmacy", "cls": "tn"}]},
+          {"type": "cards", "title": {"en": "A menu board", "ko": "메뉴판 읽기"}, "hint": "Read the menu aloud from left to right. You already know every letter.", "cols": 4, "items": [{"big": "김밥", "sound": "gimbap", "cls": "tn"}, {"big": "라면", "sound": "ramyeon", "cls": "tn"}, {"big": "냉면", "sound": "cold noodles", "cls": "tn"}, {"big": "불고기", "sound": "bulgogi", "cls": "tn"}, {"big": "김치찌개", "sound": "kimchi stew", "cls": "tn"}, {"big": "떡볶이", "sound": "tteokbokki", "cls": "tn"}, {"big": "커피", "sound": "coffee", "cls": "tn"}, {"big": "녹차", "sound": "green tea", "cls": "tn"}]},
+          {"type": "matchlines", "title": {"en": "Practice C: Read the sign", "ko": "간판을 읽어요"}, "hint": "Write the letter of the place or meaning.", "pairs": [["출구", "exit"], ["화장실", "restroom"], ["지하철", "subway"], ["병원", "hospital"], ["약국", "pharmacy"], ["은행", "bank"]], "order": [2, 0, 4, 1, 5, 3]}
       ]
     }
   },
@@ -4290,7 +4281,7 @@
               "a": "그"
             },
             {
-              "q": "③ ______ 나무가 커요. (둘 다 먼 나무)",
+              "q": "③ ______ 나무가 커요. (나와 너 모두에게서 먼 나무)",
               "a": "저"
             }
           ],
