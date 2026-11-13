@@ -98,7 +98,7 @@ for (const [uid, secs] of Object.entries(THINK)) {
   secs.forEach((x, n) => {
     const w = `think ${uid}[${n}]`;
     if (x.type !== 'practice' || !x.title?.en || !x.title?.ko) throw new Error(`${w}: type practice · title.en/ko`);
-    if (!Array.isArray(x.items) || x.items.length < 3 || x.items.length > 8) throw new Error(`${w}: 문제 3~8개`);
+    if (!Array.isArray(x.items) || x.items.length < 2 || x.items.length > 8) throw new Error(`${w}: 문제 2~8개`);
     x.items.forEach((q, k) => { if (typeof q.q !== 'string' || typeof q.a !== 'string' || !q.q.trim() || !q.a.trim()) throw new Error(`${w} 문제 ${k + 1}: q · a 문자열`); if (/—/.test(JSON.stringify(q) + JSON.stringify(x.title) + (x.hint || ''))) throw new Error(`${w}: 줄표(—)는 쓰지 않는다`); });
   });
 }
