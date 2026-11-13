@@ -1449,7 +1449,18 @@ if (REVIEW) {
       else if (x.type === 'pwrong') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.segs.map((g, j) => `${'①②③④'[j]} ${g}`).join(' ')} = ${'①②③④'[q.answer - 1]} → ${q.fix}`));
       else if (x.type === 'pfix') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.ko} = ${q.blocks.map((b) => `[${b.t ?? b.p}${b.wrong ? '✗→' + b.right : ''}]`).join(' ')}`));
       else if (x.type === 'pfill') x.items.forEach((q, n) => md.push(`${n + 1}. ${q.ko} = ${q.blocks.map((b) => (b.blank ? '[___]' : `[${b.t ?? b.p}]`)).join(' ')} → **${q.blocks.find((b) => b.blank).p}**`));
-      else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.q}  →  **${q.a}**`)); }
+      else if (x.type === 'cards') { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.big} [${q.name ?? q.sound ?? ''}] ${q.ex ? `예: ${q.ex[0]} (${q.ex[1]})` : ''}`)); }
+      else if (x.type === 'blocks') { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${(q.parts || []).join(' + ')} = ___  →  **${q.a}**`)); }
+      else if (x.type === 'habits') { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach(([t, en, how, when], n) => md.push(`${n + 1}. ${t} / ${en} — ${how}${when ? ` (언제: ${when})` : ''}`)); }
+      else if (x.type === 'weeks') { if (x.hint) md.push(`(hint) ${x.hint}`); x.weeks.forEach(([n, topics, goal]) => md.push(`${n}주: ${topics.join(' · ')} → 목표: ${goal}`)); }
+      else if (x.type === 'chart') md.push(`(자음) ${x.consonants} (모음) ${x.vowels}${x.tip ? ` | ${x.tip}` : ''}`);
+      else if (x.type === 'keyexp') { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. ${q.join(' | ')}`)); }
+      else if (x.type === 'matchlines') { if (x.hint) md.push(`(hint) ${x.hint}`); x.pairs.forEach((p, n) => md.push(`${n + 1}. ${p[0]} ↔ ${p[1]}`)); }
+      else if (x.type === 'dlgfill') { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(`${n + 1}. A: ${q.a}  B: ${q.pre}___${q.post}  (힌트 ${q.hint})  →  **${q.ans}**`)); }
+      else if (x.type === 'dialog') x.lines.forEach((l) => md.push(`${l.who}: ${l.ko} (${l.en})`));
+      else if (x.type === 'strokes') { if (x.hint) md.push(`(hint) ${x.hint}`); md.push(x.chains.map((c) => c.join(' → ')).join(' | ')); if (x.note) md.push(x.note); }
+      else if (x.type === 'faces') md.push('(얼굴 그림)');
+      else if (x.items) { if (x.hint) md.push(`(hint) ${x.hint}`); x.items.forEach((q, n) => md.push(q && q.q !== undefined ? `${n + 1}. ${q.q}  →  **${q.a}**` : `${n + 1}. ${Object.entries(q || {}).map(([kk, v]) => `${kk}=${typeof v === 'string' ? v : JSON.stringify(v)}`).join(' · ')}`)); }
       const pat = (B.patterns || {})[`${u.id}:${i + 1}`];
       if (pat) md.push('', '[pattern] ' + pat.map((r) => r.p.map(([t, kk]) => (kk === 's' ? `[${t}]` : t)).join(' + ') + ` → ${r.en}${r.ex ? ` · e.g. ${r.ex}${r.exEn ? ` (${r.exEn})` : ''}` : ''}`).join(' | '));
       md.push('');
