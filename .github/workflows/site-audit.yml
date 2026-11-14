@@ -1,0 +1,37 @@
+# 주간 점검 — 매주 월요일 한국 07:30, 사이트를 폰 · PC 폭으로 열어 개선할 곳(JS 오류 · 깨진 링크 · 접근성 · 가로 스크롤 · 쪽 무게 · 검색 기본)을 모아 GitHub 이슈 「[주간 점검]」으로 알린다.
+# 도구: tools/site-audit.mjs(운영자 2026-11-14 「곳곳에 도구를 설치해 개선점을 찾자 · 유지 보수는 일주일마다」). 점수(Lighthouse)는 lighthouse.yml 이 따로 낸다.
+# 이슈는 주마다 새로 열고, 지난주 이슈는 닫는다. 끄기: 저장소 Variables SITE_AUDIT=off. 비밀 값은 쓰지 않는다.
+name: site-audit
+on:
+  schedule:
+    - cron: '30 22 * * 0'     # 일요일 22:30 UTC = 월요일 07:30 KST
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  audit:
+    if: vars.SITE_AUDIT != 'off'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 도구 설치
+        run: npm i --no-save --no-package-lock playwright@1.55.0 axe-core@4.10.2 && npx playwright install --with-deps chromium
+      - name: 점검
+        env:
+          PLAYWRIGHT_PATH: ${{ github.workspace }}/node_modules/playwright/index.mjs
+          AXE_PATH: ${{ github.workspace }}/node_modules/axe-core/axe.min.js
+        run: node tools/site-audit.mjs --out /tmp/audit.md && cat /tmp/audit.md >> "$GITHUB_STEP_SUMMARY"
+      - name: 이슈로 알리기
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          TITLE="[주간 점검]"
+          for n in $(gh issue list --repo "$REPO" --state open --search "$TITLE in:title" --json number --jq '.[].number'); do
+            gh issue close "$n" --repo "$REPO" --comment "새 주간 점검이 나와서 닫습니다."
+          done
+          gh issue create --repo "$REPO" --title "$TITLE $(TZ=Asia/Seoul date +%F)" --body-file /tmp/audit.md
