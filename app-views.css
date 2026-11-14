@@ -3592,7 +3592,7 @@ a.gp-use-src:hover { color:var(--orange); }
 }
 .my-card.my-empty { background:var(--tint); }
 .my-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
-.my-kicker { font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.my-kicker { font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-text, #A8470F); }   /* 연한 주황 칸 위 대비 4.0 → 5.2, 어두운 모드는 밝은 주황(2026-11-14 주간 점검) */
 .my-title { font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.035em; margin-top:4px; }
 .my-title small { font-size:13px; font-weight:600; color:var(--ink-3); letter-spacing:0; margin-left:4px; }
 .my-sub { font-size:14.5px; color:var(--ink-2); line-height:1.6; word-break:keep-all; }
@@ -3639,7 +3639,7 @@ a.gp-use-src:hover { color:var(--orange); }
 .my-chip.wide { align-self:flex-start; }
 .my-chip:hover { border-color:rgba(var(--ink-rgb),.3); color:var(--ink); }
 .my-cta {
-  align-self:flex-start; background:var(--orange); color:#fff; border:none; border-radius:8px;
+  align-self:flex-start; background:var(--orange-deep); color:#fff; border:none; border-radius:8px;   /* 흰 글자 대비 2.2 → 5.7 (밝은 주황 위 흰 글자는 읽기 어려움). 어두운 모드 글자색은 아래 어두운 모드 규칙이 맡는다 */
   padding:11px 18px; font-size:14.5px; font-weight:700; cursor:pointer;
 }
 .my-link { background:none; border:none; color:var(--ink-3); font-size:13px; text-decoration:underline; cursor:pointer; padding:4px 0; }
@@ -4264,7 +4264,7 @@ div.wd-card:hover { transform:none; }
 .wd-segs i.on { background:#1B1512; }
 .wd-card-body { display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding-right:56px; }
 .wd-card-meta { align-self:flex-start; margin-bottom:10px; font-size:12px; font-weight:800; padding:5px 11px; border-radius:8px; background:rgba(255,255,255,.9); color:#1B1512; }
-.wd-flash.flip .wd-card-meta { background:#FFE6D1; color:#C4551C; }
+.wd-flash.flip .wd-card-meta { background:#FFE6D1; color:#A8470F; }
 .wd-deck .wd-big { font-size:56px; line-height:1.05; letter-spacing:-.03em; color:#1B1512; }
 .wd-deck .wd-big-en { font-size:34px; }
 .wd-deck .wd-rom { font-size:16px; font-style:normal; color:rgba(27,21,18,.6); }
@@ -4571,12 +4571,12 @@ div.wd-card:hover { transform:none; }
 .wd-intro-k b { float:right; color:var(--ink); }
 .wd-intro { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-height:320px; padding:26px 24px; border-radius:14px;
   background:#FFF8EE; color:#1B1512; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); animation:wdCard .28s ease; }
-.wd-intro .wd-card-meta { background:#FFE6D1; color:#C4551C; }
+.wd-intro .wd-card-meta { background:#FFE6D1; color:#A8470F; }
 .wd-intro-w { display:flex; align-items:center; gap:12px; margin-top:10px; }
 .wd-intro-w b { font-size:48px; font-weight:900; letter-spacing:-.03em; line-height:1.1; }
 .wd-intro-say { display:grid; place-items:center; width:44px; height:44px; border:0; border-radius:50%; background:#FF914D; color:#1B1512; cursor:pointer; }
 .wd-intro-say .wd-i { width:21px; height:21px; }
-.wd-intro-say.sm { display:inline-grid; width:30px; height:30px; margin-left:8px; vertical-align:-7px; background:#FFE6D1; color:#C4551C; }
+.wd-intro-say.sm { display:inline-grid; width:30px; height:30px; margin-left:8px; vertical-align:-7px; background:#FFE6D1; color:#A8470F; }
 .wd-intro-say.sm .wd-i { width:16px; height:16px; }
 .wd-intro-rom { font-size:16px; color:#8C7A66; }
 .wd-intro-m { margin:16px 0 0; font-size:22px; font-weight:800; }
@@ -5592,7 +5592,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .cls-small { align-self:flex-start; border:none; background:none; font:inherit; font-size:12.5px; color:var(--ink-3); cursor:pointer; padding:0; text-decoration:underline; }
 .cls-form [hidden] { display:none; }
 /* 새 낱말 소개 — 가린 뜻(누르면 보인다) */
-.wd-intro-hide { margin-top:16px; padding:10px 16px; border:1.5px dashed #E8B48F; border-radius:8px; background:#FFF3E8; color:#C4551C; font:inherit; font-size:15px; font-weight:800; cursor:pointer; }
+.wd-intro-hide { margin-top:16px; padding:10px 16px; border:1.5px dashed #E8B48F; border-radius:8px; background:#FFF3E8; color:#A8470F; font:inherit; font-size:15px; font-weight:800; cursor:pointer; }
 .wd-intro-hide:hover { background:#FFE6D1; }
 
 /* 강의(#learn/lectures) — 반 · 숙제의 카드 · 입력 칸을 같이 쓴다 */
@@ -5718,7 +5718,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .pro-row + .pro-row { border-top:1px solid var(--line); }
 .pro-row b { color:var(--ink); font-weight:700; text-align:right; }
 .pro-st.ok { color:#1D7A55; }
-.pro-st.cancel { color:#C4551C; }
+.pro-st.cancel { color:var(--orange-text,#A8470F); }
 .pro-st.due { color:#B7791F; }
 .side-pro-tag { margin-left:auto; padding:2px 8px; border-radius:8px; font-size:11.5px; font-weight:700; background:var(--line); color:var(--ink-2); }
 .side-pro-tag.on { background:#FFC94D; color:#2A1A12; }
@@ -5732,8 +5732,8 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-h { font-size:clamp(24px, 4.4vw, 34px); font-weight:800; letter-spacing:-.03em; color:var(--ink); margin:22px 0 14px; word-break:keep-all; }
 .up-toggle { display:inline-flex; gap:4px; padding:4px; border-radius:999px; background:var(--surface); border:1px solid var(--line); }
 .up-toggle button { min-height:40px; padding:6px 18px; border:0; border-radius:999px; background:transparent; font:inherit; font-weight:700; color:var(--ink-2); cursor:pointer; }
-.up-toggle button.on { background:var(--ink); color:var(--bg, #fff); }
-.up-toggle small { font-size:11px; color:#1D7A55; font-weight:800; }
+.up-toggle button.on { background:#1B1512; color:#fff; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); }   /* 어두운 모드에서 연한 칸 위 노란 글자(대비 1.3)가 되던 것 — 칸을 두 모드 모두 어두운 색으로 고정 */
+.up-toggle small { font-size:11px; color:var(--green, #12704F); font-weight:800; }
 .up-toggle button.on small { color:#FFC94D; }
 .up-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; align-items:start; }
 .up-card { padding:24px 22px; border-radius:12px; background:var(--surface); border:1px solid var(--line); display:flex; flex-direction:column; gap:10px; }
@@ -5759,7 +5759,7 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-biz { margin:10px auto 0; text-align:center; font-size:12px; color:var(--ink-3); word-break:keep-all; }
 .up-launch { align-self:flex-start; padding:4px 12px; border-radius:8px; background:#FFF3D1; color:#8A4B0F; font-size:12.5px; font-weight:800; }
 .up-price s { color:var(--ink-3); font-size:18px; margin-right:6px; }
-.up-card.pass .up-btn { border-color:#C4551C; color:#C4551C; }
+.up-card.pass .up-btn { border-color:#C4551C; color:var(--orange-text,#A8470F); }
 .up-card.pass .up-btn:disabled { border-color:var(--line); color:var(--ink-3); }
 .up-card.pass .up-btn.main { color:#fff; border-color:#C4551C; }   /* 추천일 때 — 위 줄의 주황 글씨가 주황 단추에 묻히지 않게 */
 @media (min-width:900px) { .up-wrap { max-width:1140px; } .up-grid { grid-template-columns:repeat(3, 1fr); } }
@@ -5774,9 +5774,9 @@ body.mk-printing .mk-cover, body.mk-printing .mk-paper, body.mk-printing .mk-omr
 .up-val-k { color:var(--ink); font-weight:600; word-break:keep-all; }
 .up-val-f { color:var(--ink-3); text-decoration:line-through; text-decoration-color:rgba(0,0,0,.25); white-space:nowrap; }
 .up-val-ar { color:var(--ink-3); text-align:center; }
-.up-val-p { color:#C4551C; font-size:16px; white-space:nowrap; }
+.up-val-p { color:var(--orange-text,#A8470F); font-size:16px; white-space:nowrap; }
 .up-val-x { justify-self:end; padding:2px 7px; border-radius:8px; background:#FFC94D; color:#2A1A12; font-size:11.5px; font-weight:800; }
-.up-day { margin:0; font-size:13px; color:#1D7A55; font-weight:700; }
+.up-day { margin:0; font-size:13px; color:var(--green, #12704F); font-weight:700; }
 @media (max-width:560px) {
   .up-val { padding:14px 12px; }
   .up-val-r { grid-template-columns:24px minmax(0,1fr) auto 36px; grid-template-areas:"ic k k x" ". f p p"; row-gap:2px; }
@@ -7262,7 +7262,7 @@ body.cls-pres-on { overflow:hidden; }
 .td-card:not(.ck) .td-slot.done .td-k { text-decoration:none; }
 
 .up-val-free { margin:12px 0 0; padding:10px 14px; border-radius:8px; background:color-mix(in srgb, #FFC94D 18%, var(--surface)); font-size:13.5px; line-height:1.6; color:var(--ink-2); text-align:center; }
-.up-val-free b { color:var(--ink); background:#FFC94D; padding:1px 8px; border-radius:8px; margin-right:4px; }
+.up-val-free b { color:#2A1A12; background:#FFC94D; padding:1px 8px; border-radius:8px; margin-right:4px; }
 
 /* 레슨 새 블록(2026-10-15, docs/plans/course-blocks.md) — 비교 · 낱말 카드 · 내 문장 쓰기 */
 .cmp { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
@@ -7666,7 +7666,7 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-mail { margin:12px 0 0; padding-top:12px; border-top:1px solid var(--line); text-align:left; }
 .lt-mail-t { font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.45; word-break:keep-all; }
 .lt-mail-r { display:flex; gap:8px; margin-top:8px; }
-.lt-mail-r input { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font:inherit; font-size:15px; color:var(--ink); }
+.lt-mail-r input { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); font:inherit; font-size:15px; color:var(--ink); }   /* 어두운 모드에서 흰 칸 + 연한 글자(대비 1.2)였던 것 */
 .lt-mail-r button { flex:none; padding:10px 16px; border:1px solid var(--orange); border-radius:8px; background:var(--orange); color:#1B1512; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
 .lt-mail-r button:disabled { opacity:.5; cursor:default; }
 .lt-mail-c { display:flex; gap:8px; align-items:flex-start; margin-top:8px; font-size:12.5px; line-height:1.45; color:var(--ink-3); }

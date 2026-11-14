@@ -1,8 +1,8 @@
 /* 손으로 쓴 정적 쪽(about · korean-name · korean-age)의 모양 — teacher.html 의 스타일을 그대로 옮겨 왔다. */
 :root {
   --bg:#F2EEE4; --surface:#fff; --tint:#FDF0E2;
-  --ink:#1B1512; --ink-2:#4E3E31; --ink-3:#8C7A66;
-  --orange:#FF914D; --orange-deep:#C4551C;
+  --ink:#1B1512; --ink-2:#4E3E31; --ink-3:#78674F;   /* 베이지 바탕 위 대비 3.6 → 4.7(첫 화면 쪽과 같은 값, 2026-11-14 주간 점검) */
+  --orange:#FF914D; --orange-deep:#AE4710;   /* 글자 대비 3.9 → 4.9(2026-11-14 주간 점검) */
   --line:rgba(27,21,18,.11); --line-2:rgba(27,21,18,.06);
 }
 * { box-sizing:border-box; margin:0; padding:0; font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
