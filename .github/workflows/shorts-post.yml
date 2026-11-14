@@ -29,7 +29,7 @@ concurrency: shorts-post
 jobs:
   run:
     if: ${{ startsWith(vars.SHORTS_AUTO, 'on') || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
