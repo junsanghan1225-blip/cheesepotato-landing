@@ -10,6 +10,7 @@
 | 쓰레드 선생님 홍보 글 3개(1 · 3 · 6번, KST 21:37) | `tools/threads-promo.mjs --set teachers` · 같은 워크플로 | `THREADS_TOKEN` | 기본 켜짐(끄기: `THREADS_PROMO=off`) | 원본 `docs/ops/teacher-posts.json` — 쓰레드가 적힌 글 중 영어 본문 있는 것만. 5번(짧은 한국어)은 인스타 스토리용이라 자동에서 뺌 |
 | 정확한 시간에 깨우기 | cron-job.org → GitHub | GitHub 세부 토큰 | — | `docs/ops/insta-auto.md` |
 | Polar 상품 · 결제 링크 · 감사 쪽 주소 | `tools/polar-publish.mjs` · `polar-bundle.mjs` · `polar-links.mjs` | Polar 토큰 · 환경 시크릿(Node 에 `NODE_USE_ENV_PROXY=1`) | 명령 | `docs/ops/polar-api.md` |
+| 자동화 실패 알림(매일 한국 08:40) | `.github/workflows/watchdog.yml` | 기본 GITHUB_TOKEN 만 | 기본 켜짐(끄기: 변수 `WATCHDOG=off`) | 어제 아침부터 실패한 자동화가 있으면 이슈 「[자동화 실패 알림]」을 열고(메일 · 앱 알림), 없으면 열린 이슈를 닫는다 |
 | 블로그 · 팟캐스트 · 쇼츠 · 분석 · 알림 | `.github/workflows/` 의 blog-* · podcast-post · shorts-post · analytics-daily · daily-reminder · downloads-sync · indexnow | 각 workflow 머리말 참고 | 각 workflow | 각 workflow 머리말 |
 | 이메일 모으기 · 책 리뷰 | `subscribe.js` · `reviews.js` → Supabase(공개 키, 넣기만 가능) | 없음(공개 anon 키) | 켜짐 | `docs/db/` · `docs/ops/reviews.md` |
 | 책 공장(책 PDF · 최종 검수 자동 검사 · 표지 · zip) | `node tools/book-factory.mjs <책 id>` · `--all` / 검사만 `tools/check-book-pdf.mjs` · 장부 `docs/ops/book-ledger.json` | 없음 | 켜짐(손으로 돌림) | `docs/plans/books.md` 8 |

@@ -1,0 +1,45 @@
+# 자동화 실패 점검 — 매일 한국 08:40(어제 아침부터 지금까지)에 실패한 자동화를 찾아 GitHub 이슈로 알린다.
+# 왜: 2026-11-13~14 인스타 올리기가 이틀 넘게 실패했는데 아무도 몰랐다(서버 OS 가 바뀌어 브라우저를 못 깔았음).
+# 이슈가 열리면 GitHub 가 저장소 주인에게 메일 · 앱 알림을 보낸다. 비밀 값은 쓰지 않는다(기본 GITHUB_TOKEN 만).
+# 끄기: 저장소 Variables WATCHDOG=off. 실패가 없으면 아무것도 하지 않고, 열린 알림 이슈가 있으면 「지금은 괜찮아요」를 남기고 닫는다.
+name: watchdog
+on:
+  schedule:
+    - cron: '40 23 * * *'     # 매일 한국 08:40
+  workflow_dispatch:
+permissions:
+  actions: read
+  issues: write
+jobs:
+  look:
+    if: vars.WATCHDOG != 'off'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 실패한 자동화 찾기
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          SINCE=$(date -u -d '26 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          # 실패한 실행 중 이 점검 자신 · 코드 검사(check · lighthouse)는 뺀다 — 사람이 고치는 PR 쪽 일이라 알림이 소란해진다.
+          gh api -X GET "repos/$REPO/actions/runs" -f status=failure -f created=">=$SINCE" -F per_page=100 \
+            --jq '.workflow_runs[] | select(.name != "watchdog" and .name != "check" and .name != "lighthouse") | "\(.name)\t\(.event)\t\(.created_at)\t\(.html_url)"' > /tmp/fails.txt || true
+          N=$(wc -l < /tmp/fails.txt | tr -d ' ')
+          echo "실패 $N 건"; cat /tmp/fails.txt
+          TITLE="[자동화 실패 알림]"
+          OPEN=$(gh issue list --repo "$REPO" --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ "$N" -gt 0 ]; then
+            {
+              echo "어제 아침부터 지금까지 실패한 자동화 **${N}건**입니다(이름 · 일어난 일 · 시각 · 로그)."
+              echo
+              echo '| 자동화 | 일어난 일 | 시각(UTC) | 로그 |'; echo '|---|---|---|---|'
+              awk -F'\t' '{printf "| %s | %s | %s | [열기](%s) |\n", $1, $2, $3, $4}' /tmp/fails.txt
+              echo
+              echo '고치는 법은 `docs/ops/automations.md` 와 각 workflow 머리말을 보세요. 이 글은 매일 아침 자동으로 갱신됩니다.'
+            } > /tmp/body.md
+            if [ -n "$OPEN" ]; then gh issue comment "$OPEN" --repo "$REPO" --body-file /tmp/body.md
+            else gh issue create --repo "$REPO" --title "$TITLE $(TZ=Asia/Seoul date +%F)" --body-file /tmp/body.md; fi
+          elif [ -n "$OPEN" ]; then
+            gh issue comment "$OPEN" --repo "$REPO" --body "어제 아침부터 지금까지 실패한 자동화가 없어서 닫습니다."
+            gh issue close "$OPEN" --repo "$REPO"
+          fi
