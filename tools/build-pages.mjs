@@ -97,7 +97,7 @@ const tier = (p) => (LV_KO[p.lv] ? p.lv : 'intermediate');   // lv 를 빠뜨렸
 const CSS = `
 /* 색은 사이트(index.html :root)와 같은 값 — 검색으로 들어온 쪽과 사이트가 한 집처럼 보이게(운영자 요청 2026-10-01).
    --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색. */
-:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#8C7A66;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
+:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#78674F;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
   --card:#fff;--brand:#F0C24B;--soft:#FBF8F1;--tint:#FDF0E2;--cta:#1B1512;--cta-ink:#fff;--orange:#E1682B}
 @media(prefers-color-scheme:dark){:root{--bg:#17130F;--ink:#F2EAE0;--ink2:#CBB8A6;--dim:#9C8973;--line:rgba(242,234,224,.11);--line2:rgba(242,234,224,.06);
   --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
@@ -1913,7 +1913,7 @@ const BLOG_CSS = `
 .gnote{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--dim)}
 .gacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:13px}
 /* 앞의 것이 카드 전체를 덮는다 — 어디를 눌러도 예문 만들기로 간다. */
-.ggo{font-size:13.5px;font-weight:800;color:#2b2117;background:var(--brand);
+.ggo{font-size:13.5px;font-weight:800;color:#1a130d;background:var(--brand);
   border-radius:8px;padding:8px 15px;line-height:1.2}
 .ggo::after{content:'';position:absolute;inset:0;border-radius:12px}
 /* 여기에 filter 나 transform 을 걸지 마라. 둘 다 이 알약을 제 ::after 의
@@ -1939,7 +1939,7 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 .bdoc-paper{background:#fffdf8;color:#2b2117;border:1px solid var(--rb-hair);border-radius:6px;padding:18px 18px 12px;
   box-shadow:0 1px 0 rgba(var(--ink-rgb),.08)}
 .bdoc-t{text-align:center;font-size:19px;font-weight:800;letter-spacing:.2em;margin-bottom:2px}
-.bdoc-s{text-align:center;font-size:12px;color:#8a7c6a;margin-bottom:10px}
+.bdoc-s{text-align:center;font-size:12px;color:#6f6252;margin-bottom:10px}
 .bdoc table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
 .bdoc th,.bdoc td{border:1px solid #d9ccb6;padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55;word-break:keep-all}
 .bdoc th{width:34%;background:#f6efe0;font-weight:700;white-space:nowrap}
@@ -1973,7 +1973,7 @@ a.gcard:hover .glinkgo{color:var(--ink)}
    Gowun Batang(더 가볍고 따뜻한 모던 세리프)으로 정했다. */
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
 
-:root{--bg:#FBF8F3;--ink:#26211B;--dim:#7A7168;--line:#E5DED2;--card:#FFFFFF;--brand:#B8763E;--soft:#F4EFE6;
+:root{--bg:#FBF8F3;--ink:#26211B;--dim:#6A6159;--line:#E5DED2;--card:#FFFFFF;--brand:#B8763E;--soft:#F4EFE6;
   --rb-deck:#F4EFE6;--rb-rail:#9C9184;--rb-hair:#E5DED2}
 @media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
   --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
@@ -3094,15 +3094,15 @@ function localeHome(code) {
     faq.map(([q, a]) => `<details class="lc-faq"><summary>${esc(q)}</summary><p>${a}</p></details>`).join('\n'),
   ].join('\n');
   if (miss.length) throw new Error(`/${code}/ 번역이 없는 글 ${miss.length}개 — ${miss.slice(0, 5).join(' | ')}`);
-  const extraCss = `.lc-langs{font-size:13px;color:#8C7A66}.lc-langs a{color:inherit}.lc-h1{font-size:clamp(30px,6vw,46px);line-height:1.15;letter-spacing:-.03em}.lc-h1 em{font-style:normal;color:#E1682B}
+  const extraCss = `.lc-langs{font-size:13px;color:#78674F}.lc-langs a{color:inherit}.lc-h1{font-size:clamp(30px,6vw,46px);line-height:1.15;letter-spacing:-.03em}.lc-h1 em{font-style:normal;color:#E1682B}
 .lc-acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}.lc-go,.lc-how{display:inline-flex;align-items:center;min-height:52px;padding:12px 22px;border-radius:8px;font-weight:800;text-decoration:none}
-.lc-go{background:#1B1512;color:#fff}.lc-how{background:#FDF0E2;color:#1B1512}.lc-fine{font-size:13px;color:#8C7A66}
+.lc-go{background:#1B1512;color:#fff}.lc-how{background:#FDF0E2;color:#1B1512}.lc-fine{font-size:13px;color:#78674F}
 .lc-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.lc-path{display:flex;flex-direction:column;gap:4px;padding:0 0 14px;border:1px solid #E4DED1;border-radius:10px;background:#fff;color:#1B1512;text-decoration:none;overflow:hidden}
 .lc-path>b,.lc-path>small,.lc-path>em,.lc-path>ul,.lc-start{margin:0 14px}.lc-path>b{font-size:18px;margin-top:8px}.lc-path>small{color:#4E3E31}.lc-path>em{font-style:normal;font-weight:800;font-size:12.5px;color:#C4551C;margin-top:6px}
 .lc-path ul{padding-left:18px;font-size:13.5px}.lc-start{font-weight:800}.lc-top{display:flex;justify-content:space-between;padding:9px 12px}.lc-badge{padding:3px 9px;border-radius:99px;background:#1B1512;color:#fff;font-size:12px;font-weight:800}
 .lc-step{padding:2px 9px;border:1.5px solid #1B1512;border-radius:8px;font-size:11.5px;font-weight:800}.lc-basic .lc-top{background:#F6E7CC}.lc-mid .lc-top{background:#FFD9B8}.lc-adv .lc-top{background:#FFB27A}.lc-topik .lc-top{background:#FFDF7A}
 .lc-tiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.lc-tile{display:flex;flex-direction:column;gap:3px;padding:14px;border:1px solid #E4DED1;border-radius:10px;background:#fff;color:#1B1512;text-decoration:none}
-.lc-tile small{color:#8C7A66}.lc-faq{border-top:1px solid #E4DED1;padding:10px 0}.lc-faq summary{font-weight:800;cursor:pointer}`;
+.lc-tile small{color:#78674F}.lc-faq{border-top:1px solid #E4DED1;padding:10px 0}.lc-faq summary{font-weight:800;cursor:pointer}`;
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: code,
     mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: strip(a) } })) };
   const webLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: L.title, description: L.desc, inLanguage: code, url: `${SITE}/${code}/` };
