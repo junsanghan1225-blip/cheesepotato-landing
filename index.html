@@ -914,6 +914,18 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 }
 @media (max-width:899px) { .hs-stack { grid-template-columns:1fr 1fr; gap:10px; } .hs-card { grid-template-columns:40px minmax(0,1fr); gap:10px; padding:12px; }
   .hs-ic { width:40px; height:40px; } .hs-ic .lvl-ic { width:32px; height:32px; } .hs-t b { font-size:16px; margin-bottom:4px; } .hs-t small { font-size:11px; white-space:normal; line-height:1.25; } }
+/* 폭 360~420px 폰에서 「Intermediate」가 카드 밖으로 나가던 것(2026-11-14) — 그림 · 간격 · 글자를 한 칸씩 줄이고 긴 낱말은 줄을 바꾼다 */
+.hs-t b { overflow-wrap:anywhere; }
+/* 첫 화면 아래 책 한 줄 띠 — 종이 바탕 · 얇은 줄 · 작은 모서리 */
+.hm-bstrip { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:16px; align-items:center; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:18px auto 0; padding:12px 16px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); text-decoration:none; }
+.hm-more { margin:10px 0 0; } .hm-more>summary { cursor:pointer; list-style:none; padding:10px 0; font-size:14px; font-weight:800; color:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line); } .hm-more>summary::-webkit-details-marker { display:none; } .hm-more>summary:after { content:' +'; color:var(--orange-deep); } .hm-more[open]>summary:after { content:' −'; }
+.hm-bstrip:hover { border-color:var(--ink); }
+.hm-bstrip-c { display:flex; } .hm-bstrip-c img { width:38px; height:54px; object-fit:cover; border-radius:3px; border:1px solid var(--line); margin-left:-10px; background:var(--surface); } .hm-bstrip-c img:first-child { margin-left:0; }
+.hm-bstrip-t { display:block; min-width:0; } .hm-bstrip-t b { display:block; font-size:15px; font-weight:800; } .hm-bstrip-t span { display:block; margin-top:2px; font-size:13px; color:var(--ink-3); line-height:1.4; }
+.hm-bstrip-go { font-size:14px; font-weight:800; white-space:nowrap; color:var(--orange-deep); }
+@media (max-width:560px) { .hm-bstrip { grid-template-columns:auto minmax(0,1fr); gap:12px; padding:12px; } .hm-bstrip-go { grid-column:2; } }
+
+@media (max-width:420px) { .hs-card { grid-template-columns:32px minmax(0,1fr); gap:8px; padding:12px 10px; } .hs-ic { width:32px; height:32px; } .hs-ic .lvl-ic { width:26px; height:26px; } .hs-t b { font-size:14px; } }
 .hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); position:relative; }
 .hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
@@ -2359,6 +2371,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    </div>
   </div>
 
+  <!-- 책 한 줄 띠(운영자 2026-11-14 「책으로 가는 길 짧게」 — 첫 화면 바로 아래에서 책 코너로. 표지는 책 코너와 같은 cover-sm) -->
+  <a class="hm-bstrip" href="#hmBooks" data-ev="책클릭" data-ev-from="첫화면-띠">
+    <span class="hm-bstrip-c" aria-hidden="true"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><img src="assets/books/particles-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></span>
+    <span class="hm-bstrip-t"><b data-en="Workbooks you write in">써 가며 배우는 한국어 워크북</b><span data-en="Answers in every book. Free sample PDFs, no email needed.">책마다 정답이 들어 있어요. 무료 샘플 PDF는 이메일 없이 받아요.</span></span>
+    <span class="hm-bstrip-go" data-en="See the books →">책 보기 →</span>
+  </a>
+
   <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
   <!-- 길 넷(운영자 결정 2026-10-06: 「첫 화면을 길 4개로, 다른 메뉴는 더 보기로 접기 — 내 얘기는 학습 흐름」).
        누르면 그 길(#learn/path/<길>) — 한 걸음 = 문법 → 코스 레슨 → 단어. 처음 온 사람 · 학생 모두에게 보인다. -->
@@ -2443,6 +2462,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="hm-bk hm-bk-s" href="shop/korean-idioms/" data-bk="korean-idioms" data-en-t="Essential Korean Idioms" data-ko-t="필수 관용 표현" data-sub-en="449 idioms, proverbs and four-character idioms with examples, checkups and writing practice." data-sub-ko="관용구 · 속담 · 사자성어 449개" data-px="9.90" data-pg="274쪽" data-pg-en="274 pages" data-src="assets/books/korean-idioms/cover-sm.jpg" data-tip="필수 관용 표현" aria-label="Essential Korean Idioms — 필수 관용 표현" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
       </div></div>
+    <details class="hm-more"><summary><span data-en="More series · 7 more books">다른 시리즈 7권 더 보기</span></summary>
     <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="TOPIK Vocabulary Series">TOPIK 단어장 시리즈</span><small data-en="4">4권</small></h3>
       <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK 단어장 시리즈">
         <a class="hm-bk hm-bk-s" href="shop/topik1-vocab/" data-bk="topik1-vocab" data-en-t="Beginner Essential Vocabulary (for TOPIK I)" data-ko-t="초급 필수 단어장 (TOPIK I 대비)" data-sub-en="All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice." data-sub-ko="TOPIK I 필수 단어 1,931개 · 예문과 쓰기 연습" data-px="9.90" data-pg="528쪽" data-pg-en="528 pages" data-src="assets/books/topik1-vocab/cover-sm.jpg" data-tip="초급 필수 단어장 (TOPIK I 대비)" aria-label="Beginner Essential Vocabulary (for TOPIK I) — 초급 필수 단어장 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
@@ -2466,6 +2486,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="hm-bk hm-bk-s" href="shop/topik2-writing-53-54/" data-bk="topik2-writing-53-54" data-en-t="Writing Practice 53–54 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-sub-en="Describe data in 300 characters, argue in 700, with scored samples." data-sub-ko="자료 설명 · 논술 쓰기와 채점 기준" data-px="9.90" data-pg="234쪽" data-pg-en="234 pages" data-src="assets/books/topik2-writing-53-54/cover-sm.jpg" data-tip="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" aria-label="Writing Practice 53–54 (for TOPIK II) — 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="assets/books/topik2-writing-53-54/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
       </div></div>
+    </details>
     <div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/first-steps-workbook/" tabindex="-1" aria-hidden="true"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426"></a>
       <div class="hm-pan-b"><span class="hm-pan-g">159쪽</span><h3 class="hm-pan-t">Korean First Steps Workbook</h3><p class="hm-pan-ko">한국어 첫걸음 워크북</p><p class="hm-pan-sub">한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시</p>
       <p class="hm-pan-r"><span class="hm-bk-px">$9.90</span><a class="hm-pan-go" href="shop/first-steps-workbook/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>
