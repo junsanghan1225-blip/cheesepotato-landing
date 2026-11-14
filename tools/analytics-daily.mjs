@@ -113,14 +113,18 @@ async function polar() {
   return out;
 }
 
+/* 이벤트 × 매개변수 — 코드가 보내는 이름(app.module.js · analytics.js)과 같아야 한다 */
+const PARAM_QUERIES = [['level_test_quit_detail', 'cp_q'], ['level_test_quit_late', 'cp_q'], ['level_test_quit_detail', 'cp_area'], ['book_click', 'book_id'], ['buy_click', 'book_id'], ['sample_click', 'book_id'], ['dead_click', 'cp_el'], ['dead_click', 'cp_page']];
+
 async function collect() {
   if (FAKE) {
     return {
       overview: [['1048', '1046', '1563', '4310', '333', '0.41']],
       pages: [['/', '900', '700'], ['/topik-writing/', '300', '220']], sources: [['Direct', '(direct) / (none)', '600'], ['Organic Search', 'google / organic', '400']],
-      countries: [['Korea', '300', '400'], ['Vietnam', '200', '260']], events: [['page_view', '4310'], ['lesson_start', '871']], devices: [['mobile', '800', '1100'], ['desktop', '248', '463']],
+      countries: [['Korea', '300', '400'], ['Vietnam', '200', '260']], events: [['page_view', '4310'], ['lesson_start', '871'], ['level_test_open', '14'], ['level_test_start', '28'], ['level_test_half', '4'], ['level_test_complete', '4'], ['level_test_quit_setup', '6'], ['book_click', '44'], ['sample_click', '3']], devices: [['mobile', '800', '1100'], ['desktop', '248', '463']],
       scDay: [['0', '0']], scQ: [['토픽 쓰기 연습', '12', '300', '0.04', '6.2']], scP: [['https://everykoreans.com/topik-writing/', '30', '900', '0.033', '7.1']],
       mix: [['China', 'desktop', 'Direct', '20', '0', '0']], cnPages: [['/', '20', '0', '0']],
+      params: [{ event: 'book_click', dim: 'book_id', rows: [['first-steps-workbook', '9']] }, { event: 'dead_click', dim: 'cp_el', rows: [], note: '미등록' }],
     };
   }
   const tok = await token();
@@ -141,7 +145,16 @@ async function collect() {
     q(['country', 'deviceCategory', 'sessionDefaultChannelGroup'], ['sessions', 'averageSessionDuration', 'engagementRate'], 15, sorted('sessions')),
     q(['landingPage'], ['sessions', 'averageSessionDuration', 'engagementRate'], 8, { ...sorted('sessions'), dimensionFilter: { filter: { fieldName: 'country', stringFilter: { value: 'China', matchType: 'EXACT' } } } }),
   ]);
-  return { overview, pages, sources, countries, events, devices, scDay, scQ, scP, mix, cnPages };
+  /* 이벤트 매개변수별(2026-11-14 운영자 「레벨 테스트 이탈 · 책 클릭 뒤 흐름」): 이벤트 이름만으로는 「몇 번째 문제에서 나갔나 · 어느 책을 눌렀나 · 어느 요소가 죽은 클릭인가」를 모른다.
+     GA4 맞춤 측정기준(범위 이벤트)으로 등록된 것만 읽힌다 — 등록 안 된 것은 오류가 나므로 하나씩 시도하고 「미등록」으로 남긴다. */
+  const byParam = async (event, dim) => {
+    try {
+      const rows = await q([`customEvent:${dim}`], ['eventCount'], 15, { ...sorted('eventCount'), dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: event, matchType: 'EXACT' } } } });
+      return { event, dim, rows };
+    } catch (e) { return { event, dim, rows: [], note: /not a valid|customEvent|dimension/i.test(String(e.message)) ? '미등록' : String(e.message).slice(0, 80) }; }
+  };
+  const params = await Promise.all(PARAM_QUERIES.map(([ev, dim]) => byParam(ev, dim)));
+  return { overview, pages, sources, countries, events, devices, scDay, scQ, scP, mix, cnPages, params };
 }
 
 function summary(d) {
@@ -162,6 +175,21 @@ function summary(d) {
   const KEY = ['lesson_start', 'lesson_complete', 'level_test_open', 'level_test_start', 'level_test_half', 'level_test_complete', 'sign_up', 'login', 'pro_view', 'checkout', 'paid', 'file_download', 'download_gate_view', 'download_gate_click', 'download_start'];
   const ev = Object.fromEntries(d.events.map((r) => [r[0], r[1]]));
   L.push(...table('핵심 이벤트(순위 밖이어도)', ['이벤트', '횟수'], KEY.filter((k) => ev[k] != null).map((k) => [k, fmt(ev[k])])));
+  /* 레벨 테스트 깔때기 · 책 클릭 뒤 흐름(2026-11-14) */
+  const n = (k) => num(ev[k] || 0), rate = (a, b) => (b ? Math.round((a / b) * 100) + '%' : '–');
+  if (ev.level_test_start != null || ev.level_test_open != null) {
+    const st = n('level_test_start');
+    L.push('## 레벨 테스트 깔때기', '', '| 단계 | 횟수 | 시작 대비 |', '|---|---|---|');
+    [['열기', 'level_test_open'], ['시작', 'level_test_start'], ['절반', 'level_test_half'], ['완료', 'level_test_complete'], ['가입 권유 보임', 'level_test_join_view'], ['설정에서 그만둠', 'level_test_quit_setup'], ['문제 풀다 그만둠', 'level_test_quit_questions'], ['뒤늦게 이탈로 잡힘', 'level_test_quit_late']].forEach(([lab, k]) => { if (ev[k] != null) L.push(`| ${lab} | ${fmt(ev[k])} | ${k === 'level_test_open' ? '–' : rate(n(k), st)} |`); });
+    L.push('', `> 시작 ${fmt(st)} 중 끝까지 간 사람 ${rate(n('level_test_complete'), st)}. 시작과 (완료 + 그만둠 + 뒤늦게 이탈)의 차이는 「이탈 기록이 없는 사람」입니다(봇이 섞였을 수 있음).`, '');
+  }
+  if (ev.book_click != null || ev.buy_click != null || ev.sample_click != null) {
+    L.push('## 책 클릭 뒤 흐름', '', `- 책 쪽으로 가는 클릭 **${fmt(n('book_click'))}** → 샘플 받기 **${fmt(n('sample_click'))}** · 결제 링크 클릭 **${fmt(n('buy_click'))}**${n('book_click') ? ` (책 클릭 대비 결제 링크 ${rate(n('buy_click'), n('book_click'))})` : ''}`, '');
+  }
+  for (const pr of d.params || []) {
+    if (pr.note) { L.push(`> ${pr.event} × ${pr.dim}: ${pr.note}${pr.note === '미등록' ? ' — GA4 맞춤 측정기준을 등록하면 보입니다' : ''}`, ''); continue; }
+    if (pr.rows.length) L.push(...table(`${pr.event} 를 ${pr.dim} 로 나눠 보면`, [pr.dim, '횟수'], pr.rows.map((r) => [r[0] || '(비어 있음)', fmt(r[1])])));
+  }
   const sd = d.scDay[0] || [0, 0];
   L.push('## 검색 (Search Console)', '', `확정된 가장 최근 하루(${SC_END}): 클릭 ${fmt(sd[0])} · 노출 ${fmt(sd[1])}`, '');
   L.push(...table(`검색어 TOP 20 (${SC_START} ~ ${SC_END})`, ['검색어', '클릭', '노출', '클릭률', '평균 순위'], d.scQ.map((r) => [r[0], fmt(r[1]), fmt(r[2]), pct(num(r[3])), num(r[4]).toFixed(1)])));
