@@ -1,5 +1,5 @@
 /* 주간 점검 — 사이트를 폰(390) · PC(1280)로 열어 「개선할 곳」을 한 장의 표로 모은다(운영자 2026-11-14 「곳곳에 도구를 설치해 개선점을 찾자 · 유지 보수는 일주일마다」).
-   잡는 것: ① 잡히지 않은 JS 오류 ② 깨진 안쪽 링크 ③ 접근성(axe) 심각 · 중대 ④ 가로 스크롤 ⑤ 누르기 작은 단추(24px 미만) ⑥ 쪽 무게(3MB 넘음) ⑦ 검색 기본(제목 · 설명 · 대표 주소 · h1 · 그림 alt).
+   잡는 것: ① 잡히지 않은 JS 오류 ② 깨진 안쪽 링크 ③ 접근성(axe) 심각 · 중대 ④ 가로 스크롤 ⑤ 누르기 작은 단추(24px 미만) ⑥ 쪽 무게(압축해서 1.5MB 넘음) ⑦ 검색 기본(제목 · 설명 · 대표 주소 · h1 · 그림 alt).
    서버 연결(Supabase · 분석) 실패는 오류로 안 센다. 점수(Lighthouse)는 lighthouse.yml 이 따로 낸다.
    사용: node tools/site-audit.mjs [--out 파일.md] [--fast]   (--fast: 주소를 줄여 시험용으로)
    환경: PLAYWRIGHT_PATH(playwright 위치) · CHROMIUM_PATH(없으면 playwright 기본) · AXE_PATH(axe.min.js 위치, 없으면 접근성만 건너뜀) */
@@ -7,7 +7,9 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import zlib from 'node:zlib';
 
+const GZ = new Map();
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
@@ -23,7 +25,14 @@ const server = http.createServer((req, res) => {
   if (p.endsWith('/')) p += 'index.html';
   const f = path.join(ROOT, p);
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); res.end('not found'); return; }
-  res.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream', 'Content-Length': fs.statSync(f).size });
+  /* 실제 서비스(GitHub Pages)처럼 글 파일은 gzip 으로 내준다 — 받는 무게를 풀린 크기로 재면 3 배쯤 부풀어 거짓 경고가 난다(2026-11-14) */
+  const ext = path.extname(f), text = /\.(html|js|css|json|svg|xml)$/.test(ext);
+  const head = { 'Content-Type': MIME[ext] || 'application/octet-stream' };
+  if (text && /gzip/.test(req.headers['accept-encoding'] || '')) {
+    const z = GZ.get(f) || (GZ.set(f, zlib.gzipSync(fs.readFileSync(f))), GZ.get(f));
+    res.writeHead(200, { ...head, 'Content-Encoding': 'gzip', 'Content-Length': z.length }); res.end(z); return;
+  }
+  res.writeHead(200, { ...head, 'Content-Length': fs.statSync(f).size });
   fs.createReadStream(f).pipe(res);
 });
 await new Promise((r) => server.listen(0, r));
@@ -70,12 +79,13 @@ for (const W of [390, 1280]) {
     const errs = []; let bytes = 0;
     page.on('pageerror', (e) => errs.push(e.message.split('\n')[0]));
     page.on('console', (m) => { if (m.type() === 'error') { const t = m.text(); if (!ignoreNet.test(t) && realErr.test(t)) errs.push(t.slice(0, 120)); } });
-    page.on('response', (r) => { const l = +(r.headers()['content-length'] || 0); if (r.url().startsWith(BASE)) bytes += l; });
+    let big = ['', 0];
+    page.on('response', (r) => { const l = +(r.headers()['content-length'] || 0); if (r.url().startsWith(BASE)) { bytes += l; if (l > big[1]) big = [r.url().replace(BASE, '').replace(/\?.*$/, ''), l]; } });
     try {
       await page.goto(BASE + u, { waitUntil: 'load', timeout: 20000 }); await page.waitForTimeout(1200);
       errs.forEach((e) => add(1, 'JS 오류', `${W}px ${u}`, e));
       if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) add(2, '가로 스크롤', `${W}px ${u}`, '화면 밖으로 나가는 곳이 있음');
-      if (bytes > 3 * 1024 * 1024) add(2, '쪽 무게', `${W}px ${u}`, `${(bytes / 1048576).toFixed(1)}MB 받음`);
+      if (bytes > 1.5 * 1024 * 1024) add(2, '쪽 무게', `${W}px ${u}`, `압축해서 ${(bytes / 1048576).toFixed(1)}MB 받음(가장 큰 것 ${big[0]} ${Math.round(big[1] / 1024)}KB)`);
       if (W === 390) {
         const small = await page.evaluate(() => [...document.querySelectorAll('a[href],button')].filter((e) => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 0 && r.height > 0 && cs.display !== 'inline' && (r.width < 24 || r.height < 24); }).length);
         if (small) add(3, '작은 단추', `390px ${u}`, `누르기 작은 것 ${small}개(24px 미만)`);
