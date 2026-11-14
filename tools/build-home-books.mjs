@@ -31,10 +31,13 @@ const GROUPS = (SHOP.series || []).map((g) => [g.id, g.title.ko, g.title.en, g.b
 const p0 = GROUPS.flatMap(([, , , ids]) => ids).map((id) => on.find((k) => k.id === id)).find(Boolean) || on[0];
 const spine = (k) => `<a class="hm-bk hm-bk-s${k.id === p0.id ? ' on' : ''}" href="shop/${esc(k.id)}/" data-bk="${esc(k.id)}" data-en-t="${esc(k.title.en)}" data-ko-t="${esc(k.title.ko)}" data-sub-en="${esc(k.sub?.en || '')}" data-sub-ko="${esc((k.sub?.ko || '').replace(/낱말 /g, '단어 '))}" data-px="${esc(k.price)}" data-pg="${esc(k.pages.replace(/\(.*\)/, '').trim())}" data-pg-en="${esc(k.pages.replace(/\(.*\)/, '').replace(/쪽/, ' pages').trim())}" data-src="${esc(src(k))}" data-tip="${esc(k.title.ko)}" aria-label="${esc(k.title.en)} — ${esc(k.title.ko)}" data-ev="책클릭" data-ev-from="첫화면-서가">
           <img src="${esc(src(k))}" alt="" width="300" height="426" loading="lazy" decoding="async"></a>`;
-const shelves = GROUPS.map(([g, ko, en, ids]) => { const ks = ids.map((id) => on.find((k) => k.id === id)).filter(Boolean); return ks.length ? `<div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="${esc(en)}">${esc(ko)}</span><small data-en="${ks.length}">${ks.length}권</small></h3>
+const shelfList = GROUPS.map(([g, ko, en, ids]) => { const ks = ids.map((id) => on.find((k) => k.id === id)).filter(Boolean); return ks.length ? `<div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="${esc(en)}">${esc(ko)}</span><small data-en="${ks.length}">${ks.length}권</small></h3>
       <div class="hm-bk-row hm-shelf-row" aria-label="${esc(ko)}">
         ${ks.map(spine).join('\n        ')}
-      </div></div>` : ''; }).join('\n    ');
+      </div></div>` : ''; }).filter(Boolean);
+/* 첫 화면이 길다는 지적(2026-11-14): 첫 시리즈만 펴 두고 나머지 시리즈는 접는다 — 서가 선택 · 상세 칸 동작은 그대로 */
+const restN = GROUPS.slice(1).reduce((a, [, , , ids]) => a + ids.filter((id) => on.find((k) => k.id === id)).length, 0);
+const shelves = shelfList[0] + (shelfList.length > 1 ? `\n    <details class="hm-more"><summary><span data-en="More series · ${restN} more books">다른 시리즈 ${restN}권 더 보기</span></summary>\n    ${shelfList.slice(1).join('\n    ')}\n    </details>` : '');
 const panel = `<div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/${esc(p0.id)}/" tabindex="-1" aria-hidden="true"><img src="${esc(src(p0))}" alt="" width="300" height="426"></a>
       <div class="hm-pan-b"><span class="hm-pan-g">${esc(p0.pages.replace(/\(.*\)/, '').trim())}</span><h3 class="hm-pan-t">${esc(p0.title.en)}</h3><p class="hm-pan-ko">${esc(p0.title.ko)}</p><p class="hm-pan-sub">${esc(p0.sub?.ko || '')}</p>
       <p class="hm-pan-r"><span class="hm-bk-px">$${esc(p0.price)}</span><a class="hm-pan-go" href="shop/${esc(p0.id)}/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>`;
