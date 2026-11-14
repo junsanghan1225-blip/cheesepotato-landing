@@ -34,7 +34,7 @@ jobs:
   # 1) 무엇을 올릴지 — 브라우저를 깔기 전에 가른다(할 일 없는 15분 몫은 여기서 끝)
   pick:
     if: ${{ startsWith(vars.INSTA_AUTO, 'on') || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # 2026-11-14 ubuntu-latest 가 26.04 로 바뀌어 Playwright 1.55 가 브라우저를 못 깔았다 — 올리기가 멈춘 원인. 고정
     outputs:
       slot: ${{ steps.pick.outputs.slot }}
       day: ${{ steps.pick.outputs.day }}
@@ -73,7 +73,7 @@ jobs:
   post:
     needs: pick
     if: ${{ needs.pick.outputs.go == '1' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
