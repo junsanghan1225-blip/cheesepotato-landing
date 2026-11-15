@@ -42,6 +42,8 @@ const ASSETS = [
   'games-quick.js',
   /* 반 · 숙제 화면(#learn/class) — app.module.js 에서 떼어 냄(웹 리팩터링 4단계). 반 화면을 열 때 · 반 학생이 첫 화면을 볼 때만 받는다. */
   'class-hw.js',
+  /* 메모장 블록 편집기(그리기 · 고치기) — app.module.js 에서 떼어 냄(웹 리팩터링 4단계). 메모장 블록을 처음 그릴 때 받는다. */
+  'note-editor.js',
   /* 게임 「초성 퀴즈」(#chosung) · 「오늘의 감자들」(#potdle) — 그 게임을 열 때만 받는다. */
   'chosung.js', 'potdle.js',
   /* 「단어」 표현 탭(사자성어 · 속담 · 관용 표현, tools/build-expressions.mjs) — 그 탭을 열 때만 받는다. */
