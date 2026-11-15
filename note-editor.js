@@ -70,7 +70,7 @@ function nbMdCheck(el, m, b) {
      전에 미리 스스로 blur 를 흘려보내 그 손잡이를 먼저 태워 둔다. */
   el.blur();
   b.t = hit.type; b.s = '';
-  G.nbFocus = b.id;
+  G.NB.focus = b.id;
   G.nbSave(m);
 }
 
@@ -83,15 +83,15 @@ function nbRender() {
   blocks.forEach((b, i) => box.appendChild(nbRow(m, b, i)));
   G.$('ntMemoAddEnd').textContent = G.t('+ 블록 더하기', '+ Add a block');
 
-  if (G.nbFocus) {
-    const sel = G.nbFocusField
-      ? `[data-b="${G.nbFocus}"] [data-f="${G.nbFocusField}"]`
-      : `[data-b="${G.nbFocus}"] .nb-txt`;
+  if (G.NB.focus) {
+    const sel = G.NB.focusField
+      ? `[data-b="${G.NB.focus}"] [data-f="${G.NB.focusField}"]`
+      : `[data-b="${G.NB.focus}"] .nb-txt`;
     const el = box.querySelector(sel);
-    if (el) nbCaret(el, G.nbAtEnd);
-    G.nbFocus = null;
-    G.nbAtEnd = true;
-    G.nbFocusField = null;
+    if (el) nbCaret(el, G.NB.atEnd);
+    G.NB.focus = null;
+    G.NB.atEnd = true;
+    G.NB.focusField = null;
   }
 }
 
@@ -337,7 +337,7 @@ function nbRow(m, b, i) {
     pos.addEventListener('keydown', (ev) => {
       if (ev.key === 'Enter') {
         ev.preventDefault();
-        G.nbFocus = b.id; G.nbFocusField = 's'; nbRender();
+        G.NB.focus = b.id; G.NB.focusField = 's'; nbRender();
       }
     });
     badges.append(mainBadge, pos);
@@ -624,7 +624,7 @@ async function nbImgFromClipboard(m, b, el, file) {
   } else {
     blocks.splice(i + 1, 0, target);
   }
-  G.nbFocus = null;
+  G.NB.focus = null;
   G.nbSave(m);
 }
 
@@ -677,13 +677,13 @@ function nbWire(el, m, b) {
       /* 목록·할 일에서 빈 줄에 엔터를 치면 목록을 빠져나온다 — 노션과 같다. */
       if (['ul', 'ol', 'todo'].includes(b.t) && !G.nbPlain(b.s)) {
         b.t = 'text'; b.done = false;
-        G.nbFocus = b.id;
+        G.NB.focus = b.id;
         return G.nbSave(m2);
       }
       const next = G.nbNew(['ul', 'ol', 'todo'].includes(b.t) ? b.t : 'text');
       next.c = b.c; next.bg = b.bg; next.ind = b.ind || 0;
       blocks.splice(i + 1, 0, next);
-      G.nbFocus = next.id;
+      G.NB.focus = next.id;
       return G.nbSave(m2);
     }
     if (ev.key === 'Backspace' && nbCaretAt0(el)) {
@@ -693,19 +693,19 @@ function nbWire(el, m, b) {
       if (b.ind) {
         ev.preventDefault();
         b.ind -= 1;
-        G.nbFocus = b.id; G.nbAtEnd = false;
+        G.NB.focus = b.id; G.NB.atEnd = false;
         return G.nbSave(m2);
       }
       if (['ul', 'ol', 'todo', 'quote', 'call', 'warn', 'tip', 'howto', 'code', 'h1', 'h2', 'h3'].includes(b.t)) {
         ev.preventDefault();
         b.t = 'text'; b.done = false;
-        G.nbFocus = b.id; G.nbAtEnd = false;
+        G.NB.focus = b.id; G.NB.atEnd = false;
         return G.nbSave(m2);
       }
       if (!G.nbPlain(el.innerHTML) && blocks.length > 1) {
         ev.preventDefault();
         blocks.splice(i, 1);
-        G.nbFocus = (blocks[i - 1] || blocks[0]).id;
+        G.NB.focus = (blocks[i - 1] || blocks[0]).id;
         return G.nbSave(m2);
       }
     }
@@ -714,11 +714,11 @@ function nbWire(el, m, b) {
     if (ev.key === 'Tab') {
       ev.preventDefault();
       if (ev.shiftKey) {
-        if (b.ind) { b.ind -= 1; G.nbFocus = b.id; G.nbAtEnd = true; G.nbSave(m2); }
+        if (b.ind) { b.ind -= 1; G.NB.focus = b.id; G.NB.atEnd = true; G.nbSave(m2); }
       } else {
         const prevInd = i > 0 ? (blocks[i - 1].ind || 0) : -1;
         const maxInd = Math.min(prevInd + 1, G.NB_IND_MAX);
-        if ((b.ind || 0) < maxInd) { b.ind = (b.ind || 0) + 1; G.nbFocus = b.id; G.nbAtEnd = true; G.nbSave(m2); }
+        if ((b.ind || 0) < maxInd) { b.ind = (b.ind || 0) + 1; G.NB.focus = b.id; G.NB.atEnd = true; G.nbSave(m2); }
       }
       return;
     }
@@ -825,18 +825,18 @@ function nbWireQA(el, m, b, field, nextField, prevField) {
       if (b.t === 'wb' && field === 's' && wbEmpty) {
         const txt = G.nbNew('text');
         blocks.splice(i, 1, txt);
-        G.nbFocus = txt.id; G.nbFocusField = null;
+        G.NB.focus = txt.id; G.NB.focusField = null;
         return G.nbSave(m2);
       }
       if (nextField) {
-        G.nbFocus = b.id; G.nbFocusField = nextField;
+        G.NB.focus = b.id; G.NB.focusField = nextField;
         return G.nbSave(m2);
       }
       /* 마지막 칸에서 Enter — 다음 블록(글)을 새로 만든다. 일반 블록의
          Enter 와 같은 결이다. 단어장 카드는 다음 단어장 카드. */
       const next = G.nbNew(b.t === 'wb' ? 'wb' : 'text');
       blocks.splice(i + 1, 0, next);
-      G.nbFocus = next.id; G.nbFocusField = b.t === 'wb' ? 's' : null;
+      G.NB.focus = next.id; G.NB.focusField = b.t === 'wb' ? 's' : null;
       return G.nbSave(m2);
     }
     if (ev.key === 'Backspace' && !G.nbPlain(el.innerHTML) && nbCaretAt0(el)) {
@@ -847,7 +847,7 @@ function nbWireQA(el, m, b, field, nextField, prevField) {
       if (!m2) return;
       if (prevField) {
         ev.preventDefault();
-        G.nbFocus = b.id; G.nbFocusField = prevField; G.nbAtEnd = true;
+        G.NB.focus = b.id; G.NB.focusField = prevField; G.NB.atEnd = true;
         nbRender();
       } else if (!G.nbPlain(b.a || '') && (!b.ex || !G.nbPlain(b.ex))) {
         ev.preventDefault();
@@ -855,7 +855,7 @@ function nbWireQA(el, m, b, field, nextField, prevField) {
         const i = blocks.indexOf(b);
         if (blocks.length > 1) {
           blocks.splice(i, 1);
-          G.nbFocus = (blocks[i - 1] || blocks[0]).id;
+          G.NB.focus = (blocks[i - 1] || blocks[0]).id;
           G.nbSave(m2);
         }
       }
@@ -897,7 +897,7 @@ function nbInsert(m, at, type = 'text') {
   const blocks = G.nbBlocks(m);
   const b = G.nbNew(type);
   blocks.splice(at, 0, b);
-  G.nbFocus = b.id;
+  G.NB.focus = b.id;
   G.nbSave(m);
 }
 
@@ -1034,7 +1034,7 @@ function nbMenuOpen(anchor, m, b, only) {
     btn.append(i, s);
     btn.addEventListener('click', () => {
       switchType(ty);
-      G.nbFocus = ty.t === 'hr' || ty.t === 'img' ? null : b.id;
+      G.NB.focus = ty.t === 'hr' || ty.t === 'img' ? null : b.id;
       nbMenuClose();
       G.nbSave(m);
     });
@@ -1061,9 +1061,9 @@ function nbMenuOpen(anchor, m, b, only) {
         } else {
           b.s = G.esc(sample);
         }
-        G.nbFocus = b.id;
-        G.nbFocusField = ['qa', 'vocab', 'ex', 'toggle', 'wb'].includes(ty.t) ? 's' : null;
-        G.nbAtEnd = true;
+        G.NB.focus = b.id;
+        G.NB.focusField = ['qa', 'vocab', 'ex', 'toggle', 'wb'].includes(ty.t) ? 's' : null;
+        G.NB.atEnd = true;
         nbMenuClose();
         G.nbSave(m);
       });
@@ -1110,7 +1110,7 @@ function nbMenuOpen(anchor, m, b, only) {
       const i = blocks.findIndex((x) => x.id === b.id);
       const copy = { ...b, id: G.nbId() };
       blocks.splice(i + 1, 0, copy);
-      G.nbFocus = copy.id;
+      G.NB.focus = copy.id;
       nbMenuClose();
       G.nbSave(m);
     });
@@ -1129,7 +1129,7 @@ function nbMenuOpen(anchor, m, b, only) {
       const i = blocks.findIndex((x) => x.id === b.id);
       blocks.splice(i, 1);
       if (!blocks.length) blocks.push(G.nbNew());
-      G.nbFocus = (blocks[i - 1] || blocks[0]).id;
+      G.NB.focus = (blocks[i - 1] || blocks[0]).id;
       nbMenuClose();
       G.nbSave(m);
     });
