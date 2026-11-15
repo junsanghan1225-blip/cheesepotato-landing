@@ -40,6 +40,8 @@ const ASSETS = [
   'word-blocks.js',
   /* 게임 「스피드 퀴즈」(#quiz) · 「숫자 읽기」(#num) — app.module.js 에서 떼어 냄(웹 리팩터링 3단계). 그 게임을 열 때만 받는다. */
   'games-quick.js',
+  /* 반 · 숙제 화면(#learn/class) — app.module.js 에서 떼어 냄(웹 리팩터링 4단계). 반 화면을 열 때 · 반 학생이 첫 화면을 볼 때만 받는다. */
+  'class-hw.js',
   /* 게임 「초성 퀴즈」(#chosung) · 「오늘의 감자들」(#potdle) — 그 게임을 열 때만 받는다. */
   'chosung.js', 'potdle.js',
   /* 「단어」 표현 탭(사자성어 · 속담 · 관용 표현, tools/build-expressions.mjs) — 그 탭을 열 때만 받는다. */

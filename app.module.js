@@ -13,16 +13,16 @@
    어느 날 갑자기 다른 코드가 실려 왔다.
    이제 vendor/ 안에 받아 두고 CSP 로 바깥을 막는다. 버전을 올릴 때는
    tools/vendor.mjs 의 PIN 을 고치고 다시 돌린다. */
-import { createClient } from './vendor/supabase-js.js?v=32cde420';
+import { createClient } from './vendor/supabase-js.js?v=ec4d1712';
 // TOPIK 읽기 "문제 풀이 영상" 목록. 아주 작은 파일이라(id 목록뿐) 다른
 // 자료처럼 갈래를 열 때 지연 로딩하지 않고 그냥 처음부터 받는다.
-import { TQ_VIDEO_IDS } from './topik-video.js?v=32cde420';
+import { TQ_VIDEO_IDS } from './topik-video.js?v=ec4d1712';
 // 코스 아이콘 — 이모지 대신 선 아이콘(course-icons.js 머리말)
 // 구독(Paddle) — billing.js 머리말
-import { BILLING, billingLive, isPro, proInfo, proByClass, proBonusUntil, proBonusRaw, loadPro, openCheckout, waitPro } from './billing.js?v=32cde420';
-import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=32cde420';
-import { courseIcon } from './course-icons.js?v=32cde420';
-import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=32cde420';
+import { BILLING, billingLive, isPro, proInfo, proByClass, proBonusUntil, proBonusRaw, loadPro, openCheckout, waitPro } from './billing.js?v=ec4d1712';
+import { myLevelBadge, potatoLevel, cheeseLevel, CHEESE_OF_LEVEL } from './levels.js?v=ec4d1712';
+import { courseIcon } from './course-icons.js?v=ec4d1712';
+import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=ec4d1712';
 // 앱(package.json)과 같은 줄기를 쓴다. 갈리면 앱에서는 읽히는 파일이
 // 여기서는 안 읽히는(또는 그 반대) 일이 생긴다.
 /* 엑셀 라이브러리는 422KB — 이 판에서 가장 무거운 조각이다. 그런데 쓰는
@@ -34,7 +34,7 @@ import { AUDIO_REMOTE, audioKey } from './audio-key.js?v=32cde420';
    자국(?v=)은 tools/stamp.mjs 가 아래 줄에 알아서 붙인다 — 정적으로 쓰든
    동적으로 쓰든 같은 글자를 찾으므로 바꿔도 그대로 찍힌다. */
 let XLSX = null;
-const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=32cde420'));
+const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=ec4d1712'));
 // 커리큘럼. 내용과 엔진을 갈라 두면 글을 고치다 화면을 깨지 않는다.
 // 갈래 목록(drawSections)·코스(drawCourses)·문제만 풀기(dqDraw) 를 열 때만
 // 받는다 — 배우기 갈래 목록도 안 본 사람에게 코스 71개 레슨을 다 물릴
@@ -42,9 +42,9 @@ const needXLSX = async () => (XLSX ??= await import('./vendor/xlsx.js?v=32cde420
 let COURSES = [], coursesP = null;
 /* 앱은 courses.js 대신 courses-lite.js 를 받는다 — 중·고급 레슨 본문을 뺀 목록이다
    (tools/build-courses-lite.mjs). 본문은 그 레슨을 열 때 upperBlocksNeed() 가 채운다. */
-const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=32cde420').then((m) => { COURSES = m.COURSES; }));
+const coursesNeed = () => (coursesP ??= import('./courses-lite.js?v=ec4d1712').then((m) => { COURSES = m.COURSES; }));
 let upperP = null;
-const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=32cde420')).then((m) => {
+const upperBlocksNeed = () => (upperP ??= coursesNeed().then(() => import('./courses-grammar-detailed.js?v=ec4d1712')).then((m) => {
   const byId = new Map(m.DETAILED_GRAMMAR_COURSES.flatMap((c) => c.lessons.map((l) => [l.id, l.blocks])));
   for (const c of COURSES) for (const l of c.lessons) if (!l.blocks && byId.has(l.id)) { l.blocks = byId.get(l.id); delete l.lazy; }
 }));
@@ -59,7 +59,7 @@ const blocksNeed = async (course) => { if (course.lessons.some((l) => !l.blocks)
    tqGloss 는 그대로 동기다 — 아직 안 왔으면 빈 뜻을 돌려주고, 부르는
    쪽은 이미 "사전에 없는 말"을 다룰 줄 안다. */
 let GLOSSARY = {}, GLOSS_LANGS = {}, glossP = null;
-const glossNeed = () => (glossP ??= import('./glossary.js?v=32cde420').then((m) => {
+const glossNeed = () => (glossP ??= import('./glossary.js?v=ec4d1712').then((m) => {
   GLOSSARY = m.GLOSSARY; GLOSS_LANGS = m.GLOSS_LANGS;
   dictBuildEntries();
 }).catch((e) => {
@@ -67,12 +67,12 @@ const glossNeed = () => (glossP ??= import('./glossary.js?v=32cde420').then((m) 
   glossP = null;
   throw e;
 }));
-import { glossFind } from './gloss-find.js?v=32cde420';
+import { glossFind } from './gloss-find.js?v=ec4d1712';
 /* 홈 화면 "오늘의 단어" 카드. 표제어·품사·짧은 뜻풀이 3개만 든
    작은 자료라(사전 전체 356KB 와 달리) 홈에 들어오면 바로 받는다 —
    빈 카드로 몇 초 떠 있는 것보다 낫다. */
 let WOTD_POOL = [], wotdP = null;
-const wotdNeed = () => (wotdP ??= import('./wotd.js?v=32cde420').then((m) => {
+const wotdNeed = () => (wotdP ??= import('./wotd.js?v=ec4d1712').then((m) => {
   WOTD_POOL = m.WOTD_POOL;
 }).catch((e) => { wotdP = null; throw e; }));
 /* 그날의 낱말을 고른다. 한국 자정을 기준으로 하루씩 넘어가게
@@ -109,7 +109,7 @@ function hmQuizRender() {
   const box = $('hmQuiz');
   if (!box || box.dataset.done) return;
   box.dataset.done = '1';
-  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=32cde420'), import('./insta-pick.js?v=32cde420')])).then(([tk, ip]) => {
+  const go = () => (hmQuizP ??= Promise.all([import('./topik.js?v=ec4d1712'), import('./insta-pick.js?v=ec4d1712')])).then(([tk, ip]) => {
     const q = ip.quizOfDay(tk.TOPIK_READING);
     if (!q) { box.hidden = true; return; }
     box.innerHTML = `<div class="hm-quiz-k"><b>${esc(t('오늘의 TOPIK 1문제', "Today's TOPIK question"))}</b><span>${esc(t(`TOPIK I · ${q.grade}급 · 기출 아님`, `TOPIK I · level ${q.grade} · not a past paper`))}</span></div>` +
@@ -146,11 +146,11 @@ window.wotdRender = () => { wotdRender(); hmQuizRender(); hmDoorIcons(); try { t
    나중 화면은 그 약속(??=)을 그대로 쓴다. */
 let GRAMMAR = [], GRAMMAR_EN = {}, grammarP = null;
 const grammarNeed = () => (grammarP ??= Promise.all([
-  import('./grammar.js?v=32cde420'), import('./grammar-en.js?v=32cde420'),
+  import('./grammar.js?v=ec4d1712'), import('./grammar-en.js?v=ec4d1712'),
 ]).then(([a, b]) => { GRAMMAR = a.GRAMMAR; GRAMMAR_EN = b.GRAMMAR_EN; }));
-import { grammarScan } from './grammar-find.js?v=32cde420';
+import { grammarScan } from './grammar-find.js?v=ec4d1712';
 /* 문법 이름 → 예문에서 칠할 꼴. 쓰임 보기 도구(tools/build-grammar-usage.mjs)와 같은 것을 써서 찾은 곳과 칠한 곳이 어긋나지 않게. */
-import { grammarMarkRe } from './grammar-mark.js?v=32cde420';
+import { grammarMarkRe } from './grammar-mark.js?v=ec4d1712';
 // TOPIK 쓰기·듣기 문항. 읽기(topik.js·topik2.js)와 같은 tqNeedData() 로
 // 함께 받는다 — 유형 연습(topik) 갈래 하나가 세 기술을 다 쓰므로 따로
 // 가를 까닭이 없다. 값은 tqNeedData 정의부에서 채운다.
@@ -167,7 +167,7 @@ let GRAMMAR_DRILL = {}, GRAMMAR_USAGE = {}, GRAMMAR_WORDS = {}, GRAMMAR_PRACTICE
 let GRAMMAR_PAIRS = [], sbDataReady = false;   // 헷갈리는 문법 비교(grammar-pairs.js, 2026-10-06)
 /* 쓰임 보기(tools/build-grammar-usage.mjs 생성물) — TOPIK 연습 · 읽기 지문 · 낱말 예문에서 그 문법이 쓰인 문장 */
 /* 같이 알면 좋은 단어(tools/build-grammar-words.mjs 생성물, 원본 docs/grammar-words.json) */
-const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=32cde420'), import('./grammar-drill.js?v=32cde420'), import('./grammar-usage.js?v=32cde420'), import('./grammar-words.js?v=32cde420'), import('./grammar-pairs.js?v=32cde420'), import('./grammar-topik.js?v=32cde420')]).then(([m, d, u, w, gp, tp]) => {
+const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=ec4d1712'), import('./grammar-drill.js?v=ec4d1712'), import('./grammar-usage.js?v=ec4d1712'), import('./grammar-words.js?v=ec4d1712'), import('./grammar-pairs.js?v=ec4d1712'), import('./grammar-topik.js?v=ec4d1712')]).then(([m, d, u, w, gp, tp]) => {
   GRAMMAR_TOPIK = tp.GRAMMAR_TOPIK || {};
   GRAMMAR_PAIRS = gp.GRAMMAR_PAIRS || [];
   sbDataReady = true;
@@ -182,7 +182,7 @@ const sbNeed = () => (sbDataP ??= Promise.all([import('./sentences.js?v=32cde420
 // 숫자 게임의 읽기와 문제 만들기. 화면을 모르는 순수 계산이라 따로 뒀다.
 // 게임 목록에서 「숫자 읽기」를 시작할 때만 받는다 — XLSX 와 같은 자리다.
 let makeRound = null;
-const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=32cde420')).makeRound);
+const needNumbers = async () => (makeRound ??= (await import('./numbers.js?v=ec4d1712')).makeRound);
 
 // 이 키는 공개돼도 되는 값이다. 이미 APK 안에 같은 것이 들어 있고,
 // 접근을 막는 건 키가 아니라 테이블에 걸린 RLS 다.
@@ -440,8 +440,8 @@ let tqDataP = null;
    유형 연습(topik) 갈래 하나가 이 넷을 다 쓰므로 갈라 봤자 요청만
    늘어난다. */
 const tqNeedData = () => (tqDataP ??= Promise.all([
-  import('./topik.js?v=32cde420'), import('./topik2.js?v=32cde420'),
-  import('./topik-writing.js?v=32cde420'), import('./topik-listening.js?v=32cde420'), import('./difficulty.js?v=32cde420'),
+  import('./topik.js?v=ec4d1712'), import('./topik2.js?v=ec4d1712'),
+  import('./topik-writing.js?v=ec4d1712'), import('./topik-listening.js?v=ec4d1712'), import('./difficulty.js?v=ec4d1712'),
 ]).then(([a, b, c, d, e]) => {
   TQ_DATA.I  = { reading: a.TOPIK_READING,  blueprint: a.TOPIK_BLUEPRINT,  slots: a.TOPIK_SLOTS };
   TQ_DATA.II = { reading: b.TOPIK2_READING, blueprint: b.TOPIK2_BLUEPRINT, slots: b.TOPIK2_SLOTS };
@@ -453,14 +453,14 @@ const tqNeedData = () => (tqDataP ??= Promise.all([
 let READING = null, rdP = null;
 // 지문의 밑줄 문법 말풍선이 GRAMMAR 를 쓰므로 같이 받아 둔다.
 const rdNeed = () => (rdP ??= Promise.all([
-  import('./reading.js?v=32cde420'), grammarNeed(),
+  import('./reading.js?v=ec4d1712'), grammarNeed(),
 ]).then(([m]) => { READING = m.READING; }));
 
 let CONVO = null, cvP = null;
-const cvNeed = () => (cvP ??= import('./convo.js?v=32cde420').then((m) => { CONVO = m.CONVO; }));
+const cvNeed = () => (cvP ??= import('./convo.js?v=ec4d1712').then((m) => { CONVO = m.CONVO; }));
 /* 동화책 — 배우기 › 동화책을 열 때 받는다. 문법 밑줄 · 낱말 뜻(rdGrammarify)을 쓰니 grammarNeed 도 같이 */
 let STORIES = [], bkP = null;
-const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=32cde420'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
+const bkNeed = () => (bkP ??= Promise.all([import('./stories.js?v=ec4d1712'), grammarNeed()]).then(([m]) => { STORIES = m.STORIES; }));
 
 /* 배우기를 열면 여섯 다 미리 불을 붙인다. 기다리지 않는다 — 갈래 목록은
    이 자료가 없어도 그려지고, 사람이 갈래를 고르는 사이에 도착한다.
@@ -739,9 +739,9 @@ $('dictBtn').addEventListener('click', () => { const go = !showing('wordsView');
    합쳐 200KB 남짓(압축)이라 첫 화면 모두에게 물릴 까닭이 없다. 사이트 공용 도구는 넘겨준다. */
 let wordsApi = null, wordsP = null;
 /* TOPIK II 예문은 500개씩 조각으로 따로 받는다(tools/build-vocab.mjs) — 조각 주소는 이 파일의 자국을 빌린다. */
-const VOCAB2_URL = './vocab-topik2.js?v=32cde420';
+const VOCAB2_URL = './vocab-topik2.js?v=ec4d1712';
 const wordsNeed = () => (wordsP ??= Promise.all([
-  import('./words.js?v=32cde420'), import('./vocab-topik1.js?v=32cde420'), import(VOCAB2_URL),
+  import('./words.js?v=ec4d1712'), import('./vocab-topik1.js?v=ec4d1712'), import(VOCAB2_URL),
 ]).then(([m, d, d2]) => {
   wordsApi = m.wordsInit({
     root: $('wordsRoot'), t, esc, track, alog, say, glossFind, glossNeed, ICON: DICT_SAY_ICON,
@@ -756,7 +756,7 @@ const wordsNeed = () => (wordsP ??= Promise.all([
     mark: (sub) => window.cpMark('words', sub),
     today: (slot, topic) => { tdMark(slot); clsMark('vocab', topic || null, {}); actLog('vocab'); },   // topic — 주제별 단어 숙제(db/update_cls_mark_vocab.sql)
     pron: (text) => window.ptWith?.(text),
-    loadExpr: () => import('./expressions.js?v=32cde420').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
+    loadExpr: () => import('./expressions.js?v=ec4d1712').then((m) => m.EXPR),   // 사자성어 · 속담 · 관용 표현(tools/build-expressions.mjs)
     loadRefs: (k) => import(VOCAB2_URL.replace('vocab-topik2.js', `topik-refs/${k}.js`)).then((m) => m.R),   // 낱말의 TOPIK 쓰임(tools/build-topik-refs.mjs)
     openTopik: (p) => { window.cpOpen('learn', p); },
     askAI: wdAskAI,   // 세션을 끝내면 「오늘」 카드의 낱말 · 복습 칸 · 반 숙제(단어 세션)
@@ -846,7 +846,7 @@ async function vocabSync() {
   if (!wordsP) return;
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return;
-  const m = await import('./words.js?v=32cde420');
+  const m = await import('./words.js?v=ec4d1712');
   const ok = await m.syncVocab(async () => {
     const { data, error } = await sb.from('settings').select('vocab').eq('user_id', session.user.id).maybeSingle();
     return error ? undefined : (data?.vocab || {});
@@ -1160,14 +1160,14 @@ let dictOpen = null;  // 지금 "더 보기"(예문·뜻풀이)를 펼쳐 둔 �
    평소엔 안 쓰는 522KB 를 첫 화면 모두에게 물릴 까닭이 없다. */
 let dictSensesP = null;
 const dictLoadSenses = () => (dictSensesP ??=
-  import('./glossary-senses.js?v=32cde420').then((m) => m.SENSES).catch(() => ({})));
+  import('./glossary-senses.js?v=ec4d1712').then((m) => m.SENSES).catch(() => ({})));
 
 /* 예문. 국립국어원 자료엔 없어서 Gemini 로 새로 지은 것이다(있는 만큼만
    — docs/antigravity/glossary-examples-gemini-prompt.md 참고). 뜻풀이와 같은 자리에서
    같이 받는다 — 펼치는 손짓 하나에 몰아 두는 편이 화면이 덜 복잡하다. */
 let dictExamplesP = null;
 const dictLoadExamples = () => (dictExamplesP ??=
-  import('./glossary-examples.js?v=32cde420').then((m) => m.EXAMPLES).catch(() => ({})));
+  import('./glossary-examples.js?v=ec4d1712').then((m) => m.EXAMPLES).catch(() => ({})));
 
 function dictVisible() {
   const q = dictQuery.trim().toLowerCase();
@@ -1712,7 +1712,7 @@ sb.auth.onAuthStateChange((_event, session) => {
   clsCheckIn(session);   // 반에 들었는지 — 숙제 「했음」을 서버에 알릴지 가른다
   /* 반 링크를 들고 로그인하러 갔다 왔다 — 그 반 화면으로 되돌린다 */
   /* (구글 로그인은 쪽이 새로 떠서 이 알림이 반 코드보다 먼저 올 수 있다 — 그때는 반 코드 끝의 같은 확인이 맡는다) */
-  setTimeout(() => { try { if (window.cpClsReady && session && _event === 'SIGNED_IN' && sessionStorage.getItem('cp_cls_code')) window.cpOpen('learn', 'class'); } catch (e) {} }, 0);
+  setTimeout(() => { try { if (session && _event === 'SIGNED_IN' && sessionStorage.getItem('cp_cls_code')) window.cpOpen('learn', 'class'); } catch (e) {} }, 0);
   /* 「로그인하고 담기」를 누르고 돌아왔을 수 있다. 표시해 둔 낱말이
      있으면 단어장 맨 위에 다시 내건다. */
   wbPendingDraw();
@@ -10609,7 +10609,7 @@ let TRAVEL_CATEGORIES = null;
 let TRAVEL_PHRASES = null;
 let TRAVEL_VOCAB = null;
 let tvP = null;
-const tvNeed = () => (tvP ??= import('./travel-data.js?v=32cde420').then((m) => {
+const tvNeed = () => (tvP ??= import('./travel-data.js?v=ec4d1712').then((m) => {
   TRAVEL_CATEGORIES = m.TRAVEL_CATEGORIES;
   TRAVEL_PHRASES = m.TRAVEL_PHRASES;
   TRAVEL_VOCAB = m.TRAVEL_VOCAB;
@@ -15662,7 +15662,7 @@ function sbWsPrint() {
   window.print();
 }
 async function wsPrint() {
-  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=32cde420')]);
+  const [, sm] = await Promise.all([tvNeed(), import('./sentences.js?v=ec4d1712')]);
   if (!TRAVEL_CATEGORIES) return;
   track('학습지인쇄');
   const GP = new Map(sm.SB_CATS.flatMap((c) => c.points).map((p) => [p.id, p]));
@@ -15948,7 +15948,7 @@ async function gameVocabWords(min, have = []) {
   const push = (word, meaning) => { if (word && meaning && !seen.has(word)) { seen.add(word); out.push({ word, meaning }); } };
   guestRead().forEach((g) => push(g.word, g.meaning));
   try {
-    const d = await import('./vocab-topik1.js?v=32cde420');
+    const d = await import('./vocab-topik1.js?v=ec4d1712');
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cp-words-v1') || '{}').w || {}; } catch (e) {}
     const mean = (w) => w.s || w.e.split(';')[0];
@@ -16011,7 +16011,7 @@ function gameBestRead(key) {
    함수 선언(끌어올림) + var 로 둔 것은 일부러다 — 모듈을 읽는 도중 open() 이 먼저 불려도 TDZ 오류가 나지 않게. */
 var gqMod = null;
 async function gq() {
-  if (!gqMod) { const m = await import('./games-quick.js?v=32cde420'); m.init({ t, esc, open, showing, gameLoadWords, gameShuffle, gameBest, gameBestRead, needNumbers, gameWordsNow: () => gameWords }); gqMod = m; }
+  if (!gqMod) { const m = await import('./games-quick.js?v=ec4d1712'); m.init({ t, esc, open, showing, gameLoadWords, gameShuffle, gameBest, gameBestRead, needNumbers, gameWordsNow: () => gameWords }); gqMod = m; }
   return gqMod;
 }
 function qzStart() { return gq().then((m) => m.qzStart()); }
@@ -16030,15 +16030,15 @@ let blkMod = null;
 async function blkOpen() {
   if (!blkMod) {
     $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { blkMod = await import('./word-blocks.js?v=32cde420'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { blkMod = await import('./word-blocks.js?v=ec4d1712'); } catch (e) { $('blkRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     blkMod.blkBind($('blkRoot'));
     blkMod.blkMount({
       root: $('blkRoot'), t, esc, say, track, save: saveWords,
       vocab: async (two) => {
-        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=32cde420'), two ? import(VOCAB2_URL) : null]);
+        const [a, b] = await Promise.all([import('./vocab-topik1.js?v=ec4d1712'), two ? import(VOCAB2_URL) : null]);
         return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
       },
-      topics: async () => (await import('./vocab-topik1.js?v=32cde420')).VOCAB_TOPICS,   // 주제별 갈래 — 큰 주제 이름
+      topics: async () => (await import('./vocab-topik1.js?v=ec4d1712')).VOCAB_TOPICS,   // 주제별 갈래 — 큰 주제 이름
       mine: myWords,                                                                    // 내 단어장 갈래 — 담아 둔 낱말(로그인 · 이 브라우저)
     });
     return;
@@ -16056,14 +16056,14 @@ const gameToast = (msg) => {
   clearTimeout(gameToast.t); gameToast.t = setTimeout(() => el.classList.remove('on'), 1800);
 };
 const gameVocab = async (two) => {
-  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=32cde420'), two ? import(VOCAB2_URL) : null]);
+  const [a, b] = await Promise.all([import('./vocab-topik1.js?v=ec4d1712'), two ? import(VOCAB2_URL) : null]);
   return b ? [...a.VOCAB, ...b.VOCAB] : a.VOCAB;
 };
 let chsMod = null, pdlMod = null;
 async function chsOpen() {
   if (!chsMod) {
     $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { chsMod = await import('./chosung.js?v=32cde420'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { chsMod = await import('./chosung.js?v=ec4d1712'); } catch (e) { $('chsRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     chsMod.chsBind($('chsRoot'));
     chsMod.chsMount({ root: $('chsRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -16073,7 +16073,7 @@ async function chsOpen() {
 async function pdlOpenView() {
   if (!pdlMod) {
     $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('불러오는 중…', 'Loading…'))}</p>`;
-    try { pdlMod = await import('./potdle.js?v=32cde420'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
+    try { pdlMod = await import('./potdle.js?v=ec4d1712'); } catch (e) { $('pdlRoot').innerHTML = `<p class="blk-wait">${esc(t('게임을 못 불러왔어요. 새로고침해 주세요.', 'Could not load the game. Please refresh.'))}</p>`; return; }
     pdlMod.pdlBind($('pdlRoot'));
     pdlMod.pdlMount({ root: $('pdlRoot'), t, esc, say, track, save: saveWords, toast: gameToast, vocab: gameVocab });
     return;
@@ -16207,7 +16207,7 @@ function ltAdaptNext() {
    낱말 급수를 우리 레벨(L)에 얹는다: TOPIK I 1급 생활 낱말 L2 · 그 밖 L3, 2급 생활 L4 · 그 밖 L5, TOPIK II 3 · 4급 L6, 5 · 6급 L7.
    오답 보기는 같은 레벨 · 같은 품사에서, 뜻이 겹치지 않게 고른다. */
 let ltVocabP = null;
-const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=32cde420'), import(VOCAB2_URL)]).then(([a, b]) => {
+const ltVocabPool = () => (ltVocabP ??= Promise.all([import('./vocab-topik1.js?v=ec4d1712'), import(VOCAB2_URL)]).then(([a, b]) => {
   const en = (w) => String(w.s || w.e || '').split(';')[0].trim();
   /* 2026-10-05 부터 낱말마다 우리 레벨(v, tools/vocab-level.mjs)이 있다 — 그것을 그대로 쓴다. 옛 자료(v 없음)는 급수로 어림. */
   const lvOf = (w) => w.v || (w.l === 1 ? 3 : w.l === 2 ? 5 : w.l <= 4 ? 6 : 7);
@@ -16794,7 +16794,7 @@ $('lrWrap').addEventListener('click', (ev) => {
    주소: #learn/translate · #learn/translate/<글 id> */
 let TRANSLATE_SETS = null;
 const trNeed = () => TRANSLATE_SETS ? Promise.resolve() :
-  import('./translate.js?v=32cde420').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
+  import('./translate.js?v=ec4d1712').then((m) => { TRANSLATE_SETS = m.TRANSLATE_SETS || []; });
 const TR_DONE = 'cp_tr_done';
 const TR_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate'], ['advanced', '고급', 'Advanced']];
 let trTier = null, tr = null;   // tr = { id, i, val, res: ''|'ok'|'no'|'self', hint, ok }
@@ -16902,7 +16902,7 @@ $('trWrap').addEventListener('keydown', (ev) => {
 let WEAVE = null;
 let WVL = null;   // weave-link.js — 마지막 말을 -는데 · -지만 으로 바꾸는 함수(검사와 같은 파일)
 const wvNeed = () => WEAVE ? Promise.resolve() :
-  Promise.all([import('./weave.js?v=32cde420'), import('./weave-link.js?v=32cde420')]).then(([m, l]) => { WVL = l; WEAVE = { roles: m.WEAVE_ROLES || {}, con: m.WEAVE_CONNECTORS || [], stories: m.WEAVE_STORIES || [], quests: m.WEAVE_QUESTS || [], pred: m.WEAVE_PRED || {} }; WVFORMS = l.buildForms(WEAVE.pred); });
+  Promise.all([import('./weave.js?v=ec4d1712'), import('./weave-link.js?v=ec4d1712')]).then(([m, l]) => { WVL = l; WEAVE = { roles: m.WEAVE_ROLES || {}, con: m.WEAVE_CONNECTORS || [], stories: m.WEAVE_STORIES || [], quests: m.WEAVE_QUESTS || [], pred: m.WEAVE_PRED || {} }; WVFORMS = l.buildForms(WEAVE.pred); });
 const WV_DONE = 'cp_wv_done';
 const WV_TIERS = [['beginner', '초급', 'Beginner'], ['intermediate', '중급', 'Intermediate'], ['advanced', '고급', 'Advanced']];
 const WV_ROLE_EN = { add: 'Adding', order: 'Order', result: 'Result', contrast: 'Contrast', condition: 'Condition', reason: 'Reason', example: 'Example', summary: 'Wrap-up', hold: 'Buying time', fix: 'Fixing what you said' };
@@ -17351,7 +17351,7 @@ $('wvWrap').addEventListener('input', (ev) => { if (ev.target.id === 'wvqIn' && 
    주소: #learn/path · #learn/path/<길> · #learn/path/<길>/<레슨 id> */
 let PATH_GRAMMAR = null;
 const pathNeed = () => PATH_GRAMMAR ? Promise.resolve() :
-  import('./path-map.js?v=32cde420').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
+  import('./path-map.js?v=ec4d1712').then((m) => { PATH_GRAMMAR = m.PATH_GRAMMAR || {}; });
 const PATHS = [
   { id: 'basic', icon: '🥔', lvs: [0, 1, 2, 3, 4, 5], ko: '기초부터', en: 'From the basics',
     subKo: '한글 · 첫 문장부터 초급 끝까지', subEn: 'Hangul and first sentences up to upper beginner' },
@@ -17920,7 +17920,7 @@ let tdWaitCourses = false;
 function todayRender() {
   const box = $('todayCard');
   if (!box) return;
-  if (window.cpClsReady) clsHomeRender().catch(() => {});   // 반 학생이면 맨 위에 숙제 카드(반이 아니면 숨는다). 반 코드가 다 읽힌 뒤에만
+  clsHomeRender().catch(() => {});   // 반 학생이면 맨 위에 숙제 카드(반이 아니면 숨는다 — 그때는 class-hw.js 를 받지 않는다)
   const me = ltLoadLevel();
   if (!me) { box.hidden = true; box.innerHTML = ''; return; }
   const L = me.lv, topik = siteTrack() === 'topik', badge = myLevelBadge(me);
@@ -18509,10 +18509,10 @@ $('ltPurposeGrid').addEventListener('click', (ev) => {
    빠지고, 고쳐 올려도 브라우저가 예전 문제를 계속 들고 있게 된다. */
 let LT_CUSTOM = { overall: [], reading: [], writing: [], listening: [] };
 let ltCustomOverallP = null, ltCustomReadingP = null, ltCustomWritingP = null, ltCustomListeningP = null;
-const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=32cde420').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
-const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=32cde420').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
-const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=32cde420').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
-const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=32cde420').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
+const ltCustomOverallNeed = () => (ltCustomOverallP ??= import('./leveltest-overall.js?v=ec4d1712').then((m) => { LT_CUSTOM.overall = m.LT_CUSTOM_OVERALL; }));
+const ltCustomReadingNeed = () => (ltCustomReadingP ??= import('./leveltest-reading.js?v=ec4d1712').then((m) => { LT_CUSTOM.reading = m.LT_CUSTOM_READING; }));
+const ltCustomWritingNeed = () => (ltCustomWritingP ??= import('./leveltest-writing.js?v=ec4d1712').then((m) => { LT_CUSTOM.writing = m.LT_CUSTOM_WRITING; }));
+const ltCustomListeningNeed = () => (ltCustomListeningP ??= import('./leveltest-listening.js?v=ec4d1712').then((m) => { LT_CUSTOM.listening = m.LT_CUSTOM_LISTENING; }));
 const LT_CUSTOM_NEED = {
   overall: ltCustomOverallNeed, reading: ltCustomReadingNeed,
   writing: ltCustomWritingNeed, listening: ltCustomListeningNeed,
@@ -19251,7 +19251,7 @@ async function ltWeekHtml(level, grade) {
     const lessonMins = list.reduce((x, c) => x + c.lessons.reduce((y, l) => y + (l.minutes || 7), 0), 0);
     let nWords = 0;
     try {
-      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=32cde420'), import(VOCAB2_URL)]);
+      const [a, b] = await Promise.all([import('./vocab-topik1.js?v=ec4d1712'), import(VOCAB2_URL)]);
       nWords = [...a.VOCAB, ...b.VOCAB].filter((w) => w.v === L).length;
     } catch (e) { /* 낱말 자료를 못 받으면 레슨만으로 어림 */ }
     const dL = lessonMins ? Math.ceil((lessonMins * LV_NEED.lessons) / (mainMin * 5 / 7)) : 0;
@@ -19954,7 +19954,7 @@ function hlpEnScore(q, gloss) {
 }
 /* 베트남어 · 일본어 뜻으로 찾기(운영자 2026-10-11 「E」) — 작은 색인(search-tr.js, tools/build-search.mjs)을 화면 말이 vi · ja 이거나 그 글자로 칠 때만 받는다 */
 let hlpTr = null, hlpTrP = null, hlpEnMap = null;
-const hlpTrNeed = () => (hlpTrP ??= import('./search-tr.js?v=32cde420').then((m) => { hlpTr = m.SEARCH_TR; }).catch(() => { hlpTrP = null; }));
+const hlpTrNeed = () => (hlpTrP ??= import('./search-tr.js?v=ec4d1712').then((m) => { hlpTr = m.SEARCH_TR; }).catch(() => { hlpTrP = null; }));
 const HLP_JA = /[぀-ヿ一-鿿]/, HLP_VI = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹ]/i;
 function hlpTrLang(q) {
   if (/[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(q)) return '';
@@ -20380,7 +20380,7 @@ $('langBtn').addEventListener('click', () => {
      첫 화면을 그린 뒤에 와서, 다시 그리지 않으면 그 칸만 영어로 남는다. 첫 화면은 그 칸들을, 다른 화면은 주소대로 다시 연다.
      창(레벨테스트 등)이 열려 있으면 화면을 건드리지 않는다 — 풀던 것이 날아간다. */
   try {
-    if (!$('homeView').classList.contains('hidden')) { wotdRender(); hmQuizRender(); hmMyPathRender(); try { clsHomeRender(); } catch (e) {} }
+    if (!$('homeView').classList.contains('hidden')) { wotdRender(); hmQuizRender(); hmMyPathRender(); try { clsHomeRender().catch(() => {}); } catch (e) {} }
     else if (!document.querySelector('dialog[open]') && location.hash.length > 1) window.cpStart?.();
   } catch (e) { /* 다시 그리기는 덤 — 실패해도 언어는 바뀌어 있다 */ }
 });
@@ -20826,7 +20826,7 @@ function fbMount(host, place, level = null) {
    openSection 이 epsDraw 를 부른다. let · const 면 그때 「초기화 전 접근」으로 죽는다. */
 var EPS = null;
 var epsP = null;
-function epsNeed() { return (epsP ??= import('./eps.js?v=32cde420').then((m) => { EPS = m; })); }
+function epsNeed() { return (epsP ??= import('./eps.js?v=ec4d1712').then((m) => { EPS = m; })); }
 const EPS_SECS = ['reading', 'listening'];
 const EPS_MOCK_SEC = 70 * 60;
 const EPS_NUM = ['①', '②', '③', '④'];
@@ -21250,7 +21250,7 @@ const SS_PAGES = [
   ['3D 시험장', '3D exam room', 'exam-room/', '시험장 시험 시간 타이머 교실 3d exam room timer classroom mock'], ['블로그', 'Blog', 'blog/', '블로그 blog 글'],
 ];
 let ssIdx = null, ssP = null, ssT = 0;
-const ssNeed = () => (ssP ??= import('./search-index.js?v=32cde420').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
+const ssNeed = () => (ssP ??= import('./search-index.js?v=ec4d1712').then((m) => { ssIdx = m.SEARCH_INDEX; }).catch(() => { ssP = null; }));
 const ssNorm = (s) => String(s || '').toLowerCase().replace(/[\s\-~]+/g, '');
 /* 문법 이름의 다른 꼴 — 「A/V-아/어서」를 「-아서」 · 「-어서」로도, 「-(으)니까」를 「-니까」 · 「-으니까」로도 찾게 */
 const ssGramForms = (name) => {
@@ -21361,728 +21361,29 @@ if ($('ssIn')) {
    첫 판 숙제는 코스 레슨 · 단어 세션 · 문법(바꿔 쓰기). 표와 권한은 db/add_classes.sql.
    「했음」은 학생 화면이 스스로 적는다 — 레슨을 끝내면(finishLesson) · 단어 세션을 끝내면(words.js sessionEnd) ·
    문법 바꿔 쓰기를 끝까지 하면 clsMark → 서버 cls_mark 가 그 사람이 든 반의 맞는 숙제에만 붙인다. */
-const cls = { sub: {}, needSub: false, rows: [], hw: [], done: [], members: [], err: '', busy: false, code: '', msg: '', open: {}, tab: {}, hi: '', auto: '', stu: {}, note: {}, tgt: {}, fb: {}, need: false, pre: {}, due: {}, queue: {}, re: {}, pick: {}, q: {}, fk: {} };
-let clsSession = null;
-const clsIsAdmin = () => clsSession?.user?.email === ADMIN_EMAIL;
-/* 선생님 계정(2026-10-06, db/add_class_teachers.sql) — 운영자가 올린 메일도 반을 만든다. 서버 cls_is_admin() 이 정답 */
-let clsTeacher = false, clsTeachers = [];
-const clsCanMake = () => clsIsAdmin() || clsTeacher;
-const CLS_KIND = { lesson: ['', '레슨', 'Lesson'], vocab: ['', '단어 세션', 'Word session'], grammar: ['', '문법', 'Grammar'],
-  twrite: ['', 'TOPIK 쓰기 · AI 채점', 'TOPIK writing · AI score'], tread: ['', 'TOPIK 읽기 유형', 'TOPIK reading type'],   // TOPIK 둘은 2026-10-03(db/add_classes_topik.sql)
-  /* 2026-10-11 운영자 「숙제 다양하게」 — db/add_classes_more_kinds.sql: 듣기 유형 · 모의고사 회차 · 회화 장면 · 동화책 */
-  tlisten: ['', 'TOPIK 듣기 유형', 'TOPIK listening type'], tmock: ['', 'TOPIK 모의고사', 'TOPIK mock exam'], convo: ['', '회화 연습', 'Conversation'], story: ['📗', '동화책', 'Storybook'], free: ['✍️', '글 · 사진 제출', 'Written / photo'],
-  translate: ['', '번역 연습', 'Translation practice'] };   // 번역 연습 한 편(2026-10-11 「translate 도」)
-const clsLink = (code) => `https://everykoreans.com/#learn/class/join/${code}`;
-
-/* 반에 든 사람만 서버를 부른다 — 모두가 레슨 하나 끝낼 때마다 부르면 쓸데없다. 표시는 로그인할 때 · 반 화면을 열 때 맞춘다.
-   (로그인 알림이 이 줄보다 먼저 올 수 있어 상수 대신 글자를 그대로 쓴다) */
+/* 웹 리팩터링 4단계(2026-11-15): 반 화면 · 선생님 · 학생 화면 · 첫 화면 숙제 카드는 class-hw.js 로 옮겼다 — 반 화면을 열 때 · 반 학생이 첫 화면을 볼 때만 받는다.
+   여기 남긴 것: 여러 화면이 부르는 「했음」(clsMark) · 로그인 때 반에 들었는지(clsCheckIn) · 반 학생 표시(clsBodyMark) · 화면을 여는 얇은 다리 · CLS_G.
+   함수 선언(끌어올림) + var 로 둔 것은 일부러다 — 주소로 바로 들어와 이 줄을 읽기 전에 불려도 TDZ 오류가 나지 않게. */
+var clsModP = null;
+function clsNeed() { return (clsModP ??= import('./class-hw.js?v=ec4d1712').then((m) => { window.cpClsReady = true; return m; })); }
+function clsDraw(sub) { return clsNeed().then((m) => m.clsDraw(sub)); }
+/* 첫 화면 「반 숙제」 카드 — 반 학생이 아니면 파일을 받지 않고 숨기기만 한다(예전과 같은 결과) */
+function clsHomeRender(reset) {
+  let inCls = false; try { inCls = localStorage.getItem('cp_cls_in') === '1'; } catch (e) {}
+  if (!inCls && !clsModP) { const box = $('clsHome'); if (box) { box.hidden = true; box.innerHTML = ''; } return Promise.resolve(); }
+  return clsNeed().then((m) => { if (reset) m.clsHomeReset(); return m.clsHomeRender(); });
+}
 function clsMark(kind, ref, score) {
   try { if (localStorage.getItem('cp_cls_in') !== '1') return; } catch (e) { return; }
   sb.rpc('cls_mark', { p_kind: kind, p_ref: ref ?? null, p_score: score || {} }).then(({ data }) => {
-    if (data > 0) { track('숙제했음'); clsNextToast(); }
+    if (data > 0) { track('숙제했음'); clsNeed().then((m) => m.clsNextToast()).catch(() => {}); }
   }, () => {});
 }
-/* 반 학생에게는 선생님 쪽(teacher.html — Preply · WhatsApp) 링크를 숨긴다(운영자 2026-10-07 「WhatsApp 링크도 숨겨줘」).
-   Preply 학생에게 밖의 연락처가 보이지 않게 — 반은 숙제 · 복습용으로만. 실제 숨기기는 CSS(body.cls-in). */
 function clsBodyMark() { try { document.body.classList.toggle('cls-in', localStorage.getItem('cp_cls_in') === '1'); } catch (e) {} }
 clsBodyMark();
-async function clsCheckIn(session) {
-  try {
-    if (!session) { localStorage.removeItem('cp_cls_in'); clsBodyMark(); return; }
-    const { data, error } = await sb.from('class_members').select('class_id').eq('user_id', session.user.id).limit(1);
-    if (!error) localStorage.setItem('cp_cls_in', data?.length ? '1' : '');
-    clsBodyMark();
-    if (window.cpClsReady && showing('homeView')) { clsHomeAt = 0; clsHomeRender().catch(() => {}); }
-  } catch (e) { /* 표가 아직 없으면 그대로 */ }
-}
-sb.auth.getSession().then(({ data: { session } }) => {
-  clsCheckIn(session);
-  /* 반 링크를 들고 구글 로그인에 다녀왔다 — 그 반으로 */
-  try { if (session && sessionStorage.getItem('cp_cls_code') && !location.hash.includes('class')) window.cpOpen('learn', 'class'); } catch (e) {}
-}).catch(() => {});
-
-async function clsDraw(sub) {
-  /* 주소(#learn/class…)로 바로 들어오면 이 코드가 다 읽히기 전에 불린다 — 맡겨 두었다가 맨 끝에서 그린다 */
-  if (!window.cpClsReady) { window.cpClsPending = sub || ''; return; }
-  const [a, b] = String(sub || '').split('/');
-  if (a === 'join' && b) { clsSetRole('student'); cls.code = b.toUpperCase(); try { sessionStorage.setItem('cp_cls_code', cls.code); } catch (e) {} }
-  else { try { cls.code = cls.code || sessionStorage.getItem('cp_cls_code') || ''; } catch (e) {} }
-  window.cpMark('learn', cls.code ? `class/join/${cls.code}` : 'class');
-  const { data: { session } } = await sb.auth.getSession();
-  clsSession = session;
-  if (!session) { clsPaint(); return; }
-  await clsLoad();
-}
-/* 숙제 고르는 자료(레슨 · 문법 · TOPIK · 회화 · 동화책 · 번역 · 단어 주제) 불러오기 — 반 화면 · 「숙제로 내기」 단추가 같이 쓴다 */
-async function clsCatNeed() {
-  await Promise.all([coursesNeed(), sbNeed(), tqNeedData(), cvNeed(), bkNeed(), trNeed(), Promise.all([import('./vocab-topik1.js?v=32cde420'), import(VOCAB2_URL)]).then(([m, m2]) => { if (!clsVTopics) {
-    /* 주제마다 낱말 수(두 과정) — 낱말이 없는 주제는 숙제로 못 고르게(새 작은 주제는 안티 그래비티가 낱말을 붙인 뒤에 채워진다) */
-    clsVN = new Map(); for (const w of [...m.VOCAB, ...m2.VOCAB]) for (const x of w.t || []) { clsVN.set(x, (clsVN.get(x) || 0) + 1); const a = x.split('/')[0]; clsVN.set(a, (clsVN.get(a) || 0) + 1); }
-    clsVTopics = m.VOCAB_TOPICS; clsCat = null; } })]).catch(() => {});
-}
-async function clsLoad() {
-  cls.err = '';
-  try { const tr = await sb.rpc('cls_is_admin'); clsTeacher = !tr.error && !!tr.data; } catch (e) { clsTeacher = false; }
-  if (clsIsAdmin()) { const tl = await sb.from('class_teachers').select('email, name, added_at').order('added_at'); clsTeachers = tl.error ? null : (tl.data || []); }
-  const r = await sb.from('classes').select('id, name, code, owner, archived, created_at').order('created_at');
-  if (r.error) { cls.rows = []; cls.err = clsIsAdmin() ? t('반 표가 아직 없어요. Supabase SQL Editor 에서 db/add_classes.sql 을 돌려 주세요.', 'Run db/add_classes.sql first.') : t('반 기능을 준비하고 있어요. 조금 뒤에 다시 와 주세요.', 'Classes are coming soon.'); clsPaint(); return; }
-  cls.rows = (r.data || []).filter((c) => !c.archived);
-  const ids = cls.rows.map((c) => c.id);
-  const [h, d, m] = ids.length ? await Promise.all([
-    sb.from('class_homework').select('*').in('class_id', ids).order('created_at', { ascending: false }),
-    sb.from('class_done').select('hw_id, user_id, n, score, done_at'),
-    clsCanMake() ? sb.from('class_members').select('class_id, user_id, name, joined_at').in('class_id', ids).order('joined_at') : { data: [] },
-  ]) : [{ data: [] }, { data: [] }, { data: [] }];
-  cls.hw = h.data || []; cls.done = d.data || []; cls.members = m.data || [];
-  await clsLoadExtra(ids, cls.hw.map((x) => x.id));
-  clsApplyLevel();
-  try { localStorage.setItem('cp_cls_in', cls.rows.some((c) => c.owner !== clsSession.user.id) ? '1' : ''); } catch (e) {}
-  clsBodyMark();
-  /* QR · 반 링크로 왔고 로그인도 했다 — 이름을 묻지 않고 바로 들어간다(운영자 2026-10-07 「로그인만 하면 바로」).
-     이름은 그 계정 이름(없으면 메일 앞부분) — 반 화면에서 언제든 바꿀 수 있게 하지는 않고, 선생님이 리포트에서 메일로도 알아본다. */
-  if (cls.code && !cls.rows.some((c) => c.code === cls.code) && cls.auto !== cls.code) {
-    cls.auto = cls.code;
-    if (await clsJoin(cls.code, clsDefaultName())) return;
-  }
-  /* 숙제 고르는 칸에 쓸 자료(레슨 · 문법 목록) — 선생님만 */
-  if (clsCanMake()) await clsCatNeed();
-  clsPaint();
-}
-
-/* ── 학생 관리 자료(운영자 2026-10-07 — db/add_class_students.sql) ──
-   cls.stu  : `${반}:${학생}` → 선생님이 정한 레벨(lv · goal · grade) · 학생에게 한마디(msg)  — 학생은 자기 줄만 읽는다
-   cls.note : `${반}:${학생}` → 선생님만 보는 메모
-   cls.tgt  : 숙제 id → 그 숙제를 받는 학생들(Set). 없으면 반 전체 숙제(1:1 반에서 학생마다 다른 숙제를 내려고) */
-async function clsLoadExtra(ids, hwIds) {
-  cls.stu = {}; cls.note = {}; cls.tgt = {}; cls.fb = {}; cls.need = false;
-  /* 선생님 신청(db/add_teacher_requests.sql) — 내 신청 · 운영자는 기다리는 신청 전부 */
-  cls.treq = null; cls.reqs = []; cls.needReq = false;
-  if (clsSession) {
-    const tr0 = await sb.from('teacher_request').select('*').order('at', { ascending: false });
-    if (tr0.error) cls.needReq = true; else { const all = tr0.data || []; cls.treq = all.find((x) => x.user_id === clsSession.user.id) || null; if (clsIsAdmin()) cls.reqs = all.filter((x) => x.status === 'pending'); }
-  }
-  if (!ids.length) return;
-  /* 선생님 코멘트(db/add_class_feedback.sql) — 표가 없으면 조용히 빈칸 */
-  /* 제출(db/add_class_submit.sql) — 표가 없으면 조용히 빈칸 */
-  cls.sub = {}; cls.needSub = false;
-  if (hwIds.length) { const sr = await sb.from('class_submission').select('hw_id, user_id, body, image_path, at, reviewed_at').in('hw_id', hwIds); if (sr.error) cls.needSub = true; else for (const x of sr.data || []) cls.sub[`${x.hw_id}:${x.user_id}`] = x; }
-  if (hwIds.length) { const f = await sb.from('class_feedback').select('hw_id, user_id, msg, at').in('hw_id', hwIds); if (f.error) cls.needFb = true; else { cls.needFb = false; for (const x of f.data || []) cls.fb[`${x.hw_id}:${x.user_id}`] = x; } }
-  const own = cls.rows.filter((c) => c.owner === clsSession?.user?.id).map((c) => c.id);
-  const [a, b, c2] = await Promise.all([
-    sb.from('class_student').select('*').in('class_id', ids),
-    own.length ? sb.from('class_student_note').select('class_id, user_id, note').in('class_id', own) : { data: [] },
-    hwIds.length ? sb.from('class_hw_target').select('hw_id, user_id').in('hw_id', hwIds) : { data: [] },
-  ]);
-  if (a.error || b.error || c2.error) cls.need = true;   // 표가 아직 없다 — 선생님에게 SQL 안내
-  for (const x of a.data || []) cls.stu[`${x.class_id}:${x.user_id}`] = x;
-  for (const x of b.data || []) cls.note[`${x.class_id}:${x.user_id}`] = x.note;
-  for (const x of c2.data || []) (cls.tgt[x.hw_id] ??= new Set()).add(x.user_id);
-}
-/* 그 학생이 받는 숙제 — 대상이 정해진 숙제는 그 학생들에게만 */
-const clsHwFor = (cid, uid, hw = cls.hw, tgt = cls.tgt) => hw.filter((h) => h.class_id === cid && (!tgt[h.id] || tgt[h.id].has(uid)));
-const clsIsDone = (h, d) => !!d && d.n >= (h.kind === 'vocab' ? h.goal : 1);
-/* 선생님이 정한 레벨 → 이 기기의 내 레벨(레벨테스트 없이 바로 배정, 운영자 2026-10-07).
-   선생님이 바꾸면(updated_at 이 달라지면) 다시 맞춘다. 반이 여럿이면 가장 최근에 정한 것. */
-function clsApplyLevel(rows) {
-  const uid = clsSession?.user?.id; if (!uid) return;
-  const mine = (rows || Object.values(cls.stu)).filter((x) => x.user_id === uid && x.lv != null).sort((a, b) => String(b.updated_at).localeCompare(String(a.updated_at)))[0];
-  if (!mine) return;
-  let seen = ''; try { seen = localStorage.getItem('cp_cls_lv') || ''; } catch (e) {}
-  const key = `${mine.class_id}:${mine.updated_at}`;
-  if (seen === key) return;
-  const cur = ltLoadLevel() || {};
-  ltSaveLevel(mine.lv, mine.goal || null, cur.time || null, { grade: mine.goal === 'topik' ? mine.grade ?? null : null, by: 'teacher' });
-  try { localStorage.setItem('cp_cls_lv', key); } catch (e) {}
-  track('반레벨배정받음');
-}
-/* 레벨 이름 — 감자 L3 · 아기 감자 / 치즈 2급 · 슬라이스 치즈 */
-function clsLvInfo(x) {
-  if (!x || x.lv == null) return null;
-  const b = myLevelBadge({ lv: x.lv, goal: x.goal || null, grade: x.grade ?? null });
-  if (!b) return null;
-  const name = b.kind === 'cheese' ? t(`치즈 ${b.step ? b.step + '급' : '0'} · ${b.ko}`, `Cheese ${b.step} · ${b.en}`) : t(`감자 L${b.step} · ${b.ko}`, `Potato L${b.step} · ${b.en}`);
-  return { icon: b.icon, name, sub: LT_LEVELS[x.lv] ? t(LT_LEVELS[x.lv].ko, LT_LEVELS[x.lv].en) : '' };
-}
-const clsLvOptions = (x) => {
-  const v = !x || x.lv == null ? '' : x.goal === 'topik' ? `c:${x.grade ?? 0}` : `p:${x.lv}`;
-  const o = (val, label) => `<option value="${val}"${val === v ? ' selected' : ''}>${esc(label)}</option>`;
-  return o('', t('정하지 않음(레벨테스트로)', 'Not set (level test)')) +
-    `<optgroup label="${esc(t('한국어 배우기 — 감자', 'Learn Korean — potato'))}">${LT_LEVELS.map((L) => o(`p:${L.lv}`, t(`감자 L${L.lv} · ${L.ko}`, `Potato L${L.lv} · ${L.en}`))).join('')}</optgroup>` +
-    `<optgroup label="${esc(t('TOPIK 준비 — 치즈(넘은 급수)', 'TOPIK prep — cheese (level passed)'))}">${[0, 1, 2, 3, 4, 5, 6].map((g) => o(`c:${g}`, t(`치즈 ${g ? g + '급' : '0 (출발)'} · ${cheeseLevel(g).ko}`, `Cheese ${g} · ${cheeseLevel(g).en}`))).join('')}</optgroup>`;
-};
-const clsDay = (iso) => iso ? new Date(iso.length === 10 ? `${iso}T00:00:00` : iso).toLocaleDateString(isEn() ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric' }) : '';
-/* 기한 글 — D-day · 오늘까지 · 기한 지남 */
-/* 학생 줄 오른쪽 알약 — 날짜까지 길게 쓰지 않고 「기한 지남 · 오늘까지 · 내일 · D-3」만(운영자 2026-10-11 「학생들이 정신없대」) */
-function clsDueShort(h) {
-  const du = clsDue(h); if (!du) return '';
-  const today = new Date(); today.setHours(0, 0, 0, 0); const d = Math.round((new Date(`${h.due}T00:00:00`) - today) / 864e5);
-  return `<span class="td-due ${du.cls}">${esc(d < 0 ? t('기한 지남', 'Late') : d === 0 ? t('오늘까지', 'Today') : d === 1 ? t('내일까지', 'Tomorrow') : `D-${d}`)}</span>`;
-}
-function clsDue(h) {
-  if (!h.due) return null;
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  const d = Math.round((new Date(`${h.due}T00:00:00`) - today) / 864e5);
-  return d < 0 ? { cls: 'late', txt: t(`기한 지남 · ${clsDay(h.due)}`, `Late · ${clsDay(h.due)}`) } : d === 0 ? { cls: 'today', txt: t('오늘까지', 'Due today') }
-    : { cls: d <= 2 ? 'soon' : '', txt: t(`D-${d} · ${clsDay(h.due)}까지`, `D-${d} · due ${clsDay(h.due)}`) };
-}
-const clsScoreTxt = (d) => !d ? '' : d.score?.max ? t(`${d.score.total}/${d.score.max}점`, `${d.score.total}/${d.score.max} pts`) : d.score?.n ? t(`${d.score.ok}/${d.score.n} 맞음`, `${d.score.ok}/${d.score.n} right`) : d.score?.wrong != null ? t(`틀림 ${d.score.wrong}`, `${d.score.wrong} wrong`) : '';
-/* 학생의 「내 반」 패널 — 첫 화면(home)과 반 화면이 같이 쓴다(운영자 2026-10-07 「학생이 느껴도 전문적이구나」).
-   머리(반 이름 · 선생님이 정한 레벨) → 선생님 한마디 → 진행 고리(N개 중 M개 · 다음 기한 · 늦은 것) → 할 숙제(기한 순, 상태 칩)
-   → 다 했으면 복습 권유 → 끝낸 숙제(점수 · 날짜, 접힘). */
-/* 학생 「내 반」 패널 — 「오늘 할 일」 카드(.td-*)와 같은 틀로(운영자 2026-10-07 「UI 통일 — 동떨어진 느낌」 · 「XP 는 빼고 해야 한다는 느낌만」).
-   머리(반 이름 · 레벨 배지) → 선생님 한마디(말풍선) → 지금 할 숙제(치즈 큰 단추) → 진행 막대 → 남은 숙제 줄(체크 줄) → 끝낸 숙제. */
-function clsStudentPanel(c, D, home) {
-  const hw = clsHwFor(c.id, D.uid, D.hw, D.tgt).slice().sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
-  const dn = (h) => D.done.find((x) => x.hw_id === h.id);
-  const isFin = (h) => clsIsDone(h, dn(h));
-  const todo = hw.filter((h) => !isFin(h)).sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999'));
-  const fin = hw.filter(isFin);
-  const late = todo.filter((h) => clsDue(h)?.cls === 'late').length;
-  const st = D.stu?.[`${c.id}:${D.uid}`], lv = clsLvInfo(st), msg = st?.msg;
-  const now = todo[0], rest = todo.slice(1);
-  const kindTx = (h) => { const [, ko, en] = CLS_KIND[h.kind] || ['', '', '']; const d = dn(h); return `${t(ko, en)}${h.kind === 'vocab' ? ` · ${t(`${d?.n || 0} / ${h.goal}번`, `${d?.n || 0} / ${h.goal}`)}` : ''}`; };
-  const dueTx = () => '';
-  /* 선생님 코멘트 — 끝낸 숙제 줄 아래에. 새로 온 것(이 기기에서 아직 안 본 것)이 있으면 위에 한 줄 알리고 끝낸 숙제를 펼쳐 둔다 */
-  const fbOf = (h) => D.fb?.[`${h.id}:${D.uid}`];
-  let fbSeen = {}; try { fbSeen = JSON.parse(localStorage.getItem('cp_cls_fb') || '{}'); } catch (e) {}
-  const fbNew = fin.filter((h) => fbOf(h) && fbSeen[h.id] !== fbOf(h).at);
-  if (fbNew.length) { fbNew.forEach((h) => { fbSeen[h.id] = fbOf(h).at; }); try { localStorage.setItem('cp_cls_fb', JSON.stringify(fbSeen)); } catch (e) {} }
-  const slot = (h, done) => `<button type="button" class="td-slot${done ? ' done' : ''}${done && fbOf(h) ? ' has-fb' : ''}"${done ? ' disabled' : ` data-clsgo="${h.id}"`}>` +
-    `<span class="td-chk" aria-hidden="true">${done ? TD_CHECK : ''}</span>` +
-    `<span class="td-txt"><span class="td-t">${(CLS_KIND[h.kind] || [''])[0]} ${esc(h.title)}</span><span class="td-k">${done ? esc(`${clsDay(dn(h)?.done_at)}${clsScoreTxt(dn(h)) ? ` · ${clsScoreTxt(dn(h))}` : ''}`) : esc(kindTx(h)) + dueTx(h)}</span></span>` +
-    `<span class="td-end">${done ? '' : clsDueShort(h) || '<span aria-hidden="true">›</span>'}</span>${done && fbOf(h) ? `<span class="ck-fb">${esc(fbOf(h).msg)}</span>` : ''}</button>`;
-  const shownRest = home ? rest.slice(0, 3) : rest;
-  const pct = hw.length ? Math.round((fin.length / hw.length) * 100) : 0;
-  const nd = now && clsDue(now);
-  const hero = !hw.length ? `<div class="td-now done"><div class="td-now-txt"><span class="td-now-k">${esc(t('선생님 숙제', 'Homework'))}</span><span class="td-now-t">${esc(t('아직 받은 숙제가 없어요', 'No homework yet'))}</span><span class="td-now-s">${esc(t('선생님이 숙제를 내면 여기에 떠요', 'It shows up here when your teacher gives some'))}</span></div></div>`
-    : !now ? `<div class="td-now done"><div class="td-now-txt"><span class="td-now-k">${esc(t('숙제 끝!', 'All done!'))}</span><span class="td-now-t">${esc(t('숙제를 다 했어요. 복습으로 굳혀요.', 'All homework done: lock it in with a review.'))}</span></div>` +
-        `<span class="ck-done-btns"><button type="button" class="td-now-go" data-ckgo="wrong">${esc(t('오답 노트', 'My mistakes'))}</button><button type="button" class="td-now-go" data-ckgo="words">${esc(t('단어 복습', 'Words'))}</button></span></div>`
-    : `<button type="button" class="td-now${nd?.cls === 'late' ? ' ck-late' : ''}" data-clsgo="${now.id}"><div class="td-now-txt"><span class="td-now-k">${esc(t('지금 할 숙제', 'Do this now'))}${nd ? ` · ${esc(nd.cls === 'late' ? t('기한 지남', 'Late') : nd.cls === 'today' ? t('오늘까지', 'Due today') : nd.txt)}` : ''}</span>` +
-      `<span class="td-now-t">${(CLS_KIND[now.kind] || [''])[0]} ${esc(now.title)}</span><span class="td-now-s">${esc(kindTx(now))}</span></div><span class="td-now-go">${esc(t('시작', 'Start'))} →</span></button>`;
-  return `<div class="td-card ck">` +
-    `<div class="td-head"><div><div class="td-kicker">${esc(t('내 반 · 선생님 숙제', 'My class · homework'))}</div><div class="td-title">${esc(c.name)}</div></div>` +
-      (lv ? `<span class="td-badge">${lv.icon}<span>${esc(lv.name)}</span></span>` : '') + '</div>' +
-    (msg ? `<div class="td-buddy"><img class="ck-teach" src="logo-256.png" alt="" width="44" height="44"><p class="td-bubble"><small class="ck-from">${esc(t('선생님 한마디', 'From your teacher'))}</small>${esc(msg)}</p></div>` : '') +
-    `<div class="td-top">${hero}</div>` +
-    (hw.length ? `<p class="td-count">${esc(t(`숙제 ${hw.length}개 중 ${fin.length}개 했어요`, `${fin.length} of ${hw.length} done`))}${late ? ` · <em class="ck-d late">${esc(t(`기한 지남 ${late}`, `${late} late`))}</em>` : ''}</p>` : '') +
-    (rest.length ? `<div class="td-next-h">${esc(t('그다음 숙제', 'Next'))}</div>` : '') +
-    (shownRest.length ? `<div class="td-slots">${shownRest.map((h) => slot(h, false)).join('')}</div>` : '') +
-    (home && rest.length > shownRest.length ? `<button type="button" class="ck-more" data-clsopen>${esc(t(`숙제 ${rest.length - shownRest.length}개 더 보기`, `${rest.length - shownRest.length} more`))} →</button>` : '') +
-    (fin.length ? `<details class="ck-fin"><summary>${esc(t(`끝낸 숙제 ${fin.length}개`, `${fin.length} finished`))}${fbNew.length ? ` <em class="ck-newc">${esc(t('새 코멘트', 'New comment'))}</em>` : ''}</summary><div class="td-slots">${fin.map((h) => slot(h, true)).join('')}</div></details>` : '') +
-    (home ? `<button type="button" class="ck-open" data-clsopen>${esc(t('반 화면 열기', 'Open class'))} →</button>` : '') + '</div>';
-}
-
-/* 오늘 챙길 학생(운영자 2026-10-07 — 구글 클래스룸 · 듀오링고 스쿨의 「주의가 필요한 학생」처럼): 내 반 전체에서
-   ① 기한 지난 숙제가 있는 학생 ② 받은 숙제가 남았는데 3일 넘게 숙제 기록이 없는 학생 ③ 이틀 안에 숙제를 끝냈는데 아직 코멘트를 안 단 것.
-   누르면 그 반의 「학생 관리」 탭 · 그 학생 카드가 열린다. */
-function clsCareHtml() {
-  const uid = clsSession.user.id, mine = cls.rows.filter((c) => c.owner === uid);
-  const late = [], quiet = [], fresh = [];
-  const now = Date.now();
-  for (const c of mine) for (const m of cls.members.filter((x) => x.class_id === c.id)) {
-    const hw = clsHwFor(c.id, m.user_id), dn = (h) => cls.done.find((x) => x.hw_id === h.id && x.user_id === m.user_id);
-    const todo = hw.filter((h) => !clsIsDone(h, dn(h)));
-    const nl = todo.filter((h) => clsDue(h)?.cls === 'late').length;
-    if (nl) late.push({ c, m, n: nl });
-    const last = hw.map((h) => dn(h)?.done_at).filter(Boolean).sort().pop() || m.joined_at;
-    if (todo.length && !nl && last && now - Date.parse(last) > 3 * 864e5) quiet.push({ c, m, days: Math.floor((now - Date.parse(last)) / 864e5) });
-    for (const h of hw) { const d = dn(h); if (clsIsDone(h, d) && d.done_at && now - Date.parse(d.done_at) < 2 * 864e5 && !cls.fb[`${h.id}:${m.user_id}`]) fresh.push({ c, m, h, d }); }
-  }
-  if (!mine.length || !cls.members.some((x) => mine.some((c) => c.id === x.class_id))) return '';
-  const it = (x, txt, tone) => `<li><button type="button" class="cls-care-i ${tone}" data-clsfocus="${x.c.id}:${x.m.user_id}"><b>${esc(x.m.name)}</b><span>${txt}</span>${mine.length > 1 ? `<small>${esc(x.c.name)}</small>` : ''}<i>›</i></button></li>`;
-  const items = [...late.map((x) => it(x, esc(t(`기한 지난 숙제 ${x.n}개`, `${x.n} overdue`)), 'late')),
-    ...quiet.map((x) => it(x, esc(t(`${x.days}일째 숙제 기록 없음`, `no homework for ${x.days} days`)), 'quiet')),
-    ...fresh.slice(0, 6).map((x) => it(x, `${esc(t(`「${x.h.title}」 끝냄`, `finished “${x.h.title}”`))}${clsScoreTxt(x.d) ? ` · ${esc(clsScoreTxt(x.d))}` : ''} · <em>${esc(t('코멘트 남기기', 'Comment'))}</em>`, 'fresh'))];
-  return `<section class="cls-care"><div class="cls-care-h"><b>${esc(t('오늘 챙길 학생', 'Needs attention today'))}</b><span>${esc(items.length ? t(`${items.length}건`, `${items.length}`) : t('모두 잘하고 있어요', 'Everyone is on track'))}</span></div>` +
-    (items.length ? `<ul>${items.join('')}</ul>` : '') + '</section>';
-}
-/* 숙제 폼 → 숙제 한 개(종류 · 대상 자료 · 횟수 · 제목) */
-function clsFormItem(f) {
-  const pk = cls.pick[f.dataset.clsformcid];
-  if (!pk) return null;
-  if (pk.kind === 'free' && !pk.free) return null;
-  const title = pk.kind === 'free' ? pk.free : pk.kind === 'vocab' ? (pk.ref ? `${pk.title} — ${t(`세션 ${pk.goal}번`, `${pk.goal} sessions`)}` : t(`단어 세션 ${pk.goal}번`, `${pk.goal} word sessions`)) : pk.title;
-  return { kind: pk.kind, ref: pk.ref, goal: pk.kind === 'vocab' ? pk.goal : 1, title: title.slice(0, 120) };
-}
-const clsYmd = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-/* 학생 리포트 PDF(운영자 2026-10-07 — 클래스카드 · 듀오링고 스쿨의 학습 리포트처럼): 학생 한 명 한 장 —
-   레벨 · 완료율 · 평균 점수 · 기한 지남 · 숙제별 결과 · 선생님 코멘트 · 선생님 한마디. 학생에게 보내거나 기관에 보여 줄 때. */
-function clsStuPrint(c, m) {
-  const k = `${c.id}:${m.user_id}`, lv = clsLvInfo(cls.stu[k]), hw = clsHwFor(c.id, m.user_id).slice().reverse();
-  const rows = hw.map((h) => { const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === m.user_id), ok = clsIsDone(h, d), du = clsDue(h);
-    return { h, d, ok, late: !ok && du?.cls === 'late', pct: d?.score?.max ? d.score.total / d.score.max : d?.score?.n ? d.score.ok / d.score.n : null }; });
-  const done = rows.filter((r) => r.ok).length, ps = rows.map((r) => r.pct).filter((x) => x != null);
-  const avg = ps.length ? Math.round((ps.reduce((a, b) => a + b, 0) / ps.length) * 100) : null, late = rows.filter((r) => r.late).length;
-  const today = new Date().toLocaleDateString(isEn() ? 'en-US' : 'ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
-  track('반학생리포트PDF');
-  $('ntPrintView').innerHTML = `<div class="ws cls-pr"><div class="ws-run"><b>치즈감자</b><span>${esc(t('학생 학습 리포트', 'Student learning report'))}</span></div>` +
-    `<div class="cls-pr-head"><img src="logo-256.png" alt="" width="64" height="64"><div><h1>${esc(m.name)}</h1><p>${esc(c.name)} · ${esc(today)}</p></div>${lv ? `<div class="cls-pr-lv">${lv.icon}<span>${esc(lv.name)}</span></div>` : ''}</div>` +
-    `<div class="cls-pr-stats"><div><b>${hw.length ? Math.round((done / hw.length) * 100) : 0}%</b><span>${esc(t('숙제 완료', 'Homework done'))}</span><small>${done} / ${hw.length}</small></div>` +
-      `<div><b>${avg != null ? avg + '%' : '–'}</b><span>${esc(t('평균 점수', 'Average score'))}</span></div><div><b>${late}</b><span>${esc(t('기한 지난 숙제', 'Overdue'))}</span></div></div>` +
-    (cls.stu[k]?.msg ? `<div class="cls-pr-msg"><b>${esc(t('선생님 한마디', 'From the teacher'))}</b><p>${esc(cls.stu[k].msg)}</p></div>` : '') +
-    `<table class="cls-pr-t"><thead><tr><th>${esc(t('숙제', 'Homework'))}</th><th>${esc(t('기한', 'Due'))}</th><th>${esc(t('결과', 'Result'))}</th><th>${esc(t('한 날', 'Done'))}</th></tr></thead><tbody>` +
-    rows.map((r) => { const fb = cls.fb[`${r.h.id}:${m.user_id}`];
-      return `<tr><td>${(CLS_KIND[r.h.kind] || [''])[0]} ${esc(r.h.title)}${fb ? `<div class="cls-pr-fb">${esc(fb.msg)}</div>` : ''}</td><td>${esc(clsDay(r.h.due) || '–')}</td>` +
-        `<td class="${r.ok ? 'ok' : r.late ? 'late' : ''}">${esc(r.ok ? (clsScoreTxt(r.d) || t('완료', 'Done')) : r.d ? `${r.d.n}/${r.h.goal}` : r.late ? t('기한 지남', 'Overdue') : t('아직', 'Not yet'))}</td><td>${esc(clsDay(r.d?.done_at) || '–')}</td></tr>`; }).join('') +
-    `</tbody></table><p class="ws-key-n">everykoreans.com</p></div>`;
-  document.body.classList.add('nt-printing', 'ws-printing');
-  window.print();
-}
-
-/* 개인정보 안내 한 줄(운영자 2026-10-07) — 반에 들어오기 전(초대 · 코드 칸)과 들어온 뒤(반가운 말)에 같은 글 */
-const clsPrivacy = () => `<p class="cls-privacy">${esc(t('선생님은 내 이름(계정 이름)과 숙제 기록(한 날 · 점수)만 봐요. 숙제 · 복습에만 쓰고, 언제든 「반 나가기」로 나갈 수 있어요.', 'Your teacher sees only your name (account name) and homework records (dates, scores): used only for homework and review. Leave anytime.'))} <a href="privacy.html">${esc(t('개인정보처리방침', 'Privacy policy'))}</a></p>`;
-const clsDefaultName = () => {
-  let n = ''; try { n = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
-  const u = clsSession?.user;
-  return (n || u?.user_metadata?.full_name || u?.user_metadata?.name || String(u?.email || '').split('@')[0] || t('학생', 'Student')).slice(0, 20);
-};
-/* 반에 들어간다 — 들어갔으면 true. 들어가면 반 화면을 다시 읽고 반가운 말 한 줄을 띄운다. */
-async function clsJoin(code, name) {
-  const { data, error } = await sb.rpc('cls_join', { p_code: code, p_name: name });
-  if (error || !data?.length) { cls.msg = t('그 코드의 반을 찾지 못했어요. 선생님께 코드를 다시 확인해 주세요.', 'No class with that code.'); return false; }
-  track('반들어감'); cls.msg = ''; cls.code = ''; cls.hi = t('반에 들어왔어요! 아래 숙제부터 해 볼까요? 숙제는 첫 화면 맨 위에도 떠요.', 'You joined the class! Start with the homework below: it also shows at the top of the home screen.');
-  try { sessionStorage.removeItem('cp_cls_code'); localStorage.setItem('cp_cls_in', '1'); } catch (e) {}
-  clsHomeAt = 0;
-  window.cpMark('learn', 'class'); await clsLoad();
-  /* 반에 들면 바로 Pro(반 학생 무료, 2026-10-06) — 다시 읽어 잠긴 것들을 연다 */
-  try { const { data: { session } } = await sb.auth.getSession(); if (session) { await loadPro(sb, session); proPaintAccount(); } } catch (e) {}
-  return true;
-}
-/* QR — qrcode-lib.js(MIT, Kazuhiko Arase)를 이 칸을 열 때만 받는다. CSP 때문에 우리 도메인에 둔다 */
-let clsQrLib = null;
-const clsQrNeed = () => (clsQrLib ??= new Promise((ok, no) => {
-  const sc = document.createElement('script'); sc.src = './qrcode-lib.js?v=32cde420'; sc.onload = () => ok(window.qrcode); sc.onerror = no; document.head.appendChild(sc);
-}));
-/* 치즈감자 QR 카드(운영자 2026-10-07 「QR 을 귀엽게 — 치즈감자 스타일로」): 둥근 점 · 갈색 둥근 모서리 눈 · 가운데 치즈감자 얼굴 ·
-   위에 주황 띠와 반 이름, 아래 「찍고 로그인하면 바로」. 보이는 그림과 저장하는 PNG 가 같은 캔버스 하나다.
-   가운데 얼굴이 점을 가리므로 오류 고침은 가장 센 H(30%)로 만든다. 점은 진한 갈색 · 바탕은 흰색 — 카메라가 읽는 대비는 지킨다. */
-let clsLogoImg = null;
-const clsLogoNeed = () => (clsLogoImg ??= new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.onerror = () => ok(null); im.src = 'logo-256.png'; }));
-function clsRound(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
-function clsQrCard(qr, c, logo) {
-  /* QR 만(운영자 2026-10-07 「그냥 QR 만 뜨게」) — 둥근 점 · 갈색 둥근 눈(가운데 주황) · 가운데 치즈감자 얼굴. 둘레는 카메라가 읽게 흰 여백 4칸 */
-  const q = qr(0, 'H'); q.addData(clsLink(c.code)); q.make();
-  const n = q.getModuleCount(), cell = Math.floor(720 / (n + 8)), QS = n * cell, pad = 4 * cell, W = QS + pad * 2;
-  const INK = '#3B2A1E', ORANGE = '#FF914D', DEEP = '#C4561F';
-  const cv = document.createElement('canvas'); cv.width = W; cv.height = W;
-  const g = cv.getContext('2d'), ox = pad, oy = pad;
-  g.fillStyle = '#fff'; g.fillRect(0, 0, W, W);
-  const eye = (r, cc) => (r < 7 && cc < 7) || (r < 7 && cc >= n - 7) || (r >= n - 7 && cc < 7);
-  const k = Math.round(n * 0.24) | 1, k0 = (n - k) / 2;
-  const mid = (r, cc) => r >= k0 - 0.5 && r < k0 + k - 0.5 && cc >= k0 - 0.5 && cc < k0 + k - 0.5;
-  g.fillStyle = INK;
-  for (let r = 0; r < n; r++) for (let cc = 0; cc < n; cc++) {
-    if (!q.isDark(r, cc) || eye(r, cc) || mid(r, cc)) continue;
-    g.beginPath(); g.arc(ox + (cc + 0.5) * cell, oy + (r + 0.5) * cell, cell * 0.43, 0, Math.PI * 2); g.fill();
-  }
-  for (const [r, cc] of [[0, 0], [0, n - 7], [n - 7, 0]]) {
-    const x = ox + cc * cell, y = oy + r * cell;
-    g.fillStyle = INK; clsRound(g, x, y, 7 * cell, 7 * cell, cell * 2.2); g.fill();
-    g.fillStyle = '#fff'; clsRound(g, x + cell, y + cell, 5 * cell, 5 * cell, cell * 1.5); g.fill();
-    g.fillStyle = DEEP; clsRound(g, x + 2 * cell, y + 2 * cell, 3 * cell, 3 * cell, cell); g.fill();
-  }
-  const lx = ox + k0 * cell, ly = oy + k0 * cell, ls = k * cell;
-  g.fillStyle = '#fff'; clsRound(g, lx - 4, ly - 4, ls + 8, ls + 8, ls * 0.28); g.fill();
-  if (logo) { g.save(); clsRound(g, lx + 4, ly + 4, ls - 8, ls - 8, ls * 0.24); g.clip(); g.drawImage(logo, lx + 4, ly + 4, ls - 8, ls - 8); g.restore(); }
-  g.strokeStyle = ORANGE; g.lineWidth = Math.max(3, cell * 0.35); clsRound(g, lx + 2, ly + 2, ls - 4, ls - 4, ls * 0.25); g.stroke();
-  return cv;
-}
-async function clsQrFill() {
-  const boxes = document.querySelectorAll('[data-clsqrbox]');
-  if (!boxes.length) return;
-  let qr, logo; try { [qr, logo] = await Promise.all([clsQrNeed(), clsLogoNeed()]); } catch (e) { return; }
-  boxes.forEach((b) => {
-    const c = cls.rows.find((x) => x.code === b.dataset.clsqrbox); if (!c) return;
-    const url = clsQrCard(qr, c, logo).toDataURL('image/png');
-    b.querySelector('.cls-qr-img').innerHTML = `<img src="${url}" alt="${esc(t(`${c.name} 반 QR`, `${c.name} class QR`))}">`;
-    b.querySelector('[data-clsqrsave]').dataset.url = url;
-  });
-}
-function clsQrHtml(c) {
-  return `<div class="cls-qr" data-clsqrbox="${esc(c.code)}"><div class="cls-qr-img" aria-label="QR"></div>` +
-    `<p class="cls-qr-cap">${esc(t('학생이 카메라로 찍고 로그인만 하면 바로 들어와요', 'Students scan and sign in: that’s it'))}</p>` +
-    `<div class="cls-row cls-qr-btns"><button type="button" class="pt-next" data-clsqrsave="" data-name="${esc(c.code)}">${esc(t('QR 저장', 'Save QR'))}</button>` +
-    `<button type="button" class="pt-ghost" data-clscopy="${esc(c.code)}">${esc(t('링크 복사', 'Copy link'))}</button></div></div>`;
-}
-
-/* ── 첫 화면 「반 숙제」 — 반 학생이면 오늘 할 일보다 위에(운영자 2026-10-07 「반 학생이면 숙제부터」).
-   반이 아니면 숨는다 — 첫 화면은 그대로. 서버는 1분에 한 번만 묻는다. */
-let clsHomeAt = 0, clsHomeData = null;
-async function clsHomeRender() {
-  const box = $('clsHome'); if (!box) return;
-  let inCls = false; try { inCls = localStorage.getItem('cp_cls_in') === '1'; } catch (e) {}
-  if (!inCls) { box.hidden = true; box.innerHTML = ''; return; }
-  if (Date.now() - clsHomeAt > 60e3) {
-    clsHomeAt = Date.now();
-    try {
-      const { data: { session } } = await sb.auth.getSession();
-      if (!session) { box.hidden = true; return; }
-      clsSession = session;
-      const r = await sb.from('classes').select('id, name, code, owner, archived').order('created_at');
-      const rows = (r.data || []).filter((c) => !c.archived && c.owner !== session.user.id);
-      const ids = rows.map((c) => c.id);
-      const [h, d, st] = ids.length ? await Promise.all([
-        sb.from('class_homework').select('*').in('class_id', ids).order('created_at', { ascending: false }),
-        sb.from('class_done').select('hw_id, user_id, n, score, done_at').eq('user_id', session.user.id),
-        sb.from('class_student').select('*').in('class_id', ids).eq('user_id', session.user.id),
-      ]) : [{ data: [] }, { data: [] }, { data: [] }];
-      const hwIds = (h.data || []).map((x) => x.id), tg = hwIds.length ? await sb.from('class_hw_target').select('hw_id, user_id').in('hw_id', hwIds) : { data: [] };
-      const tgt = {}; for (const x of tg.data || []) (tgt[x.hw_id] ??= new Set()).add(x.user_id);
-      const stu = {}; for (const x of st.data || []) stu[`${x.class_id}:${x.user_id}`] = x;
-      const fbr = hwIds.length ? await sb.from('class_feedback').select('hw_id, user_id, msg, at').in('hw_id', hwIds).eq('user_id', session.user.id) : { data: [] };
-      const fb = {}; for (const x of fbr.data || []) fb[`${x.hw_id}:${x.user_id}`] = x;
-      clsHomeData = { rows, hw: h.data || [], done: d.data || [], uid: session.user.id, tgt, stu, fb };
-      clsApplyLevel(st.data || []);
-      /* 숙제 「하러 가기」가 반 화면과 같은 길을 쓰게 */
-      cls.hw = [...new Map([...cls.hw, ...clsHomeData.hw].map((x) => [x.id, x])).values()];
-    } catch (e) { clsHomeData = null; }
-  }
-  const D = clsHomeData;
-  if (!D?.rows.length) { box.hidden = true; box.innerHTML = ''; return; }
-  box.hidden = false;
-  box.innerHTML = D.rows.map((c) => clsStudentPanel(c, D, true)).join('');
-}
-/* 다 했을 때의 복습 단추 — 오답 노트 · 단어 복습 */
-function clsCkGo(ev) {
-  const b = ev.target.closest('[data-ckgo]'); if (!b) return false;
-  track('반복습권유클릭');
-  if (b.dataset.ckgo === 'wrong') window.cpOpen('learn', 'wrong'); else { window.cpOpen('words', ''); }
-  return true;
-}
-$('clsHome')?.addEventListener('click', (ev) => {
-  if (ev.target.closest('[data-clsopen]')) { window.cpOpen('learn', 'class'); return; }
-  if (clsCkGo(ev)) return;
-  const go = ev.target.closest('[data-clsgo]');
-  if (go) clsGo(Number(go.dataset.clsgo));
-});
-
-function clsHwRow(c, h) {
-  const [ic, ko, en] = CLS_KIND[h.kind] || ['', '', ''];
-  const due = h.due ? new Date(`${h.due}T00:00:00`).toLocaleDateString(isEn() ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric' }) : '';
-  const late = h.due && h.due < new Date().toISOString().slice(0, 10);
-  const head = `<span class="cls-hw-ic">${ic}</span><div class="cls-hw-t"><b>${esc(h.title)}</b><small>${esc(t(ko, en))}${h.kind === 'vocab' ? ` · ${h.goal}${t('번', '×')}` : ''}${due ? ` · ${esc(t(`${due}까지`, `due ${due}`))}` : ''}</small></div>`;
-  if (c.owner === clsSession.user.id) {
-    const tg = cls.tgt[h.id];
-    const mem = cls.members.filter((x) => x.class_id === c.id && (!tg || tg.has(x.user_id)));
-    const fin = (u) => { const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === u); return d && d.n >= (h.kind === 'vocab' ? h.goal : 1) ? d : null; };
-    const k = mem.filter((x) => fin(x.user_id)).length;
-    const who = mem.map((x) => {
-      const d = cls.done.find((y) => y.hw_id === h.id && y.user_id === x.user_id), ok = fin(x.user_id);
-      const sc = d?.score?.max ? ` ${d.score.total}/${d.score.max}${t('점', ' pts')}` : d?.score?.n ? ` ${d.score.ok}/${d.score.n}` : d?.score?.wrong != null ? ` ${t(`틀림 ${d.score.wrong}`, `${d.score.wrong} wrong`)}` : '';
-      const sb2 = clsSubOf(h.id, x.user_id);
-      return `<li class="${ok ? 'ok' : ''}">${ok ? '✓' : d ? `${d.n}/${h.goal}` : '·'} ${esc(x.name)}<em>${esc(sc)}</em>${sb2 ? `<button type="button" class="cls-sub-chip${sb2.reviewed_at ? ' ok' : ''}" data-clsview="${h.id}:${x.user_id}">${sb2.reviewed_at ? '✓ ' : ''}${esc(t('제출', 'Submission'))}</button>` : ''}</li>`;
-    }).join('');
-    const du = clsDue(h);
-    return `<li class="cls-hw"><div class="cls-hw-top">${head}<button type="button" class="cls-re" data-clsre="${h.id}" title="${esc(t('다시 내기', 'Give again'))}" aria-label="${esc(t('다시 내기', 'Give again'))}">↻<span> ${esc(t('다시 내기', 'Again'))}</span></button><button type="button" class="cls-x" data-clsdel="${h.id}" aria-label="${esc(t('숙제 지우기', 'Delete'))}">✕</button></div>` +
-      `<div class="cls-hw-meta">${tg ? `<span class="cls-hw-to">${esc(mem.map((x) => x.name).join(', ') || t('대상 없음', 'nobody'))}</span>` : `<span class="cls-hw-to all">${esc(t('반 전체', 'Whole class'))}</span>`}` +
-      `${du ? `<span class="ck-due ${du.cls}">${esc(du.txt)}</span>` : ''}<span class="cls-hw-n">${esc(t(`${k} / ${mem.length}명 했음`, `${k} / ${mem.length} done`))}</span></div>` +
-      (mem.length ? `<ul class="cls-who">${who}</ul>` : '') +
-      (mem.some((x) => clsSubOf(h.id, x.user_id)) ? `<button type="button" class="cls-view-all" data-clsview="${h.id}:">${esc(t(`제출 보기 · ${mem.filter((x) => clsSubOf(h.id, x.user_id)).length}명 · 수업에서 보여주기`, `View submissions · ${mem.filter((x) => clsSubOf(h.id, x.user_id)).length} · present`))}</button>` : '') + '</li>';
-  }
-  const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === clsSession.user.id);
-  const ok = d && d.n >= (h.kind === 'vocab' ? h.goal : 1);
-  return `<li class="cls-hw${ok ? ' ok' : ''}"><div class="cls-hw-top">${head}` +
-    (ok ? `<span class="cls-hw-ok">✓ ${esc(t('했음', 'Done'))}</span>`
-      : `${h.kind === 'vocab' && d ? `<span class="cls-hw-n">${d.n} / ${h.goal}</span>` : late ? `<span class="cls-hw-late">${esc(t('기한 지남', 'Late'))}</span>` : ''}` +
-        (h.kind === 'free' ? '' : `<button type="button" class="pt-next cls-go" data-clsgo="${h.id}">${esc(t('하러 가기', 'Start'))} →</button>`)) +
-    clsSubBtn(h) + '</div></li>';
-}
-/* ── 제출(2026-10-14 「구글 클래스룸처럼 · 제출 버튼」, db/add_class_submit.sql) ──
-   학생: 숙제마다 「제출」 — 글(4,000자) + 사진 한 장(폰 사진은 1280px · JPEG 로 줄여 올린다). 다시 내면 고친다.
-   선생님: 숙제 줄의 「제출 보기」 → 큰 글씨 한 화면(수업에서 화면 공유) — 학생 넘기기 · 「확인했어요」 · 코멘트. */
-const clsSubOf = (hw, uid) => cls.sub?.[`${hw}:${uid}`];
-function clsSubBtn(h) {
-  if (cls.needSub) return '';
-  const s = clsSubOf(h.id, clsSession.user.id);
-  if (s) return `<button type="button" class="cls-sub-btn done" data-clssub="${h.id}">${esc(s.reviewed_at ? t('✓ 선생님이 확인했어요', '✓ Checked by teacher') : t('✓ 제출함 · 고치기', '✓ Submitted · edit'))}</button>`;
-  return `<button type="button" class="cls-sub-btn${h.kind === 'free' ? ' main' : ''}" data-clssub="${h.id}">${esc(h.kind === 'free' ? t('제출하기', 'Submit') : t('글 · 사진 제출', 'Submit text / photo'))}</button>`;
-}
-async function clsShrink(file) {
-  const bmp = await createImageBitmap(file), k = Math.min(1, 1280 / Math.max(bmp.width, bmp.height));
-  const cv = document.createElement('canvas'); cv.width = Math.round(bmp.width * k); cv.height = Math.round(bmp.height * k);
-  cv.getContext('2d').drawImage(bmp, 0, 0, cv.width, cv.height);
-  return new Promise((ok) => cv.toBlob(ok, 'image/jpeg', 0.82));
-}
-function clsSubOpen(hwId) {
-  const h = cls.hw.find((x) => x.id === hwId); if (!h) return;
-  const old = clsSubOf(hwId, clsSession.user.id);
-  document.getElementById('clsDlg')?.remove();
-  const d = document.createElement('div'); d.id = 'clsDlg'; d.className = 'cls-dlg'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true');
-  d.innerHTML = `<div class="cls-dlg-box"><button type="button" class="cls-dlg-x" data-clsdlgx aria-label="${esc(t('닫기', 'Close'))}">✕</button>` +
-    `<h3>${esc(h.title)}</h3><textarea class="cls-dlg-ta" maxlength="4000" rows="6" placeholder="${esc(t('여기에 답을 써요', 'Write your answer here'))}">${esc(old?.body || '')}</textarea>` +
-    `<label class="cls-dlg-ph"><input type="file" accept="image/*" hidden><span>${esc(t('사진 올리기(선택)', 'Add a photo (optional)'))}</span></label><img class="cls-dlg-pv" alt="" hidden>` +
-    `<p class="cls-dlg-msg" hidden></p><button type="button" class="pt-next cls-dlg-go">${esc(old ? t('고쳐서 다시 제출', 'Submit again') : t('제출', 'Submit'))}</button></div>`;
-  document.body.appendChild(d);
-  let blob = null;
-  const msg = (x) => { const m = d.querySelector('.cls-dlg-msg'); m.textContent = x; m.hidden = !x; };
-  d.querySelector('input[type=file]').addEventListener('change', async (ev) => {
-    const f = ev.target.files?.[0]; if (!f) return;
-    try { blob = await clsShrink(f); const pv = d.querySelector('.cls-dlg-pv'); pv.src = URL.createObjectURL(blob); pv.hidden = false; msg(''); } catch (e) { blob = null; msg(t('사진을 읽지 못했어요. 다른 사진으로 해 보세요.', 'Could not read that photo.')); }
-  });
-  d.addEventListener('click', (ev) => { if (ev.target === d || ev.target.closest('[data-clsdlgx]')) d.remove(); });
-  d.querySelector('.cls-dlg-go').addEventListener('click', async (ev) => {
-    const body = d.querySelector('.cls-dlg-ta').value.trim();
-    if (!body && !blob && !old?.image_path) { msg(t('글을 쓰거나 사진을 올려 주세요.', 'Write something or add a photo.')); return; }
-    const btn = ev.currentTarget; btn.disabled = true; msg('');
-    let path = old?.image_path || null;
-    if (blob) {
-      const np = `${clsSession.user.id}/${hwId}/${Date.now()}.jpg`;
-      const up = await sb.storage.from('class-submissions').upload(np, blob, { contentType: 'image/jpeg' });
-      if (up.error) { btn.disabled = false; msg(t('사진을 올리지 못했어요. 조금 뒤에 다시 해 주세요.', 'Photo upload failed: try again.')); return; }
-      path = np;
-    }
-    const r = await sb.rpc('cls_submit', { p_hw: hwId, p_body: body, p_image: path });
-    if (r.error || !r.data) { btn.disabled = false; msg(t('제출하지 못했어요. 선생님께 알려 주세요.', 'Could not submit: please tell your teacher.')); return; }
-    track('숙제제출'); d.remove(); await clsLoad();
-  });
-  d.querySelector('.cls-dlg-ta').focus();
-}
-/* 선생님 — 숙제 하나의 제출을 큰 화면으로 넘겨 보며 확인(수업에서 바로 보여 주기) */
-let clsPres = null;   // { hw, list: [{ user_id, name }], i }
-async function clsPresOpen(hwId, uid) {
-  const h = cls.hw.find((x) => x.id === hwId); if (!h) return;
-  const c = cls.rows.find((x) => x.id === h.class_id);
-  const list = cls.members.filter((m) => m.class_id === h.class_id && clsSubOf(hwId, m.user_id)).map((m) => ({ user_id: m.user_id, name: m.name }));
-  if (!list.length) return;
-  clsPres = { hw: h, cname: c?.name || '', list, i: Math.max(0, list.findIndex((x) => x.user_id === uid)) };
-  document.getElementById('clsPres')?.remove();
-  const d = document.createElement('div'); d.id = 'clsPres'; d.className = 'cls-pres'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true');
-  document.body.appendChild(d); document.body.classList.add('cls-pres-on');
-  d.addEventListener('click', clsPresClick);
-  await clsPresDraw();
-}
-async function clsPresDraw() {
-  const d = document.getElementById('clsPres'); if (!d || !clsPres) return;
-  const { hw, list, i } = clsPres, m = list[i], s = clsSubOf(hw.id, m.user_id), fb = cls.fb[`${hw.id}:${m.user_id}`];
-  let img = '';
-  if (s?.image_path) { const u = await sb.storage.from('class-submissions').createSignedUrl(s.image_path, 3600); if (u.data?.signedUrl) img = `<img class="cls-pres-img" src="${esc(u.data.signedUrl)}" alt="">`; }
-  d.innerHTML = `<div class="cls-pres-top"><span>${esc(clsPres.cname)} · ${esc(hw.title)}</span><span>${i + 1} / ${list.length}</span>` +
-    `<button type="button" data-prfs>${esc(t('전체 화면', 'Full screen'))}</button><button type="button" data-prx aria-label="${esc(t('닫기', 'Close'))}">✕</button></div>` +
-    `<div class="cls-pres-main"><h2>${esc(m.name)}</h2>${s?.body ? `<p class="cls-pres-body">${esc(s.body).replace(/\n/g, '<br>')}</p>` : ''}${img}` +
-    `<small>${esc(new Date(s.at).toLocaleString(isEn() ? 'en-US' : 'ko-KR'))}</small></div>` +
-    `<div class="cls-pres-bar"><button type="button" data-prprev${i === 0 ? ' disabled' : ''}>←</button>` +
-    `<input type="text" class="cls-pres-fb" maxlength="500" value="${esc(fb?.msg || '')}" placeholder="${esc(t('한 줄 코멘트(학생에게 보여요)', 'One-line comment (the student sees it)'))}">` +
-    `<button type="button" data-prfb>${esc(t('코멘트 저장', 'Save comment'))}</button>` +
-    `<button type="button" class="${s?.reviewed_at ? 'on' : ''}" data-prok>${esc(s?.reviewed_at ? t('✓ 확인함', '✓ Checked') : t('확인했어요', 'Mark checked'))}</button>` +
-    `<button type="button" data-prnext${i >= list.length - 1 ? ' disabled' : ''}>→</button></div>`;
-}
-async function clsPresClick(ev) {
-  if (!clsPres) return;
-  const el = (q) => ev.target.closest(q), { hw, list } = clsPres, m = list[clsPres.i];
-  if (el('[data-prx]')) { document.getElementById('clsPres')?.remove(); document.body.classList.remove('cls-pres-on'); clsPres = null; if (document.fullscreenElement) document.exitFullscreen?.(); return; }
-  if (el('[data-prfs]')) { const d = document.getElementById('clsPres'); if (document.fullscreenElement) document.exitFullscreen?.(); else d?.requestFullscreen?.(); return; }
-  if (el('[data-prprev]') && clsPres.i > 0) { clsPres.i--; await clsPresDraw(); return; }
-  if (el('[data-prnext]') && clsPres.i < list.length - 1) { clsPres.i++; await clsPresDraw(); return; }
-  if (el('[data-prok]')) {
-    const s = clsSubOf(hw.id, m.user_id), on = !s.reviewed_at;
-    const r = await sb.rpc('cls_review', { p_hw: hw.id, p_user: m.user_id, p_on: on });
-    if (!r.error && r.data) { s.reviewed_at = on ? new Date().toISOString() : null; track('숙제확인'); if (on && clsPres.i < list.length - 1) clsPres.i++; await clsPresDraw(); }
-    return;
-  }
-  if (el('[data-prfb]')) {
-    const msg = (document.querySelector('.cls-pres-fb')?.value || '').trim().slice(0, 500), key = `${hw.id}:${m.user_id}`;
-    const q2 = msg ? sb.from('class_feedback').upsert({ hw_id: hw.id, user_id: m.user_id, msg, at: new Date().toISOString() }) : sb.from('class_feedback').delete().eq('hw_id', hw.id).eq('user_id', m.user_id);
-    const { error } = await q2; if (!error) { if (msg) cls.fb[key] = { hw_id: hw.id, user_id: m.user_id, msg }; else delete cls.fb[key]; track('숙제코멘트'); await clsPresDraw(); }
-  }
-}
-document.addEventListener('keydown', (ev) => {
-  if (!clsPres || ev.target.closest?.('input,textarea')) return;
-  if (ev.key === 'Escape') document.querySelector('#clsPres [data-prx]')?.click();
-  else if (ev.key === 'ArrowRight') document.querySelector('#clsPres [data-prnext]')?.click();
-  else if (ev.key === 'ArrowLeft') document.querySelector('#clsPres [data-prprev]')?.click();
-});
-/* 숙제 고르기 — 검색 한 칸(운영자 2026-10-07 「검색해서 바로 찾게 · 선생님이 편하게」).
-   레슨 · 문법 · TOPIK 쓰기 · TOPIK 읽기 · 단어 세션을 한 목록(clsCatalog)에서 낱말로 찾는다(띄어쓰기 · 대소문자 무시).
-   종류 칩으로 좁히고, 「최근에 낸 숙제」는 한 번 눌러 다시 고른다. 고른 것은 cls.pick[반] — 단어 세션은 −/+ 로 횟수. */
-let clsCat = null, clsCatLang = '', clsVTopics = null, clsVN = new Map();   // 단어 주제(vocab/taxonomy.json) — 주제별 단어 숙제
-const clsNorm = (x) => String(x || '').toLowerCase().replace(/[\s·\-–—_.,()「」"']/g, '');
-/* 목록 글(제목 · 설명)은 t() 로 한 번 굳혀 둔다 — 화면 언어를 바꾸면(예: 네팔어 → 한국어) 새로 만들어야 한다. 안 그러면 한국어 화면에 예전 언어가 남는다(운영자 2026-10-15 보고) */
-function clsCatalog() {
-  const lk = `${document.documentElement.lang}|${window.cpI18n?.lang || ''}`;
-  if (clsCat && clsCatLang === lk) return clsCat;
-  const out = [{ kind: 'free', ref: null, title: t('글 · 사진으로 내는 숙제', 'Written / photo homework'), sub: t('내용을 직접 쓰면 학생이 글이나 사진으로 제출해요', 'You write the task; the student submits text or a photo'), alt: '제출 submit 글쓰기 작문 사진 photo writing' },
-    { kind: 'vocab', ref: null, title: t('단어 세션', 'Word session'), sub: t('「단어」에서 아무 세션이나 N번', 'Any N sessions in Words') }];
-  /* 주제별 단어 세션 — 큰 주제 · 작은 주제(감정 · 기쁨, 학교 · 학용품 …). 그 주제 세션을 끝내야 「했음」(db/update_cls_mark_vocab.sql) */
-  for (const tp of clsVTopics || []) {
-    if (!clsVN.get(tp.id)) continue;
-    out.push({ kind: 'vocab', ref: tp.id, title: t(`단어 · ${tp.ko}`, `Words · ${tp.en}`), sub: t(`이 주제 단어 세션 · 낱말 ${clsVN.get(tp.id)}개`, `Word sessions · ${clsVN.get(tp.id)} words`), alt: `${tp.ko} ${tp.en} 단어 낱말 words` });
-    for (const sb of tp.subs) if (clsVN.get(`${tp.id}/${sb.id}`) >= 10) out.push({ kind: 'vocab', ref: `${tp.id}/${sb.id}`, title: t(`단어 · ${tp.ko} · ${sb.ko}`, `Words · ${tp.en} · ${sb.en}`), sub: t(`작은 주제 단어 세션 · 낱말 ${clsVN.get(`${tp.id}/${sb.id}`)}개`, `Subtopic sessions · ${clsVN.get(`${tp.id}/${sb.id}`)} words`), alt: `${tp.ko} ${sb.ko} ${tp.en} ${sb.en} 단어 낱말 words` });
-  }
-  for (const co of COURSES) for (const l of co.lessons) out.push({ kind: 'lesson', ref: l.id, title: cTx(l.title), sub: cTx(co.title) });
-  for (const p of SB_POINTS) if (GRAMMAR_DRILL[p.id]?.x?.length) out.push({ kind: 'grammar', ref: p.id, title: `${p.name} — ${t('바꿔 쓰기', 'drill')}`, sub: t('문법 바꿔 쓰기', 'Grammar drill') + (p.en ? ` · ${p.en}` : '') });
-  for (const x of TW_ITEMS) out.push({ kind: 'twrite', ref: x.id, title: `TOPIK ${x.q}${t('번', '')} ${x.title || x.id}`, sub: t('TOPIK 쓰기 · AI 점수', 'TOPIK writing · AI score'), alt: x.id });
-  for (const e of ['I', 'II']) for (const b of TQ_EXAMS[e]?.blueprint || []) if (TQ_EXAMS[e].reading.some((q) => q.type === b.type))
-    out.push({ kind: 'tread', ref: `${e}:${b.type}`, title: `TOPIK ${e} ${t('읽기', 'reading')} · ${t(b.ko, b.en)}`, sub: t('TOPIK 읽기 유형 연습', 'TOPIK reading type practice') });
-  for (const e of ['I', 'II']) for (const b of TOPIKL_BY_EXAM[e]?.blueprint || []) if (TOPIKL_BY_EXAM[e].items.some((q) => q.type === b.type))
-    out.push({ kind: 'tlisten', ref: `${e}:${b.type}`, title: `TOPIK ${e} ${t('듣기', 'listening')} · ${t(b.ko, b.en)}`, sub: t('TOPIK 듣기 유형 연습', 'TOPIK listening type practice') });
-  for (const e of ['I', 'II']) for (let r = 1, n = mkCount(e); r <= n; r++)
-    out.push({ kind: 'tmock', ref: `${e}:${r}`, title: `TOPIK ${e} ${t(`모의고사 ${r}회차`, `mock exam · round ${r}`)}`, sub: t('TOPIK 읽기 모의고사 한 회차 · 점수', 'One full reading mock exam · scored'), alt: `모의고사 mock 시험 ${r}회` });
-  for (const c of CONVO || []) out.push({ kind: 'convo', ref: c.id, title: `${t('회화', 'Conversation')} · ${c.title}`, sub: `${t('회화 연습', 'Conversation practice')}${c.en ? ` · ${c.en}` : ''}`, alt: `${c.en || ''} 회화 대화 conversation` });
-  for (const s of TRANSLATE_SETS || []) out.push({ kind: 'translate', ref: s.id, title: `${t('번역', 'Translation')} · ${t(s.title.ko, s.title.en)}`, sub: t(`영어 → 한국어 ${s.lines.length}줄`, `English → Korean · ${s.lines.length} lines`), alt: `번역 translate translation ${s.tier} ${s.id}` });
-  for (const s of STORIES) out.push({ kind: 'story', ref: s.id, title: `${t('동화책', 'Storybook')} · ${cTx(s.title)}`, sub: t('동화책 한 권 끝까지 읽기', 'Read one storybook to the end'), alt: '동화책 이야기 story storybook' });
-  out.forEach((x) => { x.tkey = clsNorm(x.title); x.key = clsNorm(`${x.title} ${x.sub} ${x.ref || ''} ${x.alt || ''}`); });   // alt — 한국어 · 영어 이름을 다 찾게
-  clsCatLang = lk;
-  return (clsCat = out);
-}
-function clsPickResults(cid) {
-  const q = clsNorm(cls.q[cid]), fk = cls.fk[cid] || '';
-  /* 제목에 맞는 것이 먼저(제목 첫머리 → 제목 안 → 설명 · id 안) — 「54」면 TOPIK 54번이 레슨보다 위 */
-  const rank = (x) => (!q ? 0 : x.tkey.startsWith(q) ? 0 : x.tkey.includes(q) ? 1 : 2);
-  const list = clsCatalog().filter((x) => (!fk || x.kind === fk) && (!q || x.key.includes(q))).map((x, i) => [rank(x), i, x]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map((r) => r[2]);
-  if (!list.length) return `<p class="cls-pick-none">${esc(t('찾는 숙제가 없어요. 다른 낱말로 찾아보세요.', 'Nothing found: try another word.'))}</p>`;
-  return list.slice(0, 40).map((x, i) => `<button type="button" class="cls-pick-i" data-clspick="${cid}:${clsCatalog().indexOf(x)}"><span class="cls-pick-ic">${(CLS_KIND[x.kind] || [''])[0]}</span>` +
-    `<span class="cls-pick-t"><b>${esc(x.title)}</b><small>${esc(x.sub)}</small></span><span class="cls-pick-go" aria-label="${esc(t('고르기', 'Pick'))}">＋</span></button>`).join('') +
-    (list.length > 40 ? `<p class="cls-pick-none">${esc(t(`${list.length - 40}개 더 있어요 — 낱말을 더 넣어 좁혀 보세요`, `${list.length - 40} more — type more to narrow down`))}</p>` : '');
-}
-/* 숙제 내기 — 세 걸음(운영자 2026-10-10 「단체로 보낼 일 없으니 학생한테 숙제 배정 · 만드는 과정 심플하게」).
-   ① 학생 한 명 고르기(반에 한 명이면 저절로) → ② 숙제 찾아 고르기 → ③ 기한(기본 1주 뒤) → 「○○에게 내기」.
-   고른 학생 · 기한은 cls.pre · cls.due 에 둔다 — 숙제를 고르며 다시 그려도 풀리지 않게(예전엔 체크가 풀려 반 전체로 나갔다).
-   반 전체 · 묶음 · 매주 반복은 뺐다(1:1 수업에는 안 쓴다). 늘 펼쳐 둔다. */
-function clsDueIn(n) { const d = new Date(); d.setDate(d.getDate() + n); return clsYmd(d); }
-function clsAddForm(c) {
-  const mem = cls.members.filter((x) => x.class_id === c.id);
-  if (!mem.length) return `<div class="cls-add2" data-clsadd="${c.id}"><p class="cls-empty">${esc(t('숙제를 내려면 먼저 학생을 초대해 주세요. 「학생 초대」 탭의 QR · 링크.', 'Invite a student first: use the QR or link in “Invite”.'))}</p></div>`;
-  if (!mem.some((m) => m.user_id === cls.pre[c.id])) cls.pre[c.id] = mem.length === 1 ? mem[0].user_id : '';
-  if (cls.due[c.id] === undefined) cls.due[c.id] = clsDueIn(7);
-  const who = mem.find((m) => m.user_id === cls.pre[c.id]), due = cls.due[c.id];
-  const re = cls.re[c.id], pk = cls.pick[c.id], fk = cls.fk[c.id] || '';
-  /* 최근에 낸 숙제(같은 것은 한 번) — 한 번 눌러 다시 고른다 */
-  const seen = new Set(), recent = cls.hw.filter((h) => h.class_id === c.id).filter((h) => { const k = `${h.kind}:${h.ref}:${h.goal}`; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 6);
-  const kinds = [['', t('전체', 'All')], ['lesson', t('레슨', 'Lessons')], ['vocab', t('단어', 'Words')], ['grammar', t('문법', 'Grammar')], ['twrite', t('TOPIK 쓰기', 'TOPIK writing')], ['tread', t('TOPIK 읽기', 'TOPIK reading')],
-    ['tlisten', t('TOPIK 듣기', 'TOPIK listening')], ['tmock', t('모의고사', 'Mock exam')], ['convo', t('회화', 'Conversation')], ['story', t('동화책', 'Storybook')], ['translate', t('번역', 'Translation')], ['free', t('글 · 사진 제출', 'Submit')]];
-  const picked = pk ? `<div class="cls-picked"><span class="cls-pick-ic">${(CLS_KIND[pk.kind] || [''])[0]}</span><span class="cls-pick-t"><small>${esc(t('고른 숙제', 'Selected'))}</small><b>${esc(pk.kind === 'vocab' ? (pk.ref ? `${pk.title} — ${t(`세션 ${pk.goal}번`, `${pk.goal} sessions`)}` : t(`단어 세션 ${pk.goal}번`, `${pk.goal} word sessions`)) : pk.title)}</b></span>` +
-    (pk.kind === 'vocab' ? `<span class="cls-step"><button type="button" data-clsstep="${c.id}:-1" aria-label="−">−</button><b>${pk.goal}</b><button type="button" data-clsstep="${c.id}:1" aria-label="+">+</button></span>` : '') +
-    `<button type="button" class="cls-small" data-clsunpick="${c.id}">${esc(t('바꾸기', 'Change'))}</button></div>` : '';
-  const step = (n, l, okv) => `<div class="cls-st2${okv ? ' ok' : ''}"><b>${okv ? '✓' : n}</b>${esc(l)}</div>`;
-  const pres = [[0, t('오늘', 'Today')], [1, t('내일', 'Tomorrow')], [3, t('3일 뒤', '+3 days')], [7, t('1주 뒤', '+1 week')], [-1, t('기한 없음', 'No due')]];
-  return `<div class="cls-add2" data-clsadd="${c.id}"><h4>＋ ${esc(t('숙제 내기', 'Give homework'))}</h4>` +
-    (re ? `<p class="cls-re-note">↻ ${esc(t(`「${re.title}」를 다시 내요`, `Giving “${re.title}” again`))} <button type="button" class="cls-small" data-clsrex="${c.id}">${esc(t('그만', 'Cancel'))}</button></p>` : '') +
-    `<div class="cls-form" data-clsformcid="${c.id}">` +
-      step(1, t('누구에게', 'Who'), !!who) +
-      `<div class="cls-whos">${mem.map((m) => `<button type="button" class="${m.user_id === cls.pre[c.id] ? 'on' : ''}" data-clswho="${c.id}:${esc(m.user_id)}">${esc(m.name)}</button>`).join('')}</div>` +
-      step(2, t('어떤 숙제', 'What'), !!pk) +
-      (picked || `<div class="cls-pick"><div class="cls-search"><input type="search" data-clssearch="${c.id}" value="${esc(cls.q[c.id] || '')}" placeholder="${esc(t('숙제 찾기 — 예: 인사, -아서, 54번, 쓰기', 'Find homework — e.g. greetings, -아서, Q54'))}" autocomplete="off"></div>` +
-        `<div class="cls-kchips">${kinds.map(([k, l]) => `<button type="button" class="${k === fk ? 'on' : ''}" data-clsfk="${c.id}:${k}">${esc(l)}</button>`).join('')}</div>` +
-        (recent.length && !cls.q[c.id] && !fk ? `<div class="cls-recent"><small>${esc(t('최근에 낸 숙제', 'Recently given'))}</small>${recent.map((h) => `<button type="button" data-clsrecent="${h.id}">${(CLS_KIND[h.kind] || [''])[0]} ${esc(h.title.replace(/ · (\d+주차|week \d+)$/, ''))}</button>`).join('')}</div>` : '') +
-        `<div class="cls-pick-list" data-clspicklist="${c.id}">${clsPickResults(c.id)}</div></div>`) +
-      (pk?.kind === 'free' ? `<input type="text" class="cls-free-in" data-clsfree="${c.id}" maxlength="120" value="${esc(pk.free || '')}" placeholder="${esc(t('학생에게 보여 줄 숙제 내용 — 예: 주말에 한 일을 세 줄로 써 오기', 'What the student should do — e.g. write three lines about your weekend'))}">` : '') +
-      step(3, t('언제까지', 'Due'), true) +
-      `<div class="cls-due-pre">${pres.map(([d, l]) => `<button type="button" class="${(d < 0 ? !due : due === clsDueIn(d)) ? 'on' : ''}" data-clsduepre="${c.id}:${d}">${esc(l)}</button>`).join('')}` +
-        `<input type="date" data-clsdue="${c.id}" value="${esc(due || '')}" aria-label="${esc(t('날짜 고르기', 'Pick a date'))}"></div>` +
-      `<button type="button" class="pt-next cls-give2" data-clsgive="${c.id}"${who && pk && (pk.kind !== 'free' || pk.free) ? '' : ' disabled'}>${esc(who ? t(`${who.name}에게 숙제 내기`, `Give to ${who.name}`) : t('학생을 먼저 골라 주세요', 'Pick a student first'))}</button>` +
-    '</div></div>';
-}
-/* ── 진도 리포트(2026-10-06) — 반 학생 × 숙제 한 표, CSV(엑셀)로 받기. 기관 · 학교에 결과를 보여 줄 때 ── */
-function clsReportData(c) {
-  const hw = cls.hw.filter((h) => h.class_id === c.id).slice().reverse();   // 낸 차례대로
-  const mem = cls.members.filter((x) => x.class_id === c.id);
-  const cell = (h, u) => {
-    const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === u);
-    if (!d) return { ok: false, txt: '' };
-    const ok = d.n >= (h.kind === 'vocab' ? h.goal : 1);
-    const sc = d.score?.max ? `${d.score.total}/${d.score.max}` : d.score?.n ? `${d.score.ok}/${d.score.n}` : d.score?.wrong != null ? t(`틀림 ${d.score.wrong}`, `${d.score.wrong} wrong`) : '';
-    return { ok, txt: ok ? (sc || '✓') : `${d.n}/${h.goal}` };
-  };
-  const rows = mem.map((m) => { const cells = hw.map((h) => (cls.tgt[h.id] && !cls.tgt[h.id].has(m.user_id) ? { ok: false, txt: '–', na: true } : cell(h, m.user_id)));
-    const lv = clsLvInfo(cls.stu[`${c.id}:${m.user_id}`]);
-    return { name: m.name, joined: (m.joined_at || '').slice(0, 10), lv: lv ? lv.name : '', cells, done: cells.filter((x) => x.ok).length, all: cells.filter((x) => !x.na).length }; });
-  return { hw, rows };
-}
-function clsReportHtml(c) {
-  const { hw, rows } = clsReportData(c);
-  if (!rows.length || !hw.length) return `<p class="cls-empty">${esc(t('학생과 숙제가 있으면 여기에 표가 나와요.', 'The table appears once there are students and homework.'))}</p>`;
-  const tot = rows.reduce((a, r) => a + r.all, 0), avg = tot ? Math.round((rows.reduce((a, r) => a + r.done, 0) / tot) * 100) : 0;
-  return `<div class="cls-rep"><p class="cls-rep-sum">${esc(t(`학생 ${rows.length}명 · 숙제 ${hw.length}개 · 평균 완료 ${avg}%`, `${rows.length} students · ${hw.length} tasks · ${avg}% done on average`))}</p>` +
-    clsStuHtml(c) +
-    `<details class="cls-rep-tbl"><summary>${esc(t('표로 한눈에 보기', 'See as a table'))}</summary>` +
-    '<div class="cls-rep-scroll"><table class="cls-rep-t"><thead><tr><th>' + esc(t('학생', 'Student')) + '</th>' +
-    hw.map((h) => `<th title="${esc(h.title)}">${esc((CLS_KIND[h.kind] || [''])[0])} ${esc(h.title.slice(0, 14))}</th>`).join('') + `<th>${esc(t('완료', 'Done'))}</th></tr></thead><tbody>` +
-    rows.map((r) => `<tr><th>${esc(r.name)}</th>${r.cells.map((x) => `<td class="${x.ok ? 'ok' : x.na ? 'na' : x.txt ? 'part' : ''}">${esc(x.txt || '·')}</td>`).join('')}<td><b>${r.done}/${r.all}</b></td></tr>`).join('') +
-    '</tbody></table></div>' +
-    `</details><button type="button" class="pt-ghost" data-clscsv="${c.id}">⬇ ${esc(t('엑셀(CSV)로 받기', 'Download CSV'))}</button></div>`;
-}
-/* 학생별 진도 · 숙제 결과(운영자 2026-10-07 「선생님 탭에서 학생 진행상황 · 숙제 결과」) — 학생마다 카드 하나:
-   완료율 막대 · 기한 지난 숙제 · 평균 점수 · 마지막으로 한 날. 누르면 숙제마다 결과(점수 · 몇 번 · 안 함 · 기한 지남).
-   챙겨야 할 학생(기한 지난 숙제가 있거나 완료율이 낮은)이 위로 온다. */
-/* 숙제 결과 줄의 코멘트 — 기록이 있는 숙제에만(끝냈거나 하는 중). 단 것은 보이고, 「💬」로 쓰기 · 고치기 */
-function clsFbHtml(h, m, d) {
-  if (!d) return '';
-  const key = `${h.id}:${m.user_id}`, fb = cls.fb[key], open = cls.open['fb' + key];
-  return (fb && !open ? `<div class="cls-fb-txt">${esc(fb.msg)}</div>` : '') +
-    (open ? `<div class="cls-fb-ed"><textarea data-clsfbtxt="${key}" rows="2" maxlength="500" placeholder="${esc(t('예: 문단 연결이 좋아요! 「-기 때문에」를 한 번 더 써 봐요.', 'e.g. Great flow! Try using “-기 때문에” once more.'))}">${esc(fb?.msg || '')}</textarea>` +
-      `<button type="button" class="pt-next" data-clsfbsave="${key}">${esc(t('코멘트 저장', 'Save comment'))}</button></div>`
-      : `<button type="button" class="cls-fb-btn" data-clsfbopen="${key}">${esc(fb ? t('코멘트 고치기', 'Edit comment') : t('코멘트 달기', 'Comment'))}</button>`);
-}
-function clsStuHtml(c) {
-  const list = cls.members.filter((x) => x.class_id === c.id).map((m) => {
-    const hw = clsHwFor(c.id, m.user_id).slice().reverse();
-    const res = hw.map((h) => {
-      const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === m.user_id);
-      const ok = clsIsDone(h, d), du = clsDue(h), late = !ok && du?.cls === 'late';
-      const pct = d?.score?.max ? d.score.total / d.score.max : d?.score?.n ? d.score.ok / d.score.n : null;
-      return { h, d, ok, late, pct, sc: clsScoreTxt(d) };
-    });
-    const done = res.filter((r) => r.ok).length, late = res.filter((r) => r.late).length;
-    const ps = res.map((r) => r.pct).filter((x) => x != null), avg = ps.length ? Math.round((ps.reduce((a, b) => a + b, 0) / ps.length) * 100) : null;
-    const last = res.map((r) => r.d?.done_at).filter(Boolean).sort().pop() || '';
-    return { m, hw, res, done, late, avg, last, rate: hw.length ? done / hw.length : 0 };
-  }).sort((a, b) => b.late - a.late || a.rate - b.rate);
-  return '<ul class="cls-stu">' + list.map((x) => {
-    const k = `${c.id}:${x.m.user_id}`, st = cls.stu[k], lv = clsLvInfo(st), open = cls.open['s' + k];
-    const tone = x.late ? 'warn' : x.hw.length && x.rate >= 1 ? 'good' : '';
-    return `<li class="${tone}"><details${open ? ' open' : ''} data-clsstu="${k}"><summary>` +
-      `<span class="cls-stu-av">${esc((x.m.name || '?').slice(0, 1).toUpperCase())}</span>` +
-      `<span class="cls-stu-who"><b>${esc(x.m.name)}</b><small>${lv ? `<span class="cls-stu-lvic">${lv.icon}</span>${esc(lv.name)}` : esc(t('레벨 미정', 'Level not set'))}</small></span>` +
-      `<span class="cls-stu-bar"><i style="width:${Math.round(x.rate * 100)}%"></i></span><span class="cls-stu-n">${x.done}/${x.hw.length}</span>` +
-      `<span class="cls-stu-tags">${x.late ? `<em class="late">${esc(t(`기한 지남 ${x.late}`, `${x.late} late`))}</em>` : ''}${x.avg != null ? `<em>${esc(t(`평균 ${x.avg}%`, `avg ${x.avg}%`))}</em>` : ''}` +
-      `<em class="mute">${esc(x.last ? t(`마지막 ${clsDay(x.last)}`, `last ${clsDay(x.last)}`) : t('아직 안 함', 'not started'))}</em></span></summary>` +
-      `<div class="cls-stu-body">` +
-        `<div class="cls-stu-form">` +
-          `<label>${esc(t('레벨, 정하면 학생은 레벨테스트 없이 이 레벨로 시작해요', 'Level: the student starts here without a level test'))}<select data-clsstulv>${clsLvOptions(st)}</select></label>` +
-          `<label>${esc(t('학생에게 한마디, 학생 첫 화면 「내 반」에 떠요', 'Message to the student: shows on their home screen'))}<textarea data-clsstumsg rows="2" maxlength="300" placeholder="${esc(t('예: 이번 주는 받침 발음을 매일 10분!', 'e.g. 10 minutes of batchim pronunciation daily this week!'))}">${esc(st?.msg || '')}</textarea></label>` +
-          `<label>${esc(t('내 메모, 선생님만 봐요', 'Private note: only you see this'))}<textarea data-clsstunote rows="2" maxlength="2000" placeholder="${esc(t('예: 목표 TOPIK 3급 · 듣기 약함 · 화/목 수업', 'e.g. Goal TOPIK 3 · weak listening · Tue/Thu'))}">${esc(cls.note[k] || '')}</textarea></label>` +
-          `<div class="cls-stu-act"><button type="button" class="pt-next" data-clsstusave="${k}">${esc(t('저장', 'Save'))}</button>` +
-          `<button type="button" class="pt-ghost" data-clsstuhw="${k}">＋ ${esc(t('이 학생에게만 숙제', 'Homework just for them'))}</button>` +
-          `<button type="button" class="pt-ghost" data-clsstupdf="${k}">${esc(t('리포트 PDF', 'Report PDF'))}</button></div>` +
-        `</div>` +
-        (x.res.length ? '<ol class="cls-stu-hw">' + x.res.map((r) => `<li class="${r.ok ? 'ok' : r.late ? 'late' : ''}"><span>${(CLS_KIND[r.h.kind] || [''])[0]} ${esc(r.h.title)}${cls.tgt[r.h.id] ? ` <i></i>` : ''}</span>` +
-          `<b>${r.ok ? `✓ ${esc(r.sc || t('했음', 'done'))}` : r.d ? esc(`${r.d.n}/${r.h.goal}${r.sc ? ` · ${r.sc}` : ''}`) : r.late ? esc(t('기한 지남', 'late')) : esc(t('아직', 'not yet'))}</b>` +
-          `${r.d?.done_at ? `<small>${esc(clsDay(r.d.done_at))}</small>` : ''}` + clsFbHtml(r.h, x.m, r.d) + '</li>').join('') + '</ol>' : `<p class="cls-empty">${esc(t('이 학생이 받은 숙제가 아직 없어요.', 'No homework for this student yet.'))}</p>`) +
-        `<button type="button" class="cls-small cls-stu-out" data-clskick="${k}">${esc(t('반에서 빼기(수업을 그만둔 학생)', 'Remove from class'))}</button>` +
-      '</div></details></li>';
-  }).join('') + '</ul>';
-}
-function clsReportCsv(c) {
-  const { hw, rows } = clsReportData(c);
-  const q = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
-  const lines = [[t('학생', 'Student'), t('레벨', 'Level'), t('들어온 날', 'Joined'), ...hw.map((h) => h.title), t('완료', 'Done')].map(q).join(',')]
-    .concat(rows.map((r) => [r.name, r.lv, r.joined, ...r.cells.map((x) => x.txt), `${r.done}/${r.all}`].map(q).join(',')));
-  /* 엑셀이 한글을 깨뜨리지 않게 BOM 을 붙인다 */
-  const blob = new Blob(['\ufeff' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = `${c.name.replace(/[\\/:*?"<>|]/g, '_')}-${new Date().toISOString().slice(0, 10)}.csv`;
-  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-  track('반리포트받기');
-}
-/* ── 선생님 목록(운영자만) — 메일을 올리면 그 사람도 반을 만든다 ── */
-function clsTeacherHtml() {
-  if (clsTeachers === null) return `<div class="cls-card"><b>${esc(t('선생님 계정', 'Teachers'))}</b><p class="cls-empty">${esc(t('선생님 표가 아직 없어요. Supabase SQL Editor 에서 db/add_class_teachers.sql 을 돌려 주세요.', 'Run db/add_class_teachers.sql first.'))}</p></div>`;
-  return `<div class="cls-card"><b>${esc(t('선생님 계정', 'Teachers'))}</b>` +
-    `<p class="cls-empty">${esc(t('여기 올린 메일로 로그인한 사람은 자기 반을 만들고 숙제 · 진도를 볼 수 있어요. 반 학생은 Pro 무료라 믿는 분만 올려 주세요.', 'People signed in with these emails can create their own classes. Class students get Pro free: add only people you trust.'))}</p>` +
-    (clsTeachers.length ? `<ul class="cls-teach">${clsTeachers.map((x) => `<li><span>${esc(x.name || '')} <small>${esc(x.email)}</small></span><button type="button" class="cls-small" data-clsteachdel="${esc(x.email)}">${esc(t('빼기', 'Remove'))}</button></li>`).join('')}</ul>` : '') +
-    `<div class="cls-row"><input id="clsTeachEmail" class="sb-in" type="email" placeholder="${esc(t('선생님 메일', 'Teacher email'))}"><input id="clsTeachName" class="sb-in" maxlength="30" placeholder="${esc(t('이름 · 기관', 'Name · school'))}">` +
-    `<button type="button" class="pt-next" data-clsteachadd>${esc(t('올리기', 'Add'))}</button></div></div>`;
-}
-/* ── 학생 · 선생님 탭 + 선생님 신청(2026-10-14, db/add_teacher_requests.sql) ──
-   로그인 화면에서 고른 쪽(cp_role)이 처음 탭. 선생님이 아닌 사람이 「선생님」 탭을 열면 신청 카드가 나온다(운영자 승인 뒤 켜짐). */
-const CLS_ROLE_KEY = 'cp_role';
-function clsRole() {
-  let r = ''; try { r = localStorage.getItem(CLS_ROLE_KEY) || ''; } catch (e) {}
-  if (r === 'student' || r === 'teacher') return r;
-  return clsCanMake() && cls.rows.some((c) => c.owner === clsSession?.user?.id) ? 'teacher' : 'student';
-}
-const clsSetRole = (r) => { try { localStorage.setItem(CLS_ROLE_KEY, r); } catch (e) {} };
-/* 로그인 화면의 「학생이에요 · 선생님이에요」 */
+/* 로그인 화면의 「학생이에요 · 선생님이에요」 — 로그인 전에도 눌러야 해서 본문에 남겼다(반 화면 class-hw.js 는 G 로 부른다) */
+var CLS_ROLE_KEY = 'cp_role';
+function clsSetRole(r) { try { localStorage.setItem(CLS_ROLE_KEY, r); } catch (e) {} }
 function auRolePaint() {
   let r = 'student'; try { r = localStorage.getItem(CLS_ROLE_KEY) === 'teacher' ? 'teacher' : 'student'; } catch (e) {}
   document.querySelectorAll('[data-aurole]').forEach((b) => b.classList.toggle('on', b.dataset.aurole === r));
@@ -22090,463 +21391,75 @@ function auRolePaint() {
 }
 document.querySelectorAll('[data-aurole]').forEach((b) => b.addEventListener('click', () => { clsSetRole(b.dataset.aurole); auRolePaint(); }));
 auRolePaint();
-function clsApplyHtml() {
-  const q = cls.treq;
-  const head = `<h3>${esc(t('선생님 계정', 'Teacher account'))}</h3><p class="cls-ap-lead">${esc(t('선생님 계정은 운영자가 확인한 뒤에 열려요. 학생 이름과 제출물을 보는 기능이라서요.', 'Teacher accounts open after a quick review: teachers can see student names and submissions.'))}</p>`;
-  if (cls.needReq) return `<section class="cls-card cls-apply">${head}<p>${esc(t('신청 기능을 준비하고 있어요. 운영자에게 이메일로 문의해 주세요.', 'Applications are being set up: please email the operator.'))}</p></section>`;
-  if (q?.status === 'pending') return `<section class="cls-card cls-apply">${head}<div class="cls-ap-st">${esc(t('신청했어요. 운영자가 확인하면 이 화면이 선생님 화면으로 바뀌어요.', 'Application sent. This screen turns into the teacher screen once approved.'))}</div></section>`;
-  return `<section class="cls-card cls-apply">${head}` +
-    (q?.status === 'rejected' ? `<p class="cls-msg">${esc(t('이번에는 열리지 않았어요. 아래에 설명을 더 적어서 다시 신청할 수 있어요.', 'Not approved this time: add more detail and apply again.'))}</p>` : '') +
-    `<input id="clsApName" class="sb-in" maxlength="40" placeholder="${esc(t('이름', 'Your name'))}" value="${esc(q?.name || clsDefaultName())}">` +
-    `<input id="clsApNote" class="sb-in" maxlength="300" placeholder="${esc(t('어디서 가르치세요? 예: Preply · 학교 · 학원', 'Where do you teach? e.g. Preply, a school'))}" value="${esc(q?.note || '')}">` +
-    `<button type="button" class="pt-next" data-clsapply>${esc(t('선생님 계정 신청', 'Apply for a teacher account'))}</button></section>`;
-}
-function clsReqHtml() {
-  const list = cls.reqs || [];
-  if (!list.length) return '';
-  return `<div class="cls-reqs"><b>${esc(t(`선생님 신청 ${list.length}건`, `${list.length} teacher request(s)`))}</b>` +
-    list.map((x) => `<div class="cls-req"><div><b>${esc(x.name)}</b> <small>${esc(x.email)}</small><p>${esc(x.note || '')}</p></div>` +
-      `<button type="button" class="pt-next" data-clsreq="${esc(x.user_id)}:1">${esc(t('승인', 'Approve'))}</button><button type="button" class="pt-ghost" data-clsreq="${esc(x.user_id)}:0">${esc(t('거절', 'Decline'))}</button></div>`).join('') + '</div>';
-}
-/* 선생님 첫 화면 위의 두 칸(2026-10-14 「선생님 · 학생 모두 어떻게 하는지 바로 알 수 있게」):
-   ① 확인할 제출 — 구글 클래스룸의 「검토할 것」. 아직 「확인했어요」를 안 누른 제출을 최근 순으로, 눌러서 바로 발표 화면으로.
-   ② 시작 안내 — 반 만들기 → 학생 초대 → 숙제 내기 → 제출 확인, 네 걸음. 다 하면 사라진다. */
-function clsTeacherTop() {
-  const uid = clsSession.user.id, mine = cls.rows.filter((c) => c.owner === uid);
-  if (!mine.length) return '';
-  const ids = new Set(mine.map((c) => c.id)), hws = cls.hw.filter((h) => ids.has(h.class_id));
-  const subs = Object.values(cls.sub || {}).filter((x) => hws.some((h) => h.id === x.hw_id));
-  const pend = subs.filter((x) => !x.reviewed_at).sort((a, b) => String(b.at).localeCompare(String(a.at)));
-  const nameOf = (x) => cls.members.find((m) => m.user_id === x.user_id && hws.find((h) => h.id === x.hw_id)?.class_id === m.class_id)?.name || '';
-  let inbox = '';
-  if (!cls.needSub && subs.length) {
-    inbox = pend.length
-      ? `<section class="cls-card cls-inbox"><div class="cls-inbox-h"><h3>${esc(t(`확인할 제출 ${pend.length}개`, `${pend.length} to check`))}</h3><button type="button" class="pt-next" data-clsview="${pend[0].hw_id}:${pend[0].user_id}">${esc(t('바로 확인하기', 'Start checking'))} →</button></div>` +
-        `<ul>${pend.slice(0, 5).map((x) => `<li><button type="button" data-clsview="${x.hw_id}:${x.user_id}"><b>${esc(nameOf(x))}</b><span>${esc(hws.find((h) => h.id === x.hw_id)?.title || '')}</span><em>${esc(new Date(x.at).toLocaleDateString(isEn() ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric' }))}</em></button></li>`).join('')}</ul></section>`
-      : `<section class="cls-card cls-inbox ok"><p>✓ ${esc(t('받은 제출을 모두 확인했어요.', 'You have checked every submission.'))}</p></section>`;
-  }
-  const steps = [
-    [true, t('반 만들기', 'Create a class'), ''],
-    [cls.members.some((m) => ids.has(m.class_id)), t('학생 초대 · 링크 · QR · 코드', 'Invite students: link, QR or code'), `<button type="button" class="cls-small" data-clscopy="${esc(mine[0].code)}">${esc(t('초대 링크 복사', 'Copy invite link'))}</button>`],
-    [hws.length > 0, t('숙제 내기, 「글 · 사진 제출」도 돼요', 'Give homework: “written / photo” works too'), ''],
-    [subs.length > 0, t('제출이 오면 여기서 확인하고 수업에서 보여 주기', 'Check submissions here and show them in class'), ''],
-  ];
-  const left = steps.findIndex((x) => !x[0]);
-  const guide = left < 0 ? '' : `<section class="cls-card cls-guide"><h3>${esc(t('이렇게 시작해요', 'Getting started'))}</h3><ol>${steps.map((x, i) => `<li class="${x[0] ? 'ok' : i === left ? 'now' : ''}"><b>${x[0] ? '✓' : i + 1}</b><span>${esc(x[1])}</span>${i === left ? x[2] : ''}</li>`).join('')}</ol></section>`;
-  return inbox + guide;
-}
-function clsPaint() {
-  const box = $('clsWrap'); if (!box) return;
-  const teach = !!clsSession && clsCanMake();
-  const asT = !!clsSession && clsRole() === 'teacher';   // 지금 보는 탭
-  /* 선생님 화면은 관리 대시보드처럼(운영자 2026-10-07 「더 깔끔하게 · 전문적으로」): 요약 숫자 → 반 카드(탭: 숙제 · 학생 진도 · 학생 초대)
-     → 맨 아래 관리(선생님 계정)는 접어 둔다. 학생 화면은 반마다 「숙제 N개 중 M개」 막대 + 숙제 목록. */
-  const head = `<div class="cls-head"><div><h2 class="qa-h">${esc(t('반 · 숙제', 'Class & homework'))}</h2>` +
-    `<p class="qa-lead">${esc(teach ? t('숙제를 내고, 학생 진도를 한눈에 봐요. 숙제 · 복습용이에요.', 'Give homework and see every student’s progress at a glance. For homework and review.') : t('선생님이 낸 숙제를 하면 저절로 「했어요」가 돼요.', 'Do the homework your teacher gives: it’s checked off automatically.'))}</p></div>` +
-    (teach ? `<button type="button" class="pt-next cls-newbtn" data-clsnew>＋ ${esc(t('새 반', 'New class'))}</button>` : '') + '</div>';
-  if (!clsSession) {
-    /* QR · 반 링크로 막 들어온 사람의 첫 화면(운영자 2026-10-07 「촌스럽다 — 깔끔하게」): 가운데 초대 카드 하나 — 얼굴 · 한 줄 제목 ·
-       반 코드 · 구글로 한 번에 · 세 걸음 · 작은 개인정보 안내. 위의 「반 · 숙제」 제목 줄은 CSS(:has(.cls-inv))가 숨긴다. */
-    if (cls.code) {
-      box.innerHTML = `<div class="cls-inv"><img class="cls-inv-logo" src="logo-256.png" alt="" width="88" height="88">` +
-        `<span class="cls-inv-kick">${esc(t('숙제 · 복습 반 초대', 'Homework & review class'))}</span>` +
-        `<h2>${esc(t('선생님이 반에 초대했어요', 'Your teacher invited you'))}</h2>` +
-        `<p class="cls-inv-lead">${esc(t('로그인만 하면 바로 들어가요. 이름이나 코드를 넣을 필요 없어요.', 'Just sign in and you’re in: no name or code to type.'))}</p>` +
-        `<div class="cls-inv-code">${esc(t('반 코드', 'Class code'))} <b>${esc(cls.code)}</b></div>` +
-        `<button type="button" class="cls-inv-google" data-clsgoogle><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>${esc(t('Google로 계속하기', 'Continue with Google'))}</button>` +
-        `<button type="button" class="cls-inv-mail" data-clslogin>${esc(t('이메일로 로그인', 'Sign in with email'))}</button>` +
-        `<ol class="cls-inv-steps"><li><b>1</b>${esc(t('로그인', 'Sign in'))}</li><li><b>2</b>${esc(t('반에 저절로', 'Joined automatically'))}</li><li><b>3</b>${esc(t('첫 화면에 숙제', 'Homework on your home'))}</li></ol>` +
-        clsPrivacy() + '</div>';
-      return;
-    }
-    box.innerHTML = head + `<div class="cls-card cls-invite"><p>${esc(t('반에 들어가려면 로그인해 주세요.', 'Sign in to join a class.'))}</p>` +
-      `<div class="cls-two"><button type="button" class="pt-next" data-clslogin="student">${esc(t('학생으로 로그인', 'Sign in as a student'))}</button><button type="button" class="pt-ghost" data-clslogin="teacher">${esc(t('선생님으로 로그인', 'Sign in as a teacher'))}</button></div></div>`;
-    return;
-  }
-  if (cls.err) { box.innerHTML = head + `<div class="cls-card"><p>${esc(cls.err)}</p></div>`; return; }
-  const roleBar = `<div class="cls-role" role="tablist"><button type="button" role="tab" aria-selected="${!asT}" class="${asT ? '' : 'on'}" data-clsrole="student">${esc(t('학생', 'Student'))}</button><button type="button" role="tab" aria-selected="${asT}" class="${asT ? 'on' : ''}" data-clsrole="teacher">${esc(t('선생님', 'Teacher'))}</button></div>`;
-  const hi = cls.hi ? `<div class="cls-card cls-hi">${esc(cls.hi)}${clsPrivacy()}</div>` : '';
-  let name = ''; try { name = localStorage.getItem(QA_NAME_KEY) || ''; } catch (e) {}
-  const joined = cls.code && cls.rows.some((c) => c.code === cls.code);
-  const join = `<div class="cls-card cls-join"><b>${esc(cls.code && !joined ? t(`반 코드 ${cls.code} 에 들어가기`, `Join class ${cls.code}`) : t('코드로 반 들어가기', 'Join with a code'))}</b>` +
-    `<div class="cls-row">${cls.code && !joined ? '' : `<input id="clsCode" class="sb-in" maxlength="6" placeholder="${esc(t('반 코드 6자리', '6-letter code'))}" autocapitalize="characters">`}` +
-    `<input id="clsName" class="sb-in" maxlength="20" placeholder="${esc(t('반에서 보일 이름', 'Your name in class'))}" value="${esc(name)}">` +
-    `<button type="button" class="pt-next" data-clsjoin>${esc(t('들어가기', 'Join'))}</button></div>${cls.msg ? `<p class="cls-msg">${esc(cls.msg)}</p>` : ''}${clsPrivacy()}</div>`;
-  const done = (h, u) => { const d = cls.done.find((x) => x.hw_id === h.id && x.user_id === u); return !!d && d.n >= (h.kind === 'vocab' ? h.goal : 1); };
-  /* 요약 숫자(선생님) — 반 · 학생 · 숙제 · 평균 완료 */
-  let stats = '';
-  if (teach && asT) {
-    const mine = cls.rows.filter((c) => c.owner === clsSession.user.id);
-    let cells = 0, ok = 0;
-    for (const c of mine) { const hw = cls.hw.filter((h) => h.class_id === c.id), mem = cls.members.filter((x) => x.class_id === c.id);
-      for (const m of mem) for (const h of clsHwFor(c.id, m.user_id)) { cells++; if (done(h, m.user_id)) ok++; } }
-    const st = [[mine.length, t('반', 'Classes')], [cls.members.filter((x) => mine.some((c) => c.id === x.class_id)).length, t('학생', 'Students')],
-      [cls.hw.filter((h) => mine.some((c) => c.id === h.class_id)).length, t('낸 숙제', 'Homework')], [cells ? `${Math.round((ok / cells) * 100)}%` : '–', t('평균 완료', 'Avg. done')]];
-    stats = `<div class="cls-stats">${st.map(([v, k]) => `<div><b>${esc(String(v))}</b><span>${esc(k)}</span></div>`).join('')}</div>`;
-  }
-  const newc = teach && asT && (cls.open.newc || !cls.rows.some((c) => c.owner === clsSession.user.id)) ? `<div class="cls-card cls-newc"><b>${esc(t('새 반 만들기', 'New class'))}</b><div class="cls-row"><input id="clsNew" class="sb-in" maxlength="40" placeholder="${esc(t('예: Preply 1:1 · TOPIK 쓰기 8주 반', 'e.g. Preply 1:1 · TOPIK writing, 8 weeks'))}">` +
-    `<button type="button" class="pt-next" data-clsmake>${esc(t('만들기', 'Create'))}</button></div></div>` : '';
-  const cards = cls.rows.filter((c) => asT ? c.owner === clsSession.user.id : c.owner !== clsSession.user.id).map((c) => {
-    const mine = c.owner === clsSession.user.id;
-    const hw = cls.hw.filter((h) => h.class_id === c.id);
-    const mem = cls.members.filter((x) => x.class_id === c.id);
-    if (!mine) return `<div class="ck-wrap">${clsStudentPanel(c, { uid: clsSession.user.id, hw: cls.hw, done: cls.done, tgt: cls.tgt, stu: cls.stu, fb: cls.fb }, false)}` +
-      `<div class="ck-leave"><button type="button" class="cls-small" data-clsleave="${c.id}">${esc(t('반 나가기', 'Leave class'))}</button></div></div>`;
-    const tab = cls.tab?.[c.id] || (mem.length ? 'hw' : 'inv');   // 학생이 아직 없으면 초대 탭부터
-    const tabs = [['hw', t('숙제', 'Homework'), hw.length], ['stu', t('학생 관리', 'Students'), mem.length], ['inv', t('학생 초대', 'Invite'), '']];
-    const empty = (ic, msg, btn) => `<div class="cls-blank"><span>${ic}</span><p>${esc(msg)}</p>${btn || ''}</div>`;
-    let body = '';
-    // 숙제 내기를 위에(늘 펼침), 낸 숙제 목록은 그 아래
-    if (tab === 'hw') body = clsAddForm(c) + (hw.length ? `<ul class="cls-hws">${hw.map((h) => clsHwRow(c, h)).join('')}</ul>` : empty('', t('아직 낸 숙제가 없어요. 위에서 학생 · 숙제를 골라 내 보세요.', 'No homework yet: pick a student and homework above.')));
-    if (tab === 'stu') body = mem.length ? clsReportHtml(c) : empty('', t('아직 들어온 학생이 없어요. 「학생 초대」의 QR을 보내 주세요.', 'No students yet: send them the QR from “Invite”.'), `<button type="button" class="pt-ghost" data-clstab="${c.id}:inv">${esc(t('학생 초대 열기', 'Open invite'))}</button>`);
-    if (tab === 'inv') body = clsQrHtml(c);
-    return `<section class="cls-card cls-class"><div class="cls-c-top"><div class="cls-c-name"><h3>${esc(c.name)}</h3>` +
-      `<span class="cls-meta">${esc(t('코드', 'Code'))} <b>${esc(c.code)}</b> · ${esc(t(`학생 ${mem.length}명 · 숙제 ${hw.length}개`, `${mem.length} students · ${hw.length} homework`))}</span></div>` +
-      `<button type="button" class="pt-ghost cls-mini" data-clscopy="${esc(c.code)}">${esc(t('링크 복사', 'Copy link'))}</button></div>` +
-      `<div class="cls-tabs" role="tablist">${tabs.map(([k, l, n]) => `<button type="button" role="tab" aria-selected="${k === tab}" class="${k === tab ? 'on' : ''}" data-clstab="${c.id}:${k}">${esc(l)}${n !== '' ? ` <em>${n}</em>` : ''}</button>`).join('')}</div>` +
-      `<div class="cls-tabbody">${body}</div>` +
-      `<div class="cls-foot"><button type="button" class="cls-small" data-clsren="${c.id}">${esc(t('반 이름 바꾸기', 'Rename class'))}</button><button type="button" class="cls-small" data-clsarch="${c.id}">${esc(t('반 닫기', 'Close class'))}</button></div></section>`;
-  }).join('');
-  const admin = asT && clsIsAdmin() ? clsReqHtml() + `<details class="cls-admin"${cls.open.admin ? ' open' : ''} data-clsadmin><summary>${esc(t(`선생님 계정 관리 · ${(clsTeachers || []).length}명`, `Manage teachers · ${(clsTeachers || []).length}`))}</summary>${clsTeacherHtml()}</details>` : '';
-  const need = (teach && cls.need ? `<div class="cls-card cls-need">${esc(t('학생 관리(레벨 · 한마디 · 메모 · 학생별 숙제)를 쓰려면 Supabase SQL Editor 에서 db/add_class_students.sql 을 한 번 돌려 주세요.', 'Run db/add_class_students.sql once to enable student management.'))}</div>` : '') +
-    (teach && cls.needFb ? `<div class="cls-card cls-need">${esc(t('숙제 코멘트를 쓰려면 Supabase SQL Editor 에서 db/add_class_feedback.sql 을 한 번 돌려 주세요.', 'Run db/add_class_feedback.sql once to enable homework comments.'))}</div>` : '');
-  const stuEmpty = `<p class="cls-empty">${esc(t('아직 들어간 반이 없어요. 선생님께 받은 링크를 누르거나 코드를 넣어 주세요.', 'You haven’t joined a class yet. Open the link from your teacher or enter the code.'))}</p>`;
-  const stuJoin = (!cls.code || joined) ? (cls.rows.some((c) => c.owner !== clsSession.user.id) ? `<details class="cls-more-join"><summary>${esc(t('다른 반 코드가 있어요', 'I have another class code'))}</summary>${join}</details>` : join) : '';
-  const body = asT
-    ? (teach ? need + stats + clsTeacherTop() + clsCareHtml() + newc + cards + admin : clsApplyHtml())
-    : ((cls.code && !joined) ? join : '') + (cards || stuEmpty) + stuJoin;
-  box.innerHTML = head + hi + roleBar + body;
-  clsQrFill();
-}
-$('clsWrap')?.addEventListener('input', (ev) => {
-  const fr = ev.target.closest?.('[data-clsfree]');
-  if (fr) { const cid = fr.dataset.clsfree; if (cls.pick[cid]) cls.pick[cid].free = fr.value.trim(); const g = fr.closest('.cls-form')?.querySelector('.cls-give2'); if (g) g.disabled = !(cls.pre[cid] && cls.pick[cid]?.free); return; }
-  const sIn = ev.target.closest?.('[data-clssearch]'); if (!sIn) return;
-  const cid = sIn.dataset.clssearch; cls.q[cid] = sIn.value;
-  const box = document.querySelector(`[data-clspicklist="${cid}"]`); if (box) box.innerHTML = clsPickResults(cid);
-  sIn.closest('.cls-pick')?.querySelector('.cls-recent')?.toggleAttribute('hidden', !!sIn.value);
-});
-$('clsWrap')?.addEventListener('keydown', (ev) => {
-  /* 검색 칸에서 Enter — 맨 위 결과를 고른다 */
-  if (ev.key !== 'Enter' || !ev.target.matches?.('[data-clssearch]')) return;
-  ev.preventDefault(); ev.target.closest('.cls-pick')?.querySelector('[data-clspick]')?.click();
-});
-$('clsWrap')?.addEventListener('change', (ev) => {
-  const di = ev.target.closest?.('[data-clsdue]');
-  if (di) { cls.due[di.dataset.clsdue] = di.value || ''; clsPaint(); return; }
-  const k = ev.target.closest('[data-clskind]');
-  if (!k) return;
-  const f = k.closest('.cls-form');
-  for (const x of ['lesson', 'grammar', 'vocab', 'twrite', 'tread']) f.querySelector(`.cls-f-${x}`).hidden = k.value !== x;
-});
-$('clsWrap')?.addEventListener('toggle', (ev) => { const d = ev.target.closest?.('[data-clsadd]'); if (d) cls.open[d.dataset.clsadd] = d.open; if (ev.target.matches?.('[data-clsadmin]')) cls.open.admin = ev.target.open; if (ev.target.matches?.('[data-clsstu]')) cls.open['s' + ev.target.dataset.clsstu] = ev.target.open; }, true);
-$('clsWrap')?.addEventListener('click', async (ev) => {
-  const el = (s) => ev.target.closest(s);
-  const lg = el('[data-clslogin]'); if (lg) { if (lg.dataset.clslogin) clsSetRole(lg.dataset.clslogin); auRolePaint(); open('account'); return; }
-  const rl = el('[data-clsrole]'); if (rl) { clsSetRole(rl.dataset.clsrole); clsPaint(); return; }
-  if (el('[data-clsapply]')) {
-    const nm = ($('clsApName')?.value || '').trim(), nt = ($('clsApNote')?.value || '').trim();
-    if (!nm) { $('clsApName')?.focus(); return; }
-    const r = await sb.rpc('cls_teacher_apply', { p_name: nm, p_note: nt });
-    if (r.error) { cls.err = t('신청하지 못했어요. 조금 뒤에 다시 해 주세요.', 'Could not send: try again shortly.'); clsPaint(); return; }
-    track('선생님신청'); await clsLoad(); return;
-  }
-  const rq = el('[data-clsreq]'); if (rq) { const [uid, ok] = rq.dataset.clsreq.split(':'); const r = await sb.rpc('cls_teacher_decide', { p_user: uid, p_ok: ok === '1' }); if (!r.error) { track(ok === '1' ? '선생님승인' : '선생님거절'); await clsLoad(); } return; }
-  const sbm = el('[data-clssub]'); if (sbm) { clsSubOpen(Number(sbm.dataset.clssub)); return; }
-  const vw = el('[data-clsview]'); if (vw) { const [hid, uid] = vw.dataset.clsview.split(':'); clsPresOpen(Number(hid), uid || ''); return; }
-  if (el('[data-clsgoogle]')) { track('반초대구글'); $('wbGoogle')?.click(); return; }
-  if (el('[data-clsjoin]')) {
-    const code = (cls.code && !cls.rows.some((c) => c.code === cls.code) ? cls.code : ($('clsCode')?.value || '')).trim().toUpperCase();
-    const name = ($('clsName')?.value || '').trim().slice(0, 20) || t('학생', 'Student');
-    if (code.length !== 6) { cls.msg = t('반 코드 6자리를 넣어 주세요.', 'Enter the 6-letter code.'); clsPaint(); return; }
-    try { localStorage.setItem(QA_NAME_KEY, name); } catch (e) {}
-    if (!(await clsJoin(code, name))) clsPaint();
-    return;
-  }
-  if (clsCkGo(ev)) return;
-  const dp = el('[data-clsduepre]');
-  if (dp) { const [cid, n] = dp.dataset.clsduepre.split(':'); cls.due[cid] = Number(n) < 0 ? '' : clsDueIn(Number(n)); clsPaint(); return; }
-  const wb = el('[data-clswho]');
-  if (wb) { const [cid, uid] = wb.dataset.clswho.split(':'); cls.pre[cid] = uid; clsPaint(); return; }
-  const ss = el('[data-clsstusave]');
-  if (ss) {
-    const [cid, uid] = ss.dataset.clsstusave.split(':'), box2 = ss.closest('.cls-stu-form');
-    const lvv = box2.querySelector('[data-clsstulv]').value, msg = box2.querySelector('[data-clsstumsg]').value.trim().slice(0, 300), note = box2.querySelector('[data-clsstunote]').value.trim().slice(0, 2000);
-    const [kind, num] = lvv.split(':'), g = Number(num);
-    const row = { class_id: Number(cid), user_id: uid, msg: msg || null, updated_at: new Date().toISOString(),
-      lv: !lvv ? null : kind === 'c' ? LT_GRADE_TO_LEVEL[g] : g, goal: kind === 'c' ? 'topik' : null, grade: kind === 'c' ? g : null };
-    ss.disabled = true;
-    const [r1, r2] = await Promise.all([sb.from('class_student').upsert(row),
-      note ? sb.from('class_student_note').upsert({ class_id: Number(cid), user_id: uid, note, updated_at: row.updated_at }) : sb.from('class_student_note').delete().eq('class_id', Number(cid)).eq('user_id', uid)]);
-    if (r1.error || r2.error) { cls.err = t('학생 관리 표가 아직 없어요. Supabase SQL Editor 에서 db/add_class_students.sql 을 돌려 주세요.', 'Run db/add_class_students.sql first.'); clsPaint(); return; }
-    track(lvv ? '반레벨지정' : '반학생저장'); cls.open['s' + ss.dataset.clsstusave] = true; await clsLoad();
-    const b2 = document.querySelector(`[data-clsstusave="${ss.dataset.clsstusave}"]`); if (b2) { b2.textContent = t('저장했어요 ✓', 'Saved ✓'); setTimeout(() => { b2.textContent = t('저장', 'Save'); }, 1600); }
-    return;
-  }
-  const sh = el('[data-clsstuhw]');
-  if (sh) { const [cid, uid] = sh.dataset.clsstuhw.split(':'); cls.pre[cid] = uid; cls.open[cid] = true; cls.tab[cid] = 'hw'; clsPaint();
-    document.querySelector(`[data-clsadd="${cid}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
-  const tb = el('[data-clstab]');
-  if (tb) { const [cid, k] = tb.dataset.clstab.split(':'); cls.tab[cid] = k; if (k === 'inv') track('반QR열기'); if (k === 'stu') track('반리포트열기'); clsPaint(); return; }
-  if (el('[data-clsnew]')) { cls.open.newc = !cls.open.newc; clsPaint(); if (cls.open.newc) $('clsNew')?.focus(); return; }
-  const qb = el('[data-clsqr]');
-  if (qb) { const k = 'qr' + qb.dataset.clsqr; cls.open[k] = !cls.open[k]; if (cls.open[k]) track('반QR열기'); clsPaint(); return; }
-  const qs = el('[data-clsqrsave]');
-  if (qs) { if (!qs.dataset.url) return; const a = document.createElement('a'); a.href = qs.dataset.url; a.download = `cheesepotato-class-${qs.dataset.name}.png`; a.click(); return; }
-  const rp = el('[data-clsrep]');
-  if (rp) { const k = 'rep' + rp.dataset.clsrep; cls.open[k] = !cls.open[k]; if (cls.open[k]) track('반리포트열기'); clsPaint();
-    return; }
-  const kk = el('[data-clskick]');
-  if (kk) {
-    const [cid, uid] = kk.dataset.clskick.split(':');   // 「반:학생」
-    if (!confirm(t('이 학생을 반에서 뺄까요? 숙제 기록은 남고, QR 로 다시 들어올 수 있어요.', 'Remove this student? Their homework records stay and they can rejoin with the QR.'))) return;
-    await sb.from('class_members').delete().eq('class_id', Number(cid)).eq('user_id', uid); track('반학생뺌'); await clsLoad(); return;
-  }
-  const cv = el('[data-clscsv]');
-  if (cv) { const c = cls.rows.find((x) => x.id === Number(cv.dataset.clscsv)); if (c) clsReportCsv(c); return; }
-  if (el('[data-clsteachadd]')) {
-    const email = ($('clsTeachEmail')?.value || '').trim().toLowerCase(), name = ($('clsTeachName')?.value || '').trim();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return;
-    const { error } = await sb.from('class_teachers').insert({ email, name: name || null });
-    if (error) cls.err = t('선생님을 올리지 못했어요.', 'Could not add the teacher.');
-    await clsLoad(); return;
-  }
-  const td = el('[data-clsteachdel]');
-  if (td) { if (!window.confirm(t('이 선생님을 뺄까요? 이미 만든 반은 그대로 남아요.', 'Remove this teacher? Their classes stay.'))) return; await sb.from('class_teachers').delete().eq('email', td.dataset.clsteachdel); await clsLoad(); return; }
-  if (el('[data-clsmake]')) {
-    const name = ($('clsNew')?.value || '').trim();
-    if (!name) return;
-    const { error } = await sb.from('classes').insert({ name });
-    if (error) { cls.err = t('반을 만들지 못했어요.', 'Could not create the class.'); }
-    else cls.open.newc = false;
-    await clsLoad(); return;
-  }
-  const cp = el('[data-clscopy]');
-  if (cp) { try { await navigator.clipboard.writeText(clsLink(cp.dataset.clscopy)); cp.textContent = t('복사했어요 ✓', 'Copied ✓'); } catch (e) { cp.textContent = clsLink(cp.dataset.clscopy); } return; }
-  const qa = el('[data-clsqadd]');
-  if (qa) { const cid = Number(qa.dataset.clsqadd), it = clsFormItem(qa.closest('.cls-form')); if (!it) return;
-    (cls.queue[cid] ??= []).push(it); cls.pick[cid] = null; cls.q[cid] = ''; cls.open[cid] = true; clsPaint(); document.querySelector(`[data-clssearch="${cid}"]`)?.focus(); return; }
-  /* 숙제 고르기 — 검색 결과 · 종류 칩 · 최근 숙제 · 횟수 · 바꾸기 */
-  const pi = el('[data-clspick]');
-  if (pi) { const [cid, i] = pi.dataset.clspick.split(':').map(Number), x = clsCatalog()[i]; if (!x) return;
-    cls.pick[cid] = { kind: x.kind, ref: x.ref, goal: x.kind === 'vocab' ? 3 : 1, title: x.title, free: '' }; clsPaint(); if (x.kind === 'free') document.querySelector(`[data-clsfree="${cid}"]`)?.focus(); return; }
-  const fkb = el('[data-clsfk]');
-  if (fkb) { const [cid, k] = fkb.dataset.clsfk.split(':'); cls.fk[cid] = k; clsPaint(); document.querySelector(`[data-clssearch="${cid}"]`)?.focus(); return; }
-  const rc = el('[data-clsrecent]');
-  if (rc) { const h = cls.hw.find((x) => x.id === Number(rc.dataset.clsrecent)); if (!h) return;
-    cls.pick[h.class_id] = { kind: h.kind, ref: h.ref, goal: h.goal || 1, title: h.title.replace(/ · (\d+주차|week \d+)$/, '').replace(/ — (세션 \d+번|\d+ sessions)$/, '') }; clsPaint(); return; }
-  const sp = el('[data-clsstep]');
-  if (sp) { const [cid, d] = sp.dataset.clsstep.split(':').map(Number), pk = cls.pick[cid]; if (!pk) return; pk.goal = Math.max(1, Math.min(20, pk.goal + d)); clsPaint(); return; }
-  const up = el('[data-clsunpick]');
-  if (up) { const cid = up.dataset.clsunpick; cls.pick[cid] = null; clsPaint(); document.querySelector(`[data-clssearch="${cid}"]`)?.focus(); return; }
-  const qd = el('[data-clsqdel]');
-  if (qd) { const [cid, i] = qd.dataset.clsqdel.split(':').map(Number); cls.queue[cid]?.splice(i, 1); clsPaint(); return; }
-  const rx = el('[data-clsrex]');
-  if (rx) { cls.re[rx.dataset.clsrex] = null; clsPaint(); return; }
-  const rg = el('[data-clsre]');
-  if (rg) { const h = cls.hw.find((x) => x.id === Number(rg.dataset.clsre)); if (!h) return;
-    cls.re[h.class_id] = h; cls.open[h.class_id] = true; cls.tab[h.class_id] = 'hw';
-    cls.pick[h.class_id] = { kind: h.kind, ref: h.ref, goal: h.goal || 1, title: h.title.replace(/ · (\d+주차|week \d+)$/, '').replace(/ — (세션 \d+번|\d+ sessions)$/, '') }; clsPaint();
-    document.querySelector(`[data-clsformcid="${h.class_id}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return; }
-  const give = el('[data-clsgive]');
-  if (give) {
-    /* 묶음(목록에 담은 것) + 지금 폼 하나를 같은 학생 · 같은 기한으로. 매주 반복이면 N주 치를 기한 1주씩 늘려 한 번에 */
-    const f = give.closest('.cls-form'), cid = Number(give.dataset.clsgive);
-    const due = cls.due[cid] || null, weeks = 1;
-    const to = cls.pre[cid] ? [cls.pre[cid]] : [];
-    if (!to.length) return;
-    const items = [...(cls.queue[cid] || []), clsFormItem(f)].filter(Boolean);
-    if (!items.length) return;
-    const base = due ? new Date(`${due}T00:00:00`) : (weeks > 1 ? (() => { const d = new Date(); d.setDate(d.getDate() + 7); return d; })() : null);
-    const rows = [];
-    for (let w = 0; w < weeks; w++) for (const it of items) {
-      const d = base ? new Date(base) : null; if (d) d.setDate(d.getDate() + 7 * w);
-      rows.push({ class_id: cid, kind: it.kind, ref: it.ref, goal: it.goal, title: (weeks > 1 ? `${it.title} · ${t(`${w + 1}주차`, `week ${w + 1}`)}` : it.title).slice(0, 120), due: d ? clsYmd(d) : null });
-    }
-    give.disabled = true;
-    const { data: made, error } = await sb.from('class_homework').insert(rows).select('id');
-    if (error) { cls.err = error.code === '23514' && rows.some((r) => r.kind === 'free') ? t('「글 · 사진 제출」 숙제를 쓰려면 Supabase SQL Editor 에서 db/add_class_submit.sql 을 한 번 돌려 주세요.', 'To use written / photo homework, run db/add_class_submit.sql once in the Supabase SQL Editor.') : error.code === '23514' ? t('새 숙제 종류(듣기 · 모의고사 · 회화 · 동화책 · 번역)를 쓰려면 Supabase SQL Editor 에서 db/add_classes_more_kinds.sql 을 한 번 돌려 주세요.', 'Run db/add_classes_more_kinds.sql once to enable the new homework types.') : t('숙제를 내지 못했어요.', 'Could not save the homework.'); }
-    else if (to.length) {
-      const r2 = await sb.from('class_hw_target').insert(made.flatMap((x) => to.map((u) => ({ hw_id: x.id, user_id: u }))));
-      if (r2.error) { await sb.from('class_homework').delete().in('id', made.map((x) => x.id)); cls.err = t('학생별 숙제 표가 아직 없어요. Supabase SQL Editor 에서 db/add_class_students.sql 을 돌려 주세요.', 'Run db/add_class_students.sql first.'); }
-    }
-    cls.open[cid] = false; cls.queue[cid] = []; cls.re[cid] = null; cls.pick[cid] = null; cls.q[cid] = ''; cls.fk[cid] = ''; cls.due[cid] = undefined;   // 학생은 그대로 — 같은 학생에게 이어서 낸다
-    track(rows.length > 1 ? '숙제냄_묶음' : to.length ? '숙제냄_학생별' : '숙제냄'); await clsLoad(); return;
-  }
-  /* 오늘 챙길 학생 → 그 반 「학생 관리」 · 그 학생 카드 */
-  const fo = el('[data-clsfocus]');
-  if (fo) { const [cid] = fo.dataset.clsfocus.split(':'); cls.tab[cid] = 'stu'; cls.open['s' + fo.dataset.clsfocus] = true; clsPaint();
-    document.querySelector(`[data-clsstu="${fo.dataset.clsfocus}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-  /* 숙제 코멘트 — 열기 · 저장 · 지우기 */
-  const fbo = el('[data-clsfbopen]');
-  if (fbo) { const k = 'fb' + fbo.dataset.clsfbopen; cls.open[k] = !cls.open[k]; clsPaint(); document.querySelector(`[data-clsfbtxt="${fbo.dataset.clsfbopen}"]`)?.focus(); return; }
-  const fbs = el('[data-clsfbsave]');
-  if (fbs) { const key = fbs.dataset.clsfbsave, [hw, uid] = key.split(':'), msg = (document.querySelector(`[data-clsfbtxt="${key}"]`)?.value || '').trim().slice(0, 500);
-    const q2 = msg ? sb.from('class_feedback').upsert({ hw_id: Number(hw), user_id: uid, msg, at: new Date().toISOString() }) : sb.from('class_feedback').delete().eq('hw_id', Number(hw)).eq('user_id', uid);
-    const { error } = await q2;
-    if (error) { cls.err = t('코멘트 표가 아직 없어요. Supabase SQL Editor 에서 db/add_class_feedback.sql 을 돌려 주세요.', 'Run db/add_class_feedback.sql first.'); clsPaint(); return; }
-    track('숙제코멘트'); cls.open['fb' + key] = false; await clsLoad(); return; }
-  const pdf = el('[data-clsstupdf]');
-  if (pdf) { const [cid, uid] = pdf.dataset.clsstupdf.split(':'); const c = cls.rows.find((x) => x.id === Number(cid)), m = cls.members.find((x) => x.class_id === Number(cid) && x.user_id === uid); if (c && m) clsStuPrint(c, m); return; }
-  const del = el('[data-clsdel]');
-  if (del) { if (!confirm(t('이 숙제를 지울까요? 학생 기록도 같이 지워져요.', 'Delete this homework and its records?'))) return; await sb.from('class_homework').delete().eq('id', Number(del.dataset.clsdel)); await clsLoad(); return; }
-  /* 반 이름 바꾸기 — 학생 「내 반」 카드 제목이 이 이름이다(운영자 2026-10-07 「Preply 같은 건 빼고 반 이름만」) */
-  const rn = el('[data-clsren]');
-  if (rn) { const c = cls.rows.find((x) => x.id === Number(rn.dataset.clsren)); if (!c) return;
-    const nm = (window.prompt(t('학생에게 보일 반 이름', 'Class name students will see'), c.name) || '').trim().slice(0, 40);
-    if (!nm || nm === c.name) return;
-    const { error } = await sb.from('classes').update({ name: nm }).eq('id', c.id);
-    if (error) { cls.err = t('반 이름을 바꾸지 못했어요.', 'Could not rename the class.'); }
-    track('반이름바꿈'); clsHomeAt = 0; await clsLoad(); return; }
-  const ar = el('[data-clsarch]');
-  if (ar) { if (!confirm(t('이 반을 닫을까요? 학생에게 더 보이지 않아요.', 'Close this class? Students will no longer see it.'))) return; await sb.from('classes').update({ archived: true }).eq('id', Number(ar.dataset.clsarch)); await clsLoad(); return; }
-  const lv = el('[data-clsleave]');
-  if (lv) { if (!confirm(t('이 반에서 나갈까요?', 'Leave this class?'))) return; await sb.from('class_members').delete().eq('class_id', Number(lv.dataset.clsleave)).eq('user_id', clsSession.user.id); await clsLoad();
-    try { await loadPro(sb, clsSession); proPaintAccount(); } catch (e) {}   // 반을 나가면 반 학생 Pro 도 끝
-    return; }
-  const go = el('[data-clsgo]');
-  if (go) clsGo(Number(go.dataset.clsgo));
-});
-/* 숙제 「하러 가기」 — 반 화면 · 첫 화면 숙제 카드가 같이 쓴다 */
-async function clsGo(id) {
-    const h = cls.hw.find((x) => x.id === id);
-    if (!h) return;
-    track('숙제하러감');
-    if (h.kind === 'free') { clsSubOpen(h.id); return; }
-    if (h.kind === 'vocab') { window.cpOpen('words', h.ref ? `topic/${String(h.ref).replace('/', '~')}` : ''); return; }
-    if (h.kind === 'grammar') { window.cpOpen('learn', `sentence/${h.ref}`); return; }
-    if (h.kind === 'twrite') { window.cpOpen('learn', `writing/${h.ref}`); return; }
-    if (h.kind === 'tlisten') { const [e, ty] = String(h.ref).split(':'); window.cpOpen('learn', `topik/${e}/listening/set-${ty}`); return; }
-    if (h.kind === 'tmock') { const [e, r] = String(h.ref).split(':'); window.cpOpen('learn', `topik/mock/${e}/${r}/start`); return; }
-    if (h.kind === 'convo') { window.cpOpen('learn', `convo/${h.ref}`); return; }
-    if (h.kind === 'story') { window.cpOpen('learn', `stories/${h.ref}`); return; }
-    if (h.kind === 'translate') { window.cpOpen('learn', `translate/${h.ref}`); return; }
-    if (h.kind === 'tread') {
-      /* 그 시험 · 그 유형이 있는 급수로 바꾼 뒤 유형 연습을 바로 연다 */
-      const [e, ty] = String(h.ref).split(':');
-      window.cpOpen('learn', 'topik');
-      await tqNeedData();
-      if (!TQ_EXAMS[e]) return;
-      tqExam = e; try { localStorage.setItem(TQ_EXAM_KEY, e); } catch (x) {}
-      const g = TQ_EXAMS[e].grades.find((gg) => TQ_EXAMS[e].reading.some((q) => q.grade === gg && q.type === ty));
-      if (g) tqGrade = g;
-      drawTopik(); tqStart(ty); return;
-    }
-    await coursesNeed();
-    const co = COURSES.find((c) => c.lessons.some((l) => l.id === h.ref));
-    if (co) startLesson(co, co.lessons.find((l) => l.id === h.ref));
-}
-
-/* ── 콘텐츠에서 바로 숙제로 내기 · 끝나면 다음 숙제로 (2026-10-14 「컨텐츠간 연결 · 바로 숙제를 풀거 낼 수 있게」) ──
-   선생님: 문법 · 레슨 · 회화 · 동화책 · 번역 · TOPIK 쓰기 · 듣기 · 모의고사를 보다가 오른쪽 아래 「📌 숙제로 내기」 한 번 → 반 · 학생 · 기한 → 끝.
-   학생: 숙제를 끝내면 「✓ 숙제 완료 — 다음 숙제」 가 떠서 한 번 눌러 이어 푼다. */
-let clsFabTeacher = null;   // null: 아직 모름
-function clsFabContent() {
-  const h = (() => { try { return decodeURIComponent(window.location.hash || ''); } catch (e) { return window.location.hash || ''; } })();
-  let m;
-  if ((m = h.match(/^#learn\/sentence\/([^/?]+)/))) return { kind: 'grammar', ref: m[1] };
-  if ((m = h.match(/^#learn\/convo\/([^/?]+)/))) return { kind: 'convo', ref: m[1] };
-  if ((m = h.match(/^#learn\/stories\/([^/?]+)/))) return { kind: 'story', ref: m[1] };
-  if ((m = h.match(/^#learn\/translate\/([^/?]+)/))) return { kind: 'translate', ref: m[1] };
-  if ((m = h.match(/^#learn\/writing\/([^/?]+)/))) return { kind: 'twrite', ref: m[1] };
-  if ((m = h.match(/^#learn\/topik\/mock\/([^/]+)\/([^/]+)/))) return { kind: 'tmock', ref: `${m[1]}:${m[2]}` };
-  if ((m = h.match(/^#learn\/topik\/([^/]+)\/listening\/set-([^/?]+)/))) return { kind: 'tlisten', ref: `${m[1]}:${m[2]}` };
-  if (lsLesson && !$('lessonView')?.classList.contains('hidden')) return { kind: 'lesson', ref: lsLesson.id, title: cTx(lsLesson.title) };
-  return null;
-}
-async function clsFabUpdate() {
-  let fab = document.getElementById('clsFab');
-  const it = clsFabContent();
-  if (!it) { if (fab) fab.hidden = true; return; }
-  if (clsFabTeacher === null) {
-    clsFabTeacher = false;   // 물어보는 동안 또 묻지 않게
-    try { const { data: { session } } = await sb.auth.getSession(); if (session) { const r = await sb.rpc('cls_is_admin'); clsFabTeacher = !r.error && !!r.data; } else clsFabTeacher = null; } catch (e) { clsFabTeacher = false; }
-  }
-  if (!clsFabTeacher) { if (fab) fab.hidden = true; return; }
-  if (!fab) { fab = document.createElement('button'); fab.id = 'clsFab'; fab.type = 'button'; fab.className = 'cls-fab'; fab.textContent = `${t('숙제로 내기', 'Give as homework')}`; fab.addEventListener('click', clsQuickOpen); document.body.appendChild(fab); }
-  fab.hidden = false;
-}
-setInterval(() => { clsFabUpdate().catch(() => {}); }, 1500);
-sb.auth.onAuthStateChange(() => { clsFabTeacher = null; });
-async function clsQuickOpen() {
-  const it = clsFabContent(); if (!it) return;
-  const { data: { session } } = await sb.auth.getSession(); if (!session) return;
-  clsSession = session;
-  if (!cls.rows.length) await clsLoad();
-  const mine = cls.rows.filter((c) => c.owner === session.user.id);
-  if (!mine.length) { window.location.hash = '#learn/class'; return; }
-  await clsCatNeed().catch(() => {});
-  const x = clsCatalog().find((c) => c.kind === it.kind && c.ref === it.ref);
-  const title = (x?.title || it.title || document.title).slice(0, 120);
-  let last = 0; try { last = Number(localStorage.getItem('cp_cls_last')) || 0; } catch (e) {}
-  const q = { cid: (mine.find((c) => c.id === last) || mine[0]).id, who: new Set(), due: clsDueIn(7) };
-  document.getElementById('clsQuick')?.remove();
-  const d = document.createElement('div'); d.id = 'clsQuick'; d.className = 'cls-dlg'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true');
-  document.body.appendChild(d);
-  const draw = () => {
-    const mem = cls.members.filter((m) => m.class_id === q.cid);
-    const pres = [[0, t('오늘', 'Today')], [1, t('내일', 'Tomorrow')], [3, t('3일 뒤', '+3 days')], [7, t('1주 뒤', '+1 week')], [-1, t('기한 없음', 'No due')]];
-    d.innerHTML = `<div class="cls-dlg-box"><button type="button" class="cls-dlg-x" data-qx aria-label="${esc(t('닫기', 'Close'))}">✕</button><h3>${esc(title)}</h3>` +
-      (mine.length > 1 ? `<div class="cls-whos">${mine.map((c) => `<button type="button" class="${c.id === q.cid ? 'on' : ''}" data-qc="${c.id}">${esc(c.name)}</button>`).join('')}</div>` : `<p class="cls-q-cls">${esc(mine[0].name)}</p>`) +
-      `<small>${esc(t('누구에게', 'Who'))}</small><div class="cls-whos"><button type="button" class="${q.who.size ? '' : 'on'}" data-qw="all">${esc(t('반 전체', 'Whole class'))}</button>${mem.map((m) => `<button type="button" class="${q.who.has(m.user_id) ? 'on' : ''}" data-qw="${esc(m.user_id)}">${esc(m.name)}</button>`).join('')}</div>` +
-      `<small>${esc(t('언제까지', 'Due'))}</small><div class="cls-due-pre">${pres.map(([n, l]) => `<button type="button" class="${(n < 0 ? !q.due : q.due === clsDueIn(n)) ? 'on' : ''}" data-qd="${n}">${esc(l)}</button>`).join('')}</div>` +
-      `<p class="cls-dlg-msg" hidden></p><button type="button" class="pt-next cls-dlg-go" data-qgo>${esc(t('숙제 내기', 'Give homework'))}</button></div>`;
-  };
-  draw();
-  d.addEventListener('click', async (ev) => {
-    const el = (sel) => ev.target.closest(sel);
-    if (ev.target === d || el('[data-qx]')) { d.remove(); return; }
-    const qc = el('[data-qc]'); if (qc) { q.cid = Number(qc.dataset.qc); q.who = new Set(); draw(); return; }
-    const qw = el('[data-qw]'); if (qw) { const v = qw.dataset.qw; if (v === 'all') q.who = new Set(); else if (q.who.has(v)) q.who.delete(v); else q.who.add(v); draw(); return; }
-    const qd = el('[data-qd]'); if (qd) { const n = Number(qd.dataset.qd); q.due = n < 0 ? '' : clsDueIn(n); draw(); return; }
-    if (el('[data-qgo]')) {
-      const go = el('[data-qgo]'); go.disabled = true;
-      const ins = await sb.from('class_homework').insert({ class_id: q.cid, kind: it.kind, ref: it.ref, goal: 1, title, due: q.due || null }).select('id');
-      const msg = (x) => { const m = d.querySelector('.cls-dlg-msg'); m.textContent = x; m.hidden = !x; go.disabled = false; };
-      if (ins.error) { msg(t('숙제를 내지 못했어요. 반 화면에서 다시 해 보세요.', 'Could not give it: try from the class screen.')); return; }
-      if (q.who.size) {
-        const r2 = await sb.from('class_hw_target').insert([...q.who].map((u) => ({ hw_id: ins.data[0].id, user_id: u })));
-        if (r2.error) { await sb.from('class_homework').delete().eq('id', ins.data[0].id); msg(t('학생별 숙제는 db/add_class_students.sql 을 먼저 돌려야 해요.', 'Run db/add_class_students.sql first for per-student homework.')); return; }
-      }
-      try { localStorage.setItem('cp_cls_last', String(q.cid)); } catch (e) {}
-      track('숙제냄_바로'); d.remove();
-      clsToast(`✓ ${t('숙제를 냈어요', 'Homework given')}`, [[t('반 화면 보기', 'View class'), () => { window.location.hash = '#learn/class'; }]]);
-      clsLoad().catch(() => {});
-    }
-  });
-}
-function clsToast(text, actions) {
-  document.getElementById('clsToast')?.remove();
-  const b = document.createElement('div'); b.id = 'clsToast'; b.className = 'cls-toast'; b.setAttribute('role', 'status');
-  b.innerHTML = `<span>${esc(text)}</span>` + (actions || []).map((a, i) => `<button type="button" data-ta="${i}">${esc(a[0])}</button>`).join('') + `<button type="button" class="x" data-ta="x" aria-label="${esc(t('닫기', 'Close'))}">✕</button>`;
-  b.addEventListener('click', (ev) => { const a = ev.target.closest('[data-ta]'); if (!a) return; if (a.dataset.ta !== 'x') actions[Number(a.dataset.ta)][1](); b.remove(); });
-  document.body.appendChild(b); setTimeout(() => b.remove(), 12000);
-}
-/* 학생: 숙제를 끝냈다 — 다음 숙제를 바로 권한다 */
-async function clsNextToast() {
+async function clsCheckIn(session) {
   try {
-    const { data: { session } } = await sb.auth.getSession(); if (!session) return;
-    const uid = session.user.id;
-    const r = await sb.from('classes').select('id, owner, archived');
-    const ids = (r.data || []).filter((c) => !c.archived && c.owner !== uid).map((c) => c.id); if (!ids.length) return;
-    const [h, d, tg] = await Promise.all([
-      sb.from('class_homework').select('*').in('class_id', ids).order('created_at', { ascending: false }),
-      sb.from('class_done').select('hw_id, n').eq('user_id', uid),
-      sb.from('class_hw_target').select('hw_id, user_id'),
-    ]);
-    const done = new Map((d.data || []).map((x) => [x.hw_id, x.n])), tgt = {};
-    for (const x of tg.data || []) (tgt[x.hw_id] ??= new Set()).add(x.user_id);
-    const left = (h.data || []).filter((x) => (!tgt[x.id] || tgt[x.id].has(uid)) && (done.get(x.id) || 0) < (x.kind === 'vocab' ? x.goal : 1));
-    if (!left.length) { clsToast(`${t('오늘 숙제를 모두 끝냈어요!', 'All homework done!')}`, []); return; }
-    const nx = left[0];
-    cls.hw = [...new Map([...cls.hw, ...(h.data || [])].map((x) => [x.id, x])).values()];
-    clsToast(`✓ ${t('숙제 완료!', 'Homework done!')} ${t('다음', 'Next')}: ${nx.title}`, [[t('이어서 하기', 'Continue'), () => { clsGo(nx.id); }]]);
-  } catch (e) { /* 알림만 못 띄운다 */ }
+    if (!session) { localStorage.removeItem('cp_cls_in'); clsBodyMark(); return; }
+    /* 로그인한 사람은 한가할 때 class-hw.js 를 받아 둔다 — 선생님이 다른 화면(문법 · 레슨 …)에서 보는 「숙제로 내기」 단추가 그 파일에 있다.
+       로그인 안 한 사람(대부분 · 봇)은 받지 않는다. */
+    (window.requestIdleCallback || ((f) => setTimeout(f, 1500)))(() => { clsNeed().catch(() => {}); });
+    const { data, error } = await sb.from('class_members').select('class_id').eq('user_id', session.user.id).limit(1);
+    if (!error) localStorage.setItem('cp_cls_in', data?.length ? '1' : '');
+    clsBodyMark();
+    if (showing('homeView')) clsHomeRender(true).catch(() => {});
+  } catch (e) { /* 표가 아직 없으면 그대로 */ }
 }
-window.cpClsReady = true;
+sb.auth.getSession().then(({ data: { session } }) => {
+  clsCheckIn(session);
+  /* 반 링크를 들고 구글 로그인에 다녀왔다 — 그 반으로 */
+  try { if (session && sessionStorage.getItem('cp_cls_code') && !location.hash.includes('class')) window.cpOpen('learn', 'class'); } catch (e) {}
+}).catch(() => {});
+/* class-hw.js 가 쓰는 이 파일의 이름 — 읽기(get) · 그 파일이 바꾸는 것만 쓰기(set). 빠진 이름은 그 길에서 undefined 가 된다 */
+var CLS_G = {
+  get $() { return $; },
+  get ADMIN_EMAIL() { return ADMIN_EMAIL; },
+  get CLS_ROLE_KEY() { return CLS_ROLE_KEY; },
+  get clsSetRole() { return clsSetRole; },
+  get auRolePaint() { return auRolePaint; },
+  get CONVO() { return CONVO; },
+  get COURSES() { return COURSES; },
+  get GRAMMAR_DRILL() { return GRAMMAR_DRILL; },
+  get LT_GRADE_TO_LEVEL() { return LT_GRADE_TO_LEVEL; },
+  get LT_LEVELS() { return LT_LEVELS; },
+  get QA_NAME_KEY() { return QA_NAME_KEY; },
+  get SB_POINTS() { return SB_POINTS; },
+  get STORIES() { return STORIES; },
+  get TD_CHECK() { return TD_CHECK; },
+  get TOPIKL_BY_EXAM() { return TOPIKL_BY_EXAM; },
+  get TQ_EXAMS() { return TQ_EXAMS; },
+  get TQ_EXAM_KEY() { return TQ_EXAM_KEY; },
+  get TRANSLATE_SETS() { return TRANSLATE_SETS; },
+  get TW_ITEMS() { return TW_ITEMS; },
+  get VOCAB2_URL() { return VOCAB2_URL; },
+  get bkNeed() { return bkNeed; },
+  get cTx() { return cTx; },
+  get cheeseLevel() { return cheeseLevel; },
+  get clsBodyMark() { return clsBodyMark; },
+  get coursesNeed() { return coursesNeed; },
+  get cvNeed() { return cvNeed; },
+  get drawTopik() { return drawTopik; },
+  get esc() { return esc; },
+  get isEn() { return isEn; },
+  get loadPro() { return loadPro; },
+  get lsLesson() { return lsLesson; },
+  get ltLoadLevel() { return ltLoadLevel; },
+  get ltSaveLevel() { return ltSaveLevel; },
+  get mkCount() { return mkCount; },
+  get myLevelBadge() { return myLevelBadge; },
+  get open() { return open; },
+  get proPaintAccount() { return proPaintAccount; },
+  get sb() { return sb; },
+  get sbNeed() { return sbNeed; },
+  get startLesson() { return startLesson; },
+  get t() { return t; },
+  get tqExam() { return tqExam; }, set tqExam(v) { tqExam = v; },
+  get tqGrade() { return tqGrade; }, set tqGrade(v) { tqGrade = v; },
+  get tqNeedData() { return tqNeedData; },
+  get tqStart() { return tqStart; },
+  get trNeed() { return trNeed; },
+  get track() { return track; },
+};
+window.cpClsG = CLS_G;
 if (showing('homeView')) clsHomeRender().catch(() => {});
-if (window.cpClsPending != null) { const p = window.cpClsPending; window.cpClsPending = null; clsDraw(p); }
 
 /* ══ 강의 (#learn/lectures) ═════════════════════════════════════════
    운영자 결정(2026-10-03): 영상은 유튜브에 「일부 공개」로 올리고, 사이트에는 링크만 건다(표 db/add_lectures.sql).
