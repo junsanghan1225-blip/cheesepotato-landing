@@ -215,7 +215,10 @@ function bookPage(k) {
   const stDev = { en: k.pages ? '' : '' };
   const sample = k.sample ? `${base}#sample` : '';
   const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}">Buy the PDF · $${esc(k.price)}</a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
-  const ctaSub = k.sample ? `<a class="btn ghost" href="#sample">Free sample</a>` : '';
+  /* 샘플 단추는 누르면 바로 PDF 를 받는다(2026-11-14 운영자 「책 상세 쪽 샘플 · 구매 단추 고쳐줘」 — 책 클릭 18 · 샘플 0: 예전엔 아래 이메일 칸으로 내려가기만 했다).
+     이메일 칸(#sample)은 아래에 그대로 둔다 — 소식을 받고 싶은 사람만 쓴다. 누른 자리는 data-ev-from 으로 가른다(hero · card · bar). */
+  const sampleA = (where, label, cls) => k.sample ? `<a class="${cls}" href="/assets/books/${esc(k.id)}/sample.pdf" download data-ev="샘플받기" data-ev-from="${esc(k.id)}-${where}">${label}</a>` : '';
+  const ctaSub = sampleA('hero', `Free sample · ${k.sample?.pages || ''} pages PDF`, 'btn ghost');
   // 예스24 단추는 뺐다(운영자 2026-11-11 「이건 빼자」) — shop.json 의 yes24 주소는 그대로 둔다.
   const cp = (o) => o ? `${esc(o.en)}${o.ko ? ` <small>· ${esc(o.ko)}</small>` : ''}` : '';
   const pvN = (g.previews || []).length;
@@ -260,12 +263,12 @@ ${shopFoot}
 </main>
 <aside class="pg2-card">
   ${on ? `<div class="px">$${esc(k.price)}<small>PDF · instant download</small></div><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-card">Buy the PDF</a>` : `<div class="px">Coming soon<small>${esc(level)}</small></div><a class="btn" href="#notify">Tell me when it is out</a>`}
-  ${k.sample ? `<a class="btn sub" href="#sample">Free sample · ${k.sample.pages} pages</a>` : ''}
+  ${sampleA('card', `↓ Free sample · ${k.sample?.pages || ''} pages PDF`, 'btn sub')}
   <p class="pg2-one">Instant download · answer key included</p>
   ${on ? proBox(k.id, 'card') : ''}
   ${bundle ? `<div class="pg2-bundle"><b>${esc(bundle.title.en)}</b><br>$${esc(bundle.price)} instead of $${bundle.books.reduce((a, id) => a + parseFloat(SHOP.books.find((b) => b.id === id).price), 0).toFixed(2)} · <a href="${esc(bundle.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bundle">Buy the bundle →</a></div>` : ''}
 </aside></div></div>
-<div class="pg2-bar">${on ? `<b>$${esc(k.price)}</b><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bar">Buy PDF</a>` : `<b>Soon</b><a class="btn" href="#notify">Notify me</a>`}${k.sample ? '<a class="btn sub" href="#sample">Sample</a>' : ''}</div>
+<div class="pg2-bar">${on ? `<b>$${esc(k.price)}</b><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bar">Buy PDF</a>` : `<b>Soon</b><a class="btn" href="#notify">Notify me</a>`}${sampleA('bar', '↓ Sample', 'btn sub')}</div>
 </div>
 <script src="/subscribe.js" defer></script><script src="/reviews.js" defer></script><script src="/bookflip.js" defer></script>`;
   return head(`${k.title.en} — ${pub.en}`, `${g.headline?.en || k.sub.en} ${k.sub.en}`.slice(0, 300), base, head2) + body + foot;
