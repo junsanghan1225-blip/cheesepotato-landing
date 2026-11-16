@@ -1426,6 +1426,8 @@ if (realTotal !== total && !REVIEW) {
     const tocAt = at(/Contents · 목차/) || 1;
     for (const u of units) { const pg = at(new RegExp(`U ?N ?I ?T ?${String(u.no).padStart(2, '0').split('').join(' ?')}(?!\\d)`), tocAt); if (pg) starts.unit[u.no] = pg; }
     starts.answers = at(/^\s*Answer Key\s*$/m, tocAt) || at(/Answer Key/, tocAt) || starts.answers;   // 목차가 두 쪽이면 목차 속 「Answer Key 정답 N」 줄을 잘못 찾으니 제목 줄만 본다
+    // 찾아보기도 다시 찾는다(2026-11-16 첫걸음 v29 목차에 찾아보기 201쪽 — 실제 181쪽: 따로 찍은 정답 블록 쪽수가 커서 밀렸다). 제목 줄만 본다(목차 속 「Index 찾아보기 N」 줄 말고)
+    if (!B.noIndex) starts.index = at(/^\s*Index\s*$/m, starts.answers || tocAt) || starts.index;
     if (!B.compact) starts.memo = at(/Notes\s*·\s*메모/, tocAt) || starts.memo;
     for (const [k] of FRONT_LIST) { const pg = at(k === 'fm1' && B.methods ? /TYPE 1/ : /^$/, tocAt); if (pg && k === 'fm1' && B.methods) starts.front[k] = pg; }
     final = stu(blocks.map(([k, html]) => (k === 'toc' ? tocPage(starts) : html)).join('\n'));

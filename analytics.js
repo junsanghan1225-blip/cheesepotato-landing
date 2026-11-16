@@ -156,13 +156,41 @@
   }, true);
 })();
 
+/* GA4 로 직접 보내기(운영자 2026-11-16 「GTM 을 거치지 않고」) — GTM 의 GA4 이벤트 태그는 이벤트 이름만 넘기고
+   book_id · cp_q · cp_el 같은 매개변수는 넘기지 않아서, GA4 맞춤 측정기준을 등록해도 값이 「(비어 있음)」이었다.
+   매개변수가 필요한 이벤트만 dataLayer 의 { event: … } 대신 gtag('event', …) 명령으로 보낸다:
+   GTM 이 띄운 구글 태그와 아래에서 띄우는 구글 태그가 같은 dataLayer 의 gtag 명령을 읽어 매개변수째 보낸다.
+   { event: … } 로 넣지 않으므로 GTM 맞춤 이벤트 트리거는 안 걸린다 → 두 번 세지지 않는다.
+   config 는 send_page_view: false — 쪽 보기는 지금처럼 GTM 이 한 번만 센다. */
+(function () {
+  var ID = 'G-4KF487RTZT';
+  window.dataLayer = window.dataLayer || [];
+  var gtag = function () { window.dataLayer.push(arguments); };
+  var ready = false;
+  window.cpGa = function (name, params) {
+    try {
+      if (!ready) {
+        ready = true;
+        gtag('js', new Date()); gtag('config', ID, { send_page_view: false });
+        var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        (document.head || document.documentElement).appendChild(s);
+      }
+      gtag('event', name, Object.assign({ send_to: ID }, params || {}));
+    } catch (e) {}
+  };
+})();
+
 /* 정적 쪽 행동 이벤트(운영자 2026-10-31 「이벤트 많이 남겨서 분석할 부분을 더 만들자」).
    dataLayer 로 흘린다(GTM 의 맞춤 이벤트 트리거가 받음) + Clarity 에도 이름만. 링크는 그대로 열린다.
    book_click   — /shop/ 책 쪽으로 가는 링크(어느 쪽 · 어느 상자에서: from = utm_content)
    buy_click    — Polar 결제 링크 · sample_click — 샘플 PDF · outbound_click — 우리 사이트 밖으로 나가는 링크(예스24 · 아마존 · 쓰레드 …)
    scroll_depth — 25 · 50 · 75 · 100% (쓰기 모음 · 책 · 블로그 · 학습지 쪽에서만) · engaged_time — 30 · 60 · 120초 머문 사람(탭이 보일 때만 센다) */
 (function () {
-  var dl = function (ev, extra) { try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, extra)); } catch (e) {} try { window.clarity && window.clarity('event', ev); } catch (e) {} };
+  var DIRECT = { book_click: 1, buy_click: 1, sample_click: 1 };   // GA4 표에서 book_id 로 나눠 보는 것만 직접
+  var dl = function (ev, extra) {
+    try { if (DIRECT[ev]) window.cpGa(ev, extra); else (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, extra)); } catch (e) {}
+    try { window.clarity && window.clarity('event', ev); } catch (e) {}
+  };
   var path = location.pathname, bookOf = function (p) { var m = /^\/shop\/([^/]+)\//.exec(p || ''); return m && m[1] !== 'thanks' ? m[1] : ''; };
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
@@ -218,7 +246,7 @@
       try { if (String(window.getSelection && window.getSelection()).length) return; } catch (e) {}   // 글을 긁어 고른 것은 데드클릭이 아니다
       n++;
       var b = t.closest(BTN), el = desc(b || t), page = location.pathname + location.hash.split('/').slice(0, 2).join('/');
-      try { (window.dataLayer = window.dataLayer || []).push({ event: 'dead_click', cp_el: el, cp_page: page, cp_kind: b ? 'button' : 'text' }); } catch (e) {}
+      try { window.cpGa('dead_click', { cp_el: el, cp_page: page, cp_kind: b ? 'button' : 'text' }); } catch (e) {}
       try { if (window.clarity) { window.clarity('event', 'dead_click'); window.clarity('set', 'deadclick', el); } } catch (e) {}
     }, 700);
   }, true);
