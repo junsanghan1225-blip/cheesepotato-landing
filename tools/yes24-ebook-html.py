@@ -128,7 +128,7 @@ body = ''.join([
  files('표지이미지', f'파일: {isbn}_cover.jpg (가로 1500px · 1200px 이상 · 10MB 이하)'),
  files('전자책 파일', f'파일: {isbn}.pdf ({pages}쪽 · 200MB 이하 · 보호 없음)' + (f'\n※ PDF 파일 교체 전 유의사항: 이미 올린 파일은 쪽수가 달라({OLD_PAGES}쪽 → {pages}쪽) 교체가 안 되니 새 상품으로 올리거나 개정판 절차를 예스24에 문의' if OLD_PAGES and OLD_PAGES != pages else '')),
  manual('미리보기 설정', '「미리보기 생성」 · 책 앞부분(시작하기 + 1부 일부) 비율을 정하세요. 쪽수 기준으로는 앞 21쪽 정도가 사이트 무료 샘플과 같습니다'),
- manual('상세이미지 — 먼저 읽기', '예스24 상세이미지는 10칸이고 칸마다 파일 1장(3.0MB 이하 · 가로 940 권장)과 「이미지 설명」을 넣습니다. 긴 상세이미지를 10장으로 나눠 두었습니다. 칸 1부터 차례로 [찾기]로 01.jpg~10.jpg 를 고르고, 아래 설명을 붙여 넣으세요.'),
+ manual('상세이미지 — 먼저 읽기', '예스24 상세이미지는 10칸이고 칸마다 파일 1장(3.0MB 이하 · 가로 940 권장)과 「이미지 설명」을 넣습니다. 긴 상세이미지를 10장으로 나눠 두었습니다. 칸 1부터 차례로 [찾기]로 detail_images 폴더의 detail_01.jpg~ 를 차례로 고르고, 아래 설명을 붙여 넣으세요.'),
 ]) + ''.join(field(f'상세이미지 {i:02d} 설명', d, f'칸 {i} · 파일 {i:02d}.jpg (가로 940px · 약 {k}KB)') for i, (d, k) in enumerate(DET, 1)) + ''.join([
 ])
 page = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>예스24 전자책 등록 복사판 · {e(B["title"]["ko"])}</title>
