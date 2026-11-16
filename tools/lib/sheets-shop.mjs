@@ -235,7 +235,8 @@ const proBox = (id, where) => `<div class="pg2-pro"><span class="ph">PRO · 연�
   const dsec = (g.detail || []).map((d) => {
     const imgs = d.images ? `<div class="dsp">${d.images.map(([n, c], i) => `<figure><figcaption><i>${String(i + 1).padStart(2, '0')}</i>${esc(c.en)} <small>· ${esc(c.ko)}</small></figcaption><img src="/assets/books/${esc(k.id)}/detail/${esc(n)}.jpg" alt="${esc(c.en)}" loading="lazy" width="820" height="${n === 'plan' ? 575 : 880}"></figure>`).join('')}</div>` : '';
     const chips = d.chips ? `<div class="dch">${d.chips.map(([t, c]) => `<span style="background:${esc(c)}">${esc(t)}</span>`).join('')}</div>` : '';
-    const road = d.road ? `<ol class="drd">${d.road.map(([a, b, c, e]) => `<li><b>${esc(a)} <small>· ${esc(b)}</small></b><span>${esc(c)}</span>${e ? `<em>${esc(e)}</em>` : ''}</li>`).join('')}</ol>` : '';
+    const en = (x) => (x && typeof x === 'object' ? x.en : x);   // 길 칸 글은 글자 하나 또는 { en, ko }(ko 는 예스24 그림이 쓴다 — tools/yes24-images.mjs)
+    const road = d.road ? `<ol class="drd">${d.road.map(([a, b, c, e]) => `<li><b>${esc(a)} <small>· ${esc(b)}</small></b><span>${esc(en(c))}</span>${e ? `<em>${esc(en(e))}</em>` : ''}</li>`).join('')}</ol>` : '';
     const ex = d.extras ? `<div class="dex">${d.extras.map(([t, x]) => `<div><b>${esc(t.en)} <small>· ${esc(t.ko)}</small></b><p>${esc(x.en)}</p><p class="ko">${esc(x.ko)}</p></div>`).join('')}</div>` : '';
     return `<section class="pg2-sec pg2-det"><span class="dn">${esc(d.no)}</span><h2>${esc(d.h.en)} <small>· ${esc(d.h.ko)}</small></h2>${d.sub ? `<p class="dsub">${esc(d.sub.en)}</p><p class="dsub ko">${esc(d.sub.ko)}</p>` : ''}${chips}${imgs}${road}${ex}</section>`;
   }).join('');

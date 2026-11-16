@@ -18,6 +18,7 @@ const tabs = [   // [이름, 만드는 법, 파일 글자, 묶음] — 묶음 �
   ['ISBN 신청', () => run('python3', ['tools/isbn-html.py', path.join(tmp, 'e.html')]), 'e', '지금 등록'],
   ['예스24 도서등록', () => run('python3', ['tools/yes24-html.py', path.join(tmp, 'h.html')]), 'h', '지금 등록'],
   ['예스24 전자책 등록(조사)', () => run('python3', ['tools/yes24-ebook-html.py', path.join(tmp, 'k.html')]), 'k', '지금 등록'],
+  ['예스24 전자책 등록(첫걸음)', () => run('python3', ['tools/yes24-ebook-html.py', 'first-steps-workbook', path.join(tmp, 'm.html')]), 'm', '지금 등록'],   // 상세이미지 설명은 books-out/yes24/first-steps-workbook/detail.json(tools/yes24-images.mjs)
   ['예스24 소개 글', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f', '지금 등록'],
   ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c', '다른 판매처'],
   ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd', '다른 판매처'],

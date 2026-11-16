@@ -99,6 +99,7 @@ const faq = [
 ];
 const old = book.page || {};
 book.page = {
+  ...(old.detail ? { detail: old.detail } : {}),   // 「이 책은 이렇게」 구간은 손으로 쓴 것 — 다시 돌려도 지우지 않는다
   headline: copy.headline || old.headline, lead: copy.lead || old.lead, features: copy.features?.length ? copy.features : old.features,
   problem: copy.problem || old.problem, steps: copy.steps || old.steps, notFor: copy.notFor || old.notFor, pick: copy.pick || old.pick, related: copy.related || old.related,
   contents, previewNote: { en: 'Real pages from the book. Tap a page to enlarge.', ko: '책 속 실제 쪽입니다. 누르면 크게 볼 수 있어요.' },

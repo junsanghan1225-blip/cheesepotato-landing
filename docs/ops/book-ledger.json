@@ -4,16 +4,16 @@
   "first-steps-workbook": {
    "krw": "13,900",
    "qa": "통과(주의 1)",
-   "pages": 159,
-   "date": "20261103",
-   "ver": 28,
+   "pages": 186,
+   "date": "20261116",
+   "ver": 30,
    "last": {
-    "ver": 28,
-    "date": "20261103",
-    "pages": 159,
-    "sha256": "aabbab6903e83f880c2ab2d8c2d1ec870777deee71695aabe7782e5567e107c2",
-    "commit": "0b36032622",
-    "file": "에브리코리안즈_예스24_한국어첫걸음워크북_v28_20261103.zip"
+    "ver": 30,
+    "date": "20261116",
+    "pages": 186,
+    "sha256": "3d58e5ef261f6628b5a40c914b977f3895dad123dd26f13ce00f31776d3ebea6",
+    "commit": "9d442bd2a7",
+    "file": "에브리코리안즈_예스24_한국어첫걸음워크북_v30_20261116.zip"
    }
   },
   "particles-workbook": {
