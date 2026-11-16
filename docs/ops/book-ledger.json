@@ -37,35 +37,59 @@
   "topik2-vocab-1000": {
    "krw": "9,900",
    "qa": "통과",
-   "pages": 330,
-   "date": "20261031",
-   "ver": 11,
+   "pages": 332,
+   "date": "20261116",
+   "ver": 12,
    "registered": {
     "ver": "v6",
     "pages": 330,
     "date": "2026-10-31",
     "where": "예스24(등록, eBookCode 4217286 · 4217288)"
+   },
+   "last": {
+    "ver": 12,
+    "date": "20261116",
+    "pages": 332,
+    "sha256": "5bebc8241711c1aa4237dc8efaa5bdc193ec4d02903ec2fa16828f65fd85acac",
+    "commit": "56d0c8e3f7",
+    "file": "에브리코리안즈_예스24_중급단어장워크북1(TOPIKII대비)_v12_20261116.zip"
    }
   },
   "topik2-vocab-2000": {
    "krw": "9,900",
    "qa": "통과",
    "pages": 332,
-   "date": "20261031",
-   "ver": 10,
+   "date": "20261116",
+   "ver": 11,
    "registered": {
     "ver": "v6",
     "pages": 332,
     "date": "2026-10-31",
     "where": "예스24(등록, eBookCode 4217286 · 4217288)"
+   },
+   "last": {
+    "ver": 11,
+    "date": "20261116",
+    "pages": 332,
+    "sha256": "93522f8614cf8a56acc78333ac782440ff32e3cf4599ddf8ac696de45aac27fa",
+    "commit": "56d0c8e3f7",
+    "file": "에브리코리안즈_예스24_중급단어장워크북2(TOPIKII대비)_v11_20261116.zip"
    }
   },
   "topik2-vocab-lv3": {
    "krw": "9,900",
    "qa": "통과",
    "pages": 332,
-   "date": "20261031",
-   "ver": 10
+   "date": "20261116",
+   "ver": 11,
+   "last": {
+    "ver": 11,
+    "date": "20261116",
+    "pages": 332,
+    "sha256": "cc2ae54279cb2ff273d12e61e18baecde8525f065233d2beb748e993a10f0170",
+    "commit": "56d0c8e3f7",
+    "file": "에브리코리안즈_예스24_중급단어장워크북3(TOPIKII대비)_v11_20261116.zip"
+   }
   },
   "topik1-reading-mock": {
    "krw": "13,900",
@@ -97,10 +121,18 @@
   },
   "topik1-vocab": {
    "krw": "13,900",
-   "qa": "통과(주의 2)",
+   "qa": "통과(주의 1)",
    "pages": 628,
-   "date": "20261031",
-   "ver": 7
+   "date": "20261116",
+   "ver": 8,
+   "last": {
+    "ver": 8,
+    "date": "20261116",
+    "pages": 628,
+    "sha256": "52ebe08609bc967eb5277723cc4962fd0991a963587dd9cf516e946414f8643d",
+    "commit": "56d0c8e3f7",
+    "file": "에브리코리안즈_예스24_초급필수단어장(TOPIKI대비)_v8_20261116.zip"
+   }
   },
   "korean-idioms": {
    "krw": "13,900",

@@ -66,13 +66,13 @@ const DETAIL = [
   ['지은이 소개', `<div class="s"><span class="no">지은이</span><h2>${esc(ko(g.author?.name))} <em>(${esc(g.author?.name?.en || '')})</em></h2><div class="bio"><p>${esc(ko(g.author?.bio))}</p></div></div>`],
   ['책 정보', `<div class="s"><span class="no">책 정보</span><h2>책 정보</h2><table>${(g.specs || []).map(specKo).map(([x, y]) => `<tr><th>${esc(x)}</th><td>${esc(y)}</td></tr>`).join('')}</table></div>`],
 ].slice(0, 10);
-while (DETAIL.length < 10) DETAIL.splice(DETAIL.length - 1, 0, ['구성', pairSec(D[D.length - 1])]);   // 칸이 모자라면(구간이 적은 책) 마지막 구간을 한 번 더 — 예스24 칸은 비워도 되지만 10장을 맞춘다
+// 구간이 적은 책은 10장보다 적게 — 예스24 상세이미지 칸은 비워 둬도 된다(같은 그림을 두 번 넣지 않는다)
 
 const CARDS = [
   `<div class="c" style="justify-content:center"><div class="top"><span>EVERYKOREANS</span><span>${esc(k.level || '')}</span></div><div style="display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:center;margin-top:60px"><img src="${cover}" style="width:100%;border-radius:5px;border:1px solid #DDD5C4"><div><h3 style="margin:0 0 20px;font-size:54px">${esc(ko(k.title))}</h3><p class="cs">${esc(ko(g.headline) || ko(k.sub))}</p></div></div></div>`,
   `<div class="c"><div class="top"><span>${esc(ko(k.title))}</span><span>02</span></div><h3>이 책 <em>한눈에</em></h3><div class="nums" style="margin-top:20px">${numsOf().map(([x, y]) => `<div><b style="font-size:52px">${esc(x)}</b><span style="font-size:22px">${esc(y)}</span></div>`).join('')}</div><p class="cs" style="margin-top:40px">${esc(ko(g.lead) || ko(k.about))}</p><table style="font-size:25px;margin-top:auto">${(k.for?.ko || []).map((x) => `<tr><th style="width:22%">이런 분께</th><td>${esc(x)}</td></tr>`).join('')}</table></div>`,
   ...D.filter((d) => d.images).slice(0, 5).map((d, i) => `<div class="c"><div class="top"><span>${esc(ko(k.title))}</span><span>${String(i + 3).padStart(2, '0')}</span></div><h3>${esc(d.h.ko)}</h3>${d.sub ? `<p class="cs">${esc(d.sub.ko)}</p>` : ''}<div class="shot"><img src="${det((d.images[1] || d.images[0])[0])}" style="margin-top:-40px"></div></div>`),
-  `<div class="c"><div class="top"><span>${esc(ko(k.title))}</span><span>08</span></div><h3>책 정보</h3><table style="font-size:26px">${(g.specs || []).slice(0, 7).map(specKo).map(([x, y]) => `<tr><th>${esc(x)}</th><td>${esc(y)}</td></tr>`).join('')}</table><div class="bar"><span>everykoreans.com</span><span>${esc(g.author?.name?.ko || '')} 지음</span></div></div>`,
+  `<div class="c"><div class="top"><span>${esc(ko(k.title))}</span><span>${String(Math.min(D.filter((d) => d.images).length, 5) + 3).padStart(2, '0')}</span></div><h3>책 정보</h3><table style="font-size:26px">${(g.specs || []).slice(0, 7).map(specKo).map(([x, y]) => `<tr><th>${esc(x)}</th><td>${esc(y)}</td></tr>`).join('')}</table><div class="bar"><span>everykoreans.com</span><span>${esc(g.author?.name?.ko || '')} 지음</span></div></div>`,
 ].slice(0, 8);
 
 fs.rmSync(OUT, { recursive: true, force: true });
