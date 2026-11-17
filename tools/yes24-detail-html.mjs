@@ -30,7 +30,7 @@ const secs = ids.map((id) => {
 ${note('표지이미지', `파일: ${isbn}_cover.jpg (가로 1500px)`)}
 ${note('전자책 파일', pdfNote)}
 ${note('카드뉴스 이미지', `파일: cardnews_${short}.zip (이 zip 하나만) — 안에 폴더 ${short}_cardnews/ · ${short}_cardnews_01.jpg ~ (1080×1080)`)}
-${note('상세이미지', `칸 1부터 차례로 상세이미지/01.jpg ~ ${String(det.length).padStart(2, '0')}.jpg (가로 940) — 남는 칸은 비워 둡니다. 칸마다 아래 설명을 붙여 넣으세요.`)}
+${note('상세이미지', `칸 1부터 차례로 detail_images 폴더의 detail_01.jpg ~ detail_${String(det.length).padStart(2, '0')}.jpg (가로 940) — 남는 칸은 비워 둡니다. 칸마다 아래 설명을 붙여 넣으세요.`)}
 ${det.map((m, i) => field(`상세이미지 ${String(i + 1).padStart(2, '0')} 설명`, m.desc, `칸 ${i + 1} · ${m.file} · 약 ${m.kb}KB`)).join('')}</section>`;
 }).join('');
 fs.writeFileSync(out, `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>예스24 표지 · 카드뉴스 · 상세이미지 바꾸기</title>
