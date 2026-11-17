@@ -112,7 +112,7 @@ function bundlesHtml() {
   }).join('');
 }
 function shopPage() {
-  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}</span></a>`;
+  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `$${esc(k.price)} · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
   const books = (SHOP.series || []).map((g) => { const ks = g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean); return `<h2 class="bk-series" id="series-${esc(g.id)}">${esc(g.title.en)} · ${esc(g.title.ko)} <small style="font-weight:600;font-size:.6em;color:var(--ink-3)">· ${ks.length}권</small></h2>\n<div class="bk-grid">\n${ks.map(bookItem).join('\n')}\n</div>`; }).join('\n');
   const packs = SHOP.packs.map((p) => {
     const ws = packSheets(p);
