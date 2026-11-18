@@ -106,7 +106,6 @@ for (const f of bonusFiles()) {
     const page = head(title, `${book.title.ko} 단원 보너스 연습: 낱말 카드, 퀴즈, 빈칸 쓰기. 쪽에서 바로 채우고 채점해요.`, url) + `<div data-bonus-mode="unit" data-book="${esc(id)}" data-unit-key="${esc(id + '/' + u)}">
 <span class="bk-badge">책 보너스 · BOOK BONUS</span> <a class="bk-back" href="/bonus/${id}/">← 책 코스 전체 · Course</a>
 <h1>${esc(tk.ko || tk.en)}</h1>
-${fs.existsSync(path.join(ROOT, `book/${id}/index.html`)) ? `<div class="bapp"><div><b>이 단원을 게임으로 복습해요</b><small>Review this unit as a game: letter tiles, listening, speaking, matching · 독자 코드로 처음 한 번 열어요</small></div><a class="btn main" href="/book/${esc(id)}/?utm_source=book&amp;utm_medium=bonus&amp;utm_campaign=${esc(id)}&amp;utm_content=${esc(u)}#play/${esc(u)}">게임으로 복습 · Play →</a></div>` : ''}   <!-- 독자 공부방(운영자 2026-11-18)이 있는 책: 이미 팔린 책의 QR 로 와도 게임으로 이어지게 -->
 <div class="bapp"><div><b>앱에서 열면 진행률 · 연속 학습이 기록돼요</b><small>Open in the app to track progress and your streak</small></div><a class="btn main" href="${APP_INTENT(id, u)}">앱에서 열기 · Open app</a><a class="btn sub" href="${PLAY}">Google Play</a></div>
 <p class="bk-sub">${esc(tk.en)} · ${esc(book.title.ko)} · ${esc(book.title.en)}</p>
 <h2 class="bk-h">낱말 카드 <small>Flashcards · 눌러서 뒤집기 · tap to flip</small></h2>
