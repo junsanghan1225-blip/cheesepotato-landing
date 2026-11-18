@@ -102,6 +102,7 @@
   | `bonus/`(책 QR 보너스 연습 — 단원마다 낱말 카드 · 퀴즈 · 빈칸 쪽, 책 QR 이 여는 곳) | `docs/bonus/<책 id>.json`(안티 · Claude 검토, 지시 `docs/antigravity/antigravity-bonus-task.md`, 검사 `check-bonus`) → `node tools/build-bonus.mjs` |
   | `assets/travel/korean-travel-pocket-guide-*.pdf`(여행 포켓 가이드 A4 PDF — 상황 7개 각각 + 전체 한 번에, 보통 · 3단계 비교) | `travel-data.js` · `travel-guide.html` → `node tools/build-travel-pdf.mjs` |
   | `podcast-episodes.json`(팟캐스트 올리기 쪽 에피소드 목록) | `docs/podcast/ep*.md`(대본) → `node tools/build-podcast.mjs` |
+  | `book/<책 id>/`(책마다 체험 랜딩 쪽 — 입체 책 · 책 속 넘겨 보기 · 연습실: 빈칸 쓰기 · 고르기 · 표현 카드, 움직임은 `book-landing.js`) | `docs/book-landing.json`(책마다 글 · 쓸 자료) · `docs/shop.json` · `docs/bonus/<책 id>.json` → `node tools/build-book-landing.mjs`(검사 `check-book-landing`) |
   | `ox-questions.js`(OX 퀴즈 `/ox/` 문항 — 일곱 갈래) | `vocab-topik1.js` · `grammar-pairs.js` · `expressions.js` + 숫자 · 높임말 규칙 → `node tools/build-ox.mjs` |
   | `vocab-topik1.js` · `vocab-topik2.js` · `vocab-topik2-ex/`(TOPIK II 예문 조각, 500개씩) | `vocab/data/topik1.json` · `topik2.json`(B급 이상만) → `node tools/build-vocab.mjs` |
 - **책 표지 색은 안 겹치게**(운영자 2026-10-26 「앞으로 표지는 절대로 안 겹치게」): 새 책의 표지 색(`coverLevel.bg`)은 이미 있는 책들과 달라야 한다 — `node tools/check-cover-colors.mjs`(CI · preflight 에 들어 있음, 겹치면 실패), 빈 색은 `--suggest`. 예외는 이미 같은 보라로 나간 TOPIK II 책 여섯뿐.
