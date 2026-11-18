@@ -1,25 +1,10 @@
 {
- "_note": "책마다 따로 만드는 체험 랜딩 쪽(/book/<책 id>/) — 운영자 2026-11-18 「책마다 따로 랜딩페이지 · 인터랙티브 · 일주일에 한 권씩 검수하고 랜딩」. 책 정보 · 그림은 docs/shop.json(page.detail), 체험 문제는 docs/bonus/<책 id>.json(이미 검토한 QR 보너스 자료)에서 가져온다. 여기에는 책마다 다른 글과 어느 자료를 쓸지만 적는다. 고치면 node tools/build-book-landing.mjs.",
+ "_note": "책마다 따로 만드는 학습 쪽(/book/<책 id>/) — 운영자 2026-11-18 「책에 있는 문제도 풀고 정답도 체크하고 그 책에 관련된 건 전부(단어 학습부터) · 책을 산 사람만 · 첫걸음부터 전부 · 일주일에 한 권씩 검수하고 만들기」. 책을 산 사람만: 책의 Reader bonus 쪽에 인쇄된 독자 코드(docs/books/<책 id>.json 의 code)를 넣어야 열린다 — 쪽에는 코드의 지문(sha256)만 둔다. 단원 · 문제 · 정답은 책 틀(docs/books/<책 id>.json)과 학습지 원본(docs/worksheets/*.json)에서 그대로. 여기에는 책마다 다른 첫 화면 글만 적는다. 고치면 node tools/build-book-landing.mjs.",
  "books": {
-  "topik2-writing-51-52": {
-   "kicker": { "en": "TOPIK II · Questions 51–52", "ko": "TOPIK II · 쓰기 51~52번" },
-   "hook": { "en": "One sentence per blank. Twenty points.", "ko": "빈칸에 한 문장. 그게 20점이에요." },
-   "lead": { "en": "Questions 51 and 52 ask for one sentence in each blank — in the right meaning and the right written style. This book shows how they are scored, then gives you 100 questions to practise exactly that.", "ko": "51번과 52번은 빈칸마다 한 문장을 씁니다. 뜻도 맞고, 글의 문체에도 맞아야 해요. 이 책은 채점 기준을 먼저 보여 주고, 그대로 연습하는 100문제를 줍니다." },
-   "stats": [["100", { "en": "questions", "ko": "문제" }], ["14", { "en": "units", "ko": "단원" }], ["2", { "en": "parts (Q51 · Q52)", "ko": "부(51번 · 52번)" }], ["4", { "en": "week plan", "ko": "주 계획표" }]],
-   "story": [
-    ["scoring", { "en": "Start with how it is scored", "ko": "채점 기준부터" }, { "en": "Content and language are read for every blank. You see what a full-mark sentence needs before you write one.", "ko": "빈칸마다 내용과 언어를 함께 봅니다. 쓰기 전에 만점 문장이 무엇을 갖춰야 하는지 먼저 봐요." }],
-    ["worked", { "en": "Watch one question solved", "ko": "한 문제를 단계별로" }, { "en": "Read the text type, find what the blank needs, then match the ending to the text.", "ko": "글의 종류를 읽고, 빈칸에 필요한 뜻을 찾고, 글에 맞는 끝말로 맞춰요." }],
-    ["expr", { "en": "Learn the expressions that fill the blanks", "ko": "빈칸에 들어갈 표현을 먼저" }, { "en": "Each topic opens with its key expressions and a warm-up.", "ko": "주제마다 핵심 표현과 몸풀기로 시작해요." }],
-    ["practice", { "en": "Then practise in the exam format", "ko": "그다음 시험 모양 실전 문제" }, { "en": "Fifty questions for 51, fifty for 52, with model answers and the answers that lose points.", "ko": "51번 50문제, 52번 50문제. 정답 쪽에 모범 답안과 감점되는 답이 있어요." }],
-    ["spoken", { "en": "Turn speech into written style", "ko": "말을 글말로" }, { "en": "A table of everyday endings and the written forms the exam expects.", "ko": "말로 하는 끝말과 시험이 원하는 글말을 표로 바꿔 봐요." }]
-   ],
-   "try": { "unit": "g51-recruit", "fill": 3, "quiz": 3, "cards": 8 },
-   "tryTitle": { "en": "Try three blanks from the book", "ko": "책 속 빈칸 세 개, 지금 풀어 보기" },
-   "path": [
-    [{ "en": "The book", "ko": "책" }, { "en": "Scoring, worked examples, 100 questions", "ko": "채점 기준 · 예시 풀이 · 100문제" }],
-    [{ "en": "Free online practice", "ko": "무료 온라인 연습" }, { "en": "A QR code in every unit opens cards, a quiz and fill-ins", "ko": "단원마다 QR — 표현 카드 · 퀴즈 · 빈칸" }],
-    [{ "en": "AI writing feedback", "ko": "AI 쓰기 채점" }, { "en": "Write on the site and get scored (Pro)", "ko": "사이트에서 쓰고 채점받기(Pro)" }]
-   ]
+  "first-steps-workbook": {
+   "kicker": { "en": "Korean Workbook Series · A1", "ko": "한국어 워크북 시리즈 · 입문" },
+   "hook": { "en": "Study the whole book here — every exercise, checked.", "ko": "책 한 권을 여기서 — 모든 연습을 풀고 바로 확인해요." },
+   "lead": { "en": "For readers of Korean First Steps Workbook: all 37 units in the book's order. Type your answers and check them against the answer key, flip the letter and word cards, match, listen to the dialogues and keep a list of what you missed.", "ko": "「한국어 첫걸음 워크북」 독자 전용. 책 순서 그대로 37단원 — 답을 써서 정답과 맞춰 보고, 글자 · 낱말 카드를 넘기고, 짝을 잇고, 대화를 듣고, 틀린 것만 다시 풀어요." }
   }
  }
 }
