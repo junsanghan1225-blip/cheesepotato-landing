@@ -75,9 +75,34 @@
   const route = () => {
     const h = location.hash.slice(1).split('/'); const app = $('#app');
     if (h[0] === 'play') { const u = units().find((x) => x.id === h[1]); if (u) { play(app, u); return; } }
+    if (h[0] === 'learn') { const u = units().find((x) => x.id === h[1]); if (u) { learn(app, u); return; } }
     if (h[0] === 'review') { const list = dueList(); if (list.length) { play(app, { id: '_review', no: 0, title: { en: "Today's review", ko: '오늘의 복습' }, secs: [], deck: [], _q: list.map((x) => x.q) }); return; } }
     mapView(app);
   };
+
+  /* ── 먼저 듣기(책 단원 첫머리 QR) — 단원 낱말을 한 장씩: 듣기 · 뒤집기 · 알아요/다시. 다 넘기면 그 단원 게임으로 ── */
+  function learn(app, u) {
+    document.body.classList.add('bl-playing');
+    const deck = u.deck; let q = deck.map((_, k) => k), known = 0;
+    if (!deck.length) { location.hash = 'play/' + u.id; return; }
+    ev('book_room_learn', { cp_q: String(u.no) });
+    app.innerHTML = `<div class="bl-stage"><div class="bl-top"><a class="bl-x" href="#" aria-label="Map · 지도">✕</a><div class="bl-pbar"><span></span></div><span class="bl-combo"></span></div><div class="bl-kind"><span>Unit ${String(u.no).padStart(2, '0')} · ${esc(u.title.ko)} · Listen first · 먼저 듣기</span></div><div id="lc"></div></div>`;
+    const bar = $('.bl-pbar span', app), box = $('#lc', app);
+    const draw = () => {
+      bar.style.width = `${Math.round((known / deck.length) * 100)}%`;
+      if (!q.length) { beep('win'); box.innerHTML = `<div class="bl-win"><div class="kick">WORDS READY · 낱말 준비 끝</div><h3>${deck.length} words · 낱말 ${deck.length}개</h3><p class="bl-sub">Now study the unit in the book. When you finish, scan the QR at the end of the unit to play the review game. · 이제 책으로 단원을 공부하고, 끝나면 단원 끝 QR 로 복습 게임을 해요.</p><div class="bl-acts" style="justify-content:center"><a class="bl-btn main big" href="#play/${esc(u.id)}">Play the game now · 지금 게임하기 →</a><a class="bl-btn" href="#">Map · 지도</a></div></div>`; return; }
+      const c = deck[q[0]];
+      box.innerHTML = `<div class="bl-card" tabindex="0" role="button" aria-label="Flip · 뒤집기"><div><div class="fa" lang="ko"><b>${esc(c.ko)}</b><small>Tap to see the meaning · 눌러서 뜻 보기</small></div><div class="ba">${esc(c.en)}</div></div></div>
+        <div class="bl-acts"><button class="bl-btn" type="button" data-a="say">Listen · 듣기</button><button class="bl-btn" type="button" data-a="again">Again · 다시</button><button class="bl-btn main" type="button" data-a="know">I know it · 알아요</button></div><p class="bl-sub">${q.length} left · 남은 카드</p>`;
+      tts(c.ko);
+      const card = $('.bl-card', box); const flip = () => card.classList.toggle('flip');
+      card.addEventListener('click', flip); card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+      $('[data-a="say"]', box).addEventListener('click', () => tts(c.ko));
+      $('[data-a="again"]', box).addEventListener('click', () => { q.push(q.shift()); draw(); });
+      $('[data-a="know"]', box).addEventListener('click', () => { q.shift(); known++; beep('ok'); draw(); });
+    };
+    draw();
+  }
 
   /* ── 지도 ── */
   function mapView(app) {
