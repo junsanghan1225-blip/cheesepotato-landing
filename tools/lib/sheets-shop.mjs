@@ -112,7 +112,7 @@ function bundlesHtml() {
   }).join('');
 }
 function shopPage() {
-  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `$${esc(k.price)} · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
+  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `<span data-px="${esc(k.price)}">$${esc(k.price)}</span> · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
   const books = (SHOP.series || []).map((g) => { const ks = g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean); return `<h2 class="bk-series" id="series-${esc(g.id)}">${esc(g.title.en)} · ${esc(g.title.ko)} <small style="font-weight:600;font-size:.6em;color:var(--ink-3)">· ${ks.length}권</small></h2>\n<div class="bk-grid">\n${ks.map(bookItem).join('\n')}\n</div>`; }).join('\n');
   const packs = SHOP.packs.map((p) => {
     const ws = packSheets(p);
@@ -136,7 +136,7 @@ ${packs}
 <div class="box">
 ${singles}
 </div>
-${shopFoot}` + foot;
+${shopFoot}<script src="/sale.js" defer></script>` + foot;
 }
 /* Yes24 식 책 쪽(운영자 2026-10-18 「판매페이지 · 미리보기 · 책소개」) — shop.json 책에 page 가 있으면 소개 · 특징 · 미리보기 · 저자 · 책 정보 · 자주 묻는 질문을 더 보여 준다. 미리보기 그림은 assets/books/<id>/pv-N.jpg, 크게 보기는 CSS :target(스크립트 없음). */
 /* ── 책 상세 쪽(/shop/<id>/) — 예스24 · 교보문고 식 정보 + 마케팅 랜딩 요소(운영자 2026-10-27 「시안 C 에 B 의 색 있는 윗부분을 섞어서」) ──
@@ -214,7 +214,7 @@ function bookPage(k) {
   const level = k.level;
   const stDev = { en: k.pages ? '' : '' };
   const sample = k.sample ? `${base}#sample` : '';
-  const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}">Buy the PDF · $${esc(k.price)}</a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
+  const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}" data-sale>Buy the PDF · <span data-px="${esc(k.price)}">$${esc(k.price)}</span></a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
   /* 샘플 단추는 누르면 바로 PDF 를 받는다(2026-11-14 운영자 「책 상세 쪽 샘플 · 구매 단추 고쳐줘」 — 책 클릭 18 · 샘플 0: 예전엔 아래 이메일 칸으로 내려가기만 했다).
      이메일 칸(#sample)은 아래에 그대로 둔다 — 소식을 받고 싶은 사람만 쓴다. 누른 자리는 data-ev-from 으로 가른다(hero · card · bar). */
   const sampleA = (where, label, cls) => k.sample ? `<a class="${cls}" href="/assets/books/${esc(k.id)}/sample.pdf" download data-ev="샘플받기" data-ev-from="${esc(k.id)}-${where}">${label}</a>` : '';
@@ -256,22 +256,22 @@ ${k.sample ? `<section class="pg2-sec">${sampleBox(k)}</section>` : ''}
 ${on ? `<section class="pg2-sec pg2-prom">${proBox(k.id, 'main')}</section>` : ''}
 <section class="pg2-sec"><h2>Who it is for · 이런 분께</h2><ul class="pg2-fl">${k.for.en.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
 ${toc ? `<section class="pg2-sec"><details class="pg2-toc"><summary>Contents · 목차</summary>${toc}<p style="color:var(--ink-3);font-size:13px">Page numbers are those printed in the book · 쪽 번호는 책에 인쇄된 번호입니다.</p></details></section>` : ''}
-${g.specs ? `<section class="pg2-sec"><h2>Book details · 책 정보</h2><table class="pg2-spec">${g.specs.map(([a, b]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}<tr><th>Price · 가격</th><td>$${esc(k.price)}</td></tr></table></section>` : ''}
+${g.specs ? `<section class="pg2-sec"><h2>Book details · 책 정보</h2><table class="pg2-spec">${g.specs.map(([a, b]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}<tr><th>Price · 가격</th><td><span data-px="${esc(k.price)}">$${esc(k.price)}</span></td></tr></table></section>` : ''}
 <section class="pg2-sec" id="reviews" data-reviews="${esc(k.id)}" hidden><h2>Reviews · 리뷰</h2><div class="rv-sum" data-rv-sum></div><div data-rv-list></div></section>
 ${g.faq ? `<section class="pg2-sec"><h2>FAQ · 자주 묻는 질문</h2><div class="pg2-faq">${g.faq.map(([q, a]) => `<details><summary>${esc(q.en)} · ${esc(q.ko)}</summary><p>${esc(a.en)}</p><p style="color:var(--ink-3)">${esc(a.ko)}</p></details>`).join('')}</div></section>` : ''}
 ${more ? `<section class="pg2-sec"><h2>More books · 다른 책</h2><div class="pg2-more">${more}</div><p style="margin-top:14px"><a class="btn sub" href="/shop/">← All books</a></p></section>` : ''}
 ${shopFoot}
 </main>
 <aside class="pg2-card">
-  ${on ? `<div class="px">$${esc(k.price)}<small>PDF · instant download</small></div><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-card">Buy the PDF</a>` : `<div class="px">Coming soon<small>${esc(level)}</small></div><a class="btn" href="#notify">Tell me when it is out</a>`}
+  ${on ? `<div class="px"><span data-px="${esc(k.price)}">$${esc(k.price)}</span><small>PDF · instant download</small></div><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-card" data-sale>Buy the PDF</a>` : `<div class="px">Coming soon<small>${esc(level)}</small></div><a class="btn" href="#notify">Tell me when it is out</a>`}
   ${sampleA('card', `↓ Free sample · ${k.sample?.pages || ''} pages PDF`, 'btn sub')}
   <p class="pg2-one">Instant download · answer key included</p>
   ${on ? proBox(k.id, 'card') : ''}
   ${bundle ? `<div class="pg2-bundle"><b>${esc(bundle.title.en)}</b><br>$${esc(bundle.price)} instead of $${bundle.books.reduce((a, id) => a + parseFloat(SHOP.books.find((b) => b.id === id).price), 0).toFixed(2)} · <a href="${esc(bundle.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bundle">Buy the bundle →</a></div>` : ''}
 </aside></div></div>
-<div class="pg2-bar">${on ? `<b>$${esc(k.price)}</b><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bar">Buy PDF</a>` : `<b>Soon</b><a class="btn" href="#notify">Notify me</a>`}${sampleA('bar', '↓ Sample', 'btn sub')}</div>
+<div class="pg2-bar">${on ? `<b data-px="${esc(k.price)}">$${esc(k.price)}</b><a class="btn" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}-bar" data-sale>Buy PDF</a>` : `<b>Soon</b><a class="btn" href="#notify">Notify me</a>`}${sampleA('bar', '↓ Sample', 'btn sub')}</div>
 </div>
-<script src="/subscribe.js" defer></script><script src="/reviews.js" defer></script><script src="/bookflip.js" defer></script>`;
+<script src="/subscribe.js" defer></script><script src="/reviews.js" defer></script><script src="/bookflip.js" defer></script><script src="/sale.js" defer></script>`;
   return head(`${k.title.en} — ${pub.en}`, `${g.headline?.en || k.sub.en} ${k.sub.en}`.slice(0, 300), base, head2) + body + foot;
 }
 

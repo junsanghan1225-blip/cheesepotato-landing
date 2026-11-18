@@ -22,7 +22,7 @@ const src = (k) => (fs.existsSync(path.join(ROOT, smPath(k))) ? smPath(k) : k.co
 const card = (k, buy) => `<a class="hm-bk" href="shop/${esc(k.id)}/" data-ev="책클릭" data-ev-from="첫화면">
           <img src="${esc(src(k))}" alt="${esc(k.title.en)} — ${esc(k.title.ko)}" width="300" height="426" loading="lazy" decoding="async">
           <b>${esc(k.title.en)}</b><span class="hm-bk-ko">${esc(k.title.ko)}</span>
-          ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
+          ${buy ? `<em class="hm-bk-buy"><span class="hm-bk-px" data-px="${esc(k.price)}">$${esc(k.price)}</span> <span data-en="PDF · Buy →">PDF · 사기 →</span></em>` : `<em class="hm-bk-soon" data-en="Coming soon">곧 나와요</em>`}
         </a>`;
 
 /* 서가형(운영자 2026-11-06 「A 좋아」 — 교보문고 서가): 갈래별로 한 줄씩 표지만 꽂고, 누르면 아래 상세 칸이 바뀐다. 글 없이 표지만 둬서 덜 난잡하다. 눌러도 쪽으로 가지 않는 것은 app.js 가 맡고(JS 가 없으면 그냥 책 쪽으로 간다), 상세 칸의 단추가 책 쪽으로 보낸다. */
@@ -40,7 +40,7 @@ const restN = GROUPS.slice(1).reduce((a, [, , , ids]) => a + ids.filter((id) => 
 const shelves = shelfList[0] + (shelfList.length > 1 ? `\n    <details class="hm-more"><summary><span data-en="More series · ${restN} more books">다른 시리즈 ${restN}권 더 보기</span></summary>\n    ${shelfList.slice(1).join('\n    ')}\n    </details>` : '');
 const panel = `<div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/${esc(p0.id)}/" tabindex="-1" aria-hidden="true"><img src="${esc(src(p0))}" alt="" width="300" height="426"></a>
       <div class="hm-pan-b"><span class="hm-pan-g">${esc(p0.pages.replace(/\(.*\)/, '').trim())}</span><h3 class="hm-pan-t">${esc(p0.title.en)}</h3><p class="hm-pan-ko">${esc(p0.title.ko)}</p><p class="hm-pan-sub">${esc(p0.sub?.ko || '')}</p>
-      <p class="hm-pan-r"><span class="hm-bk-px">$${esc(p0.price)}</span><a class="hm-pan-go" href="shop/${esc(p0.id)}/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>`;
+      <p class="hm-pan-r"><span class="hm-bk-px" data-px="${esc(p0.price)}">$${esc(p0.price)}</span><a class="hm-pan-go" href="shop/${esc(p0.id)}/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>`;
 
 /* 책 묶음(status on)이 있으면 한 줄 안내 */
 const bundle = (SHOP.bundles || []).filter((b) => b.status === 'on' && b.polar).map((b) => {
