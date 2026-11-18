@@ -189,12 +189,7 @@ const ACC = CLASSIC ? (LVI?.bg || '#1F3A68') : B.color, TINT = CLASSIC ? (LVI ? 
    주소에 utm 을 달아(book / qr / 책 id / 단원 id) 구글 애널리틱스에서 어느 책 · 어느 단원에서 오는지 센다. */
 const qrLib = createRequire(import.meta.url)(path.join(ROOT, 'qrcode-lib.js'));
 const SITE_URL = 'https://everykoreans.com';
-/* 독자 공부방(book/<책 id>/ — tools/build-book-landing.mjs)이 있는 책은 단원 QR 을 공부방으로(운영자 2026-11-18 「단원마다 QR 세분화 · 학습을 마치고 QR 로 재학습 · 게임으로 복습」):
-   단원 첫머리 QR = 「먼저 듣기」(#learn/<단원> — 낱말 카드 · 소리), 단원 끝 QR = 「복습 게임」(#play/<단원>). 처음 한 번은 책 Reader bonus 쪽의 독자 코드를 넣는다. */
-const ROOM = fs.existsSync(path.join(ROOT, `book/${B.id}/index.html`));
-const roomUrl = (u, mode) => `${SITE_URL}/book/${B.id}/?utm_source=book&utm_medium=qr&utm_campaign=${encodeURIComponent(B.id)}&utm_content=${encodeURIComponent(u.id + '-' + mode)}#${mode}/${u.id}`;
 const unitUrl = (u) => {
-  if (ROOM) return roomUrl(u, 'learn');
   const ex = (f) => fs.existsSync(path.join(ROOT, f));
   const gid = u.id.replace(/^i(?=g\d\d-)/, '');   // 유형 안내 단원(ig51-…)은 같은 유형 묶음의 쪽으로
   let page = '/';
@@ -218,10 +213,6 @@ const unitQr = (u) => {
   const url = unitUrl(u), q = qrLib(0, 'M'); q.addData(url); q.make();
   const svg = q.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
   const shown = url.split('?')[0].replace('https://', '');
-  if (ROOM) {   // 공부방 책: 단원 첫머리 한 상자에 QR 둘 — ① 공부 전 먼저 듣기 ② 다 하고 복습 게임(단원 끝에 따로 두면 빈 쪽이 생겨서)
-    const q2 = qrLib(0, 'M'); q2.addData(roomUrl(u, 'play')); q2.make(); const svg2 = q2.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
-    return `<div class="qrb uq q2"><div class="qr">${svg}</div><div><b>1 · Listen first · 먼저 듣기</b><small>Before you study, hear this unit's words. · 공부 전에 이 단원 낱말을 소리로 들어요.</small></div><div class="qr">${svg2}</div><div><b>2 · Done? Review game · 다 했으면 복습 게임</b><small>After the unit, replay it as a game. Missed items come back in 1, 3 and 7 days. · 단원을 마치면 게임으로 다시. 틀린 것은 1 · 3 · 7일 뒤 다시 나와요.</small></div><small class="q2n">First time only: enter the reader code from the Reader bonus page at the back of the book. · 처음 한 번만 책 뒤쪽 Reader bonus 쪽의 독자 코드를 넣어요.</small></div>`;
-  }
   return `<div class="qrb uq"><div class="qr">${svg}</div><div><b>Practice this unit online · free</b><small>스마트폰으로 찍으면 이 단원의 온라인 연습 쪽으로 가요. PDF판은 아래 주소를 눌러도 돼요.</small><a href="${esc(url)}">${esc(shown)}</a></div></div>`;
 };
 
@@ -461,13 +452,7 @@ const lookalike = (u) => {
 const cb = '<i class="cb"></i>';
 const isStudyUnit = (u) => B.selfStudy && !/guide|^rv-|^mt-|^fin-/.test(u.id);
 /* 책 ↔ 앱 점검 칸 — 단원 끝에 「책에서 풀기 → 단원 처음 QR 로 앱 점검 → 점수 적기 → 복습 날짜」 흐름을 한눈에(운영자 2026-10-24 「책을 하면서 앱까지 같이」). 보너스 연습이 있는 단원에만 붙는다. */
-/* 단원 끝 「복습 게임」 QR — 책으로 단원을 마친 뒤 찍어 게임으로 다시(틀린 것은 1 · 3 · 7 · 21일 뒤 공부방 「오늘의 복습」으로) */
-const endQr = (u) => {
-  if (KDP || !ROOM || u.id === 'fs-guide' || B.noQr) return '';
-  const url = roomUrl(u, 'play'), q = qrLib(0, 'M'); q.addData(url); q.make();
-  return `<div class="qrb uq eq" style="break-inside:avoid;margin-top:3mm"><div class="qr">${q.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}</div><div><b>Done? Review it as a game · 다 했으면 복습 게임</b><small>Scan to replay this unit: letter tiles, listening, speaking and matching. Missed items come back in your review in 1, 3 and 7 days. · 찍으면 이 단원을 게임으로 다시 해요. 글자 조각 · 듣기 · 말하기 · 짝 맞추기. 틀린 것은 1 · 3 · 7일 뒤 복습에 다시 나와요.</small></div></div>`;
-};
-const appCheck = (u) => KDP || YES24 || ROOM || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
+const appCheck = (u) => KDP || YES24 || !fs.existsSync(path.join(ROOT, `bonus/${B.id}/${u.id}/index.html`)) ? '' : `<div class="sc"><h4>Book + App check · 책 + 앱 점검</h4><div style="font-size:8.2pt;line-height:1.7"><b>1</b> Practice in pencil · 연필로 풀기 &nbsp;→&nbsp; <b>2</b> Scan this unit's QR, app quiz 80%+ · 단원 QR로 앱 점검<br><b>3</b> App score · 앱 점수 ______ / 10 &nbsp;&nbsp; Review · 복습 <span class="cb"></span> 1일 <span class="cb"></span> 3일 <span class="cb"></span> 7일</div></div>`;
 /* 한 줄판(운영자 2026-11-12 「간격 줄이기」) — 책 틀 splitSections 책은 점검 칸을 한 줄 높이로 줄여, 단원 맨 끝에서 칸만 새 쪽으로 넘어가 빈 쪽이 되는 일을 막는다 */
 const NOCHK = new Set(), TIGHT = {};   // 점검 칸이 새 쪽으로 넘어가 빈 쪽이 되는 단원(2차 측정에서 채움 — 아래 쪽수 세기 반복문)
 const selfCheck = (u) => !isStudyUnit(u) || NOCHK.has(u.id) ? '' : B.splitSections ? `<div class="sc scx"><h4>// my check</h4><b>내 규칙</b><span class="tl"></span><b>복습</b>${cb}1일 ${cb}3일 ${cb}7일</div>` : `<div class="sc"><h4>My check · 나의 점검</h4>
@@ -1209,7 +1194,6 @@ tbody tr:nth-child(even) td,tr:nth-child(even) td{background:transparent}td{bord
 .lad .rw{display:flex;align-items:center;gap:2.4mm;margin-top:2.2mm}.lad .rw b{width:7mm;font-size:9.4pt;color:${ACC}}.lad .bar{flex:1;height:3.4mm;background:#e8ecf3;border-radius:2mm;overflow:hidden}.lad .bar span{display:block;height:100%;background:${ACC}}.lad em{font:800 11pt "Pretendard Variable";font-style:normal;width:21mm;white-space:nowrap;text-align:right}.lad em small{font-size:7.4pt;font-weight:500;color:#5a6780}.lad .why{font-size:8pt;color:#44506a;line-height:1.4;margin:.6mm 0 0 9.4mm}
 .fm .lead{font-size:9.4pt;line-height:1.5;margin:1mm 0 3mm}.fm .lead small{display:block;font-size:8pt;color:#5a6780}.fm .note2{font-size:8pt;color:#5a6780;margin:1.2mm 0 3mm}.fm .note2 small{display:block}
 .tbar{display:flex;gap:.8mm;margin-top:1.6mm}.tbar span{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2mm 0;border-radius:1.4mm;background:${ACC};color:#fff;font-size:8pt;min-width:9mm}.tbar span:nth-child(odd){opacity:.86}.tbar span:last-child{background:#7a8aa6}.tbar b{font-size:10pt}
-.uq.q2{flex-wrap:wrap;row-gap:1mm}.uq.q2>div:not(.qr){flex:1 1 0;min-width:0}.uq.q2 .q2n{flex-basis:100%;font-size:6.6pt;color:#6b6358;margin:0}
 .uq{margin:0 0 3mm;padding:1.5mm 3mm;gap:3mm;break-inside:avoid}.uq .qr svg{width:14mm;height:14mm}.uq b{font-size:8.5pt}.uq small{font-size:7pt;margin:.3mm 0}.uq a{display:block;margin-top:1mm;font-size:7pt;color:${ACC};text-decoration:none;word-break:break-all}
 .qrb{display:flex;gap:4mm;align-items:center;margin-top:5mm;padding:3mm 4mm;border:.3mm solid ${ACC};border-radius:2mm;background:${TINT}}.qrb .qr svg{width:22mm;height:22mm;display:block}.qrb b{display:block;font-size:10pt;color:${ACC}}.qrb small{display:block;font-size:8pt;color:#44506a;margin:.8mm 0}.qrb span{font-size:8pt;font-weight:700;color:${ACC}}
 .plt td.pk{position:relative;padding-top:1.2mm}.plt .pi{display:flex;align-items:center;gap:1mm;margin-bottom:.8mm;font-size:6.4pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.plt .pi em{font-style:normal}.plt svg,.plg2 svg{width:3.2mm;height:3.2mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}.pkw{color:#3a2f66;background:#f4f1fa}.pkr{color:#1F3A68;background:#eef3fa}.pkv{color:#8a5316;background:#fbf3e8}.pkc{color:#1f6a5a;background:#ecf6f2}.pkt{color:#6b2f7a;background:#f6eef8}.plt td.pk{color:#222}.plt td.pkw .pi{color:#3a2f66}.plt td.pkr .pi{color:#1F3A68}.plt td.pkv .pi{color:#8a5316}.plt td.pkc .pi{color:#1f6a5a}.plt td.pkt .pi{color:#6b2f7a}.plg2{display:flex;gap:4mm;margin-top:3mm;font-size:7.4pt;font-weight:700}.plg2 span{display:flex;align-items:center;gap:1.2mm;padding:.8mm 2mm;border-radius:1mm}.plt{width:100%;border-collapse:collapse;table-layout:fixed;min-width:0;margin-top:3mm;font-size:8.2pt;line-height:1.4}.plt th,.plt td{border:.25mm solid #c9c2d8;padding:2mm 1.8mm;vertical-align:top;text-align:left}.plt thead th{background:#efecf6;color:#3a2f66;font-size:7.6pt}.plt thead th:nth-child(1){width:19mm}.plt thead th:nth-child(2){width:31mm}.plt th.w{background:#f7f5fb;color:#3a2f66;font-weight:800}.plt td.f b{display:block}.plt small{display:block;font-size:7pt;font-weight:500;color:#5a6780}.plt tr.ph td{background:#3a2f66;color:#fff;font-weight:800;font-size:7.6pt;letter-spacing:.06em;padding:1.2mm 2mm}.plt tbody tr:not(.ph){height:16mm}.wk{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm;margin-top:2mm}.wc2{border-radius:2mm;overflow:hidden;border:.3mm solid var(--wc,#1F3A68);background:#fff}.wc2 h4{background:var(--wc,#1F3A68);color:#fff;padding:2mm 2.6mm;font-size:8.6pt;line-height:1.3}.wc2 h4 small{display:block;font-size:7.2pt;font-weight:500;opacity:.85}.wc2 .dy{display:flex;align-items:center;gap:1.8mm;padding:1.8mm 2.4mm;border-top:.2mm solid #e3e8f0;font-size:8pt}.wc2 .dy i{flex:none;width:3.6mm;height:3.6mm;border:.35mm solid var(--wc,#1F3A68);border-radius:.8mm}.wc2 .dy b{flex:none;width:6mm;color:var(--wc,#1F3A68);font-size:7.6pt}.wc2.c0{--wc:#1F3A68}.wc2.c1{--wc:#2a7a6a}.wc2.c2{--wc:#a8641e}.wc2.c3{--wc:#7a3d8a}
