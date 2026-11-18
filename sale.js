@@ -23,7 +23,7 @@
     if (at && !document.querySelector('.sale-bar')) {
       var d = Math.max(1, Math.ceil((e - now) / 864e5));
       var bar = document.createElement('p'); bar.className = 'sale-bar';
-      bar.innerHTML = '<b>D-' + d + '</b> ' + (ko ? '모든 PDF 책 ' + SALE.pct + '% 할인 · ' + SALE.until.ko + '까지' : 'All PDF books ' + SALE.pct + '% off · until ' + SALE.until.en) + ' <small>(' + (ko ? '결제 화면에 코드 ' : 'code ') + SALE.code + (ko ? ' 자동 적용' : ' applied at checkout') + ')</small>';
+      bar.innerHTML = '<b>D-' + d + '</b> ' + (ko ? '모든 PDF 책 ' + SALE.pct + '% 할인 · ' + SALE.until.ko + '까지' : 'All PDF books ' + SALE.pct + '% off · until ' + SALE.until.en) + ' <small>(' + (ko ? '코드 ' + SALE.code + ' — 결제 화면에 자동으로 들어가요. 안 보이면 「Add discount code」에 넣어 주세요' : 'code ' + SALE.code + ' — added at checkout; if not, enter it under “Add discount code”') + ')</small>';
       at.parentNode.insertBefore(bar, at);
     }
   };
