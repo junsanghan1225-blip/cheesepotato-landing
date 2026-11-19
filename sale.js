@@ -32,7 +32,17 @@
         '<span>' + (ko ? SALE.until.ko + '까지 · 코드 ' + SALE.code : 'Until ' + SALE.until.en + ' · code ' + SALE.code) + '</span></div>' +
         (rows ? '<div class="sp-p">' + rows + '</div>' : '') +
         '<p class="sp-n">' + (ko ? '결제 화면에 코드가 자동으로 들어가요. 안 보이면 「Add discount code」 칸에 ' + SALE.code + ' 를 넣어 주세요.' : 'The code is added at checkout. If it is not, enter ' + SALE.code + ' under “Add discount code”.') + '</p>';
-      if (at.id === 'hmBooks') at.insertBefore(bar, at.firstChild); else at.parentNode.insertBefore(bar, at);   // 첫 화면은 책 코너 안쪽 첫 줄(다른 상자와 폭 맞춤), 상점 쪽은 머리 위
+      if (at.id === 'hmBooks') at.insertBefore(bar, at.firstChild);   // 첫 화면은 책 코너 안쪽 첫 줄(다른 상자와 폭 맞춤)
+      else {   // 상점 · 가격 쪽은 머리 위 — 머리 안쪽 칸(.in)의 좌우 여백 · 최대 폭을 읽어 같은 폭으로(전체 폭으로 늘어나 안 맞던 것, 2026-11-20)
+        var c = at.firstElementChild, cs = c && getComputedStyle(c);
+        if (cs) {
+          var px = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight), mw = parseFloat(cs.maxWidth);
+          bar.style.width = 'calc(100% - ' + px + 'px)';
+          if (mw) bar.style.maxWidth = (cs.boxSizing === 'border-box' ? mw - px : mw) + 'px';
+          bar.style.margin = '16px auto';
+        }
+        at.parentNode.insertBefore(bar, at);
+      }
     }
   };
   var css = document.createElement('style');
