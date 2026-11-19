@@ -31,7 +31,7 @@ const ASSETS = [
   'reviews.js',    /* 책 쪽 별점 · 리뷰, 감사 쪽 리뷰 쓰기(db/add_book_reviews.sql) */
   'subscribe.js',  /* 책 쪽 · 학습지 쪽 이메일 받기 칸(db/add_email_leads.sql) */
   'podcast.js',   /* 팟캐스트 올리기 쪽(운영자 전용) — 브라우저가 옛 파일을 들고 있으면 새 표지가 안 보인다 */
-  'app.js', 'app.module.js', 'analytics.js', 'sale.js', 'gtm.js', 'course-icons.js', 'billing.js', 'audio-key.js',
+  'early.js', 'app.js', 'app.module.js', 'analytics.js', 'sale.js', 'gtm.js', 'course-icons.js', 'billing.js', 'audio-key.js',
   'courses.js', 'courses-lite.js', 'courses-grammar.js', 'courses-grammar-beginner.js',
   'glossary.js', 'gloss-find.js',
   /* 「단어」 화면(#words) — 화면 코드와 자료(tools/build-vocab.mjs 생성물). 그 화면을 열 때만 받는다. */
