@@ -839,7 +839,14 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-pan-ko { margin:2px 0 0; font-size:13.5px; color:var(--ink-2); }
 .hm-pan-sub { margin:6px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.5; word-break:keep-all; }
 .hm-pan-r { margin:12px 0 0; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.hm-pan-go { display:inline-block; padding:9px 14px; border-radius:5px; background:var(--orange); color:#1c1915; font-weight:800; font-size:14px; text-decoration:none; }
+.hm-pan-go { display:inline-block; padding:9px 14px; border-radius:5px; background:var(--orange); color:#1c1915; font-weight:800; font-size:14px; text-decoration:none; transition:filter .15s, transform .08s; }
+/* 책 코너 작은 반응(2026-11-20) — 누르는 느낌 · 키보드 초점 · 스크롤 때 살짝 나타나기. 그림자 · 색 번쩍임 없이 짧게. */
+.hm-pan-go:hover { filter:brightness(.93); }
+.hm-pan-go:active { transform:translateY(1px); }
+.hm-pan-go:focus-visible, .hm-shelf .hm-bk:focus-visible img { outline:2px solid var(--ink); outline-offset:2px; }
+.hm-shelf .hm-bk:active img { transform:translateY(-3px); }
+@keyframes hm-rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:no-preference) { @supports (animation-timeline:view()) { .hm-shelf .hm-bk { animation:hm-rise .3s ease-out both; animation-timeline:view(); animation-range:entry 0% entry 35%; } } }
 @media (min-width:900px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
