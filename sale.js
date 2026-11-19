@@ -52,9 +52,9 @@
     '.sp-t{display:grid;gap:2px}.sp-t b{font-size:19px;font-weight:800;letter-spacing:-.01em;word-break:keep-all}.sp-t span:last-child{font-size:13.5px;color:var(--ink-2,#4E3E31)}' +
     '.sp-d{justify-self:start;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--orange-text,var(--orange-deep,#B4460F));border-bottom:2px solid currentColor;padding-bottom:1px;margin-bottom:4px}' +
     '.sp-p{display:grid;gap:4px;padding-left:24px;border-left:1px dashed var(--line,#cfc6b4)}' +
-    '.sp-r{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}.sp-r s{font-size:14px;color:var(--ink-3,#8C7A66)}.sp-r i{font-style:normal;color:var(--ink-3,#8C7A66)}.sp-r b{font-size:26px;line-height:1.1;font-weight:800;color:var(--orange-text,var(--orange-deep,#B4460F))}' +
+    '.sp-r{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}.sp-r s{font-size:14px;color:var(--ink-3,#8C7A66)}.sp-r i{font-style:normal;color:var(--ink-3,#8C7A66)}.sp-r b{font-size:20px;line-height:1.2;font-weight:800;color:var(--orange-text,var(--orange-deep,#B4460F))}' +
     '.sp-n{grid-column:1/-1;margin:6px 0 0;padding-top:8px;border-top:1px dashed var(--line,#cfc6b4);font-size:12.5px;line-height:1.5;color:var(--ink-3,#8C7A66)}' +
-    '@media (max-width:560px){.sale-promo{grid-template-columns:minmax(0,1fr);padding:14px}.sp-p{padding:8px 0 0;border-left:0;border-top:1px dashed var(--line,#cfc6b4)}.sp-r b{font-size:22px}}';
+    '@media (max-width:560px){.sale-promo{grid-template-columns:minmax(0,1fr);padding:14px}.sp-p{padding:8px 0 0;border-left:0;border-top:1px dashed var(--line,#cfc6b4)}.sp-r b{font-size:18px}}';
   document.head.appendChild(css);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
   setTimeout(run, 1500);   // 첫 화면 책 코너가 늦게 그려질 때
