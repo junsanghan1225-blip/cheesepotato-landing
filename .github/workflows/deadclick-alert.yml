@@ -1,0 +1,38 @@
+# 데드클릭 알림 — 매시간 오늘 GA4 dead_click 을 보고, 같은 요소가 5번 넘으면 이슈 「[데드클릭 알림]」을 열거나 갱신한다(메일 · 앱 알림).
+# 왜: 데드클릭이 다음 날 아침 요약에서야 보였다. 키는 analytics-daily 와 같은 것(GOOGLE_SA_KEY · GA_PROPERTY_ID)이 없으면 조용히 건너뛴다.
+# 끄기: 저장소 Variables DEADCLICK_ALERT=off · 기준 바꾸기: Variables DEAD_MIN(기본 5). GA4 일반 보고서라 몇 시간 늦을 수 있다.
+name: deadclick-alert
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+permissions:
+  issues: write
+jobs:
+  look:
+    if: vars.DEADCLICK_ALERT != 'off'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: 데드클릭 보기 · 이슈 갱신
+        env:
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          DEAD_MIN: ${{ vars.DEAD_MIN || '5' }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -z "$GOOGLE_SA_KEY" ] || [ -z "$GA_PROPERTY_ID" ]; then echo "::notice::GOOGLE_SA_KEY · GA_PROPERTY_ID 가 없어 건너뜁니다."; exit 0; fi
+          node tools/deadclick-alert.mjs /tmp/dead.md | tee /tmp/out.txt
+          TITLE="[데드클릭 알림]"
+          OPEN=$(gh issue list --repo "$REPO" --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if ! grep -q '^hits=0$' /tmp/out.txt; then
+            if [ -n "$OPEN" ]; then gh issue edit "$OPEN" --repo "$REPO" --body-file /tmp/dead.md   # 매시간 댓글이 쌓이지 않게 본문만 갱신
+            else gh issue create --repo "$REPO" --title "$TITLE $(TZ=Asia/Seoul date +%F)" --body-file /tmp/dead.md; fi
+          elif [ -n "$OPEN" ]; then
+            gh issue comment "$OPEN" --repo "$REPO" --body "지금은 기준을 넘는 데드클릭이 없어서 닫습니다."
+            gh issue close "$OPEN" --repo "$REPO"
+          fi
