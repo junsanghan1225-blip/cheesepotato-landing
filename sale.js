@@ -13,6 +13,7 @@
     var ko = (document.documentElement.lang || '').slice(0, 2) === 'ko';
     document.querySelectorAll('[data-px]').forEach(function (el) {
       var p = el.getAttribute('data-px'); if (!/^\d+\.\d{2}$/.test(p) || el.getAttribute('data-sale-done')) return;
+      if (el.querySelector('img')) return;   // 첫 화면 서가의 책 링크(a.hm-bk)에도 data-px 가 있어 표지 그림이 가격 글자로 덮이던 것(2026-11-20)
       el.setAttribute('data-sale-done', '1');
       el.innerHTML = '<s class="sale-was">$' + p + '</s> $' + cut(p);
     });
