@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const FILES = ['app.module.js', 'app.js', 'words.js', 'word-blocks.js', 'billing.js', 'levels.js'];
+const FILES = ['app.module.js', 'app.js', 'words.js', 'word-blocks.js', 'billing.js', 'levels.js', 'sale.js'];
 const out = new Map();
 const add = (en, ko, where) => {
   en = String(en).trim(); if (!en || !/[A-Za-z]/.test(en)) return;

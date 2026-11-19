@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=d42d08db', ja: './i18n-ja.js?v=d42d08db', zh: './i18n-zh.js?v=d42d08db', id: './i18n-id.js?v=d42d08db', ne: './i18n-ne.js?v=d42d08db', my: './i18n-my.js?v=d42d08db', ru: './i18n-ru.js?v=d42d08db', mn: './i18n-mn.js?v=d42d08db', pt: './i18n-pt.js?v=d42d08db', uz: './i18n-uz.js?v=d42d08db' };
+const I18N_URL = { vi: './i18n-vi.js?v=ca0a05af', ja: './i18n-ja.js?v=ca0a05af', zh: './i18n-zh.js?v=ca0a05af', id: './i18n-id.js?v=ca0a05af', ne: './i18n-ne.js?v=ca0a05af', my: './i18n-my.js?v=ca0a05af', ru: './i18n-ru.js?v=ca0a05af', mn: './i18n-mn.js?v=ca0a05af', pt: './i18n-pt.js?v=ca0a05af', uz: './i18n-uz.js?v=ca0a05af' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1508,10 +1508,11 @@ document.addEventListener('click', (ev) => {
   const a = ev.target.closest && ev.target.closest('.hm-shelf a.hm-bk[data-bk]');
   if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
   const pan = document.getElementById('hmPan'); if (!pan) return;
+  if (a.dataset.picked) return;   // 이미 골라서 아래 상세 칸에 떠 있는 책을 한 번 더 누르면(두 번 클릭) 링크 그대로 상점 책 쪽으로 간다(운영자 2026-11-20). 처음부터 켜져 있는 첫 책은 한 번 눌러야 「골랐다」
   ev.preventDefault();
   const en = document.documentElement.lang !== 'ko', d = a.dataset;
-  document.querySelectorAll('.hm-shelf a.hm-bk.on').forEach((x) => x.classList.remove('on'));
-  a.classList.add('on');
+  document.querySelectorAll('.hm-shelf a.hm-bk.on').forEach((x) => { x.classList.remove('on'); delete x.dataset.picked; });
+  a.classList.add('on'); a.dataset.picked = '1';
   const q = (s) => pan.querySelector(s);
   q('.hm-pan-c img').src = d.src; q('.hm-pan-c').href = a.href;
   q('.hm-pan-g').textContent = en ? d.pgEn : d.pg;

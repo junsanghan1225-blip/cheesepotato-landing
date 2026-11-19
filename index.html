@@ -40,7 +40,7 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=d42d08db" async></script>
+<script src="gtm.js?v=ca0a05af" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
@@ -128,13 +128,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=d42d08db">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=d42d08db">
+<link rel="stylesheet" href="vendor/pretendard.css?v=ca0a05af">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=ca0a05af">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=d42d08db" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=d42d08db"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=ca0a05af" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=ca0a05af"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -953,7 +953,9 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hs-t b { grid-column:2; grid-row:1; margin:0; font-size:20px; font-weight:800; letter-spacing:-.01em; }
 .hs-t small { grid-column:2; grid-row:2; font-size:15px; font-weight:400; opacity:1; letter-spacing:0; color:var(--ink-3); white-space:normal; line-height:1.5; }
 @media (max-width:899px) { .hs-stack { display:block; } .hs-card, .hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { grid-template-columns:36px minmax(0,1fr); padding:16px 0; } .hs-t b { font-size:18px; } .hs-t small { font-size:14px; } }
-a.hm-tour-t { text-decoration:none; color:inherit; }
+/* 히어로 위아래 여백을 줄이고(116/52px → 72/32px), 「Pro 보기」 한 줄은 아래 Pro 소개와 겹쳐 빈 자리처럼 보이고 왼쪽 선도 어긋나서 뺐다(운영자 2026-11-20 「텅 비게 느껴져」). */
+.hero.hero-ask.hero-steps { padding-top:72px; padding-bottom:32px; }
+#hmProLine { display:none !important; }
 /* 첫 화면 깎기(2026-11-20): 책 코너의 블로그 카드 · 묶음 상자, Pro 요금 카드는 숨기고(마크업은 그대로 — 생성 도구 · 검사 영향 없음, 블로그 더 보기 링크 · Pro 자세히 링크는 남김), 소개의 숫자 표는 접는다. */
 .hm-books .hm-books-h, .hm-books .hm-post-row, .hm-books .hm-bundle { display:none; }
 #hmPro .hm-plans, #hmPro .hm-fine { display:none; }
@@ -4507,10 +4509,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=d42d08db"></script>
-<script type="module" src="app.module.js?v=d42d08db"></script>
+<script src="app.js?v=ca0a05af"></script>
+<script type="module" src="app.module.js?v=ca0a05af"></script>
 
-<script src="analytics.js?v=d42d08db" defer></script>
-<script src="sale.js?v=d42d08db" defer></script>
+<script src="analytics.js?v=ca0a05af" defer></script>
+<script src="sale.js?v=ca0a05af" defer></script>
 </body>
 </html>
