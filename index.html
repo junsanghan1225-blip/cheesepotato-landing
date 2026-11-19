@@ -941,7 +941,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-paths .hm-door-t { padding-right:40px; }
 .hm-banner { text-decoration:none; display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:var(--surface); box-sizing:border-box; }
 @media (min-width:900px) { .hm-banner.hm-banner-simple { grid-template-columns:auto 1fr auto; } .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
-.hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; color:#fff; background:#C4551C; padding:4px 10px; border-radius:8px; }
+.hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--orange-text, var(--orange-deep)); padding:0 0 2px; border-bottom:2px solid currentColor; }   /* 알약 모양 「NEW」 → 글자 + 밑줄(디자인 약속: 알약 없음, 2026-11-20) */
 .hm-banner-t b { display:block; font-size:22px; letter-spacing:-.02em; }
 .hm-banner-t span { font-size:14px; color:var(--ink-2); word-break:keep-all; }
 .hm-banner-card { display:grid; gap:4px; padding:12px 16px; border-radius:8px; background:var(--surface); border:1px solid var(--line); justify-self:start; }
