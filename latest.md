@@ -1,212 +1,182 @@
-# 일간 사이트 성과 — 2026-11-17
+# 일간 사이트 성과 — 2026-11-18
 
-> 자동으로 모은 숫자입니다(GA4 · Search Console). GA4 는 2026-11-17 하루, Search Console 은 2026-11-09 ~ 2026-11-15(7일, 2~3일 늦게 확정). **숫자의 기준은 GA4 / Search Console 화면입니다.**
+> 자동으로 모은 숫자입니다(GA4 · Search Console). GA4 는 2026-11-18 하루, Search Console 은 2026-11-10 ~ 2026-11-16(7일, 2~3일 늦게 확정). **숫자의 기준은 GA4 / Search Console 화면입니다.**
 
 ## 한눈에 (GA4, 하루)
 
 | 방문자 | 새 방문자 | 방문(세션) | 본 쪽 수 | 평균 머문 시간 | 참여율 |
 |---|---|---|---|---|---|
-| 91 | 80 | 97 | 231 | 122초 | 52.6% |
+| 42 | 30 | 50 | 132 | 109초 | 78.0% |
 
 ## 많이 본 쪽 TOP 10
 
 | 쪽 | 본 횟수 | 방문자 |
 |---|---|---|
-| / | 87 | 29 |
-| /dictionary/사치.html | 6 | 4 |
-| /irregular-verbs-worksheet/ | 6 | 1 |
-| /korean-word-for/cloudy.html | 6 | 1 |
-| /shop/ | 6 | 1 |
-| /topik-vocabulary-list/ | 6 | 1 |
-| /shop/particles-workbook/ | 5 | 2 |
-| /dictionary/정문.html | 4 | 1 |
-| /download/ | 4 | 1 |
-| /exam-room/ | 4 | 2 |
+| / | 65 | 22 |
+| /lesson/bg-11-01.html | 4 | 1 |
+| /topik-vocabulary-list/ | 4 | 1 |
+| /topik1-words/ | 4 | 1 |
+| /vi/ | 4 | 2 |
+| /dictionary/기출문제.html | 3 | 1 |
+| /dictionary/참기름.html | 3 | 1 |
+| /shop/first-steps-workbook/ | 3 | 1 |
+| /blog/topik-i-vs-topik-ii-english.html | 2 | 1 |
+| /dictionary/돕다.html | 2 | 1 |
 
 ## 어디서 왔나 (유입)
 
 | 채널 | 출처 / 매체 | 방문 |
 |---|---|---|
-| Direct | (direct) / (none) | 59 |
-| AI Assistant | chatgpt.com / ai-assistant | 16 |
-| Organic Search | google / organic | 8 |
-| Unassigned | (not set) | 7 |
-| Organic Search | duckduckgo / organic | 5 |
-| Unassigned | hub /  | 3 |
-| Organic Search | cn.bing.com / referral | 1 |
-| Organic Search | ecosia.org / organic | 1 |
-| Organic Search | in.search.yahoo.com / referral | 1 |
-| Organic Social | facebook.com / referral | 1 |
+| Direct | (direct) / (none) | 18 |
+| Organic Search | google / organic | 11 |
+| AI Assistant | chatgpt.com / ai-assistant | 10 |
+| Organic Search | bing / organic | 4 |
+| Organic Search | fr.search.yahoo.com / referral | 3 |
+| Organic Search | duckduckgo / organic | 2 |
+| Unassigned | (not set) | 2 |
+| Unassigned | app / page | 2 |
 
 ## 나라별
 
 | 나라 | 방문자 | 방문 |
 |---|---|---|
-| United States | 19 | 20 |
-| South Korea | 18 | 19 |
-| France | 4 | 4 |
-| India | 4 | 4 |
-| Mexico | 4 | 4 |
-| Brazil | 3 | 4 |
+| South Korea | 10 | 12 |
+| United States | 8 | 9 |
+| Vietnam | 5 | 6 |
 | China | 3 | 3 |
-| Singapore | 3 | 3 |
-| United Kingdom | 3 | 3 |
-| Australia | 2 | 3 |
+| India | 3 | 4 |
+| France | 2 | 4 |
+| Mongolia | 2 | 2 |
+| Philippines | 2 | 2 |
+| Greece | 1 | 1 |
+| Hong Kong | 1 | 2 |
 
 ## 나라 × 기기 × 유입 (사람 · 봇 가르기 — 머문 시간 0초 · 참여율 0% 가 몰려 있으면 봇 의심)
 
 | 나라 | 기기 | 유입 | 방문 | 평균 머문 시간 | 참여율 |
 |---|---|---|---|---|---|
-| United States | desktop | Direct | 14 | 1초 | 21.4% |
-| South Korea | desktop | AI Assistant | 5 | 305초 | 100.0% |
-| France | desktop | Direct | 4 | 0초 | 0.0% |
-| Mexico | desktop | Direct | 4 | 0초 | 25.0% |
-| Mongolia | tablet | AI Assistant | 3 | 14초 | 100.0% |
-| South Korea | desktop | Direct | 3 | 97초 | 100.0% |
-| South Korea | desktop | Organic Search | 3 | 179초 | 100.0% |
-| South Korea | mobile | Direct | 3 | 39초 | 100.0% |
-| United Kingdom | desktop | Direct | 3 | 0초 | 0.0% |
-| United States | desktop | Organic Search | 3 | 720초 | 100.0% |
-| Australia | desktop | Unassigned | 2 | 18초 | 50.0% |
-| Bangladesh | desktop | Direct | 2 | 0초 | 0.0% |
-| Bolivia | desktop | Direct | 2 | 0초 | 0.0% |
-| Brazil | desktop | AI Assistant | 2 | 764초 | 50.0% |
-| Brazil | desktop | Direct | 2 | 0초 | 0.0% |
+| South Korea | desktop | Organic Search | 7 | 70초 | 85.7% |
+| United States | desktop | Direct | 4 | 2초 | 25.0% |
+| France | desktop | Organic Search | 3 | 92초 | 66.7% |
+| Vietnam | desktop | AI Assistant | 3 | 176초 | 100.0% |
+| China | desktop | Direct | 2 | 3초 | 100.0% |
+| Hong Kong | desktop | Direct | 2 | 29초 | 100.0% |
+| India | mobile | Unassigned | 2 | 3초 | 50.0% |
+| South Korea | desktop | Direct | 2 | 538초 | 100.0% |
+| United States | desktop | Organic Search | 2 | 195초 | 100.0% |
+| United States | mobile | Organic Search | 2 | 4초 | 50.0% |
+| Vietnam | mobile | AI Assistant | 2 | 14초 | 100.0% |
+| China | mobile | Direct | 1 | 5초 | 100.0% |
+| France | desktop | AI Assistant | 1 | 965초 | 100.0% |
+| France | desktop | Unassigned | 1 | 5초 | 0.0% |
+| Greece | desktop | Direct | 1 | 0초 | 0.0% |
 
 ## 중국에서 처음 열린 쪽
 
 | 쪽 | 방문 | 평균 머문 시간 | 참여율 |
 |---|---|---|---|
-| / | 1 | 113초 | 100.0% |
-| /dictionary/온화하다.html | 1 | 0초 | 100.0% |
-| /korean-word-for/soft.html | 1 | 0초 | 100.0% |
+| /dictionary/보행자.html | 1 | 5초 | 100.0% |
+| /dictionary/중략.html | 1 | 5초 | 100.0% |
+| /topik-reading/t2-1611.html | 1 | 0초 | 100.0% |
 
 ## 기기별
 
 | 기기 | 방문자 | 방문 |
 |---|---|---|
-| desktop | 71 | 75 |
-| mobile | 18 | 18 |
-| tablet | 2 | 4 |
+| desktop | 29 | 35 |
+| mobile | 12 | 14 |
+| tablet | 1 | 1 |
 
 ## 이벤트 TOP 15
 
 | 이벤트 | 횟수 |
 |---|---|
-| page_view | 231 |
-| session_start | 97 |
-| dead_click | 84 |
-| first_visit | 80 |
-| scroll | 57 |
-| user_engagement | 44 |
-| scroll_depth | 42 |
-| cp_screen | 30 |
-| lesson_start | 22 |
-| engaged_time | 20 |
-| level_test_open | 16 |
-| level_test_start | 16 |
-| book_click | 15 |
-| level_test_quick_auto | 14 |
-| lesson_complete | 12 |
+| page_view | 132 |
+| session_start | 50 |
+| scroll | 46 |
+| dead_click | 36 |
+| user_engagement | 35 |
+| first_visit | 30 |
+| cp_screen | 10 |
+| lesson_start | 10 |
+| level_test_complete | 6 |
+| level_test_half | 6 |
+| level_test_join_view | 6 |
+| level_test_open | 6 |
+| level_test_open_home | 6 |
+| level_test_quick_auto | 6 |
+| level_test_start | 6 |
 
 ## 핵심 이벤트(순위 밖이어도)
 
 | 이벤트 | 횟수 |
 |---|---|
-| lesson_start | 22 |
-| lesson_complete | 12 |
-| level_test_open | 16 |
-| level_test_start | 16 |
-| level_test_half | 10 |
-| level_test_complete | 10 |
-| sign_up | 2 |
-| login | 2 |
-| file_download | 2 |
+| lesson_start | 10 |
+| lesson_complete | 2 |
+| level_test_open | 6 |
+| level_test_start | 6 |
+| level_test_half | 6 |
+| level_test_complete | 6 |
+| login | 6 |
+| file_download | 4 |
 | download_gate_view | 1 |
-| download_gate_click | 2 |
-| download_start | 1 |
 
 ## 레벨 테스트 깔때기
 
 | 단계 | 횟수 | 시작 대비 |
 |---|---|---|
-| 열기 | 16 | – |
-| 시작 | 16 | 100% |
-| 절반 | 10 | 63% |
-| 완료 | 10 | 63% |
-| 가입 권유 보임 | 8 | 50% |
-| 설정에서 그만둠 | 2 | 13% |
-| 문제 풀다 그만둠 | 4 | 25% |
+| 열기 | 6 | – |
+| 시작 | 6 | 100% |
+| 절반 | 6 | 100% |
+| 완료 | 6 | 100% |
+| 가입 권유 보임 | 6 | 100% |
 
-> 시작 16 중 끝까지 간 사람 63%. 시작과 (완료 + 그만둠 + 뒤늦게 이탈)의 차이는 「이탈 기록이 없는 사람」입니다(봇이 섞였을 수 있음).
+> 시작 6 중 끝까지 간 사람 100%. 시작과 (완료 + 그만둠 + 뒤늦게 이탈)의 차이는 「이탈 기록이 없는 사람」입니다(봇이 섞였을 수 있음).
 
 ## 책 클릭 뒤 흐름
 
-- 책 쪽으로 가는 클릭 **15** → 샘플 받기 **0** · 결제 링크 클릭 **0** (책 클릭 대비 결제 링크 0%)
-
-## level_test_quit_detail 를 cp_q 로 나눠 보면
-
-| cp_q | 횟수 |
-|---|---|
-| (비어 있음) | 4 |
-| 1 | 1 |
-| 3 | 1 |
-
-## level_test_quit_detail 를 cp_area 로 나눠 보면
-
-| cp_area | 횟수 |
-|---|---|
-| (비어 있음) | 4 |
-| main | 2 |
+- 책 쪽으로 가는 클릭 **3** → 샘플 받기 **0** · 결제 링크 클릭 **3** (책 클릭 대비 결제 링크 100%)
 
 ## book_click 를 book_id 로 나눠 보면
 
 | book_id | 횟수 |
 |---|---|
-| (비어 있음) | 10 |
-| particles-workbook | 3 |
-| topik1-vocab | 1 |
-| topik2-writing-53-54 | 1 |
+| (비어 있음) | 2 |
+| first-steps-workbook | 1 |
+
+## buy_click 를 book_id 로 나눠 보면
+
+| book_id | 횟수 |
+|---|---|
+| (비어 있음) | 2 |
+| first-steps-workbook | 1 |
 
 ## dead_click 를 cp_el 로 나눠 보면
 
 | cp_el | 횟수 |
 |---|---|
-| (비어 있음) | 56 |
+| (비어 있음) | 24 |
 | button.wd-intro-say | 6 |
-| p/「친구를 만나고 영화를 봤어요」와 「친구를  | 6 |
-| body/치즈감자 CheesePotato Korean | 2 |
-| body/치즈감자 치즈감자 한국어 숫자 연습 문제 수 | 2 |
-| div.nw-paper.nw-work/Name: __________________ | 2 |
+| button.wd-intro-say.sm | 3 |
 | body/치즈감자 Search 👤 Sign in E | 1 |
-| body/치즈감자 Search 👤 로그인 EN ●  | 1 |
-| button.hm-tour-t/Speaking Real-life scene | 1 |
-| div.hd-in/치즈감자 CheesePotato | 1 |
-| div.wrap/치즈감자 › 사전 › TOPIK II 감정  | 1 |
-| h2/-아서/어서: the first action | 1 |
-| p.nw-sub/Big numbers are always S | 1 |
-| span/은/는 | 1 |
-| tbody/Counter Counts · 세는 것 Ex | 1 |
+| body/치즈감자 TOPIK 단어 무료로 배우기 치즈 | 1 |
+| h2#hmBooksH.section-title/써 가며 배우는 한국어 워크북 | 1 |
 
 ## dead_click 를 cp_page 로 나눠 보면
 
 | cp_page | 횟수 |
 |---|---|
-| (비어 있음) | 56 |
-| /numbers-worksheet/ | 8 |
-| /#words/topic | 6 |
-| /blog/go-vs-aseo.html | 6 |
-| / | 3 |
-| /irregular-verbs-worksheet/ | 2 |
-| /blog/go-vs-aseo-english.html | 1 |
-| /dictionary/%EB%B0%89%EB%8B%A4.html | 1 |
-| /shop/particles-workbook/ | 1 |
+| (비어 있음) | 24 |
+| /#words/topic | 9 |
+| / | 1 |
+| /#learn/topik | 1 |
+| /dictionary/%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C.html | 1 |
 
 ## 검색 (Search Console)
 
-확정된 가장 최근 하루(2026-11-15): 클릭 4 · 노출 4,446
+확정된 가장 최근 하루(2026-11-16): 클릭 4 · 노출 3,837
 
-## 검색어 TOP 20 (2026-11-09 ~ 2026-11-15)
+## 검색어 TOP 20 (2026-11-10 ~ 2026-11-16)
 
 | 검색어 | 클릭 | 노출 | 클릭률 | 평균 순위 |
 |---|---|---|---|---|
@@ -214,39 +184,39 @@
 | ixkorean | 1 | 1 | 100.0% | 4.0 |
 | korean zodiac sign calculator | 1 | 1 | 100.0% | 6.0 |
 | 또렷하다 뜻 | 1 | 3 | 33.3% | 17.7 |
-| 새엄마 | 1 | 13 | 7.7% | 107.1 |
+| 사치 | 1 | 2 | 50.0% | 3.0 |
+| 새엄마 | 1 | 12 | 8.3% | 104.3 |
 | 솔직히 | 1 | 1 | 100.0% | 1.0 |
-| 어둑어둑하다 | 1 | 11 | 9.1% | 9.6 |
+| 어둑어둑하다 | 1 | 12 | 8.3% | 9.8 |
 | 자세히 meaning in english | 1 | 5 | 20.0% | 8.8 |
-| 지속적 | 1 | 21 | 4.8% | 7.4 |
+| 지속적 | 1 | 25 | 4.0% | 7.3 |
 | 초급 | 1 | 1 | 100.0% | 2.0 |
+| 토픽 2 쓰기 기출문제 | 1 | 1 | 100.0% | 41.0 |
 | 토픽 쓰기 모범 답안 | 1 | 1 | 100.0% | 2.0 |
-| "saemmul.co.kr" | 0 | 5 | 0.0% | 4.4 |
+| "saemmul.co.kr" | 0 | 6 | 0.0% | 4.2 |
 | "프랑스" and "한국" | 0 | 1 | 0.0% | 28.0 |
 | $fax | 0 | 1 | 0.0% | 21.0 |
 | $tal | 0 | 1 | 0.0% | 23.0 |
+| 2 days in korean | 0 | 1 | 0.0% | 10.0 |
 | 2번째 | 0 | 1 | 0.0% | 36.0 |
 | 4 in korea | 0 | 1 | 0.0% | 50.0 |
-| 4 in korean | 0 | 1 | 0.0% | 54.0 |
-| 50주년 | 0 | 1 | 0.0% | 24.0 |
-| 6 | 0 | 4 | 0.0% | 20.0 |
 
 ## 검색에서 많이 열린 쪽 TOP 10
 
 | 쪽 | 클릭 | 노출 | 클릭률 | 평균 순위 |
 |---|---|---|---|---|
-| https://everykoreans.com/ | 8 | 62 | 12.9% | 30.7 |
+| https://everykoreans.com/ | 9 | 51 | 17.6% | 13.0 |
+| https://everykoreans.com/topik-writing/ | 2 | 18 | 11.1% | 9.5 |
 | https://everykoreans.com/blog/topik-writing-53-template.html | 1 | 3 | 33.3% | 7.0 |
-| https://everykoreans.com/dictionary/%EA%B3%B5%EC%97%B0%EC%9E%A5.html | 1 | 20 | 5.0% | 6.9 |
+| https://everykoreans.com/dictionary/%EA%B3%B5%EC%97%B0%EC%9E%A5.html | 1 | 17 | 5.9% | 6.7 |
 | https://everykoreans.com/dictionary/%EA%B5%AD%EB%B0%A9%EB%B6%80.html | 1 | 3 | 33.3% | 7.7 |
 | https://everykoreans.com/dictionary/%EA%B7%B8%EB%8B%A4%EC%A7%80.html | 1 | 4 | 25.0% | 9.5 |
-| https://everykoreans.com/dictionary/%EB%82%99%EC%97%BD.html | 1 | 11 | 9.1% | 8.2 |
-| https://everykoreans.com/dictionary/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD.html | 1 | 28 | 3.6% | 10.2 |
-| https://everykoreans.com/dictionary/%EB%8F%8B%EB%B3%B4%EC%9D%B4%EB%8B%A4.html | 1 | 11 | 9.1% | 8.3 |
+| https://everykoreans.com/dictionary/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD.html | 1 | 31 | 3.2% | 10.3 |
+| https://everykoreans.com/dictionary/%EB%8F%8B%EB%B3%B4%EC%9D%B4%EB%8B%A4.html | 1 | 11 | 9.1% | 8.8 |
 | https://everykoreans.com/dictionary/%EB%8F%8C%ED%8C%8C.html | 1 | 2 | 50.0% | 6.5 |
-| https://everykoreans.com/dictionary/%EB%94%B0%EB%A5%B4%EB%A6%89.html | 1 | 6 | 16.7% | 7.5 |
+| https://everykoreans.com/dictionary/%EB%94%B0%EB%A5%B4%EB%A6%89.html | 1 | 7 | 14.3% | 7.9 |
 
-## 결제 (Polar, 2026-11-17 한국 날짜)
+## 결제 (Polar, 2026-11-18 한국 날짜)
 
 - 어제 주문 **0건** · 금액 **$0.00**(Polar 가 알려 준 순금액 기준)
 - 지금 구독 중: **0명**
@@ -256,51 +226,51 @@
 ## Clarity (최근 24시간 — 날짜 기준이 아니라 호출한 시각 기준)
 
 - **DeadClickCount**
-  - sessionsCount 71 · sessionsWithMetricPercentage 7.04 · sessionsWithoutMetricPercentage 92.96 · pagesViews 12 · subTotal 64
+  - sessionsCount 31 · sessionsWithMetricPercentage 19.35 · sessionsWithoutMetricPercentage 80.65 · pagesViews 11 · subTotal 77
 - **ExcessiveScroll**
-  - sessionsCount 71 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 31 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **RageClickCount**
-  - sessionsCount 71 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 31 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **QuickbackClick**
-  - sessionsCount 71 · sessionsWithMetricPercentage 4.23 · sessionsWithoutMetricPercentage 95.77 · pagesViews 4 · subTotal 4
+  - sessionsCount 31 · sessionsWithMetricPercentage 22.58 · sessionsWithoutMetricPercentage 77.42 · pagesViews 11 · subTotal 11
 - **ScriptErrorCount**
-  - sessionsCount 71 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 31 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ErrorClickCount**
-  - sessionsCount 71 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 31 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ScrollDepth**
-  - averageScrollDepth 53.42
+  - averageScrollDepth 47.46
 - **Traffic**
-  - totalSessionCount 71 · totalBotSessionCount 9 · distinctUserCount 63 · pagesPerSessionPercentage 1.34
+  - totalSessionCount 31 · totalBotSessionCount 27 · distinctUserCount 27 · pagesPerSessionPercentage 2.16
 - **EngagementTime**
-  - totalTime 261 · activeTime 172
+  - totalTime 515 · activeTime 249
 - **Browser**
-  - name Chrome · sessionsCount 45
-  - name MobileSafari · sessionsCount 8
-  - name Edge · sessionsCount 8
+  - name Chrome · sessionsCount 12
+  - name ChromeMobile · sessionsCount 5
+  - name Edge · sessionsCount 5
 - **Device**
-  - name PC · sessionsCount 54
-  - name Mobile · sessionsCount 12
-  - name Tablet · sessionsCount 5
+  - name PC · sessionsCount 20
+  - name Mobile · sessionsCount 9
+  - name Tablet · sessionsCount 2
 - **OS**
-  - name Windows · sessionsCount 46
-  - name IOS · sessionsCount 11
-  - name MacOSX · sessionsCount 8
+  - name Windows · sessionsCount 17
+  - name IOS · sessionsCount 6
+  - name Android · sessionsCount 5
 - **Country**
-  - name United States · sessionsCount 19
-  - name Korea, Republic of · sessionsCount 17
-  - name Australia · sessionsCount 4
+  - name Korea, Republic of · sessionsCount 12
+  - name Viet Nam · sessionsCount 4
+  - name United States · sessionsCount 3
 - **PageTitle**
-  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 30
-  - name 토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato · sessionsCount 3
-  - name 1강. 감탄을 자아내는 눈부신 극치 (-(으)리만치) — 고급 13: 정도를 나타낼 때 | CheesePotato · sessionsCount 2
+  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 16
+  - name Free Korean Worksheets (Printable PDF) | CheesePotato · sessionsCount 4
+  - name Free Korean Grammar Worksheets (Printable PDF) — Beginner to Advanced | CheesePotato · sessionsCount 2
 - **ReferrerUrl**
-  - name everykoreans.com · sessionsCount 11
-  - name www.google.com · sessionsCount 3
-  - name accounts.google.com · sessionsCount 1
+  - name everykoreans.com · sessionsCount 9
+  - name accounts.google.com · sessionsCount 5
+  - name www.google.com · sessionsCount 5
 - **PopularPages**
-  - url https://everykoreans.com/ · visitsCount 31
-  - url https://everykoreans.com/topik-writing/ · visitsCount 3
-  - url https://everykoreans.com/blog/why-in-korean-aseo-nikka-english.html · visitsCount 2
+  - url https://everykoreans.com/ · visitsCount 17
+  - url https://everykoreans.com/worksheets/ · visitsCount 4
+  - url https://everykoreans.com/vi/ · visitsCount 2
 
 > 참고: 이 숫자는 Clarity 화면의 요약과 같은 기준이며, 녹화 · 히트맵은 Clarity 화면에서 직접 보세요.
 
