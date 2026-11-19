@@ -21,3 +21,4 @@
 | 쪽 점수 검사(Lighthouse) | `tools/lighthouse-check.mjs` · `.github/workflows/lighthouse.yml` | 없음 | 화면 파일 PR · 매주 월 06:17 KST · 손으로(Run workflow) | 알려 주는 용도(실패 안 시킴), 결과는 실행 화면 Summary 표 |
 - Polar 표지 바꾸기: `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt node tools/polar-cover.mjs <책 id> <그림.jpg> --apply` (2026-11-11)
 - 예스24 e북 대량등록 엑셀: `python3 tools/yes24-bulk.py <파일.xlsx>` — 틀 `docs/ops/templates/yes24-ebook-bulk-template.xlsx`(운영자 2026-11-11). 개별 등록 복사판은 `tools/yes24-html.py`.
+| 데드클릭 알림(매시간) | `tools/deadclick-alert.mjs` · `.github/workflows/deadclick-alert.yml` | analytics-daily 와 같은 `GOOGLE_SA_KEY` · `GA_PROPERTY_ID` | 기본 켜짐(끄기: 변수 `DEADCLICK_ALERT=off`, 기준: `DEAD_MIN`=5) | 오늘 GA4 dead_click 이 같은 요소 5번 넘으면 이슈 「[데드클릭 알림]」 열기 · 갱신, 없으면 닫기 |
