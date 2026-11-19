@@ -935,6 +935,36 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (max-width:560px) { .hm-bstrip { grid-template-columns:auto minmax(0,1fr); gap:12px; padding:12px; } .hm-bstrip-go { grid-column:2; } }
 
 @media (max-width:420px) { .hs-card { grid-template-columns:32px minmax(0,1fr); gap:8px; padding:12px 10px; } .hs-ic { width:32px; height:32px; } .hs-ic .lvl-ic { width:26px; height:26px; } .hs-t b { font-size:14px; } }
+/* ── 첫 화면 정리(운영자 2026-11-20 시안 v1 「이대로 적용」) — 종이 바탕 · 번호 목록 · 얇은 줄 · 단추 두 가지(주황 채움 / 잉크 테두리) · 글자 크기 14 · 16 · 20 · 32 · 56. 위 규칙을 이 아래가 덮는다. ── */
+.hero-badge { background:none; border:0; padding:0; font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--orange-text, var(--orange-deep)); }
+.hero-ask .hero-badge::first-letter { color:inherit; }
+.hero-steps h1 { font-size:clamp(34px, 5.2vw, 56px); line-height:1.18; letter-spacing:-.03em; }
+.hero-sub { font-size:20px; line-height:1.6; }
+.hero-go { min-height:52px; padding:0 24px; border-radius:8px; font-size:16px; font-weight:700; }
+.hero-go:hover { filter:brightness(.93); }
+.hero-trust { display:none; }
+.hs-stack { display:block; gap:0; padding:0; border-top:1px solid var(--ink); counter-reset:hs; }
+.hs-card, .hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { display:grid; grid-template-columns:44px minmax(0,1fr); gap:4px 12px; align-items:start; width:100%; padding:20px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; text-align:left; transform:none; counter-increment:hs; cursor:pointer; }
+.hs-card:hover { transform:none !important; }
+.hs-card:hover .hs-t b { color:var(--orange-text, var(--orange-deep)); }
+.hs-card::before { content:counter(hs, decimal-leading-zero); grid-row:1 / 3; font:700 14px/1.9 ui-monospace, Menlo, monospace; color:var(--orange-text, var(--orange-deep)); }
+.hs-ic, .hs-bar { display:none; }
+.hs-t { display:contents; }
+.hs-t b { grid-column:2; grid-row:1; margin:0; font-size:20px; font-weight:800; letter-spacing:-.01em; }
+.hs-t small { grid-column:2; grid-row:2; font-size:15px; font-weight:400; opacity:1; letter-spacing:0; color:var(--ink-3); white-space:normal; line-height:1.5; }
+@media (max-width:899px) { .hs-stack { display:block; } .hs-card, .hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { grid-template-columns:36px minmax(0,1fr); padding:16px 0; } .hs-t b { font-size:18px; } .hs-t small { font-size:14px; } }
+a.hm-tour-t { text-decoration:none; color:inherit; }
+/* 첫 화면 깎기(2026-11-20): 책 코너의 블로그 카드 · 묶음 상자, Pro 요금 카드는 숨기고(마크업은 그대로 — 생성 도구 · 검사 영향 없음, 블로그 더 보기 링크 · Pro 자세히 링크는 남김), 소개의 숫자 표는 접는다. */
+.hm-books .hm-books-h, .hm-books .hm-post-row, .hm-books .hm-bundle { display:none; }
+#hmPro .hm-plans, #hmPro .hm-fine { display:none; }
+.dl-section .dl-logo-wrap, .dl-section .dl-sub { display:none; }
+.dl-section { padding-top:32px; padding-bottom:32px; }
+.hm-about .lede { background:none; border:0; border-radius:0; padding:0; }
+#homeView > .section { padding-top:56px; padding-bottom:56px; }
+.hm-fold { margin-top:20px; border-top:1px solid var(--ink); }
+.hm-fold > summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; padding:14px 0; font-weight:700; font-size:16px; }
+.hm-fold > summary::-webkit-details-marker { display:none; }
+.hm-fold > summary::after { content:'+'; color:var(--ink-3); } .hm-fold[open] > summary::after { content:'−'; }
 .hm-paths .hm-door { background:var(--surface) !important; border:1px solid var(--line); box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); position:relative; }
 .hm-paths .hm-door::after { content:'›'; position:absolute; right:18px; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:20px; color:var(--ink-2); }
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
@@ -2369,23 +2399,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hs-stack" aria-label="학습 길" data-en-aria="Learning paths">
       <button class="hs-card c1" type="button" data-go="pathBasic"><span class="hs-ic" data-lvl="potato:1" aria-hidden="true"></span>
-        <span class="hs-t"><small data-en="STEP 1 · Hangul → beginner">STEP 1 · 한글 → 초급</small><b data-en="Basics">기초</b><i class="hs-bar"><i style="width:100%"></i></i></span></button>
+        <span class="hs-t"><small data-en="From Hangul to beginner sentences">한글에서 초급 문장까지</small><b data-en="Basics">기초</b></span></button>
       <button class="hs-card c2" type="button" data-go="pathMid"><span class="hs-ic" data-lvl="potato:5" aria-hidden="true"></span>
-        <span class="hs-t"><small data-en="STEP 2 · longer sentences">STEP 2 · 길게 말하기</small><b data-en="Intermediate">중급</b><i class="hs-bar"><i style="width:55%"></i></i></span></button>
+        <span class="hs-t"><small data-en="Speak and read longer texts">길게 말하고 읽기</small><b data-en="Intermediate">중급</b></span></button>
       <button class="hs-card c3" type="button" data-go="pathAdv"><span class="hs-ic" data-lvl="potato:7" aria-hidden="true"></span>
-        <span class="hs-t"><small data-en="STEP 3 · news and written style">STEP 3 · 뉴스 · 글말</small><b data-en="Advanced">고급</b><i class="hs-bar"><i style="width:20%"></i></i></span></button>
+        <span class="hs-t"><small data-en="News and written style">뉴스와 글말까지</small><b data-en="Advanced">고급</b></span></button>
       <button class="hs-card c4" type="button" data-go="pathTopik"><span class="hs-ic" data-lvl="cheese:2" aria-hidden="true"></span>
-        <span class="hs-t"><small data-en="TOPIK I · II · original questions">TOPIK I · II · 창작 문항</small><b data-en="TOPIK prep">TOPIK 준비</b><i class="hs-bar"><i style="width:35%"></i></i></span></button>
+        <span class="hs-t"><small data-en="Mock tests, original questions, 3D classroom exam">모의고사 · 창작 문항 · 3D 교실 시험</small><b data-en="TOPIK prep">TOPIK 준비</b></span></button>
     </div>
    </div>
   </div>
 
-  <!-- 책 한 줄 띠(운영자 2026-11-14 「책으로 가는 길 짧게」 — 첫 화면 바로 아래에서 책 코너로. 표지는 책 코너와 같은 cover-sm) -->
-  <a class="hm-bstrip" href="#hmBooks" data-ev="책클릭" data-ev-from="첫화면-띠">
-    <span class="hm-bstrip-c" aria-hidden="true"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><img src="assets/books/particles-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></span>
-    <span class="hm-bstrip-t"><b data-en="Workbooks you write in">써 가며 배우는 한국어 워크북</b><span data-en="Answers in every book. Free sample PDFs, no email needed.">책마다 정답이 들어 있어요. 무료 샘플 PDF는 이메일 없이 받아요.</span></span>
-    <span class="hm-bstrip-go" data-en="See the books →">책 보기 →</span>
-  </a>
 
   <!-- 두 문 — 시안 C 의 「목표별 입구」 가운데 둘(운영자: EPS 는 빼도 된다 — 아래 여섯 갈래에는 그대로 있다). data-go 는 여섯 갈래와 같은 길 -->
   <!-- 길 넷(운영자 결정 2026-10-06: 「첫 화면을 길 4개로, 다른 메뉴는 더 보기로 접기 — 내 얘기는 학습 흐름」).
@@ -2394,27 +2418,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hm-me" id="hmMe"></div>
   <!-- 길 넷 카드는 첫 화면에서 뺐다(운영자 2026-10-17 「얘는 홈페이지에서 빼자」). 길 고르기는 「한국어 배우기 → 길」(#learn/path)에 그대로 있다. -->
 
-  <!-- 새 기능 배너 하나(운영자 결정 2026-10-06 「배너는 번역 연습」 → 2026-11-08 「번역 말고 TOPIK 실제 시뮬레이션으로」) -->
-  <a class="hm-banner hm-intro hm-banner-simple" href="exam-room/" data-ev="시험장열기" data-ev-from="첫화면배너">
-    <span class="hm-banner-tag">NEW</span>
-    <span class="hm-banner-t"><b data-en="Sit the TOPIK in a 3D classroom.">3D 교실에서 TOPIK 시험 보기</b>
-      <span data-en="The board counts down, the bell rings, and our mock tests open on your desk.">칠판 시간 · 종소리 · 책상 위 모의고사</span></span>
-    <span class="hm-banner-go" data-en="Enter →">입장하기 →</span>
-  </a>
-  <!-- 제품 둘러보기(운영자 요청 2026-10-07 「메뉴 깊숙한 기능 — 첫 화면에서 무엇을 할 수 있는지 한눈에」). 여덟 칸, 누르면 그 기능으로. 모두에게 보인다. -->
-  <section class="hm-tour" aria-labelledby="hmTourH">
-    <p class="hm-paths-h" id="hmTourH" data-en="Everything you can do here">치즈감자로 할 수 있는 것</p>
-    <div class="hm-tour-grid">
-      <button class="hm-tour-t" type="button" data-go="levelTest"><b data-en="3-min level test">3분 레벨테스트</b><span data-en="Find your level and the path that fits">내 레벨과 맞는 길 찾기</span></button>
-      <button class="hm-tour-t" type="button" data-go="courses"><b data-en="Courses">코스</b><span data-en="From Hangul to advanced, lesson by lesson">한글부터 고급까지 레슨으로</span></button>
-      <button class="hm-tour-t" type="button" data-go="glossary"><b data-en="Words &amp; idioms">단어 · 사자성어</b><span data-en="10 a day, review, idioms with quizzes">하루 10개 · 복습 · 사자성어 퀴즈</span></button>
-      <button class="hm-tour-t" type="button" data-go="topik"><b data-en="TOPIK prep">TOPIK 준비</b><span data-en="Mock tests, practice by type, AI writing scores">모의고사 · 유형 연습 · AI 쓰기 채점</span></button>
-      <button class="hm-tour-t" type="button" data-go="games"><b data-en="Word games">단어 게임</b><span data-en="Word potatoes · Potato Wordle · initials quiz">단어 감자 · 오늘의 감자들 · 초성 퀴즈</span></button>
-      <button class="hm-tour-t" type="button" data-go="convo"><b data-en="Speaking">회화 · 발음</b><span data-en="Real-life scenes and AI pronunciation check">실생활 장면 · AI 발음 진단</span></button>
-      <button class="hm-tour-t" type="button" data-go="translate"><b data-en="Writing">쓰기 · 번역</b><span data-en="Translate line by line · grammar worksheets (PDF)">한 줄씩 번역 · 문법 학습지 PDF</span></button>
-      <button class="hm-tour-t" type="button" data-go="class"><b data-en="For teachers">선생님 · 반</b><span data-en="Homework, progress reports, QR join">숙제 · 진도 리포트 · QR로 들어오기</span></button>
-    </div>
-  </section>
   <!-- Pro 로 가는 짧은 길(2026-11-01 분석: Pro 쪽 보기 1번 — Pro 소개가 첫 화면 맨 아래 Q&A 위라 거기까지 안 내려감). 결제가 켜져 있고 Pro 가 아닐 때만(app.module.js) -->
   <p class="hm-proline" id="hmProLine" hidden><span data-en="AI writing scores and every TOPIK mock test open with Pro.">AI 쓰기 채점과 TOPIK 모의고사 전 회는 Pro 에서 열려요.</span> <button type="button" id="hmProLineBtn" data-en="See Pro →">Pro 보기 →</button></p>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
@@ -2593,6 +2596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="section hm-intro hm-about" id="about">
     <div class="label">ABOUT</div>
     <p class="lede" data-ko="<b>치즈감자는 한국어를 무료로 배우는 학습 사이트</b>입니다. 한글 낱자부터 TOPIK 6급까지, <b>코스 97개·레슨 401개</b>, 뜻풀이와 예문·대화문을 갖춘 <b>문법 표현 290개</b>, TOPIK I·II 의 듣기·읽기·쓰기를 아우르는 <b>연습 문항 2,476개</b>, <b>읽기 지문 54편</b>, 국립국어원 뜻풀이를 담은 <b>낱말 7,970개</b>를 담고 있습니다. 설치도 회원가입도 없이 브라우저에서 바로 씁니다."><b>Cheesepotato is a free website for learning Korean</b>, from the Hangul letters through TOPIK level 6. It holds <b>97 courses across 401 lessons</b>, <b>290 grammar points</b> with meanings, examples and dialogues, <b>2,476 TOPIK-style practice questions</b> covering listening, reading and writing for TOPIK I and II, <b>54 reading passages</b>, and a <b>7,970-word dictionary</b> using definitions from Korea's National Institute of Korean Language. Everything runs in the browser with no install and no sign-up.</p>
+    <details class="hm-fold"><summary data-en="Numbers and how we write the questions">숫자와 만드는 방식 보기</summary>
     <div class="tbl-wrap">
       <table class="tq-tbl">
         <caption class="sr-only">치즈감자의 TOPIK 연습 문항 수</caption>
@@ -2623,6 +2627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hm-fine" data-en="Practice items are original, not past papers. They follow the TOPIK format and are not affiliated with NIIED.">연습 문항은 기출이 아니라 직접 만든 것입니다. TOPIK 형식을 따랐고 국립국제교육원과 관계가 없습니다.</p>
     <!-- 「기출 아님」을 장점으로(운영자 결정 2026-10-06): 실제 시험지는 공식 누리집으로 보내고, 우리가 하는 일을 분명히 -->
     <p class="hm-fine hm-why" data-en="Why original questions? Official past papers can't be copied freely: see them on the official TOPIK website (topik.go.kr). Cheesepotato is where you practise each question type, number by number, with an explanation right after every answer.">왜 창작 문항일까요? 공식 기출문제는 마음대로 옮길 수 없어요 — 실제 시험지는 <a href="https://www.topik.go.kr" target="_blank" rel="noopener">TOPIK 공식 누리집(topik.go.kr)</a>에서 보세요. 치즈감자는 같은 유형을 번호별로 연습하고, 풀자마자 해설로 실력을 쌓는 곳이에요.</p>
+    </details>
   </div>
 
   <div class="divider hm-intro"></div>
