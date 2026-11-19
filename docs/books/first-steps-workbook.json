@@ -1356,8 +1356,8 @@
     "fd-1": {
       "id": "fd-1",
       "title": {
-        "en": "Short dialogue · Part 1: Reading practice",
-        "ko": "1부 짧은 대화 · 읽기 연습"
+        "en": "Short dialogue · Part 2: Going to the mart",
+        "ko": "2부 짧은 대화 · 마트에 가요"
       },
       "sub": {
         "en": "Read two people's talk aloud. Only letters you know.",
@@ -2514,7 +2514,7 @@
         "ko": "된소리와 거센소리"
       },
       "sub": {
-        "en": "One letter, three sounds: ㄱ ㅋ ㄲ.",
+        "en": "One letter, three sounds: ㄷ ㅌ ㄸ.",
         "ko": "한 글자 세 소리"
       },
       "sections": [
@@ -3217,40 +3217,115 @@
       }
     },
     "negation-tenses": {
-      "5": {
-        "type": "timeline",
-        "title": {
-          "en": "Practice C: Yesterday, now, tomorrow",
-          "ko": "어제 · 지금 · 내일"
+      "all": [
+        0,
+        1,
+        {
+          "type": "table",
+          "title": {
+            "en": "The Progressive: Happening Right Now",
+            "ko": "진행 시제 · 지금 하고 있어요"
+          },
+          "cols": [
+            "Tense",
+            "Ending marker",
+            "Rule",
+            "가다 (to go)",
+            "먹다 (to eat)"
+          ],
+          "rows": [
+            [
+              "Present progressive (현재 진행)",
+              "-고 있어요",
+              "Verb stem + -고 있어요 (no vowel or batchim rule)",
+              "가고 있어요",
+              "먹고 있어요"
+            ],
+            [
+              "Past progressive (과거 진행)",
+              "-고 있었어요",
+              "Verb stem + -고 있었어요",
+              "가고 있었어요",
+              "먹고 있었어요"
+            ],
+            [
+              "Future progressive (미래 진행)",
+              "-고 있을 거예요",
+              "Verb stem + -고 있을 거예요",
+              "가고 있을 거예요",
+              "먹고 있을 거예요"
+            ]
+          ],
+          "note": "-고 있어요 means “is doing it right now”. It is only for action verbs: adjectives like 예쁘다 have no progressive. 하다 verbs: 공부하고 있어요."
         },
-        "hint": "Write the verb in the past, present and future.",
-        "rows": [
-          {
-            "cells": [
-              "학교에 ______",
-              "학교에 ______",
-              "학교에 ______"
-            ],
-            "a": "갔어요 / 가요 / 갈 거예요"
+        2,
+        3,
+        4,
+        6,
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice E: Make it progressive (-고 있어요)",
+            "ko": "진행 시제로 바꿔 써요"
           },
-          {
-            "cells": [
-              "밥을 ______",
-              "밥을 ______",
-              "밥을 ______"
-            ],
-            "a": "먹었어요 / 먹어요 / 먹을 거예요"
+          "items": [
+            {
+              "q": "지금 밥을 먹다 →",
+              "a": "먹고 있어요"
+            },
+            {
+              "q": "지금 친구를 만나다 →",
+              "a": "만나고 있어요"
+            },
+            {
+              "q": "지금 한국어를 공부하다 →",
+              "a": "공부하고 있어요"
+            },
+            {
+              "q": "지금 비가 오다 →",
+              "a": "오고 있어요"
+            },
+            {
+              "q": "어제 저녁 여덟 시에 텔레비전을 보다 →",
+              "a": "보고 있었어요"
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "title": {
+            "en": "Practice C: Yesterday, now, tomorrow",
+            "ko": "어제 · 지금 · 내일"
           },
-          {
-            "cells": [
-              "친구를 ______",
-              "친구를 ______",
-              "친구를 ______"
-            ],
-            "a": "만났어요 / 만나요 / 만날 거예요"
-          }
-        ]
-      }
+          "hint": "Write the verb in the past, present and future.",
+          "rows": [
+            {
+              "cells": [
+                "학교에 ______",
+                "학교에 ______",
+                "학교에 ______"
+              ],
+              "a": "갔어요 / 가요 / 갈 거예요"
+            },
+            {
+              "cells": [
+                "밥을 ______",
+                "밥을 ______",
+                "밥을 ______"
+              ],
+              "a": "먹었어요 / 먹어요 / 먹을 거예요"
+            },
+            {
+              "cells": [
+                "친구를 ______",
+                "친구를 ______",
+                "친구를 ______"
+              ],
+              "a": "만났어요 / 만나요 / 만날 거예요"
+            }
+          ]
+        }
+      ]
     },
     "greetings-self-introduction": {
       "3": {
