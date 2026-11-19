@@ -201,7 +201,7 @@
       else if (bookOf(u.pathname) && u.pathname !== path) dl('book_click', { book_id: bookOf(u.pathname), from: u.searchParams.get('utm_content') || '', page: path });
       return;
     }
-    if (/polar\.sh$/.test(u.hostname)) dl('buy_click', { book_id: bookOf(path), page: path, host: u.hostname });
+    if (/polar\.sh$/.test(u.hostname)) dl('buy_click', { book_id: bookOf(path) || a.getAttribute('data-ev-from') || path, page: path, host: u.hostname });   // /shop/ 목록의 묶음 · Pro 링크는 책 쪽이 아니라 book_id 가 비었다
     else dl('outbound_click', { host: u.hostname.replace(/^www\./, ''), page: path });
   }, true);
   /* 오래 읽는 쪽만 — 깊이 · 머문 시간 */
