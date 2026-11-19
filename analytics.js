@@ -226,7 +226,7 @@
    GA4 에서 보려면 맞춤 측정기준 cp_el · cp_page 를 등록해야 한다(docs/todo.md). */
 (function () {
   if (!window.MutationObserver) return;
-  var SKIP = 'a[href],input,select,textarea,label,summary,canvas,video,audio,iframe,[contenteditable],[data-nodead]';
+  var SKIP = 'a[href],input,select,textarea,label,summary,canvas,video,audio,iframe,[contenteditable],[data-nodead],[data-say]';   // data-say: 듣기 단추는 소리만 나고 화면은 안 바뀌어 헛 데드클릭으로 잡혔다(wd-intro-say 6건)
   var BTN = 'button,[role="button"],[role="tab"],[onclick]';
   var n = 0;
   var desc = function (t) {
