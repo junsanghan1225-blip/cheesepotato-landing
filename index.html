@@ -916,6 +916,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
   .hs-ic { width:40px; height:40px; } .hs-ic .lvl-ic { width:32px; height:32px; } .hs-t b { font-size:16px; margin-bottom:4px; } .hs-t small { font-size:11px; white-space:normal; line-height:1.25; } }
 /* 폭 360~420px 폰에서 「Intermediate」가 카드 밖으로 나가던 것(2026-11-14) — 그림 · 간격 · 글자를 한 칸씩 줄이고 긴 낱말은 줄을 바꾼다 */
 .hs-t b { overflow-wrap:anywhere; }
+/* 한국어는 낱말 가운데서 줄이 바뀌던 것(「길게 말하\n기」 · 「TOPIK 준\n비」, 2026-11-20) — 띄어쓰기에서만 바꾸고, 영어 긴 낱말은 위 anywhere 로 넘치지 않게 */
+.hs-t b, .hs-t small { word-break:keep-all; }
 /* 첫 화면 아래 책 한 줄 띠 — 종이 바탕 · 얇은 줄 · 작은 모서리 */
 .hm-bstrip { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:16px; align-items:center; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:18px auto 0; padding:12px 16px; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); text-decoration:none; }
 .hm-more { margin:10px 0 0; } .hm-more>summary { cursor:pointer; list-style:none; padding:10px 0; font-size:14px; font-weight:800; color:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line); } .hm-more>summary::-webkit-details-marker { display:none; } .hm-more>summary:after { content:' +'; color:var(--orange-deep); } .hm-more[open]>summary:after { content:' −'; }
