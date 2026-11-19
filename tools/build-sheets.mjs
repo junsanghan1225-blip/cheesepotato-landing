@@ -91,7 +91,8 @@ const foot = `</main>
 </body>
 </html>
 `;
-const table = (s) => `    <div class="nw-tw"><table class="nw-t${s.cols.length === 4 ? ' nw-c' : ''}"><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr>` +
+// 좁은 화면에서 표가 옆으로 밀릴 때 키보드로도 스크롤하도록 tabindex · 이름을 준다(주간 점검 #701 scrollable-region-focusable).
+const table = (s) => `    <div class="nw-tw" tabindex="0" role="region" aria-label="${esc(s.title?.en || s.cols.join(' · '))}"><table class="nw-t${s.cols.length === 4 ? ' nw-c' : ''}"><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr>` +
   s.rows.map((r) => `<tr>${r.map((c, i) => `<td class="${i === 0 ? 'k' : 'l'}">${esc(c)}</td>`).join('')}</tr>`).join('') + '</table></div>\n';
 function sheetPage(w) {
   const ad = bookAd(w);
