@@ -24,6 +24,10 @@
     document.querySelectorAll('a[data-sale]').forEach(function (a) {
       try { var u = new URL(a.href); if (u.hostname !== 'buy.polar.sh') return; u.searchParams.set('discount_code', SALE.code); a.href = u.toString(); } catch (x) {}
     });
+    /* 묶음은 WEEK50 에서 빠진다(Polar 코드는 PDF 책 10권만). 행사 중에는 낱권 반값 합계(예: 단어장 3권 $10.35)가 묶음 $14.90 보다 싸져서 묶음을 감춘다 — 행사가 끝나면 이 파일이 꺼져 저절로 다시 보인다(운영자 2026-11-20 가격 불일치) */
+    document.querySelectorAll('.pg2-bundle, .hm-bundle').forEach(function (x) { x.hidden = true; x.style.display = 'none'; });
+    var bh = document.getElementById('bundles');
+    if (bh) { bh.style.display = 'none'; var bn = bh.nextElementSibling; if (bn && bn.classList.contains('shop-card')) bn.style.display = 'none'; }
     var at = document.querySelector('.pg2-hero, .shop-hero, #hmBooks');
     if (at && !document.querySelector('.sale-promo')) {
       var d = Math.max(1, Math.ceil((e - now) / 864e5));
@@ -62,4 +66,8 @@
   document.head.appendChild(css);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
   setTimeout(run, 1500);   // 첫 화면 책 코너가 늦게 그려질 때
+  /* 풀이 뒤에 나오는 책 안내 상자(app.module.js bookBoxHtml) · 언어를 바꿀 때처럼 나중에 그려지는 곳에도 반값을 붙인다. run 은 두 번 돌려도 같은 결과라(표시 · 상자가 이미 있으면 건너뜀) 고리가 되지 않는다 */
+  var again = 0;
+  var start = function () { new MutationObserver(function () { clearTimeout(again); again = setTimeout(run, 300); }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['lang'] }); };
+  start();
 })();
