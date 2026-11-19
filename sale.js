@@ -10,7 +10,11 @@
   if (!(now >= s && now < e)) return;
   var cut = function (p) { return (Math.round(parseFloat(p) * (100 - SALE.pct)) / 100).toFixed(2); };
   var run = function () {
-    var ko = (document.documentElement.lang || '').slice(0, 2) === 'ko';
+    var lang = (document.documentElement.lang || '').slice(0, 2);
+    /* 화면 글: 한국어는 그대로, 다른 언어는 app.js 의 window.cpTr(영어 → 그 언어 사전)로. tools/i18n-extract.mjs 가 t('한국어', 'English') 를 뽑아 번역 칸(docs/i18n)에 올린다 */
+    var t = function (ko, en) { return lang === 'ko' ? ko : (window.cpTr ? window.cpTr(en) : en); };
+    var old = document.querySelector('.sale-promo');
+    if (old && old.getAttribute('data-lang') !== lang) old.remove();   // 화면 언어가 바뀌면 상자를 그 언어로 다시 만든다
     document.querySelectorAll('[data-px]').forEach(function (el) {
       var p = el.getAttribute('data-px'); if (!/^\d+\.\d{2}$/.test(p) || el.getAttribute('data-sale-done')) return;
       if (el.querySelector('img')) return;   // 첫 화면 서가의 책 링크(a.hm-bk)에도 data-px 가 있어 표지 그림이 가격 글자로 덮이던 것(2026-11-20)
@@ -27,11 +31,11 @@
       document.querySelectorAll('[data-px]').forEach(function (x) { var p = x.getAttribute('data-px'); if (/^\d+\.\d{2}$/.test(p) && !seen[p]) { seen[p] = 1; ps.push(p); } });
       ps = ps.sort(function (a, b) { return b - a; }).slice(0, 2);
       var rows = ps.map(function (p) { return '<div class="sp-r"><s>$' + p + '</s><i>→</i><b>$' + cut(p) + '</b></div>'; }).join('');
-      var bar = document.createElement('div'); bar.className = 'sale-promo';
-      bar.innerHTML = '<div class="sp-t"><span class="sp-d">D-' + d + '</span><b>' + (ko ? '모든 PDF 책 ' + SALE.pct + '% 할인' : 'All PDF books ' + SALE.pct + '% off') + '</b>' +
-        '<span>' + (ko ? SALE.until.ko + '까지 · 코드 ' + SALE.code : 'Until ' + SALE.until.en + ' · code ' + SALE.code) + '</span></div>' +
+      var bar = document.createElement('div'); bar.className = 'sale-promo'; bar.setAttribute('data-lang', lang);
+      bar.innerHTML = '<div class="sp-t"><span class="sp-d">D-' + d + '</span><b>' + t(`모든 PDF 책 ${SALE.pct}% 할인`, `All PDF books ${SALE.pct}% off`) + '</b>' +
+        '<span>' + t(`${SALE.until.ko}까지 · 코드 ${SALE.code}`, `Until ${SALE.until.en} · code ${SALE.code}`) + '</span></div>' +
         (rows ? '<div class="sp-p">' + rows + '</div>' : '') +
-        '<p class="sp-n">' + (ko ? '결제 화면에 코드가 자동으로 들어가요. 안 보이면 「Add discount code」 칸에 ' + SALE.code + ' 를 넣어 주세요.' : 'The code is added at checkout. If it is not, enter ' + SALE.code + ' under “Add discount code”.') + '</p>';
+        '<p class="sp-n">' + t(`결제 화면에 코드가 자동으로 들어가요. 안 보이면 「Add discount code」 칸에 ${SALE.code} 를 넣어 주세요.`, `The code is added at checkout. If it is not, enter ${SALE.code} under “Add discount code”.`) + '</p>';
       if (at.id === 'hmBooks') at.insertBefore(bar, at.firstChild);   // 첫 화면은 책 코너 안쪽 첫 줄(다른 상자와 폭 맞춤)
       else {   // 상점 · 가격 쪽은 머리 위 — 머리 안쪽 칸(.in)의 좌우 여백 · 최대 폭을 읽어 같은 폭으로(전체 폭으로 늘어나 안 맞던 것, 2026-11-20)
         var c = at.firstElementChild, cs = c && getComputedStyle(c);
