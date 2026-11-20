@@ -1596,6 +1596,8 @@ const VL_CSS = '.vl{width:100%;border-collapse:collapse;margin-top:18px;backgrou
   '@media(max-width:600px){.vl{display:block;overflow-x:auto;max-width:100%}}' +
   '.vl th,.vl td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:15px;vertical-align:top}' +
   '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}' +
+  /* 줄 아무 데나 눌러도 그 낱말 사전 쪽이 열린다(2026-11-20 GA4 데드클릭: /topik2-words/body.html 에서 뜻 · 로마자 칸을 8번 헛누름) — 첫 칸 링크를 줄 전체로 늘린다 */
+  '.vl tbody tr{position:relative;cursor:pointer}.vl tbody td:first-child a::after{content:"";position:absolute;inset:0}.vl tbody tr:hover td{background:var(--soft,#f6f1e7)}' +
   '@media(max-width:560px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px}}.note{font-size:13px;color:var(--dim)}';
 
 function vocabListHub(vs) {

@@ -308,7 +308,7 @@ h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
 .hint{font-size:8.6pt;color:#6d655c;font-style:italic;margin:-1mm 0 2.4mm}
 table{width:100%;border-collapse:collapse;font-size:9pt;break-inside:auto}tr{break-inside:avoid}
 th{background:${ACC};color:#fff;font-weight:700;font-size:8pt;letter-spacing:.04em;text-align:left;padding:2mm 3mm}
-td{padding:2mm 3mm;border-bottom:.25mm solid #e6dfd4;vertical-align:top;line-height:1.4}tbody tr:nth-child(even) td,tr:nth-child(even) td{background:#faf6f0}
+td{padding:2mm 3mm;border-bottom:.25mm solid #e6dfd4;vertical-align:top;line-height:1.4}table.ctr td{border-bottom:.5mm solid #cfc5b4;padding:1.7mm 2.4mm}table.ctr tr:last-child td{border-bottom:0}table.ctr td:first-child{border-left:1.2mm solid ${ACC};width:19mm}table.ctr .hw{font-size:10.5pt}table.ctr{table-layout:fixed}table.ctr th:nth-child(1){width:17mm}table.ctr th:nth-child(2){width:36%}table.ctr th:nth-child(3){width:30%}table.ctr .key{display:table;background:#FFE7A3;color:#1a1a1a;font-weight:700;padding:.2mm 1.4mm;border-radius:.8mm;margin:0 0 .8mm}table.ctr u.hl{text-decoration:none;border-bottom:.45mm solid ${ACC};font-weight:700}tbody tr:nth-child(even) td,tr:nth-child(even) td{background:#faf6f0}
 td:first-child{font-weight:800;font-size:10.4pt;color:#1d1a17}td.tip{color:#8a8278;font-style:italic;font-size:8.4pt}
 .note{margin-top:2.6mm;padding:2.4mm 3.6mm;border-left:1.1mm solid ${ACC};background:${TINT};font-size:8.7pt;line-height:1.55;color:#3d372f}
 .note b{color:${ACC}}
@@ -375,6 +375,10 @@ const secLabel = (s, lab) => `<h3${LAB[s.type] === '연습' || B.splitSections ?
 /* 맥락 꼬리표 — 표 칸이 「#처음 나온 것 #방금 본 것」 처럼 #로 시작하면 알약 모양 꼬리표로(운영자 2026-10-23 「태그로 깔끔하게」) */
 const tagHtml = (arr) => arr.map((t) => `<span class="tg">${esc(t.trim())}</span>`).join('');
 const tagsOr = (c) => (typeof c === 'string' && c.startsWith('#') ? tagHtml(c.split(/\s*#/).filter(Boolean)) : esc(c));
+/* 「경계 · 하이라이트」 모드(B.contrast — 운영자 2026-11-20 C1 형용사 · 부사 「조금씩 나눠서 하이라이트 · 경계를 딱딱」):
+   쓰임 칸의 [[핵심]] 은 형광 칩으로, 예문 칸에서는 그 줄의 낱말(첫 칸)에 밑줄을 긋는다. 줄마다 굵은 경계선. 다른 책은 그대로. */
+const keyHtml = (c) => esc(c).replace(/\[\[(.+?)\]\]\s*/g, '<b class="key">$1</b>');
+const ctrCell = (r, c, i, cols) => { if (i === 0) return `<b class="hw">${esc(c)}</b>`; if (/example|예/i.test(cols[i])) { const w = String(r[0]).replace(/다$/, ''); return underlineHl(c, w && c.includes(w) ? [w] : []); } return keyHtml(c); };
 const EN_TAIL = /^(.*?\S)\s+\(([^()]*[A-Za-z][^()]*)\)\s*$/;
 /* 한글이 하나도 없는 문제(영어 지시 · 「한국어로 쓰기」)는 한 줄이 아니라 넓은 줄에 쓰게 한다 */
 const isOpen = (q) => !/_{3}/.test(q) && (q.match(/[가-힣]/g) || []).length <= 3 && (q.match(/[A-Za-z]/g) || []).length >= 15;
@@ -830,7 +834,7 @@ function unitBlock(u) {
     else secNo = `${u.no}-${si + 1}`;
     if (s.type === 'table') {
       const tipCols = s.cols.map((c) => /reading|tip|sound|pronunc/i.test(c));
-      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${/^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : B.splitSections && /^Particle/i.test(s.cols[0]) ? ' class="cdt"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}${B.splitSections && /^Particle/i.test(s.cols[0]) && i === 0 ? ` style="color:${pcol(c)}"` : ''}>${tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
+      return `<div class="sec"${s.rows.length <= 8 && !B.splitSections ? ' style="break-inside:avoid"' : ''}>${sr(si)}${secLabel(s)}<table${B.contrast ? ' class="ctr"' : /^Context/.test(s.cols[s.cols.length - 1]) ? ' class="ctx"' : B.splitSections && /^Particle/i.test(s.cols[0]) ? ' class="cdt"' : ''}><thead><tr>${s.cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((r) => `<tr>${r.map((c, i) => `<td${tipCols[i] ? ' class="tip"' : ''}${B.splitSections && /^Particle/i.test(s.cols[0]) && i === 0 ? ` style="color:${pcol(c)}"` : ''}>${B.contrast ? ctrCell(r, c, i, s.cols) : tagsOr(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>${s.note ? (CLASSIC ? blockHtml(u, si, s, s.note) : `<div class="note">${esc(s.note)}</div>`) : ''}</div>`;
     }
     if (s.type === 'text') {
       const k = CLASSIC ? kindOf(u, si, s) : 'ref';
@@ -1448,7 +1452,7 @@ if (REVIEW) {
     u.sections.forEach((x, i) => {
       const k = CLASSIC && x.type !== 'practice' && x.type !== 'table' ? (kindOf(u, i, x) === 'ref' ? 'note' : kindOf(u, i, x)) : x.type;
       md.push(`### §${i + 1} · ${x.type} · ${x.title.en}${x.title.ko ? ` / ${x.title.ko}` : ''}   (${u.id} · §${i + 1})`);
-      if (x.type === 'table') { md.push(`| ${x.cols.join(' | ')} |`, `|${x.cols.map(() => '---').join('|')}|`, ...x.rows.map((r) => `| ${r.join(' | ')} |`)); if (x.note) md.push('', `[${kindOf(u, i, x)}] ${x.note}`); }
+      if (x.type === 'table') { md.push(`| ${x.cols.join(' | ')} |`, `|${x.cols.map(() => '---').join('|')}|`, ...x.rows.map((r) => `| ${r.join(' | ').replace(/\[\[|\]\]/g, '')} |`)); if (x.note) md.push('', `[${kindOf(u, i, x)}] ${x.note}`); }
       else if (x.type === 'text') md.push(`[${k}] ${x.text}`);
       else if (x.type === 'plan') md.push(x.fields.map((f) => `${f.en} · ${f.ko}`).join(' / '), `${x.days.en} · ${x.days.ko}`, `${x.goal.en} · ${x.goal.ko}`);
       else if (x.type === 'vocab') x.entries.forEach((e, n) => md.push(`${(x.from || 0) + n + 1}. ${e.ko} [${e.pos}] ${e.en}  | 예문: ${e.ex.ko} (${e.ex.en})  | 급 ${e.lv} · 빈출도 ${e.fq}`));

@@ -12,6 +12,7 @@ import { GRAMMAR_PRACTICE } from '../grammar-usage.js';
 import { GRAMMAR_DRILL } from '../grammar-drill.js';
 import { GRAMMAR_PAIRS } from '../grammar-pairs.js';
 import { grammarMarkRe } from '../grammar-mark.js';
+import { hubBooks, HUB_BOOKS_CSS } from './lib/hub-books.mjs';   // 목록 쪽 → 책 한 줄(문법과 가까운 판매 중 책: 조사 · 첫걸음)
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'worksheet');
@@ -189,6 +190,7 @@ writeFileSync(join(OUT, 'index.html'), head(`Free Korean Grammar Worksheets (Pri
   `${nFree} free printable Korean grammar worksheets, plus ${n - nFree} more with Pro, from beginner to advanced: explanation, examples, fill-in-the-blank, writing practice and an answer key.`, '/worksheet/') + `
 <h1>문법 학습지 · Grammar worksheets</h1>
 <p>Korean grammar from beginner to advanced, one printable worksheet each: explanation, examples, practice and an answer key. <b>${nFree} are completely free</b>; the other ${n - nFree} show the explanation for free, and the practice and answer key come with <a href="/?utm_source=worksheet&amp;utm_medium=index#pro">Pro</a> (free for class students). All practice is original — not from past exams. 초급 문법 학습지예요. ${nFree}개는 모두 무료, 나머지 ${n - nFree}개는 설명만 무료이고 연습 · 정답은 Pro 에서 열려요.</p>
+<style>${HUB_BOOKS_CSS}</style>${hubBooks(['particles-workbook', 'first-steps-workbook'], 'grammar-worksheets-hub', '초급 문법을 책 한 권으로 차례대로 익히고 싶다면: 조사 · 첫걸음 워크북(PDF, 정답 포함). <small>Prefer one book in order? Two beginner workbooks with answer keys.</small>')}
 ${list(false)}
 <p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/sentence/">All grammar points</a> · <a href="/topik-vocabulary-list/">Word lists (CSV · Anki)</a> · <a href="/privacy.html">Privacy</a></p>
 ` + foot);
