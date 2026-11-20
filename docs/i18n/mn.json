@@ -2806,5 +2806,13 @@
   "Writing practice": "Бичих дадлага",
   "You can switch any time. The lessons are the same: only the way they run changes.": "Та хүссэн үедээ сольж болно. Хичээлийн материал адилхан — зөвхөн явагдах хэлбэр нь өөрчлөгдөнө.",
   "You were in the middle · {0}/{1}": "Хийж байсан хичээл · {0}/{1}",
-  "Your lowest score": "Таны хамгийн бага оноо"
+  "Your lowest score": "Таны хамгийн бага оноо",
+  "All PDF books {0}% off": "Бүх PDF ном {0}% хямдралтай",
+  "Until {0} · code {1}": "{0} хүртэл · код {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "Код төлбөрийн дэлгэц дээр автоматаар орно. Хэрэв харагдахгүй бол “Add discount code” хэсэгт {0} гэж оруулна уу.",
+  "From Hangul to beginner sentences": "Хангыль үсгээс анхан шатны өгүүлбэр хүртэл",
+  "Speak and read longer texts": "Урт эх ярих ба унших",
+  "News and written style": "Мэдээ ба бичгийн хэлний найруулга",
+  "Mock tests, original questions, 3D classroom exam": "Жишиг шалгалт, өөрийн зохиосон дасгал, 3D ангийн шалгалт",
+  "Numbers and how we write the questions": "Тоо баримт ба дасгал зохиох арга"
 }
