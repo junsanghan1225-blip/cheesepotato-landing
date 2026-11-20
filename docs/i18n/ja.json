@@ -2855,5 +2855,13 @@
   "You write the task; the student submits text or a photo": "課題内容を入力すると、生徒が文章や写真で提出します",
   "Your lowest score": "最も正答率が低かった分野",
   "Books & articles": "本と記事",
-  "My records": "私の記録"
+  "My records": "私の記録",
+  "All PDF books {0}% off": "すべてのPDF本が{0}%オフ",
+  "Until {0} · code {1}": "{0}まで · コード {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "コードは決済画面で自動適用されます。表示されない場合は「Add discount code」欄に {0} を入力してください。",
+  "From Hangul to beginner sentences": "ハングルから初級の文まで",
+  "Speak and read longer texts": "長めの文章を話して読む",
+  "News and written style": "ニュースと書き言葉のスタイル",
+  "Mock tests, original questions, 3D classroom exam": "模擬試験・オリジナル問題・3D教室試験",
+  "Numbers and how we write the questions": "数字と問題の作成方法"
 }
