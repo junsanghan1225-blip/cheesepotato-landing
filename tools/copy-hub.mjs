@@ -23,6 +23,7 @@ const tabs = [   // [이름, 만드는 법, 파일 글자, 묶음] — 묶음 �
   ['예스24 소개 글', () => run('python3', ['tools/listing-html.py', path.join(tmp, 'f.html'), '예스24']), 'f', '지금 등록'],
   ['KDP', () => run('node', ['tools/kdp-html.mjs', path.join(tmp, 'c.html')]), 'c', '다른 판매처'],
   ['쿠팡', () => run('python3', ['tools/coupang-html.py', path.join(tmp, 'd.html')]), 'd', '다른 판매처'],
+  ['반값 알림(WEEK50)', () => run('node', ['tools/sale-html.mjs', path.join(tmp, 'p.html')]), 'p', '홍보 글'],   // 2026-11-17~23 책 반값 — 행사 끝나면 이 줄을 뺀다
   ['쓰레드 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'a.html'), ...img]), 'a', '홍보 글'],
   ['교사 글', () => run('node', ['tools/threads-html.mjs', path.join(tmp, 'b.html'), ...img, '--json', 'docs/ops/teacher-posts.json', '--title', '한국어 선생님께 홍보 글']), 'b', '홍보 글'],
   ['선물 · 소개 요청', () => run('node', ['tools/gift-html.mjs', path.join(tmp, 'g.html')]), 'g', '홍보 글'],
