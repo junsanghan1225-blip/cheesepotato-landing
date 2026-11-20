@@ -1,0 +1,496 @@
+{
+  "_note": "개인용 책(운영자 2026-11-20 「C1 형용사 · 부사 · 개인적인 것이라 예외로」) — 상점 · 학습지 쪽에 올리지 않는다(단원은 모두 inline). 단원 차례 16개는 _plan, 안티 지시 docs/antigravity/antigravity-adj-adv-c1-task.md. 만들기: node tools/build-book.mjs korean-adj-adv-c1",
+  "id": "korean-adj-adv-c1",
+  "edition": "Draft proof · 시안",
+  "theme": "classic",
+  "color": "#2E9E79",
+  "tint": "#EEF7F3",
+  "series": {
+    "en": "WORKBOOK SERIES",
+    "ko": "워크북 시리즈"
+  },
+  "title": {
+    "en": "Korean Adjectives & Adverbs in Use: C1",
+    "ko": "쓰면서 익히는 한국어 형용사 · 부사 (C1)"
+  },
+  "sub": {
+    "en": "Forms, derivation, nuance and real-life use for advanced learners.",
+    "ko": "활용 · 만들기 · 미묘한 차이 · 실제 쓰임"
+  },
+  "level": "C1",
+  "levelTag": "ADVANCED",
+  "trim": {
+    "w": 182,
+    "h": 257,
+    "bleed": 3,
+    "paperMm": 0.11
+  },
+  "author": {
+    "en": "Junsang",
+    "ko": "준상"
+  },
+  "authorAbout": {
+    "en": "Junsang is a Korean teacher. He has taught Korean for about two years and led over 1,700 lessons with students from many different cultural backgrounds.",
+    "ko": "준상은 한국어 교사입니다. 약 2년 동안 다양한 문화권의 학생들과 1,700회가 넘는 수업을 했습니다."
+  },
+  "publisher": {
+    "en": "Everykoreans",
+    "ko": "에브리코리안즈"
+  },
+  "web": "everykoreans.com",
+  "preface": {
+    "en": [
+      "You already know 크다 and 빨리. At C1 the hard part is not the words but the choice: 깨끗이 or 깨끗하게, 드디어 or 결국, 그립다 or 그리워하다. Native speakers choose without thinking; this book makes those choices visible.",
+      "Each unit takes one family of adjectives or adverbs. Tables show the form, the use and one example; the practice asks you to choose, to fix and finally to write your own sentence.",
+      "Read the examples aloud and copy the ones you like into your own writing. Adjectives and adverbs are where your Korean starts to sound like you."
+    ],
+    "ko": [
+      "「크다 · 빨리」는 이미 압니다. C1 에서 어려운 것은 낱말이 아니라 고르기입니다: 깨끗이일까 깨끗하게일까, 드디어일까 결국일까, 그립다일까 그리워하다일까. 한국 사람이 생각 없이 고르는 것을 이 책은 눈에 보이게 나눕니다.",
+      "단원마다 형용사나 부사 한 묶음입니다. 표는 꼴 · 쓰임 · 예문 하나를 보여 주고, 연습은 고르기 · 고치기 · 내 문장 쓰기 차례로 갑니다.",
+      "예문을 소리 내 읽고, 마음에 드는 문장은 내 글에 옮겨 써 보세요. 형용사와 부사에서 내 한국어의 말맛이 생깁니다."
+    ]
+  },
+  "howto": {
+    "en": [
+      "Read the Use column first. Then cover it and guess the difference from the examples.",
+      "Practice A is choosing, B is fixing, C is writing. Do not skip C: that is where the word becomes yours.",
+      "Answers to C are examples. If your sentence is different, check that the adverb or adjective is used the same way.",
+      "Check the Answer Key at the back and come back to the unit a week later.",
+      "More lessons and practice: everykoreans.com"
+    ],
+    "ko": [
+      "「쓰임」 칸을 먼저 읽고, 가린 뒤 예문만 보고 차이를 말해 보세요.",
+      "연습 A 는 고르기, B 는 고치기, C 는 쓰기입니다. C 를 건너뛰지 마세요: 거기서 낱말이 내 것이 됩니다.",
+      "C 의 정답은 예시입니다. 내 문장이 달라도 같은 쓰임이면 맞습니다.",
+      "뒤쪽 정답으로 확인하고, 일주일 뒤 다시 풀어 보세요.",
+      "레슨과 연습 더 보기: everykoreans.com"
+    ]
+  },
+  "parts": [
+    {
+      "title": {
+        "en": "Using It Well",
+        "ko": "실전에서 고르기"
+      },
+      "units": [
+        "adv-confusing-pairs"
+      ]
+    }
+  ],
+  "_plan": [
+    {
+      "part": {
+        "en": "Adjective Foundations",
+        "ko": "형용사의 바탕"
+      },
+      "units": [
+        [
+          "adj-vs-verb",
+          "형용사와 동사의 경계 (-하다 형용사 · 있다/없다 · 높다/높이다/높아지다)"
+        ],
+        [
+          "adj-irregular",
+          "불규칙 활용 총정리 (ㅂ · ㅎ · 르 · 러 · 으 · ㄹ, 고급 형용사 중심)"
+        ],
+        [
+          "adj-modifiers-time",
+          "꾸미는 꼴과 시간 (-(으)ㄴ · -던 · -았던 · -(으)ㄹ)"
+        ],
+        [
+          "adj-feeling-person",
+          "느낌 형용사와 사람 제약 (-아/어하다 · -겠- · 그립다/그리워하다)"
+        ]
+      ]
+    },
+    {
+      "part": {
+        "en": "Building Adjectives",
+        "ko": "형용사 넓히기"
+      },
+      "units": [
+        [
+          "adj-suffixes",
+          "-스럽다 · -롭다 · -답다 · -적(的)"
+        ],
+        [
+          "adj-change",
+          "상태 변화 (-아/어지다 · -게 되다 · -아/어 가다/오다)"
+        ],
+        [
+          "adj-senses-colors",
+          "감각 · 색 형용사의 미세한 차이 (노랗다/누렇다/샛노랗다 · 달다/달콤하다/달달하다)"
+        ],
+        [
+          "adj-polysemy",
+          "여러 뜻 형용사 (시원하다 · 무겁다 · 가볍다 · 깊다 · 얕다)"
+        ]
+      ]
+    },
+    {
+      "part": {
+        "en": "The Adverb System",
+        "ko": "부사의 체계"
+      },
+      "units": [
+        [
+          "adv-making",
+          "부사 만들기 (-이 · -히 · -게 · -으로, 깨끗이/깨끗하게)"
+        ],
+        [
+          "adv-degree",
+          "정도 부사 (꽤 · 상당히 · 몹시 · 훨씬 · 더욱 · 지나치게)"
+        ],
+        [
+          "adv-time-frequency",
+          "시간 · 빈도 부사 (이미/벌써 · 아직/여전히 · 곧/금방 · 이따금)"
+        ],
+        [
+          "adv-sentence-mood",
+          "문장 부사 (아마 · 설마 · 과연 · 오히려 · 차라리 · 하필 · 어차피)"
+        ],
+        [
+          "adv-mimetic",
+          "의성어 · 의태어 (반짝반짝 · 느릿느릿 · 두근두근 · 말끔히)"
+        ]
+      ]
+    },
+    {
+      "part": {
+        "en": "Using It Well",
+        "ko": "실전에서 고르기"
+      },
+      "units": [
+        [
+          "adv-confusing-pairs",
+          "헷갈리는 부사 짝 (겨우/간신히 · 드디어/결국 · 반드시/틀림없이 · 일부러/굳이) ✅ 견본"
+        ],
+        [
+          "adv-agreement",
+          "부사의 호응 (전혀 · 결코 · 도무지 + 부정, 만약 · 혹시 + 조건, 비록 + -더라도)"
+        ],
+        [
+          "adj-adv-register",
+          "말 · 글 · 격식 (매우/아주/엄청/되게 · 다소/약간/좀 · 즉시/당장)"
+        ],
+        [
+          "adj-adv-writing",
+          "묘사하는 글쓰기 (형용사 · 부사로 문단 고쳐 쓰기)"
+        ]
+      ]
+    }
+  ],
+  "noQr": true,
+  "published": "2026.11.20",
+  "coverLevel": {
+    "code": "C1",
+    "name": "고급",
+    "bg": "#2E9E79",
+    "bg2": "#1F6B52",
+    "mascot": [
+      "cheese",
+      6
+    ],
+    "title": [
+      "쓰면서 익히는",
+      "한국어",
+      "형용사 · 부사"
+    ],
+    "sub": "활용 · 만들기 · 미묘한 차이 · 실제 쓰임"
+  },
+  "back": {
+    "items": [
+      [
+        "17 units · 17단원",
+        "Adjective forms, derivation, adverb system, look-alike pairs · 형용사 활용 · 만들기 · 부사 체계 · 헷갈리는 짝"
+      ],
+      [
+        "Choose, fix, write · 고르고 고치고 쓰기",
+        "Every unit ends with your own sentences · 단원마다 내 문장 쓰기로 끝"
+      ],
+      [
+        "Answer key · 정답",
+        "Model sentences for the writing tasks · 쓰기 연습은 예시 문장"
+      ]
+    ],
+    "for": "For C1 learners who want natural, precise Korean · 자연스럽고 정확한 한국어를 원하는 C1 학습자에",
+    "price": "개인용"
+  },
+  "inline": {
+    "adv-confusing-pairs": {
+      "id": "adv-confusing-pairs",
+      "title": {
+        "en": "Look-alike Adverbs: Same Meaning, Different Use",
+        "ko": "헷갈리는 부사 짝"
+      },
+      "sub": {
+        "en": "겨우 · 간신히, 드디어 · 결국, 반드시 · 틀림없이, 일부러 · 굳이: how natives choose",
+        "ko": "뜻은 비슷해도 쓰임은 다르다: 결과 · 양 · 말투로 고르기"
+      },
+      "level": "C1",
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "Barely: 겨우 · 간신히 · 가까스로",
+            "ko": "겨우 · 간신히 · 가까스로"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "겨우",
+              "적은 양 (겨우 만 원) · 힘들게 해냄 (둘 다)",
+              "통장에 겨우 만 원이 남았다.",
+              "I have only 10,000 won left."
+            ],
+            [
+              "간신히",
+              "힘들게 해냄 (양에는 쓰지 않음)",
+              "막차를 간신히 탔다.",
+              "I barely caught the last train."
+            ],
+            [
+              "가까스로",
+              "간신히와 같음 · 글말 느낌",
+              "가까스로 위기를 넘겼다.",
+              "We narrowly got through the crisis."
+            ]
+          ],
+          "note": "양이 적다는 뜻이면 「겨우」만 된다: 겨우 세 명 (O) · 간신히 세 명 (X)."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Finally: 드디어 · 마침내 · 결국 · 끝내",
+            "ko": "드디어 · 마침내 · 결국 · 끝내"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "드디어",
+              "기다리던 일이 이루어짐 (주로 좋은 일)",
+              "드디어 합격 소식이 왔다.",
+              "The acceptance finally came."
+            ],
+            [
+              "마침내",
+              "긴 과정 끝에 이루어짐 · 글말 느낌",
+              "십 년의 연구 끝에 마침내 신약이 나왔다.",
+              "After ten years of research, a new drug finally came out."
+            ],
+            [
+              "결국",
+              "이런저런 일 끝의 결과 (나쁜 결과에 자주)",
+              "그렇게 무리하더니 결국 병이 났다.",
+              "He pushed himself so hard that he ended up sick."
+            ],
+            [
+              "끝내",
+              "끝까지 (주로 「안 · 못」과 함께)",
+              "그는 끝내 사과하지 않았다.",
+              "He never apologized, to the very end."
+            ]
+          ],
+          "note": "나쁜 결과에 「드디어」를 쓰면 그 일을 기다린 것처럼 들린다: 드디어 비가 와서 소풍이 취소됐다 (어색)."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Surely: 반드시 · 꼭 · 틀림없이 · 기필코",
+            "ko": "반드시 · 꼭 · 틀림없이 · 기필코"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "반드시",
+              "해야 함 · 꼭 그렇게 됨 (명령 · 다짐 · 추측)",
+              "서류는 반드시 오늘까지 내야 합니다.",
+              "The documents must be in by today."
+            ],
+            [
+              "꼭",
+              "부탁 · 다짐 (입말) · 「꼭 닮다」처럼 똑같이",
+              "다음에 꼭 다시 만나요.",
+              "Let's be sure to meet again."
+            ],
+            [
+              "틀림없이",
+              "확신하는 추측 (명령 · 부탁에는 X)",
+              "그 사람은 틀림없이 올 거예요.",
+              "He is sure to come."
+            ],
+            [
+              "기필코",
+              "강한 다짐 (주로 내가 하는 일)",
+              "올해는 기필코 6급을 따겠다.",
+              "This year I will get Level 6, no matter what."
+            ]
+          ],
+          "note": "「틀림없이」는 일어날 일을 확신할 때만 쓴다. 남에게 시킬 때는 「반드시 · 꼭」."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "On purpose: 일부러 · 굳이 · 억지로 · 괜히",
+            "ko": "일부러 · 굳이 · 억지로 · 괜히"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "일부러",
+              "마음먹고 · 특별히 시간을 내서",
+              "바쁘신데 일부러 와 주셔서 감사합니다.",
+              "Thank you for taking the trouble to come."
+            ],
+            [
+              "굳이",
+              "그렇게까지 할 필요 없이 (질문 · 부정과 자주)",
+              "굳이 택시를 탈 필요는 없어요.",
+              "There's no need to take a taxi."
+            ],
+            [
+              "억지로",
+              "하기 싫은데 힘으로 · 마지못해",
+              "아이에게 억지로 약을 먹였다.",
+              "I made the child take the medicine."
+            ],
+            [
+              "괜히",
+              "이유 없이 · 쓸데없이 (후회할 때 자주)",
+              "괜히 말했나 봐요.",
+              "Maybe I should not have said it."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "How to choose",
+            "ko": "고르는 순서"
+          },
+          "text": "세 가지를 차례로 물어보세요. ① 양이 적다는 말인가, 힘들게 해냈다는 말인가? ② 결과가 좋은가, 나쁜가, 아니면 끝까지 안 됐나? ③ 확신하는 추측인가, 시키는 말인가, 나의 다짐인가? 글을 쓸 때는 「가까스로 · 마침내」, 말할 때는 「겨우 · 드디어 · 꼭」이 더 자연스럽습니다."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice A: Choose the adverb",
+            "ko": "연습 A · 알맞은 부사 고르기"
+          },
+          "items": [
+            {
+              "q": "지갑에 ( 겨우 / 간신히 ) 동전 몇 개가 있었다.",
+              "a": "겨우"
+            },
+            {
+              "q": "삼 년을 기다린 끝에 ( 드디어 / 끝내 ) 집을 샀다.",
+              "a": "드디어"
+            },
+            {
+              "q": "여러 번 설득했지만 그는 ( 드디어 / 끝내 ) 마음을 바꾸지 않았다.",
+              "a": "끝내"
+            },
+            {
+              "q": "약속을 잘 지키는 사람이니까 ( 틀림없이 / 기필코 ) 올 거예요.",
+              "a": "틀림없이"
+            },
+            {
+              "q": "다 아는 이야기인데 ( 굳이 / 일부러 ) 다시 설명할 필요가 있을까요?",
+              "a": "굳이"
+            },
+            {
+              "q": "바쁘신데 ( 일부러 / 억지로 ) 찾아와 주셔서 고맙습니다.",
+              "a": "일부러"
+            },
+            {
+              "q": "가기 싫다는 아이를 ( 억지로 / 굳이 ) 학원에 보냈다.",
+              "a": "억지로"
+            },
+            {
+              "q": "아무 일도 없는데 ( 괜히 / 굳이 ) 눈물이 났다.",
+              "a": "괜히"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice B: Fix the wrong adverb",
+            "ko": "연습 B · 어색한 부사 고치기"
+          },
+          "hint": "밑줄 대신 어색한 부사 하나를 찾아 바꾸세요.",
+          "items": [
+            {
+              "q": "내일 회의에는 틀림없이 참석하세요.",
+              "a": "반드시 (또는 꼭) 참석하세요"
+            },
+            {
+              "q": "드디어 비가 와서 소풍이 취소됐다. 아쉽다.",
+              "a": "결국 비가 와서"
+            },
+            {
+              "q": "통장에 간신히 만 원밖에 없다.",
+              "a": "겨우 만 원밖에"
+            },
+            {
+              "q": "굳이 와 주셔서 감사합니다.",
+              "a": "일부러 와 주셔서"
+            },
+            {
+              "q": "올해는 틀림없이 담배를 끊겠다. (나의 다짐)",
+              "a": "기필코 (또는 반드시) 끊겠다"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice C: Write your own",
+            "ko": "연습 C · 내 문장 쓰기"
+          },
+          "hint": "주어진 부사와 낱말로 한 문장을 쓰세요. 정답은 예시입니다.",
+          "items": [
+            {
+              "q": "가까스로 + 마감",
+              "a": "예) 마감 십 분 전에 가까스로 보고서를 냈다."
+            },
+            {
+              "q": "결국 + 다이어트",
+              "a": "예) 야식을 끊지 못해서 결국 다이어트에 실패했다."
+            },
+            {
+              "q": "굳이 + 사과하다",
+              "a": "예) 네 잘못도 아닌데 굳이 사과할 필요는 없어."
+            },
+            {
+              "q": "마침내 + 완성되다",
+              "a": "예) 오 년 동안 지은 다리가 마침내 완성되었다."
+            }
+          ]
+        }
+      ],
+      "howto": [
+        "Read the Use column first, then cover it and guess from the example."
+      ],
+      "koSummary": "비슷한 뜻의 부사 네 묶음을 양 · 결과 · 말투로 나눠 고르는 법을 익힌다."
+    }
+  }
+}
