@@ -62,7 +62,7 @@
     '.sp-p{display:grid;gap:4px;padding-left:24px;border-left:1px dashed var(--line,#cfc6b4)}' +
     '.sp-r{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}.sp-r s{font-size:14px;color:var(--ink-3,#8C7A66)}.sp-r i{font-style:normal;color:var(--ink-3,#8C7A66)}.sp-r b{font-size:20px;line-height:1.2;font-weight:800;color:var(--orange-text,var(--orange-deep,#B4460F))}' +
     '.sp-n{grid-column:1/-1;margin:6px 0 0;padding-top:8px;border-top:1px dashed var(--line,#cfc6b4);font-size:12.5px;line-height:1.5;color:var(--ink-3,#8C7A66)}' +
-    '@media (max-width:560px){.sale-promo{grid-template-columns:minmax(0,1fr);padding:14px}.sp-p{padding:8px 0 0;border-left:0;border-top:1px dashed var(--line,#cfc6b4)}.sp-r b{font-size:18px}}';
+    '@media (max-width:560px){.sale-promo{grid-template-columns:minmax(0,1fr);padding:10px 14px;margin-top:10px!important;margin-bottom:10px!important}.sp-t{display:block}.sp-d{display:inline;margin:0 8px 0 0}.sp-t b{font-size:16px}.sp-t span:last-child{display:block;font-size:12.5px}.sp-p,.sp-n{display:none}}';   /* 폰: 한두 줄로 — 큰 상자가 책 쪽 첫 화면 절반을 차지해 결제 단추가 밀렸다(2026-11-20). 반값 가격은 결제 단추 · 카드에 그대로 보인다 */
   document.head.appendChild(css);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
   setTimeout(run, 1500);   // 첫 화면 책 코너가 늦게 그려질 때

@@ -6,6 +6,7 @@
    JSON 모양은 docs/worksheets/_schema.md. 인쇄 단추는 numbers-worksheet.js(id nwPrint · nwAns)를 같이 쓴다.
    node tools/build-sheets.mjs          만들기
    node tools/build-sheets.mjs --check  모양 검사 + 쪽이 자료와 같은지(CI) */
+import { hubBooks, booksWithSheets, HUB_BOOKS_CSS } from './lib/hub-books.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -175,6 +176,7 @@ function hubPage() {
 `<h1>Free Korean worksheets</h1>
 <p>학습지 모음 · ${all.length}편 · 인쇄하거나 PDF · Word 로 저장 · 모든 학습지에 정답지가 있어요</p>
 <nav class="wl-jump" aria-label="급별 바로가기"><a href="#all">전체 ${cnt('all')}</a><a href="#a1">A1 입문 ${cnt('A1')}</a><a href="#a2">A2 초급 ${cnt('A2')}</a></nav>
+<style>${HUB_BOOKS_CSS}</style>${hubBooks([...new Set([...booksWithSheets(sheets.map((w) => w.id)), 'particles-workbook'])], 'worksheets-hub')}
 <div class="wl">
 ${sec}
 </div>
