@@ -2830,5 +2830,13 @@
   "You write the task; the student submits text or a photo": "你布置题目，学生以文字或照片形式提交",
   "Your lowest score": "得分最低的题型",
   "Books & articles": "图书与文章",
-  "My records": "我的记录"
+  "My records": "我的记录",
+  "All PDF books {0}% off": "所有 PDF 电子书享 {0}% 折扣",
+  "Until {0} · code {1}": "截至 {0} · 优惠码 {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "结账页面会自动填入优惠码。如未显示，请在“Add discount code”栏输入 {0}。",
+  "From Hangul to beginner sentences": "从韩文字母到初级句子",
+  "Speak and read longer texts": "说和读更长的文章",
+  "News and written style": "新闻与书面语风格",
+  "Mock tests, original questions, 3D classroom exam": "模拟考试、原创题目、3D教室考场",
+  "Numbers and how we write the questions": "数据与我们的出题方式"
 }
