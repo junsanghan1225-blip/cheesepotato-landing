@@ -2806,5 +2806,13 @@
   "Writing practice": "Yozish amaliyoti",
   "You can switch any time. The lessons are the same: only the way they run changes.": "Istalgan vaqtda oʻzgartirishingiz mumkin. Darslar bir xil — faqat ularning oʻtish tartibi oʻzgaradi.",
   "You were in the middle · {0}/{1}": "Siz oʻrtasida edingiz · {0}/{1}",
-  "Your lowest score": "Eng past balingiz"
+  "Your lowest score": "Eng past balingiz",
+  "All PDF books {0}% off": "Barcha PDF kitoblarga {0}% chegirma",
+  "Until {0} · code {1}": "{0} gacha · kod {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "Kod to‘lov ekranida avtomatik qo‘shiladi. Agar ko‘rinmasa, “Add discount code” joyiga {0} kiriting.",
+  "From Hangul to beginner sentences": "Hangildan boshlang‘ich gaplargacha",
+  "Speak and read longer texts": "Uzunroq matnlarni gapirish va o‘qish",
+  "News and written style": "Yangiliklar va yozma uslub",
+  "Mock tests, original questions, 3D classroom exam": "Sinov testlari, mualliflik savollari, 3D sinf imtihoni",
+  "Numbers and how we write the questions": "Raqamlar va savollarni qanday tuzishimiz"
 }
