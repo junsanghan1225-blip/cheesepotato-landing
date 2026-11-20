@@ -2802,5 +2802,13 @@
   "Writing practice": "लेखाइ अभ्यास",
   "You can switch any time. The lessons are the same: only the way they run changes.": "तपाईं जुनसुकै बेला परिवर्तन गर्न सक्नुहुन्छ। पाठहरू उस्तै छन् — तिनीहरू सञ्चालन हुने तरिका मात्र परिवर्तन हुन्छ।",
   "You were in the middle · {0}/{1}": "तपाईं बिचमा हुनुहुन्थ्यो · {0}/{1}",
-  "Your lowest score": "तपाईंको सबैभन्दा कम स्कोर"
+  "Your lowest score": "तपाईंको सबैभन्दा कम स्कोर",
+  "All PDF books {0}% off": "सबै PDF पुस्तकमा {0}% छुट",
+  "Until {0} · code {1}": "{0} सम्म · कोड {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "भुक्तानी स्क्रिनमा कोड आफैँ लागू हुन्छ। यदि नदेखिएमा “Add discount code” मा {0} राख्नुहोस्।",
+  "From Hangul to beginner sentences": "हङ्गुलदेखि प्रारम्भिक वाक्यसम्म",
+  "Speak and read longer texts": "लामा पाठहरू बोल्ने र पढ्ने",
+  "News and written style": "समाचार र लिखित भाषा शैली",
+  "Mock tests, original questions, 3D classroom exam": "नमुना परीक्षा, मौलिक प्रश्न, 3D कक्षाकोठा परीक्षा",
+  "Numbers and how we write the questions": "तथ्याङ्क र हामीले प्रश्न बनाउने तरिका"
 }
