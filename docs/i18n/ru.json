@@ -2808,5 +2808,13 @@
   "You were in the middle · {0}/{1}": "Вы остановились здесь · {0}/{1}",
   "Your lowest score": "Ваш самый низкий балл",
   "Books & articles": "Книги и статьи",
-  "My records": "Мои записи"
+  "My records": "Мои записи",
+  "All PDF books {0}% off": "Скидка {0}% на все PDF-книги",
+  "Until {0} · code {1}": "До {0} · код {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "Код применяется на экране оплаты автоматически. Если его нет, введите {0} в поле “Add discount code”.",
+  "From Hangul to beginner sentences": "От хангыля до первых предложений",
+  "Speak and read longer texts": "Говорить и читать более длинные тексты",
+  "News and written style": "Новости и письменный стиль",
+  "Mock tests, original questions, 3D classroom exam": "Пробные тесты, авторские задания, экзамен в 3D-классе",
+  "Numbers and how we write the questions": "Цифры и как мы составляем задания"
 }
