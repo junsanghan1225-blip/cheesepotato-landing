@@ -2796,5 +2796,13 @@
   "You were in the middle · {0}/{1}": "သင် လုပ်လက်စ ဖြစ်နေပါသည် · {0}/{1}",
   "You write the task; the student submits text or a photo": "သင်က အလုပ်ကို ရေးသားပြီး ကျောင်းသားက စာသား သို့မဟုတ် ဓာတ်ပုံ တင်သွင်းပါသည်",
   "Your lowest score": "သင့်အနိမ့်ဆုံး ရမှတ်",
-  "Your path, from your level": "သင့်အဆင့်နှင့် ကိုက်ညီသော လမ်းကြောင်း"
+  "Your path, from your level": "သင့်အဆင့်နှင့် ကိုက်ညီသော လမ်းကြောင်း",
+  "All PDF books {0}% off": "PDF စာအုပ်အားလုံး {0}% လျှော့ဈေး",
+  "Until {0} · code {1}": "{0} အထိ · ကုဒ် {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "ငွေပေးချေသည့် စာမျက်နှာတွင် ကုဒ်ကို အလိုအလျောက် ထည့်ပေးပါသည်။ မပေါ်ပါက “Add discount code” အကွက်တွင် {0} ကို ရိုက်ထည့်ပါ။",
+  "From Hangul to beginner sentences": "ဟန်းဂုလ်မှ အခြေခံဝါကျများအထိ",
+  "Speak and read longer texts": "ပိုရှည်သော စာပိုဒ်များ ပြောခြင်းနှင့် ဖတ်ခြင်း",
+  "News and written style": "သတင်းနှင့် စာရေးဟန်",
+  "Mock tests, original questions, 3D classroom exam": "စမ်းသပ်စာမေးပွဲများ၊ ကိုယ်ပိုင်မေးခွန်းများ၊ 3D စာသင်ခန်း စာမေးပွဲ",
+  "Numbers and how we write the questions": "ကိန်းဂဏန်းများနှင့် မေးခွန်းရေးသားပုံ"
 }
