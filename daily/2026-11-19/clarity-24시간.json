@@ -1,0 +1,337 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 4.9,
+     "sessionsWithoutMetricPercentage": 95.1,
+     "pagesViews": 5,
+     "subTotal": 6
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 4.9,
+     "sessionsWithoutMetricPercentage": 95.1,
+     "pagesViews": 6,
+     "subTotal": 6
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 102,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 42.85
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 103,
+     "totalBotSessionCount": 44,
+     "distinctUserCount": 98,
+     "pagesPerSessionPercentage": 1.6213592233009708
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 130,
+     "activeTime": 58
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 69
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 19
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 12
+    },
+    {
+     "name": "Other",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 1
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 87
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Email",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 86
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 12
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 3
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "United States",
+     "sessionsCount": 26
+    },
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 18
+    },
+    {
+     "name": "France",
+     "sessionsCount": 11
+    },
+    {
+     "name": "Switzerland",
+     "sessionsCount": 8
+    },
+    {
+     "name": "United Kingdom",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Indonesia",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Mexico",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 3
+    },
+    {
+     "name": "China",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Germany",
+     "sessionsCount": 3
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 29
+    },
+    {
+     "name": "Free Korean Grammar Worksheets (Printable PDF) — Beginner to Advanced | CheesePotato",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Everykoreans — Korean Books & Worksheet Shop | CheesePotato",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Korean Grammar Worksheet: N이/가 있다·없다 — Printable | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Free Korean Worksheets (Printable PDF) | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Korean First Steps Workbook — Everykoreans | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Korean Numbers Worksheet — Sino-Korean vs Native Korean (Free PDF) | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Reading a Korean Workplace Safety Checklist: PPE, Hazards, and Stop-Work Rights | CheesePotato Blog",
+     "sessionsCount": 3
+    },
+    {
+     "name": "TOPIK 2 People Vocabulary — 1117 Korean Words with English | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Essential Korean Particles (Free PDF) | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 23
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 9
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "alice.yandex.ru",
+     "sessionsCount": 1
+    },
+    {
+     "name": "search.yahoo.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 29
+    },
+    {
+     "url": "https://everykoreans.com/worksheet/",
+     "visitsCount": 7
+    },
+    {
+     "url": "https://everykoreans.com/shop/",
+     "visitsCount": 6
+    },
+    {
+     "url": "https://everykoreans.com/worksheet/23-2.html",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/blog/korean-work-safety-form-english.html",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/numbers-worksheet/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shop/first-steps-workbook/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/topik2-words/people.html",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/worksheets/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/korean-particles-worksheet/",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
