@@ -2808,5 +2808,13 @@
   "You were in the middle · {0}/{1}": "Você estava no meio · {0}/{1}",
   "Your lowest score": "Sua menor pontuação",
   "Books & articles": "Livros e artigos",
-  "My records": "Meus registros"
+  "My records": "Meus registros",
+  "All PDF books {0}% off": "Todos os livros em PDF com {0}% de desconto",
+  "Until {0} · code {1}": "Até {0} · código {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "O código é aplicado automaticamente no pagamento. Se não aparecer, digite {0} em “Add discount code”.",
+  "From Hangul to beginner sentences": "Do Hangul às primeiras frases",
+  "Speak and read longer texts": "Falar e ler textos mais longos",
+  "News and written style": "Notícias e linguagem escrita",
+  "Mock tests, original questions, 3D classroom exam": "Simulados, questões próprias, prova em sala 3D",
+  "Numbers and how we write the questions": "Números e como fazemos as questões"
 }
