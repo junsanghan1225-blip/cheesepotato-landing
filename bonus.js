@@ -86,7 +86,7 @@
     if (q.t === 'q') {
       const b = el('div', 'bq'); b.dataset.ans = q.a; b.dataset.id = q.id;
       const p = el('p', 'bqq'); p.append(el('i', '', 'Q' + (i + 1)), q.q); b.append(p);
-      const ul = el('ul', 'bo'); q.opts.forEach((o, k) => { const li = el('li', '', NUM[k] + ' ' + o); li.tabIndex = 0; li.setAttribute('role', 'button'); ul.append(li); });
+      const ul = el('ul', 'bo'); ul.setAttribute('role', 'none'); /* 보기 li 가 role=button 이라 목록 뜻을 뺀다(#701) */ q.opts.forEach((o, k) => { const li = el('li', '', NUM[k] + ' ' + o); li.tabIndex = 0; li.setAttribute('role', 'button'); ul.append(li); });
       b.append(ul); const w = el('p', 'bw', q.why); w.hidden = true; b.append(w); return b;
     }
     const b = el('div', 'bf'); b.dataset.a = JSON.stringify(q.a); b.dataset.id = q.id;

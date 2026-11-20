@@ -973,7 +973,8 @@ const trGradeTx = (exam, g) => (exam === 'I'
    검색으로 들어온 학생이 먼저 풀어 보게 정답은 <details> 안에 — 글은 그대로 쪽에 있어 검색에도 읽힌다. */
 const ONUM = ['①', '②', '③', '④', '⑤'];
 function optsAndAnswer(options, answer, whyKo, whyEn) {
-  return `<ul class="opts" data-ans="${answer}">` + options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+  // 보기 li 는 role=button(누르는 칸)이라 ul 의 목록 뜻을 뺀다 — 접근성 검사 list 규칙(#701)
+  return `<ul class="opts" role="none" data-ans="${answer}">` + options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
     '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
     `<p class="ans-right"><b>정답 ${ONUM[answer] || answer + 1}</b> ${esc(options[answer])}</p>` +
     `<div class="ex">${esc(whyKo)}</div>` + (whyEn ? `<div class="ex" lang="en">${esc(whyEn)}</div>` : '') + '</details>';
@@ -1199,7 +1200,7 @@ function epsPage(it) {
     it.passage ? `<div class="ex">${ulMark(it.passage, it.mark)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
     /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
-    `<ul class="opts" data-ans="${it.answer}">` + it.options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
+    `<ul class="opts" role="none" data-ans="${it.answer}">` + it.options.map((o, i) => `<li tabindex="0" role="button"><span class="onum">${ONUM[i] || i + 1}</span>${esc(o)}</li>`).join('') + '</ul>' +
     '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
     `<p class="ans-right"><b>정답 ${ONUM[it.answer] || it.answer + 1}</b> ${esc(it.options[it.answer])}</p>` + (picAns || '') +
     `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div></details>`,
