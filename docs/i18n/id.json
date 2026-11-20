@@ -2804,5 +2804,13 @@
   "You were in the middle · {0}/{1}": "Sedang di tengah jalan · {0}/{1}",
   "Your lowest score": "Skor terendahmu",
   "Books & articles": "Buku & artikel",
-  "My records": "Catatan saya"
+  "My records": "Catatan saya",
+  "All PDF books {0}% off": "Semua buku PDF diskon {0}%",
+  "Until {0} · code {1}": "Sampai {0} · kode {1}",
+  "The code is added at checkout. If it is not, enter {0} under “Add discount code”.": "Kode dimasukkan otomatis saat pembayaran. Jika tidak muncul, masukkan {0} di kolom “Add discount code”.",
+  "From Hangul to beginner sentences": "Dari Hangul sampai kalimat pemula",
+  "Speak and read longer texts": "Berbicara dan membaca teks lebih panjang",
+  "News and written style": "Berita dan ragam bahasa tulis",
+  "Mock tests, original questions, 3D classroom exam": "Try out, soal asli buatan kami, ujian kelas 3D",
+  "Numbers and how we write the questions": "Angka dan cara kami membuat soal"
 }
