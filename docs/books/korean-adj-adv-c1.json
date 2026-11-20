@@ -491,6 +491,1058 @@
         "Read the Use column first, then cover it and guess from the example."
       ],
       "koSummary": "비슷한 뜻의 부사 네 묶음을 양 · 결과 · 말투로 나눠 고르는 법을 익힌다."
+    },
+    "adj-vs-verb": {
+      "id": "adj-vs-verb",
+      "title": {
+        "en": "Adjectives vs. Verbs: Drawing the Line",
+        "ko": "형용사와 동사의 경계"
+      },
+      "sub": {
+        "en": "-하다 pairs, 있다/없다 compounds, and 높다 · 높이다 · 높아지다: how forms shift",
+        "ko": "현재형 · 명령형 · 꾸미는 꼴로 가려내는 품사의 경계"
+      },
+      "level": "C1",
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "Present Form & Modifiers: 알맞다, 걸맞다, 생기다, 늙다",
+            "ko": "현재형과 꾸미는 꼴: 알맞다 · 걸맞다 · 생기다 · 늙다"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "알맞다",
+              "[[형용사 · 상태]] 알맞은(O) 알맞는(X), 명령 불가",
+              "상황에 꼭 알맞은 해결책을 찾았다.",
+              "We found a solution perfectly suited to the situation."
+            ],
+            [
+              "걸맞다",
+              "[[형용사 · 상태]] 걸맞은(O) 걸맞는(X), 청유 불가",
+              "직책에 걸맞은 무거운 책임을 느껴야 한다.",
+              "One must feel heavy responsibility befitting the position."
+            ],
+            [
+              "생기다",
+              "[[동사 · 발생/변화]] 생긴(과거/외모) 생기는(현재)",
+              "예상치 못한 돌발 변수가 생겼다.",
+              "An unexpected variable suddenly arose."
+            ],
+            [
+              "어울리다",
+              "[[동사 · 동작/조화]] 어울리는(현재) 어울린(과거)",
+              "이 색상은 누구에게나 무난하게 잘 어울린다.",
+              "This color suits anyone comfortably well."
+            ],
+            [
+              "늙다",
+              "[[동사 · 노화의 변화]] 늙는다(현재) 늙은(과거 완료)",
+              "세월이 흐르면 사람은 누구나 늙는다.",
+              "As time passes, everyone naturally grows older."
+            ]
+          ],
+          "note": "「알맞은 표기」가 맞고 「알맞는 표기」는 틀립니다. 형용사는 현재 관형사형으로 「-(으)ㄴ」을 씁니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Compounds with 있다 and 없다: 맛있다, 어이없다, 늦다",
+            "ko": "있다 · 없다 결합어와 늦다"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "맛있다",
+              "[[형용사 · 상태]] 꾸밀 때는 관습적으로 맛있는",
+              "이 식당은 정갈하고 맛있는 음식을 내놓는다.",
+              "This restaurant serves neat and delicious food."
+            ],
+            [
+              "재미있다",
+              "[[형용사 · 상태]] 명령이나 청유형 불가(재미있자 X)",
+              "어제 읽은 소설은 결말이 무척 재미있었다.",
+              "The novel I read yesterday had a very interesting ending."
+            ],
+            [
+              "어이없다",
+              "[[형용사 · 상태]] 꾸밀 때 어이없는, 어이없다(O)",
+              "터무니없는 소문에 어이없는 웃음이 나왔다.",
+              "An absurd rumor made me let out a dumbfounded laugh."
+            ],
+            [
+              "늦다 (동사)",
+              "[[동사 · 시간 늦어짐]] 늦는다(현재) 늦는(수식)",
+              "출근 시간에 늦는 직원이 부쩍 늘었다.",
+              "The number of employees running late for work increased noticeably."
+            ],
+            [
+              "늦다 (형용사)",
+              "[[형용사 · 시기 지남]] 늦다(현재) 늦은(수식)",
+              "지금 후회해도 이미 때는 늦었다.",
+              "Even if you regret it now, the time is already too late."
+            ]
+          ],
+          "note": "「있다/없다」가 붙은 단어는 형용사이지만 수식할 때 예외로 「-는」을 씁니다. 단, 청유형(-자)과 명령형(-어라)은 쓸 수 없습니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Base Adjective vs. Causative vs. Inchoative: 높다 · 높이다 · 높아지다",
+            "ko": "기본 형용사 · 사동사 · 변화 동사: 높다 · 높이다 · 높아지다"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "높다",
+              "[[형용사 · 상태]] 높다 · 높은 · 높아서",
+              "산세가 험하고 봉우리가 높아 오르기 힘들다.",
+              "The mountain terrain is rugged and the peaks are high, making it hard to climb."
+            ],
+            [
+              "높이다",
+              "[[타동사 · 주어가 목적어 올림]] 목적어(-을/를) 필수",
+              "업무 효율성을 높이기 위해 협업 도구를 도입했다.",
+              "We adopted collaboration tools to raise work efficiency."
+            ],
+            [
+              "높아지다",
+              "[[자동사 · 주어 스스로 높아짐]] 주어(-이/가) 필수",
+              "물가가 오르면서 시민들의 주거비 부담이 높아졌다.",
+              "As prices rose, citizens' burden of housing costs increased."
+            ],
+            [
+              "넓다",
+              "[[형용사 · 면적 상태]] 넓다 · 넓은 · 넓어서",
+              "새로 옮긴 연구실은 전망이 좋고 면적이 넓다.",
+              "The newly relocated lab has a nice view and ample space."
+            ],
+            [
+              "넓히다",
+              "[[타동사 · 범위를 넓히는 행위]] 목적어(-을/를) 필수",
+              "폭넓은 독서는 생각의 지평을 넓혀 준다.",
+              "Wide reading broadens the horizon of one's thought."
+            ],
+            [
+              "넓어지다",
+              "[[자동사 · 점차 넓어지는 변화]] 주어(-이/가) 필수",
+              "도로 정비 공사가 끝나 보행로가 한결 넓어졌다.",
+              "With road repairs finished, the pedestrian sidewalk became considerably wider."
+            ]
+          ],
+          "note": "「높아지다」는 자동사이므로 「효율성을 높아지다」처럼 목적어를 가질 수 없습니다. 타동사인 「높이다」를 써야 합니다."
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "How to choose",
+            "ko": "고르는 순서"
+          },
+          "text": "단어의 품사가 헷갈릴 때는 세 가지 기준을 차례로 적용해 보세요. ① 지금의 고정된 상태인가, 움직임이나 변화인가? ② 현재 시제 평서형으로 「-는다/ㄴ다」를 붙여 자연스러운가? (자연스러우면 동사, 안 되면 형용사) ③ 청유(-자)나 명령(-어라)이 가능한가? 편지나 대화에서 「건강하세요」나 「행복하세요」를 흔히 쓰지만, 형용사는 명령형을 만들 수 없으므로 격식 있는 글에서는 「건강하시기 바랍니다」나 「행복하게 지내세요」로 씁니다."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice A: Choose the form",
+            "ko": "연습 A · 알맞은 꼴 고르기"
+          },
+          "items": [
+            {
+              "q": "체형과 장소에 꼭 ( 알맞은 / 알맞는 ) 정장을 골라 입었다.",
+              "a": "알맞은"
+            },
+            {
+              "q": "그 자리에 ( 걸맞은 / 걸맞는 ) 역량을 갖춘 인재를 추천해 주십시오.",
+              "a": "걸맞은"
+            },
+            {
+              "q": "세월의 무게 앞에서 사람은 누구나 자연스럽게 ( 늙는다 / 늙다 ).",
+              "a": "늙는다"
+            },
+            {
+              "q": "기술 혁신을 통해 해외 시장에서 브랜드 가치를 ( 높였다 / 높아졌다 ).",
+              "a": "높였다"
+            },
+            {
+              "q": "경기가 침체되면서 자영업자들의 불안감이 점차 ( 깊어졌다 / 깊혔다 ).",
+              "a": "깊어졌다"
+            },
+            {
+              "q": "우리 팀은 이번 분기에 시장 점유율을 더욱 ( 넓히기로 / 넓어지기로 ) 합의했다.",
+              "a": "넓히기로"
+            },
+            {
+              "q": "새해에는 부디 더욱 ( 건강하시기 바랍니다 / 건강하세요 ). (격식)",
+              "a": "건강하시기 바랍니다"
+            },
+            {
+              "q": "도로 확장 공사로 차선이 둘에서 넷으로 크게 ( 넓어졌다 / 넓혔다 ).",
+              "a": "넓어졌다"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice B: Fix the wrong form",
+            "ko": "연습 B · 어색한 곳 고치기"
+          },
+          "hint": "어색한 부분을 찾아 바르게 고쳐 쓰세요.",
+          "items": [
+            {
+              "q": "상황에 알맞는 대책을 서둘러 마련해야 합니다.",
+              "a": "알맞은 대책을"
+            },
+            {
+              "q": "그의 무책임한 행동은 공직자로서 전혀 걸맞는 태도가 아니었다.",
+              "a": "걸맞은 태도가"
+            },
+            {
+              "q": "이번 정책은 저소득층의 삶의 질을 높아지는 계기가 될 것이다.",
+              "a": "질을 높이는 계기가 (또는 질이 높아지는)"
+            },
+            {
+              "q": "창밖을 보니 바람이 불고 날씨가 춥는다.",
+              "a": "날씨가 춥다"
+            },
+            {
+              "q": "선생님, 올 한 해도 늘 행복하세요. (격식 표현)",
+              "a": "행복하시기 바랍니다 (또는 행복하게 지내시기 바랍니다)"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice C: Write your own",
+            "ko": "연습 C · 내 문장 쓰기"
+          },
+          "hint": "주어진 낱말과 조건을 살려 자연스러운 문장을 쓰세요. 정답은 예시입니다.",
+          "items": [
+            {
+              "q": "걸맞은 + 품격",
+              "a": "예) 대표라는 직함에 걸맞은 품격과 책임을 보여주어야 한다."
+            },
+            {
+              "q": "높이다 + 경쟁력",
+              "a": "예) 연구 개발 투자를 늘려 국제 시장에서 경쟁력을 높였다."
+            },
+            {
+              "q": "넓어지다 + 선택의 폭",
+              "a": "예) 온라인 유통망이 발달하면서 소비자의 선택의 폭이 한층 넓어졌다."
+            }
+          ]
+        }
+      ],
+      "howto": [
+        "Check whether the word describes a static state or dynamic change, then apply the present tense test."
+      ],
+      "koSummary": "현재형 활용 · 수식형 · 사동사와 피동 변화를 통해 형용사와 동사의 문법적 경계를 정리한다."
+    },
+    "adj-irregular": {
+      "id": "adj-irregular",
+      "title": {
+        "en": "Adjective Irregulars in Depth",
+        "ko": "고급 형용사 불규칙 활용"
+      },
+      "sub": {
+        "en": "ㅂ, ㅎ, 르, 러, 으, and ㄹ shifts in high-level descriptive words",
+        "ko": "모음 앞에서 바뀌는 줄기: ㅂ · ㅎ · 르 · 러 · 으 · ㄹ"
+      },
+      "level": "C1",
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "ㅂ Irregular vs. ㅂ Regular: 그립다, 안쓰럽다, 굽다, 좁다",
+            "ko": "ㅂ 불규칙과 ㅂ 규칙"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "그립다",
+              "[[ㅂ 불규칙 · ㅂ→우]] 그리워 · 그리우니 · 그리운",
+              "어린 시절 뛰놀던 고향의 골목길이 몹시 그립다.",
+              "I sorely miss the alleyways of my hometown where I played as a child."
+            ],
+            [
+              "안쓰럽다",
+              "[[ㅂ 불규칙 · ㅂ→우]] 안쓰러워 · 안쓰러우니",
+              "주말도 없이 일하는 후배의 지친 모습이 안쓰럽다.",
+              "I feel pity seeing the exhausted look of my junior who works even weekends."
+            ],
+            [
+              "가엾다",
+              "[[ㅂ 불규칙 · ㅂ→우]] 가여워 (가엾어 도 표준어)",
+              "추위에 떨며 먹이를 찾는 길고양이가 참 가엾다.",
+              "The stray cat shivering in the cold looking for food is truly pitiable."
+            ],
+            [
+              "수줍다",
+              "[[ㅂ 불규칙 · ㅂ→우]] 수줍어(X) 수줍어하다(동사화)",
+              "그는 수줍은 미소를 지으며 고개를 가만히 숙였다.",
+              "He quietly lowered his head with a bashful smile."
+            ],
+            [
+              "굽다 (등/허리)",
+              "[[ㅂ 규칙 · 굽어/굽으니]] 등이나 허리가 휨 (구워 X)",
+              "오랜 세월 농사일을 하느라 허리가 많이 굽으셨다.",
+              "Her back became heavily bent from farming for long decades."
+            ],
+            [
+              "좁다",
+              "[[ㅂ 규칙 · 좁아/좁으니]] 면적이 협소함 (조와 X)",
+              "통로가 좁아 휠체어가 지나가기 어렵다.",
+              "The passageway is narrow, making it difficult for wheelchairs to pass."
+            ]
+          ],
+          "note": "허리나 등이 휜 상태인 「굽다」와 면적이 작은 「좁다」는 ㅂ 규칙이라 모음 앞에서도 ㅂ이 유지됩니다: 허리가 굽어(O) · 구워(X: 고기 구움)."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "ㅎ and 르/러 Irregulars: 하얗다, 게으르다, 빠르다, 푸르다",
+            "ko": "ㅎ 불규칙과 르 · 러 불규칙"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "하얗다",
+              "[[ㅎ 불규칙 · ㅎ 탈락+모음 축약]] 하얘 · 하야니 · 하얀",
+              "밤새 내린 함박눈으로 온 동네가 하얗게 덮였다.",
+              "The whole town was covered in white by the heavy snow that fell overnight."
+            ],
+            [
+              "그렇다",
+              "[[ㅎ 불규칙 · ㅎ 탈락+모음 축약]] 그래 · 그러니 · 그런",
+              "사정이 그렇다면 다른 방안을 찾아보아야겠습니다.",
+              "If circumstances are such, we must look for an alternative plan."
+            ],
+            [
+              "게으르다",
+              "[[르 불규칙 · 르 탈락+ㄹㄹ]] 게을러 · 게으르니 · 게으른",
+              "그는 재능은 뛰어나지만 성격이 게을러 마감을 자주 넘긴다.",
+              "He is very talented, but so lazy that he frequently misses deadlines."
+            ],
+            [
+              "빠르다",
+              "[[르 불규칙 · 르 탈락+ㄹㄹ]] 빨라 · 빠르니 · 빠른",
+              "기술의 혁신 속도가 생각했던 것보다 훨씬 빠르다.",
+              "The speed of technological innovation is much faster than thought."
+            ],
+            [
+              "푸르다",
+              "[[러 불규칙 · 어→러]] 푸르러 · 푸르니 · 푸른 (풀러 X)",
+              "초가을 산천이 눈이 시리도록 맑고 푸르다.",
+              "The early autumn mountains and rivers are eye-piercingly clear and blue."
+            ]
+          ],
+          "note": "「푸르다」는 르 불규칙(풀러 X)이 아니라 러 불규칙이라서 「푸르러」가 됩니다. 르 불규칙(게을러, 빨라)과 혼동하기 쉽습니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "으 Drop and ㄹ Drop: 기쁘다, 길다, 멀다, 가늘다",
+            "ko": "으 탈락과 ㄹ 탈락"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "기쁘다",
+              "[[으 탈락 · 모음 앞 으 탈락]] 기뻐 · 기쁘니 · 기쁜",
+              "노력한 만큼 뜻깊은 결실을 거두게 되어 참 기쁘다.",
+              "I am truly pleased to reap meaningful fruit matching my efforts."
+            ],
+            [
+              "슬프다",
+              "[[으 탈락 · 모음 앞 으 탈락]] 슬퍼 · 슬프니 · 슬픈",
+              "주인공의 안타까운 이별 소식에 가슴이 슬프다.",
+              "Hearing the protagonist's sorrowful farewell, my heart aches with sadness."
+            ],
+            [
+              "길다",
+              "[[ㄹ 탈락 · ㄴ/ㅂ/ㅅ 앞에서 ㄹ 탈락]] 기니 · 깁니다 · 긴",
+              "예상보다 입장 대기 줄이 길어서 삼십 분을 서 있었다.",
+              "The waiting line for admission was longer than expected, so I stood for thirty minutes."
+            ],
+            [
+              "멀다",
+              "[[ㄹ 탈락 · ㄴ/ㅂ/ㅅ 앞에서 ㄹ 탈락]] 머니 · 멉니다 · 먼",
+              "직장이 집에서 너무 멀어 출퇴근 시간만 두 시간이다.",
+              "Work is too far from home, taking two full hours just for commuting."
+            ],
+            [
+              "가늘다",
+              "[[ㄹ 탈락 · ㄴ/ㅂ/ㅅ 앞에서 ㄹ 탈락]] 가느니 · 가늡니다 · 가는",
+              "차가운 빗줄기가 가늘게 흩날리는 아침이었다.",
+              "It was a morning when a chilly stream of rain scattered thinly."
+            ]
+          ],
+          "note": "ㄹ 받침 형용사는 「ㄴ, ㅂ, ㅅ, -(으)ㄹ」 앞에서 ㄹ이 예외 없이 탈락합니다: 기니(O) · 길니(X), 머니(O) · 멀니(X)."
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "How to choose",
+            "ko": "고르는 순서"
+          },
+          "text": "형용사를 활용할 때는 뒤에 붙는 어미의 첫소리가 자음인지 모음인지 먼저 확인하세요. 자음 어미(-고, -지만, -지) 앞에서는 본래 형태가 그대로 유지됩니다. 모음 어미(-아/어, -(으)니, -(으)ㄴ)가 결합할 때 형태 변화를 확인해야 합니다. ① ㅂ 받침은 「굽다(신체) · 좁다」를 제외하면 대부분 「우」로 바뀝니다. ② 「하얗다 · 그렇다」 같은 형용사는 모음 어미 앞에서 「애/에」로 합쳐집니다. ③ 「르」 끝말은 대부분 「ㄹㄹ」로 바뀌지만(빨라, 게을러), 「푸르다」는 「러」가 붙어 「푸르러」가 됩니다."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice A: Choose the form",
+            "ko": "연습 A · 알맞은 꼴 고르기"
+          },
+          "items": [
+            {
+              "q": "타국에 오래 머물다 보니 어머니의 따뜻한 밥상이 몹시 ( 그리웠다 / 그립었다 ).",
+              "a": "그리웠다"
+            },
+            {
+              "q": "할머니께서는 허리가 많이 ( 굽으셨지만 / 구우셨지만 ) 늘 활기차게 걸으신다.",
+              "a": "굽으셨지만"
+            },
+            {
+              "q": "찬 바람을 오래 쐬었더니 손발이 얼어 창백하게 ( 하얘졌다 / 하얗아졌다 ).",
+              "a": "하얘졌다"
+            },
+            {
+              "q": "가을 산책로의 소나무 숲이 싱그럽고 ( 푸르러 / 풀러 ) 마음이 편안해졌다.",
+              "a": "푸르러"
+            },
+            {
+              "q": "그는 약속 시간을 지키지 않는 ( 게으른 / 게을은 ) 태도로 신뢰를 잃었다.",
+              "a": "게으른"
+            },
+            {
+              "q": "역에서 숙소까지 거리가 생각보다 ( 머니 / 멀니 ) 대중교통을 이용합시다.",
+              "a": "머니"
+            },
+            {
+              "q": "강풍에 나뭇가지가 심하게 흔들리더니 ( 가는 / 가른 ) 가지가 부러졌다.",
+              "a": "가는"
+            },
+            {
+              "q": "밤샘 근무에 지쳐 초췌해진 후배의 모습이 참으로 ( 안쓰러웠다 / 안쓰럽었다 ).",
+              "a": "안쓰러웠다"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice B: Fix the wrong form",
+            "ko": "연습 B · 어색한 곳 고치기"
+          },
+          "hint": "어색한 활용형을 찾아 바르게 고쳐 쓰세요.",
+          "items": [
+            {
+              "q": "고향 선배를 뜻밖에 만나서 가슴이 몹시 기뻤았다.",
+              "a": "몹시 기뻤다"
+            },
+            {
+              "q": "전망대에서 내려다본 먼바다가 눈이 시리도록 풀러 장관을 이루었다.",
+              "a": "시리도록 푸르러"
+            },
+            {
+              "q": "어르신께서는 오랜 농사일로 허리가 심하게 구워 지팡이에 의지하신다.",
+              "a": "허리가 심하게 굽어"
+            },
+            {
+              "q": "두 골목길이 만나는 곳은 도로가 몹시 조와 차량 통행이 금지되었다.",
+              "a": "도로가 몹시 좁아"
+            },
+            {
+              "q": "여기서 터미널까지 거리가 얼마나 멀은지 미리 확인해 보아야 한다.",
+              "a": "얼마나 먼지"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice C: Write your own",
+            "ko": "연습 C · 내 문장 쓰기"
+          },
+          "hint": "주어진 낱말과 조건을 살려 자연스러운 문장을 쓰세요. 정답은 예시입니다.",
+          "items": [
+            {
+              "q": "그립다 + 유학 생활",
+              "a": "예) 힘겨웠지만 열정 넘쳤던 지난 유학 생활의 기억이 문득 그립다."
+            },
+            {
+              "q": "푸르다 + 바다",
+              "a": "예) 쪽빛으로 짙고 푸르른 바다를 바라보며 지난 한 해를 차분히 정리했다."
+            },
+            {
+              "q": "안쓰럽다 + 노모",
+              "a": "예) 자식 뒷바라지로 거칠어진 노모의 손을 잡으니 눈물이 날 만큼 안쓰러웠다."
+            }
+          ]
+        }
+      ],
+      "howto": [
+        "Identify whether the suffix starts with a consonant or vowel, then apply the specific stem alteration."
+      ],
+      "koSummary": "고급 문맥에서 빈출되는 ㅂ · ㅎ · 르 · 러 · 으 · ㄹ 불규칙 형용사의 활용 규칙을 정복한다."
+    },
+    "adj-modifiers-time": {
+      "id": "adj-modifiers-time",
+      "title": {
+        "en": "Adjective Modifiers and Time Nuance",
+        "ko": "꾸미는 꼴과 시간의 결"
+      },
+      "sub": {
+        "en": "-(으)ㄴ, -던, -았던/었던, and -(으)ㄹ: current state, recall, completed past, and conjecture",
+        "ko": "현재 상태 · 과거 회상 · 완료된 단절 · 미래 추측의 섬세한 차이"
+      },
+      "level": "C1",
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "The Four Modifier Forms: -(으)ㄴ, -던, -았던/었던, -(으)ㄹ",
+            "ko": "형용사의 네 가지 수식 체계"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "-(으)ㄴ",
+              "[[현재의 상태]] 지금 그대로인 성질이나 속성",
+              "성품이 착한 사람들과 함께 일하는 것은 큰 행운이다.",
+              "Working with people of good nature is a great fortune."
+            ],
+            [
+              "-던",
+              "[[과거 회상 · 지속]] 과거에 그러했던 상태 (지금은 달라짐)",
+              "그곳은 본래 물이 맑던 호수였는데 최근 개발로 탁해졌다.",
+              "That lake used to have clear water, but recently turned turbid due to development."
+            ],
+            [
+              "-았던/었던",
+              "[[과거 완료 · 단절]] 과거 한때 그러했고 완전히 끝남",
+              "무척 뜨거웠던 여름 열기도 처서가 지나자 한풀 꺾였다.",
+              "The scorching summer heat subsided once the seasonal turning point passed."
+            ],
+            [
+              "-(으)ㄹ",
+              "[[미래 · 추측 · 가능성]] 앞으로 그러할 성질이나 상태",
+              "앞으로 겪을 숱한 시행착오를 미리 각오하고 뛰어들었다.",
+              "I jumped into it, fully prepared for the many trial-and-error hurdles ahead."
+            ]
+          ],
+          "note": "동사의 「-(으)ㄴ」은 과거(떠난 사람)를 나타내지만, 형용사의 「-(으)ㄴ」은 현재의 상태(착한 사람, 예쁜 꽃)를 나타냅니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "-던 vs. -았던/었던: Past Continuity vs. Strong Disconnection",
+            "ko": "-던 과 -았던/었던 의 뉘앙스 차이"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "좋던",
+              "[[과거의 지속적 상태]] 과거 기억이나 분위기의 회상",
+              "늘 사이가 좋던 두 사람이 사소한 오해로 갈라섰다.",
+              "The two people who always got along well parted ways over a petty misunderstanding."
+            ],
+            [
+              "좋았던",
+              "[[완료된 과거 · 단절]] 과거에는 좋았으나 지금은 분명히 아님",
+              "형편이 좋았던 시절은 지나가고 이제는 허리띠를 졸라매야 한다.",
+              "The prosperous days have passed, and now we must tighten our belts."
+            ],
+            [
+              "조용하던",
+              "[[평소 상태의 중단]] 늘 조용했는데 갑작스런 변화 발생",
+              "평소 조용하던 시골 마을에 아침부터 취재진이 몰려들었다.",
+              "Reporters swarmed into the quiet rural village from early morning."
+            ],
+            [
+              "조용했던",
+              "[[지나간 과거 기간]] 그 당시 조용했던 상태가 종결됨",
+              "연휴 동안 조용했던 도심 거리가 출근길 차량으로 다시 붐볐다.",
+              "The downtown streets that were quiet during the holiday crowded again with commuter cars."
+            ],
+            [
+              "춥던",
+              "[[기억 속 지속적 추위]] 지속되던 추위가 누그러짐",
+              "춥던 날씨가 풀려 강변 공원으로 나들이 나온 가족들이 많다.",
+              "The chilly weather eased, bringing out many families on outings to riverside parks."
+            ],
+            [
+              "추웠던",
+              "[[완료된 계절 회상]] 추위가 완전히 물러간 상태",
+              "유난히 눈이 많이 오고 추웠던 지난겨울을 떠올리면 아찔하다.",
+              "Thinking back on last winter, which was exceptionally snowy and cold, leaves me dizzy."
+            ]
+          ],
+          "note": "「-던」은 과거의 익숙한 습관이나 지속되던 상태의 회상에, 「-았던/었던」은 현재와 확연히 단절된 과거 한때를 강조할 때 씁니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "-(으)ㄹ with Abstract & Bound Nouns: 가능성, 전망, 수",
+            "ko": "-(으)ㄹ 과 결합하는 추측 · 가능성 명사"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "어려울",
+              "[[추측 · 조건]] -(으)ㄹ 때 · -(으)ㄹ 경우",
+              "여건이 어려울 때일수록 기본 원칙을 흔들림 없이 지켜야 한다.",
+              "Especially when conditions are tough, one must adhere steadfastly to basic principles."
+            ],
+            [
+              "기쁠",
+              "[[병렬 조건]] -(으)ㄹ 때나 -(으)ㄹ 때나",
+              "기쁠 때나 슬플 때나 변함없이 곁을 지켜준 고마운 벗이다.",
+              "He is a grateful companion who stood by me through thick and thin."
+            ],
+            [
+              "높을",
+              "[[전망 · 개연성]] -(으)ㄹ 가능성 · -(으)ㄹ 확률",
+              "이번 협상이 타결될 가능성이 높다는 보도가 나왔다.",
+              "Reports emerged indicating that the likelihood of this negotiation settling is high."
+            ],
+            [
+              "있을",
+              "[[예정된 사태 수식]] 앞으로 있을 행사/변화",
+              "다음 달에 있을 대규모 인사 개편을 앞두고 사내가 긴장감에 휩싸였다.",
+              "Ahead of the major reshuffle scheduled next month, the company was tense."
+            ],
+            [
+              "없을",
+              "[[불가능의 한정 수식]] -(으)ㄹ 수 없는",
+              "돌이킬 수 없을 만큼 깊어진 갈등을 풀기 위해 대화에 나섰다.",
+              "They engaged in dialogue to resolve conflicts deepened beyond return."
+            ]
+          ],
+          "note": "형용사에 「-(으)ㄹ」이 결합하면 아직 확정되지 않은 미래의 상황이나 추측, 가정을 나타내는 명사를 수식합니다."
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "How to choose",
+            "ko": "고르는 순서"
+          },
+          "text": "형용사로 명사를 꾸밀 때는 시간의 초점을 확인하세요. ① 지금 바로 눈앞의 상태를 나타낼 때는 「-(으)ㄴ」(친절한 직원, 깨끗한 방). ② 과거에 그러했던 기억이나 한동안 지속되던 상태를 돌아볼 때는 「-던」(늘 활기차던 거리). ③ 과거의 상태가 지금은 완전히 끝나 정반대가 되었음을 강조할 때는 「-았던/었던」(한때 뜨거웠던 열기). ④ 아직 오지 않은 일이나 불확실한 가정을 나타낼 때는 「-(으)ㄹ」(겪을 어려움, 좋을 결과)을 선택합니다."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice A: Choose the form",
+            "ko": "연습 A · 알맞은 꼴 고르기"
+          },
+          "items": [
+            {
+              "q": "현재 입주해 있는 연구동은 편의 시설이 아주 ( 편리한 / 편리하던 ) 편이다.",
+              "a": "편리한"
+            },
+            {
+              "q": "평소 ( 조용하던 / 조용할 ) 마을에 갑자기 경찰차 사이렌 소리가 요란하게 울렸다.",
+              "a": "조용하던"
+            },
+            {
+              "q": "지난주까지만 해도 기승을 부리며 ( 무더웠던 / 무더울 ) 더위가 하루아침에 꺾였다.",
+              "a": "무더웠던"
+            },
+            {
+              "q": "새 사업을 구상할 때는 앞으로 ( 필요할 / 필요했던 ) 예산과 인력을 미리 점검해야 한다.",
+              "a": "필요할"
+            },
+            {
+              "q": "학창 시절에 무척 ( 친했던 / 친할 ) 친구였지만 사회생활을 시작한 뒤로 연락이 뜸해졌다.",
+              "a": "친했던"
+            },
+            {
+              "q": "학생들에게 늘 ( 다정하던 / 다정할 ) 교수님께서 이번 학기를 끝으로 정년퇴임을 하신다.",
+              "a": "다정하던"
+            },
+            {
+              "q": "현 단계에서 양측의 주장이 극적으로 절충될 가능성은 매우 ( 희박한 / 희박했던 ) 상태다.",
+              "a": "희박한"
+            },
+            {
+              "q": "젊은 시절 아무리 ( 건강했던 / 건강할 ) 사람이라도 나이가 들면 꾸준한 관리가 필수적이다.",
+              "a": "건강했던"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice B: Fix the wrong form",
+            "ko": "연습 B · 어색한 곳 고치기"
+          },
+          "hint": "시제와 수식 관계가 어색한 부분을 찾아 바르게 고쳐 쓰세요.",
+          "items": [
+            {
+              "q": "지금 광장 건너편에 보이는 저 건물은 아주 높은던 빌딩이다.",
+              "a": "아주 높은 빌딩이다"
+            },
+            {
+              "q": "평소 건강할 체질이던 동료가 과로로 갑작스럽게 쓰러져 입원했다.",
+              "a": "건강한 체질이던 (또는 건강하던)"
+            },
+            {
+              "q": "한때 번화할 상가가 경기 침체 이후 찾는 손님이 없어 한산해졌다.",
+              "a": "번화했던 상가가 (또는 번화하던)"
+            },
+            {
+              "q": "내일은 전국이 대체로 맑았던 예정이니 야외 활동에 큰 지장이 없겠습니다.",
+              "a": "대체로 맑을 예정이니"
+            },
+            {
+              "q": "지난여름 유난히 무덥던 기억은 어느새 까맣게 잊고 겨울 채비를 서두른다.",
+              "a": "무더웠던 기억은"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice C: Write your own",
+            "ko": "연습 C · 내 문장 쓰기"
+          },
+          "hint": "주어진 꼴과 낱말을 살려 자연스러운 문장을 쓰세요. 정답은 예시입니다.",
+          "items": [
+            {
+              "q": "-던 + 풍경",
+              "a": "예) 어릴 적 정답게 뛰놀던 고향 동네의 아늑한 풍경이 눈앞에 선하다."
+            },
+            {
+              "q": "-았던 + 시절",
+              "a": "예) 밤낮없이 꿈을 향해 달리며 열정적이었던 청춘의 시절을 잊을 수 없다."
+            },
+            {
+              "q": "-(으)ㄹ + 가능성",
+              "a": "예) 새로운 기술을 신속하게 도입할 때 시장에서 성공할 가능성이 한층 커진다."
+            }
+          ]
+        }
+      ],
+      "howto": [
+        "Distinguish current traits from past recalls, finished states, and forward-looking conjectures."
+      ],
+      "koSummary": "형용사의 네 가지 관형사형 어미를 통해 현재성 · 회상 · 완료 · 추측의 시간성을 가려 쓴다."
+    },
+    "adj-feeling-person": {
+      "id": "adj-feeling-person",
+      "title": {
+        "en": "Sensory & Emotional Adjectives: Person Constraints",
+        "ko": "느낌 형용사와 주어의 제약"
+      },
+      "sub": {
+        "en": "-아/어하다 conversion, -겠- presumption, and the subtle boundary between 그립다 and 그리워하다",
+        "ko": "1인칭의 직접 감정과 3인칭의 관찰: 말하는 이와 대상에 따른 선택"
+      },
+      "level": "C1",
+      "sections": [
+        {
+          "type": "table",
+          "title": {
+            "en": "1st Person Adjective vs. 3rd Person Verb (-아/어하다)",
+            "ko": "1인칭 감정 형용사와 3인칭 동사화 (-아/어하다)"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "기쁘다",
+              "[[형용사 · 1인칭 직접 감정]] 나는 기쁘다 (그는 기쁘다 X)",
+              "오랜 각고의 노력 끝에 결실을 맺으니 이루 말할 수 없이 기쁘다.",
+              "Reaping fruits after long and painstaking effort, I am unspeakably joyful."
+            ],
+            [
+              "기뻐하다",
+              "[[타동사 · 3인칭 감정 표출]] 합격을 기뻐하다",
+              "부모님께서는 나의 최종 합격 소식을 들으시고 몹시 기뻐하셨다.",
+              "My parents rejoiced greatly upon hearing the news of my final acceptance."
+            ],
+            [
+              "슬프다",
+              "[[형용사 · 1인칭 직접 감정]] 나는 슬프다 (남의 마음 단정 X)",
+              "정들었던 동료들을 떠나보내야 하는 현실이 무척 가슴 아프고 슬프다.",
+              "The reality of having to part with cherished colleagues is deeply heartbreaking and sad."
+            ],
+            [
+              "슬퍼하다",
+              "[[타동사 · 3인칭 감정 관찰]] 이별을 슬퍼하다",
+              "팀원들은 유능한 선배의 갑작스러운 퇴직을 못내 슬퍼했다.",
+              "The team members deeply grieved over the capable senior's abrupt resignation."
+            ],
+            [
+              "부끄럽다",
+              "[[형용사 · 1인칭 자책/부끄러움]] 내 자신이 부끄럽다",
+              "기본적인 사실관계조차 확인하지 못한 내 불찰이 한없이 부끄럽다.",
+              "I am utterly ashamed of my own carelessness in failing to check even basic facts."
+            ],
+            [
+              "부끄러워하다",
+              "[[타동사 · 3인칭 겉보기 반응]] 칭찬을 부끄러워하다",
+              "신입사원은 임원진의 따뜻한 칭찬에 얼굴을 붉히며 부끄러워했다.",
+              "The new recruit blushed with shy embarrassment at the warm praise from executives."
+            ]
+          ],
+          "note": "「민수는 지금 매우 슬프다」처럼 3인칭 주어에 단순 감정 형용사를 직접 쓰면 어색합니다. 「슬퍼한다」로 바꿔야 합니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Adjective (이/가) vs. Verb (을/를): 그립다 · 그리워하다, 부럽다 · 부러워하다",
+            "ko": "그립다 · 부럽다 와 동사형"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "그립다",
+              "[[형용사 · 주어 감정 상태]] 대상(-이/가) 그립다",
+              "타향살이가 길어질수록 가족들과 둘러앉던 식탁이 그립다.",
+              "The longer I live away from home, the more I miss the dinner table shared with family."
+            ],
+            [
+              "그리워하다",
+              "[[타동사 · 대상 지향하는 행위]] 대상(-을/를) 그리워하다",
+              "그는 헤어진 옛 친구들을 평생 그리워하며 살았다.",
+              "He lived his whole life yearning for his old friends from whom he was separated."
+            ],
+            [
+              "부럽다",
+              "[[형용사 · 1인칭 부러움 상태]] 상대(-이/가) 부럽다",
+              "어떤 위기 앞에서도 침착함을 잃지 않는 그의 담대함이 부럽다.",
+              "I envy his boldness in never losing composure in the face of any crisis."
+            ],
+            [
+              "부러워하다",
+              "[[타동사 · 3인칭의 부러워하는 태도]] 상대(-을/를) 부러워하다",
+              "동기들은 파격적인 조건으로 이직에 성공한 그를 부러워했다.",
+              "Colleagues envied him for successfully transferring under exceptionally favorable terms."
+            ],
+            [
+              "귀찮다",
+              "[[형용사 · 1인칭 심리 상태]] 일(-이/가) 귀찮다",
+              "주말에는 만사가 다 귀찮아서 종일 외출도 하지 않았다.",
+              "On weekends everything feels bothersome, so I did not go out all day."
+            ],
+            [
+              "귀찮아하다",
+              "[[타동사 · 3인칭의 태도 표출]] 질문(-을/를) 귀찮아하다",
+              "팀장님은 후배들의 쏟아지는 질문을 전혀 귀찮아하지 않고 꼼꼼히 가르쳐 주셨다.",
+              "The team leader taught meticulously without showing any annoyance at pouring questions."
+            ]
+          ],
+          "note": "형용사는 「고향이 그립다(주격)」, 동사는 「고향을 그리워하다(목적격)」처럼 함께 쓰이는 조사가 서로 다릅니다."
+        },
+        {
+          "type": "table",
+          "title": {
+            "en": "Grammar Licensing 3rd-Person Adjectives: -겠-, -아/어 보이다, -ㄴ 모양이다",
+            "ko": "3인칭 주어에 감정 형용사를 쓰는 문법적 장치"
+          },
+          "cols": [
+            "Word · 낱말",
+            "Use · 쓰임",
+            "Example · 예",
+            "English"
+          ],
+          "rows": [
+            [
+              "-겠-",
+              "[[추측 · 공감]] 3인칭 주어 감정 수용",
+              "그렇게 오랫동안 준비한 시험에 합격했으니 그 친구도 얼마나 기쁘겠습니까.",
+              "Having passed the exam prepared for so long, how happy that friend must be."
+            ],
+            [
+              "-아/어 보이다",
+              "[[시각적 관찰]] 겉모습으로 판단",
+              "연일 계속되는 야근 탓인지 부장님의 안색이 무척 피곤해 보인다.",
+              "Perhaps due to continuous overtime work, the department head's complexion looks very tired."
+            ],
+            [
+              "-(으)ㄴ 모양이다",
+              "[[정황 판단 추측]] 상황 근거로 추론",
+              "어린 동생이 연신 하품을 하는 걸 보니 잠이 몹시 오는 모양이다.",
+              "Seeing my younger sibling yawn repeatedly, she seems very sleepy."
+            ],
+            [
+              "-(으)ㄴ가 보다",
+              "[[정황 추측]] 주관적 관찰 추측",
+              "아이가 아무 말 없이 우는 것을 보니 배가 무척 아픈가 보다.",
+              "Seeing the child cry silently, his stomach seems to hurt quite badly."
+            ],
+            [
+              "-(으)ㄴ 줄 알다",
+              "[[간접적 판단/오해]] 3인칭 감정 상태 판단",
+              "우리는 그가 항상 혼자 있기를 좋아해서 외롭지 않은 줄로만 알았다.",
+              "We simply assumed he was not lonely because he always liked being alone."
+            ]
+          ],
+          "note": "3인칭 주어라도 「-겠-」이나 「-아/어 보이다」 같은 추측 · 관찰 장치를 붙이면 감정 형용사를 자연스럽게 쓸 수 있습니다."
+        },
+        {
+          "type": "text",
+          "title": {
+            "en": "How to choose",
+            "ko": "고르는 순서"
+          },
+          "text": "감정이나 심리 형용사를 쓸 때는 주어의 인칭을 먼저 확인하세요. ① 말하는 이 자신의 직접 감정이면 형용사 원형(「나는 외롭다」, 「나는 기쁘다」)을 씁니다. ② 주어가 제3자이면 「-아/어하다」를 붙여 동사로 전환하거나(「동생은 외로워한다」), 「-겠-」 · 「-아/어 보이다」를 덧붙여 추측이나 관찰로 표현해야 합니다(「동생이 외로워 보인다」). ③ 형용사는 주격 조사(「고향이 그립다」), 동사는 목적격 조사(「고향을 그리워하다」)와 어울린다는 문법적 짝을 기억하세요."
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice A: Choose the form",
+            "ko": "연습 A · 알맞은 꼴 고르기"
+          },
+          "items": [
+            {
+              "q": "합격 통지서를 받아 든 민수는 기쁨을 감추지 못하고 온종일 싱글벙글 ( 기뻐했다 / 기뻤다 ).",
+              "a": "기뻐했다"
+            },
+            {
+              "q": "머나먼 타국에서 명절을 홀로 맞이하니 고향에 계신 부모님이 더욱 ( 그립다 / 그리워한다 ).",
+              "a": "그립다"
+            },
+            {
+              "q": "선생님께서는 졸업생들의 이름을 하나씩 부르시며 지난날을 애틋하게 ( 그리워하셨다 / 그립으셨다 ).",
+              "a": "그리워하셨다"
+            },
+            {
+              "q": "무거운 짐을 혼자 힘겹게 옮기시는 어르신의 모습이 너무 힘들어 ( 보인다 / 보다 ).",
+              "a": "보인다"
+            },
+            {
+              "q": "동생은 면접에서 아쉽게 탈락한 뒤 방에 들어가 온종일 ( 슬퍼했다 / 슬펐다 ).",
+              "a": "슬퍼했다"
+            },
+            {
+              "q": "동료의 뛰어난 성과를 질투하지 않고 진심으로 ( 부러워할 / 부러울 ) 줄 아는 품격을 지녔다.",
+              "a": "부러워할"
+            },
+            {
+              "q": "그런 엄청난 사고를 눈앞에서 겪었으니 당사자는 얼마나 ( 무섭겠습니까 / 무서워합니까 ).",
+              "a": "무섭겠습니까"
+            },
+            {
+              "q": "신입사원은 선배들의 과분한 칭찬을 몹시 ( 쑥스러워하며 / 쑥스러우며 ) 고개를 숙였다.",
+              "a": "쑥스러워하며"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice B: Fix the wrong form",
+            "ko": "연습 B · 어색한 곳 고치기"
+          },
+          "hint": "인칭 제약이나 조사가 어색한 부분을 찾아 바르게 고쳐 쓰세요.",
+          "items": [
+            {
+              "q": "내 합격 소식을 들으신 어머니께서는 전화기 너머로 몹시 기뻤다.",
+              "a": "몹시 기뻐하셨다"
+            },
+            {
+              "q": "그는 오랜 외국 생활 끝에 마침내 그리운 고향을 그립다.",
+              "a": "고향을 그리워한다 (또는 고향이 그립다)"
+            },
+            {
+              "q": "파격적인 승진 소식을 전해 들은 동기들은 모두가 그를 부러웠다.",
+              "a": "그를 부러워했다"
+            },
+            {
+              "q": "종일 혼자 빈집을 지키던 강아지가 퇴근한 주인을 보자마자 몹시 반가웠다.",
+              "a": "몹시 반가워했다"
+            },
+            {
+              "q": "그는 많은 사람들 앞에서 저지른 자신의 실수를 떠올리며 몹시 부끄러웠다. (3인칭 서술)",
+              "a": "몹시 부끄러워했다"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "title": {
+            "en": "Practice C: Write your own",
+            "ko": "연습 C · 내 문장 쓰기"
+          },
+          "hint": "주어진 조건과 낱말을 살려 자연스러운 문장을 쓰세요. 정답은 예시입니다.",
+          "items": [
+            {
+              "q": "그립다 + 가족의 품",
+              "a": "예) 힘겨운 하루를 마치고 지친 몸으로 퇴근할 때면 따스한 가족의 품이 몹시 그립다."
+            },
+            {
+              "q": "-아/어 보이다 + 안색",
+              "a": "예) 며칠 동안 무리하게 밤샘 작업을 거듭하더니 동료의 안색이 무척 수척해 보인다."
+            },
+            {
+              "q": "부러워하다 + 성취",
+              "a": "예) 그는 남의 화려한 겉모습을 부러워하기보다 스스로 묵묵히 내실을 다지는 길을 택했다."
+            }
+          ]
+        }
+      ],
+      "howto": [
+        "Check whether the sentence expresses the speaker's direct inner state or observes another person."
+      ],
+      "koSummary": "1인칭 직접 감정과 3인칭 동사화(-아/어하다), 그리고 추측 장치를 통한 인칭 제약의 해결을 배운다."
     }
   },
   "contrast": true
