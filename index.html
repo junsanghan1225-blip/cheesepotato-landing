@@ -40,10 +40,10 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=7c44836e" async></script>
+<script src="gtm.js?v=3454fdfc" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="early.js?v=7c44836e"></script>
+<script src="early.js?v=3454fdfc"></script>
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
      사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
@@ -129,13 +129,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=7c44836e">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=7c44836e">
+<link rel="stylesheet" href="vendor/pretendard.css?v=3454fdfc">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=3454fdfc">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7c44836e" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=7c44836e"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=3454fdfc" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=3454fdfc"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1090,6 +1090,13 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 #sideNav.side-calm.on .sm-col:nth-child(2) { animation-delay:.03s; } #sideNav.side-calm.on .sm-col:nth-child(3) { animation-delay:.06s; }
 #sideNav.side-calm.on .sm-col:nth-child(4) { animation-delay:.09s; } #sideNav.side-calm.on .sm-col:nth-child(5) { animation-delay:.12s; }
 @media (prefers-reduced-motion:reduce) { #sideNav.side-calm.on .sm-col { animation:none; } }
+/* 로그인 단추(운영자 2026-11-21 「sign in · login 빼고 이렇게」 — 둥근 알약 단추 사진): 머리띠의 「👤 로그인」 글 링크 → 꽉 찬 둥근 단추,
+   폰에서도 보인다. ☰ 메뉴 안의 로그인 줄은 뺐다(머리띠 단추 하나로). 로그인하면 app.module.js paintAuthNav 가 글을 「내 계정」으로 바꾼다. */
+.site-nav > #authBtn { display:inline-flex !important; align-items:center; height:36px; padding:0 16px; margin-left:6px; border-radius:980px; background:var(--orange-deep); color:#fff; font-size:14px; font-weight:700; letter-spacing:-.01em; border:0; }
+.site-nav > #authBtn:hover { filter:brightness(1.08); background:var(--orange-deep); color:#fff; }
+.site-nav > #authBtn .nav-ico { display:none; }
+.site-nav > #authBtn .nav-txt { display:inline !important; color:inherit; font:inherit; }
+@media (max-width:759px) { .site-nav > #authBtn { height:34px; padding:0 13px; font-size:13.5px; margin-left:2px; } }
 @media (max-width:759px) {
   .nav-scrim { top:57px; }
   #sideNav.side-calm { top:57px; height:calc(100dvh - 57px); max-height:none; }
@@ -2215,9 +2222,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
         <button class="side-item" id="sideProBtn" type="button" aria-label="구독 · Pro">
       <span class="side-item-ico" data-ic="star">⭐</span><span data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
-    </button>
-        <button class="side-item" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
-      <span class="nav-ico side-item-ico" data-ic="user">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
     </button>
       </div>
     </div>
@@ -4509,10 +4513,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=7c44836e"></script>
-<script type="module" src="app.module.js?v=7c44836e"></script>
+<script src="app.js?v=3454fdfc"></script>
+<script type="module" src="app.module.js?v=3454fdfc"></script>
 
-<script src="analytics.js?v=7c44836e" defer></script>
-<script src="sale.js?v=7c44836e" defer></script>
+<script src="analytics.js?v=3454fdfc" defer></script>
+<script src="sale.js?v=3454fdfc" defer></script>
 </body>
 </html>
