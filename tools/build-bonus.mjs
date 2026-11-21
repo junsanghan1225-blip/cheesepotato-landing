@@ -53,7 +53,7 @@ main{max-width:760px;margin:0 auto;padding:22px 20px 80px}
 .bempty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
 .bagain{font:inherit;min-height:44px;margin-top:10px;padding:0 18px;border:0;border-radius:7px;background:#C4551C;color:#fff;font-weight:700;cursor:pointer}
 .bcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
-@media(max-width:480px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
+@media(max-width:600px){.bcards{grid-template-columns:1fr}.bf button{margin:8px 0 0}}
 `;
 const head = (title, desc, url) => `<!DOCTYPE html>
 <html lang="ko">

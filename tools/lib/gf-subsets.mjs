@@ -13,8 +13,6 @@ export const FONTS = {
   /* display 'optional': 글꼴이 아주 짧은 사이에 안 오면 그 쪽은 기기 글꼴로 그리고, 받아 둔 글꼴은 다음 쪽부터 쓴다.
      느린 폰(CPU 4배 · 느린 망) 재 보니 swap 이면 큰 글씨가 0.6~1.0초 늦게 떴고, optional 이면 글꼴 바꾸기 전과 거의 같았다(2026-11-21). */
   'ibm-plex-kr': { family: 'IBM Plex Sans KR', wght: '400;700', head: 'IBMPlexSansKR', license: 'fonts.google.com/specimen/IBM+Plex+Sans+KR', latin: true, display: 'optional' },
-  /* 예전 본문 글꼴(시안 「B」, 2026-11-21 하루) — 이제 쪽에서 안 부른다. 영어는 Pretendard 로 빼 두었다 */
-  'gowun-dodum': { family: 'Gowun Dodum', wght: '', head: 'GowunDodum.subset', license: 'fonts.google.com/specimen/Gowun+Dodum', latin: false },
 };
 const sh = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 

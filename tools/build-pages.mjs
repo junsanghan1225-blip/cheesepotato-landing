@@ -20,6 +20,7 @@
  * 웹폰트 수백 KB를 물리는 것보다, 기기 글꼴로 즉시 읽히는 편이 낫다.
  */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
+import { tokensCss } from './lib/tokens.mjs';   // 색 이름 하나(기본 틀 5번)
 import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -97,11 +98,9 @@ const tier = (p) => (LV_KO[p.lv] ? p.lv : 'intermediate');   // lv 를 빠뜨렸
 /* 쪽마다 같은 CSS. 화면 안 본문과 비슷하되, 혼자 서는 쪽이라 훨씬 짧다. */
 const CSS = `
 /* 색은 사이트(index.html :root)와 같은 값 — 검색으로 들어온 쪽과 사이트가 한 집처럼 보이게(운영자 요청 2026-10-01).
-   --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색. */
-:root{--bg:#F2EEE4;--ink:#1B1512;--ink2:#4E3E31;--dim:#78674F;--line:rgba(27,21,18,.11);--line2:rgba(27,21,18,.06);
-  --card:#fff;--brand:#F0C24B;--soft:#FBF8F1;--tint:#FDF0E2;--cta:#1B1512;--cta-ink:#fff;--orange:#E1682B}
-@media(prefers-color-scheme:dark){:root{--bg:#17130F;--ink:#F2EAE0;--ink2:#CBB8A6;--dim:#9C8973;--line:rgba(242,234,224,.11);--line2:rgba(242,234,224,.06);
-  --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
+   --brand 는 강조 띠(치즈색), --cta 는 사이트의 주 단추와 같은 짙은 색.
+   2026-11-21 기본 틀 5번: 값 · 이름은 tools/lib/tokens.mjs 하나에서(예전 이름 --ink2 · --dim · --card … 은 별칭). --orange 는 사이트 이름과 겹쳐 --orange-mid 로. */
+${tokensCss()}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
   font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -120,7 +119,7 @@ h1,h3,.wd-en{color:var(--ink)}
 .hd-nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:9px 11px;border-radius:8px}
 .hd-nav a:hover{background:var(--line2);color:var(--ink)}
 .hd-nav a.go{background:var(--cta);color:var(--cta-ink);font-weight:600;margin-left:4px}
-@media(max-width:420px){.hd-nav a:not(.go):nth-child(1){display:none}}
+@media(max-width:600px){.hd-nav a:not(.go):nth-child(1){display:none}}
 .wrap{max-width:720px;margin:0 auto;padding:24px 20px 64px}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
@@ -141,7 +140,7 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .fact{padding:12px 16px;border-top:1px solid var(--line);font-size:15px}
 .fact:first-child{border-top:0}
 .fact b{display:block;font-weight:600;color:var(--dim);font-size:12.5px;margin-bottom:3px}
-@media(min-width:560px){
+@media(min-width:601px){
   .fact{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:baseline}
   .fact b{margin-bottom:0}
 }
@@ -166,7 +165,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .ans-box summary{cursor:pointer;font-weight:700;font-size:15px}
 .ans-box summary small{font-weight:500;color:var(--dim);font-size:12.5px;margin-left:4px}
 .ans-box[open] summary{margin-bottom:10px}
-.ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange);margin-right:6px}
+.ans-right{margin:0 0 8px;font-size:16px;color:var(--ink)}.ans-right b{color:var(--orange-mid);margin-right:6px}
 .opts[data-ans] li{cursor:pointer;transition:border-color .15s,background .15s}
 .opts[data-ans] li:hover{border-color:var(--brand)}
 .opts[data-ans] li.right{border-color:#2f8a5b;background:rgba(47,138,91,.1);font-weight:700;color:var(--ink)}
@@ -182,7 +181,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .wd-say.on{border-color:var(--brand);background:var(--tint)}
 .wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
 .wd-add span{font-weight:400;opacity:.8}
-@media(max-width:420px){.wd-add span{display:none}}
+@media(max-width:600px){.wd-add span{display:none}}
 .foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
 .foot a{color:inherit}
 .cat{margin:30px 0 0}
@@ -196,7 +195,7 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 /* 모음 쪽(TOPIK 쓰기 · 읽기 · 듣기) — ChatGPT · 검색으로 처음 오는 사람에게(운영자 2026-10-07 「어필 · 정리」):
    무엇을 얻는지 넷 → 큰 단추 둘 → 유형마다 몇 개만 보이고 나머지는 접기 → 함께 쓰면 좋은 것. */
 .why{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
-@media(min-width:640px){.why{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:601px){.why{grid-template-columns:repeat(4,1fr)}}
 /* 차례 칸(① ② ③)은 상자가 아니라 위에 줄 하나 — 상자는 단추처럼 보여 눌러 보게 된다 */
 .why li{border:0;border-top:2px solid var(--ink);background:none;border-radius:0;padding:10px 4px 6px 0;font-size:13px;color:var(--dim);line-height:1.4}
 .why b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
@@ -206,11 +205,11 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .cat{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 16px 14px}
 .more{margin-top:10px}.more summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--ink2);list-style:none}
 .more summary::-webkit-details-marker{display:none}.more[open] summary{margin-bottom:10px}
-.lead-box{margin:18px 0;padding:14px 16px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--tint,#faf6ee)}.lead-box>b{font-size:15px}.lead-box p{margin:4px 0 10px;font-size:13.5px;color:var(--ink2,#555)}.lead-row{display:flex;gap:8px;flex-wrap:wrap}.lead-row input[type=email]{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid var(--line,#e7e2d9);border-radius:7px;font:inherit;font-size:15px;background:#fff;color:var(--ink,#1b1b1b)}.lead-go{padding:11px 16px;border:1px solid var(--ink,#1b1b1b);border-radius:7px;background:var(--ink,#1b1b1b);color:#fff;font:inherit;font-size:14.5px;font-weight:800;cursor:pointer}.lead-go:disabled{opacity:.5}.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.lead-tips{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:12.5px;color:var(--dim,#777);cursor:pointer}.lead-tips input{margin-top:2px}.lead-msg{min-height:1.2em;margin:8px 0 0!important}.lead-msg.ok{color:#1b7a3a}.lead-msg.bad{color:#b3261e}.lead-dl{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--orange,#c2410c)}
+.lead-box{margin:18px 0;padding:14px 16px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--tint,#faf6ee)}.lead-box>b{font-size:15px}.lead-box p{margin:4px 0 10px;font-size:13.5px;color:var(--ink2,#555)}.lead-row{display:flex;gap:8px;flex-wrap:wrap}.lead-row input[type=email]{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid var(--line,#e7e2d9);border-radius:7px;font:inherit;font-size:15px;background:#fff;color:var(--ink,#1b1b1b)}.lead-go{padding:11px 16px;border:1px solid var(--ink,#1b1b1b);border-radius:7px;background:var(--ink,#1b1b1b);color:#fff;font:inherit;font-size:14.5px;font-weight:800;cursor:pointer}.lead-go:disabled{opacity:.5}.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.lead-tips{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:12.5px;color:var(--dim,#777);cursor:pointer}.lead-tips input{margin-top:2px}.lead-msg{min-height:1.2em;margin:8px 0 0!important}.lead-msg.ok{color:#1b7a3a}.lead-msg.bad{color:#b3261e}.lead-dl{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--orange-mid,#c2410c)}
 .bkbox{display:flex;gap:14px;align-items:center;margin:28px 0 8px;padding:16px 18px;border:1px solid var(--line,#e7e2d9);border-radius:8px;background:var(--card,#fff);text-decoration:none;color:var(--ink,#222)}
 .bkbox:hover{border-color:var(--ink,#222)}.bkbox .bk-i{font-size:34px;line-height:1}.bkbox b{display:block;font-size:15.5px}.bkbox small{display:block;color:var(--dim,#777);font-size:13px;line-height:1.6;margin-top:3px}.bkbox em{font-style:normal;font-weight:700;font-size:13px;margin-top:6px;display:block;color:var(--ink,#222)}
 .next{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0}
-@media(min-width:640px){.next{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:601px){.next{grid-template-columns:repeat(3,1fr)}}
 .next a{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px;text-decoration:none;font-size:13px;color:var(--dim);line-height:1.4}
 .next a b{display:block;font-size:15px;color:var(--ink)}
 .next a:hover{border-color:var(--brand)}
@@ -1672,7 +1671,7 @@ const VOCAB_CSS = [
   '.quiz li::before{content:counter(q) ". ";color:var(--dim);font-weight:700}',
   '.ans{margin:10px 0 0}.ans summary{cursor:pointer;font-weight:700;font-size:14.5px}.ans p{margin:6px 0 0;font-size:14.5px}',
   '.note{font-size:12.5px;color:var(--dim)}',
-  '@media(max-width:480px){.wd-hero{padding:18px 16px}.wd-hero h1{font-size:38px}.wd-en{font-size:18px}}',
+  '@media(max-width:600px){.wd-hero{padding:18px 16px}.wd-hero h1{font-size:38px}.wd-en{font-size:18px}}',
 ].join('');
 /* 보강한 낱말 쪽 — TOPIK I 필수 낱말. */
 function vocabPage(w, prev, next) {
@@ -1813,7 +1812,7 @@ const VL_CSS = '.vl{width:100%;border-collapse:collapse;margin-top:18px;backgrou
   '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}' +
   /* 줄 아무 데나 눌러도 그 낱말 사전 쪽이 열린다(2026-11-20 GA4 데드클릭: /topik2-words/body.html 에서 뜻 · 로마자 칸을 8번 헛누름) — 첫 칸 링크를 줄 전체로 늘린다 */
   '.vl tbody tr{position:relative;cursor:pointer}.vl tbody td:first-child a::after{content:"";position:absolute;inset:0}.vl tbody tr:hover td{background:var(--soft,#f6f1e7)}' +
-  '@media(max-width:560px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px}}.note{font-size:13px;color:var(--dim)}';
+  '@media(max-width:600px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px}}.note{font-size:13px;color:var(--dim)}';
 
 function vocabListHub(vs) {
   const all = vs.list.length;
@@ -2023,7 +2022,7 @@ const BLOG_CSS = `
 .rb-join:hover{filter:brightness(.95)}
 
 .rb-cols{display:grid;gap:16px;grid-template-columns:1fr;align-items:start}
-@media(min-width:880px){.rb-cols{grid-template-columns:minmax(0,1fr) 288px}}
+@media(min-width:901px){.rb-cols{grid-template-columns:minmax(0,1fr) 288px}}
 
 /* ── 글 줄 ── */
 .rb-feed{display:flex;flex-direction:column;gap:8px;padding:0;margin:0;list-style:none}
@@ -2165,7 +2164,7 @@ a.gcard:hover .glinkgo{color:var(--ink)}
   background:#C4551C;color:#fff;font-size:11.5px;font-weight:800;margin-right:6px;vertical-align:1px;flex:none}
 .bdoc-tips{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
 .bdoc-tips li{display:flex;gap:4px;font-size:15px;line-height:1.65}
-@media(max-width:520px){.bdoc th{white-space:normal;width:38%}.bdoc-paper{padding:14px 10px 8px}.bdoc table{font-size:13.5px}}
+@media(max-width:600px){.bdoc th{white-space:normal;width:38%}.bdoc-paper{padding:14px 10px 8px}.bdoc table{font-size:13.5px}}
 
 /* 짚어 둘 것 — 본문에서 한 발 뺀 이야기. */
 .bnote{display:block;border:1px solid var(--rb-hair);background:var(--rb-deck);border-radius:7px;
@@ -2177,7 +2176,7 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 .blog-article .dlg{margin:0 0 24px}
 .rb-next{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
   color:var(--dim);margin:30px 0 10px}
-@media(max-width:520px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
+@media(max-width:600px){.rb-card{padding:18px 17px 22px}.rb-card h1{font-size:23px}}
 
 /* ── 에디토리얼/모던 톤 ──────────────────────────────────────
    스티커북(굵은 테두리·밀린 그림자·통통한 글꼴) 방향을 "촌스럽다"는
@@ -2294,7 +2293,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:"Pretendard Va
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
    잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
-const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}' +   // 넓은 쪽 1120 + 40(공통 메뉴줄과 같은 시작선, 2026-11-21)
+const BLOG_HUB_CSS = '\n@media(min-width:901px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}' +   // 넓은 쪽 1120 + 40(공통 메뉴줄과 같은 시작선, 2026-11-21)
   /* 글 | 묻고 답하기 칸 */
   '\n.rb-tabs{display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap}' +
   '\n.rb-tabs button{font:inherit;font-weight:800;font-size:15px;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}' +
@@ -2304,15 +2303,15 @@ const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1200px;padding-l
   '\n.rb-qna-hd h2{margin:0;font-size:19px}.rb-qna-hd p{margin:4px 0 0;color:var(--dim);font-size:14px}' +
   '\n.rb-qna-chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 10px}' +
   '\n.rb-qna-chips button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer}' +
-  '\n.rb-qna-chips button.on{background:var(--tint);color:var(--ink);border-color:var(--orange)}' +
+  '\n.rb-qna-chips button.on{background:var(--tint);color:var(--ink);border-color:var(--orange-mid)}' +
   '\n.rb-q{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:8px 0;overflow:hidden}' +
   '\n.rb-q summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:14px 16px;cursor:pointer;list-style:none}.rb-q summary::-webkit-details-marker{display:none}' +
-  '\n.rb-q-b{font-size:12px;font-weight:800;color:var(--orange)}.rb-q-t{flex:1 1 240px;min-width:0;font-weight:800;font-size:15.5px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}' +
+  '\n.rb-q-b{font-size:12px;font-weight:800;color:var(--orange-mid)}.rb-q-t{flex:1 1 240px;min-width:0;font-weight:800;font-size:15.5px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}' +
   '\n.rb-q-n{font-size:12px;font-weight:700;color:var(--dim)}' +
   '\n.rb-q-body{padding:0 16px 12px;color:var(--ink2);font-size:14.5px;line-height:1.7;overflow-wrap:anywhere}' +
   '\n.rb-a{margin:0 12px 12px;padding:12px 14px;background:var(--soft);border-radius:8px;font-size:14.5px;line-height:1.75;overflow-wrap:anywhere}.rb-a.ok{box-shadow:inset 3px 0 0 #2f8a5b}' +
   '\n.rb-a-who{font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:4px}' +
-  '\n.rb-q-go{display:inline-block;margin:0 16px 14px;font-size:13px;font-weight:700;color:var(--orange)}' +
+  '\n.rb-q-go{display:inline-block;margin:0 16px 14px;font-size:13px;font-weight:700;color:var(--orange-mid)}' +
   '\n.rb-qna-note{color:var(--dim);padding:20px 4px}' +
   '\n#rbPosts[hidden],#rbQna[hidden]{display:none!important}';
 

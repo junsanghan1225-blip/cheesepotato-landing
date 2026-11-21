@@ -105,7 +105,7 @@ ol li::marker { color:var(--orange-deep); font-weight:700; }
 .pv-m { margin:8px 0; font-size:15.5px; }
 .pv-ex { margin:10px 0 0; padding:12px 14px; border-left:3px solid var(--orange); background:var(--tint); border-radius:0 10px 10px 0; font-size:14.5px; }
 .pv-ex small { display:block; color:var(--ink-3); }
-@media (max-width:420px) { .zd-grid { grid-template-columns:repeat(4, 1fr); } }
+@media (max-width:600px) { .zd-grid { grid-template-columns:repeat(4, 1fr); } }
 .mk-g { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
 .mk-g button { padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:#fff; font:inherit; font-size:14px; font-weight:600; color:var(--ink-2); cursor:pointer; }
 .mk-g button.on { background:var(--orange-deep); border-color:var(--orange-deep); color:#fff; }

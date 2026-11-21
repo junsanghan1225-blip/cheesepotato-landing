@@ -125,7 +125,7 @@ fs.writeFileSync(path.join(OUT, 'pressstart2p.css'),
 say(`  pressstart2p.css + 조각 ${keep.length}개`);
 
 /* ── 4-2. 한글 웹 글꼴(구글 글꼴 나눔 조각) ──────────────────────
-   본문 IBM Plex Sans KR(2026-11-21 글꼴 짝 「D」) · 예전 본문 고운돋움(「B」, 지금은 쪽에서 안 부름).
+   본문 IBM Plex Sans KR(2026-11-21 글꼴 짝 「D」). 고운돋움(「B」)은 2026-11-21 운영자 「지워도 돼」로 뺐다.
    받는 법 · 이름은 tools/lib/gf-subsets.mjs 한 곳에. */
 const gfN = {};
 for (const key of Object.keys(FONTS)) { gfN[FONTS[key].family] = fetchFont(key, OUT); say(`  ${key}.css + 조각 ${gfN[FONTS[key].family]}개`); }

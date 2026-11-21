@@ -482,3 +482,4 @@
 - 2026-11-21 영어는 Pretendard(운영자 「영어만 PRETENDARD 동의해」): 고운돋움 글꼴 조각에서 라틴 글자 · 숫자 · 기본 부호를 뺌(tools/lib/strip-latin.mjs, vendor.mjs 도 같이) → 본문 영어는 Pretendard, 한글 · 「」 · — 는 고운돋움.
 - 2026-11-21 첫 화면(앱) 글꼴은 그대로 — 기기 글꼴 + 제목 Pretendard(운영자 「1번」). 본문 고운돋움을 넣으면 느린 폰 배치 계산 0.51→1.72초 · 큰 글씨 +0.33초라서. 고운돋움은 첫 화면 밖의 쪽에만.
 - 2026-11-21 본문 글꼴 고운돋움(B) → IBM Plex Sans KR(D, 운영자 「이걸로 다 바꾸자」). 제목 Pretendard 그대로, 첫 화면(앱)은 그대로. 굵기 400 · 700(조각 188개 · 2.6MB, tools/lib/gf-subsets.mjs). font-display: optional — swap 이면 느린 폰 큰 글씨가 0.6~1.0초 늦었고 optional 이면 바꾸기 전과 비슷(느린 첫 방문 한 쪽은 기기 글꼴일 수 있음). 고운돋움 파일(vendor/gowun-dodum)은 쪽에서 안 부르지만 지우지 않고 둠.
+- 2026-11-21 고운돋움 파일 지움(운영자 「지워도 돼」). 색 이름 하나 = tools/lib/tokens.mjs(첫 화면 값) — 만든 쪽은 거기서 박고 손 CSS 는 check-tokens 가 검사(공지 쪽 옛 주황 #C4551C → #AE4710 잡음). 화면 기준점 = 600 · 900 둘(도구가 만드는 쪽 전부, 20곳 바꿈 · check-tokens 가 지킴). 첫 화면 CSS 기준점은 아직.
