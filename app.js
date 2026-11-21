@@ -356,7 +356,7 @@ const PT = () => PT_SETS[ptLevel] || PT_SETS.normal;
    번역이 다 들어오기 전에는 메뉴에 안 보인다(빈 사전이면 영어만 나와 헷갈린다). 미리 보기는 주소 끝에 ?i18n=all. */
 const LANGS = [['ko', '한국어', 'KO', 1], ['en', 'English', 'EN', 1], ['vi', 'Tiếng Việt', 'VI', 1], ['ja', '日本語', '日', 1], ['zh', '中文（简体）', '中', 1], ['id', 'Bahasa Indonesia', 'ID', 1], ['ne', 'नेपाली', 'NE', 1], ['my', 'မြန်မာ', 'MY', 1], ['ru', 'Русский', 'RU', 1], ['mn', 'Монгол', 'MN', 1], ['pt', 'Português', 'PT', 1], ['uz', 'Oʻzbekcha', 'UZ', 1]];   // 0 = 번역이 끝나기 전에는 메뉴에 안 보인다(?i18n=all 로만)
 const langShown = () => LANGS.filter((x) => x[3] || /[?&]i18n=all/.test(location.search));
-const I18N_URL = { vi: './i18n-vi.js?v=7aa53193', ja: './i18n-ja.js?v=7aa53193', zh: './i18n-zh.js?v=7aa53193', id: './i18n-id.js?v=7aa53193', ne: './i18n-ne.js?v=7aa53193', my: './i18n-my.js?v=7aa53193', ru: './i18n-ru.js?v=7aa53193', mn: './i18n-mn.js?v=7aa53193', pt: './i18n-pt.js?v=7aa53193', uz: './i18n-uz.js?v=7aa53193' };
+const I18N_URL = { vi: './i18n-vi.js?v=4abe1732', ja: './i18n-ja.js?v=4abe1732', zh: './i18n-zh.js?v=4abe1732', id: './i18n-id.js?v=4abe1732', ne: './i18n-ne.js?v=4abe1732', my: './i18n-my.js?v=4abe1732', ru: './i18n-ru.js?v=4abe1732', mn: './i18n-mn.js?v=4abe1732', pt: './i18n-pt.js?v=4abe1732', uz: './i18n-uz.js?v=4abe1732' };
 const trMemo = new Map();
 window.cpTr = (en) => {
   const L = window.cpI18n, s = String(en ?? '');
@@ -1503,20 +1503,4 @@ if ('serviceWorker' in navigator) {
   }, { passive: true });
 })();
 
-/* 첫 화면 책 코너(서가형) — 표지를 누르면 쪽으로 가지 않고 아래 상세 칸이 그 책으로 바뀐다(운영자 2026-11-06). 상세 칸의 「사기」 단추가 책 쪽으로 보낸다. 조합 키(Ctrl · ⌘ · 가운데 단추)는 그대로 둔다. */
-document.addEventListener('click', (ev) => {
-  const a = ev.target.closest && ev.target.closest('.hm-shelf a.hm-bk[data-bk]');
-  if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
-  const pan = document.getElementById('hmPan'); if (!pan) return;
-  if (a.dataset.picked) return;   // 이미 골라서 아래 상세 칸에 떠 있는 책을 한 번 더 누르면(두 번 클릭) 링크 그대로 상점 책 쪽으로 간다(운영자 2026-11-20). 처음부터 켜져 있는 첫 책은 한 번 눌러야 「골랐다」
-  ev.preventDefault();
-  const en = document.documentElement.lang !== 'ko', d = a.dataset;
-  document.querySelectorAll('.hm-shelf a.hm-bk.on').forEach((x) => { x.classList.remove('on'); delete x.dataset.picked; });
-  a.classList.add('on'); a.dataset.picked = '1';
-  const q = (s) => pan.querySelector(s);
-  q('.hm-pan-c img').src = d.src; q('.hm-pan-c').href = a.href;
-  q('.hm-pan-g').textContent = en ? d.pgEn : d.pg;
-  q('.hm-pan-t').textContent = d.enT; q('.hm-pan-ko').textContent = d.koT;
-  q('.hm-pan-sub').textContent = en ? d.subEn : d.subKo;
-  q('.hm-bk-px').textContent = '$' + d.px; q('.hm-pan-go').href = a.href;
-});
+/* 첫 화면 책 코너의 「표지를 누르면 아래 상세 칸이 바뀌는」 서가(2026-11-06)는 2026-11-21 시안 3A(책장 한 줄)로 걷었다 — 이제 표지를 누르면 책 쪽으로 바로 간다. */
