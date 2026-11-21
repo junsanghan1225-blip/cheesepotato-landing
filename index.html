@@ -40,10 +40,10 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=a6fe5c4c" async></script>
+<script src="gtm.js?v=7aa53193" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="early.js?v=a6fe5c4c"></script>
+<script src="early.js?v=7aa53193"></script>
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
      사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
@@ -129,13 +129,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=a6fe5c4c">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=a6fe5c4c">
+<link rel="stylesheet" href="vendor/pretendard.css?v=7aa53193">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=7aa53193">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=a6fe5c4c" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=a6fe5c4c"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7aa53193" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=7aa53193"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -356,7 +356,7 @@ a:hover { color:var(--orange-mid); }
 }
 .hd-cta:hover { background:#33261E; color:#fff; }
 
-@media (max-width:759px) {
+@media (max-width:900px) {
   .site-hd-in { height:56px; padding:0 16px; }
   .brand span { display:none; }
   /* 한때는 이름표만 조그맣게 남기고 그림글자를 뺐다 — 바로 옆 아이콘
@@ -371,7 +371,7 @@ a:hover { color:var(--orange-mid); }
 /* 태블릿 폭. 머리띠 단추가 다섯(배우기·내 코스·TOPIK·단어장·로그인)이 되면서
    영어 화면에서 「My course」·「Sign in」이 두 줄로 꺾이고 ☰ 가 밀려났다.
    이름표는 한 줄로 묶고, 다운로드 단추는 ☰ 메뉴에도 있으니 여기서 뺀다. */
-@media (min-width:760px) and (max-width:1023px) {
+@media (min-width:901px) and (max-width:1023px) {
   .site-nav .nav-txt, .brand span { white-space:nowrap; }
   .hd-cta { display:none; }
   .site-hd-in { padding:0 20px; }
@@ -787,7 +787,7 @@ html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * va
 .hm-mp-go { flex:none; padding:10px 14px; border-radius:8px; background:#FFD23F; color:#4A3300; font-weight:900; font-size:14px; white-space:nowrap; }
 .hm-mp-done { margin:0; padding:12px; border-radius:8px; background:rgba(255,255,255,.15); }
 .hm-mp-other { margin-top:10px; background:none; border:none; color:#FFE699; font:inherit; font-size:13.5px; font-weight:700; text-decoration:underline; cursor:pointer; padding:4px 0; }
-@media (max-width: 420px) { .hm-mp-next { flex-wrap:wrap; } .hm-mp-go { width:100%; text-align:center; } }
+@media (max-width:600px) { .hm-mp-next { flex-wrap:wrap; } .hm-mp-go { width:100%; text-align:center; } }
 
 /* 첫 화면 「치즈감자로 할 수 있는 것」(제품 둘러보기, 2026-10-07) — 폰 두 칸 · PC 네 칸. 길 넷 아래. */
 .hm-tour { max-width:var(--max); margin:8px auto 24px; padding:0 var(--gut); box-sizing:border-box; }
@@ -795,7 +795,7 @@ html[data-path] .hm-me.hm-me { display:block; max-width:calc(var(--max) + 2 * va
 html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오늘 공부」 하나로 — 기능 칸은 메뉴 「더 보기」에 */
 .hm-proline { margin:14px 0 0; font-size:14px; line-height:1.6; color:var(--ink-2, var(--ink)); } .hm-proline button { border:0; background:none; padding:0; font:inherit; font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 .hm-tour-grid { display:grid; grid-template-columns:1fr; gap:0; border-top:1.5px solid var(--ink); counter-reset:tour; }
-@media (min-width: 760px) { .hm-tour-grid { grid-template-columns:repeat(2, 1fr); column-gap:36px; } }
+@media (min-width:901px) { .hm-tour-grid { grid-template-columns:repeat(2, 1fr); column-gap:36px; } }
 /* 워크북 차례처럼 — 번호 · 제목 · 한 줄 설명, 얇은 줄만(운영자 2026-10-28 「AI 티를 줄이고 우리 스타일로」) */
 .hm-tour-t { display:grid; grid-template-columns:34px 1fr; column-gap:6px; align-items:baseline; padding:14px 2px; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; color:var(--ink); font:inherit; text-align:left; cursor:pointer; counter-increment:tour; }
 .hm-tour-t::before { content:counter(tour, decimal-leading-zero); grid-row:1 / span 2; font-size:12.5px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums; }
@@ -848,7 +848,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-shelf .hm-bk:active img { transform:translateY(-3px); }
 @keyframes hm-rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
 @media (prefers-reduced-motion:no-preference) { @supports (animation-timeline:view()) { .hm-shelf .hm-bk { animation:hm-rise .3s ease-out both; animation-timeline:view(); animation-range:entry 0% entry 35%; } } }
-@media (min-width:900px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
+@media (min-width:901px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
 .hm-bk-link { color:var(--ink-2); font-weight:700; font-size:14px; }
@@ -867,12 +867,12 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-post-tag { font-size:11px; font-weight:800; color:var(--orange-deep); }
 .hm-post b { font-size:15px; line-height:1.35; overflow-wrap:anywhere; }
 .hm-post-ex { font-size:12.5px; color:var(--ink-3); line-height:1.45; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-@media (min-width:760px) { .hm-post-row { grid-template-columns:repeat(2, 1fr); } }
-@media (min-width:900px) { .hm-bk-row { display:grid; grid-template-columns:repeat(6, 1fr); overflow:visible; gap:18px; } .hm-bk { flex:none; } }
+@media (min-width:901px) { .hm-post-row { grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:901px) { .hm-bk-row { display:grid; grid-template-columns:repeat(6, 1fr); overflow:visible; gap:18px; } .hm-bk { flex:none; } }
 @media (min-width:1000px) { .hm-post-row { grid-template-columns:repeat(4, 1fr); } }
 /* 첫 화면 시안 「무엇을 배우러 오셨나요?」(2026-10-06) — 왼쪽 질문, 오른쪽 추천 카드 · 길 카드 · 배너 하나 */
 .hero-ask .hero-in { display:grid; gap:24px; max-width:calc(var(--max) - 2 * var(--gut)); }
-@media (min-width:900px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
+@media (min-width:901px) { .hero-ask .hero-in { grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; } }
 .hero-ask h1 em { font-style:normal; color:var(--orange-hero, var(--orange)); }
 .hero-ask .hero-badge::first-letter { color:var(--green); }
 .hm-rec { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); padding:20px; box-shadow:0 1px 0 rgba(var(--ink-rgb),.08); display:grid; gap:10px; }
@@ -915,12 +915,12 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hs-t b { display:block; font-size:19px; font-weight:800; margin:1px 0 6px; }
 .hs-bar { display:block; height:6px; border-radius:99px; background:rgba(var(--ink-rgb),.1); overflow:hidden; }
 .hs-bar i { display:block; height:100%; border-radius:99px; background:var(--ink-2); }
-@media (min-width:900px) {
+@media (min-width:901px) {
   .hs-stack { padding:18px 24px; }
   .hs-card.c1 { transform:none; } .hs-card.c2 { transform:none; }
   .hs-card.c3 { transform:none; } .hs-card.c4 { transform:none; }
 }
-@media (max-width:899px) { .hs-stack { grid-template-columns:1fr 1fr; gap:10px; } .hs-card { grid-template-columns:40px minmax(0,1fr); gap:10px; padding:12px; }
+@media (max-width:900px) { .hs-stack { grid-template-columns:1fr 1fr; gap:10px; } .hs-card { grid-template-columns:40px minmax(0,1fr); gap:10px; padding:12px; }
   .hs-ic { width:40px; height:40px; } .hs-ic .lvl-ic { width:32px; height:32px; } .hs-t b { font-size:16px; margin-bottom:4px; } .hs-t small { font-size:11px; white-space:normal; line-height:1.25; } }
 /* 폭 360~420px 폰에서 「Intermediate」가 카드 밖으로 나가던 것(2026-11-14) — 그림 · 간격 · 글자를 한 칸씩 줄이고 긴 낱말은 줄을 바꾼다 */
 .hs-t b { overflow-wrap:anywhere; }
@@ -933,9 +933,9 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-bstrip-c { display:flex; } .hm-bstrip-c img { width:38px; height:54px; object-fit:cover; border-radius:3px; border:1px solid var(--line); margin-left:-10px; background:var(--surface); } .hm-bstrip-c img:first-child { margin-left:0; }
 .hm-bstrip-t { display:block; min-width:0; } .hm-bstrip-t b { display:block; font-size:15px; font-weight:800; } .hm-bstrip-t span { display:block; margin-top:2px; font-size:13px; color:var(--ink-3); line-height:1.4; }
 .hm-bstrip-go { font-size:14px; font-weight:800; white-space:nowrap; color:var(--orange-deep); }
-@media (max-width:560px) { .hm-bstrip { grid-template-columns:auto minmax(0,1fr); gap:12px; padding:12px; } .hm-bstrip-go { grid-column:2; } }
+@media (max-width:600px) { .hm-bstrip { grid-template-columns:auto minmax(0,1fr); gap:12px; padding:12px; } .hm-bstrip-go { grid-column:2; } }
 
-@media (max-width:420px) { .hs-card { grid-template-columns:32px minmax(0,1fr); gap:8px; padding:12px 10px; } .hs-ic { width:32px; height:32px; } .hs-ic .lvl-ic { width:26px; height:26px; } .hs-t b { font-size:14px; } }
+@media (max-width:600px) { .hs-card { grid-template-columns:32px minmax(0,1fr); gap:8px; padding:12px 10px; } .hs-ic { width:32px; height:32px; } .hs-ic .lvl-ic { width:26px; height:26px; } .hs-t b { font-size:14px; } }
 /* ── 첫 화면 정리(운영자 2026-11-20 시안 v1 「이대로 적용」) — 종이 바탕 · 번호 목록 · 얇은 줄 · 단추 두 가지(주황 채움 / 잉크 테두리) · 글자 크기 14 · 16 · 20 · 32 · 56. 위 규칙을 이 아래가 덮는다. ── */
 .hero-badge { background:none; border:0; padding:0; font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--orange-text, var(--orange-deep)); }
 .hero-ask .hero-badge::first-letter { color:inherit; }
@@ -953,7 +953,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hs-t { display:contents; }
 .hs-t b { grid-column:2; grid-row:1; margin:0; font-size:20px; font-weight:800; letter-spacing:-.01em; }
 .hs-t small { grid-column:2; grid-row:2; font-size:15px; font-weight:400; opacity:1; letter-spacing:0; color:var(--ink-3); white-space:normal; line-height:1.5; }
-@media (max-width:899px) { .hs-stack { display:block; } .hs-card, .hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { grid-template-columns:36px minmax(0,1fr); padding:16px 0; } .hs-t b { font-size:18px; } .hs-t small { font-size:14px; } }
+@media (max-width:900px) { .hs-stack { display:block; } .hs-card, .hs-card.c1, .hs-card.c2, .hs-card.c3, .hs-card.c4 { grid-template-columns:36px minmax(0,1fr); padding:16px 0; } .hs-t b { font-size:18px; } .hs-t small { font-size:14px; } }
 /* 히어로 위아래 여백을 줄이고(116/52px → 72/32px), 「Pro 보기」 한 줄은 아래 Pro 소개와 겹쳐 빈 자리처럼 보이고 왼쪽 선도 어긋나서 뺐다(운영자 2026-11-20 「텅 비게 느껴져」). */
 .hero.hero-ask.hero-steps { padding-top:72px; padding-bottom:32px; }
 #hmProLine { display:none !important; }
@@ -973,7 +973,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hm-paths .hm-door-ic { background:var(--tint); border-radius:18px; padding:6px; box-sizing:border-box; }
 .hm-paths .hm-door-t { padding-right:40px; }
 .hm-banner { text-decoration:none; display:grid; grid-template-columns:1fr; gap:14px; width:calc(100% - 2 * var(--gut)); max-width:calc(var(--max) - 2 * var(--gut)); margin:24px auto 0; padding:22px; text-align:left; font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); border-radius:var(--r-xl); background:var(--surface); box-sizing:border-box; }
-@media (min-width:900px) { .hm-banner.hm-banner-simple { grid-template-columns:auto 1fr auto; } .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
+@media (min-width:901px) { .hm-banner.hm-banner-simple { grid-template-columns:auto 1fr auto; } .hm-banner { grid-template-columns:auto 1fr auto auto; align-items:center; gap:24px; padding:26px 30px; } }
 .hm-banner-tag { justify-self:start; font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--orange-text, var(--orange-deep)); padding:0 0 2px; border-bottom:2px solid currentColor; }   /* 알약 모양 「NEW」 → 글자 + 밑줄(디자인 약속: 알약 없음, 2026-11-20) */
 .hm-banner-t b { display:block; font-size:22px; letter-spacing:-.02em; }
 .hm-banner-t span { font-size:14px; color:var(--ink-2); word-break:keep-all; }
@@ -985,7 +985,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-solo .hero-copy { max-width:760px; }
 .hero-solo .btn-row { flex-direction:column; align-items:flex-start; gap:6px; }
 .hero-solo #heroLevelTestBtn { min-height:56px; font-size:17px; padding-left:26px; padding-right:26px; }
-@media (max-width:640px) { .hero-solo #heroLevelTestBtn { width:100%; justify-content:center; } }
+@media (max-width:600px) { .hero-solo #heroLevelTestBtn { width:100%; justify-content:center; } }
 .hero-book { display:inline-block; margin-top:10px; font-size:14.5px; font-weight:800; color:var(--orange-text, var(--orange-deep)); text-decoration:none; padding:8px 0; }
 .hero-book:hover { text-decoration:underline; text-underline-offset:3px; }
 .hero-more { display:flex; flex-wrap:wrap; align-items:center; gap:0 18px; margin-top:6px; }
@@ -997,7 +997,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .hero-link { font:inherit; font-size:14px; font-weight:700; color:var(--ink); background:none; border:none; padding:10px 2px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--orange); }
 .hm-proofrow { max-width:var(--max); margin:36px auto 0; padding:0 var(--gut); display:grid; gap:20px; }
 .hm-proofrow .hm-today { margin-top:0; }
-@media (min-width:900px) { .hm-proofrow { grid-template-columns:1fr 1fr; align-items:start; gap:32px; } }
+@media (min-width:901px) { .hm-proofrow { grid-template-columns:1fr 1fr; align-items:start; gap:32px; } }
 .hm-paths-h { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-paths .hm-doors { margin-top:12px; }
 .hm-more { max-width:calc(var(--max) + 2 * var(--gut)); margin:22px auto 0; padding:0 var(--gut); box-sizing:border-box; }
@@ -1099,7 +1099,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .site-nav > #authBtn:hover { filter:brightness(1.08); background:var(--orange-deep); color:#fff; }
 .site-nav > #authBtn .nav-ico { display:none; }
 .site-nav > #authBtn .nav-txt { display:inline !important; color:inherit; font:inherit; }
-@media (max-width:759px) { .site-nav > #authBtn { height:34px; padding:0 13px; font-size:13.5px; margin-left:2px; } }
+@media (max-width:900px) { .site-nav > #authBtn { height:34px; padding:0 13px; font-size:13.5px; margin-left:2px; } }
 /* 레벨 테스트 문제 화면 정리(운영자 2026-11-21 「전부 ㄱㄱ」 4번): 지문 글자 조금 크게 · 줄 간격 넓게, 아래 「n left」 는 위 진행 막대와 겹쳐 뺌,
    아래 점은 한 줄로, 「잘 모르겠어요」는 점선 상자 대신 밑줄 글. 결과 화면의 「시험 날짜가 있나요?」 칸(ltPlanHtml)도 여기. */
 #ltDlg .tq-question { font-size:15px; line-height:1.45; }
@@ -1115,7 +1115,7 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .lt-exam-ask b { font-size:15px; color:var(--ink); }
 .lt-exam-ask span { font-size:13px; color:var(--ink-2); }
 .lt-exam-ask input { margin-top:6px; font:inherit; font-size:15px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); max-width:220px; }
-@media (max-width:759px) {
+@media (max-width:900px) {
   .nav-scrim { top:57px; }
   #sideNav.side-calm { top:57px; height:calc(100dvh - 57px); max-height:none; }
   #sideNav.side-calm .side-list { grid-template-columns:1fr; padding:8px 24px 8px; }
@@ -1288,7 +1288,7 @@ html[data-lv] .hm-intro { display:none; }
 .hm-wotd-w em { font-style:normal; font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-.03em; }
 .hm-wotd-w small { font-size:12px; color:var(--orange-deep); margin-left:4px; }
 .hm-wotd-w small.hidden { display:none; }
-@media (min-width:860px) { .hm-tiles { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:901px) { .hm-tiles { grid-template-columns:repeat(4,1fr); } }
 .hm-about .lede { margin:22px 0 0; }
 .hm-plans { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:16px 0 0; }
 .hm-plan { display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; padding:14px 8px 12px; border:1px solid var(--line); border-radius:var(--r-l, 16px); background:var(--surface); min-width:0; }
@@ -1390,7 +1390,7 @@ html[data-lv] .hm-intro { display:none; }
 /* 좁은 화면용 세로 목록. 기본은 숨김 — 미디어 쿼리로 넓은/좁은 화면
    그림을 서로 바꿔 보인다. */
 .gr-road-list { display:none; list-style:none; margin-top:28px; }
-@media (max-width:760px) {
+@media (max-width:900px) {
   .gr-road { display:none; }
   .gr-road-list { display:flex; flex-direction:column; gap:12px; }
 }
@@ -1410,7 +1410,7 @@ html[data-lv] .hm-intro { display:none; }
 /* ══ 단어장 (덤) ═══════════════════════════════════════════════
    예전에는 이 판 전체였다. 지금은 한 구역이라 조판도 그만큼만 준다. */
 .split-2 { grid-template-columns:1fr; }
-@media (min-width:860px) { .split-2 { grid-template-columns:1.15fr .85fr; } }
+@media (min-width:901px) { .split-2 { grid-template-columns:1.15fr .85fr; } }
 .wb-pts { list-style:none; display:grid; gap:11px; margin:24px 0 26px; }
 .wb-pts li {
   position:relative; padding-left:18px;
@@ -1502,7 +1502,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
 }
 .faq-i > p b { color:var(--ink-2); font-weight:700; }
 
-@media (max-width:759px) {
+@media (max-width:900px) {
   .lede { font-size:15.5px; padding:22px 20px; margin:32px 0; }
   .stat-row-4 { grid-template-columns:repeat(2,1fr); }
   .stat-row-4 .stat-item:nth-child(3) { border-left:0; }
@@ -1522,7 +1522,7 @@ button.wb-link { background:none; border:none; border-bottom:1.5px solid rgba(25
   .tq-tbl td.none { font-size:10.5px; line-height:1.4; word-break:keep-all; }
   .tq-tbl tbody td:last-child { font-size:11.5px; white-space:nowrap; }
 }
-@media (min-width:760px) {
+@media (min-width:901px) {
   .way-grid { grid-template-columns:repeat(2,1fr); }
   /* 카드가 홀수면 마지막 줄에 하나만 남아 빈 칸이 생긴다(.lc-grid 와
      같은 문제, 같은 고침). 짝수면 nth-child 가 안 맞아 그냥 지나간다. */
@@ -1824,7 +1824,7 @@ body.nt-full-open { overflow:hidden; }
 .hlp-panel.on { transform:none; visibility:visible; }
 body.hlp-open { overflow:hidden; }
 
-@media (min-width:760px) {
+@media (min-width:901px) {
   .hlp-fab { right:24px; bottom:24px; }
   .hlp-panel {
     left:auto; top:0; bottom:0; height:100dvh; max-height:none;
@@ -1940,7 +1940,7 @@ body.hlp-open { overflow:hidden; }
    반드시 위 기본값 뒤에 와야 한다. 앞에 두면 덮인다.
    ══════════════════════════════════════════════════════════════ */
 /* 좁은 화면 — 이 블록도 기본값 뒤에 있어야 한다. */
-@media (max-width:759px) {
+@media (max-width:900px) {
   /* 카드를 살짝 안으로 들인다. 칩(🧀)이 translateZ 로 떠 있어 원근에
      확대되는데, 그대로 두면 왼쪽 끝이 hero 의 overflow:hidden 에 잘린다. */
   .hero-stack { left:16px; width:232px; height:148px; }
@@ -1949,7 +1949,7 @@ body.hlp-open { overflow:hidden; }
   .chip2 { font-size:29px; }
 }
 
-@media (min-width:760px) {
+@media (min-width:901px) {
   :root { --gut:40px; --sec:104px; }
 
   .section-title { font-size:clamp(34px, 4.2vw, 46px); letter-spacing:-.042em; }
@@ -2031,7 +2031,7 @@ body.hlp-open { overflow:hidden; }
 /* 사이드 메뉴 · 게임 — 좁은 화면.
    미디어쿼리는 스타일시트 맨 아래에 둔다. 위에 두면 뒤에 오는
    기본값에 조용히 덮인다. */
-@media (max-width:759px) {
+@media (max-width:900px) {
   .side-nav { width:min(304px, 88vw); }
   .side-hd { height:56px; padding-left:20px; }
   .side-list { padding:14px 12px; }
@@ -2128,7 +2128,7 @@ body.hlp-open { overflow:hidden; }
   max-height: 86vh; overflow-y: auto; animation: cgUp .2s cubic-bezier(.22,.9,.3,1);
 }
 @keyframes cgUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-@media (min-width: 640px) { .cg-back { align-items: center; } }</style>
+@media (min-width:601px) { .cg-back { align-items: center; } }</style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4Z87SVS"
@@ -4478,10 +4478,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=a6fe5c4c"></script>
-<script type="module" src="app.module.js?v=a6fe5c4c"></script>
+<script src="app.js?v=7aa53193"></script>
+<script type="module" src="app.module.js?v=7aa53193"></script>
 
-<script src="analytics.js?v=a6fe5c4c" defer></script>
-<script src="sale.js?v=a6fe5c4c" defer></script>
+<script src="analytics.js?v=7aa53193" defer></script>
+<script src="sale.js?v=7aa53193" defer></script>
 </body>
 </html>

@@ -2183,10 +2183,10 @@ a.gcard:hover .glinkgo{color:var(--ink)}
    Gowun Batang(더 가볍고 따뜻한 모던 세리프)으로 정했다. */
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
 
-:root{--bg:#FBF8F3;--ink:#26211B;--dim:#6A6159;--line:#E5DED2;--card:#FFFFFF;--brand:#B8763E;--soft:#F4EFE6;
-  --rb-deck:#F4EFE6;--rb-rail:#9C9184;--rb-hair:#E5DED2}
-@media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
-  --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
+/* 바탕 · 글자 · 선 색은 사이트와 같게(운영자 2026-11-21 「블로그 바탕색 맞추기」 — 전에는 블로그만 #FBF8F3 · #26211B 따로).
+   블로그만의 갈색 강조(--brand)만 남긴다. 덱 · 실선은 사이트 이름(tools/lib/tokens.mjs)을 따라간다 */
+:root{--brand:#B8763E;--rb-deck:var(--surface-2);--rb-rail:#9C9184;--rb-hair:var(--line)}
+@media(prefers-color-scheme:dark){:root{--brand:#D99A5C;--rb-rail:#8A8073}}
 
 body{font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
 /* 제목은 Pretendard(2026-11-21 글꼴 짝 「D」 — 전에는 고운바탕). 인용 글만 고운바탕 그대로 */
