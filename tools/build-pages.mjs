@@ -986,7 +986,7 @@ function twHub(items) {
   ].join('\n');
 
   return page({
-    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script>',
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">',
     /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
        번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
     extraCss: '.wrap{max-width:1200px;padding-left:40px;padding-right:40px}' +
@@ -1023,6 +1023,8 @@ function twHub(items) {
       '@media(max-width:600px){.tw-how{grid-template-columns:1fr}.tw-bk{grid-template-columns:96px 1fr;gap:14px;padding:16px}.tw-bk-t h3{font-size:17px}}' +
       '@media(max-width:600px){.wrap{padding-left:20px;padding-right:20px}.tw-q{min-height:0;padding:18px}.tw-q span{font-size:18px}.cat .pts{grid-template-columns:1fr}}' +
       /* 문항 고르기(C 탭 + D 한 줄 목록) */
+      /* 글꼴은 고운돋움(운영자 2026-11-21 글꼴 시안 「B로 가자」) — 이 목록 부분만. 굵기가 하나뿐이라 굵은 글씨는 브라우저가 만든다 */
+      '#tw-list,.tw-sub,.tw-tabs,.tw-tools,.tw-rows,.tw-more,.tw-empty,.tw-note{font-family:"Gowun Dodum","Pretendard Variable",Pretendard,sans-serif}' +
       '.tw-sub{margin:0 0 16px;font-size:16px;color:var(--dim)}' +
       '.tw-tabs{display:grid;grid-template-columns:minmax(max-content,15fr) minmax(max-content,15fr) 30fr 50fr;gap:8px;margin-bottom:14px}' +
       '.tw-t{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0;padding:14px 16px;border:0;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}' +

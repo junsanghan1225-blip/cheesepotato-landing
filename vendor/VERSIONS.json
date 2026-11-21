@@ -8,6 +8,7 @@
     "esbuild": "0.28.2"
   },
   "글꼴": {
-    "Press Start 2P": "google fonts, latin + latin-ext"
+    "Press Start 2P": "google fonts, latin + latin-ext",
+    "Gowun Dodum": "google fonts, 한글 나눔 조각 95개"
   }
 }
