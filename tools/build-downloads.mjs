@@ -1,5 +1,6 @@
 /* TOPIK 낱말 목록 내려받기(운영자 2026-10-11 「B」) — vocab/data/topik1·2.json → downloads/*.csv · *.txt(Anki) + topik-vocabulary-list/index.html
    build-pages.mjs 가 끝에 부른다. 급수 출처: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) — 화면에 적는다. */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -77,9 +78,7 @@ const page = `<!DOCTYPE html>
 <style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeaderBlock({ lang: 'en', active: 'words' })}
 <main>
 <h1>TOPIK vocabulary list — free download</h1>
 <p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with a level. The <strong>basic list</strong> (Korean word, part of speech, level) is free to download — no account needed. The <strong>study lists</strong> below add English, Vietnamese and Japanese meanings and example sentences written by CheesePotato, as a spreadsheet (CSV) or an Anki deck; they need a free account (one click to sign up).</p>
@@ -145,9 +144,7 @@ const gpage = `<!DOCTYPE html>
 <style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:640px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeaderBlock({ lang: 'en' })}
 <main>
 <h1>TOPIK grammar list — ${GR.length} patterns, free download</h1>
 <p>${GR.length} Korean grammar patterns you meet on the way to TOPIK, grouped as ${GR_BY.map((g) => `${g.name} (${g.list.length})`).join(', ')}. Each has an English meaning and an original example sentence; tap a pattern for its full page with dialogues. The levels are our own teaching levels — this is <strong>not</strong> an official TOPIK grammar list.</p>

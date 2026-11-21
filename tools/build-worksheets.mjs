@@ -3,6 +3,7 @@
    자료는 전부 우리 것: sentences.js(이름 · 뜻 · 예문 · 대화 · more) · grammar-en.js · grammar-usage.js(연습 문장 GRAMMAR_PRACTICE) ·
    grammar-drill.js(바꾸기 표) · grammar-pairs.js(비교) · grammar-mark.js(문장 속 그 문법 자리 찾기 — 빈칸을 만든다).
    모든 문제는 창작 자료로 만든 것 — 기출 아님. build-pages.mjs 가 끝에 부른다. 생성물은 손으로 고치지 않는다. */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -139,7 +140,7 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <style>${CSS}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in"><a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a></div></header>
+${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
 <main>`;
 const foot = `</main></body></html>\n`;
 

@@ -7,6 +7,7 @@
    ※ 사업자 정보(SELLER)는 사업자등록을 마치면 채운다. 한국에서 파는 쪽은
      전자상거래법상 상호·대표자·사업자등록번호·통신판매업 신고번호·주소를
      보여야 한다. 비어 있는 칸은 쪽에 안 나온다. */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -74,9 +75,7 @@ ${style}
 </style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="logo-256.png" alt="" width="28" height="28"><span>치즈감자</span></a>
-</div></header>
+${siteHeaderBlock({ lang: 'ko' })}
 <main>
 ${body}
 <div class="seller">
