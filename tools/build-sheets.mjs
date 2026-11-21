@@ -159,7 +159,7 @@ const WL_CSS = `<style>
 .wl-row .t b{display:block;font-size:15.5px;line-height:1.35;word-break:keep-all}.wl-row .t em{display:block;font-style:normal;font-size:12px;color:var(--ink-3);line-height:1.35;margin-top:1px}
 .wl-row .s{font-size:13px;color:var(--ink-2,var(--ink-3));line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .wl-row .lv{font-size:11px;font-weight:800;text-align:center;border:1.5px solid var(--ink);border-radius:5px;padding:1px 0}
-@media(max-width:700px){.wl-row{grid-template-columns:28px minmax(0,1fr) 36px;padding:12px 2px}.wl-row .s{grid-column:2/3;-webkit-line-clamp:2}.wl-row .lv{grid-row:1;grid-column:3}}
+@media(max-width:600px){.wl-row{grid-template-columns:28px minmax(0,1fr) 36px;padding:12px 2px}.wl-row .s{grid-column:2/3;-webkit-line-clamp:2}.wl-row .lv{grid-row:1;grid-column:3}}
 </style>
 `;
 function hubPage() {
