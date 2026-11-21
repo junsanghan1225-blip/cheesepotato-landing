@@ -915,81 +915,9 @@ function twSections(items) {
       chipList(mine, (x) => `<li><a href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a></li>`, 4) + '</div>';
   }).filter(Boolean).join('\n');
 }
-function twHub(items) {
-
-  /* 영역 2 · TOPIK 쓰기 쪽(운영자 2026-11-21 「2번 ㄱㄱ」 — 따로 만든 쪽 중 1위, 4주 163명): 폰에서 번호 고르는 칸이 1,400px 아래였다.
-     첫 화면에 51 · 52 · 53 · 54 네 칸 — 누르면 바로 그 번호 쓰기(앱). 긴 설명 두 문단 · 큰 단추 둘 · 단계 세 줄은 뺐다.
-     책은 위에 한 줄(2026-10-31 「책 안내를 위로」 그대로 지키되 큰 카드 대신) + 맨 아래 카드 한 번. */
-  const cnt = (q) => items.filter((x) => x.q === q).length;
-  const first = (q) => items.find((x) => x.q === q)?.id || '';
-  const qpick = '<div class="tw-pick">' + TW_QS.map((g) =>
-    `<a class="tw-q" href="/?utm_source=hub#learn/topik/II/writing/${esc(first(g.q))}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))}</span>` +
-    `<small>${esc(g.en.replace(/^\d+ · /, ''))} · ${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>쓰기 시작</em></a>`).join('') + '</div>';
-  const bookLine = '<p class="tw-books">책으로 풀기 · Workbooks: ' + ['topik2-writing-51-52', 'topik2-writing-53-54'].map((id) => {
-    const b = SHOPJ.books.find((x) => x.id === id);
-    return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
-  }).join(' · ') + '</p>';
-  /* 번호별 쓰는 법(운영자 2026-11-21 「밑에 쓰기 설명을 넣는 건 어때?」) — 카드 바로 아래, 같은 네 단. 시험 형식(분량 · 빈칸 수)은 공개된 TOPIK II 쓰기 형식 그대로, 요령은 일반적인 것만.
-     더 자세한 글은 블로그 안내 글로(blog.js 에 있는 글만 — 없으면 빌드가 멈춘다). */
-  const HOW = [
-    [51, 'topik-writing-51-52-english', ['앞뒤 문장에서 단서 찾기', '-습니다 · -(으)세요 같은 말투 맞추기', '빈칸 ㄱ · ㄴ 은 한 문장씩 짧게']],
-    [52, 'topik-writing-51-52-english', ['그러나 · 따라서 같은 이음말로 앞뒤 관계 보기', '글말 「-다」 체로 맞추기', '-기 때문에 · -(으)ㄹ 수 있다 같은 표현 쓰기']],
-    [53, 'topik-writing-53-template', ['조사 대상 · 기관으로 시작', '늘었다 · 줄었다로 결과 비교', '원인이나 전망으로 마무리 · 200~300자']],
-    [54, 'topik-writing-54-structure', ['서론: 주제를 한두 문장으로', '본론: 문제의 물음에 차례로 답하기', '결론: 내 생각 정리 · 600~700자 · 「-다」 체']],
-  ];
-  const howTo = '<h2 class="tw-how-h">번호별 쓰는 법 · How to write each one</h2><div class="tw-how">' + HOW.map(([q, gid, steps]) => {
-    const g = BLOG_POSTS.find((x) => x.id === gid); if (!g) throw new Error('blog.js 에 없는 글: ' + gid);
-    return `<div class="tw-h"><b>Q${q}</b><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol><a href="/blog/${esc(gid)}.html">자세히 보기</a></div>`;
-  }).join('') + '</div>';
-  /* 우리 책 소개(운영자 2026-11-21 「책 소개도 밑에 넣자」) — 쓰는 법 바로 아래, 표지 · 한 줄 소개 · 쪽수 · 가격(반값 표시) · 책 보기 · 무료 샘플. 글 · 값은 docs/shop.json 그대로 */
-  const twBooks = '<h2 class="tw-how-h">책으로 더 연습하기 · Workbooks</h2><div class="tw-bks">' + [['topik2-writing-51-52', 'Q51 · Q52'], ['topik2-writing-53-54', 'Q53 · Q54']].map(([id, qs]) => {
-    const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
-    const u = `/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_books`;
-    return `<div class="tw-bk"><a class="tw-bk-cv" href="${u}"><img src="${esc(b.coverImg)}" alt="${esc(b.title.ko)}" width="700" height="995" loading="lazy"></a><div class="tw-bk-t">` +
-      `<b>${qs}</b><h3><a href="${u}">${esc(b.title.ko)}</a></h3><p>${esc(b.page?.lead?.ko || b.sub.ko)}</p>` +
-      `<small>PDF · ${esc(String(b.pages).replace(/\s*\(PDF\)/, ''))} · <span data-px="${esc(b.price)}">$${esc(b.price)}</span></small>` +
-      `<div class="tw-bk-go"><a class="tw-bk-buy" href="${u}">책 보기</a>${b.sample ? `<a class="tw-bk-smp" href="/assets/books/${id}/sample.pdf" download data-ev="샘플받기" data-ev-from="tw_books">무료 샘플 ${b.sample.pages}쪽</a>` : ''}</div></div></div>`;
-  }).join('') + '</div>';
-  /* 문항 고르기(운영자 2026-11-21 「C+D 좋아 · 문제가 많아서 정렬 방식을 고민해야」 → 시안 「이거 좋다」):
-     C = 51~54 탭(칸 크기 = 배점), D = 한 줄 목록(번호 · 제목 · 지문 앞부분 · 쓰기). 200문항을 다 펼치지 않고 번호마다 8개씩 + 「더 보기」.
-     전부 HTML 에 그려 둔다(검색 엔진이 문항 쪽 링크를 다 본다 · JS 가 없으면 그냥 다 보인다). 탭 · 찾기 · 정렬은 /tw-list.js.
-     「본 것」은 앱이 이 브라우저에 적는 연 문항(cp-tw-seen) 그대로 — 기기마다 따로다. */
-  const pv = (x) => clip(String(x.passage || '').replace(/^다음을 참고하여\s*/, '').replace(/\s+/g, ' '), 70);
-  const twList = '<h2 class="tw-how-h" id="tw-list">문항 고르기 · All tasks</h2><p class="tw-sub">번호를 누르면 그 번호 문항만 보여요. 칸 크기는 배점이에요.</p>' +
-    '<div class="tw-tabs" role="tablist">' + TW_QS.map((g, i) =>
-      `<button type="button" role="tab" class="tw-t${i ? '' : ' on'}" data-q="${g.q}" aria-selected="${i ? 'false' : 'true'}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))} · ${g.pt}점${g.q >= 53 ? ' · AI' : ''}</span></button>`).join('') + '</div>' +
-    '<div class="tw-tools"><label class="tw-find"><span aria-hidden="true">⌕</span><input type="search" id="twFind" placeholder="주제로 찾기 (예: 아르바이트, 도서관)" aria-label="문항 찾기 · Search tasks"></label>' +
-    '<div class="tw-seg" role="group" aria-label="정렬 · Sort"><button type="button" class="on" data-f="all">번호순</button><button type="button" data-f="new">안 본 것</button><button type="button" data-f="seen">본 것</button></div>' +
-    '<button type="button" class="tw-rand" id="twRand">무작위 한 문제</button></div>' +
-    '<ol class="tw-rows" id="twRows">' + items.map((x) => {
-      const n = x.id.replace(/^w(\d+)-(\d+)$/, (_, a, b) => `${a}-${b.padStart(2, '0')}`);
-      return `<li data-q="${x.q}" data-id="${esc(x.id)}" data-s="${esc((x.title + ' ' + (x.passage || '')).toLowerCase())}"><span class="tw-n">${esc(n)}</span>` +
-        `<a class="tw-ti" href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a><span class="tw-pv">${esc(pv(x))}</span><span class="tw-st"></span>` +
-        `<a class="tw-go" href="/?utm_source=hub#learn/topik/II/writing/${esc(x.id)}">쓰기</a></li>`;
-    }).join('') + '</ol>' +
-    '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
-    '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>' +
-    '<p class="tw-note">「본 것」은 이 기기(브라우저)에 저장돼요 · Seen marks stay on this device.</p>';
-  const body = [
-    '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
-    `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
-    `<p class="lead">번호를 고르면 바로 써요. 모범답안은 모두 무료, 53 · 54번은 AI 채점 1번 무료. <small>기출이 아닌 창작 문항입니다. · Pick a question type and start writing. Model answers are free.</small></p>`,
-    qpick,
-    bookLine,
-    howTo,
-    twList,
-    twBooks,
-    twGuides(),
-    leadSample('topik2-writing-51-52', 'tw'),
-    '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
-    hubNext('/topik-writing/', 3),
-  ].join('\n');
-
-  return page({
-    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">',
-    /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
-       번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
-    extraCss: '.wrap{max-width:1200px;padding-left:40px;padding-right:40px}' +
+/* TOPIK 쓰기 · 읽기 · 듣기 모음 쪽이 같이 쓰는 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고):
+   흰 큰 카드 · 넉넉한 여백, 번호는 작은 주황 글, 아래 「… 시작 →」. 문항 목록은 탭 + 한 줄 목록(/tw-list.js). 목록 쪽이라 넓은 폭(1120 + 40). */
+const HUB_MODERN_CSS = '.wrap{max-width:1200px;padding-left:40px;padding-right:40px}' +
       'h1{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.035em;margin:6px 0 10px}' +
       '.lead{font-size:17px;line-height:1.6;color:var(--dim);max-width:720px}' +
       '.tw-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px 0 14px}' +
@@ -1054,7 +982,91 @@ function twHub(items) {
       '.tw-seg button,.tw-rand{white-space:nowrap}' +
       /* 폰: 탭은 2×2(번호 위 · 이름 아래), 찾기 칸은 한 줄 전체, 정렬 · 무작위는 그 아래 한 줄 */
       '@media(max-width:600px){.tw-tabs{grid-template-columns:1fr 1fr}.tw-t{flex-direction:column;gap:2px;padding:12px 14px}.tw-t b{font-size:22px}.tw-t span{white-space:normal}' +
-        '.tw-find{flex:1 1 100%}.tw-seg{flex:1 1 auto}.tw-seg button{flex:1;padding:8px 6px}.tw-rows li{padding:12px 16px}}',
+        '.tw-find{flex:1 1 100%}.tw-seg{flex:1 1 auto}.tw-seg button{flex:1;padding:8px 6px}.tw-rows li{padding:12px 16px}}' +
+  /* 읽기 · 듣기 쪽에서 더 쓰는 것(2026-11-21 「이에 맞춰 이런 스타일로 읽기 듣기」): 두 칸 카드 · 두 칸 탭 · 유형 칩 · 유형 글자 */
+  '.tw-pick.two,.tw-tabs.two{grid-template-columns:1fr 1fr}' +
+  '.tw-q.ex b::before{content:none}' +
+  '.tw-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;font-family:"Gowun Dodum","Pretendard Variable",Pretendard,sans-serif}.tw-chips[hidden]{display:none}' +
+  '.tw-chips button{padding:8px 12px;border:0;border-radius:8px;background:var(--card);font:inherit;font-size:15px;color:var(--ink);cursor:pointer}' +
+  '.tw-chips button.on{background:var(--ink);color:var(--bg)}.tw-chips small{margin-left:5px;font-size:13px;opacity:.6}' +
+  '.tw-st.ty{color:var(--dim)}' +
+  '.tw-rows.np li{grid-template-columns:64px minmax(0,1fr) 200px 104px}';
+
+function twHub(items) {
+
+  /* 영역 2 · TOPIK 쓰기 쪽(운영자 2026-11-21 「2번 ㄱㄱ」 — 따로 만든 쪽 중 1위, 4주 163명): 폰에서 번호 고르는 칸이 1,400px 아래였다.
+     첫 화면에 51 · 52 · 53 · 54 네 칸 — 누르면 바로 그 번호 쓰기(앱). 긴 설명 두 문단 · 큰 단추 둘 · 단계 세 줄은 뺐다.
+     책은 위에 한 줄(2026-10-31 「책 안내를 위로」 그대로 지키되 큰 카드 대신) + 맨 아래 카드 한 번. */
+  const cnt = (q) => items.filter((x) => x.q === q).length;
+  const first = (q) => items.find((x) => x.q === q)?.id || '';
+  const qpick = '<div class="tw-pick">' + TW_QS.map((g) =>
+    `<a class="tw-q" href="/?utm_source=hub#learn/topik/II/writing/${esc(first(g.q))}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))}</span>` +
+    `<small>${esc(g.en.replace(/^\d+ · /, ''))} · ${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>쓰기 시작</em></a>`).join('') + '</div>';
+  const bookLine = '<p class="tw-books">책으로 풀기 · Workbooks: ' + ['topik2-writing-51-52', 'topik2-writing-53-54'].map((id) => {
+    const b = SHOPJ.books.find((x) => x.id === id);
+    return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
+  }).join(' · ') + '</p>';
+  /* 번호별 쓰는 법(운영자 2026-11-21 「밑에 쓰기 설명을 넣는 건 어때?」) — 카드 바로 아래, 같은 네 단. 시험 형식(분량 · 빈칸 수)은 공개된 TOPIK II 쓰기 형식 그대로, 요령은 일반적인 것만.
+     더 자세한 글은 블로그 안내 글로(blog.js 에 있는 글만 — 없으면 빌드가 멈춘다). */
+  const HOW = [
+    [51, 'topik-writing-51-52-english', ['앞뒤 문장에서 단서 찾기', '-습니다 · -(으)세요 같은 말투 맞추기', '빈칸 ㄱ · ㄴ 은 한 문장씩 짧게']],
+    [52, 'topik-writing-51-52-english', ['그러나 · 따라서 같은 이음말로 앞뒤 관계 보기', '글말 「-다」 체로 맞추기', '-기 때문에 · -(으)ㄹ 수 있다 같은 표현 쓰기']],
+    [53, 'topik-writing-53-template', ['조사 대상 · 기관으로 시작', '늘었다 · 줄었다로 결과 비교', '원인이나 전망으로 마무리 · 200~300자']],
+    [54, 'topik-writing-54-structure', ['서론: 주제를 한두 문장으로', '본론: 문제의 물음에 차례로 답하기', '결론: 내 생각 정리 · 600~700자 · 「-다」 체']],
+  ];
+  const howTo = '<h2 class="tw-how-h">번호별 쓰는 법 · How to write each one</h2><div class="tw-how">' + HOW.map(([q, gid, steps]) => {
+    const g = BLOG_POSTS.find((x) => x.id === gid); if (!g) throw new Error('blog.js 에 없는 글: ' + gid);
+    return `<div class="tw-h"><b>Q${q}</b><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol><a href="/blog/${esc(gid)}.html">자세히 보기</a></div>`;
+  }).join('') + '</div>';
+  /* 우리 책 소개(운영자 2026-11-21 「책 소개도 밑에 넣자」) — 쓰는 법 바로 아래, 표지 · 한 줄 소개 · 쪽수 · 가격(반값 표시) · 책 보기 · 무료 샘플. 글 · 값은 docs/shop.json 그대로 */
+  const twBooks = '<h2 class="tw-how-h">책으로 더 연습하기 · Workbooks</h2><div class="tw-bks">' + [['topik2-writing-51-52', 'Q51 · Q52'], ['topik2-writing-53-54', 'Q53 · Q54']].map(([id, qs]) => {
+    const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+    const u = `/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_books`;
+    return `<div class="tw-bk"><a class="tw-bk-cv" href="${u}"><img src="${esc(b.coverImg)}" alt="${esc(b.title.ko)}" width="700" height="995" loading="lazy"></a><div class="tw-bk-t">` +
+      `<b>${qs}</b><h3><a href="${u}">${esc(b.title.ko)}</a></h3><p>${esc(b.page?.lead?.ko || b.sub.ko)}</p>` +
+      `<small>PDF · ${esc(String(b.pages).replace(/\s*\(PDF\)/, ''))} · <span data-px="${esc(b.price)}">$${esc(b.price)}</span></small>` +
+      `<div class="tw-bk-go"><a class="tw-bk-buy" href="${u}">책 보기</a>${b.sample ? `<a class="tw-bk-smp" href="/assets/books/${id}/sample.pdf" download data-ev="샘플받기" data-ev-from="tw_books">무료 샘플 ${b.sample.pages}쪽</a>` : ''}</div></div></div>`;
+  }).join('') + '</div>';
+  /* 문항 고르기(운영자 2026-11-21 「C+D 좋아 · 문제가 많아서 정렬 방식을 고민해야」 → 시안 「이거 좋다」):
+     C = 51~54 탭(칸 크기 = 배점), D = 한 줄 목록(번호 · 제목 · 지문 앞부분 · 쓰기). 200문항을 다 펼치지 않고 번호마다 8개씩 + 「더 보기」.
+     전부 HTML 에 그려 둔다(검색 엔진이 문항 쪽 링크를 다 본다 · JS 가 없으면 그냥 다 보인다). 탭 · 찾기 · 정렬은 /tw-list.js.
+     「본 것」은 앱이 이 브라우저에 적는 연 문항(cp-tw-seen) 그대로 — 기기마다 따로다. */
+  const pv = (x) => clip(String(x.passage || '').replace(/^다음을 참고하여\s*/, '').replace(/\s+/g, ' '), 70);
+  const twList = '<h2 class="tw-how-h" id="tw-list">문항 고르기 · All tasks</h2><p class="tw-sub">번호를 누르면 그 번호 문항만 보여요. 칸 크기는 배점이에요.</p>' +
+    '<div class="tw-tabs" role="tablist">' + TW_QS.map((g, i) =>
+      `<button type="button" role="tab" class="tw-t${i ? '' : ' on'}" data-q="${g.q}" aria-selected="${i ? 'false' : 'true'}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))} · ${g.pt}점${g.q >= 53 ? ' · AI' : ''}</span></button>`).join('') + '</div>' +
+    '<div class="tw-tools"><label class="tw-find"><span aria-hidden="true">⌕</span><input type="search" id="twFind" placeholder="주제로 찾기 (예: 아르바이트, 도서관)" aria-label="문항 찾기 · Search tasks"></label>' +
+    '<div class="tw-seg" role="group" aria-label="정렬 · Sort"><button type="button" class="on" data-f="all">번호순</button><button type="button" data-f="new">안 본 것</button><button type="button" data-f="seen">본 것</button></div>' +
+    '<button type="button" class="tw-rand" id="twRand">무작위 한 문제</button></div>' +
+    '<ol class="tw-rows" id="twRows" data-seen="cp-tw-seen">' + items.map((x) => {
+      const n = x.id.replace(/^w(\d+)-(\d+)$/, (_, a, b) => `${a}-${b.padStart(2, '0')}`);
+      return `<li data-q="${x.q}" data-id="${esc(x.id)}" data-s="${esc((x.title + ' ' + (x.passage || '')).toLowerCase())}"><span class="tw-n">${esc(n)}</span>` +
+        `<a class="tw-ti" href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a><span class="tw-pv">${esc(pv(x))}</span><span class="tw-st"></span>` +
+        `<a class="tw-go" href="/?utm_source=hub#learn/topik/II/writing/${esc(x.id)}">쓰기</a></li>`;
+    }).join('') + '</ol>' +
+    '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
+    '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>' +
+    '<p class="tw-note">「본 것」은 이 기기(브라우저)에 저장돼요 · Seen marks stay on this device.</p>';
+  const body = [
+    '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
+    `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
+    `<p class="lead">번호를 고르면 바로 써요. 모범답안은 모두 무료, 53 · 54번은 AI 채점 1번 무료. <small>기출이 아닌 창작 문항입니다. · Pick a question type and start writing. Model answers are free.</small></p>`,
+    qpick,
+    bookLine,
+    howTo,
+    twList,
+    twBooks,
+    twGuides(),
+    leadSample('topik2-writing-51-52', 'tw'),
+    '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
+    hubNext('/topik-writing/', 3),
+  ].join('\n');
+
+  return page({
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">',
+    /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
+       번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
+    extraCss: HUB_MODERN_CSS,
     /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
     /* 2026-11-04 운영자 「토픽 쓰기 제목 설명 고쳐줘」 — 검색 노출 84회에 클릭 12회(14%): 사람들이 치는 말 「토픽 쓰기 연습 문제」를 앞에 두고, 무료 모범답안 · 가입 없이 · 영어 검색어(TOPIK II writing practice)를 더한다. 기출 문제라고 쓰지 않는다(창작 문항) */
     title: `토픽 쓰기 연습 문제 ${items.length}개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato`,
@@ -1146,26 +1158,88 @@ function trSections() {
     return `<h2>TOPIK ${exam} — ${items.length}문항</h2>${typeSections}`;
   }).join('\n');
 }
+/* ── 읽기 · 듣기 모음 쪽 — 쓰기 쪽과 같은 모양(운영자 2026-11-21 「이에 맞춰 이런 스타일로 읽기 듣기 수정하자」) ──
+   위에서부터: 시험 고르는 큰 카드 두 장 → 책 한 줄 → 유형별 푸는 법 네 칸 → 문항 고르기(탭 · 유형 칩 · 찾기 · 한 줄 목록) → 책 카드 → 안내 글.
+   푸는 법은 시험 형식을 지어내지 않는 일반적인 요령만 적는다. 문항은 모두 창작(기출 아님). */
+const hubPick = (cards) => '<div class="tw-pick two">' + cards.map((c) =>
+  `<a class="tw-q ex" href="${c.href}"><b>${esc(c.tag)}</b><span>${esc(c.title)}</span><small>${esc(c.sub)}</small><em>${esc(c.go)}</em></a>`).join('') + '</div>';
+const hubBookLine = (books, from) => '<p class="tw-books">책으로 풀기 · Workbooks: ' + books.map(([id, label]) => {
+  const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+  return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=${from}_top">${esc(label)} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
+}).join(' · ') + '</p>';
+const hubHow = (head, cards) => `<h2 class="tw-how-h">${head}</h2><div class="tw-how">` + cards.map(([tag, gid, steps]) => {
+  const g = BLOG_POSTS.find((x) => x.id === gid); if (!g) throw new Error('blog.js 에 없는 글: ' + gid);
+  return `<div class="tw-h"><b>${esc(tag)}</b><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol><a href="/blog/${esc(gid)}.html">자세히 보기</a></div>`;
+}).join('') + '</div>';
+const hubBookCards = (books, from) => '<h2 class="tw-how-h">책으로 더 연습하기 · Workbooks</h2><div class="tw-bks">' + books.map(([id, tag]) => {
+  const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+  const u = `/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=${from}_books`;
+  return `<div class="tw-bk"><a class="tw-bk-cv" href="${u}"><img src="${esc(b.coverImg)}" alt="${esc(b.title.ko)}" width="700" height="995" loading="lazy"></a><div class="tw-bk-t">` +
+    `<b>${esc(tag)}</b><h3><a href="${u}">${esc(b.title.ko)}</a></h3><p>${esc(b.page?.lead?.ko || b.sub.ko)}</p>` +
+    `<small>PDF · ${esc(String(b.pages).replace(/\s*\(PDF\)/, ''))} · <span data-px="${esc(b.price)}">$${esc(b.price)}</span></small>` +
+    `<div class="tw-bk-go"><a class="tw-bk-buy" href="${u}">책 보기</a>${b.sample ? `<a class="tw-bk-smp" href="/assets/books/${id}/sample.pdf" download data-ev="샘플받기" data-ev-from="${from}_books">무료 샘플 ${b.sample.pages}쪽</a>` : ''}</div></div></div>`;
+}).join('') + '</div>';
+/* 문항 고르기 — exams: [{ q:'I', label, sub, types:[[type, ko, n]] }], rows: [{ q, t, id, n, ti, pv, ty, s, page, go }] */
+const hubRows = ({ exams, rows, ph, goTxt, goTpl = '', lite = false }) =>
+  '<h2 class="tw-how-h" id="tw-list">문항 고르기 · All questions</h2><p class="tw-sub">시험을 고르고, 유형을 누르면 그 유형만 보여요.</p>' +
+  '<div class="tw-tabs two" role="tablist">' + exams.map((e, i) =>
+    `<button type="button" role="tab" class="tw-t${i ? '' : ' on'}" data-q="${e.q}" aria-selected="${i ? 'false' : 'true'}"><b>${esc(e.label)}</b><span>${esc(e.sub)}</span></button>`).join('') + '</div>' +
+  exams.map((e, i) => `<div class="tw-chips" data-q="${e.q}"${i ? ' hidden' : ''}><button type="button" class="on" data-t="">전체<small>${e.total}</small></button>` +
+    e.types.map(([t, ko, n]) => `<button type="button" data-t="${esc(t)}">${esc(ko)}<small>${n}</small></button>`).join('') + '</div>').join('') +
+  `<div class="tw-tools"><label class="tw-find"><span aria-hidden="true">⌕</span><input type="search" id="twFind" placeholder="${esc(ph)}" aria-label="문항 찾기 · Search"></label>` +
+  '<button type="button" class="tw-rand" id="twRand">무작위 한 문제</button></div>' +
+  /* 읽기는 2,111문항이라 한 줄을 짧게(번호 · 주제 · 문항 쪽 링크만): 유형 글자와 「풀기」 단추는 tw-list.js 가 data-go 틀로 채운다(쪽 크기 1.1MB → 3분의 1).
+     JS 가 없어도 주제 링크로 문항 쪽(정답 · 해설)에 간다. 듣기(165문항)는 대본 첫 줄까지 그대로 그린다. */
+  `<ol class="tw-rows${lite ? ' np' : ''}" id="twRows" data-go="${goTpl}" data-go-txt="${goTxt}">` + rows.map((r) => lite
+    ? `<li data-q="${r.q}" data-t="${esc(r.t)}" data-id="${esc(r.id)}"><span class="tw-n">${esc(r.n)}</span><a class="tw-ti" href="${r.page}">${esc(r.ti)}</a></li>`
+    : `<li data-q="${r.q}" data-t="${esc(r.t)}" data-id="${esc(r.id)}" data-s="${esc(r.s.toLowerCase())}"><span class="tw-n">${esc(r.n)}</span>` +
+      `<a class="tw-ti" href="${r.page}">${esc(r.ti)}</a><span class="tw-pv">${esc(r.pv)}</span><span class="tw-st ty">${esc(r.ty)}</span>` +
+      `<a class="tw-go" href="${r.go}">${goTxt}</a></li>`).join('') + '</ol>' +
+  '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
+  '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>';
+const HUB_HEAD = '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">';
+const flat = (s, n) => clip(String(s || '').replace(/\s+/g, ' ').trim(), n);
+
 function trHub() {
   const groups = [['I', TOPIK_READING], ['II', TOPIK2_READING]];
   const total = TOPIK_READING.length + TOPIK2_READING.length;
-  const sections = trSections();
-
+  const range = (a) => `${Math.min(...a.map((x) => x.slot))}~${Math.max(...a.map((x) => x.slot))}번`;
+  const pick = hubPick([
+    { tag: 'TOPIK I · 1~2급', title: '초급 읽기', sub: `${range(TOPIK_READING)} 유형 · ${TOPIK_READING.length}문항 · 정답 · 해설`, href: '/?utm_source=hub#learn/topik/I/reading', go: '읽기 시작' },
+    { tag: 'TOPIK II · 3~6급', title: '중 · 고급 읽기', sub: `${range(TOPIK2_READING)} 유형 · ${TOPIK2_READING.length}문항 · 정답 · 해설`, href: '/?utm_source=hub#learn/topik/II/reading', go: '읽기 시작' },
+  ]);
+  const books = [['topik1-reading-mock', 'TOPIK I 읽기'], ['topik2-vocab-1000', 'TOPIK II 낱말']];
+  const how = hubHow('유형별 푸는 법 · How to solve each type', [
+    ['빈칸에 알맞은 말', 'topik-reading-tips-english', ['빈칸 앞뒤 문장을 먼저 읽기', '그래서 · 하지만 같은 이음말로 앞뒤 관계 보기', '고른 답을 넣어 처음부터 다시 읽기']],
+    ['중심 내용 · 화제', 'topik-reading-tips-english', ['첫 문장과 끝 문장에 주목하기', '예로 든 이야기는 답이 아닐 때가 많다', '「-아야 한다」처럼 글쓴이의 생각이 담긴 문장 찾기']],
+    ['순서 배열', 'topik-reading-tips-english', ['「이 · 그」로 시작하지 않는 문장이 첫 문장 후보', '지시어 · 이음말로 바로 앞 문장 찾기', '다 정하면 처음부터 이어 읽어 확인']],
+    ['일치하는 내용', 'topik-reading-tips-english', ['보기를 먼저 읽고 지문에서 찾기', '숫자 · 날짜 · 장소를 꼼꼼히 맞춰 보기', '지문에 없는 말이 든 보기는 지우기']],
+  ]);
+  const exams = groups.map(([e, items]) => {
+    const n = {}; items.forEach((x) => (n[x.type] = (n[x.type] || 0) + 1));
+    return { q: e, label: `TOPIK ${e}`, sub: `${e === 'I' ? '1~2급' : '3~6급'} · ${items.length}문항`, total: items.length,
+      types: TR_ORDER[e].filter((k) => n[k]).map((k) => [k, TR_TYPES[e][k]?.ko || k, n[k]]) };
+  });
+  const rows = groups.flatMap(([e, items]) => items.slice().sort((a, b) => a.slot - b.slot || a.id.localeCompare(b.id)).map((x) => {
+    const ty = TR_TYPES[e][x.type]?.ko || x.type;
+    return { q: e, t: x.type, id: x.id, n: `${x.slot}번`, ti: x.topic, pv: flat(x.passage, 46), ty,
+      s: `${x.topic} ${ty} ${x.genre || ''} ${x.slot}번`, page: `/topik-reading/${x.id}.html`, go: `/?utm_source=hub#learn/topik/${e}/reading/${x.id}` };
+  }));
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 읽기</nav>',
-    `<h1>TOPIK 읽기 연습 문항 ${total}개</h1>`,
-    '<p class="lead">TOPIK I·II 읽기 유형별 연습 문항입니다. 문항마다 정답과 해설이 함께 있습니다.<br>' +
-      '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
-      `${total} original TOPIK I/II reading practice questions, each with the answer explained.</p>`,
-    hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['바로 채점 · Instant check', '고르면 정답 · 해설'], ['모의고사 · Mock tests', '시간 재고 회차별'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
-    hubCtas(['/#learn/topik/I/reading', '읽기 연습 바로 시작', 'Start reading practice — free'], ['/?lt=1&utm_source=hub', '내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
-    sections,
-    bookSteps(['topik1-reading-mock'], '풀고 나서 · 책으로 이어서 (Next step: the book)'),
-    hubNext('/topik-reading/'),
+    `<h1>TOPIK 읽기 연습 ${total}문항</h1>`,
+    `<p class="lead">시험을 고르면 바로 풀어요. 문항마다 정답과 해설이 있어요. <small>기출이 아닌 창작 문항입니다. · ${total} original TOPIK I/II reading questions, each with the answer explained.</small></p>`,
+    pick,
+    hubBookLine(books, 'tr'),
+    how,
+    hubRows({ exams, rows, ph: '주제로 찾기 (예: 날씨, 회사, 환경)', goTxt: '풀기', goTpl: '/?utm_source=hub#learn/topik/{q}/reading/{id}', lite: true }),
+    hubBookCards(books, 'tr'),
+    '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
+    hubNext('/topik-reading/', 3),
   ].join('\n');
 
   return page({
-    url: '/topik-reading/', kind: 'website', extraHead: hubHreflang('/topik-reading/'),
+    url: '/topik-reading/', kind: 'website', extraHead: hubHreflang('/topik-reading/') + HUB_HEAD, extraCss: HUB_MODERN_CSS,
     title: `TOPIK 읽기 연습 문항 ${total}개 | CheesePotato`,
     desc: clip(`TOPIK I·II 읽기 유형별 연습 문항 ${total}개. 정답과 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
@@ -1248,23 +1322,48 @@ function tlSections() {
 function tlHub() {
   const groups = [['I', TOPIKL_BY_EXAM.I], ['II', TOPIKL_BY_EXAM.II]];
   const total = TOPIKL_BY_EXAM.I.items.length + TOPIKL_BY_EXAM.II.items.length;
-  const sections = tlSections();
-
+  const range = (a) => `${Math.min(...a.map((x) => x.slot))}~${Math.max(...a.map((x) => x.slot))}번`;
+  const [I, II] = [TOPIKL_BY_EXAM.I.items, TOPIKL_BY_EXAM.II.items];
+  const pick = hubPick([
+    { tag: 'TOPIK I · 1~2급', title: '초급 듣기', sub: `${range(I)} 유형 · ${I.length}문항 · 소리 · 대본 · 해설`, href: '/?utm_source=hub#learn/topik/I/listening', go: '듣기 시작' },
+    { tag: 'TOPIK II · 3~6급', title: '중 · 고급 듣기', sub: `${range(II)} 유형 · ${II.length}문항 · 소리 · 대본 · 해설`, href: '/?utm_source=hub#learn/topik/II/listening', go: '듣기 시작' },
+  ]);
+  const books = [['topik1-vocab', 'TOPIK I 낱말'], ['topik2-vocab-1000', 'TOPIK II 낱말']];
+  const how = hubHow('유형별 푸는 법 · How to solve each type', [
+    ['이어지는 말 · 대답', 'topik-listening-tips-english', ['소리가 나오기 전에 보기를 먼저 읽기', '마지막 말이 질문인지 부탁인지 듣기', '높임말 · 때(과거 · 미래)가 맞는 보기 고르기']],
+    ['장소 · 화제', 'topik-listening-tips-english', ['손님 · 주문 · 표 같은 단서 낱말 듣기', '낱말 하나보다 전체 상황으로 고르기', '들은 낱말이 그대로 든 보기는 한 번 더 의심하기']],
+    ['들은 내용과 같은 것', 'topik-listening-tips-english', ['보기 네 개의 다른 점을 먼저 표시하기', '남자 · 여자 중 누가 무엇을 하는지 가르기', '숫자 · 시간은 들으면서 짧게 적기']],
+    ['중심 생각', 'topik-listening-tips-english', ['누구의 생각을 묻는지 먼저 확인하기', '생각은 끝부분에 많이 나온다', '「-아야 하다 · -는 게 좋다」 같은 말 듣기']],
+  ]);
+  const exams = groups.map(([e, ex]) => {
+    const types = trTypeMap(ex.blueprint); const order = [...new Set(ex.blueprint.map((b) => b.type))];
+    const n = {}; ex.items.forEach((x) => (n[x.type] = (n[x.type] || 0) + 1));
+    return { q: e, label: `TOPIK ${e}`, sub: `${e === 'I' ? '1~2급' : '3~6급'} · ${ex.items.length}문항`, total: ex.items.length,
+      types: order.filter((k) => n[k]).map((k) => [k, types[k]?.ko || k, n[k]]) };
+  });
+  const rows = groups.flatMap(([e, ex]) => {
+    const types = trTypeMap(ex.blueprint);
+    return ex.items.slice().sort((a, b) => a.slot - b.slot || a.id.localeCompare(b.id)).map((x) => {
+      const ty = types[x.type]?.ko || x.type; const line = x.script.map((l) => l.text).join(' ');
+      return { q: e, t: x.type, id: x.id, n: `${x.slot}번`, ti: flat(x.script[0]?.text || x.q, 18), pv: flat(x.script[1]?.text || '', 46), ty,
+        s: `${ty} ${line} ${x.slot}번`, page: `/topik-listening/${x.id}.html`, go: `/?utm_source=hub#learn/topik/${e}/listening/${x.id}` };
+    });
+  });
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 듣기</nav>',
-    `<h1>TOPIK 듣기 연습 문항 ${total}개</h1>`,
-    '<p class="lead">TOPIK I·II 듣기 유형별 연습 문항입니다. 대본과 정답, 해설이 함께 있습니다.<br>' +
-      '<b>기출문제가 아니라 같은 유형으로 새로 쓴 창작 문항입니다.</b><br>' +
-      `${total} original TOPIK I/II listening practice questions with transcripts and answers explained.</p>`,
-    hubWhy([[`${total}문항 · questions`, 'TOPIK I · II 유형별'], ['대본 · Transcripts', '고른 뒤에 열려요'], ['소리 · Audio', '들으며 바로 풀기'], ['가입 없이 · No sign-up', '브라우저에서 바로']]),
-    hubCtas(['/#learn/topik/I/listening', '듣기 연습 바로 시작', 'Start listening practice — free'], ['/?lt=1&utm_source=hub', '내 TOPIK 레벨 3분 테스트', 'Not sure of your level? 3-min test']),
-    sections,
-    bookSteps(['topik2-vocab-1000'], '듣기에 나오는 낱말 · 책으로 이어서 (Next step: the book)'),
-    hubNext('/topik-listening/'),
+    `<h1>TOPIK 듣기 연습 ${total}문항</h1>`,
+    `<p class="lead">시험을 고르면 소리를 듣고 바로 풀어요. 대본과 해설은 고른 뒤에 열려요. <small>기출이 아닌 창작 문항입니다. · ${total} original TOPIK I/II listening questions with audio, transcripts and answers.</small></p>`,
+    pick,
+    hubBookLine(books, 'tl'),
+    how,
+    hubRows({ exams, rows, ph: '대본 낱말로 찾기 (예: 병원, 회의, 주문)', goTxt: '듣기' }),
+    hubBookCards(books, 'tl'),
+    '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
+    hubNext('/topik-listening/', 3),
   ].join('\n');
 
   return page({
-    url: '/topik-listening/', kind: 'website', extraHead: hubHreflang('/topik-listening/'),
+    url: '/topik-listening/', kind: 'website', extraHead: hubHreflang('/topik-listening/') + HUB_HEAD, extraCss: HUB_MODERN_CSS,
     title: `TOPIK 듣기 연습 문항 ${total}개 | CheesePotato`,
     desc: clip(`TOPIK I·II 듣기 유형별 연습 문항 ${total}개. 대본과 정답, 해설까지. 기출이 아닌 창작 문항입니다.`),
     body,
