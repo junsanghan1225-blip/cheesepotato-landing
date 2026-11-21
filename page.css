@@ -1,5 +1,5 @@
-/* 본문 글꼴 고운돋움(2026-11-21 글꼴 짝 「B」) — @import 는 맨 위에만 둘 수 있다. Pretendard 는 쪽마다 따로 부른다 */
-@import url('vendor/gowun-dodum.css');
+/* 본문 글꼴 IBM Plex Sans KR(2026-11-21 글꼴 짝 「D」) — @import 는 맨 위에만 둘 수 있다. Pretendard 는 쪽마다 따로 부른다 */
+@import url('vendor/ibm-plex-kr.css');
 /* 손으로 쓴 정적 쪽(about · korean-name · korean-age)의 모양 — teacher.html 의 스타일을 그대로 옮겨 왔다. */
 :root {
   --bg:#F2EEE4; --surface:#fff; --tint:#FDF0E2;
@@ -7,8 +7,8 @@
   --orange:#FF914D; --orange-deep:#AE4710;   /* 글자 대비 3.9 → 4.9(2026-11-14 주간 점검) */
   --line:rgba(27,21,18,.11); --line-2:rgba(27,21,18,.06);
 }
-* { box-sizing:border-box; margin:0; padding:0; font-family:"Gowun Dodum","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
-/* 제목은 Pretendard(글꼴 짝 「B」: 제목 Pretendard · 본문 고운돋움) */
+* { box-sizing:border-box; margin:0; padding:0; font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
+/* 제목은 Pretendard(글꼴 짝 「D」: 제목 Pretendard · 본문 IBM Plex Sans KR) */
 :is(h1,h2,h3,h4), :is(h1,h2,h3,h4) * { font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif; }
 body { background:var(--bg); color:var(--ink-2); -webkit-font-smoothing:antialiased; line-height:1.75; }
 a { color:var(--orange-deep); }

@@ -101,7 +101,7 @@ const ASSETS = [
   /* 화면 상자 안에서만 쓰는 CSS. index.html 이 갈라 받는다(app-views.css
      머리말 참고) — 자국이 없으면 고쳐 올려도 예전 모양이 그대로 남는다. */
   'app-views.css',
-  'vendor/pretendard.css', 'vendor/pressstart2p.css', 'vendor/gowun-dodum.css',
+  'vendor/pretendard.css', 'vendor/pressstart2p.css', 'vendor/ibm-plex-kr.css',
   /* 들여온 남의 라이브러리도 넣는다. 자주 안 바뀌지만, 바뀌었을 때 예전
      것이 남아 있으면 원인을 찾기가 제일 어렵다. */
   'vendor/supabase-js.js', 'vendor/xlsx.js',

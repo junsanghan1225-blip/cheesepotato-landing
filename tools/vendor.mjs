@@ -20,7 +20,7 @@
    앱(cheesepotato-rn2/package.json)과 같은 줄기를 써야 한다. 갈리면
    앱에서 되던 게 웹에서 안 되는 일이 생긴다. */
 
-import { stripLatin } from './lib/strip-latin.mjs';
+import { FONTS, fetchFont } from './lib/gf-subsets.mjs';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -124,31 +124,18 @@ fs.writeFileSync(path.join(OUT, 'pressstart2p.css'),
   '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + keep.join('\n') + '\n');
 say(`  pressstart2p.css + 조각 ${keep.length}개`);
 
-/* ── 4-2. 고운돋움(Gowun Dodum) ───────────────────────────────
-   TOPIK 쓰기 쪽(/topik-writing/) 문항 목록에만 쓰는 둥근 한글 글꼴(운영자 2026-11-21 글꼴 시안 「B로 가자」).
-   한글이라 구글이 주는 나눔 조각(unicode-range)을 전부 받는다 — 화면에 나온 글자가 든 조각만 브라우저가 받아 간다. */
-const GD_CSS = 'https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap';
-fs.mkdirSync(path.join(OUT, 'gowun-dodum'), { recursive: true });
-let gd = sh('curl', ['-sS', '-A', GF_UA, GD_CSS]);
-const gdUrls = [...gd.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.woff2)\)/g)].map((m) => m[1]);
-if (gdUrls.length < 20) throw new Error(`고운돋움 조각이 ${gdUrls.length}개뿐이다`);
-gdUrls.forEach((u, i) => {
-  const file = `GowunDodum.subset.${i}.woff2`;
-  sh('curl', ['-sS', '-o', path.join(OUT, 'gowun-dodum', file), u]);
-  gd = gd.replace(u, `./gowun-dodum/${file}`);
-});
-fs.writeFileSync(path.join(OUT, 'gowun-dodum.css'),
-  '/* Gowun Dodum(고운돋움) — SIL Open Font License 1.1\n' +
-  '   fonts.google.com/specimen/Gowun+Dodum\n' +
-  '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + stripLatin(gd.trim()) + '\n');   // 영어는 Pretendard 로(tools/lib/strip-latin.mjs)
-say(`  gowun-dodum.css + 조각 ${gdUrls.length}개`);
+/* ── 4-2. 한글 웹 글꼴(구글 글꼴 나눔 조각) ──────────────────────
+   본문 IBM Plex Sans KR(2026-11-21 글꼴 짝 「D」) · 예전 본문 고운돋움(「B」, 지금은 쪽에서 안 부름).
+   받는 법 · 이름은 tools/lib/gf-subsets.mjs 한 곳에. */
+const gfN = {};
+for (const key of Object.keys(FONTS)) { gfN[FONTS[key].family] = fetchFont(key, OUT); say(`  ${key}.css + 조각 ${gfN[FONTS[key].family]}개`); }
 
 /* ── 5. 받은 그대로인지 적어 두기 ─────────────────────────── */
 fs.writeFileSync(path.join(OUT, 'VERSIONS.json'), JSON.stringify({
   만든날: new Date().toISOString().slice(0, 10),
   만든것: 'tools/vendor.mjs',
   버전: PIN,
-  글꼴: { 'Press Start 2P': `google fonts, ${GF_KEEP.join(' + ')}`, 'Gowun Dodum': `google fonts, 한글 나눔 조각 ${gdUrls.length}개` },
+  글꼴: { 'Press Start 2P': `google fonts, ${GF_KEEP.join(' + ')}`, ...Object.fromEntries(Object.entries(gfN).map(([f, n]) => [f, `google fonts, 한글 나눔 조각 ${n}개`])) },
 }, null, 2) + '\n');
 
 fs.rmSync(stage, { recursive: true, force: true });

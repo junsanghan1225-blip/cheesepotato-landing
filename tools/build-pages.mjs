@@ -104,9 +104,9 @@ const CSS = `
   --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
-  font-family:"Gowun Dodum","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
-/* 글꼴 두 가지(운영자 2026-11-21 글꼴 짝 시안 「B」): 본문 고운돋움 · 제목과 낱말은 Pretendard. 둘 다 필요한 글자 조각만 받는다 */
+/* 글꼴 두 가지(운영자 2026-11-21 글꼴 짝 시안 「D」 — 「이걸로 다 바꾸자」, 그 전 몇 시간은 「B」 고운돋움): 본문 IBM Plex Sans KR · 제목과 낱말은 Pretendard. 둘 다 필요한 글자 조각만 받는다 */
 h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
 button,input,select,textarea{font-family:inherit}
 h1,h3,.wd-en{color:var(--ink)}
@@ -316,7 +316,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta name="twitter:image" content="${SITE}/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
-<link rel="stylesheet" href="/vendor/gowun-dodum.css">
+<link rel="stylesheet" href="/vendor/ibm-plex-kr.css">
 <script src="${PAGE_JS}" defer></script>${body.includes('data-lead=') ? `<script src="${SUB_JS}" defer></script>` : ''}${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
@@ -953,8 +953,8 @@ const HUB_MODERN_CSS = '.wrap{max-width:1200px;padding-left:40px;padding-right:4
       '@media(max-width:600px){.tw-how{grid-template-columns:1fr}.tw-bk{grid-template-columns:96px 1fr;gap:14px;padding:16px}.tw-bk-t h3{font-size:17px}}' +
       '@media(max-width:600px){.wrap{padding-left:20px;padding-right:20px}.tw-q{min-height:0;padding:18px}.tw-q span{font-size:18px}.cat .pts{grid-template-columns:1fr}}' +
       /* 문항 고르기(C 탭 + D 한 줄 목록) */
-      /* 글꼴은 고운돋움(운영자 2026-11-21 글꼴 시안 「B로 가자」) — 이 목록 부분만. 굵기가 하나뿐이라 굵은 글씨는 브라우저가 만든다 */
-      '#tw-list,.tw-sub,.tw-tabs,.tw-tools,.tw-rows,.tw-more,.tw-empty,.tw-note{font-family:"Gowun Dodum","Pretendard Variable",Pretendard,sans-serif}' +
+      /* 목록 글꼴은 본문과 같은 IBM Plex Sans KR(2026-11-21 글꼴 짝 「D」 — 처음엔 고운돋움 「B로 가자」였다) */
+      '#tw-list,.tw-sub,.tw-tabs,.tw-tools,.tw-rows,.tw-more,.tw-empty,.tw-note{font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,sans-serif}' +
       '.tw-sub{margin:0 0 16px;font-size:16px;color:var(--dim)}' +
       '.tw-tabs{display:grid;grid-template-columns:minmax(max-content,15fr) minmax(max-content,15fr) 30fr 50fr;gap:8px;margin-bottom:14px}' +
       '.tw-t{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0;padding:14px 16px;border:0;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}' +
@@ -988,7 +988,7 @@ const HUB_MODERN_CSS = '.wrap{max-width:1200px;padding-left:40px;padding-right:4
   /* 읽기 · 듣기 쪽에서 더 쓰는 것(2026-11-21 「이에 맞춰 이런 스타일로 읽기 듣기」): 두 칸 카드 · 두 칸 탭 · 유형 칩 · 유형 글자 */
   '.tw-pick.two,.tw-tabs.two{grid-template-columns:1fr 1fr}' +
   '.tw-q.ex b::before{content:none}' +
-  '.tw-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;font-family:"Gowun Dodum","Pretendard Variable",Pretendard,sans-serif}.tw-chips[hidden]{display:none}' +
+  '.tw-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,sans-serif}.tw-chips[hidden]{display:none}' +
   '.tw-chips button{padding:8px 12px;border:0;border-radius:8px;background:var(--card);font:inherit;font-size:15px;color:var(--ink);cursor:pointer}' +
   '.tw-chips button.on{background:var(--ink);color:var(--bg)}.tw-chips small{margin-left:5px;font-size:13px;opacity:.6}' +
   '.tw-st.ty{color:var(--dim)}' +
@@ -2195,8 +2195,8 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 @media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
   --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
 
-body{font-family:"Gowun Dodum","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
-/* 제목은 Pretendard(2026-11-21 글꼴 짝 「B」 — 전에는 고운바탕). 인용 글만 고운바탕 그대로 */
+body{font-family:"IBM Plex Sans KR","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+/* 제목은 Pretendard(2026-11-21 글꼴 짝 「D」 — 전에는 고운바탕). 인용 글만 고운바탕 그대로 */
 h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:700;letter-spacing:-.02em}
 .rb-id h1{font-size:26px}
 .rb-card h1{font-size:34px;line-height:1.45}
