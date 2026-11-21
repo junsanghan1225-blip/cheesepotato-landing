@@ -40,10 +40,10 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=7aa53193" async></script>
+<script src="gtm.js?v=4abe1732" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="early.js?v=7aa53193"></script>
+<script src="early.js?v=4abe1732"></script>
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
      사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
@@ -129,13 +129,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=7aa53193">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=7aa53193">
+<link rel="stylesheet" href="vendor/pretendard.css?v=4abe1732">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=4abe1732">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=7aa53193" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=7aa53193"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=4abe1732" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=4abe1732"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -851,6 +851,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (min-width:901px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
+/* 진단 4번: <a> 는 줄 안 요소라 .hero-go 의 min-height 가 안 먹어 높이 20px 로 찌그러졌다 */
+.hm-bk-all .hero-go { display:inline-flex; align-items:center; }
 .hm-bk-link { color:var(--ink-2); font-weight:700; font-size:14px; }
 /* 손가락으로 누르기 쉽게(운영자 2026-11-05 「4번은 해」) — 글자는 그대로, 누르는 칸만 44px 가까이 */
 .hm-bk-link, .hm-lead-dl a, .hero-trust { display:inline-block; padding-top:12px; padding-bottom:12px; }
@@ -1000,7 +1002,59 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (min-width:901px) { .hm-proofrow { grid-template-columns:1fr 1fr; align-items:start; gap:32px; } }
 .hm-paths-h { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-paths .hm-doors { margin-top:12px; }
-.hm-more { max-width:calc(var(--max) + 2 * var(--gut)); margin:22px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+/* 2026-11-21 첫 화면 진단 5번: 폭이 다른 칸(.section — 1200 안에 좌우 gut)보다 2 × gut 넓어 줄이 40px 바깥에서 시작했다 → 같은 폭 */
+.hm-more { max-width:var(--max); margin:22px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+#hmBooks .hm-more { max-width:none; padding:0; }   /* 책 칸 안의 「다른 시리즈 더 보기」는 이미 칸 안이라 좌우 여백을 또 주지 않는다 */
+
+/* ── 첫 화면 시안 2B · 3A · 6 · 7(운영자 2026-11-21) ── */
+/* 2B: 숫자 한 줄 + 오늘의 문제 넓은 카드 */
+.hm-proofrow { display:block; }
+.hm-proof.hm-proof-line { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 28px; margin:0 0 20px; padding:14px 0; background:none; border:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); border-radius:0; }
+.hm-proof-line > a { flex-direction:row; align-items:baseline; gap:6px; padding:0; background:none; }
+.hm-proof-line b { font-size:19px; }
+.hm-proof-line span { font-size:14px; color:var(--ink-2); }
+.hm-proof-ok { font-size:14px; color:var(--green); }
+.hm-proof-ok::before { content:'✓ '; font-weight:700; }
+.hm-today2 { display:grid; grid-template-columns:240px minmax(0,1fr); gap:24px; margin-top:0; padding:20px 22px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); }
+.hm-today2 .hm-quiz { padding:0; background:none; border:0; border-radius:0; box-shadow:none; }
+.hm-today2 .hm-quiz-k { justify-content:flex-end; }
+.hm-today2 .hm-quiz-k b { display:none; }   /* 왼쪽 안내에 같은 제목이 있다 */
+.hm-today-l b { display:block; margin-bottom:6px; font-size:13px; color:var(--orange-deep); }
+.hm-today-l p { margin:0 0 10px; font-size:14px; line-height:1.6; color:var(--ink-2); }
+.hm-today-l a { font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; }
+.hm-today-l a:hover { color:var(--orange-deep); }
+@media (min-width:601px) { .hm-today2 .hm-quiz-o { grid-template-columns:1fr 1fr; } }
+@media (max-width:600px) { .hm-today2 { grid-template-columns:1fr; gap:10px; padding:16px; } .hm-proof.hm-proof-line { gap:6px 18px; } }
+/* 3A: 책장 한 줄(10권 가로) — tools/build-home-books.mjs 가 그린다 */
+.hm-shelf1 { display:flex; gap:16px; margin:18px 0 0; padding:6px 2px 14px; overflow-x:auto; scroll-snap-type:x proximity; scrollbar-width:thin; }
+.hm-bk1 { flex:0 0 132px; scroll-snap-align:start; color:inherit; text-decoration:none; }
+.hm-bk1 img { display:block; width:132px; height:188px; object-fit:cover; border-radius:3px 6px 6px 3px; box-shadow:0 6px 16px rgba(0,0,0,.16); }
+.hm-bk1 b { display:block; margin-top:8px; font-size:13px; line-height:1.35; font-weight:700; color:var(--ink); }
+.hm-bk1 .hm-bk-px { font-size:12.5px; color:var(--ink-2); }
+.hm-bk1:hover b { color:var(--orange-deep); }
+@media (max-width:600px) { .hm-bk1 { flex-basis:118px; } .hm-bk1 img { width:118px; height:168px; } }
+.hm-books .hm-lead { margin-top:16px; }
+/* 6: Pro 표 */
+.hm-pro .hm-pro-h { margin-bottom:6px; }
+.hm-pro-sub { margin:0 0 18px; font-size:15.5px; line-height:1.6; color:var(--ink-2); }
+.hm-pt-wrap { overflow-x:auto; }
+.hm-pt { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl); overflow:hidden; font-size:14.5px; }
+.hm-pt th, .hm-pt td { padding:13px 16px; border-top:1px solid var(--line-2); text-align:left; vertical-align:top; }
+.hm-pt thead th { border-top:0; background:var(--surface-2); font-size:15px; font-weight:700; color:var(--ink); }
+.hm-pt thead small { display:block; margin-top:2px; font-size:13px; font-weight:500; color:var(--ink-2); }
+.hm-pt td:first-child { width:34%; font-weight:600; color:var(--ink); }
+.hm-pt .ok { font-weight:700; color:var(--green); }
+@media (max-width:600px) { .hm-pt { font-size:13px; } .hm-pt th, .hm-pt td { padding:10px 9px; } }
+/* 7: 앱 안내 한 줄(밝게 · 왼쪽 정렬) */
+.hm-app { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:18px; align-items:center; max-width:var(--max); margin:40px auto 0; padding:20px var(--gut); box-sizing:border-box; }
+.hm-app::before { content:''; grid-column:1/-1; border-top:1px solid var(--line); margin-bottom:2px; }
+.hm-app-logo { width:48px; height:48px; border-radius:10px; }
+.hm-app-t b { display:block; font-size:18px; font-weight:700; color:var(--ink); }
+.hm-app-t p { margin:2px 0 0; font-size:14px; color:var(--ink-2); }
+.hm-app-r { text-align:right; }
+.hm-app-gp { display:inline-flex; align-items:center; min-height:46px; padding:0 16px; border-radius:8px; background:var(--ink); color:var(--bg); font-weight:700; white-space:nowrap; text-decoration:none; }
+#download .dl-coming { display:block; margin-top:6px; padding:0; font-size:12.5px; color:var(--ink-3); text-decoration:underline; }
+@media (max-width:600px) { .hm-app { grid-template-columns:auto minmax(0,1fr); } .hm-app-r { grid-column:1/-1; text-align:left; } }
 .hm-more > summary { cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; padding:14px 4px; border-top:1px solid var(--line); font-weight:700; color:var(--ink-2); }
 .hm-more > summary::after { content:'+'; font-size:20px; font-weight:400; color:var(--ink-3); }
 .hm-more[open] > summary::after { content:'–'; }
@@ -2450,27 +2504,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="hm-proline" id="hmProLine" hidden><span data-en="AI writing scores and every TOPIK mock test open with Pro.">AI 쓰기 채점과 TOPIK 모의고사 전 회는 Pro 에서 열려요.</span> <button type="button" id="hmProLineBtn" data-en="See Pro →">Pro 보기 →</button></p>
   <!-- 첫 화면 다시 짜기(운영자 요청 2026-10-06 「UX 법칙을 생각해서」): 세 덩어리로 — ① 시작(머리 문장 + 큰 단추 하나, 피츠 · 힉)
        ② 길 넷 ③ 오늘의 한 문제 · 믿을 만한 숫자(밀러 — 묶어서). 숫자 · 오늘의 문제는 히어로에서 이리로 내려왔다(check-geo 는 aria-label 을 그대로 본다). -->
+  <!-- 첫 화면 시안 2-B(운영자 2026-11-21 「2B 3A 6 7」): 숫자는 얇은 한 줄, 오늘의 문제는 넓은 카드 하나(왼쪽 안내 · 오른쪽 문제).
+       전에는 두 칸(문제 | 숫자 2×2 + 믿음 세 줄) — PC 는 오른쪽 아래가 비고 폰은 레벨 테스트 단추 다음을 길게 밀었다. 문제 칸 안은 app.module.js hmQuizRender 가 채운다. -->
   <div class="hm-proofrow hm-intro">
-    <div class="hm-today">
+    <div class="hm-proof hm-proof-line">
+      <a href="#learn/topik" aria-label="TOPIK 문항 2,476개"><b>2,476</b><span data-en="TOPIK practice questions">TOPIK 연습 문항</span></a>
+      <a href="/dictionary/" aria-label="낱말 7,970개"><b>7,970</b><span data-en="dictionary words">사전 낱말</span></a>
+      <a href="#learn" aria-label="레슨 401개"><b>401</b><span data-en="lessons in 97 courses">레슨 · 코스 97개</span></a>
+      <a href="/sentence/" aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></a>
+      <span class="hm-proof-ok" data-en="Every question is original: not a past paper">모든 문항 창작 · 기출 아님</span>
+    </div>
+    <div class="hm-today hm-today2">
+      <div class="hm-today-l"><b data-en="Today's TOPIK question">오늘의 TOPIK 1문제</b>
+        <p data-en="A new one every day. Try it, then take the level test.">매일 바뀌어요. 하나 풀고 레벨 테스트로 이어 가요.</p>
+        <a href="#learn/topik" data-en="More TOPIK questions →">TOPIK 문제 더 풀기 →</a></div>
       <section class="hm-quiz" id="hmQuiz" aria-label="오늘의 TOPIK 1문제" data-en-aria="Daily TOPIK question">
         <div class="hm-quiz-k"><b data-en="Today's TOPIK question">오늘의 TOPIK 1문제</b><span data-en="Not a past paper">기출 아님</span></div>
         <p class="hm-quiz-wait" data-en="Loading today's question…">오늘의 문제를 불러오는 중…</p>
       </section>
-    </div>
-    <div class="hm-proofbox">
-      <div class="hm-proof">
-        <a href="#learn/topik" aria-label="TOPIK 문항 2,476개"><b>2,476</b><span data-en="TOPIK practice questions">TOPIK 연습 문항</span></a>
-        <a href="/dictionary/" aria-label="낱말 7,970개"><b>7,970</b><span data-en="dictionary words">사전 낱말</span></a>
-        <a href="#learn" aria-label="레슨 401개"><b>401</b><span data-en="lessons in 97 courses">레슨 · 코스 97개</span></a>
-        <a href="/sentence/" aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></a>
-      </div>
-      <!-- 함께 공부한 사람 — 운영자가 준 구글 애널리틱스 숫자(지난 28일 · 2026-09-07 ~ 10-04). 날짜를 같이 적어 오래된 숫자로 읽히지 않게 -->
-      <p class="hm-users" data-ko="최근 4주 동안 <b>1,534명</b>이 치즈감자를 찾아왔어요 · 한 사람 평균 <b>3분 36초</b> 머물렀어요 <small>Google Analytics · 2026.9.30 ~ 10.27</small>">In the last 4 weeks <b>1,534 people</b> visited · <b>3 min 36 s</b> engaged each on average <small>Google Analytics · Sep 30 – Oct 27, 2026</small></p>
-      <ul class="hm-trust">
-        <li data-en="Every question is original: not a past paper">모든 문항 창작 · 기출 아님</li>
-        <li data-en="Definitions from the National Institute of Korean Language">뜻풀이 국립국어원 한국어기초사전</li>
-        <li data-en="Courses, grammar and the dictionary are free">코스 · 문법 · 사전은 무료</li>
-      </ul>
     </div>
   </div>
 
@@ -2486,6 +2537,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="label" data-en="BOOKS · PDF WORKBOOKS">책 · PDF 워크북</div>
     <h2 class="section-title" id="hmBooksH" data-en="Workbooks you write in">써 가며 배우는 한국어 워크북</h2>
     <p class="hm-books-sub" data-en="Made by a Korean teacher for people who learn Korean in English. Answers included in every book, free online practice on the site, instant PDF download.">한국어 선생님이 만든 PDF 워크북이에요. 책마다 정답이 들어 있고, 사이트에서 무료로 더 연습할 수 있고, 결제하면 바로 내려받아요.</p>
+    <div class="hm-shelf1" aria-label="한국어 워크북 10권" data-en-aria="10 Korean workbooks">
+        <a class="hm-bk1" href="shop/first-steps-workbook/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Korean First Steps Workbook">한국어 첫걸음 워크북</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+        <a class="hm-bk1" href="shop/particles-workbook/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/particles-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Korean Particles Workbook">한국어 조사 워크북</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+        <a class="hm-bk1" href="shop/korean-idioms/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Essential Korean Idioms">필수 관용 표현</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+        <a class="hm-bk1" href="shop/topik1-vocab/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik1-vocab/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Beginner Essential Vocabulary (for TOPIK I)">초급 필수 단어장 (TOPIK I 대비)</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+        <a class="hm-bk1" href="shop/topik2-vocab-1000/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik2-vocab-1000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Intermediate Vocabulary Workbook 1 (for TOPIK II)">중급 단어장 워크북 1 (TOPIK II 대비)</b><span class="hm-bk-px" data-px="6.90">$6.90</span></a>
+        <a class="hm-bk1" href="shop/topik2-vocab-2000/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik2-vocab-2000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Intermediate Vocabulary Workbook 2 (for TOPIK II)">중급 단어장 워크북 2 (TOPIK II 대비)</b><span class="hm-bk-px" data-px="6.90">$6.90</span></a>
+        <a class="hm-bk1" href="shop/topik2-vocab-lv3/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik2-vocab-lv3/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Intermediate Vocabulary Workbook 3 (for TOPIK II)">중급 단어장 워크북 3 (TOPIK II 대비)</b><span class="hm-bk-px" data-px="6.90">$6.90</span></a>
+        <a class="hm-bk1" href="shop/topik1-reading-mock/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik1-reading-mock/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="10 Reading Practice Tests (for TOPIK I)">읽기 실전 연습 10회 (TOPIK I 대비)</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+        <a class="hm-bk1" href="shop/topik2-writing-51-52/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik2-writing-51-52/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Writing Practice 51–52 (for TOPIK II)">쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)</b><span class="hm-bk-px" data-px="6.90">$6.90</span></a>
+        <a class="hm-bk1" href="shop/topik2-writing-53-54/" data-ev="책클릭" data-ev-from="첫화면-서가"><img src="assets/books/topik2-writing-53-54/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"><b data-en="Writing Practice 53–54 (for TOPIK II)">쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)</b><span class="hm-bk-px" data-px="9.90">$9.90</span></a>
+      </div>
     <form class="lt-mail hm-lead" data-app-lead="home-books" novalidate>
       <div class="lt-mail-t" data-en="Three free sample PDFs. Leave your email to get them now and to hear when a new one is out.">무료 샘플 PDF 3권을 받아 보세요. 이메일을 남기면 바로 받고, 새 샘플이 나올 때도 알려 드려요.</div>
       <div class="lt-mail-r"><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="이메일 주소" data-en-placeholder="Email address" aria-label="이메일 주소" data-en-aria="Email address" required><button type="submit" data-en="Get the samples">샘플 받기</button></div>
@@ -2493,45 +2556,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="lt-mail-m" aria-live="polite"></p>
       <p class="hm-lead-dl"><span data-en="No email needed. Download now:">이메일 없이 바로 받기:</span> <a href="assets/books/first-steps-workbook/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-첫걸음">첫걸음 · First Steps</a> · <a href="assets/books/topik1-vocab/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-TOPIK1단어">TOPIK I 단어장</a> · <a href="assets/books/topik2-writing-51-52/sample.pdf" download data-ev="샘플받기" data-ev-from="첫화면-쓰기">TOPIK II 쓰기 51~52</a></p>
     </form>
-    <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="Korean Workbook Series">한국어 워크북 시리즈</span><small data-en="3">3권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" aria-label="한국어 워크북 시리즈">
-        <a class="hm-bk hm-bk-s on" href="shop/first-steps-workbook/" data-bk="first-steps-workbook" data-en-t="Korean First Steps Workbook" data-ko-t="한국어 첫걸음 워크북" data-sub-en="Hangul, greetings and everyday words, write, check, repeat." data-sub-ko="한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시" data-px="9.90" data-pg="185쪽" data-pg-en="185 pages" data-src="assets/books/first-steps-workbook/cover-sm.jpg" data-tip="한국어 첫걸음 워크북" aria-label="Korean First Steps Workbook — 한국어 첫걸음 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/particles-workbook/" data-bk="particles-workbook" data-en-t="Korean Particles Workbook" data-ko-t="한국어 조사 워크북" data-sub-en="20 particles, how to choose between them, and sentences to learn from." data-sub-ko="조사 20개 · 헷갈리는 조사 가르기 · 문장으로 익히기" data-px="9.90" data-pg="276쪽" data-pg-en="276 pages" data-src="assets/books/particles-workbook/cover-sm.jpg" data-tip="한국어 조사 워크북" aria-label="Korean Particles Workbook — 한국어 조사 워크북" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/particles-workbook/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/korean-idioms/" data-bk="korean-idioms" data-en-t="Essential Korean Idioms" data-ko-t="필수 관용 표현" data-sub-en="449 idioms, proverbs and four-character idioms with examples, checkups and writing practice." data-sub-ko="관용구 · 속담 · 사자성어 449개" data-px="9.90" data-pg="274쪽" data-pg-en="274 pages" data-src="assets/books/korean-idioms/cover-sm.jpg" data-tip="필수 관용 표현" aria-label="Essential Korean Idioms — 필수 관용 표현" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/korean-idioms/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-      </div></div>
-    <details class="hm-more"><summary><span data-en="More series · 7 more books">다른 시리즈 7권 더 보기</span></summary>
-    <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="TOPIK Vocabulary Series">TOPIK 단어장 시리즈</span><small data-en="4">4권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK 단어장 시리즈">
-        <a class="hm-bk hm-bk-s" href="shop/topik1-vocab/" data-bk="topik1-vocab" data-en-t="Beginner Essential Vocabulary (for TOPIK I)" data-ko-t="초급 필수 단어장 (TOPIK I 대비)" data-sub-en="All 1,931 TOPIK I words in 97 units, with example sentences, checkups and writing practice." data-sub-ko="TOPIK I 필수 단어 1,931개 · 예문과 쓰기 연습" data-px="9.90" data-pg="627쪽" data-pg-en="627 pages" data-src="assets/books/topik1-vocab/cover-sm.jpg" data-tip="초급 필수 단어장 (TOPIK I 대비)" aria-label="Beginner Essential Vocabulary (for TOPIK I) — 초급 필수 단어장 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik1-vocab/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-1000/" data-bk="topik2-vocab-1000" data-en-t="Intermediate Vocabulary Workbook 1 (for TOPIK II)" data-ko-t="중급 단어장 워크북 1 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II levels 3–4 words, with example sentences and writing practice." data-sub-ko="TOPIK II 3~4급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-1000/cover-sm.jpg" data-tip="중급 단어장 워크북 1 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 1 (for TOPIK II) — 중급 단어장 워크북 1 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik2-vocab-1000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-2000/" data-bk="topik2-vocab-2000" data-en-t="Intermediate Vocabulary Workbook 2 (for TOPIK II)" data-ko-t="중급 단어장 워크북 2 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 5 words, with example sentences and writing practice." data-sub-ko="TOPIK II 5급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-2000/cover-sm.jpg" data-tip="중급 단어장 워크북 2 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 2 (for TOPIK II) — 중급 단어장 워크북 2 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik2-vocab-2000/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/topik2-vocab-lv3/" data-bk="topik2-vocab-lv3" data-en-t="Intermediate Vocabulary Workbook 3 (for TOPIK II)" data-ko-t="중급 단어장 워크북 3 (TOPIK II 대비)" data-sub-en="The 1,000 most frequent TOPIK II level 6 words, with example sentences and writing practice." data-sub-ko="TOPIK II 6급 단어 중 자주 나오는 1,000개 · 예문과 쓰기 연습" data-px="6.90" data-pg="331쪽" data-pg-en="331 pages" data-src="assets/books/topik2-vocab-lv3/cover-sm.jpg" data-tip="중급 단어장 워크북 3 (TOPIK II 대비)" aria-label="Intermediate Vocabulary Workbook 3 (for TOPIK II) — 중급 단어장 워크북 3 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik2-vocab-lv3/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-      </div></div>
-    <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="TOPIK Reading Series">TOPIK 읽기 시리즈</span><small data-en="1">1권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK 읽기 시리즈">
-        <a class="hm-bk hm-bk-s" href="shop/topik1-reading-mock/" data-bk="topik1-reading-mock" data-en-t="10 Reading Practice Tests (for TOPIK I)" data-ko-t="읽기 실전 연습 10회 (TOPIK I 대비)" data-sub-en="400 original questions in the real test format, with explanations." data-sub-ko="실제 시험 형식의 새로 만든 문제 400개 · 풀이 포함" data-px="9.90" data-pg="206쪽" data-pg-en="206 pages" data-src="assets/books/topik1-reading-mock/cover-sm.jpg" data-tip="읽기 실전 연습 10회 (TOPIK I 대비)" aria-label="10 Reading Practice Tests (for TOPIK I) — 읽기 실전 연습 10회 (TOPIK I 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik1-reading-mock/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-      </div></div>
-    <div class="hm-shelf"><h3 class="hm-shelf-h"><span data-en="TOPIK Writing Series">TOPIK 쓰기 시리즈</span><small data-en="2">2권</small></h3>
-      <div class="hm-bk-row hm-shelf-row" aria-label="TOPIK 쓰기 시리즈">
-        <a class="hm-bk hm-bk-s" href="shop/topik2-writing-51-52/" data-bk="topik2-writing-51-52" data-en-t="Writing Practice 51–52 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-sub-en="Practical and explanatory text completion, with model answers and scoring points." data-sub-ko="실용문 · 설명문 빈칸 쓰기 · 모범 답안과 채점 포인트" data-px="6.90" data-pg="88쪽" data-pg-en="88 pages" data-src="assets/books/topik2-writing-51-52/cover-sm.jpg" data-tip="쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" aria-label="Writing Practice 51–52 (for TOPIK II) — 쓰기 영역 연습문항 51~52 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik2-writing-51-52/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-        <a class="hm-bk hm-bk-s" href="shop/topik2-writing-53-54/" data-bk="topik2-writing-53-54" data-en-t="Writing Practice 53–54 (for TOPIK II)" data-ko-t="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-sub-en="Describe data in 300 characters, argue in 700, with scored samples." data-sub-ko="자료 설명 · 논술 쓰기와 채점 기준" data-px="9.90" data-pg="234쪽" data-pg-en="234 pages" data-src="assets/books/topik2-writing-53-54/cover-sm.jpg" data-tip="쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" aria-label="Writing Practice 53–54 (for TOPIK II) — 쓰기 영역 연습문항 53~54 100제 (TOPIK II 대비)" data-ev="책클릭" data-ev-from="첫화면-서가">
-          <img src="assets/books/topik2-writing-53-54/cover-sm.jpg" alt="" width="300" height="426" loading="lazy" decoding="async"></a>
-      </div></div>
-    </details>
-    <div class="hm-pan" id="hmPan" aria-live="polite"><a class="hm-pan-c" href="shop/first-steps-workbook/" tabindex="-1" aria-hidden="true"><img src="assets/books/first-steps-workbook/cover-sm.jpg" alt="" width="300" height="426"></a>
-      <div class="hm-pan-b"><span class="hm-pan-g">185쪽</span><h3 class="hm-pan-t">Korean First Steps Workbook</h3><p class="hm-pan-ko">한국어 첫걸음 워크북</p><p class="hm-pan-sub">한글 · 인사 · 생활 낱말: 쓰고, 맞춰 보고, 다시</p>
-      <p class="hm-pan-r"><span class="hm-bk-px" data-px="9.90">$9.90</span><a class="hm-pan-go" href="shop/first-steps-workbook/" data-ev="책클릭" data-ev-from="첫화면-서가상세" data-en="PDF · Buy →">PDF · 사기 →</a></p></div></div>
     <p class="hm-bundle"><a href="shop/#bundles" data-ev="책클릭" data-ev-from="첫화면-묶음"><b>Intermediate Vocabulary Workbooks 1–3 · Bundle (for TOPIK II)</b><span class="hm-bundle-r"><span class="hm-bk-px">$14.90</span> <s>$20.70</s> · <span data-en="Buy the bundle →">묶음으로 사기 →</span></span></a></p>
-    <p class="hm-bk-all"><a class="hero-go" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
+    <p class="hm-bk-all"><a class="hm-bk-link" href="shop/" data-ev="책클릭" data-ev-from="첫화면-전체" data-en="See all books →">전체 책 보기 →</a></p>
     
     <h3 class="hm-books-h" data-en="From the blog">블로그 · 책 이야기</h3>
     <div class="hm-post-row" aria-label="블로그 최신 글" data-en-aria="Latest blog posts">
@@ -2663,13 +2689,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Pro 소개(운영자 2026-10-12 「Q&A 바로 위」): 가격 · 기능은 pricing.html 표와 같은 것만. Pro 이면 app.module.js 가 숨긴다. -->
   <div class="section hm-pro" id="hmPro" hidden>
     <div class="label">PRO</div>
-    <p class="section-title" data-en="Most of it is free. Pro is for finishing the exam prep.">대부분 무료예요. 시험 준비를 끝까지 하고 싶을 때 Pro 를 더하세요.</p>
-    <!-- 가격 소개만(운영자 2026-10-17 「구독권 이미지도 · 가격만 소개 정도만 간단하게」) — 그림은 Pro 화면 요금제 카드와 같은 것(app.module.js 가 채운다), 값은 BILLING.show 와 같게 -->
-    <div class="hm-plans">
-      <div class="hm-plan"><span class="hm-plan-ic" data-ic="potato3" aria-hidden="true"></span><b data-en="Free">무료</b><em>$0</em><small data-en="Most of it works without an account">가입 없이도 대부분</small></div>
-      <div class="hm-plan pro"><span class="hm-plan-ic" data-ic="cheese3" aria-hidden="true"></span><b>Pro</b><em data-en="$4.99/mo">월 $4.99</em><small data-en="or $39 a year">연 $39도 있어요</small></div>
-      <div class="hm-plan"><span class="hm-plan-ic" data-ic="cheese5" aria-hidden="true"></span><b data-en="TOPIK Exam Pass">시험 패스</b><em>$15</em><small data-en="3 months · one payment">3개월 · 한 번 결제</small></div>
-    </div>
+    <h2 class="section-title hm-pro-h" data-en="Most of it is free">대부분 무료예요</h2>
+    <p class="hm-pro-sub" data-en="Add Pro only when you want to finish your exam prep.">시험 준비를 끝까지 하고 싶을 때만 Pro 를 더하세요.</p>
+    <!-- 첫 화면 시안 6(운영자 2026-11-21): 무료 · Pro · 시험 패스가 무엇이 다른지 짧은 표. 값은 BILLING.show(billing.js) · 서버 한도와 같게 —
+         모의고사 무료 1회차(gateMock), AI 쓰기 채점 무료 평생 1번 맛보기 · Pro 하루 30번(grade-writing), 발음 · 도우미 무료 하루 20 · Pro 100(docs/status.md 21).
+         시험 패스 = 3개월 동안 Pro(billing.js) 라 Pro 와 같은 칸. 값이 바뀌면 여기와 FAQ · pricing 도 같이 고친다. -->
+    <div class="hm-pt-wrap"><table class="hm-pt">
+      <thead><tr><th></th>
+        <th><span data-en="Free">무료</span><small data-en="$0 · mostly no sign-up">$0 · 가입 없이도 대부분</small></th>
+        <th>Pro<small data-en="$4.99/mo · $39/yr">월 $4.99 · 연 $39</small></th>
+        <th><span data-en="Exam Pass">시험 패스</span><small data-en="$15 · 3 months, one payment">$15 · 3개월 한 번 결제</small></th></tr></thead>
+      <tbody>
+        <tr><td data-en="Lessons · grammar · dictionary">레슨 · 문법 · 사전</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+        <tr><td data-en="TOPIK mock tests">TOPIK 모의고사</td><td data-en="Test 1">1회차</td><td class="ok" data-en="All">전 회차</td><td class="ok" data-en="All">전 회차</td></tr>
+        <tr><td data-en="AI writing grading">AI 쓰기 채점</td><td data-en="1 free try">맛보기 1번</td><td class="ok" data-en="30 a day">하루 30번</td><td class="ok" data-en="30 a day">하루 30번</td></tr>
+        <tr><td data-en="AI pronunciation · helper">AI 발음 · 도우미</td><td data-en="20 a day">하루 20번</td><td class="ok" data-en="100 a day">하루 100번</td><td class="ok" data-en="100 a day">하루 100번</td></tr>
+      </tbody></table></div>
     <p class="hm-fine" data-en="Everything marked free stays free. Full refund within 14 days.">무료인 것은 그대로 무료예요. 14일 안에는 전액 환불돼요.</p>
     <button type="button" class="hm-pro-btn" id="hmProBtn" data-en="See Pro →">Pro 자세히 보기 →</button>
   </div>
@@ -2732,11 +2767,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- 다운로드 -->
-  <div class="dl-section" id="download">
-    <div class="dl-logo-wrap"><img class="dl-logo" src="logo-256.png" alt="치즈감자" width="54" height="54"></div>
-    <div class="dl-title" data-en="Start today">지금 바로 시작하세요</div>
-    <div class="dl-sub" data-en="Build your own wordbook for free<br>and study smarter">무료로 나만의 단어장을 만들고<br>더 스마트하게 언어를 공부하세요</div>
-    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="아래큰단추" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
+  <!-- 첫 화면 시안 7(운영자 2026-11-21): 가운데 큰 제목의 검은 띠 → 밝은 한 줄(왼쪽 로고 · 글 · 오른쪽 단추). id="download" 는 머리줄 · 메뉴의 #download 가 가리킨다 -->
+  <div class="hm-app" id="download">
+    <img class="hm-app-logo" src="logo-256.png" alt="" width="48" height="48">
+    <div class="hm-app-t"><b data-en="Study on your phone too">폰에서도 공부해요</b><p data-en="CheesePotato is also on Android.">안드로이드 앱으로도 치즈감자를 쓸 수 있어요.</p></div>
+    <div class="hm-app-r">
+    <a class="hm-app-gp" href="https://play.google.com/store/apps/details?id=com.cheesepotato.app" target="_blank" rel="noopener noreferrer" data-ev="앱다운로드클릭" data-ev-from="아래큰단추" data-en="▶ Get it on Google Play">▶ Google Play 다운로드</a>
     <!-- 예전엔 그냥 글자였다. Clarity 히트맵을 보니 다운로드 단추 바로
          아래라서 그런지 여기를 누르는 사람이 꽤 있었는데(죽은 클릭 —
          눌러도 아무 일도 안 일어남), 누르면 뭔가 반응이 있을 거라 기대한
@@ -2744,6 +2780,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          가늠할 신호도 겸한다. -->
     <a class="dl-coming" href="mailto:cheesepotato@everykoreans.com?subject=iOS%20%EB%B2%84%EC%A0%84%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&body=iOS%20%EB%B2%84%EC%A0%84%EC%9D%B4%20%EB%82%98%EC%98%A4%EB%A9%B4%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EC%84%B8%EC%9A%94.%0A%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0:%20"
        data-en="iOS version coming soon: tap to get notified">iOS 버전 출시 예정 — 누르면 나올 때 알려드려요</a>
+    </div>
   </div>
 
   <!-- 푸터 -->
@@ -4478,10 +4515,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=7aa53193"></script>
-<script type="module" src="app.module.js?v=7aa53193"></script>
+<script src="app.js?v=4abe1732"></script>
+<script type="module" src="app.module.js?v=4abe1732"></script>
 
-<script src="analytics.js?v=7aa53193" defer></script>
-<script src="sale.js?v=7aa53193" defer></script>
+<script src="analytics.js?v=4abe1732" defer></script>
+<script src="sale.js?v=4abe1732" defer></script>
 </body>
 </html>
