@@ -2074,7 +2074,7 @@ h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang'
 
 /* 목록 쪽만 넓게 쓴다. 글 읽는 쪽은 한 줄이 길어지면 눈이 되돌아올 자리를
    잃으므로 좁은 채로 둔다 — 같은 BLOG_CSS 를 쓰되 폭만 여기서 가른다. */
-const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1060px}}' +
+const BLOG_HUB_CSS = '\n@media(min-width:880px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}' +   // 넓은 쪽 1120 + 40(공통 메뉴줄과 같은 시작선, 2026-11-21)
   /* 글 | 묻고 답하기 칸 */
   '\n.rb-tabs{display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap}' +
   '\n.rb-tabs button{font:inherit;font-weight:800;font-size:15px;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}' +

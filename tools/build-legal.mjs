@@ -48,6 +48,7 @@ const page = (file, title, desc, body, ga = false) => `<!DOCTYPE html>
 <link rel="stylesheet" href="vendor/pretendard.css">
 ${style}
 <style>
+main.read { max-width:760px; }   /* 읽는 쪽 720(2026-11-21 본문 폭 두 가지 — privacy.html 의 스타일을 빌려 와서 여기서 덮는다) */
 .trust { font-size:13.5px; color:var(--ink-3); margin:6px 0 14px; }
 .plans { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:22px 0; }
 .plan { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px; }
@@ -76,7 +77,7 @@ ${style}
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'ko' })}
-<main>
+<main class="read">
 ${body}
 <div class="seller">
 ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업자등록번호', SELLER.bizNo],

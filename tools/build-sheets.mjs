@@ -85,7 +85,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 ${extra}</head>
 <body>
 ${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
-<main>
+<main${/^\/(shop|worksheets)\/$/.test(url) ? ' class="wide"' : ''}>
 `;
 const foot = `</main>
 </body>
