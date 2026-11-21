@@ -1054,69 +1054,51 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 .side-calm .side-item.on, .side-calm .nav-link.on { color:var(--orange-deep); }
 #sideKo > .side-sec-h, #sideTopik > .side-sec-h { margin-top:16px; }
 .side-list > div:first-child > .side-sec-h { margin-top:0; }
-/* 옆 메뉴 → 애플식 펼침 메뉴(운영자 2026-11-21 「애플 참고 · 사이드바만 · 이런 느낌으로 깔끔하게」 + 「상위 5개만 · 나머지는 더 보기로」).
-   ☰ 을 누르면 머리띠 바로 아래로 넓은 판이 내려온다(오른쪽 서랍 대신). 큰 글씨 다섯 칸(오늘 · 배우기 · TOPIK · 단어 · 책 — 4주 숫자 순),
-   아이콘 없이 글만. 나머지는 「더 보기」를 펴면 작은 회색 이름표 아래 여러 단. 머리띠는 그대로 보이고(☰ 로 닫기), 아래 화면은 흐려진다.
-   칸 · 동작(id · data-open · data-nav-to)은 그대로 — 모양과 자리만 바꿨다. */
+/* 옆 메뉴 → 애플식 펼침 메뉴(운영자 2026-11-21 「애플 참고 · 사이드바만 · 깔끔하게」 → 「큰 다섯 칸 가로로」 → 「그냥 전부 밑에 하위 섹션을 두자」).
+   ☰ 을 누르면 머리띠 바로 아래로 넓은 판이 내려온다. 다섯 칸(오늘 공부 · 한국어 배우기 · TOPIK · 단어 · 책 — 4주 숫자 순)이 가로로 나란히,
+   칸마다 큰 제목 아래 그 갈래의 작은 목록(.sm-sub). 아이콘 없이 글만, 칸 사이 얇은 세로줄. 폰은 칸이 위아래로 쌓이고 작은 목록은 두 단.
+   머리띠는 그대로 보이고(☰ → ✕ 로 닫기), 아래 화면은 흐려진다. 칸 · 동작(id · data-open · data-nav-to)은 그대로. */
 .nav-scrim { top:65px; background:rgba(var(--bg-rgb),.5); backdrop-filter:blur(16px) saturate(1.2); -webkit-backdrop-filter:blur(16px) saturate(1.2); }
 #sideNav.side-calm { top:65px; left:0; right:0; width:auto; height:auto; max-height:calc(100dvh - 65px); overflow-y:auto; border:0; border-bottom:1px solid var(--line-2); border-radius:0;
   background:rgba(var(--bg-rgb),.97); backdrop-filter:saturate(180%) blur(24px); -webkit-backdrop-filter:saturate(180%) blur(24px); box-shadow:0 30px 60px rgba(0,0,0,.07);
   transform:translateY(-10px); opacity:0; transition:transform .34s cubic-bezier(.32,.72,0,1), opacity .22s, visibility .34s; }
 #sideNav.side-calm.on { transform:none; opacity:1; }
 #sideNav.side-calm .side-hd { display:none; }
-#sideNav.side-calm .side-list { width:100%; box-sizing:border-box; max-width:var(--max); margin:0 auto; padding:30px var(--gut) 8px; overflow:visible; display:block; flex:0 0 auto; }
+#sideNav.side-calm .side-list { width:100%; box-sizing:border-box; max-width:var(--max); margin:0 auto; padding:30px var(--gut) 10px; overflow:visible; flex:0 0 auto;
+  display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); align-items:stretch; }
+#sideNav.side-calm .sm-col { min-width:0; padding:0 22px; border-left:1px solid var(--line-2); }
+#sideNav.side-calm .sm-col:first-child { padding-left:0; border-left:0; }
 #sideNav.side-calm .side-item-ico, #sideNav.side-calm .nav-ico { display:none !important; }
-#sideNav.side-calm .side-list > .nav-link::after { display:none; }
-/* 큰 다섯 칸 */
-#sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link {
-  display:block; width:auto; padding:4px 0; margin:0; background:none; box-shadow:none; border-radius:0; text-align:left;
-  font-size:28px; font-weight:600; letter-spacing:-.025em; line-height:1.3; color:var(--ink); transition:color .15s; }
-#sideNav.side-calm #sideToday:hover, #sideNav.side-calm #sideKo > .side-head:hover, #sideNav.side-calm #sideTopik > .side-head:hover, #sideNav.side-calm #dictBtn:hover, #sideNav.side-calm .side-list > a.nav-link:hover { color:var(--orange-deep); background:none; }
+#sideNav.side-calm .sm-col > .nav-link::after { display:none; }
+/* 큰 제목(칸마다 하나) */
+#sideNav.side-calm .sm-col > .side-item, #sideNav.side-calm .sm-col > .nav-link { display:block; width:100%; box-sizing:border-box; padding:0 0 12px !important; margin:0 !important; background:none; box-shadow:none; border-radius:0; text-align:left;
+  font-size:clamp(18px, 1.9vw, 24px); font-weight:600 !important; letter-spacing:-.025em; line-height:1.25; color:var(--ink); white-space:nowrap; transition:color .15s; }
+#sideNav.side-calm .sm-col > .side-item span, #sideNav.side-calm .sm-col > .nav-link .nav-txt { font:inherit; letter-spacing:inherit; color:inherit; font-weight:600 !important; }
+#sideNav.side-calm .sm-col > .side-item:hover, #sideNav.side-calm .sm-col > .nav-link:hover { color:var(--orange-deep); background:none; }
+/* 작은 목록 */
+#sideNav.side-calm .sm-sub { display:grid; gap:1px; }
+#sideNav.side-calm .sm-sub > .side-item { display:block; width:100%; box-sizing:border-box; padding:5px 0 !important; margin:0; border-radius:0; background:none; box-shadow:none; text-align:left;
+  font-size:14px; font-weight:500; letter-spacing:-.005em; line-height:1.35; color:var(--ink-2); transition:color .15s; }
+#sideNav.side-calm .sm-sub > .side-item:hover { color:var(--ink); background:none; }
 #sideNav.side-calm .side-item.on, #sideNav.side-calm .nav-link.on { color:var(--orange-deep) !important; background:none; box-shadow:none; }
-/* 배우기 · TOPIK 아래에 붙는 작은 줄(있을 때) */
-#sideNav.side-calm #sideKo > .side-item:not(.side-head), #sideNav.side-calm #sideTopik > .side-item:not(.side-head) { display:block; padding:2px 0; font-size:14px; font-weight:500; color:var(--ink-2); background:none; }
-/* 「더 보기」 — 펴면 작은 회색 이름표 + 여러 단 */
-#sideNav.side-calm .side-group { margin-top:18px; padding-top:14px; border-top:1px solid var(--line-2); }
-#sideNav.side-calm .side-list .side-parent { display:inline-flex; align-items:center; gap:6px; width:auto; padding:2px 0; background:none; font-size:14px; font-weight:600; color:var(--ink-2); }
-#sideNav.side-calm .side-list .side-parent:hover { color:var(--ink); background:none; }
-#sideNav.side-calm .side-sub-in { padding:4px 0 0; columns:4 190px; column-gap:36px; }
-#sideNav.side-calm .side-sub-in::before { display:none; }
-#sideNav.side-calm .side-sub-h { padding:14px 0 6px; font-size:12px; font-weight:600; letter-spacing:0; text-transform:none; color:var(--ink-3); break-after:avoid; }
-#sideNav.side-calm .side-sub-in > .side-item { display:block; width:100%; padding:4px 0; margin:0; border-radius:0; background:none; text-align:left; font-size:14px; font-weight:500; color:var(--ink); break-inside:avoid; }
-#sideNav.side-calm .side-sub-in > .side-item:hover { color:var(--orange-deep); background:none; }
-#sideNav.side-calm .side-foot { max-width:var(--max); margin:0 auto; padding:16px var(--gut) 28px; border:0; display:flex; align-items:center; gap:12px; justify-content:flex-start; text-align:left; }
-#sideNav.side-calm .side-list > a.nav-link .nav-txt { font:inherit; letter-spacing:inherit; color:inherit; }   /* 「책」 칸 글자가 작게 나오던 것 — nav-txt 의 크기 대신 큰 칸 크기를 그대로 */
-#sideNav.side-calm .side-cta { display:inline-flex; width:auto; padding:9px 18px; border-radius:980px; font-size:14px; }
+#sideNav.side-calm .side-foot { width:100%; box-sizing:border-box; max-width:var(--max); margin:0 auto; padding:18px var(--gut) 28px; border:0; display:flex; align-items:center; gap:12px; justify-content:flex-start !important; text-align:left; }
+#sideNav.side-calm .side-cta { display:inline-flex; width:auto; margin:0; padding:9px 18px; border-radius:980px; font-size:14px; }
 #sideNav.side-calm .side-note { margin:0; }
-#sideNav.side-calm .side-cta { margin:0; }
-#sideNav.side-calm .side-foot { width:100%; box-sizing:border-box; justify-content:flex-start !important; }
-#sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link, #sideNav.side-calm .side-list > * > .side-head span, #sideNav.side-calm #sideToday span { font-weight:600 !important; }   /* 다섯 칸 굵기를 하나로(오늘 · 배우기 · TOPIK 만 더 굵던 것)
-/* 열릴 때 큰 칸이 위에서부터 차례로 스며 나온다(애플 메뉴처럼) */
+/* 열릴 때 칸이 왼쪽부터 차례로 스며 나온다(애플 메뉴처럼) */
 @keyframes sm-in { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
-#sideNav.side-calm.on .side-list > * { animation:sm-in .42s cubic-bezier(.32,.72,0,1) both; }
-#sideNav.side-calm.on .side-list > :nth-child(2) { animation-delay:.03s; } #sideNav.side-calm.on .side-list > :nth-child(3) { animation-delay:.06s; }
-#sideNav.side-calm.on .side-list > :nth-child(4) { animation-delay:.09s; } #sideNav.side-calm.on .side-list > :nth-child(5) { animation-delay:.12s; }
-#sideNav.side-calm.on .side-list > :nth-child(n+6) { animation-delay:.15s; }
-@media (prefers-reduced-motion:reduce) { #sideNav.side-calm.on .side-list > * { animation:none; } }
-/* 큰 다섯 칸을 가로로 나눠 한 줄에(운영자 2026-11-21 「오늘 공부 이 부분은 가로로 깔끔하게 나눠」) — PC · 태블릿. 칸 사이 얇은 세로줄, 폰은 아래 미디어쿼리에서 세로 · 가로줄 */
-@media (min-width:760px) {
-  #sideNav.side-calm .side-list { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); align-items:stretch; }
-  #sideNav.side-calm .side-list > * { min-width:0; }
-  #sideNav.side-calm .side-list > :nth-child(-n+5) { padding:6px 20px 12px !important; border-left:1px solid var(--line-2); }
-  #sideNav.side-calm .side-list > :first-child { padding-left:0 !important; border-left:0; }
-  #sideNav.side-calm .side-list > .side-group { grid-column:1 / -1; }
-  #sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link { font-size:clamp(18px, 2.05vw, 26px); white-space:nowrap; }
-  #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head { padding:0 !important; }
-}
+#sideNav.side-calm.on .sm-col { animation:sm-in .42s cubic-bezier(.32,.72,0,1) both; }
+#sideNav.side-calm.on .sm-col:nth-child(2) { animation-delay:.03s; } #sideNav.side-calm.on .sm-col:nth-child(3) { animation-delay:.06s; }
+#sideNav.side-calm.on .sm-col:nth-child(4) { animation-delay:.09s; } #sideNav.side-calm.on .sm-col:nth-child(5) { animation-delay:.12s; }
+@media (prefers-reduced-motion:reduce) { #sideNav.side-calm.on .sm-col { animation:none; } }
 @media (max-width:759px) {
   .nav-scrim { top:57px; }
   #sideNav.side-calm { top:57px; height:calc(100dvh - 57px); max-height:none; }
-  #sideNav.side-calm .side-list { padding:20px 24px 8px; }
-  #sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link { font-size:26px; padding:5px 0; }
-  #sideNav.side-calm .side-list > :nth-child(-n+5) + :nth-child(-n+5) { border-top:1px solid var(--line-2); }
-  #sideNav.side-calm .side-list > :nth-child(-n+5) { padding:6px 0 !important; display:block; width:100% !important; box-sizing:border-box; }
-  #sideNav.side-calm .side-sub-in { columns:2 140px; column-gap:20px; }
-  #sideNav.side-calm .side-sub-in > .side-item { font-size:15px; padding:6px 0; }
+  #sideNav.side-calm .side-list { grid-template-columns:1fr; padding:8px 24px 8px; }
+  #sideNav.side-calm .sm-col { padding:16px 0 14px; border-left:0; }
+  #sideNav.side-calm .sm-col + .sm-col { border-top:1px solid var(--line-2); }
+  #sideNav.side-calm .sm-col > .side-item, #sideNav.side-calm .sm-col > .nav-link { font-size:22px; padding:0 0 8px !important; }
+  #sideNav.side-calm .sm-sub { grid-template-columns:1fr 1fr; column-gap:16px; }
+  #sideNav.side-calm .sm-sub > .side-item { font-size:15px; padding:6px 0 !important; }
   #sideNav.side-calm .side-foot { padding:12px 24px 28px; }
 }
 
@@ -2206,85 +2188,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="side-list" id="sideList">
-    <!-- 배우기와 내 단어장은 헤더에도 있다. 그런데 좁은 화면에서는
-         `.nav-link .nav-txt` 가 숨어서 아이콘만 남는다 — 📖 📚 만 보고
-         무엇인지 아는 사람은 이미 아는 사람뿐이다. 여기에는 글자가
-         늘 붙으므로 처음 온 사람이 이름으로 찾아갈 수 있다.
-
-         **동작을 베끼지 않고 헤더 단추를 그대로 누른다.** 손잡이를 두 벌
-         만들어 두면 언젠가 한쪽만 고쳐서 둘이 다르게 움직인다. -->
-    <!-- 배우기와 게임은 안에 갈래가 여럿이라 펼친다. 누르면 그 갈래 목록
-         화면으로 가는 대신 여기서 바로 고르게 한다 — 어차피 그 화면이
-         이 목록과 같은 것을 보여 주므로, 한 번 더 그리게 할 이유가 없다.
-         (머리띠의 📖 배우기 는 그대로 목록 화면으로 간다.) -->
-    <!-- 일곱 개가 한 줄로 죽 늘어서 있으면 무엇이 무엇과 딸린 것인지
-         안 보인다. 세 갈래(배우기·놀이·내 활동)로 나눠 이름표를 붙였다.
-         이름표는 눈으로 가르는 것일 뿐 눌리지 않는다 — 실제로 여닫는
-         것은 여전히 .side-group(배우기·게임) 뿐이다. -->
-    <!-- 목적별 두 갈래(운영자 결정 2026-10-06: 「너무 많아서 독이 된다 — 한국어 배우는 사람 · TOPIK 배우는 사람으로
-         나누고 한 흐름으로 쭉」). 갈래마다 맨 위가 「길」(한 줄로 이어진 걸음), 그 아래는 길에서 쓰는 것만.
-         나머지(회화 · 읽기 · 여행 · 게임 · 발음 · 문제만 풀기 · 인쇄 자료)는 맨 밑 「더 보기」에 접어 둔다 — 지우지 않는다.
-         TOPIK 학생은 TOPIK 갈래가 위로 온다(app.module.js applyTrack, #sideTopik). -->
-    <!-- 2026-10-06 운영자 「정신 사나워」 — 그림 아이콘을 빼고(.side-calm) 이름을 짧게, 갈래마다 꼭 쓰는 것만.
-         코스 전체 · TOPIK 읽기 · 듣기 · 쓰기는 길 안(학습 길 · TOPIK 길)과 「더 보기」에서 연다. -->
-    <!-- 메뉴 넷(+TOPIK) — 운영자 2026-10-07 「이 버튼 저 버튼 누르지 않게 한 흐름으로」: 오늘 공부 · 한국어 배우기 · TOPIK · 단어 · 더 보기.
-         문법 · 번역 · TOPIK 연습 · 내 공부는 「더 보기」 안으로(지우지 않고 옮기기만 — id 그대로). -->
-    <button class="side-item side-solo side-head" type="button" id="sideToday" data-open="home">
+    <!-- 2026-11-21 운영자 「그냥 전부 밑에 하위 섹션을 두자」: 큰 다섯 칸(4주 숫자 순) 아래에 그 갈래의 작은 목록. 따로 떨어진 「더 보기」는 없앴다.
+         #sideKo · #sideTopik 은 서로 형제로 둔다(app.module.js applyTrack 이 TOPIK 학생이면 둘 순서를 바꾼다). id · data-open · data-nav-to 는 그대로. -->
+    <div class="sm-col">
+      <button class="side-item side-solo side-head" type="button" id="sideToday" data-open="home">
       <span class="side-item-ico" data-ic="home">🏠</span><span data-en="Today's study">오늘 공부</span>
     </button>
-    <div id="sideKo">
-    <!-- 갈래 이름이 곧 길 입구(운영자 2026-10-06 「path 이런 거 넣지 말고 Learn Korean · TOPIK 이 정도만」) -->
-    <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path">
-      <span class="side-item-ico" data-ic="path">🛤️</span><span data-en="Learn Korean">한국어 배우기</span>
-    </button>
-    </div>
-
-    <div id="sideTopik">
-    <button class="side-item side-solo side-path side-head" type="button" data-open="learn/topik">
-      <span class="side-item-ico" data-ic="target">🎯</span><span data-en="TOPIK">TOPIK</span>
-    </button>
-    </div>
-
-    <!-- 새 기능 — TOPIK 실제 시뮬레이션(3D 시험장). 길 밖의 별도 페이지라 링크다(운영자 2026-11-08 「사이드바에 토픽 실제 시뮬레이션」). -->
-
-
-    <!-- 국어사전과 외우기를 합친 「단어」(#words). id 는 dictBtn 그대로(예전 이름으로 여는 곳이 있다). -->
-    <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
-      <span class="side-item-ico" data-ic="abc">🔤</span><span data-en="Words">단어</span>
-    </button>
-    <!-- 문법 · 번역 · 연습 · 모의고사 · 내 반 · 숙제는 다시 「더 보기」 밖으로(운영자 2026-10-10 「중요한 건 빼자」). id · data-open 그대로. -->
-
-        <a class="nav-link" href="shop/" aria-label="책 서점 열기">
-      <span class="nav-ico" data-ic="books">📚</span><span class="nav-txt" data-en="Books">책</span>
-    </a>
-
-    <!-- 더 보기 — 길 밖의 것. 처음에는 접혀 있다(sideMark 가 지금 자리가 안에 있으면 펼친다). -->
-    <div class="side-group" data-group="more">
-      <button class="nav-link side-parent" type="button"
-              aria-expanded="false" aria-controls="sideSubMore">
-        <span class="nav-ico" data-ic="more">➕</span><span class="nav-txt" data-en="More">더 보기</span>
-      </button>
-      <div class="side-sub" id="sideSubMore">
-       <div class="side-sub-in" role="group" aria-label="더 보기" data-en-aria="More">
-        <!-- 2026-11-21 운영자 「사이드바는 무조건 상위 5개만 · 나머지는 더 보기로」 — 위 다섯(오늘 · 배우기 · TOPIK · 단어 · 책)은 4주 숫자 순, 나머지는 여기 -->
-        <div class="side-sub-h" data-en="Practice &amp; class">연습 · 반</div>
-    <button class="side-item side-solo" type="button" data-open="learn/sentence">
-      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
-    </button>
-    <a class="side-item side-solo" href="exam-room/" aria-label="TOPIK 실제 시험장 열기" data-en-aria="Open the TOPIK exam room" data-ev="시험장열기" data-ev-from="사이드바">
-      <span class="side-item-ico" data-ic="clock">🕒</span><span data-en="TOPIK exam room">TOPIK 시험장</span>
-    </a>
-    <a class="side-item side-solo" href="ox/" aria-label="OX 퀴즈 열기" data-en-aria="Open the OX quiz" data-ev="OX퀴즈열기" data-ev-from="사이드바">
-      <span class="side-item-ico" data-ic="game">🎮</span><span data-en="OX quiz">OX 퀴즈</span>
-    </a>
-    <button class="side-item side-solo" type="button" data-open="learn/class">
-      <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
-    </button>
-        <div class="side-sub-h" data-en="Account">계정</div>
-    <button class="side-item" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
-      <span class="nav-ico side-item-ico" data-ic="user">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
-    </button>
-        <div class="side-sub-h" data-en="My records">내 기록</div>
+      <div class="sm-sub" role="group" aria-label="오늘 공부" data-en-aria="Today">
+        <button class="side-item" type="button" data-open="learn/mine">
+          <span class="side-item-ico" data-ic="compass">🧭</span><span data-en="My course (by level)">내 코스 (레벨별)</span>
+        </button>
         <button class="side-item" type="button" data-open="learn/report">
       <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Level test results">레벨테스트 결과</span>
     </button>
@@ -2294,15 +2207,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-open="learn/wrong">
       <span class="side-item-ico" data-ic="book">📕</span><span data-en="My mistakes">오답 노트</span>
     </button>
-        <button class="side-item" type="button" data-open="learn/mine">
-          <span class="side-item-ico" data-ic="compass">🧭</span><span data-en="My course (by level)">내 코스 (레벨별)</span>
-        </button>
-        <div class="side-sub-h" data-en="Learn">배우기</div>
+        <button class="side-item side-solo" type="button" data-open="learn/class">
+      <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
+    </button>
+        <button class="side-item" id="dashBtn" type="button" aria-label="대시보드 열기">
+      <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Dashboard">대시보드</span>
+    </button>
+        <button class="side-item" id="sideProBtn" type="button" aria-label="구독 · Pro">
+      <span class="side-item-ico" data-ic="star">⭐</span><span data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
+    </button>
+        <button class="side-item" id="sideAuthBtn" type="button" data-nav-to="authBtn" aria-label="로그인">
+      <span class="nav-ico side-item-ico" data-ic="user">👤</span><span class="nav-txt" data-en="Sign in">로그인</span>
+    </button>
+      </div>
+    </div>
+    <div id="sideKo" class="sm-col">
+      <button class="side-item side-solo side-path side-head" type="button" data-open="learn/path">
+      <span class="side-item-ico" data-ic="path">🛤️</span><span data-en="Learn Korean">한국어 배우기</span>
+    </button>
+      <div class="sm-sub" role="group" aria-label="한국어 배우기" data-en-aria="Learn Korean">
         <button class="side-item" type="button" data-open="learn/courses">
           <span class="side-item-ico" data-ic="books">📚</span><span data-en="All courses">코스 전체</span>
         </button>
+        <button class="side-item side-solo" type="button" data-open="learn/sentence">
+      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
+    </button>
         <button class="side-item" type="button" data-open="learn/reading">
           <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/convo">
+          <span class="side-item-ico" data-ic="chat">💬</span><span data-en="Practice a conversation">회화 연습</span>
+        </button>
+        <button class="side-item" type="button" data-open="learn/translate">
+      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
+    </button>
+        <button class="side-item" type="button" id="navBtn" aria-label="발음 테스트 열기">
+          <span class="side-item-ico" data-ic="mic">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
         </button>
         <button class="side-item" type="button" data-open="learn/stories">
           <span class="side-item-ico" data-ic="books">📚</span><span data-en="Storybooks">동화책</span>
@@ -2313,23 +2253,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-open="learn/lectures">
           <span class="side-item-ico" data-ic="play">🎬</span><span data-en="Video lessons">강의 영상</span>
         </button>
-        <div class="side-sub-h" data-en="Practice">연습</div>
-        <button class="side-item" type="button" data-open="learn/convo">
-          <span class="side-item-ico" data-ic="chat">💬</span><span data-en="Practice a conversation">회화 연습</span>
-        </button>
+      </div>
+    </div>
+    <div id="sideTopik" class="sm-col">
+      <button class="side-item side-solo side-path side-head" type="button" data-open="learn/topik">
+      <span class="side-item-ico" data-ic="target">🎯</span><span data-en="TOPIK">TOPIK</span>
+    </button>
+      <div class="sm-sub" role="group" aria-label="TOPIK" data-en-aria="TOPIK">
+        <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
+      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
+    </button>
         <button class="side-item" type="button" data-open="learn/quiz">
           <span class="side-item-ico" data-ic="bolt">⚡</span><span data-en="Just the questions">문제만 풀기</span>
         </button>
-        <button class="side-item" type="button" id="navBtn" aria-label="발음 테스트 열기">
-          <span class="side-item-ico" data-ic="mic">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
-        </button>
-        <button class="side-item" type="button" data-nav-to="gcNum">
-          <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Read the number">숫자 읽기</span>
-        </button>
-        <a class="side-item" href="blog/#qna">
-          <span class="side-item-ico" data-ic="help">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
-        </a>
-        <div class="side-sub-h" data-en="Games">게임</div>
+        <a class="side-item side-solo" href="exam-room/" aria-label="TOPIK 실제 시험장 열기" data-en-aria="Open the TOPIK exam room" data-ev="시험장열기" data-ev-from="사이드바">
+      <span class="side-item-ico" data-ic="clock">🕒</span><span data-en="TOPIK exam room">TOPIK 시험장</span>
+    </a>
+        <a class="side-item side-solo" href="ox/" aria-label="OX 퀴즈 열기" data-en-aria="Open the OX quiz" data-ev="OX퀴즈열기" data-ev-from="사이드바">
+      <span class="side-item-ico" data-ic="game">🎮</span><span data-en="OX quiz">OX 퀴즈</span>
+    </a>
+        <button class="side-item" type="button" data-open="learn/eps">
+      <span class="side-item-ico" data-ic="work">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
+    </button>
+      </div>
+    </div>
+    <div class="sm-col">
+      <button class="side-item side-solo" id="dictBtn" type="button" aria-label="단어 열기" data-en-aria="Open words">
+      <span class="side-item-ico" data-ic="abc">🔤</span><span data-en="Words">단어</span>
+    </button>
+      <div class="sm-sub" role="group" aria-label="단어" data-en-aria="Words">
         <button class="side-item" type="button" id="gameBtn">
           <span class="side-item-ico" data-ic="game">🎮</span><span data-en="Games">게임</span>
         </button>
@@ -2342,15 +2294,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-nav-to="gcChosung">
           <span class="side-item-ico" data-ic="bolt">ㅊ</span><span data-en="Initial-consonant quiz">초성 퀴즈</span>
         </button>
-        <div class="side-sub-h" data-en="Practice more">연습 더</div>
-    <button class="side-item" type="button" data-open="learn/translate">
-      <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
+        <button class="side-item" type="button" data-nav-to="gcNum">
+          <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Read the number">숫자 읽기</span>
+        </button>
+        <a class="side-item" href="korean-word-today/" aria-label="오늘의 단어 카드" data-en-aria="Korean word of the day">
+          <span class="side-item-ico" data-ic="abc">📅</span><span data-en="Word of the day">오늘의 단어</span>
+        </a>
+      </div>
+    </div>
+    <div class="sm-col">
+      <a class="nav-link" href="shop/" aria-label="책 서점 열기">
+      <span class="nav-ico" data-ic="books">📚</span><span class="nav-txt" data-en="Books">책</span>
+    </a>
+      <div class="sm-sub" role="group" aria-label="책 · 자료" data-en-aria="Books and more">
+        <button class="side-item" id="libBtn" type="button" aria-label="인쇄 자료 열기">
+      <span class="side-item-ico" data-ic="file">📄</span><span data-en="Printables">인쇄 자료</span>
     </button>
-    <!-- topikBtn 은 id 를 지킨다 — app.module.js 가 이 id 로 켜짐 표시를 한다. 들어가면 듣기 · 읽기 · 쓰기 · 모의고사를 고른다 -->
-    <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
-      <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
-    </button>
-        <div class="side-sub-h" data-en="Make &amp; share">만들기</div>
+        <a class="side-item" href="blog/" aria-label="블로그 열기">
+      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Blog">블로그</span>
+    </a>
+        <a class="side-item" href="blog/#qna">
+          <span class="side-item-ico" data-ic="help">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
+        </a>
         <a class="side-item" href="korean-name/" aria-label="내 이름 도장 만들기" data-en-aria="Make my Korean name seal">
           <span class="side-item-ico" data-ic="star">🔴</span><span data-en="My name seal">내 이름 도장</span>
         </a>
@@ -2366,49 +2331,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="side-item" href="korean-birthday/" aria-label="한국어 생일 카드" data-en-aria="Korean birthday card">
           <span class="side-item-ico" data-ic="chat">🎂</span><span data-en="Birthday card">생일 카드</span>
         </a>
-        <a class="side-item" href="korean-word-today/" aria-label="오늘의 단어 카드" data-en-aria="Korean word of the day">
-          <span class="side-item-ico" data-ic="abc">📅</span><span data-en="Word of the day">오늘의 단어</span>
-        </a>
         <a class="side-item" href="hangul-worksheet/" aria-label="이름 따라 쓰기 학습지" data-en-aria="Name tracing worksheet">
           <span class="side-item-ico" data-ic="pen">✏️</span><span data-en="Tracing worksheet">따라 쓰기 학습지</span>
         </a>
         <a class="side-item" href="korean-age/" aria-label="한국 나이 계산기" data-en-aria="Korean age calculator">
           <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Korean age">한국 나이</span>
         </a>
-        <div class="side-sub-h" data-en="Account &amp; more">계정 · 기타</div>
-    <button class="side-item" id="sideProBtn" type="button" aria-label="구독 · Pro">
-      <span class="side-item-ico" data-ic="star">⭐</span><span data-en="Subscription · Pro">구독 · Pro</span><span class="side-pro-tag" id="sideProTag" hidden></span>
-    </button>
-    <button class="side-item" id="dashBtn" type="button" aria-label="대시보드 열기">
-      <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Dashboard">대시보드</span>
-    </button>
-    <button class="side-item" id="libBtn" type="button" aria-label="인쇄 자료 열기">
-      <span class="side-item-ico" data-ic="file">📄</span><span data-en="Printables">인쇄 자료</span>
-    </button>
-    <a class="side-item" href="blog/" aria-label="블로그 열기">
-      <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Blog">블로그</span>
-    </a>
-    <button class="side-item" type="button" data-open="learn/eps">
-      <span class="side-item-ico" data-ic="work">🏭</span><span data-en="EPS-TOPIK (work in Korea)">EPS-TOPIK (취업)</span>
-    </button>
-       </div>
       </div>
     </div>
-
-    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「디지털 콘텐츠 생성 — 사이드바에 따로」). 손으로 쓴 쪽으로 간다. -->
-    <!-- 만들기 — 저장 · 공유하는 그림을 만드는 무료 도구(운영자 2026-10-10 「사이드바에 따로」 → 「거추장스러우니 접게」). 「더 보기」처럼 처음엔 접혀 있다.
-         아이콘은 위 [data-ic] 목록에 있는 이름만(없는 이름은 까만 동그라미로 보인다). 손으로 쓴 쪽으로 간다. -->
-    <!-- 로그인/계정. 머리띠의 authBtn 이 폰에서는 숨으므로 여기가 유일한
-         길이다. 아이콘·이름은 로그인 상태가 바뀔 때 authBtn 과 함께
-         맞춘다(app.module.js paintAuthNav) — 손잡이만 여기 것, 동작은
-         제 단추를 그대로 대신 누른다. -->
-    <!-- 구독 · Pro — 내 구독 상태(요금제 · 다음 결제일 · 해지 예약)를 바로 보는 자리(운영자 요청 2026-10-04).
-         누르면 구독 창(app.module.js proOpen). 오른쪽 작은 딱지는 proPaintAccount 가 「Pro」 · 「무료」로 맞춘다. -->
-    <!-- 「내 단어장」은 단어(배우기 맨 위)에 합쳤다 — 단어 화면의 탭이자, 거기서 「단어장 전체 열기」로 들어간다. -->
-
-    <!-- 한국 취업(EPS)은 메뉴 맨 밑(운영자 결정 2026-09-30) — 따로 선 갈래라 배우기 · TOPIK 사이에 끼우지 않는다. -->
   </div>
-
   <div class="side-foot">
     <!-- 헤더의 다운로드는 좁은 화면에서 숨는다. 여기 하나 더 둬서
          폰으로 온 사람도 받을 곳을 잃지 않는다. -->
