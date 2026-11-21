@@ -916,27 +916,145 @@ function twSections(items) {
   }).filter(Boolean).join('\n');
 }
 function twHub(items) {
-  const sections = twSections(items);
 
+  /* 영역 2 · TOPIK 쓰기 쪽(운영자 2026-11-21 「2번 ㄱㄱ」 — 따로 만든 쪽 중 1위, 4주 163명): 폰에서 번호 고르는 칸이 1,400px 아래였다.
+     첫 화면에 51 · 52 · 53 · 54 네 칸 — 누르면 바로 그 번호 쓰기(앱). 긴 설명 두 문단 · 큰 단추 둘 · 단계 세 줄은 뺐다.
+     책은 위에 한 줄(2026-10-31 「책 안내를 위로」 그대로 지키되 큰 카드 대신) + 맨 아래 카드 한 번. */
+  const cnt = (q) => items.filter((x) => x.q === q).length;
+  const first = (q) => items.find((x) => x.q === q)?.id || '';
+  const qpick = '<div class="tw-pick">' + TW_QS.map((g) =>
+    `<a class="tw-q" href="/?utm_source=hub#learn/topik/II/writing/${esc(first(g.q))}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))}</span>` +
+    `<small>${esc(g.en.replace(/^\d+ · /, ''))} · ${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>쓰기 시작</em></a>`).join('') + '</div>';
+  const bookLine = '<p class="tw-books">책으로 풀기 · Workbooks: ' + ['topik2-writing-51-52', 'topik2-writing-53-54'].map((id) => {
+    const b = SHOPJ.books.find((x) => x.id === id);
+    return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
+  }).join(' · ') + '</p>';
+  /* 번호별 쓰는 법(운영자 2026-11-21 「밑에 쓰기 설명을 넣는 건 어때?」) — 카드 바로 아래, 같은 네 단. 시험 형식(분량 · 빈칸 수)은 공개된 TOPIK II 쓰기 형식 그대로, 요령은 일반적인 것만.
+     더 자세한 글은 블로그 안내 글로(blog.js 에 있는 글만 — 없으면 빌드가 멈춘다). */
+  const HOW = [
+    [51, 'topik-writing-51-52-english', ['앞뒤 문장에서 단서 찾기', '-습니다 · -(으)세요 같은 말투 맞추기', '빈칸 ㄱ · ㄴ 은 한 문장씩 짧게']],
+    [52, 'topik-writing-51-52-english', ['그러나 · 따라서 같은 이음말로 앞뒤 관계 보기', '글말 「-다」 체로 맞추기', '-기 때문에 · -(으)ㄹ 수 있다 같은 표현 쓰기']],
+    [53, 'topik-writing-53-template', ['조사 대상 · 기관으로 시작', '늘었다 · 줄었다로 결과 비교', '원인이나 전망으로 마무리 · 200~300자']],
+    [54, 'topik-writing-54-structure', ['서론: 주제를 한두 문장으로', '본론: 문제의 물음에 차례로 답하기', '결론: 내 생각 정리 · 600~700자 · 「-다」 체']],
+  ];
+  const howTo = '<h2 class="tw-how-h">번호별 쓰는 법 · How to write each one</h2><div class="tw-how">' + HOW.map(([q, gid, steps]) => {
+    const g = BLOG_POSTS.find((x) => x.id === gid); if (!g) throw new Error('blog.js 에 없는 글: ' + gid);
+    return `<div class="tw-h"><b>Q${q}</b><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol><a href="/blog/${esc(gid)}.html">자세히 보기</a></div>`;
+  }).join('') + '</div>';
+  /* 우리 책 소개(운영자 2026-11-21 「책 소개도 밑에 넣자」) — 쓰는 법 바로 아래, 표지 · 한 줄 소개 · 쪽수 · 가격(반값 표시) · 책 보기 · 무료 샘플. 글 · 값은 docs/shop.json 그대로 */
+  const twBooks = '<h2 class="tw-how-h">책으로 더 연습하기 · Workbooks</h2><div class="tw-bks">' + [['topik2-writing-51-52', 'Q51 · Q52'], ['topik2-writing-53-54', 'Q53 · Q54']].map(([id, qs]) => {
+    const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+    const u = `/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_books`;
+    return `<div class="tw-bk"><a class="tw-bk-cv" href="${u}"><img src="${esc(b.coverImg)}" alt="${esc(b.title.ko)}" width="700" height="995" loading="lazy"></a><div class="tw-bk-t">` +
+      `<b>${qs}</b><h3><a href="${u}">${esc(b.title.ko)}</a></h3><p>${esc(b.page?.lead?.ko || b.sub.ko)}</p>` +
+      `<small>PDF · ${esc(String(b.pages).replace(/\s*\(PDF\)/, ''))} · <span data-px="${esc(b.price)}">$${esc(b.price)}</span></small>` +
+      `<div class="tw-bk-go"><a class="tw-bk-buy" href="${u}">책 보기</a>${b.sample ? `<a class="tw-bk-smp" href="/assets/books/${id}/sample.pdf" download data-ev="샘플받기" data-ev-from="tw_books">무료 샘플 ${b.sample.pages}쪽</a>` : ''}</div></div></div>`;
+  }).join('') + '</div>';
+  /* 문항 고르기(운영자 2026-11-21 「C+D 좋아 · 문제가 많아서 정렬 방식을 고민해야」 → 시안 「이거 좋다」):
+     C = 51~54 탭(칸 크기 = 배점), D = 한 줄 목록(번호 · 제목 · 지문 앞부분 · 쓰기). 200문항을 다 펼치지 않고 번호마다 8개씩 + 「더 보기」.
+     전부 HTML 에 그려 둔다(검색 엔진이 문항 쪽 링크를 다 본다 · JS 가 없으면 그냥 다 보인다). 탭 · 찾기 · 정렬은 /tw-list.js.
+     「본 것」은 앱이 이 브라우저에 적는 연 문항(cp-tw-seen) 그대로 — 기기마다 따로다. */
+  const pv = (x) => clip(String(x.passage || '').replace(/^다음을 참고하여\s*/, '').replace(/\s+/g, ' '), 70);
+  const twList = '<h2 class="tw-how-h" id="tw-list">문항 고르기 · All tasks</h2><p class="tw-sub">번호를 누르면 그 번호 문항만 보여요. 칸 크기는 배점이에요.</p>' +
+    '<div class="tw-tabs" role="tablist">' + TW_QS.map((g, i) =>
+      `<button type="button" role="tab" class="tw-t${i ? '' : ' on'}" data-q="${g.q}" aria-selected="${i ? 'false' : 'true'}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))} · ${g.pt}점${g.q >= 53 ? ' · AI' : ''}</span></button>`).join('') + '</div>' +
+    '<div class="tw-tools"><label class="tw-find"><span aria-hidden="true">⌕</span><input type="search" id="twFind" placeholder="주제로 찾기 (예: 아르바이트, 도서관)" aria-label="문항 찾기 · Search tasks"></label>' +
+    '<div class="tw-seg" role="group" aria-label="정렬 · Sort"><button type="button" class="on" data-f="all">번호순</button><button type="button" data-f="new">안 본 것</button><button type="button" data-f="seen">본 것</button></div>' +
+    '<button type="button" class="tw-rand" id="twRand">무작위 한 문제</button></div>' +
+    '<ol class="tw-rows" id="twRows">' + items.map((x) => {
+      const n = x.id.replace(/^w(\d+)-(\d+)$/, (_, a, b) => `${a}-${b.padStart(2, '0')}`);
+      return `<li data-q="${x.q}" data-id="${esc(x.id)}" data-s="${esc((x.title + ' ' + (x.passage || '')).toLowerCase())}"><span class="tw-n">${esc(n)}</span>` +
+        `<a class="tw-ti" href="/topik-writing/${esc(x.id)}.html">${esc(x.title)}</a><span class="tw-pv">${esc(pv(x))}</span><span class="tw-st"></span>` +
+        `<a class="tw-go" href="/?utm_source=hub#learn/topik/II/writing/${esc(x.id)}">쓰기</a></li>`;
+    }).join('') + '</ol>' +
+    '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
+    '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>' +
+    '<p class="tw-note">「본 것」은 이 기기(브라우저)에 저장돼요 · Seen marks stay on this device.</p>';
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
-    '<h1>TOPIK II 쓰기 연습 — 모범답안과 AI 채점(1번 무료 · Pro)</h1>',
-    `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
-    `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
-    hubCtas(['/#learn/topik/II/writing/w53-1', 'AI 채점 받아 보기 · 1번 무료', 'Write Q53 and get one free AI score (sign in)'], ['/?utm_source=hub#learn/topik/II/writing', '51번부터 써 보기', 'Start from Q51: model answers are free']),
-    hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(1번 무료 · Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
-    twBookTop(),
-    '<h2>유형별 문항 · Tasks by type</h2>',
-    sections,
+    `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
+    `<p class="lead">번호를 고르면 바로 써요. 모범답안은 모두 무료, 53 · 54번은 AI 채점 1번 무료. <small>기출이 아닌 창작 문항입니다. · Pick a question type and start writing. Model answers are free.</small></p>`,
+    qpick,
+    bookLine,
+    howTo,
+    twList,
+    twBooks,
     twGuides(),
-    twBook('tw_end'),
     leadSample('topik2-writing-51-52', 'tw'),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
   ].join('\n');
 
   return page({
-    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/'),
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">',
+    /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
+       번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
+    extraCss: '.wrap{max-width:1200px;padding-left:40px;padding-right:40px}' +
+      'h1{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.035em;margin:6px 0 10px}' +
+      '.lead{font-size:17px;line-height:1.6;color:var(--dim);max-width:720px}' +
+      '.tw-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px 0 14px}' +
+      '.tw-q{display:flex;flex-direction:column;gap:4px;min-height:170px;padding:22px 22px 20px;border:0;border-radius:20px;background:var(--card);color:var(--ink);text-decoration:none;' +
+        'box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}' +
+      '.tw-q:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 16px 40px rgba(0,0,0,.09)}' +
+      '.tw-q b{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--cta,#C4561B)}.tw-q b::before{content:"Q"}' +
+      '.tw-q span{font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.25}' +
+      '.tw-q small{font-size:13.5px;color:var(--dim)}' +
+      '.tw-q em{margin-top:auto;padding-top:12px;font-style:normal;font-size:14px;font-weight:600;color:var(--cta,#C4561B)}.tw-q em::after{content:" →"}' +
+      '.tw-books{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--dim);margin:0 0 8px}.tw-books a{color:var(--ink);font-weight:600;text-decoration:none}.tw-books a:hover{color:var(--cta,#C4561B)}' +
+      '.cat{border:0;background:none;border-radius:0;padding:28px 0 0;margin:28px 0 0;border-top:1px solid var(--line)}' +
+      '.cat h3{font-size:22px;letter-spacing:-.02em;margin:0 0 2px}.cat p{font-size:14px;margin:0 0 14px}' +
+      '.cat .pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}' +
+      '.cat .pts li{margin:0;padding:0;border:0;background:none}.cat .pts li a{display:block;padding:10px 0;border:0;border-bottom:1px solid var(--line2);border-radius:0;background:none;font-size:15px;color:var(--ink);text-decoration:none}' +
+      '.cat .pts li a:hover{color:var(--cta,#C4561B)}' +
+      '.cat details.more summary{margin-top:12px;font-size:14px;font-weight:600;color:var(--cta,#C4561B);cursor:pointer;list-style:none}' +
+      '.tw-how-h{margin-top:44px}.tw-how{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}' +
+      '.tw-h{display:flex;flex-direction:column;padding:20px 22px;border-radius:20px;background:var(--line2)}.tw-h b{font-size:13px;color:var(--cta,#C4561B)}' +
+      '.tw-h ol{margin:10px 0 14px;padding-left:18px;font-size:14.5px;line-height:1.55;color:var(--ink)}.tw-h li{margin:0 0 6px}' +
+      '.tw-h a{margin-top:auto;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}.tw-h a::after{content:" →"}.tw-h a:hover{color:var(--cta,#C4561B)}' +
+      '@media(max-width:900px){.tw-pick,.tw-how{grid-template-columns:1fr 1fr}.cat .pts{grid-template-columns:1fr 1fr}}' +
+      '.tw-bks{display:grid;grid-template-columns:1fr 1fr;gap:16px}' +
+      '.tw-bk{display:grid;grid-template-columns:132px 1fr;gap:22px;align-items:start;padding:22px;border-radius:20px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06)}' +
+      '.tw-bk-cv img{display:block;width:100%;height:auto;border-radius:3px 8px 8px 3px;box-shadow:0 8px 20px rgba(0,0,0,.18)}' +
+      '.tw-bk-t b{font-size:13px;color:var(--cta,#C4561B)}.tw-bk-t h3{margin:4px 0 8px;font-size:19px;line-height:1.3;letter-spacing:-.02em}.tw-bk-t h3 a{color:var(--ink);text-decoration:none}' +
+      '.tw-bk-t p{margin:0 0 10px;font-size:14px;line-height:1.6;color:var(--dim)}.tw-bk-t small{display:block;font-size:13.5px;color:var(--ink)}' +
+      '.tw-bk-go{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tw-bk-go a{padding:10px 16px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none}' +
+      '.tw-bk-buy{background:var(--ink);color:var(--bg)}.tw-bk-smp{border:1px solid var(--line);color:var(--ink)}' +
+      '@media(max-width:900px){.tw-bks{grid-template-columns:1fr}}' +
+      '@media(max-width:600px){.tw-how{grid-template-columns:1fr}.tw-bk{grid-template-columns:96px 1fr;gap:14px;padding:16px}.tw-bk-t h3{font-size:17px}}' +
+      '@media(max-width:600px){.wrap{padding-left:20px;padding-right:20px}.tw-q{min-height:0;padding:18px}.tw-q span{font-size:18px}.cat .pts{grid-template-columns:1fr}}' +
+      /* 문항 고르기(C 탭 + D 한 줄 목록) */
+      /* 글꼴은 고운돋움(운영자 2026-11-21 글꼴 시안 「B로 가자」) — 이 목록 부분만. 굵기가 하나뿐이라 굵은 글씨는 브라우저가 만든다 */
+      '#tw-list,.tw-sub,.tw-tabs,.tw-tools,.tw-rows,.tw-more,.tw-empty,.tw-note{font-family:"Gowun Dodum","Pretendard Variable",Pretendard,sans-serif}' +
+      '.tw-sub{margin:0 0 16px;font-size:16px;color:var(--dim)}' +
+      '.tw-tabs{display:grid;grid-template-columns:minmax(max-content,15fr) minmax(max-content,15fr) 30fr 50fr;gap:8px;margin-bottom:14px}' +
+      '.tw-t{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0;padding:14px 16px;border:0;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}' +
+      '.tw-t b{font-size:24px;letter-spacing:-.03em}.tw-t span{font-size:15px;color:var(--dim);white-space:nowrap}' +
+      '.tw-t.on{background:var(--ink);color:var(--bg)}.tw-t.on span{color:inherit;opacity:.75}' +
+      '.tw-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}' +
+      '.tw-find{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:12px;background:var(--card);color:var(--dim)}' +
+      '.tw-find input{flex:1;min-width:0;border:0;background:none;padding:12px 0;font:inherit;font-size:16px;color:var(--ink);outline:0}' +
+      '.tw-find:focus-within{box-shadow:0 0 0 2px var(--ink)}' +
+      '.tw-seg{display:flex;padding:3px;border-radius:10px;background:var(--line2)}' +
+      '.tw-seg button{padding:8px 13px;border:0;border-radius:8px;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--dim);cursor:pointer}' +
+      '.tw-seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}' +
+      '.tw-rand{padding:10px 14px;border:0;border-radius:10px;background:var(--card);font:inherit;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}' +
+      '.tw-rows{list-style:none;margin:0;padding:0;border-radius:12px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.05);overflow:hidden}' +
+      '.tw-rows li{display:grid;grid-template-columns:64px 180px minmax(0,1fr) 100px 104px;gap:16px;align-items:center;margin:0;padding:14px 22px;border-top:1px solid var(--line2)}' +
+      '.tw-rows li:first-child{border-top:0}.tw-rows li[hidden]{display:none}' +
+      '.tw-n{font-weight:800;font-size:15px;color:var(--cta,#C4561B);font-variant-numeric:tabular-nums}' +
+      '.tw-ti{font-weight:700;font-size:16px;color:var(--ink);text-decoration:none}.tw-ti:hover{color:var(--cta,#C4561B)}' +
+      '.tw-pv{font-size:15px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+      '.tw-st{font-size:14px;color:#2E7D5B}' +
+      '.tw-go{justify-self:end;white-space:nowrap;padding:8px 14px;border-radius:8px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;text-decoration:none}' +
+      '.tw-more{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:15px;color:var(--dim)}' +
+      '.tw-more button{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}' +
+      '.tw-more[hidden],.tw-more button[hidden]{display:none}' +
+      '.tw-empty{padding:24px 0;color:var(--dim)}.tw-note{margin-top:12px;font-size:14px;color:var(--dim)}' +
+      '@media(max-width:900px){.tw-rows li{grid-template-columns:56px minmax(0,1fr) auto;gap:4px 12px}.tw-pv{grid-column:2;grid-row:2}.tw-st{grid-column:2;grid-row:3}.tw-st:empty{display:none}.tw-go{grid-column:3;grid-row:1/span 2}}' +
+      '.tw-seg button,.tw-rand{white-space:nowrap}' +
+      /* 폰: 탭은 2×2(번호 위 · 이름 아래), 찾기 칸은 한 줄 전체, 정렬 · 무작위는 그 아래 한 줄 */
+      '@media(max-width:600px){.tw-tabs{grid-template-columns:1fr 1fr}.tw-t{flex-direction:column;gap:2px;padding:12px 14px}.tw-t b{font-size:22px}.tw-t span{white-space:normal}' +
+        '.tw-find{flex:1 1 100%}.tw-seg{flex:1 1 auto}.tw-seg button{flex:1;padding:8px 6px}.tw-rows li{padding:12px 16px}}',
     /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
     /* 2026-11-04 운영자 「토픽 쓰기 제목 설명 고쳐줘」 — 검색 노출 84회에 클릭 12회(14%): 사람들이 치는 말 「토픽 쓰기 연습 문제」를 앞에 두고, 무료 모범답안 · 가입 없이 · 영어 검색어(TOPIK II writing practice)를 더한다. 기출 문제라고 쓰지 않는다(창작 문항) */
     title: `토픽 쓰기 연습 문제 ${items.length}개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato`,

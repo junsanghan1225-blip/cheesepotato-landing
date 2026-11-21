@@ -123,12 +123,31 @@ fs.writeFileSync(path.join(OUT, 'pressstart2p.css'),
   '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + keep.join('\n') + '\n');
 say(`  pressstart2p.css + 조각 ${keep.length}개`);
 
+/* ── 4-2. 고운돋움(Gowun Dodum) ───────────────────────────────
+   TOPIK 쓰기 쪽(/topik-writing/) 문항 목록에만 쓰는 둥근 한글 글꼴(운영자 2026-11-21 글꼴 시안 「B로 가자」).
+   한글이라 구글이 주는 나눔 조각(unicode-range)을 전부 받는다 — 화면에 나온 글자가 든 조각만 브라우저가 받아 간다. */
+const GD_CSS = 'https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap';
+fs.mkdirSync(path.join(OUT, 'gowun-dodum'), { recursive: true });
+let gd = sh('curl', ['-sS', '-A', GF_UA, GD_CSS]);
+const gdUrls = [...gd.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.woff2)\)/g)].map((m) => m[1]);
+if (gdUrls.length < 20) throw new Error(`고운돋움 조각이 ${gdUrls.length}개뿐이다`);
+gdUrls.forEach((u, i) => {
+  const file = `GowunDodum.subset.${i}.woff2`;
+  sh('curl', ['-sS', '-o', path.join(OUT, 'gowun-dodum', file), u]);
+  gd = gd.replace(u, `./gowun-dodum/${file}`);
+});
+fs.writeFileSync(path.join(OUT, 'gowun-dodum.css'),
+  '/* Gowun Dodum(고운돋움) — SIL Open Font License 1.1\n' +
+  '   fonts.google.com/specimen/Gowun+Dodum\n' +
+  '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + gd.trim() + '\n');
+say(`  gowun-dodum.css + 조각 ${gdUrls.length}개`);
+
 /* ── 5. 받은 그대로인지 적어 두기 ─────────────────────────── */
 fs.writeFileSync(path.join(OUT, 'VERSIONS.json'), JSON.stringify({
   만든날: new Date().toISOString().slice(0, 10),
   만든것: 'tools/vendor.mjs',
   버전: PIN,
-  글꼴: { 'Press Start 2P': `google fonts, ${GF_KEEP.join(' + ')}` },
+  글꼴: { 'Press Start 2P': `google fonts, ${GF_KEEP.join(' + ')}`, 'Gowun Dodum': `google fonts, 한글 나눔 조각 ${gdUrls.length}개` },
 }, null, 2) + '\n');
 
 fs.rmSync(stage, { recursive: true, force: true });

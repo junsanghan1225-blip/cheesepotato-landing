@@ -27,6 +27,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 /* 자국을 찍을 파일. 브라우저가 주소로 받아 가는 것만 넣는다. */
 const ASSETS = [
   'download.js',   /* 낱말 · 문법 내려받기 문(/download/) */
+  'tw-list.js',    /* TOPIK 쓰기 쪽(/topik-writing/) 문항 고르기 — 번호 탭 · 찾기 · 정렬 */
   'bookflip.js',  /* 책 쪽 표지 → 미리보기 쪽 넘기기 */
   'reviews.js',    /* 책 쪽 별점 · 리뷰, 감사 쪽 리뷰 쓰기(db/add_book_reviews.sql) */
   'subscribe.js',  /* 책 쪽 · 학습지 쪽 이메일 받기 칸(db/add_email_leads.sql) */
@@ -100,7 +101,7 @@ const ASSETS = [
   /* 화면 상자 안에서만 쓰는 CSS. index.html 이 갈라 받는다(app-views.css
      머리말 참고) — 자국이 없으면 고쳐 올려도 예전 모양이 그대로 남는다. */
   'app-views.css',
-  'vendor/pretendard.css', 'vendor/pressstart2p.css',
+  'vendor/pretendard.css', 'vendor/pressstart2p.css', 'vendor/gowun-dodum.css',
   /* 들여온 남의 라이브러리도 넣는다. 자주 안 바뀌지만, 바뀌었을 때 예전
      것이 남아 있으면 원인을 찾기가 제일 어렵다. */
   'vendor/supabase-js.js', 'vendor/xlsx.js',
