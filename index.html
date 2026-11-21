@@ -851,6 +851,8 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (min-width:901px) { .hm-shelf .hm-bk-row { display:flex; overflow:visible; } .hm-shelf .hm-bk { flex:0 0 132px; } .hm-pan { grid-template-columns:150px 1fr; padding:18px; } .hm-pan-t { font-size:20px; } }
 .hm-books-h { margin:30px 0 0; font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-bk-all { margin:18px 0 0; }
+/* 진단 4번: <a> 는 줄 안 요소라 .hero-go 의 min-height 가 안 먹어 높이 20px 로 찌그러졌다 */
+.hm-bk-all .hero-go { display:inline-flex; align-items:center; }
 .hm-bk-link { color:var(--ink-2); font-weight:700; font-size:14px; }
 /* 손가락으로 누르기 쉽게(운영자 2026-11-05 「4번은 해」) — 글자는 그대로, 누르는 칸만 44px 가까이 */
 .hm-bk-link, .hm-lead-dl a, .hero-trust { display:inline-block; padding-top:12px; padding-bottom:12px; }
@@ -1000,7 +1002,9 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 @media (min-width:901px) { .hm-proofrow { grid-template-columns:1fr 1fr; align-items:start; gap:32px; } }
 .hm-paths-h { max-width:var(--max); margin:28px auto 0; padding:0 var(--gut); font-size:15px; font-weight:800; color:var(--ink-2); }
 .hm-paths .hm-doors { margin-top:12px; }
-.hm-more { max-width:calc(var(--max) + 2 * var(--gut)); margin:22px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+/* 2026-11-21 첫 화면 진단 5번: 폭이 다른 칸(.section — 1200 안에 좌우 gut)보다 2 × gut 넓어 줄이 40px 바깥에서 시작했다 → 같은 폭 */
+.hm-more { max-width:var(--max); margin:22px auto 0; padding:0 var(--gut); box-sizing:border-box; }
+#hmBooks .hm-more { max-width:none; padding:0; }   /* 책 칸 안의 「다른 시리즈 더 보기」는 이미 칸 안이라 좌우 여백을 또 주지 않는다 */
 .hm-more > summary { cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; padding:14px 4px; border-top:1px solid var(--line); font-weight:700; color:var(--ink-2); }
 .hm-more > summary::after { content:'+'; font-size:20px; font-weight:400; color:var(--ink-3); }
 .hm-more[open] > summary::after { content:'–'; }
@@ -2465,7 +2469,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/sentence/" aria-label="문법 표현 290개"><b>290</b><span data-en="grammar points">문법 표현</span></a>
       </div>
       <!-- 함께 공부한 사람 — 운영자가 준 구글 애널리틱스 숫자(지난 28일 · 2026-09-07 ~ 10-04). 날짜를 같이 적어 오래된 숫자로 읽히지 않게 -->
-      <p class="hm-users" data-ko="최근 4주 동안 <b>1,534명</b>이 치즈감자를 찾아왔어요 · 한 사람 평균 <b>3분 36초</b> 머물렀어요 <small>Google Analytics · 2026.9.30 ~ 10.27</small>">In the last 4 weeks <b>1,534 people</b> visited · <b>3 min 36 s</b> engaged each on average <small>Google Analytics · Sep 30 – Oct 27, 2026</small></p>
       <ul class="hm-trust">
         <li data-en="Every question is original: not a past paper">모든 문항 창작 · 기출 아님</li>
         <li data-en="Definitions from the National Institute of Korean Language">뜻풀이 국립국어원 한국어기초사전</li>
