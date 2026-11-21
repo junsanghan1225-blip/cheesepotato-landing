@@ -104,10 +104,11 @@ const CSS = `
   --card:#221C17;--soft:#1C1712;--tint:#2E2015;--cta:#F2EAE0;--cta-ink:#17130F;--orange:#FF8A47}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
-  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  font-family:"Gowun Dodum","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
-/* 제목 · 낱말은 사이트처럼 Pretendard(필요한 글자 조각만 받는다) */
-h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+/* 글꼴 두 가지(운영자 2026-11-21 글꼴 짝 시안 「B」): 본문 고운돋움 · 제목과 낱말은 Pretendard. 둘 다 필요한 글자 조각만 받는다 */
+h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+button,input,select,textarea{font-family:inherit}
 h1,h3,.wd-en{color:var(--ink)}
 /* 머리띠 — 사이트의 .site-hd 와 같은 모양(로고 · 이름 · 몇 갈래) */
 .hd{position:sticky;top:0;z-index:5;background:rgba(242,238,228,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -315,6 +316,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <meta name="twitter:image" content="${SITE}/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="stylesheet" href="/vendor/pretendard.css">
+<link rel="stylesheet" href="/vendor/gowun-dodum.css">
 <script src="${PAGE_JS}" defer></script>${body.includes('data-lead=') ? `<script src="${SUB_JS}" defer></script>` : ''}${extraHead}${[].concat(jsonld ?? []).map(ld).join('')}
 <style>${CSS}${extraCss}</style>
 </head>
@@ -1063,7 +1065,7 @@ function twHub(items) {
   ].join('\n');
 
   return page({
-    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">',
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script>',
     /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
        번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
     extraCss: HUB_MODERN_CSS,
@@ -1197,7 +1199,7 @@ const hubRows = ({ exams, rows, ph, goTxt, goTpl = '', lite = false }) =>
       `<a class="tw-go" href="${r.go}">${goTxt}</a></li>`).join('') + '</ol>' +
   '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
   '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>';
-const HUB_HEAD = '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script><link rel="stylesheet" href="/vendor/gowun-dodum.css">';
+const HUB_HEAD = '<script src="/sale.js" defer></script><script src="/tw-list.js" defer></script>';
 const flat = (s, n) => clip(String(s || '').replace(/\s+/g, ' ').trim(), n);
 
 function trHub() {
@@ -2193,8 +2195,9 @@ a.gcard:hover .glinkgo{color:var(--ink)}
 @media(prefers-color-scheme:dark){:root{--bg:#17140F;--ink:#EDE8DF;--dim:#A79C8C;--line:#332C22;--card:#211D17;--brand:#D99A5C;--soft:#241F18;
   --rb-deck:#241F18;--rb-rail:#8A8073;--rb-hair:#332C22}}
 
-body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
-h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:'Gowun Batang',serif;font-weight:700;letter-spacing:-.01em}
+body{font-family:"Gowun Dodum","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+/* 제목은 Pretendard(2026-11-21 글꼴 짝 「B」 — 전에는 고운바탕). 인용 글만 고운바탕 그대로 */
+h1,.rb-id h1,.rb-card h1,.rb-post h2,.blog-article h2{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:700;letter-spacing:-.02em}
 .rb-id h1{font-size:26px}
 .rb-card h1{font-size:34px;line-height:1.45}
 
