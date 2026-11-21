@@ -20,6 +20,7 @@
  * 웹폰트 수백 KB를 물리는 것보다, 기기 글꼴로 즉시 읽히는 편이 낫다.
  */
 import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync, readdirSync } from 'node:fs';
+import { HEADER_CSS, siteHeader } from './lib/site-header.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SB_CATS, SB_MORE } from '../sentences.js';
@@ -108,17 +109,8 @@ body{margin:0;background:var(--bg);color:var(--ink2);line-height:1.7;
 /* 제목 · 낱말은 사이트처럼 Pretendard(필요한 글자 조각만 받는다) */
 h1,h2,h3,.wd-en,.hd-brand,.cta{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 h1,h3,.wd-en{color:var(--ink)}
-/* 머리띠 — 사이트의 .site-hd 와 같은 모양(로고 · 이름 · 몇 갈래) */
-.hd{position:sticky;top:0;z-index:5;background:rgba(242,238,228,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-@media(prefers-color-scheme:dark){.hd{background:rgba(23,19,15,.9)}}
-.hd-in{max-width:1200px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.hd-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;font-size:16px;letter-spacing:-.03em}
-.hd-brand img{width:28px;height:28px;border-radius:7px}
-.hd-nav{display:flex;gap:2px}
-.hd-nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:9px 11px;border-radius:8px}
-.hd-nav a:hover{background:var(--line2);color:var(--ink)}
-.hd-nav a.go{background:var(--cta);color:var(--cta-ink);font-weight:600;margin-left:4px}
-@media(max-width:420px){.hd-nav a:not(.go):nth-child(1){display:none}}
+/* 머리띠 — 사이트 공통 메뉴줄 */
+${HEADER_CSS}
 .wrap{max-width:720px;margin:0 auto;padding:24px 20px 64px}
 a{color:inherit}
 .crumb{font-size:13px;color:var(--dim);margin-bottom:18px}
@@ -282,14 +274,7 @@ function tidy(body) {
   return body.replace(/<a class="wd-top"[^>]*>.*?<\/a>\n?/g, '')
     .replace(/<h2>([^<]*?) · ([A-Z][^<]*)<\/h2>/g, '<h2>$1 <small>$2</small></h2>');
 }
-const HEADER = (en) => '<header class="hd"><div class="hd-in">' +
-  '<a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>' +
-  '<nav class="hd-nav">' +
-  (en ? '<a href="/#learn/topik">TOPIK</a><a href="/#words">Words</a><a class="go" href="/#learn">Start free</a>'
-      : '<a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a>') +
-  '</nav></div></header>';
 function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '', lang = 'ko' }) {
-  const en = lang === 'en';
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -323,7 +308,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
-${HEADER(en || lang === 'vi' || lang === 'ja')}
+${siteHeader({ lang, url })}
 <div class="wrap">
 ${tidy(body)}
 <div class="foot">

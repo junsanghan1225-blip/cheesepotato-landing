@@ -146,7 +146,7 @@ const heroColors = (k) => { try { const c = JSON.parse(fs.readFileSync(path.join
 const bundleOf = (k) => (SHOP.bundles || []).find((b) => b.status === 'on' && b.polar && b.books.includes(k.id));
 const stars0 = '<span class="stars">☆☆☆☆☆</span>';
 const BOOK_CSS = `<style>
-main{max-width:none;padding:0 0 70px}.hd-in{max-width:1120px}.pg2 table{min-width:0}
+main{max-width:none;padding:0 0 70px}.pg2 table{min-width:0}
 .pg2 .in{max-width:1120px;margin:0 auto;padding:0 20px}.pg2 h2{font-size:24px;line-height:1.3;margin:0 0 14px;border:0;padding:0;color:var(--ink)}.pg2 a{color:var(--orange-deep)}
 .pg2-hero{color:#fff;padding:26px 0 70px;background:var(--c1)}.pg2-hg{display:grid;grid-template-columns:1fr 250px;gap:44px;align-items:center}.pg2-hero .crumb{font-size:13px;opacity:.8;margin-bottom:14px}.pg2-hero .crumb a{color:#fff}
 .pg2-chip{display:inline-block;font-size:12px;font-weight:800;padding:3px 11px;border-radius:8px;background:rgba(255,255,255,.18);color:#fff}.pg2-hero h1{font-size:38px;line-height:1.2;margin:10px 0 4px;color:#fff;border:0;padding:0}.pg2-ko{font-size:17px;opacity:.85}.pg2-lead{font-size:20px;font-weight:700;line-height:1.45;margin:16px 0 8px;color:#fff;word-break:keep-all}.pg2-sub{opacity:.92;margin:0 0 12px;max-width:640px}

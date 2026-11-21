@@ -7,6 +7,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { bonusFiles, loadBonus, validateBonus, bonusUnitIds, unitTitle } from './bonus-data.mjs';
+import { siteHeader } from './lib/site-header.mjs';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const JS = `/bonus.js?v=${crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'bonus.js'))).digest('hex').slice(0, 8)}`;
@@ -77,9 +78,7 @@ const head = (title, desc, url) => `<!DOCTYPE html>
 <style>${CSS}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeader({ lang: 'ko' })}
 <main>
 `;
 const foot = `<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>

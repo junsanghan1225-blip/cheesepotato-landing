@@ -10,6 +10,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { siteHeader } from './lib/site-header.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE = { monthly: '$4.99', yearly: '$39', pass: '$15', passMonths: 3, trialDays: 7 };   // 시험 패스 · 7일 체험(2026-10-04) — billing.js BILLING 과 같이 고친다
@@ -74,9 +75,7 @@ ${style}
 </style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="logo-256.png" alt="" width="28" height="28"><span>치즈감자</span></a>
-</div></header>
+${siteHeader({ lang: 'ko' })}
 <main>
 ${body}
 <div class="seller">

@@ -7,6 +7,7 @@
    node tools/build-sheets.mjs          만들기
    node tools/build-sheets.mjs --check  모양 검사 + 쪽이 자료와 같은지(CI) */
 import { hubBooks, booksWithSheets, HUB_BOOKS_CSS } from './lib/hub-books.mjs';
+import { siteHeader } from './lib/site-header.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -83,9 +84,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <style>${CSS}</style>
 ${extra}</head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeader({ lang: 'en', url })}
 <main>
 `;
 const foot = `</main>

@@ -13,6 +13,7 @@ import { GRAMMAR_DRILL } from '../grammar-drill.js';
 import { GRAMMAR_PAIRS } from '../grammar-pairs.js';
 import { grammarMarkRe } from '../grammar-mark.js';
 import { hubBooks, HUB_BOOKS_CSS } from './lib/hub-books.mjs';   // 목록 쪽 → 책 한 줄(문법과 가까운 판매 중 책: 조사 · 첫걸음)
+import { siteHeader } from './lib/site-header.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'worksheet');
@@ -139,7 +140,7 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <style>${CSS}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in"><a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a></div></header>
+${siteHeader({ lang: 'en', url })}
 <main>`;
 const foot = `</main></body></html>\n`;
 
