@@ -18,6 +18,13 @@ a:hover { color:var(--orange); }
 .hd img { width:26px; height:26px; border-radius:7px; }
 
 main { max-width:820px; margin:0 auto; padding:56px 22px 96px; }
+/* 본문 폭 두 가지(운영자 2026-11-21 「본문 폭 맞추기 — 좋았어 이렇게」, docs/plans/web-frame.md §1-2):
+   넓은 쪽(목록 · 카드) = 1120 + 좌우 40 — 위 공통 메뉴줄 로고와 같은 시작선. 읽는 쪽(글) = 720. 그 밖(인쇄 학습지 · 만들기 도구)은 아직 820 그대로.
+   넓은 쪽 안의 설명 문단은 720 까지만 — 한 줄이 너무 길면 읽다가 눈이 줄을 잃는다. */
+main.wide { max-width:1200px; padding-left:40px; padding-right:40px; }
+main.wide > p, main.wide > .lead { max-width:720px; }
+main.read { max-width:760px; }
+@media (max-width:600px) { main.wide, main.read { padding-left:20px; padding-right:20px; } }
 
 h1 { font-size:clamp(30px,6vw,42px); font-weight:700; color:var(--ink); letter-spacing:-.045em; line-height:1.14; margin-bottom:10px; word-break:keep-all; }
 h1 + p { color:var(--ink-3); font-size:14.5px; }

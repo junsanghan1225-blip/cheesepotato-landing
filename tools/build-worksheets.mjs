@@ -141,7 +141,7 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
-<main>`;
+<main${url === '/worksheet/' ? ' class="wide"' : ''}>`;
 const foot = `</main></body></html>\n`;
 
 let n = 0, nFree = 0;

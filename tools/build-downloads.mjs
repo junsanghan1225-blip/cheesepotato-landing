@@ -79,7 +79,7 @@ const page = `<!DOCTYPE html>
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'en', active: 'words' })}
-<main>
+<main class="wide">
 <h1>TOPIK vocabulary list — free download</h1>
 <p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with a level. The <strong>basic list</strong> (Korean word, part of speech, level) is free to download — no account needed. The <strong>study lists</strong> below add English, Vietnamese and Japanese meanings and example sentences written by CheesePotato, as a spreadsheet (CSV) or an Anki deck; they need a free account (one click to sign up).</p>
 <table class="dl"><thead><tr><th>Basic list (all levels)</th><th>Words</th><th>Spreadsheet</th></tr></thead><tbody><tr><td>Korean · part of speech · level</td><td>${ALL.length.toLocaleString('en-US')}</td><td>${dl('topik-vocabulary-basic', 'CSV')}</td></tr></tbody></table>
@@ -145,7 +145,7 @@ const gpage = `<!DOCTYPE html>
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'en' })}
-<main>
+<main class="wide">
 <h1>TOPIK grammar list — ${GR.length} patterns, free download</h1>
 <p>${GR.length} Korean grammar patterns you meet on the way to TOPIK, grouped as ${GR_BY.map((g) => `${g.name} (${g.list.length})`).join(', ')}. Each has an English meaning and an original example sentence; tap a pattern for its full page with dialogues. The levels are our own teaching levels — this is <strong>not</strong> an official TOPIK grammar list.</p>
 <p>${dl('korean-grammar-list', 'Download CSV')} · ${dl('korean-grammar-list-anki', 'Download Anki deck')} · <a href="/topik-vocabulary-list/">TOPIK vocabulary list</a></p>
