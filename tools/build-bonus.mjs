@@ -2,6 +2,7 @@
 /* 책 QR 보너스 연습 쪽 — docs/bonus/<책 id>.json → /bonus/<책 id>/<단원>/index.html (+ /bonus/<책 id>/index.html 목록).
    책의 QR 이 여는 쪽(tools/build-book.mjs 의 unitUrl). 낱말 카드(뒤집기 · 🔊) · 보기 퀴즈 · 빈칸 쓰기를 쪽에서 바로 채우고 채점한다(bonus.js).
    원본은 JSON — 생성물은 손으로 고치지 않는다. */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -77,9 +78,7 @@ const head = (title, desc, url) => `<!DOCTYPE html>
 <style>${CSS}</style>
 </head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeaderBlock({ lang: 'ko' })}
 <main>
 `;
 const foot = `<p class="bk-sub" style="margin-top:30px">이 연습은 책에 없는 새로 만든 문항이에요(기출 아님). · New practice made for this site, not from any past exam.</p>

@@ -19,6 +19,7 @@
  * 글꼴도 vendor/pretendard 를 안 부른다. 검색에서 처음 들어온 사람에게
  * 웹폰트 수백 KB를 물리는 것보다, 기기 글꼴로 즉시 읽히는 편이 낫다.
  */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -282,12 +283,7 @@ function tidy(body) {
   return body.replace(/<a class="wd-top"[^>]*>.*?<\/a>\n?/g, '')
     .replace(/<h2>([^<]*?) · ([A-Z][^<]*)<\/h2>/g, '<h2>$1 <small>$2</small></h2>');
 }
-const HEADER = (en) => '<header class="hd"><div class="hd-in">' +
-  '<a class="hd-brand" href="/"><img src="/logo-256.png" alt="" width="28" height="28">치즈감자</a>' +
-  '<nav class="hd-nav">' +
-  (en ? '<a href="/#learn/topik">TOPIK</a><a href="/#words">Words</a><a class="go" href="/#learn">Start free</a>'
-      : '<a href="/#learn/topik">TOPIK</a><a href="/#words">단어</a><a class="go" href="/#learn">무료로 배우기</a>') +
-  '</nav></div></header>';
+const HEADER = (en, url) => siteHeaderBlock({ lang: en ? 'en' : 'ko', active: activeOf(url) });   // 공통 메뉴줄(tools/lib/site-header.mjs)
 function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '', extraHead = '', lang = 'ko' }) {
   const en = lang === 'en';
   return `<!DOCTYPE html>
@@ -323,7 +319,7 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 <style>${CSS}${extraCss}</style>
 </head>
 <body>
-${HEADER(en || lang === 'vi' || lang === 'ja')}
+${HEADER(en || lang === 'vi' || lang === 'ja', url)}
 <div class="wrap">
 ${tidy(body)}
 <div class="foot">

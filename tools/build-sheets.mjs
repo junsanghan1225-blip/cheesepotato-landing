@@ -6,6 +6,7 @@
    JSON 모양은 docs/worksheets/_schema.md. 인쇄 단추는 numbers-worksheet.js(id nwPrint · nwAns)를 같이 쓴다.
    node tools/build-sheets.mjs          만들기
    node tools/build-sheets.mjs --check  모양 검사 + 쪽이 자료와 같은지(CI) */
+import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import { hubBooks, booksWithSheets, HUB_BOOKS_CSS } from './lib/hub-books.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -83,9 +84,7 @@ const head = (title, desc, url, extra = '') => `<!DOCTYPE html>
 <style>${CSS}</style>
 ${extra}</head>
 <body>
-<header class="hd"><div class="hd-in">
-  <a href="/"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자 CheesePotato</span></a>
-</div></header>
+${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
 <main>
 `;
 const foot = `</main>

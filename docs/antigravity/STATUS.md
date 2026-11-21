@@ -8,6 +8,7 @@
 ## 하는 중
 | 일 | 지시서 | 브랜치 | 모두 | 올라옴 | 넣음 | 다음에 줄 말 |
 |---|---|---|---|---|---|---|
+| 사이트 공통 메뉴줄(Claude 와 같은 일 따로 → 운영자가 비교해 고름) | `antigravity-web-header-task.md` | `ag/web-header` | 1 | 0 | 0 | 「AGENTS.md 를 먼저 읽고, 이 지시문대로만 해.」 — Claude 판은 `claude/kind-dirac-rgj5cb` |
 | C1 형용사 · 부사 워크북 단원 쓰기(17단원, 개인용 책) | `antigravity-adj-adv-c1-task.md` | `ag/adj-adv-c1-N` | 4 | 1 | 1 | 2026-11-20 1묶음(형용사의 바탕 4단원)은 운영자 「1묶음까지 하고 만들어줘」로 Claude 가 씀 · 견본까지 5단원. 다음: 「이번은 2묶음이야」 |
 | 조사 워크북 미니 테스트 50문항 검수(채팅 표만, 브랜치 없음) | `antigravity-particles-minitest-task.md` + `particles-minitest-review-text.md` | — | 1 | 1 | 1 | 2026-11-12 표 도착 · 검토해 넣음(정답 ④ 0개 → 단원마다 ④ 배정, 시간말 뒤바뀜 · 복수 정답 · 비문 고침). 안 받은 것: mt-6 고르기 1번 「제가」 그대로 |
 | 조사 워크북 새 구성 검수(미니 테스트 2~4 · 최종 시험 30 · 종합 연습 1~3, 채팅 표만) | `antigravity-particles-minitest-task.md` 2차 + `particles-minitest-review-text-v2.md` | — | 1 | 1 | 1 | 2026-11-12 표 도착 · 검토해 넣음(11건 반영: 안 배운 조사 보기 · 동생이랑 · 틀린 곳 복수 수정 · 중복 문장 · 채우기 힌트). 안 받은 것: rv-3 6번 「책이나 영화」(책을 보다도 자연스러움) |
