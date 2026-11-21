@@ -46,6 +46,7 @@ const page = (file, title, desc, body, ga = false) => `<!DOCTYPE html>
 <meta http-equiv="Content-Security-Policy" content="${ga ? CSP_GA : CSP_PLAIN}">${ga ? '\n<script src="/gtm.js" async></script>\n<script src="/analytics.js" defer></script>' : ''}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="vendor/pretendard.css">
+<link rel="stylesheet" href="vendor/gowun-dodum.css">
 ${style}
 <style>
 main.read { max-width:760px; }   /* 읽는 쪽 720(2026-11-21 본문 폭 두 가지 — privacy.html 의 스타일을 빌려 와서 여기서 덮는다) */
