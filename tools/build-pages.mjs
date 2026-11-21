@@ -925,7 +925,7 @@ function twHub(items) {
   const first = (q) => items.find((x) => x.q === q)?.id || '';
   const qpick = '<div class="tw-pick">' + TW_QS.map((g) =>
     `<a class="tw-q" href="/?utm_source=hub#learn/topik/II/writing/${esc(first(g.q))}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))}</span>` +
-    `<small>${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>${esc(g.en.replace(/^\d+ · /, ''))}</em></a>`).join('') + '</div>';
+    `<small>${esc(g.en.replace(/^\d+ · /, ''))} · ${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>쓰기 시작</em></a>`).join('') + '</div>';
   const bookLine = '<p class="tw-books">책으로 풀기 · Workbooks: ' + ['topik2-writing-51-52', 'topik2-writing-53-54'].map((id) => {
     const b = SHOPJ.books.find((x) => x.id === id);
     return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
@@ -947,12 +947,28 @@ function twHub(items) {
 
   return page({
     url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script>',
-    extraCss: '.tw-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 10px}' +
-      '.tw-q{display:grid;gap:2px;padding:14px 14px 12px;border:1px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);text-decoration:none}' +
-      '.tw-q:hover{background:var(--line2)}.tw-q b{font-size:30px;line-height:1;color:var(--cta,#C4561B);letter-spacing:-.03em}' +
-      '.tw-q span{font-weight:700;font-size:15px;margin-top:6px}.tw-q small{font-size:12.5px;color:var(--dim)}.tw-q em{font-style:normal;font-size:12px;color:var(--dim)}' +
-      '.tw-books{font-size:14px;color:var(--dim);margin:0 0 8px}.tw-books a{color:var(--ink);font-weight:600}' +
-      '@media(max-width:600px){.tw-pick{grid-template-columns:1fr 1fr}}',
+    /* 요즘 모양(운영자 2026-11-21 「많이 촌스러워 · 제발 요즘 스타일로」 — 애플 · 앤키 참고): 검정 테두리 상자 대신 그림자 없는 듯한 흰 큰 카드 · 넉넉한 여백,
+       번호는 작은 주황 글, 제목은 크게, 아래 「쓰기 시작 →」. 문항 목록은 칩(테두리 알약) 대신 세 단 글자 목록. 이 쪽은 목록 쪽이라 넓은 폭(1120 + 40). */
+    extraCss: '.wrap{max-width:1200px;padding-left:40px;padding-right:40px}' +
+      'h1{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.035em;margin:6px 0 10px}' +
+      '.lead{font-size:17px;line-height:1.6;color:var(--dim);max-width:720px}' +
+      '.tw-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px 0 14px}' +
+      '.tw-q{display:flex;flex-direction:column;gap:4px;min-height:170px;padding:22px 22px 20px;border:0;border-radius:20px;background:var(--card);color:var(--ink);text-decoration:none;' +
+        'box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}' +
+      '.tw-q:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 16px 40px rgba(0,0,0,.09)}' +
+      '.tw-q b{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--cta,#C4561B)}.tw-q b::before{content:"Q"}' +
+      '.tw-q span{font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.25}' +
+      '.tw-q small{font-size:13.5px;color:var(--dim)}' +
+      '.tw-q em{margin-top:auto;padding-top:12px;font-style:normal;font-size:14px;font-weight:600;color:var(--cta,#C4561B)}.tw-q em::after{content:" →"}' +
+      '.tw-books{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--dim);margin:0 0 8px}.tw-books a{color:var(--ink);font-weight:600;text-decoration:none}.tw-books a:hover{color:var(--cta,#C4561B)}' +
+      '.cat{border:0;background:none;border-radius:0;padding:28px 0 0;margin:28px 0 0;border-top:1px solid var(--line)}' +
+      '.cat h3{font-size:22px;letter-spacing:-.02em;margin:0 0 2px}.cat p{font-size:14px;margin:0 0 14px}' +
+      '.cat .pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}' +
+      '.cat .pts li{margin:0;padding:0;border:0;background:none}.cat .pts li a{display:block;padding:10px 0;border:0;border-bottom:1px solid var(--line2);border-radius:0;background:none;font-size:15px;color:var(--ink);text-decoration:none}' +
+      '.cat .pts li a:hover{color:var(--cta,#C4561B)}' +
+      '.cat details.more summary{margin-top:12px;font-size:14px;font-weight:600;color:var(--cta,#C4561B);cursor:pointer;list-style:none}' +
+      '@media(max-width:900px){.tw-pick{grid-template-columns:1fr 1fr}.cat .pts{grid-template-columns:1fr 1fr}}' +
+      '@media(max-width:600px){.wrap{padding-left:20px;padding-right:20px}.tw-q{min-height:0;padding:18px}.tw-q span{font-size:18px}.cat .pts{grid-template-columns:1fr}}',
     /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
     /* 2026-11-04 운영자 「토픽 쓰기 제목 설명 고쳐줘」 — 검색 노출 84회에 클릭 12회(14%): 사람들이 치는 말 「토픽 쓰기 연습 문제」를 앞에 두고, 무료 모범답안 · 가입 없이 · 영어 검색어(TOPIK II writing practice)를 더한다. 기출 문제라고 쓰지 않는다(창작 문항) */
     title: `토픽 쓰기 연습 문제 ${items.length}개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato`,
