@@ -930,16 +930,38 @@ function twHub(items) {
     const b = SHOPJ.books.find((x) => x.id === id);
     return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
   }).join(' · ') + '</p>';
+  /* 번호별 쓰는 법(운영자 2026-11-21 「밑에 쓰기 설명을 넣는 건 어때?」) — 카드 바로 아래, 같은 네 단. 시험 형식(분량 · 빈칸 수)은 공개된 TOPIK II 쓰기 형식 그대로, 요령은 일반적인 것만.
+     더 자세한 글은 블로그 안내 글로(blog.js 에 있는 글만 — 없으면 빌드가 멈춘다). */
+  const HOW = [
+    [51, 'topik-writing-51-52-english', ['앞뒤 문장에서 단서 찾기', '-습니다 · -(으)세요 같은 말투 맞추기', '빈칸 ㄱ · ㄴ 은 한 문장씩 짧게']],
+    [52, 'topik-writing-51-52-english', ['그러나 · 따라서 같은 이음말로 앞뒤 관계 보기', '글말 「-다」 체로 맞추기', '-기 때문에 · -(으)ㄹ 수 있다 같은 표현 쓰기']],
+    [53, 'topik-writing-53-template', ['조사 대상 · 기관으로 시작', '늘었다 · 줄었다로 결과 비교', '원인이나 전망으로 마무리 · 200~300자']],
+    [54, 'topik-writing-54-structure', ['서론: 주제를 한두 문장으로', '본론: 문제의 물음에 차례로 답하기', '결론: 내 생각 정리 · 600~700자 · 「-다」 체']],
+  ];
+  const howTo = '<h2 class="tw-how-h">번호별 쓰는 법 · How to write each one</h2><div class="tw-how">' + HOW.map(([q, gid, steps]) => {
+    const g = BLOG_POSTS.find((x) => x.id === gid); if (!g) throw new Error('blog.js 에 없는 글: ' + gid);
+    return `<div class="tw-h"><b>Q${q}</b><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol><a href="/blog/${esc(gid)}.html">자세히 보기</a></div>`;
+  }).join('') + '</div>';
+  /* 우리 책 소개(운영자 2026-11-21 「책 소개도 밑에 넣자」) — 쓰는 법 바로 아래, 표지 · 한 줄 소개 · 쪽수 · 가격(반값 표시) · 책 보기 · 무료 샘플. 글 · 값은 docs/shop.json 그대로 */
+  const twBooks = '<h2 class="tw-how-h">책으로 더 연습하기 · Workbooks</h2><div class="tw-bks">' + [['topik2-writing-51-52', 'Q51 · Q52'], ['topik2-writing-53-54', 'Q53 · Q54']].map(([id, qs]) => {
+    const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+    const u = `/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_books`;
+    return `<div class="tw-bk"><a class="tw-bk-cv" href="${u}"><img src="${esc(b.coverImg)}" alt="${esc(b.title.ko)}" width="700" height="995" loading="lazy"></a><div class="tw-bk-t">` +
+      `<b>${qs}</b><h3><a href="${u}">${esc(b.title.ko)}</a></h3><p>${esc(b.page?.lead?.ko || b.sub.ko)}</p>` +
+      `<small>PDF · ${esc(String(b.pages).replace(/\s*\(PDF\)/, ''))} · <span data-px="${esc(b.price)}">$${esc(b.price)}</span></small>` +
+      `<div class="tw-bk-go"><a class="tw-bk-buy" href="${u}">책 보기</a>${b.sample ? `<a class="tw-bk-smp" href="/assets/books/${id}/sample.pdf" download data-ev="샘플받기" data-ev-from="tw_books">무료 샘플 ${b.sample.pages}쪽</a>` : ''}</div></div></div>`;
+  }).join('') + '</div>';
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
     `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
     `<p class="lead">번호를 고르면 바로 써요. 모범답안은 모두 무료, 53 · 54번은 AI 채점 1번 무료. <small>기출이 아닌 창작 문항입니다. · Pick a question type and start writing. Model answers are free.</small></p>`,
     qpick,
     bookLine,
+    howTo,
+    twBooks,
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
     twGuides(),
-    twBook('tw_end'),
     leadSample('topik2-writing-51-52', 'tw'),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
@@ -967,7 +989,20 @@ function twHub(items) {
       '.cat .pts li{margin:0;padding:0;border:0;background:none}.cat .pts li a{display:block;padding:10px 0;border:0;border-bottom:1px solid var(--line2);border-radius:0;background:none;font-size:15px;color:var(--ink);text-decoration:none}' +
       '.cat .pts li a:hover{color:var(--cta,#C4561B)}' +
       '.cat details.more summary{margin-top:12px;font-size:14px;font-weight:600;color:var(--cta,#C4561B);cursor:pointer;list-style:none}' +
-      '@media(max-width:900px){.tw-pick{grid-template-columns:1fr 1fr}.cat .pts{grid-template-columns:1fr 1fr}}' +
+      '.tw-how-h{margin-top:44px}.tw-how{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}' +
+      '.tw-h{display:flex;flex-direction:column;padding:20px 22px;border-radius:20px;background:var(--line2)}.tw-h b{font-size:13px;color:var(--cta,#C4561B)}' +
+      '.tw-h ol{margin:10px 0 14px;padding-left:18px;font-size:14.5px;line-height:1.55;color:var(--ink)}.tw-h li{margin:0 0 6px}' +
+      '.tw-h a{margin-top:auto;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}.tw-h a::after{content:" →"}.tw-h a:hover{color:var(--cta,#C4561B)}' +
+      '@media(max-width:900px){.tw-pick,.tw-how{grid-template-columns:1fr 1fr}.cat .pts{grid-template-columns:1fr 1fr}}' +
+      '.tw-bks{display:grid;grid-template-columns:1fr 1fr;gap:16px}' +
+      '.tw-bk{display:grid;grid-template-columns:132px 1fr;gap:22px;align-items:start;padding:22px;border-radius:20px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.06)}' +
+      '.tw-bk-cv img{display:block;width:100%;height:auto;border-radius:3px 8px 8px 3px;box-shadow:0 8px 20px rgba(0,0,0,.18)}' +
+      '.tw-bk-t b{font-size:13px;color:var(--cta,#C4561B)}.tw-bk-t h3{margin:4px 0 8px;font-size:19px;line-height:1.3;letter-spacing:-.02em}.tw-bk-t h3 a{color:var(--ink);text-decoration:none}' +
+      '.tw-bk-t p{margin:0 0 10px;font-size:14px;line-height:1.6;color:var(--dim)}.tw-bk-t small{display:block;font-size:13.5px;color:var(--ink)}' +
+      '.tw-bk-go{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tw-bk-go a{padding:10px 16px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none}' +
+      '.tw-bk-buy{background:var(--ink);color:var(--bg)}.tw-bk-smp{border:1px solid var(--line);color:var(--ink)}' +
+      '@media(max-width:900px){.tw-bks{grid-template-columns:1fr}}' +
+      '@media(max-width:600px){.tw-how{grid-template-columns:1fr}.tw-bk{grid-template-columns:96px 1fr;gap:14px;padding:16px}.tw-bk-t h3{font-size:17px}}' +
       '@media(max-width:600px){.wrap{padding-left:20px;padding-right:20px}.tw-q{min-height:0;padding:18px}.tw-q span{font-size:18px}.cat .pts{grid-template-columns:1fr}}',
     /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
     /* 2026-11-04 운영자 「토픽 쓰기 제목 설명 고쳐줘」 — 검색 노출 84회에 클릭 12회(14%): 사람들이 치는 말 「토픽 쓰기 연습 문제」를 앞에 두고, 무료 모범답안 · 가입 없이 · 영어 검색어(TOPIK II writing practice)를 더한다. 기출 문제라고 쓰지 않는다(창작 문항) */
