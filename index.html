@@ -1098,11 +1098,23 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 #sideNav.side-calm.on .side-list > :nth-child(4) { animation-delay:.09s; } #sideNav.side-calm.on .side-list > :nth-child(5) { animation-delay:.12s; }
 #sideNav.side-calm.on .side-list > :nth-child(n+6) { animation-delay:.15s; }
 @media (prefers-reduced-motion:reduce) { #sideNav.side-calm.on .side-list > * { animation:none; } }
+/* 큰 다섯 칸을 가로로 나눠 한 줄에(운영자 2026-11-21 「오늘 공부 이 부분은 가로로 깔끔하게 나눠」) — PC · 태블릿. 칸 사이 얇은 세로줄, 폰은 아래 미디어쿼리에서 세로 · 가로줄 */
+@media (min-width:760px) {
+  #sideNav.side-calm .side-list { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); align-items:stretch; }
+  #sideNav.side-calm .side-list > * { min-width:0; }
+  #sideNav.side-calm .side-list > :nth-child(-n+5) { padding:6px 20px 12px !important; border-left:1px solid var(--line-2); }
+  #sideNav.side-calm .side-list > :first-child { padding-left:0 !important; border-left:0; }
+  #sideNav.side-calm .side-list > .side-group { grid-column:1 / -1; }
+  #sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link { font-size:clamp(18px, 2.05vw, 26px); white-space:nowrap; }
+  #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head { padding:0 !important; }
+}
 @media (max-width:759px) {
   .nav-scrim { top:57px; }
   #sideNav.side-calm { top:57px; height:calc(100dvh - 57px); max-height:none; }
   #sideNav.side-calm .side-list { padding:20px 24px 8px; }
   #sideNav.side-calm #sideToday, #sideNav.side-calm #sideKo > .side-head, #sideNav.side-calm #sideTopik > .side-head, #sideNav.side-calm #dictBtn, #sideNav.side-calm .side-list > a.nav-link { font-size:26px; padding:5px 0; }
+  #sideNav.side-calm .side-list > :nth-child(-n+5) + :nth-child(-n+5) { border-top:1px solid var(--line-2); }
+  #sideNav.side-calm .side-list > :nth-child(-n+5) { padding:6px 0 !important; display:block; width:100% !important; box-sizing:border-box; }
   #sideNav.side-calm .side-sub-in { columns:2 140px; column-gap:20px; }
   #sideNav.side-calm .side-sub-in > .side-item { font-size:15px; padding:6px 0; }
   #sideNav.side-calm .side-foot { padding:12px 24px 28px; }
