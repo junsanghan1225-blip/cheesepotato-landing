@@ -4,6 +4,7 @@
    grammar-drill.js(바꾸기 표) · grammar-pairs.js(비교) · grammar-mark.js(문장 속 그 문법 자리 찾기 — 빈칸을 만든다).
    모든 문제는 창작 자료로 만든 것 — 기출 아님. build-pages.mjs 가 끝에 부른다. 생성물은 손으로 고치지 않는다. */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
+import { siteFooterBlock } from './lib/site-footer.mjs';   // 공통 꼬리말(기본 틀 6번)
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -142,7 +143,9 @@ ${jsonld}<link rel="stylesheet" href="/vendor/pretendard.css">
 <body>
 ${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
 <main${url === '/worksheet/' ? ' class="wide"' : ''}>`;
-const foot = `</main></body></html>\n`;
+const foot = `</main>
+${siteFooterBlock({ mode: 'en' })}
+</body></html>\n`;
 
 let n = 0, nFree = 0;
 mkdirSync(join(OUT, 'pro'), { recursive: true });
@@ -193,7 +196,6 @@ writeFileSync(join(OUT, 'index.html'), head(`Free Korean Grammar Worksheets (Pri
 <p>Korean grammar from beginner to advanced, one printable worksheet each: explanation, examples, practice and an answer key. <b>${nFree} are completely free</b>; the other ${n - nFree} show the explanation for free, and the practice and answer key come with <a href="/?utm_source=worksheet&amp;utm_medium=index#pro">Pro</a> (free for class students). All practice is original — not from past exams. 초급 문법 학습지예요. ${nFree}개는 모두 무료, 나머지 ${n - nFree}개는 설명만 무료이고 연습 · 정답은 Pro 에서 열려요.</p>
 <style>${HUB_BOOKS_CSS}</style>${hubBooks(['particles-workbook', 'first-steps-workbook'], 'grammar-worksheets-hub', '초급 문법을 책 한 권으로 차례대로 익히고 싶다면: 조사 · 첫걸음 워크북(PDF, 정답 포함). <small>Prefer one book in order? Two beginner workbooks with answer keys.</small>')}
 ${list(false)}
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/sentence/">All grammar points</a> · <a href="/topik-vocabulary-list/">Word lists (CSV · Anki)</a> · <a href="/privacy.html">Privacy</a></p>
 ` + foot);
 writeFileSync(join(OUT, 'pro', 'index.html'), head('Grammar worksheets (Pro) | CheesePotato', 'Pro grammar worksheets.', '/worksheet/pro/').replace('<meta name="referrer"', '<meta name="robots" content="noindex,nofollow">\n<meta name="referrer"') + `
 <h1>문법 학습지 — Pro 전체 · All worksheets (Pro)</h1>

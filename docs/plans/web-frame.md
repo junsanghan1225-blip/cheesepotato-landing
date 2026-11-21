@@ -21,7 +21,7 @@
 3. **기준점 세 개**: 폰 ≤600 · 태블릿 ≤900 · PC. ✅ 2026-11-21 도구가 만드는 쪽 CSS 전부(420 · 480 · 520 · 560 · 640 · 700 · 880 → 600 · 900, 넘을 때 601 · 901) — `node tools/check-tokens.mjs` 가 지킨다(CI). 첫 화면 CSS(index.html · app-views.css 17가지)는 아직.
 4. **글꼴 두 가지**(2026-11-21): 제목 Pretendard · 본문 **IBM Plex Sans KR**(`vendor/ibm-plex-kr.css`, 시안 「D」 — 처음 고른 「B」 고운돋움에서 바꿈). 만든 쪽 · page.css 쪽 · 약관 · 개인정보 · 공지 · 선생님 쪽. `font-display: optional`(느린 폰 속도). **첫 화면(앱)은 그대로**(기기 글꼴 + 제목 Pretendard — 운영자 「1번」: 본문 웹 글꼴이면 느린 폰 배치 계산 0.51 → 1.72초). 운영자 전용 쪽은 그대로.
 5. **색 · 크기 이름 하나** ✅ 2026-11-21: `tools/lib/tokens.mjs`(값 원본 = 첫 화면 :root) → 만든 쪽은 `tokensCss()` 로 박고(예전 이름 --ink2 · --dim · --card … 은 별칭, 만든 쪽의 --orange 는 --orange-mid 로), 손 CSS(index.html · page.css · privacy · notices · teacher)는 `check-tokens` 가 같은 이름 = 같은 값인지 본다. 바꾸기 전후 쓰기 · 사전 · 블로그 화면이 밝은 · 어두운 모드 모두 픽셀까지 같음. 블로그는 따로 정한 편집 색(바탕 #FBF8F3 등)이라 그대로 — 맞출지는 운영자가 정함.
-6. 바닥글 하나(소개 · 개인정보 · 약관 · 언어).
+6. **꼬리말 하나** ✅ 2026-11-21(운영자 시안 「A로 하고 폰은 접기, 첫 화면도 같이」): `tools/lib/site-footer.mjs` — 치즈감자 한 줄 + 네 칸(배우기 · 책·학습지 · 치즈감자 · 약관), 폰은 접기, 아래 사업자 정보 · 결제 · 뜻풀이 출처 · 언어 · ©. 만든 쪽은 siteFooterBlock(), 손 쪽 16곳 · 첫 화면 화면별 12곳은 `node tools/apply-footer.mjs`(검사 `check-footer`). 판매자 정보는 SELLER 한 곳(약관 쪽도 거기서).
 
 ## 1-1. 메뉴줄 (2026-11-21)
 - Claude 판: `tools/lib/site-header.mjs` 하나 → 만드는 도구 6개 · 손으로 쓴 쪽 15곳. 로고 · TOPIK · 단어 · 책 · 학습지 · 「무료로 배우기」, 폰은 로고 · 단추 · 메뉴(`<details>`). 높이 64 · 56, 로고 시작선 80 · 20(첫 화면과 같음). 첫 화면 머리글은 그대로(10-11 머리줄 정리).

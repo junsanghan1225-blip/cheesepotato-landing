@@ -8,6 +8,7 @@
      전자상거래법상 상호·대표자·사업자등록번호·통신판매업 신고번호·주소를
      보여야 한다. 비어 있는 칸은 쪽에 안 나온다. */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
+import { siteFooterBlock, SELLER } from './lib/site-footer.mjs';   // 공통 꼬리말(기본 틀 6번)
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,13 +17,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRICE = { monthly: '$4.99', yearly: '$39', pass: '$15', passMonths: 3, trialDays: 7 };   // 시험 패스 · 7일 체험(2026-10-04) — billing.js BILLING 과 같이 고친다
 const EMAIL = 'cheesepotato@everykoreans.com';
 const UPDATED = '2026-10-27';
-const SELLER = {
-  name: '에브리코리안즈 (everykoreans · 치즈감자)',
-  owner: '한준상',   // 대표자 (통신판매업신고증 · 출판사 신고확인증, 2026-10-22)
-  bizNo: '202-43-01897',   // 사업자등록번호
-  mailOrder: '제 2026-수원영통-1263 호',    // 통신판매업 신고번호(수원시 영통구청, 2026-10-22). 주소 칸은 비워 둔다 — 신고서의 소재지가 집 주소라 공개 여부를 운영자가 정한다
-  address: '',
-};
+/* 판매자 정보는 꼬리말과 한 곳에서(tools/lib/site-footer.mjs SELLER) — 주소는 비워 둔다(신고서 소재지가 집 주소, 공개 여부는 운영자가 정함) */
 
 const priv = fs.readFileSync(path.join(ROOT, 'privacy.html'), 'utf8');
 const style = priv.slice(priv.indexOf('<style>'), priv.indexOf('</style>') + 8);
@@ -89,6 +84,7 @@ ${[['판매자 · Seller', SELLER.name], ['대표자', SELLER.owner], ['사업�
 <p class="seller" style="border:0;margin-top:8px;padding-top:0"><a href="/pricing.html">가격 · Pricing</a> · <a href="/terms.html">이용약관 · Terms</a> · <a href="/refund.html">환불 규정 · Refunds</a> · <a href="/privacy.html">개인정보처리방침 · Privacy</a></p>
 <a class="back" href="/">← 홈으로</a>
 </main>
+${siteFooterBlock({ mode: 'ko' })}
 </body>
 </html>
 `;
