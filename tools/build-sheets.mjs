@@ -7,6 +7,7 @@
    node tools/build-sheets.mjs          만들기
    node tools/build-sheets.mjs --check  모양 검사 + 쪽이 자료와 같은지(CI) */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
+import { siteFooterBlock } from './lib/site-footer.mjs';   // 공통 꼬리말(기본 틀 6번)
 import { hubBooks, booksWithSheets, HUB_BOOKS_CSS } from './lib/hub-books.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -88,6 +89,7 @@ ${siteHeaderBlock({ lang: 'en', active: activeOf(url) })}
 <main${/^\/(shop|worksheets)\/$/.test(url) ? ' class="wide"' : ''}>
 `;
 const foot = `</main>
+${siteFooterBlock({ mode: 'en' })}
 </body>
 </html>
 `;
@@ -141,7 +143,6 @@ ${ad}<div class="next">
     <a class="btn sub" href="/worksheets/">More worksheets</a>
   </div>
 </div>
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/worksheets/">All worksheets</a> · <a href="/numbers-worksheet/">Numbers worksheet</a> · <a href="/for-teachers.html">For teachers</a></p>
 </div>
 ` + foot;
 }
@@ -184,7 +185,6 @@ ${sec}
   <p>교사 선생님은 주제를 알려 주세요. 새 학습지를 계속 더하고 있어요. <small>Teachers: tell us the topic.</small></p>
   <div class="btns"><a class="btn sub" href="/for-teachers.html">교사용 무료 수업 도구 · For teachers</a></div>
 </div>
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/for-teachers.html">For teachers</a></p>
 ` + foot;
 }
 

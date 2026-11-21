@@ -21,6 +21,7 @@
  */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
 import { tokensCss } from './lib/tokens.mjs';   // 색 이름 하나(기본 틀 5번)
+import { siteFooterBlock } from './lib/site-footer.mjs';   // 공통 꼬리말(기본 틀 6번)
 import { writeFileSync, mkdirSync, rmSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -182,8 +183,6 @@ h2 small{font-weight:500;font-size:12.5px;margin-left:4px;opacity:.8}
 .wd-add{background:var(--cta);color:var(--cta-ink);border:1px solid var(--cta)}
 .wd-add span{font-weight:400;opacity:.8}
 @media(max-width:600px){.wd-add span{display:none}}
-.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
-.foot a{color:inherit}
 .cat{margin:30px 0 0}
 .cat h3{font-size:17px;margin:0 0 4px}
 .cat p{margin:0 0 10px;font-size:13px;color:var(--dim)}
@@ -323,13 +322,8 @@ function page({ url, title, desc, body, kind = 'article', jsonld, extraCss = '',
 ${HEADER(en || lang === 'vi' || lang === 'ja', url)}
 <div class="wrap">
 ${tidy(body)}
-<div class="foot">
-  <a href="/">치즈감자</a> · <a href="/sentence/">문법 표현 전체</a> · <a href="/blog/">블로그</a> · <a href="/privacy.html">개인정보</a> · <a href="/terms.html">이용약관</a><br>
-  한국어를 배우는 사람을 위한 단어장과 연습 · Learn Korean with CheesePotato<br>
-  낱말 뜻풀이 출처: <a href="https://krdict.korean.go.kr">국립국어원 한국어기초사전</a>
-  · <a href="https://creativecommons.org/licenses/by-sa/2.0/kr/">CC BY-SA 2.0 KR</a>
 </div>
-</div>
+${siteFooterBlock({ mode: en || lang === 'vi' || lang === 'ja' ? 'en' : 'ko' })}
 </body>
 </html>
 `;

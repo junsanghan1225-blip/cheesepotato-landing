@@ -1,6 +1,7 @@
 /* TOPIK 낱말 목록 내려받기(운영자 2026-10-11 「B」) — vocab/data/topik1·2.json → downloads/*.csv · *.txt(Anki) + topik-vocabulary-list/index.html
    build-pages.mjs 가 끝에 부른다. 급수 출처: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) — 화면에 적는다. */
 import { siteHeaderBlock, activeOf } from './lib/site-header.mjs';   // 공통 메뉴줄(docs/plans/web-frame.md)
+import { siteFooterBlock } from './lib/site-footer.mjs';   // 공통 꼬리말(기본 틀 6번)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -108,8 +109,8 @@ ${BAND.map(li).join('\n')}
   </div>
   <p class="bk">Prefer a book? <a href="/shop/topik2-vocab-1000/?utm_source=tool&amp;utm_medium=topik_vocab_list">TOPIK II Vocabulary 1 (words 1–1,000, example sentences, answers) · PDF $6.90</a> · <a href="/shop/topik1-vocab/?utm_source=tool&amp;utm_medium=topik_vocab_list">Beginner Essential Vocabulary (for TOPIK I) · PDF $9.90</a></p>
 </div>
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a></p>
 </main>
+${siteFooterBlock({ mode: 'en' })}
 </body>
 </html>
 `;
@@ -161,8 +162,8 @@ ${g.list.map(grRow).join('\n')}
     <a class="btn sub" href="/en/topik-reading/">Free TOPIK practice</a>
   </div>
 </div>
-<p class="ft">Made by a Korean teacher · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a></p>
 </main>
+${siteFooterBlock({ mode: 'en' })}
 </body>
 </html>
 `;
