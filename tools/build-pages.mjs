@@ -918,14 +918,24 @@ function twSections(items) {
 function twHub(items) {
   const sections = twSections(items);
 
+  /* 영역 2 · TOPIK 쓰기 쪽(운영자 2026-11-21 「2번 ㄱㄱ」 — 따로 만든 쪽 중 1위, 4주 163명): 폰에서 번호 고르는 칸이 1,400px 아래였다.
+     첫 화면에 51 · 52 · 53 · 54 네 칸 — 누르면 바로 그 번호 쓰기(앱). 긴 설명 두 문단 · 큰 단추 둘 · 단계 세 줄은 뺐다.
+     책은 위에 한 줄(2026-10-31 「책 안내를 위로」 그대로 지키되 큰 카드 대신) + 맨 아래 카드 한 번. */
+  const cnt = (q) => items.filter((x) => x.q === q).length;
+  const first = (q) => items.find((x) => x.q === q)?.id || '';
+  const qpick = '<div class="tw-pick">' + TW_QS.map((g) =>
+    `<a class="tw-q" href="/?utm_source=hub#learn/topik/II/writing/${esc(first(g.q))}"><b>${g.q}</b><span>${esc(g.ko.replace(/^\d+번 · /, ''))}</span>` +
+    `<small>${cnt(g.q)}문항 · ${g.pt}점${g.q >= 53 ? ' · AI 채점' : ''}</small><em>${esc(g.en.replace(/^\d+ · /, ''))}</em></a>`).join('') + '</div>';
+  const bookLine = '<p class="tw-books">책으로 풀기 · Workbooks: ' + ['topik2-writing-51-52', 'topik2-writing-53-54'].map((id) => {
+    const b = SHOPJ.books.find((x) => x.id === id);
+    return `<a href="/shop/${id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=tw_top">${esc(id.endsWith('51-52') ? '51~52번' : '53~54번')} <span data-px="${esc(b.price)}">$${esc(b.price)}</span></a>`;
+  }).join(' · ') + '</p>';
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
-    '<h1>TOPIK II 쓰기 연습 — 모범답안과 AI 채점(1번 무료 · Pro)</h1>',
-    `<p class="lead">51~54번 유형 연습 문항 ${items.length}개. 모범답안 · 채점 포인트 · 감점 요인까지 한 곳에서. <small>기출이 아닌 창작 문항입니다.</small><br>` +
-    `${items.length} original TOPIK II writing tasks — write, compare with the model answer, and get an AI score with Pro.</p>`,
-    hubCtas(['/#learn/topik/II/writing/w53-1', 'AI 채점 받아 보기 · 1번 무료', 'Write Q53 and get one free AI score (sign in)'], ['/?utm_source=hub#learn/topik/II/writing', '51번부터 써 보기', 'Start from Q51: model answers are free']),
-    hubWhy([['① 문항 고르기', '51 · 52 · 53 · 54번 유형'], ['② 직접 쓰기', '가입 없이 브라우저에서'], ['③ 채점 · 비교', 'AI 채점(1번 무료 · Pro) + 모범답안(무료)']], ' style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"'),
-    twBookTop(),
+    `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
+    `<p class="lead">번호를 고르면 바로 써요. 모범답안은 모두 무료, 53 · 54번은 AI 채점 1번 무료. <small>기출이 아닌 창작 문항입니다. · Pick a question type and start writing. Model answers are free.</small></p>`,
+    qpick,
+    bookLine,
     '<h2>유형별 문항 · Tasks by type</h2>',
     sections,
     twGuides(),
@@ -936,7 +946,13 @@ function twHub(items) {
   ].join('\n');
 
   return page({
-    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/'),
+    url: '/topik-writing/', kind: 'website', extraHead: hubHreflang('/topik-writing/') + '<script src="/sale.js" defer></script>',
+    extraCss: '.tw-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 10px}' +
+      '.tw-q{display:grid;gap:2px;padding:14px 14px 12px;border:1px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);text-decoration:none}' +
+      '.tw-q:hover{background:var(--line2)}.tw-q b{font-size:30px;line-height:1;color:var(--cta,#C4561B);letter-spacing:-.03em}' +
+      '.tw-q span{font-weight:700;font-size:15px;margin-top:6px}.tw-q small{font-size:12.5px;color:var(--dim)}.tw-q em{font-style:normal;font-size:12px;color:var(--dim)}' +
+      '.tw-books{font-size:14px;color:var(--dim);margin:0 0 8px}.tw-books a{color:var(--ink);font-weight:600}' +
+      '@media(max-width:600px){.tw-pick{grid-template-columns:1fr 1fr}}',
     /* 「토픽 쓰기 연습」「topik 쓰기 연습 문제」가 우리 쪽으로 클릭이 나는 질의(Search Console 2026-10-18: 클릭률 15~31%, 순위 5~9) — 제목에 「토픽」을 같이 둔다 */
     /* 2026-11-04 운영자 「토픽 쓰기 제목 설명 고쳐줘」 — 검색 노출 84회에 클릭 12회(14%): 사람들이 치는 말 「토픽 쓰기 연습 문제」를 앞에 두고, 무료 모범답안 · 가입 없이 · 영어 검색어(TOPIK II writing practice)를 더한다. 기출 문제라고 쓰지 않는다(창작 문항) */
     title: `토픽 쓰기 연습 문제 ${items.length}개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato`,
