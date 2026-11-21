@@ -40,10 +40,10 @@
 ">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 구글 태그 관리자. 구글이 주는 인라인 코드조각은 CSP 가 막아서 gtm.js 로 뺐다. -->
-<script src="gtm.js?v=d107e88f" async></script>
+<script src="gtm.js?v=dda6ca4a" async></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="early.js?v=d107e88f"></script>
+<script src="early.js?v=dda6ca4a"></script>
 <!-- 제목과 설명을 두 말로 쓴다. 이 사이트를 찾을 사람은 한국어를 **배우는**
      사람이고, 브라우저가 한국어가 아니면 화면도 영어로 뜬다. 그런데
      검색과 공유 미리보기만 한국어로 나가서, 정작 대상이 검색으로는 못 닿고
@@ -129,13 +129,13 @@
      Pretendard 는 통짜(2.0MB) 대신 조각난 쪽을 쓴다 — 브라우저가
      unicode-range 를 보고 화면에 실제로 나온 글자가 든 조각만 받는다.
      그래서 저장소는 무거워졌지만 학습자가 받는 양은 오히려 줄었다. -->
-<link rel="stylesheet" href="vendor/pretendard.css?v=d107e88f">
-<link rel="stylesheet" href="vendor/pressstart2p.css?v=d107e88f">
+<link rel="stylesheet" href="vendor/pretendard.css?v=dda6ca4a">
+<link rel="stylesheet" href="vendor/pressstart2p.css?v=dda6ca4a">
 <!-- 화면 상자 안에서만 쓰는 CSS 는 여기서 갈라 받는다. media="print" 라
      첫 페인트를 안 막고, 다 받아지면 app.js 가 media 를 all 로 바꾼다.
      자바스크립트가 없으면 <noscript> 쪽이 그냥 평범하게 걸린다. -->
-<link id="viewsCss" rel="stylesheet" href="app-views.css?v=d107e88f" media="print">
-<noscript><link rel="stylesheet" href="app-views.css?v=d107e88f"></noscript>
+<link id="viewsCss" rel="stylesheet" href="app-views.css?v=dda6ca4a" media="print">
+<noscript><link rel="stylesheet" href="app-views.css?v=dda6ca4a"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1164,6 +1164,19 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 #ltDlg .lt-dots { gap:6px; flex-wrap:nowrap; }
 /* 진단 Q2(2026-11-21): 진행 표시가 셋(막대 · 글 · 점)이라 아래 점 줄은 감춘다 — 자리는 남겨 「이전 · 다음」이 양 끝에 그대로 선다. 건너뛴 문제로 가는 길은 「안 푼 문제 N개 풀기」 단추가 맡는다 */
 #ltDlg .lt-nav-row .lt-dots { visibility:hidden; }
+/* 결과 시안 B(2026-11-21): 점수는 내 레벨 바로 아래 · 「이렇게 올려요」 조언은 감춤 · 뒤쪽은 「더 보기」로 접기 · 가입 상자는 핵심만 */
+#ltDlg .lt-report-top { margin:14px 0 14px; }
+#ltDlg .lt-report-top .lt-adv, #ltDlg .lt-report-top .lt-rep-fine { display:none; }
+#ltDlg .lt-more { margin:16px 0 6px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); text-align:left; }
+#ltDlg .lt-more > summary { display:flex; justify-content:space-between; gap:10px; padding:14px 4px; font-weight:700; color:var(--ink); cursor:pointer; list-style:none; }
+#ltDlg .lt-more > summary::-webkit-details-marker { display:none; }
+#ltDlg .lt-more > summary::after { content:'+'; font-weight:400; color:var(--ink-3); }
+#ltDlg .lt-more[open] > summary::after { content:'−'; }
+#ltDlg .lt-join-mail { margin-top:12px; text-align:left; }
+#ltDlg .lt-join-mail > summary { cursor:pointer; list-style:none; font-size:13.5px; color:var(--ink-2); text-decoration:underline; text-underline-offset:2px; }
+#ltDlg .lt-join-mail > summary::-webkit-details-marker { display:none; }
+#ltDlg .lt-join-mail .lt-mail-t:empty { display:none; }
+#ltDlg .lt-join-mail .lt-mail { margin-top:10px; }
 #ltDlg .lt-dot { width:8px; height:8px; }
 /* 결과 화면 칸 폭을 하나로(운영자 2026-11-21 「폭이 안 맞아」 — 책 칸은 꽉 차는데 가입 · 계획 · Pro · 리포트 칸만 420 으로 가운데 좁았다) */
 #ltOver .lt-report, #ltOver .lt-plan, #ltOver .lt-pro, #ltOver .lt-teach, #ltOver .lt-rec-card, #ltOver .lt-join { max-width:none; margin-left:0; margin-right:0; }
@@ -3802,20 +3815,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="ltOver" class="hidden">
       <div class="claw-over">
-        <!-- TOPIK 길: 레벨 분석(예상 점수 · 영역별 · 강한 곳 / 채울 곳)이 맨 위 — 분석 → 레벨 → 시작할 곳 → Pro 차례 -->
-        <div id="ltReport" class="lt-report hidden"></div>
+        <!-- 결과 차례(운영자 2026-11-21 시안 B + 「점수도 넣어줘」): 내 레벨 → 점수(분석 윗부분) → 「오늘 공부」 → 책 → 가입 → 나머지는 「더 보기」.
+             전에는 분석 → 레벨 → 날짜 → 책 → 가입 → 오늘 공부 → 리포트 → 다시 보기 → 공유 → Pro → 의견(폰 약 3,000px, 단추 13개쯤). -->
         <div class="claw-over-emoji" id="ltOverEmoji"></div>
         <div class="claw-over-score" id="ltOverScore">0</div>
         <p class="claw-over-line" id="ltOverLine"></p>
+        <!-- 점수 — 예상 점수 · 다음 급까지 · 영역별 칸. 「이렇게 올려요」 조언은 감춘다(아래 「오늘 공부」가 같은 일을 한다) -->
+        <div id="ltReport" class="lt-report lt-report-top hidden"></div>
+        <!-- 처음 온 사람의 흐름(운영자 2026-10-07): 레벨테스트 → 바로 「오늘 공부」 1회 -->
+        <button type="button" class="pt-next lt-daily-go" id="ltDailyGo" data-en="Start today’s study now (~15 min)">오늘 공부 바로 시작 (약 15분)</button>
+        <div id="ltBook" hidden></div>
+        <!-- 가입 권유(로그인 전) · 「계정에 저장했어요 · 지난번과 견주기」(로그인 후) — app.module.js ltJoinPaint -->
+        <div id="ltJoin" class="lt-join hidden"></div>
+        <details class="lt-more" id="ltMore">
+        <summary data-en="More: exam date · full report · share · Exam Pass">더 보기 · 시험 날짜 · 리포트 · 공유</summary>
         <!-- 생각한 수준과 견주기 · 시험까지(D-day) · 하루 공부 시간으로 이 레벨을 끝낼 때까지 -->
         <div id="ltPlan" class="lt-plan hidden"></div>
-        <div id="ltBook" hidden></div>
-        <!-- 가입 권유(로그인 전) · 「계정에 저장했어요 · 지난번과 견주기」(로그인 후) — app.module.js ltJoinPaint.
-             Clarity 에서 레벨테스트 → 로그인이 0% 라(2026-10-02) 결과 바로 아래, 가장 궁금할 때 가입할 까닭을 보인다. -->
-        <div id="ltJoin" class="lt-join hidden"></div>
         <!-- 결과는 언제든 「레벨테스트 결과」 리포트에서 다시 본다(2026-10-06) -->
-        <!-- 처음 온 사람의 흐름(운영자 2026-10-07): 레벨테스트 → 바로 「오늘 공부」 1회. 가입은 첫 회를 마친 뒤에 권한다. -->
-        <button type="button" class="pt-next lt-daily-go" id="ltDailyGo" data-en="Start today’s study now (~15 min)">오늘 공부 바로 시작 (약 15분)</button>
         <button type="button" class="lt-report-go" id="ltReportGo" data-en="See the full report: you can come back to it any time">결과 리포트로 보기 — 언제든 다시 볼 수 있어요</button>
         <!-- 선생님 1:1 체험 수업(Preply) 칸은 뺐다(운영자 2026-11-21 「이건 빼」). 다시 넣으려면 git 기록의 a.lt-teach 를 되살린다. -->
         <!-- 문제 다시 보기 — 내 답 · 정답 · 풀이(app.module.js ltReviewHtml) -->
@@ -3849,6 +3865,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="ltProBox" class="lt-pro hidden"></div>
 
         <div id="ltFb"></div>
+        </details>
         <div class="claw-over-btns">
           <button class="pt-next" id="ltAgain" type="button"></button>
           <button class="pt-next" id="ltSeeAll" type="button"></button>
@@ -4517,10 +4534,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="hlpScrim" class="hlp-scrim"></div>
 <aside id="hlpPanel" class="hlp-panel" aria-label="한국어 도우미" aria-hidden="true"></aside>
 
-<script src="app.js?v=d107e88f"></script>
-<script type="module" src="app.module.js?v=d107e88f"></script>
+<script src="app.js?v=dda6ca4a"></script>
+<script type="module" src="app.module.js?v=dda6ca4a"></script>
 
-<script src="analytics.js?v=d107e88f" defer></script>
-<script src="sale.js?v=d107e88f" defer></script>
+<script src="analytics.js?v=dda6ca4a" defer></script>
+<script src="sale.js?v=dda6ca4a" defer></script>
 </body>
 </html>
