@@ -2267,7 +2267,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="side-item-ico" data-ic="target">🎯</span><span data-en="TOPIK">TOPIK</span>
     </button>
       <div class="sm-sub" role="group" aria-label="TOPIK" data-en-aria="TOPIK">
-        <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
+        <!-- 2026-11-21 운영자 「TOPIK 은 듣기 읽기 쓰기 나눠서」 — 영역만 적힌 주소(learn/topik/listening …)는 앱이 지금 급(I · II)을 골라 연다(app.module.js) -->
+        <button class="side-item" type="button" data-open="learn/topik/listening"><span data-en="Listening">듣기</span></button>
+        <button class="side-item" type="button" data-open="learn/topik/reading"><span data-en="Reading">읽기</span></button>
+        <button class="side-item" type="button" data-open="learn/topik/II/writing"><span data-en="Writing · AI scoring">쓰기 · AI 채점</span></button>
+        <button class="side-item sm-off" type="button" id="topikBtn" data-open="learn/topik">
       <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
     </button>
         <button class="side-item sm-off" type="button" data-open="learn/quiz">
