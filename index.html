@@ -1090,6 +1090,9 @@ html[data-lv] .hm-tour { display:none; }   /* 레벨이 있는 학생은 「오�
 #sideNav.side-calm.on .sm-col:nth-child(2) { animation-delay:.03s; } #sideNav.side-calm.on .sm-col:nth-child(3) { animation-delay:.06s; }
 #sideNav.side-calm.on .sm-col:nth-child(4) { animation-delay:.09s; } #sideNav.side-calm.on .sm-col:nth-child(5) { animation-delay:.12s; }
 @media (prefers-reduced-motion:reduce) { #sideNav.side-calm.on .sm-col { animation:none; } }
+/* 가지치기(운영자 2026-11-21 「필요없는 메뉴 가지치기 · 너무 많아 정신이 없다」) — 42 → 17줄. 4주 숫자에 거의 안 잡히는 줄은 메뉴에서만 숨긴다(.sm-off).
+   지우지 않은 까닭: 다른 화면 · 코드가 그 단추 id 를 눌러(.click()) 화면을 여는 곳이 있다. 화면 자체는 그대로 살아 있다(배우기 · 게임 화면 안, 검색). */
+#sideNav.side-calm .sm-off { display:none !important; }
 /* 로그인 단추(운영자 2026-11-21 「sign in · login 빼고 이렇게」 — 둥근 알약 단추 사진): 머리띠의 「👤 로그인」 글 링크 → 꽉 찬 둥근 단추,
    폰에서도 보인다. ☰ 메뉴 안의 로그인 줄은 뺐다(머리띠 단추 하나로). 로그인하면 app.module.js paintAuthNav 가 글을 「내 계정」으로 바꾼다. */
 .site-nav > #authBtn { display:inline-flex !important; align-items:center; height:36px; padding:0 16px; margin-left:6px; border-radius:980px; background:var(--orange-deep); color:#fff; font-size:14px; font-weight:700; letter-spacing:-.01em; border:0; }
@@ -2208,7 +2211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-open="learn/report">
       <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Level test results">레벨테스트 결과</span>
     </button>
-        <button class="side-item" type="button" data-open="learn/notes">
+        <button class="side-item sm-off" type="button" data-open="learn/notes">
       <span class="side-item-ico" data-ic="note">🗒️</span><span data-en="My notes">내 노트</span>
     </button>
         <button class="side-item" type="button" data-open="learn/wrong">
@@ -2217,7 +2220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item side-solo" type="button" data-open="learn/class">
       <span class="side-item-ico" data-ic="class">🏫</span><span data-en="My class · homework">내 반 · 숙제</span>
     </button>
-        <button class="side-item" id="dashBtn" type="button" aria-label="대시보드 열기">
+        <button class="side-item sm-off" id="dashBtn" type="button" aria-label="대시보드 열기">
       <span class="side-item-ico" data-ic="chart">📊</span><span data-en="Dashboard">대시보드</span>
     </button>
         <button class="side-item" id="sideProBtn" type="button" aria-label="구독 · Pro">
@@ -2236,25 +2239,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item side-solo" type="button" data-open="learn/sentence">
       <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Grammar">문법</span>
     </button>
-        <button class="side-item" type="button" data-open="learn/reading">
+        <button class="side-item sm-off" type="button" data-open="learn/reading">
           <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Read and write it back">읽고 써 보기</span>
         </button>
         <button class="side-item" type="button" data-open="learn/convo">
           <span class="side-item-ico" data-ic="chat">💬</span><span data-en="Practice a conversation">회화 연습</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/translate">
+        <button class="side-item sm-off" type="button" data-open="learn/translate">
       <span class="side-item-ico" data-ic="swap">🔁</span><span data-en="Translate">번역 연습</span>
     </button>
-        <button class="side-item" type="button" id="navBtn" aria-label="발음 테스트 열기">
+        <button class="side-item sm-off" type="button" id="navBtn" aria-label="발음 테스트 열기">
           <span class="side-item-ico" data-ic="mic">🎙</span><span data-en="Pronunciation test">발음 테스트</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/stories">
+        <button class="side-item sm-off" type="button" data-open="learn/stories">
           <span class="side-item-ico" data-ic="books">📚</span><span data-en="Storybooks">동화책</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/travel">
+        <button class="side-item sm-off" type="button" data-open="learn/travel">
           <span class="side-item-ico" data-ic="plane">✈️</span><span data-en="Travel Korean">여행 한국어</span>
         </button>
-        <button class="side-item" type="button" data-open="learn/lectures">
+        <button class="side-item sm-off" type="button" data-open="learn/lectures">
           <span class="side-item-ico" data-ic="play">🎬</span><span data-en="Video lessons">강의 영상</span>
         </button>
       </div>
@@ -2267,7 +2270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" id="topikBtn" data-open="learn/topik">
       <span class="side-item-ico" data-ic="doc">📝</span><span data-en="Practice · mock exams">연습 · 모의고사</span>
     </button>
-        <button class="side-item" type="button" data-open="learn/quiz">
+        <button class="side-item sm-off" type="button" data-open="learn/quiz">
           <span class="side-item-ico" data-ic="bolt">⚡</span><span data-en="Just the questions">문제만 풀기</span>
         </button>
         <a class="side-item side-solo" href="exam-room/" aria-label="TOPIK 실제 시험장 열기" data-en-aria="Open the TOPIK exam room" data-ev="시험장열기" data-ev-from="사이드바">
@@ -2295,13 +2298,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="side-item" type="button" data-nav-to="gcPotdle">
           <span class="side-item-ico" data-ic="bolt">🟨</span><span data-en="Potato Wordle">오늘의 감자들</span>
         </button>
-        <button class="side-item" type="button" data-nav-to="gcChosung">
+        <button class="side-item sm-off" type="button" data-nav-to="gcChosung">
           <span class="side-item-ico" data-ic="bolt">ㅊ</span><span data-en="Initial-consonant quiz">초성 퀴즈</span>
         </button>
-        <button class="side-item" type="button" data-nav-to="gcNum">
+        <button class="side-item sm-off" type="button" data-nav-to="gcNum">
           <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Read the number">숫자 읽기</span>
         </button>
-        <a class="side-item" href="korean-word-today/" aria-label="오늘의 단어 카드" data-en-aria="Korean word of the day">
+        <a class="side-item sm-off" href="korean-word-today/" aria-label="오늘의 단어 카드" data-en-aria="Korean word of the day">
           <span class="side-item-ico" data-ic="abc">📅</span><span data-en="Word of the day">오늘의 단어</span>
         </a>
       </div>
@@ -2317,28 +2320,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="side-item" href="blog/" aria-label="블로그 열기">
       <span class="side-item-ico" data-ic="pen">✍️</span><span data-en="Blog">블로그</span>
     </a>
-        <a class="side-item" href="blog/#qna">
+        <a class="side-item sm-off" href="blog/#qna">
           <span class="side-item-ico" data-ic="help">🙋</span><span data-en="Ask &amp; answer">묻고 답하기</span>
         </a>
-        <a class="side-item" href="korean-name/" aria-label="내 이름 도장 만들기" data-en-aria="Make my Korean name seal">
+        <a class="side-item sm-off" href="korean-name/" aria-label="내 이름 도장 만들기" data-en-aria="Make my Korean name seal">
           <span class="side-item-ico" data-ic="star">🔴</span><span data-en="My name seal">내 이름 도장</span>
         </a>
-        <a class="side-item" href="my-korean-name/" aria-label="나의 한국 이름 짓기" data-en-aria="Korean name generator">
+        <a class="side-item sm-off" href="my-korean-name/" aria-label="나의 한국 이름 짓기" data-en-aria="Korean name generator">
           <span class="side-item-ico" data-ic="user">🏷️</span><span data-en="My Korean name">나의 한국 이름</span>
         </a>
-        <a class="side-item" href="korean-zodiac/" aria-label="나의 띠 카드" data-en-aria="My Korean zodiac card">
+        <a class="side-item sm-off" href="korean-zodiac/" aria-label="나의 띠 카드" data-en-aria="My Korean zodiac card">
           <span class="side-item-ico" data-ic="compass">🐯</span><span data-en="My zodiac card">나의 띠 카드</span>
         </a>
-        <a class="side-item" href="korean-proverb/" aria-label="속담 포춘쿠키" data-en-aria="Korean fortune cookie">
+        <a class="side-item sm-off" href="korean-proverb/" aria-label="속담 포춘쿠키" data-en-aria="Korean fortune cookie">
           <span class="side-item-ico" data-ic="help">🥠</span><span data-en="Fortune cookie">속담 포춘쿠키</span>
         </a>
-        <a class="side-item" href="korean-birthday/" aria-label="한국어 생일 카드" data-en-aria="Korean birthday card">
+        <a class="side-item sm-off" href="korean-birthday/" aria-label="한국어 생일 카드" data-en-aria="Korean birthday card">
           <span class="side-item-ico" data-ic="chat">🎂</span><span data-en="Birthday card">생일 카드</span>
         </a>
-        <a class="side-item" href="hangul-worksheet/" aria-label="이름 따라 쓰기 학습지" data-en-aria="Name tracing worksheet">
+        <a class="side-item sm-off" href="hangul-worksheet/" aria-label="이름 따라 쓰기 학습지" data-en-aria="Name tracing worksheet">
           <span class="side-item-ico" data-ic="pen">✏️</span><span data-en="Tracing worksheet">따라 쓰기 학습지</span>
         </a>
-        <a class="side-item" href="korean-age/" aria-label="한국 나이 계산기" data-en-aria="Korean age calculator">
+        <a class="side-item sm-off" href="korean-age/" aria-label="한국 나이 계산기" data-en-aria="Korean age calculator">
           <span class="side-item-ico" data-ic="hash">🔢</span><span data-en="Korean age">한국 나이</span>
         </a>
       </div>
