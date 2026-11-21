@@ -20,6 +20,7 @@
    앱(cheesepotato-rn2/package.json)과 같은 줄기를 써야 한다. 갈리면
    앱에서 되던 게 웹에서 안 되는 일이 생긴다. */
 
+import { stripLatin } from './lib/strip-latin.mjs';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -139,7 +140,7 @@ gdUrls.forEach((u, i) => {
 fs.writeFileSync(path.join(OUT, 'gowun-dodum.css'),
   '/* Gowun Dodum(고운돋움) — SIL Open Font License 1.1\n' +
   '   fonts.google.com/specimen/Gowun+Dodum\n' +
-  '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + gd.trim() + '\n');
+  '   tools/vendor.mjs 가 만든다. 손으로 고치지 말 것. */\n' + stripLatin(gd.trim()) + '\n');   // 영어는 Pretendard 로(tools/lib/strip-latin.mjs)
 say(`  gowun-dodum.css + 조각 ${gdUrls.length}개`);
 
 /* ── 5. 받은 그대로인지 적어 두기 ─────────────────────────── */
