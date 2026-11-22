@@ -10,6 +10,12 @@
      뛰는데, 그러면 안 바뀐 쪽까지 「오늘 바뀌었다」가 된다. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://everykoreans.com/blog/weekly-korean-2026-11-23.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/blog/go-vs-aseo.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>yearly</changefreq>
@@ -598,13 +604,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://everykoreans.com/blog/tag/beginner.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://everykoreans.com/blog/tag/grammar.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://everykoreans.com/blog/tag/beginner.html</loc>
+    <loc>https://everykoreans.com/blog/tag/topik.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -623,12 +635,6 @@
   </url>
   <url>
     <loc>https://everykoreans.com/blog/tag/intermediate.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://everykoreans.com/blog/tag/topik.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
