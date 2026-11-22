@@ -2233,7 +2233,8 @@ const BLOG_CSS = `
 .rb-banner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px 18px;margin:0 0 16px}
 .rb-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--brand);
-  display:grid;place-items:center;font-size:26px;line-height:1}
+  display:grid;place-items:center;font-size:26px;line-height:1;overflow:hidden}
+.rb-avatar img,.rb-avatar-sm img{width:100%;height:100%;display:block}
 .rb-id{flex:1 1 220px;min-width:0}
 .rb-id h1{font-size:22px;margin:0;letter-spacing:-.02em;line-height:1.25}
 .rb-id p{margin:3px 0 0;font-size:13px;color:var(--dim);line-height:1.5}
@@ -2847,7 +2848,7 @@ const flair = (tags) => (tags && tags.length)
 /* 글 머리에 서는 한 줄. 목록과 본문 쪽이 같은 줄을 써야 목록에서 본 것과
    눌러 들어간 쪽이 어긋나지 않는다. */
 function postMeta(post) {
-  return '<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span>' +
+  return '<div class="rb-meta"><span class="rb-who">치즈감자</span>' +
     ` <span class="dot">·</span> ${timeTag(post.date)}` +
     (post.updated && post.updated !== post.date
       ? ` <span class="dot">·</span> 고침 ${timeTag(post.updated)}` : '') +
@@ -2886,7 +2887,7 @@ function relatedPosts(post, all, skip, n = 3) {
 function postByline(post) {
   const en = post.lang === 'en';
   return '<div class="rb-byline">' +
-    '<span class="rb-avatar-sm" aria-hidden="true">🧀</span>' +
+    '<span class="rb-avatar-sm" aria-hidden="true"><img src="/logo-256.png" alt="" width="44" height="44"></span>' +
     '<div class="rb-byline-info">' +
       `<div class="rb-byline-name">${en ? 'CheesePotato' : '치즈감자'}</div>` +
       `<div class="rb-byline-role">${en ? 'We teach Korean' : '한국어를 가르치는 사람'}` +
@@ -3044,9 +3045,10 @@ function blogSide(posts, activeTag) {
     '<section class="rb-box"><h2>이 블로그가 지키는 것</h2><ol class="rb-rules">' +
       rules.map((r) => `<li>${esc(r)}</li>`).join('') + '</ol></section>',
     '<section class="rb-box"><h2>둘러보기</h2><ul class="rb-links">' +
-      '<li><a href="/course/">코스 21개 · 레슨 82개</a></li>' +
-      '<li><a href="/sentence/">문법 표현 290개</a></li>' +
-      '<li><a href="/compare/">헷갈리는 표현 견주기 73갈래</a></li>' +
+      /* 숫자는 자료에서 센다 — 「코스 21개 · 레슨 82개」로 손으로 적어 둔 것이 늘어난 뒤에도 그대로였다(2026-11-22) */
+      `<li><a href="/course/">코스 ${COURSES.length}개 · 레슨 ${COURSES.reduce((a, c) => a + c.lessons.length, 0)}개</a></li>` +
+      `<li><a href="/sentence/">문법 표현 ${SB_CATS.reduce((a, c) => a + c.points.length, 0)}개</a></li>` +
+      `<li><a href="/compare/">헷갈리는 표현 견주기 ${SB_CATS.filter((c) => c.points.length >= 2).length}갈래</a></li>` +
       '<li><a href="/topik-reading/">TOPIK 읽기 연습</a></li>' +
       (posts.length ? '<li><a href="/blog/rss.xml">RSS 로 새 글 받기</a></li>' : '') +
       '</ul></section>',
@@ -3062,15 +3064,15 @@ function blogHub(posts) {
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
     '<header class="rb-banner">',
-      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      '<div class="rb-avatar" aria-hidden="true"><img src="/logo-256.png" alt="" width="52" height="52"></div>',
       '<div class="rb-id"><h1>치즈감자 블로그</h1>' +
         '<p>한국어 공부, 문법, TOPIK 준비에 관한 글 · Notes on learning Korean, grammar, and TOPIK prep</p></div>',
       '<a class="rb-join" href="/#learn">한국어 배우러 가기</a>',
     '</header>',
     /* 글 | 묻고 답하기 — Q&A 는 블로그 안에(운영자 결정 2026-10-02). 질문 · 답은 blog-qna.js 가 표에서 읽어 온다 */
     '<div class="rb-tabs" role="tablist">' +
-      `<button type="button" role="tab" data-rb-tab="posts" class="on" aria-selected="true">✍️ 글 <small>${posts.length}</small></button>` +
-      '<button type="button" role="tab" data-rb-tab="qna" aria-selected="false">🙋 묻고 답하기 <small>Q&amp;A</small></button>' +
+      `<button type="button" role="tab" data-rb-tab="posts" class="on" aria-selected="true">글 <small>${posts.length}</small></button>` +
+      '<button type="button" role="tab" data-rb-tab="qna" aria-selected="false">묻고 답하기 <small>Q&amp;A</small></button>' +
     '</div>',
     '<div class="rb-cols" id="rbPosts">',
       `<main>${feed}</main>`,
@@ -3133,7 +3135,7 @@ function blogTagPage(tag, posts, allPosts) {
   const body = [
     `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="${t.hub}">${esc(t.blog)}</a> › ${esc(tag)}</nav>`,
     '<header class="rb-banner">',
-      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
+      '<div class="rb-avatar" aria-hidden="true"><img src="/logo-256.png" alt="" width="52" height="52"></div>',
       `<div class="rb-id"><h1>${esc(en ? tag : `${tag} 글`)}</h1>` +
         `<p>${en ? `${posts.length} post${posts.length === 1 ? '' : 's'} tagged 「${esc(tag)}」 on the CheesePotato blog.`
                  : `치즈감자 블로그에서 「${esc(tag)}」로 묶은 글 ${posts.length}편입니다.`}</p></div>`,
