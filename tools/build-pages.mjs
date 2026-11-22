@@ -1764,14 +1764,6 @@ function choOf(head) {
   return CHO[Math.floor(code / (21 * 28))];
 }
 
-/* 「다음 한 걸음」(운영자 2026-10-09 — Clarity: 검색으로 사전 · 「○○ in Korean」 쪽에 온 사람이 7~9초 만에 떠난다).
-   뜻을 본 바로 아래에 큰 단추 셋 — 로그인 없이 되는 게임 · 이 낱말 외우기 · 3분 레벨테스트. utm 으로 숫자 판에서 갈래를 본다. */
-const nextStep = (head, src) => `<div class="nx"><p class="nx-h">다음 한 걸음 <small lang="en">What next?</small></p>` +
-  `<a class="nx-a nx-go" href="/?utm_source=${src}#blocks"><b>🥔 낱말 감자 게임 · 2분</b><span lang="en">Match Korean words — free, no sign-up</span></a>` +
-  `<a class="nx-a" href="/?utm_source=${src}#words/w/${encodeURIComponent(head)}"><b>📚 「${esc(head)}」 외우기</b><span lang="en">Flashcards, audio and review</span></a>` +
-  `<a class="nx-a" href="/?lt=1&utm_source=${src}"><b>🧭 내 한국어 레벨 · 3분</b><span lang="en">Find your level and today’s lesson</span></a>` +
-  /* TOPIK 쓰기 모음은 검색 클릭률 17%(Search Console 2026-10-10) — 노출이 적을 뿐이라 많이 보이는 쪽에서 잇는다 */
-  `<a class="nx-a" href="/en/topik-writing/?utm_source=${src}"><b>✍️ TOPIK 쓰기 연습 · AI 채점</b><span lang="en">200 TOPIK II writing tasks with model answers — free</span></a></div>`;
 /* 「TOPIK 문항에서」 — 이 낱말이 우리 TOPIK 문항에 나온 문장 셋과 그 문항 쪽 링크(문항 쪽이 실제로 있는 것만) */
 const TREF_SK = { reading: ['topik-reading', '읽기', 'Reading'], listening: ['topik-listening', '듣기', 'Listening'], writing: ['topik-writing', '쓰기', 'Writing'] };
 /* 찾은 문장이 정말 그 낱말인지 — 토큰(띄어쓰기 단위)이 줄기로 시작할 때만(「무책임하게」가 「임하다」로, 「묵묵히」가 「묵히다」로, 「파악하여」가 「악하다」로 잡히던 것을 거른다).
@@ -1789,12 +1781,6 @@ const dxTref = (head, src) => {
   return (r.r || []).filter(([, sk, id, sent]) => TREF_SK[sk] && refOk(head, sent) && existsSync(join(ROOT, TREF_SK[sk][0], `${id}.html`))).slice(0, 3)
     .map(([e, sk, id, sent]) => [sent, `/${TREF_SK[sk][0]}/${id}.html?utm_source=${src}`, `TOPIK ${e} ${TREF_SK[sk][1]} 문항`]);
 };
-const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
-  '.nx-a{display:block;padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);text-decoration:none}' +
-  '.nx-a b{display:block;font-size:16px}.nx-a span{display:block;font-size:13px;color:var(--dim);margin-top:2px}' +
-  '.nx-go{background:var(--cta);border-color:var(--cta);color:var(--cta-ink)}.nx-go span{color:inherit;opacity:.8}' +
-  '.tref-n{margin:6px 0 8px}.tref{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:8px}.tref li{padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}' +
-  '.tref li>span{display:block;font-size:15px;line-height:1.6}.tref li a{display:inline-block;margin-top:4px;font-size:13px;font-weight:700;color:var(--cta,#C4551C);text-decoration:none}';
 /* 낱말 쪽 사전식(운영자 2026-11-22 시안 「B로 하고 디벨롭하자」 — 이전 쪽은 「구려 · 정신없어」).
    학습자 사전 짜임: 머리(급수 · 품사 · 낱말 · 로마자 · 소리 · 발음) → 이름표 줄(뜻 · 관련어 · 활용 · TOPIK 문항) → 이전/다음.
    예문은 뜻 바로 아래. PC 는 오른쪽 곁칸(같은 주제 낱말 · 이 낱말로 더 하기 · 책), 폰 · 태블릿은 본문 아래로.
@@ -2089,21 +2075,34 @@ function vocabPage(w, prev, next) {
 }
 
 /* 낱말 목록 쪽(주제별) — 「TOPIK 1 vocabulary list」 「Korean food vocabulary」 「TOPIK 2 vocabulary」 같은 검색을 받는다. */
+/* 낱말 목록 쪽 — 문항 · 코스 쪽과 같은 두 칸(2026-11-22 「다음 영역」): 본문에 표, 오른쪽 곁칸 상자(다른 주제 · 더 하기 · 책).
+   전에는 한 칸 · 검정 큰 단추 · 아래에 다른 주제 칩이었다. */
+const VL_BOOK = { topik1: 'topik1-vocab', topik2: 'topik2-vocab-1000' };
+const vlBookBox = (vs, src) => {
+  const b = SHOPJ.books.find((x) => x.id === VL_BOOK[vs.key]); if (!b) throw new Error('shop.json 에 없는 책: ' + VL_BOOK[vs.key]);
+  const bu = `/shop/${b.id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=${src}`;
+  return `<section class="tq-box"><h3>책으로 이어서</h3><div class="tq-bkin"><a href="${bu}"><img src="${esc(b.coverImg)}" alt="" width="56" height="80" loading="lazy"></a>` +
+    `<div><b>${esc(b.title.ko)}</b><small>PDF · $${esc(b.price)}</small><a class="tq-bkgo" href="${bu}">책 보기 →</a>` +
+    (b.sample ? `<a class="tq-smp" href="/assets/books/${b.id}/sample.pdf" download data-ev="샘플받기" data-ev-from="${src}">무료 샘플 ${b.sample.pages}쪽</a>` : '') + '</div></div></section>';
+};
 function vocabListPage(vs, tp, list) {
   const n = list.length;
   const rows = list.map((w) => `<tr><td><a href="${dictHref(w.h)}">${esc(w.h)}</a></td><td class="rom">${esc(romanize(w.h) || '')}</td><td lang="en">${esc(w.s || w.e.split(';')[0])}</td><td>${esc(w.p)}</td></tr>`).join('');
-  const body = [
+  const topics = VOCAB_TOPICS.filter((x) => vs.by.get(x.id)?.length);
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="${vs.dir}">${vs.name} 낱말</a> › ${esc(tp.ko)}</nav>`,
-    `<span class="badge">${vs.name} · ${n}개</span>`,
-    `<h1>${vs.name} ${esc(tp.ko)} 낱말 ${n}개</h1>`,
-    `<p class="lead">TOPIK ${vs.num} ${esc(tp.en)} vocabulary — ${n} Korean words with romanization and English, most frequent first. ` +
-      `${esc(tp.subs.map((x) => x.ko).join(' · '))}. 낱말을 누르면 예문 · 활용 · 퀴즈가 있어요.</p>`,
-    `<a class="cta" href="/#words/topic/${tp.id}/${vs.key}">이 목록을 카드로 외우기 →<span>Study these ${n} words with flashcards and spaced review — free</span></a>`,
+    `<span class="badge">${vs.name} · ${esc(tp.en)}</span>`,
+    `<h1>${vs.name} ${esc(tp.ko)} 낱말 <small>${n}개</small></h1>`,
+    `<p class="lead">자주 나오는 차례로 ${n}개 — 낱말을 누르면 예문 · 활용 · 발음이 있어요.<br><span lang="en">TOPIK ${vs.num} ${esc(tp.en)} vocabulary, most frequent first.</span></p>`,
+    `<a class="tq-app" href="/#words/topic/${tp.id}/${vs.key}">이 ${n}개를 카드로 외우기 →</a>`,
     `<table class="vl"><thead><tr><th>낱말</th><th>Romanization</th><th>English</th><th>품사</th></tr></thead><tbody>${rows}</tbody></table>`,
-    '<h2>다른 주제 · Other topics</h2><ul class="pts">' +
-      VOCAB_TOPICS.filter((x) => x.id !== tp.id && vs.by.get(x.id)?.length).map((x) => `<li><a href="${vs.dir}${x.id}.html">${esc(x.ko)} · ${esc(x.en)}</a></li>`).join('') + '</ul>',
-    '<p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
+    '<p class="note"><a href="/topik-vocabulary-list/">CSV · Anki 로 내려받기 →</a> · 어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
   ].join('\n');
+  const side = '<aside class="dx-side tq-side">' +
+    `<section class="tq-box"><h3>다른 주제 <small>${vs.name} · ${topics.length}갈래</small></h3><ol class="tq-list">` +
+      topics.map((x) => `<li${x.id === tp.id ? ' class="on" aria-current="page"' : ''}><a href="${vs.dir}${x.id}.html"><span>${vs.by.get(x.id).length}</span>${esc(x.ko)}</a></li>`).join('') + '</ol></section>' +
+    vlBookBox(vs, `vl_${vs.key}`) + '</aside>';
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
   const url = `${vs.dir}${tp.id}.html`;
   return page({
     url, title: `TOPIK ${vs.num} ${tp.en} Vocabulary — ${n} Korean Words with English | CheesePotato`,
@@ -2114,38 +2113,49 @@ function vocabListPage(vs, tp, list) {
         hasDefinedTerm: list.slice(0, 50).map((w) => ({ '@type': 'DefinedTerm', name: w.h, description: w.e, url: `${SITE}${dictHref(w.h)}` })) },
       crumbLd([['치즈감자', '/'], [`${vs.name} 낱말`, vs.dir], [tp.ko, null]]),
     ],
-    extraCss: VL_CSS,
+    extraCss: TQ_CSS + VL_CSS,
   });
 }
-const VL_CSS = '.vl{width:100%;border-collapse:collapse;margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}' +
-  '@media(max-width:600px){.vl{display:block;overflow-x:auto;max-width:100%}}' +
-  '.vl th,.vl td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:15px;vertical-align:top}' +
-  '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}' +
+const VL_CSS = '.tq-side .tq-list a,.tq-side .tq-go a{padding:7px 16px}.tq-side .tq-box h3{padding:10px 16px}.dx h1 small{font-size:16px;color:var(--dim);font-weight:500;margin-left:6px}' +
+  '.vl{width:100%;border-collapse:collapse;margin-top:18px;border-top:2px solid var(--ink)}' +
+  '.vl th,.vl td{padding:9px 12px 9px 0;border-bottom:1px solid var(--line);text-align:left;font-size:15px;vertical-align:top}' +
+  '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}.vl td:first-child a{color:var(--ink);font-weight:700;text-decoration:none}' +
   /* 줄 아무 데나 눌러도 그 낱말 사전 쪽이 열린다(2026-11-20 GA4 데드클릭: /topik2-words/body.html 에서 뜻 · 로마자 칸을 8번 헛누름) — 첫 칸 링크를 줄 전체로 늘린다 */
   '.vl tbody tr{position:relative;cursor:pointer}.vl tbody td:first-child a::after{content:"";position:absolute;inset:0}.vl tbody tr:hover td{background:var(--soft,#f6f1e7)}' +
-  '@media(max-width:600px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px}}.note{font-size:13px;color:var(--dim)}';
+  '@media(max-width:600px){.vl th:nth-child(4),.vl td:nth-child(4){display:none}.vl td,.vl th{padding:8px 8px 8px 0;font-size:14.5px}}.note{font-size:13px;color:var(--dim)}' +
+  '.vh{width:100%;border-collapse:collapse;margin-top:18px;border-top:2px solid var(--ink);font-size:15px}.vh td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}' +
+  '.vh td:first-child{width:230px}.vh td:first-child a{color:var(--ink);font-weight:800;text-decoration:none}.vh td:first-child small{display:block;color:var(--dim);font-size:12.5px;font-weight:500}' +
+  '.vh td:nth-child(2){color:var(--dim);font-size:14px}.vh td:last-child{width:60px;text-align:right;color:var(--dim);font-size:13px}' +
+  '@media(max-width:600px){.vh td:first-child{width:auto}.vh tr{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid var(--line)}.vh td{border:0;padding:8px 0 2px}.vh td:nth-child(2){grid-column:1/3;grid-row:2;padding:0 0 10px}}';
 
 function vocabListHub(vs) {
   const all = vs.list.length;
   const other = vs.key === 'topik1' ? VL_SETS.topik2 : VL_SETS.topik1;
-  const body = [
+  const topics = VOCAB_TOPICS.filter((x) => vs.by.get(x.id)?.length);
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › ${vs.name} 낱말</nav>`,
-    `<h1>${vs.name} 필수 낱말 ${all.toLocaleString('ko-KR')}개 — 주제별 목록</h1>`,
+    `<h1>${vs.name} 필수 낱말 <small>${all.toLocaleString('ko-KR')}개 · 주제별</small></h1>`,
     `<p class="lead">TOPIK ${vs.num} vocabulary list: ${all.toLocaleString('en-US')} essential Korean words for ${vs.name}, grouped by topic, with romanization, English meanings and example sentences. ` +
       (vs.key === 'topik1' ? '국립국어원 표준 교육과정 1 · 2급 낱말에 우리 자료에 자주 나오는 말을 더했어요.</p>'
         : '국립국어원 표준 교육과정 3 ~ 6급 낱말을 우리 TOPIK II 문항에 자주 나오는 차례로 — 채우는 대로 늘어나요.</p>'),
-    `<a class="cta" href="/#words/topic/all/${vs.key}">하루 10개씩 무료로 외우기 →<span>Learn ${all.toLocaleString('en-US')} ${vs.name} words, ten a day, with spaced review</span></a>`,
-    '<div class="facts">' + VOCAB_TOPICS.filter((x) => vs.by.get(x.id)?.length).map((x) =>
-      `<div class="fact"><b><a href="${vs.dir}${x.id}.html">${esc(x.ko)} · ${esc(x.en)}</a></b><span>${vs.by.get(x.id).length}개 — ${esc(vs.by.get(x.id).slice(0, 6).map((w) => w.h).join(' · '))} …</span></div>`).join('') + '</div>',
-    '<p class="note"><a href="/topik-vocabulary-list/">Download the TOPIK vocabulary list — CSV · Anki (free) →</a> · <a href="/topik-grammar-list/">TOPIK grammar list →</a> · <a href="/topik-writing/">TOPIK writing practice →</a></p>',
-    other.list.length ? `<p class="note"><a href="${other.dir}">${other.name} 낱말 목록(${other.list.length.toLocaleString('ko-KR')}개) →</a></p>` : '',
+    `<a class="tq-app" href="/#words/topic/all/${vs.key}">하루 10개씩 무료로 외우기 →</a>`,
+    '<table class="vh"><tbody>' + topics.map((x) =>
+      `<tr><td><a href="${vs.dir}${x.id}.html">${esc(x.ko)}</a><small>${esc(x.en)}</small></td><td>${esc(vs.by.get(x.id).slice(0, 8).map((w) => w.h).join(' · '))} …</td><td>${vs.by.get(x.id).length}개</td></tr>`).join('') + '</tbody></table>',
     '<p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
   ].join('\n');
+  const side = '<aside class="dx-side tq-side">' +
+    '<section class="tq-box"><h3>목록 더 보기</h3><ul class="tq-go">' +
+      (other.list.length ? `<li><a href="${other.dir}">${other.name} 낱말 ${other.list.length.toLocaleString('ko-KR')}개<span>→</span></a></li>` : '') +
+      '<li><a href="/korean-word-for/">영어로 찾기 · Korean word for…<span>→</span></a></li>' +
+      '<li><a href="/topik-vocabulary-list/">CSV · Anki 로 내려받기<span>→</span></a></li>' +
+      '<li><a href="/topik-grammar-list/">TOPIK 문법 목록<span>→</span></a></li></ul></section>' +
+    vlBookBox(vs, `vlhub_${vs.key}`) + '</aside>';
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
   return page({
     url: vs.dir, kind: 'website',
     title: `TOPIK ${vs.num} Vocabulary List — ${all.toLocaleString('en-US')} Essential Korean Words by Topic | CheesePotato`,
     desc: clip(`${vs.name} 필수 낱말 ${all.toLocaleString('ko-KR')}개를 주제별로 — 로마자 · 영어 뜻 · 예문 · 활용. Free TOPIK ${vs.num} vocabulary list with English.`),
-    body, jsonld: [crumbLd([['치즈감자', '/'], [`${vs.name} 낱말`, vs.dir]])], extraCss: VL_CSS,
+    body, jsonld: [crumbLd([['치즈감자', '/'], [`${vs.name} 낱말`, vs.dir]])], extraCss: TQ_CSS + VL_CSS,
   });
 }
 
@@ -2175,14 +2185,6 @@ const EW = (() => {
    차례대로 돌려 쓰는 까닭: 모든 쪽이 같은 몇 쪽만 가리키지 않게 — 링크가 고르게 퍼진다. */
 const EW_BY_TOPIC = new Map();
 for (const [slug, v] of EW) { const tp = (v.words[0].t?.[0] || '').split('/')[0]; if (!tp) continue; if (!EW_BY_TOPIC.has(tp)) EW_BY_TOPIC.set(tp, []); EW_BY_TOPIC.get(tp).push([slug, v]); }
-function ewRelated(slug, v) {
-  const tp = (v.words[0].t?.[0] || '').split('/')[0], list = EW_BY_TOPIC.get(tp) || [];
-  const i = list.findIndex(([s2]) => s2 === slug); if (i < 0 || list.length < 3) return '';
-  const seen = new Set([v.words[0].h]), pick = [];   // 같은 한국어 낱말로 가는 쪽(move · move house → 이사하다)은 한 번만
-  for (let k = 1; k < list.length && pick.length < 6; k++) { const e = list[(i + k) % list.length]; if (seen.has(e[1].words[0].h)) continue; seen.add(e[1].words[0].h); pick.push(e); }
-  return '<div class="rel"><p class="nx-h">More ways to say it <small>같은 주제의 낱말</small></p><ul>' +
-    pick.map(([s2, v2]) => `<li><a href="/korean-word-for/${s2}.html">“${esc(v2.key)}” in Korean — ${esc(v2.words[0].h)}</a></li>`).join('') + '</ul></div>';
-}
 /* 이 낱말이 다른 낱말의 높임말이면 그 낱말. (vocab 의 rel.hon 은 「먹다 → 드시다」 쪽으로 적혀 있다.) */
 const HON_OF = new Map();
 VOCAB.forEach((w) => (w.r?.hon || []).forEach((h) => { if (!HON_OF.has(h)) HON_OF.set(h, w.h); }));
@@ -2206,22 +2208,32 @@ function engPage(slug, { key, words }) {
       hon ? `honorific form of <a href="${dictHref(hon)}">${esc(hon)}</a> — use it for elders and customers` : '',
       w.r?.hon?.length ? `honorific: ${w.r.hon.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : esc(x))).join(', ')}` : '',
     ].filter(Boolean).join(' · ');
-    return `<div class="ewc"><div class="ewh"><span class="ewn">${i + 1}</span><a href="${dictHref(w.h)}"><b>${esc(w.h)}</b></a> <i>${esc(r)}</i></div>` +
+    return `<div class="ewc"><div class="ewh">${n > 1 ? `<span class="ewn">${i + 1}</span>` : ''}<a href="${dictHref(w.h)}">${esc(w.h)}</a> <i>${esc(r)}</i>${sayBtn(w.h)}</div>` +
       `<p class="ewe" lang="en">${esc(w.e)}</p><p class="note">${notes}</p>` +
-      (w.x[0] ? `<div class="ex">${esc(w.x[0][0])}<i lang="en">${esc(w.x[0][1])}</i></div>` : '') + '</div>';
+      (w.x[0] ? `<div class="ewx"><p class="dx-xs">${dxPlay(w.x[0][0])}<span class="ex">${esc(w.x[0][0])}</span></p><i lang="en">${esc(w.x[0][1])}</i></div>` : '') + '</div>';
   };
-  const body = [
+  /* 영어로 찾기 쪽 — 사전 쪽처럼 두 칸(2026-11-22): 본문에 답(낱말 카드 · 소리 · 예문), 오른쪽에 같은 주제의 「○○ in Korean」 · 더 하기 · 목록.
+     전에는 이모지 카드 넷(🥔 📚 🧭 ✍️)과 검정 큰 단추가 답 사이에 끼어 있었다. */
+  const rel = ewRelatedList(slug, { words });
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/korean-word-for/">Korean word for…</a> › ${esc(key)}</nav>`,
     `<h1 lang="en">How to say “${esc(key)}” in Korean</h1>`,
     `<p class="lead" lang="en">The most common Korean word for “${esc(key)}” is <b>${esc(top.h)}</b> (${esc(rom)})` +
       (n > 1 ? `. There ${n === 2 ? 'is one more word' : `are ${n - 1} more words`} with a similar meaning — compare them below.` : '.') +
       ` 「${esc(key)}」는 한국어로 <b>${esc(top.h)}</b>.</p>`,
-    card(words[0], 0), nextStep(top.h, 'wordfor'), words.slice(1).map((w, i) => card(w, i + 1)).join(''),
-    `<a class="cta" href="/#words/w/${encodeURIComponent(top.h)}">Learn ${esc(top.h)} free — flashcards, audio and review →<span>「${esc(top.h)}」 단어장으로 무료로 외우기</span></a>`,
-    ewRelated(slug, { words }),
-    '<p class="note"><a href="/topik1-words/">TOPIK 1 vocabulary list</a> · <a href="/topik2-words/">TOPIK 2 vocabulary list</a> · <a href="/topik-vocabulary-list/">Download the word lists (CSV · Anki)</a></p>',
+    words.map((w, i) => card(w, i)).join(''),
+    `<a class="tq-app" href="/#words/w/${encodeURIComponent(top.h)}">Learn ${esc(top.h)} free — flashcards and review →</a>`,
     '<p class="note">Words and levels: TOPIK I essentials (National Institute of Korean Language standard curriculum, KOGL Type 1) · examples: Cheesepotato</p>',
   ].join('\n');
+  const side = '<aside class="dx-side tq-side">' +
+    (rel.length ? `<section class="tq-box"><h3>More ways to say it <small>같은 주제의 낱말</small></h3><ul class="tq-go">` +
+      rel.map(([s2, v2]) => `<li><a href="/korean-word-for/${s2}.html">“${esc(v2.key)}” — ${esc(v2.words[0].h)}<span>→</span></a></li>`).join('') + '</ul></section>' : '') +
+    '<section class="tq-box"><h3>More <small>더 하기</small></h3><ul class="tq-go">' +
+      `<li><a href="/?utm_source=wordfor#blocks">Word potato game · 2 min<span>→</span></a></li>` +
+      `<li><a href="/?utm_source=wordfor#words/w/${encodeURIComponent(top.h)}">Flashcards for ${esc(top.h)}<span>→</span></a></li>` +
+      '<li><a href="/?lt=1&amp;utm_source=wordfor">Find your level · 3 min<span>→</span></a></li>' +
+      '<li><a href="/topik1-words/">TOPIK 1 · 2 word lists<span>→</span></a></li></ul></section></aside>';
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
       { '@type': 'Question', name: `How do you say "${key}" in Korean?`,
@@ -2229,28 +2241,48 @@ function engPage(slug, { key, words }) {
     ] },
     crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/'], [key, null]]),
   ];
-  return page({ url, title, desc, body, jsonld, lang: 'en', extraCss: EW_CSS + NX_CSS });
+  return page({ url, title, desc, body, jsonld, lang: 'en', extraCss: TQ_CSS + EW_CSS });
 }
-const EW_CSS = '.ewc{border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;background:var(--card)}' +
-  '.ewh{font-size:22px}.ewh i{font-size:15px;color:var(--dim)}.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--soft);font-size:12px;margin-right:6px;vertical-align:middle}' +
-  '.rel ul{margin:6px 0 0;padding-left:18px}.rel li{margin:4px 0;font-size:14.5px}.ewe{margin:6px 0 2px;font-size:16px}.ex i{display:block;color:var(--dim);font-size:14px;font-style:normal;margin-top:4px}.note{font-size:13px;color:var(--dim)}';
+/* 같은 주제의 이웃 쪽 6개— 차례대로 돌려 써서 링크가 고르게 퍼지게, 같은 한국어 낱말로 가는 쪽은 한 번만 */
+function ewRelatedList(slug, v) {
+  const tp = (v.words[0].t?.[0] || '').split('/')[0], list = EW_BY_TOPIC.get(tp) || [];
+  const i = list.findIndex(([s2]) => s2 === slug); if (i < 0 || list.length < 3) return [];
+  const seen = new Set([v.words[0].h]), pick = [];
+  for (let k = 1; k < list.length && pick.length < 6; k++) { const e = list[(i + k) % list.length]; if (seen.has(e[1].words[0].h)) continue; seen.add(e[1].words[0].h); pick.push(e); }
+  return pick;
+}
+const EW_CSS = '.tq-side .tq-go a{padding:8px 16px}.ewc{padding:18px 0;border-bottom:1px solid var(--line)}.ewc:first-of-type{border-top:2px solid var(--ink)}' +
+  '.ewh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:30px;font-weight:800}.ewh a{color:var(--ink);text-decoration:none}.ewh i{font-size:15px;color:var(--dim);font-weight:500}' +
+  '.ewh .wd-say{font-size:13px;padding:6px 11px;border-radius:5px}' +
+  '.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border:1px solid var(--line);border-radius:50%;font-size:12px;font-weight:700}' +
+  '.ewe{margin:8px 0 2px;font-size:17px;font-weight:600}.ewx{margin:12px 0 0}.ewx>i{display:block;margin:2px 0 0 38px;color:var(--dim);font-size:14px;font-style:normal}' +
+  '.dx-xs{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:16.5px;line-height:1.55}.dx-xs .ex{flex:1;min-width:0;cursor:pointer;background:none;border:0;padding:0;margin:0;font-size:inherit}' +
+  '.dx-play{flex:none;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:5px;background:var(--soft);cursor:pointer;padding:0 0 0 2px}' +
+  '.note{font-size:13px;color:var(--dim)}' +
+  '.ewj{display:flex;flex-wrap:wrap;gap:4px 12px;padding:0 0 12px;border-bottom:2px solid var(--ink);font-weight:700}.ewj a{color:var(--ink);text-decoration:none}' +
+  '.ewg{display:grid;grid-template-columns:60px minmax(0,1fr);gap:0 20px;padding:14px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}.ewg h2{margin:0;font-size:22px}' +
+  '.ewg ul{margin:0;padding:0;list-style:none;columns:130px;column-gap:20px;font-size:15px;line-height:1.9}.ewg a{color:var(--ink);text-decoration:none}.ewg a:hover{text-decoration:underline}' +
+  '@media(max-width:600px){.ewh{font-size:26px}.ewg{grid-template-columns:36px minmax(0,1fr)}.ewg ul{columns:3;column-gap:12px;font-size:14px}}';
 
 function engHub() {
   const list = [...EW.entries()].sort((a, b) => a[1].key.localeCompare(b[1].key));
   const groups = new Map();
   list.forEach(([slug, v]) => { const c = v.key[0].toUpperCase(); if (!groups.has(c)) groups.set(c, []); groups.get(c).push([slug, v]); });
+  /* A~Z 바로가기 + 글자마다 여러 단 목록(전에는 글자마다 칩 상자 — PC 9,500px · 폰 17,500px) */
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › Korean word for…</nav>',
-    `<h1 lang="en">Korean word for… — ${EW.size.toLocaleString('en-US')} everyday English words in Korean</h1>`,
+    `<h1 lang="en">Korean word for… <small style="font-size:16px;color:var(--dim);font-weight:500">${EW.size.toLocaleString('en-US')} everyday English words</small></h1>`,
     '<p class="lead" lang="en">Look up how to say an English word in Korean. Each page gives the Korean word, romanization, an example sentence, and — when Korean has more than one word — how they differ.</p>',
-    [...groups.entries()].map(([c, items]) => `<div class="cat"><h3>${esc(c)}</h3><ul class="pts">` +
-      items.map(([slug, v]) => `<li><a href="/korean-word-for/${slug}.html">${esc(v.key)}</a></li>`).join('') + '</ul></div>').join('\n'),
+    `<nav class="ewj" aria-label="A–Z">${[...groups.keys()].map((c) => `<a href="#ew-${c}">${esc(c)}</a>`).join('')}</nav>`,
+    [...groups.entries()].map(([c, items]) => `<section class="ewg" id="ew-${c}"><h2>${esc(c)}</h2><ul>` +
+      items.map(([slug, v]) => `<li><a href="/korean-word-for/${slug}.html">${esc(v.key)}</a></li>`).join('') + '</ul></section>').join('\n'),
   ].join('\n');
   return page({
     url: '/korean-word-for/', kind: 'website', lang: 'en',
     title: `Korean Word For… — ${EW.size.toLocaleString('en-US')} English Words in Korean with Examples | CheesePotato`,
     desc: clip(`How to say ${EW.size.toLocaleString('en-US')} everyday English words in Korean — Korean word, romanization, examples, and the difference when there are several.`),
     body, jsonld: [crumbLd([['치즈감자', '/'], ['Korean word for…', '/korean-word-for/']])],
+    extraCss: '@media(min-width:601px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}' + EW_CSS,
   });
 }
 
