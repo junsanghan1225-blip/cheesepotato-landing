@@ -767,7 +767,7 @@ function lessonPage(course, lesson, prev, next) {
   ];
   /* 이모지 그림 글자(자료의 제목 꾸밈)는 쪽에서 뺀다 — 디자인 약속(이모지를 아이콘으로 쓰지 않는다), 앱 화면은 그대로 */
   return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld,
-    extraCss: '.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
+    extraCss: '.fact span b{display:inline;margin:0;font-size:inherit}.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
 }
 
 /* ── 코스 한 쪽 ─────────────────────────────────────────────── */
