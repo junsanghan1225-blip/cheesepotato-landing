@@ -7684,3 +7684,64 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-textlink { padding:12px 10px; min-height:44px; }
 .hm-why a { display:inline-block; padding:10px 0; }
 .footer-info a { display:inline-block; padding:6px 7px; margin:0 -3px; }
+
+/* ══ 앱 공통 틀 — 「선생님의 워크북」(운영자 2026-11-22 「앱화면도 고쳐야지」 · 「공통 틀 먼저」) ══
+   검색용 쪽(만든 쪽)과 같은 부품: 고르기는 밑줄, 단추는 얇은 테두리(고른 것만 진하게), 탭은 밑줄, 로그인은 검정 단추.
+   회색 알약 칸 · 그림자 · 주황 채운 알약을 걷는다. 🧀 도우미 단추는 운영자 결정 전이라 그대로 둔다. */
+.site-hd .site-nav > #authBtn { border-radius:8px; background:var(--ink); color:var(--bg); }
+.site-hd .site-nav > #authBtn:hover { background:var(--ink); color:var(--bg); filter:none; opacity:.9; }
+.diff-seg { background:none; border-radius:0; padding:0; gap:22px; border-bottom:1px solid var(--line); box-shadow:none; }
+.diff-seg label { background:none; border-radius:0; padding:9px 0; box-shadow:none; }
+.diff-seg label:has(input:checked) { background:none; box-shadow:inset 0 -2px 0 var(--ink); }
+.tq-skill { border-radius:8px; background:none; border:1px solid var(--line); color:var(--ink-3); box-shadow:none; }
+.tq-skill:hover { border-color:var(--ink); color:var(--ink); }
+.tq-skill[aria-pressed="true"] { border-color:var(--ink); color:var(--ink); background:var(--surface); box-shadow:none; }
+.tq-tabs { background:none; padding:0; border-radius:0; border-bottom:1px solid var(--line); gap:24px; justify-content:flex-start; }
+.tq-tabs button { flex:0 0 auto; border-radius:0; padding:10px 0; }
+.tq-tabs button[aria-selected="true"] { background:none; box-shadow:inset 0 -2px 0 var(--ink); }
+.tq-tabs button i { background:none; padding:0; color:var(--ink-3); }
+
+/* ══ TOPIK 고르기 화면 — 시험지 목록형(운영자 2026-11-22 시안 D 「D로 하고 기존의 장점 섞어서」) ══
+   넓게(1120) · 왼쪽 정렬 · 본문 + 오른쪽 곁칸(#tqSide). 모의고사 줄은 칸 이름이 붙은 표. 이어서 풀기 · 추천 · 내 기록 · 3D 시험장은 그대로. */
+/* .pt-body 에 붙은 style="max-width:1000px"(index.html) 를 이 화면에서만 넘는다 — 그래서 !important */
+body #learnView.topik-mode .pt-body { max-width:1200px !important; padding-left:40px; padding-right:40px; }
+#learnView.topik-mode .tq-exam { margin-left:0; }
+#learnView.topik-mode #tqSkillBar { align-items:flex-start; }
+#learnView.topik-mode .learn-head { background:none; border:0; border-radius:0; padding:0; box-shadow:none; margin-bottom:6px; text-align:left; }
+#learnView.topik-mode .pt-lv-row { align-items:flex-start; text-align:left; }
+#learnView.topik-mode #lsecTitle { font-size:30px; letter-spacing:-.02em; }
+#learnView.topik-mode #tqSkillBar, #learnView.topik-mode .tq-skills { justify-content:flex-start; }
+#tqPick { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+#tqPick > * { grid-column:1; min-width:0; }
+#tqPick > .tq-aside { grid-column:2; grid-row:1 / span 8; position:sticky; top:84px; }
+#tqPick .pt-lv-row { align-items:flex-start; text-align:left; }
+#tqPick .learn-head { text-align:left; }
+.tq-aside:empty { display:none; }
+.tq-sbox { border:1px solid var(--line); border-radius:10px; background:var(--surface); margin:0 0 14px; overflow:hidden; }
+.tq-sbox h4 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+.tq-sdl { margin:0; padding:10px 16px 12px; display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:13.5px; }
+.tq-sdl dt { color:var(--ink-3); } .tq-sdl dd { margin:0; font-weight:700; }
+.tq-sol { margin:0; padding:10px 16px 12px 34px; font-size:13.5px; line-height:1.7; }
+.tq-sgo { list-style:none; margin:0; padding:0; }
+.tq-sgo li + li { border-top:1px solid var(--line); }
+.tq-sgo a, .tq-sgo button { display:flex; justify-content:space-between; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
+.tq-sgo a:hover, .tq-sgo button:hover { background:var(--bg); }
+.tq-sgo span { color:var(--ink-3); }
+.tq-sbk { margin:0; padding:12px 16px; font-size:14px; } .tq-sbk a { color:var(--orange-deep); font-weight:700; text-decoration:none; }
+/* 모의고사 표 — 회차 · 범위/시간/내 점수 · 상태 */
+.tq-rows-t { border:0; border-radius:0; background:none; box-shadow:none; border-top:1px solid var(--ink); }
+.tq-rows-h { display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:12px; padding:9px 0; font-size:12px; font-weight:700; color:var(--ink-3); border-bottom:1px solid var(--ink); }
+.tq-rows-t .tq-row { display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:12px; align-items:center; padding:13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+.tq-rows-t .tq-row-n { width:auto; height:auto; background:none; border:0; border-radius:0; justify-content:flex-start; font-size:15px; font-weight:800; color:var(--ink); }
+.tq-rows-t .tq-row-s { padding:7px 12px; border:1px solid var(--ink); border-radius:8px; font-size:13.5px; font-weight:700; color:var(--ink); background:var(--surface); }
+.tq-rows-t .tq-row.tq-locked .tq-row-n, .tq-rows-t .tq-row.tq-locked .tq-row-b b { color:var(--ink-3); }
+.tq-rows-t .tq-row.tq-locked .tq-row-s { border-color:var(--line); color:var(--ink-3); background:none; }
+.tq-rows-t .tq-row:hover { background:var(--surface); }
+@media (max-width:900px) {
+  #tqPick { display:block; }
+  #tqPick > .tq-aside { position:static; margin-top:24px; }
+  body #learnView.in-sec.topik-mode .pt-body, body #learnView.topik-mode .pt-body { padding-left:16px; padding-right:16px; }
+}
+@media (max-width:600px) {
+  .tq-rows-h, .tq-rows-t .tq-row { grid-template-columns:52px minmax(0,1fr) auto; gap:8px; }
+}
