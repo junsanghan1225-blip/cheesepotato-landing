@@ -593,7 +593,7 @@ function comparePage(cat) {
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/compare/">갈래별 비교</a> › ${esc(cat.ko)}</nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
+    `<h1>${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
     `<p class="sub">${esc(cat.en)}</p>`,
     `<p class="lead">뜻이 비슷해 보이지만 쓰는 자리가 다릅니다. 아래 표에서 뜻과 형태, 주의할 점을 나란히 놓고 견주세요.<br>` +
     `${pts.length} Korean expressions for ${esc(cat.en.toLowerCase())} — compared side by side.</p>`,
@@ -636,7 +636,7 @@ function compareHub(cats) {
     return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — ${inLv.length}갈래</h2>` +
       inLv.map((c) =>
         `<div class="cat"><h3><a href="/compare/${esc(c.id)}.html">` +
-        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(c.ko)}</a></h3>` +
+        `${esc(c.ko)}</a></h3>` +
         `<p>${esc(c.points.map((p) => p.name).join(' · '))}</p></div>`).join('\n');
   }).filter(Boolean).join('\n');
 
@@ -672,11 +672,34 @@ function compareHub(cats) {
 /* main 은 제목을 문자열로도 {ko,en} 으로도 쓴다. 옮기는 중이라 둘 다 온다. */
 const tx = (v) => (v && typeof v === 'object') ? (v.ko ?? v.en ?? '') : (v ?? '');
 
-/* 아주 작은 마크다운. 자료에 **굵게** 와 `코드` 만 쓰인다. */
-const mdLite = (t) => esc(t)
+/* 아주 작은 마크다운 — **굵게** · `코드` · 줄 첫머리 ### 제목 · | 표 |.
+   전에는 굵게 · 코드만 알아서, 고급 레슨 15쪽에 「### 💡」 · 「|---|---|」가 글자 그대로 찍혔다(2026-11-22). */
+const mdInline = (t) => esc(t)
   .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
-  .replace(/`([^`]+)`/g, '<code>$1</code>')
-  .replace(/\n/g, '<br>');
+  .replace(/`([^`]+)`/g, '<code>$1</code>');
+const mdLite = (t) => {
+  const out = []; let para = [], tbl = [];
+  const cells = (l) => l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
+  const flushP = () => { if (para.length) out.push(para.map(mdInline).join('<br>')); para = []; };
+  const flushT = () => {
+    if (!tbl.length) return;
+    const rows = tbl.filter((l) => !/^\|?\s*:?-{2,}/.test(l.trim())).map(cells);
+    const [hd, ...rest] = rows;
+    out.push('<table class="md-t"><thead><tr>' + hd.map((c) => `<th>${mdInline(c)}</th>`).join('') + '</tr></thead><tbody>' +
+      rest.map((r) => '<tr>' + r.map((c) => `<td>${mdInline(c)}</td>`).join('') + '</tr>').join('') + '</tbody></table>');
+    tbl = [];
+  };
+  for (const l of String(t || '').split('\n')) {
+    if (/^\s*\|.*\|\s*$/.test(l)) { flushP(); tbl.push(l); continue; }
+    flushT();
+    const h = /^\s*#{1,4}\s+(.*)$/.exec(l);
+    if (h) { flushP(); out.push(`<b class="md-h">${mdInline(h[1])}</b>`); continue; }
+    if (!l.trim()) { flushP(); continue; }
+    para.push(l);
+  }
+  flushP(); flushT();
+  return out.join('<br>');
+};
 
 const LV_OF = (c) => {
   const lv = String(c.level || '').toLowerCase();
@@ -706,9 +729,9 @@ function lessonPage(course, lesson, prev, next) {
   const title = seo ? `${seo.title} · ${tx(lesson.title)} | CheesePotato`
     : `${tx(lesson.title)} — ${tx(course.title)} | CheesePotato`;
   const desc = seo ? clip(seo.desc) : clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
-    (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').replace(/[*`#]/g, ''));
+    (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').split('\n').filter((l) => !/^\s*\|/.test(l)).join(' ').replace(/[*`#]/g, ''));   // 표 줄은 설명글에서 뺀다
 
-  const body = [
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › ` +
       `<a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a></nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
@@ -718,12 +741,21 @@ function lessonPage(course, lesson, prev, next) {
     blocks,
     nQ ? `<h2>연습 · Practice</h2><p class="lead">이 레슨에는 풀어 보는 문제가 ${nQ}개 있습니다. ` +
       `앱에서 하나씩 맞히며 넘어갑니다.<br>${nQ} exercises come with this lesson — open it to work through them.</p>` : '',
-    `<a class="cta" href="/#learn/courses">이 레슨 열기<span>Open this lesson in the app</span></a>`,
-    (prev || next) ? '<div class="near">' +
-      (prev ? `<a href="/lesson/${esc(prev.id)}.html"><b>← 앞 레슨</b>${esc(tx(prev.title))}</a>` : '') +
+    `<a class="tq-app" href="/#learn/courses">앱에서 이 레슨 풀기${nQ ? ` · 문제 ${nQ}개` : ''} →</a>`,
+    (prev || next) ? '<nav class="tq-nav">' +
+      (prev ? `<a href="/lesson/${esc(prev.id)}.html"><b>← 앞 레슨</b>${esc(tx(prev.title))}</a>` : '<span></span>') +
       (next ? `<a href="/lesson/${esc(next.id)}.html"><b>다음 레슨 →</b>${esc(tx(next.title))}</a>` : '') +
-      '</div>' : '',
+      '</nav>' : '',
   ].filter(Boolean).join('\n');
+  /* 오른쪽 「이 코스 길」(운영자 2026-11-22 시안 D) — 이 코스 레슨을 점 · 줄로: 지금 레슨은 테두리 점, 끝낸 레슨은 page.js 가
+     앱 기록(localStorage cp_done_local)을 읽어 채운 점으로. 끝에 같은 레벨의 다음 코스 */
+  const sameLv = COURSES.filter((c) => LV_OF(c) === lv);
+  const nextC = sameLv[sameLv.findIndex((c) => c.id === course.id) + 1];
+  const side = `<aside class="lx-side"><h3>이 코스 길<small><a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a> · ${course.lessons.length}강</small></h3><ol class="lx-ol">` +
+    course.lessons.map((l, i) => `<li data-lid="${esc(l.id)}"${l.id === lesson.id ? ' class="on" aria-current="step"' : ''}><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title).replace(/^\d+강\.\s*/, ''))}</a><small>${i + 1}강${l.id === lesson.id ? ' · 지금' : ''}</small></li>`).join('') +
+    (nextC ? `<li class="nx"><a href="/course/${esc(nextC.id)}.html">다음 코스 →</a><small>${esc(tx(nextC.title))}</small></li>` : '') +
+    `</ol><p class="lx-all"><a href="/course/">코스 전체 보기 →</a></p></aside>`;
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
 
   const jsonld = [
     {
@@ -742,8 +774,20 @@ function lessonPage(course, lesson, prev, next) {
     crumbLd([['치즈감자', '/'], ['코스', '/course/'],
              [tx(course.title), `/course/${course.id}.html`], [tx(lesson.title), null]]),
   ];
-  return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld });
+  /* 이모지 그림 글자(자료의 제목 꾸밈)는 쪽에서 뺀다 — 디자인 약속(이모지를 아이콘으로 쓰지 않는다), 앱 화면은 그대로 */
+  return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld,
+    extraCss: TQ_CSS + LX_CSS + '.fact span b{display:inline;margin:0;font-size:inherit}.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
 }
+
+const LX_CSS = [
+  '.lx-side{position:sticky;top:88px;font-size:14.5px}.lx-side h3{margin:0 0 12px;font-size:13.5px}.lx-side h3 small{display:block;margin-top:3px;font-weight:500;font-size:12.5px;color:var(--dim)}.lx-side h3 a{color:var(--dim)}',
+  '.lx-ol{list-style:none;margin:0;padding:0 0 0 30px;position:relative}.lx-ol::before{content:\'\';position:absolute;left:9px;top:10px;bottom:10px;border-left:2px solid var(--line)}',
+  '.lx-ol li{position:relative;padding:6px 0 10px}.lx-ol li::before{content:\'\';position:absolute;left:-26px;top:9px;width:12px;height:12px;border:2px solid var(--line);border-radius:50%;background:var(--bg)}',
+  '.lx-ol li.done::before{border-color:var(--ink);background:var(--ink)}.lx-ol li.on::before{border-color:var(--ink);box-shadow:0 0 0 3px var(--bg),0 0 0 4px var(--ink)}',
+  '.lx-ol a{color:var(--dim);text-decoration:none;line-height:1.4}.lx-ol a:hover{text-decoration:underline}.lx-ol li.on a{color:var(--ink);font-weight:800}.lx-ol li.done a,.lx-ol li.nx a{color:var(--ink)}.lx-ol li.nx a{font-weight:700}',
+  '.lx-ol small{display:block;color:var(--dim);font-size:12px}.lx-all{margin:10px 0 0;font-size:13px}.lx-all a{color:var(--dim)}',
+  '@media(max-width:900px){.lx-side{position:static;border-top:2px solid var(--ink);padding-top:18px}}',
+].join('');
 
 /* ── 코스 한 쪽 ─────────────────────────────────────────────── */
 function coursePage(course) {
@@ -753,7 +797,7 @@ function coursePage(course) {
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a></nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(course.emoji ? course.emoji + ' ' : '')}${esc(tx(course.title))}</h1>`,
+    `<h1>${esc(tx(course.title))}</h1>`,
     `<p class="sub">${esc(tx(course.tagline))}</p>`,
     `<p class="desc">${esc(tx(course.blurb))}</p>`,
     `<h2>레슨 ${course.lessons.length}강 · Lessons</h2>`,
@@ -789,28 +833,37 @@ function coursePage(course) {
 }
 
 /* ── 코스 목록 ─────────────────────────────────────────────── */
+/* 코스 목록 — 코스 카드 + 진도 막대(운영자 2026-11-22 시안 G 「좋은데 더 디벨롭」, 참고: 단원 카드 · 진도로 이어 가는 코스 사이트들).
+   레벨마다 왼쪽에 이름 · 진도 막대 · 「이어서 하기」, 오른쪽에 코스 카드(코스 이름 · 한 줄 · 첫 레슨 셋 · 진도).
+   진도는 앱이 이 브라우저에 남긴 끝낸 레슨(localStorage cp_done_local, app.module.js myMarkDone)을 page.js 가 읽어 채운다 —
+   같은 주소라 읽힌다. 기록이 없으면 막대는 비고 「첫 코스부터」로 안내한다(지어낸 숫자를 보이지 않는다).
+   전에는 97코스 · 401강이 칩으로 다 펼쳐져 PC 23,000px · 폰 33,000px 이었다. 레벨마다 카드 6장만 펴고 나머지는 접는다. */
 function courseHub(courses) {
   const order = ['beginner', 'intermediate', 'advanced'];
-  const sections = order.map((lv) => {
-    const inLv = courses.filter((c) => LV_OF(c) === lv);
-    if (!inLv.length) return '';
-    const nL = inLv.reduce((a, c) => a + c.lessons.length, 0);
-    return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — 코스 ${inLv.length}개 · ${nL}강</h2>` +
-      inLv.map((c) =>
-        `<div class="cat"><h3><a href="/course/${esc(c.id)}.html">` +
-        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(tx(c.title))}</a></h3>` +
-        `<p>${esc(tx(c.tagline))}</p><ul class="pts">` +
-        c.lessons.map((l) => `<li><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title))}</a></li>`).join('') +
-        '</ul></div>').join('\n');
-  }).filter(Boolean).join('\n');
+  const lvs = order.map((lv) => ({ lv, cs: courses.filter((c) => LV_OF(c) === lv) })).filter((x) => x.cs.length);
+  const card = (c, i) => `<a class="cg-u" href="/course/${esc(c.id)}.html" data-cg-ids="${c.lessons.map((l) => esc(l.id)).join(' ')}">` +
+    `<small>코스 ${i + 1} · <span class="cg-n">${c.lessons.length}강</span></small><b>${esc(tx(c.title))}</b>` +
+    (tx(c.tagline) ? `<p>${esc(tx(c.tagline))}</p>` : '') +
+    `<ol>${c.lessons.slice(0, 3).map((l) => `<li>${esc(tx(l.title).replace(/^\d+강\.\s*/, ''))}</li>`).join('')}</ol>` +
+    (c.lessons.length > 3 ? `<em>+ ${c.lessons.length - 3}강 더</em>` : '') + '<span class="cg-bar" aria-hidden="true"><i></i></span></a>';
+  const SHOW = 6;
+  const sections = lvs.map(({ lv, cs }) => {
+    const nL = cs.reduce((a, c) => a + c.lessons.length, 0);
+    return `<section class="cg-lv" id="${lv}"><div class="cg-l"><h2>${LV_KO[lv]} <small>${LV_EN[lv]}</small></h2>` +
+      `<p>코스 ${cs.length}개 · ${nL}강</p><span class="cg-bar" aria-hidden="true"><i></i></span><p class="cg-m">아직 시작 전</p>` +
+      `<a class="cg-go" href="/lesson/${esc(cs[0].lessons[0].id)}.html">첫 코스부터 →</a></div>` +
+      `<div class="cg-r"><div class="cg-us">${cs.slice(0, SHOW).map(card).join('')}</div>` +
+      (cs.length > SHOW ? `<details class="cg-more"><summary>${LV_KO[lv]} 코스 ${cs.length - SHOW}개 더 보기</summary><div class="cg-us">${cs.slice(SHOW).map((c, i) => card(c, i + SHOW)).join('')}</div></details>` : '') +
+      '</div></section>';
+  }).join('\n');
 
   const nC = courses.length, nL = courses.reduce((a, c) => a + c.lessons.length, 0);
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › 코스</nav>',
-    `<h1>한국어 코스 ${nC}개 · ${nL}강</h1>`,
-    '<p class="lead">한글 읽기부터 문장 만들기까지 순서대로 이어집니다. 레슨마다 읽는 설명과 푸는 문제가 함께 있습니다.<br>' +
-    `${nC} Korean courses (${nL} lessons) from reading Hangul to building your own sentences.</p>`,
-    `<a class="cta" href="/#learn/courses">코스로 배우기 열기<span>Open the course track</span></a>`,
+    `<header class="cg-top"><h1>한국어 코스</h1><p>한글 읽기부터 고급 문장까지 — 코스 ${nC}개 · ${nL}강. 레슨마다 읽는 설명과 푸는 문제가 있어요.<br>` +
+      `<span lang="en">${nC} Korean courses (${nL} lessons), from reading Hangul to advanced sentences.</span></p></header>`,
+    '<div class="cg-me" id="cgMe"><span>처음이면 — <a href="/?lt=1">3분 레벨 테스트</a>로 시작할 곳을 찾아요. 앱에서 레슨을 끝내면 여기에 진도가 보여요.</span><a class="cg-app" href="/#learn/courses">앱에서 코스 열기 →</a></div>',
+    `<nav class="cg-j" aria-label="레벨">${lvs.map(({ lv, cs }) => `<a href="#${lv}">${LV_KO[lv]} <small>${cs.length}</small></a>`).join('')}</nav>`,
     sections,
   ].join('\n');
 
@@ -821,8 +874,30 @@ function courseHub(courses) {
       `${nC} Korean courses with ${nL} lessons, from Hangul to sentence building.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['코스', '/course/']])],
+    extraCss: CG_CSS,
   });
 }
+const CG_CSS = [
+  '@media(min-width:601px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}',
+  '.cg-top h1{margin:0 0 8px;font-size:36px;letter-spacing:-.02em}.cg-top p{margin:0;color:var(--dim);font-size:15px;line-height:1.6}',
+  '.cg-me{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin:22px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);font-size:14.5px}',
+  '.cg-me a{color:var(--ink);font-weight:700}.cg-me b{font-size:17px}.cg-app{flex:none;text-decoration:none}',
+  '.cg-j{display:flex;gap:22px;margin:22px 0 0;padding:0 0 12px;border-bottom:2px solid var(--ink);font-size:15px;font-weight:700}.cg-j a{color:var(--ink);text-decoration:none}.cg-j small{color:var(--dim);font-weight:500;margin-left:3px}',
+  '.cg-lv{display:grid;grid-template-columns:240px minmax(0,1fr);gap:36px;padding:28px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}',
+  '.cg-l{position:sticky;top:88px;align-self:start}.cg-l h2{margin:0;font-size:24px}.cg-l h2 small{font-size:13px;color:var(--dim);font-weight:500;margin-left:4px}',
+  '.cg-l p{margin:4px 0 12px;color:var(--dim);font-size:14px}.cg-l .cg-m{margin:6px 0 0;font-size:12.5px}',
+  '.cg-bar{display:block;height:6px;background:var(--line);border-radius:5px;overflow:hidden}.cg-bar i{display:block;width:0;height:100%;background:var(--ink)}',
+  '.cg-go{display:inline-block;margin-top:14px;padding:9px 13px;border:1px solid var(--ink);border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:700}.cg-go:hover{background:var(--soft)}',
+  '.cg-us{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}',
+  '.cg-u{position:relative;display:flex;flex-direction:column;padding:15px 16px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);text-decoration:none}.cg-u:hover{border-color:var(--ink)}',
+  '.cg-u small{font-size:12px;color:var(--dim);font-weight:700}.cg-u b{margin:3px 0 4px;font-size:16px;line-height:1.35}.cg-u p{margin:0 0 8px;color:var(--dim);font-size:13.5px;line-height:1.5}',
+  '.cg-u ol{margin:auto 0 0;padding:8px 0 0 18px;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.75;color:var(--ink-2,var(--ink))}.cg-u em{font-style:normal;font-size:12.5px;color:var(--dim);margin:2px 0 0 18px}',
+  '.cg-u .cg-bar{margin-top:12px;height:4px}.cg-u:not(.on):not(.done) .cg-bar{display:none}',
+  ".cg-u.done small::after{content:' · 끝냄';color:var(--ink)}.cg-u.done{border-color:var(--ink)}",
+  '.cg-more{margin-top:12px}.cg-more>summary{cursor:pointer;padding:12px 0;font-weight:700;font-size:14.5px}.cg-more[open]>summary{margin-bottom:4px}',
+  '@media(max-width:900px){.cg-lv{grid-template-columns:1fr;gap:14px}.cg-l{position:static}}',
+  '@media(max-width:600px){.cg-us{grid-template-columns:1fr}.cg-top h1{font-size:30px}}',
+].join('');
 
 /* ── TOPIK 쓰기 한 쪽 ──────────────────────────────────────── */
 /* 「밑줄 친 부분」 문항 — 지문 속 mark 에 밑줄을 긋는다(없으면 「밑줄 친」이라 묻는데 밑줄이 없다) */
