@@ -593,7 +593,7 @@ function comparePage(cat) {
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/compare/">갈래별 비교</a> › ${esc(cat.ko)}</nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
+    `<h1>${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
     `<p class="sub">${esc(cat.en)}</p>`,
     `<p class="lead">뜻이 비슷해 보이지만 쓰는 자리가 다릅니다. 아래 표에서 뜻과 형태, 주의할 점을 나란히 놓고 견주세요.<br>` +
     `${pts.length} Korean expressions for ${esc(cat.en.toLowerCase())} — compared side by side.</p>`,
@@ -636,7 +636,7 @@ function compareHub(cats) {
     return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — ${inLv.length}갈래</h2>` +
       inLv.map((c) =>
         `<div class="cat"><h3><a href="/compare/${esc(c.id)}.html">` +
-        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(c.ko)}</a></h3>` +
+        `${esc(c.ko)}</a></h3>` +
         `<p>${esc(c.points.map((p) => p.name).join(' · '))}</p></div>`).join('\n');
   }).filter(Boolean).join('\n');
 
@@ -672,11 +672,34 @@ function compareHub(cats) {
 /* main 은 제목을 문자열로도 {ko,en} 으로도 쓴다. 옮기는 중이라 둘 다 온다. */
 const tx = (v) => (v && typeof v === 'object') ? (v.ko ?? v.en ?? '') : (v ?? '');
 
-/* 아주 작은 마크다운. 자료에 **굵게** 와 `코드` 만 쓰인다. */
-const mdLite = (t) => esc(t)
+/* 아주 작은 마크다운 — **굵게** · `코드` · 줄 첫머리 ### 제목 · | 표 |.
+   전에는 굵게 · 코드만 알아서, 고급 레슨 15쪽에 「### 💡」 · 「|---|---|」가 글자 그대로 찍혔다(2026-11-22). */
+const mdInline = (t) => esc(t)
   .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
-  .replace(/`([^`]+)`/g, '<code>$1</code>')
-  .replace(/\n/g, '<br>');
+  .replace(/`([^`]+)`/g, '<code>$1</code>');
+const mdLite = (t) => {
+  const out = []; let para = [], tbl = [];
+  const cells = (l) => l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
+  const flushP = () => { if (para.length) out.push(para.map(mdInline).join('<br>')); para = []; };
+  const flushT = () => {
+    if (!tbl.length) return;
+    const rows = tbl.filter((l) => !/^\|?\s*:?-{2,}/.test(l.trim())).map(cells);
+    const [hd, ...rest] = rows;
+    out.push('<table class="md-t"><thead><tr>' + hd.map((c) => `<th>${mdInline(c)}</th>`).join('') + '</tr></thead><tbody>' +
+      rest.map((r) => '<tr>' + r.map((c) => `<td>${mdInline(c)}</td>`).join('') + '</tr>').join('') + '</tbody></table>');
+    tbl = [];
+  };
+  for (const l of String(t || '').split('\n')) {
+    if (/^\s*\|.*\|\s*$/.test(l)) { flushP(); tbl.push(l); continue; }
+    flushT();
+    const h = /^\s*#{1,4}\s+(.*)$/.exec(l);
+    if (h) { flushP(); out.push(`<b class="md-h">${mdInline(h[1])}</b>`); continue; }
+    if (!l.trim()) { flushP(); continue; }
+    para.push(l);
+  }
+  flushP(); flushT();
+  return out.join('<br>');
+};
 
 const LV_OF = (c) => {
   const lv = String(c.level || '').toLowerCase();
@@ -706,7 +729,7 @@ function lessonPage(course, lesson, prev, next) {
   const title = seo ? `${seo.title} · ${tx(lesson.title)} | CheesePotato`
     : `${tx(lesson.title)} — ${tx(course.title)} | CheesePotato`;
   const desc = seo ? clip(seo.desc) : clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
-    (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').replace(/[*`#]/g, ''));
+    (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').split('\n').filter((l) => !/^\s*\|/.test(l)).join(' ').replace(/[*`#]/g, ''));   // 표 줄은 설명글에서 뺀다
 
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › ` +
@@ -742,7 +765,9 @@ function lessonPage(course, lesson, prev, next) {
     crumbLd([['치즈감자', '/'], ['코스', '/course/'],
              [tx(course.title), `/course/${course.id}.html`], [tx(lesson.title), null]]),
   ];
-  return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld });
+  /* 이모지 그림 글자(자료의 제목 꾸밈)는 쪽에서 뺀다 — 디자인 약속(이모지를 아이콘으로 쓰지 않는다), 앱 화면은 그대로 */
+  return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld,
+    extraCss: '.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
 }
 
 /* ── 코스 한 쪽 ─────────────────────────────────────────────── */
@@ -753,7 +778,7 @@ function coursePage(course) {
   const body = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a></nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(course.emoji ? course.emoji + ' ' : '')}${esc(tx(course.title))}</h1>`,
+    `<h1>${esc(tx(course.title))}</h1>`,
     `<p class="sub">${esc(tx(course.tagline))}</p>`,
     `<p class="desc">${esc(tx(course.blurb))}</p>`,
     `<h2>레슨 ${course.lessons.length}강 · Lessons</h2>`,
@@ -798,7 +823,7 @@ function courseHub(courses) {
     return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — 코스 ${inLv.length}개 · ${nL}강</h2>` +
       inLv.map((c) =>
         `<div class="cat"><h3><a href="/course/${esc(c.id)}.html">` +
-        `${esc(c.emoji ? c.emoji + ' ' : '')}${esc(tx(c.title))}</a></h3>` +
+        `${esc(tx(c.title))}</a></h3>` +
         `<p>${esc(tx(c.tagline))}</p><ul class="pts">` +
         c.lessons.map((l) => `<li><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title))}</a></li>`).join('') +
         '</ul></div>').join('\n');
