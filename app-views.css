@@ -7939,3 +7939,91 @@ body #learnView.course-mode .pt-body { max-width:1200px !important; padding-left
 #tqBodyWrite .tq-pane[data-pane="list"] .tq-row-b b em { background:none; border:1px solid var(--ink); color:var(--ink); border-radius:5px; }
 #tqBodyWrite .tq-diff.d1, #tqBodyWrite .tq-diff.d2, #tqBodyWrite .tq-diff.d3 { color:var(--ink-3); }
 @media (max-width:900px) { #tqBodyWrite:not(.hidden) { display:block; } #tqBodyWrite > .tq-aside { position:static; margin-top:24px; } }
+
+/* ══ 보조 단추 한 모양(운영자 2026-11-22 단추 시안 2-B 「깃허브식」) ══
+   검정 테두리 · 흰 바탕 · 아주 굵은 글자가 무거워 보였다 → 옅은 잉크 면 + 옅은 테두리 · 높이 38 · 글자 600.
+   진한 단추(주 행동)는 그대로, 옆에 붙는 보조 단추만. 어두운 테마에서도 잉크 색을 따라간다 */
+:root { --btn2-bg:rgba(var(--ink-rgb),.06); --btn2-bd:rgba(var(--ink-rgb),.14); --btn2-hv:rgba(var(--ink-rgb),.1); }
+.wd-btn.ghost, .wd-play.ghost, .hlp-ai-btn.ghost, .pt-ghost, .wd-w2-pron, .wd-day-say {
+  display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:38px; padding:0 16px; border:1px solid var(--btn2-bd) !important; border-radius:8px;
+  background:var(--btn2-bg) !important; color:var(--ink) !important; box-shadow:none !important; font-size:14.5px; font-weight:600; }
+.wd-btn.ghost:hover, .wd-play.ghost:hover, .hlp-ai-btn.ghost:hover, .pt-ghost:hover, .wd-w2-pron:hover, .wd-day-say:hover { background:var(--btn2-hv) !important; filter:none; }
+
+/* ══ 앱 「단어」 — 사전 한 장(운영자 2026-11-22 시안 B · 낱말 한 장 D) ══
+   넓게(1200) 두 칸 + 오른쪽 곁칸, 밑줄 탭, 오늘의 낱말은 검정 카드 대신 사전 항목처럼, 주제 · 게임은 얇은 줄 표 */
+.wd-wrap:has(.wd-lay) { max-width:1200px; padding-left:40px; padding-right:40px; }
+.wd-wrap .wd-tabs { gap:24px; padding:0; margin:18px 0 22px; border-bottom:1px solid var(--line); }
+.wd-wrap .wd-tab { padding:10px 0 !important; border:0 !important; border-radius:0 !important; background:none !important; color:var(--ink-3); font-weight:700; box-shadow:none !important; }
+.wd-wrap .wd-tab.on { color:var(--ink) !important; box-shadow:inset 0 -2px 0 var(--ink) !important; }
+.wd-wrap .wd-searchbox input { border:1px solid var(--ink) !important; border-radius:8px !important; box-shadow:none !important; }
+.wd-lay { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+.wd-lay > .wd-main, .wd-lay > .wd-word { min-width:0; }
+.wd-aside { position:sticky; top:84px; }
+.wd-aside .wd-box, .wd-aside .wd-hello { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+.wd-aside .wd-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+.wd-aside .wd-hello { padding:12px 16px 14px; }
+.wd-aside .wd-hello-k { font-size:13.5px; font-weight:800; margin:0 0 8px; padding:0 0 10px; border-bottom:1px solid var(--line); }
+.wd-aside .wd-hello-p { font-size:13.5px; } .wd-aside .wd-hello-p .wd-path-x { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); font-weight:600; text-decoration:underline; text-underline-offset:3px; min-height:0; }
+.wd-aside .wd-hello .wd-bar { max-width:none; }
+.wd-aside .wd-bar i, .wd-lay .wd-bar i { background:var(--ink) !important; }
+.wd-go { list-style:none; margin:0; padding:0; } .wd-go li + li { border-top:1px solid var(--line); }
+.wd-go button { display:flex; align-items:baseline; gap:6px; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-align:left; cursor:pointer; }
+.wd-go button:hover { background:var(--bg); } .wd-go small { color:var(--ink-3); font-size:12.5px; } .wd-go span { margin-left:auto; color:var(--ink-3); }
+.wd-aside .bk-next { margin:0 0 14px; padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.wd-aside .bk-next-h { color:var(--ink); font-weight:800; font-size:13.5px; }
+.wd-aside .bk-card { padding:10px 0; border:0; border-top:1px solid var(--line); border-radius:0; background:none; }
+/* 오늘의 낱말 — 사전 항목처럼 */
+.wd-lay .wd-day { margin:0 0 6px; padding:16px 0 20px; border-radius:0; background:none !important; color:var(--ink); border-top:2px solid var(--ink); border-bottom:1px solid var(--line); box-shadow:none; }
+.wd-lay .wd-day::after { display:none; }
+.wd-lay .wd-day-k { color:var(--ink-3); }
+.wd-lay .wd-day-w b { font-size:46px; } .wd-lay .wd-day-w span { color:var(--ink-3); font-style:italic; }
+.wd-lay .wd-day-m { color:var(--ink); font-size:17px; font-weight:600; margin:0 0 6px; }
+.wd-day-x { margin:0 0 16px; font-size:15px; } .wd-day-x small { color:var(--ink-3); font-size:13px; }
+.wd-lay .wd-day-go { flex:none; height:42px; padding:0 18px; border-radius:8px; background:var(--ink); color:var(--bg); font-weight:700; }
+.wd-lay .wd-day-say { height:42px !important; }
+.wd-lay .wd-day-rest { gap:4px 16px; margin-top:16px; }
+.wd-lay .wd-day-rest button { min-height:0; padding:4px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; color:var(--ink); font-weight:700; font-size:14.5px; }
+.wd-lay .wd-day-rest button.on { border-bottom:2px solid var(--ink); } .wd-lay .wd-day-rest button.ok { color:var(--ink-3); }
+.wd-lay .wd-due { border-radius:8px; }
+/* 주제 · 게임 — 나란히 두 표 */
+.wd-two { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.wd-two .wd-h3 { font-size:18px; margin:22px 0 8px; }
+.wd-two .wd-themes, .wd-two .wd-hgames { display:block; border-top:1px solid var(--ink); }
+.wd-two .wd-theme, .wd-two .wd-hgame { display:flex; flex-direction:row; align-items:center; gap:12px; width:100%; padding:11px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; transform:none !important; text-align:left; }
+.wd-two .wd-theme:hover, .wd-two .wd-hgame:hover { background:var(--surface); }
+.wd-two .wd-topic-ico, .wd-two .wd-hgame-ic { display:none; }
+.wd-n { flex:none; width:22px; color:var(--ink-3); font-weight:800; }
+.wd-two .wd-theme b, .wd-two .wd-hgame b { margin:0; font-size:15px; }
+.wd-two .wd-theme .wd-meta { margin-left:auto; color:var(--ink-3); font-size:13px; }
+.wd-two .wd-hgame span:not(.wd-n) { font-size:13px; color:var(--ink-3); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wd-two .wd-hgame em { flex:none; font-style:normal; font-weight:800; font-size:14px; text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px; padding-right:4px; }
+.wd-two .wd-gsrc { display:flex; gap:14px; margin:0 0 8px; }
+.wd-two .wd-gsrc .wd-chip { padding:0; border:0; background:none; font-size:12.5px; color:var(--ink-3); min-height:0; }
+.wd-two .wd-gsrc .wd-chip.on { color:var(--ink); font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+/* 낱말 한 장 */
+.wd-lay-w .wd-word2 { border:0 !important; background:none !important; box-shadow:none !important; padding:0 !important; border-top:2px solid var(--ink) !important; border-radius:0 !important; }
+.wd-lay-w .wd-word-top { padding:18px 0 4px; }
+.wd-lay-w .wd-w2-h { font-size:52px; }
+.wd-lay-w .wd-w2-ic > button { width:40px !important; height:40px !important; border-radius:8px !important; background:var(--btn2-bg) !important; border:1px solid var(--btn2-bd) !important; }
+.wd-lay-w .wd-pill { padding:0; border:0; background:none !important; color:var(--ink-3) !important; font-size:13.5px; font-weight:600; }
+.wd-lay-w .wd-pill + .wd-pill::before { content:'·'; margin-right:6px; }
+.wd-lay-w .wd-w2-tabs { border-bottom:1px solid var(--line); gap:22px; }
+.wd-lay-w .wd-w2-tabs button { padding:10px 0; margin-bottom:-1px; border-bottom-width:2px; }
+.wd-lay-w .wd-mcard { padding:4px 0 0; border:0; background:none; box-shadow:none; border-radius:0; }
+.wd-lay-w .wd-ex li { background:none; border-left:0; padding:10px 0; border-radius:0; border-bottom:1px solid var(--line); }
+.wd-lay-w .wd-w2-more, .wd-lay-w .wd-w2-bar { display:inline-flex; gap:8px; flex-wrap:wrap; margin:12px 8px 0 0; padding:0; position:static; background:none; vertical-align:top; }
+.wd-lay-w .wd-w2-more .wd-btn.ghost:first-child { background:var(--ink) !important; color:var(--bg) !important; border-color:var(--ink) !important; }
+.wd-lay-w .wd-w2-bar button { flex:none; min-height:38px; border-radius:8px; font-size:14.5px; font-weight:600; box-shadow:none !important; }
+.wd-lay-w .wd-w2-next { padding:0 16px; border:1px solid var(--btn2-bd) !important; background:var(--btn2-bg) !important; color:var(--ink) !important; }
+@media (max-width:900px) {
+  .wd-wrap:has(.wd-lay) { padding-left:var(--gut); padding-right:var(--gut); }
+  .wd-lay { display:block; } .wd-aside { position:static; margin-top:24px; }
+  .wd-two { grid-template-columns:1fr; gap:0; }
+}
+.wd-lay .wd-n { width:24px !important; min-width:0 !important; text-align:left; }
+.wd-lay-w .wd-w2-tabs, .wd-lay-w .wd-w2-body, .wd-lay-w .wd-w2-more, .wd-lay-w .wd-w2-bar { margin-left:0 !important; margin-right:0 !important; }
+.wd-lay-w .wd-w2-more { margin-right:8px !important; }
+.wd-aside .bkbox { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border:0 !important; border-top:1px solid var(--line) !important; border-radius:0 !important; background:none !important; box-shadow:none !important; margin:0 !important; }
+.wd-aside .bkbox-img { width:56px !important; height:auto !important; flex:none; border:1px solid var(--line); border-radius:5px; }
+.wd-aside .bkbox-tx b { font-size:14px; } .wd-aside .bkbox-tx > small { display:none; }
+.wd-aside .bkbox-meta { font-size:12.5px; } .wd-aside .bkbox-tx em { font-size:13px; }
