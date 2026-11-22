@@ -1957,11 +1957,15 @@ function wordHub(heads) {
     if (!groups.has(c)) groups.set(c, []);
     groups.get(c).push(h);
   });
+  /* 사전 첫 쪽 시안 A(운영자 2026-11-22 「사전 A」): 11,938개 알약 단추 한 벽(PC 63,020px · 폰 134,553px) →
+     ㄱ~ㅎ 바로가기 + 자음마다 접기(처음엔 모두 접음 — ㄱ 만 펼쳐도 1,694개라 PC 12,800px 이었다), 알약 대신 글자 목록. 링크는 접혀 있어도 쪽에 그대로 있다(검색 엔진이 낱말 쪽을 찾는 길).
+     바로가기는 접힌 칸 안 목록(id)으로 — 크롬은 그 칸을 저절로 펼친다 */
   const sections = [...groups.entries()].map(([cho, list]) =>
-    `<div class="cat"><h3>${esc(cho)}</h3><ul class="pts">` +
+    `<details class="dh"><summary><span>${esc(cho)} <small>${list.length.toLocaleString('ko-KR')}개</small></span></summary><ul class="dh-l" id="cho-${esc(cho)}">` +
     list.map((h) => `<li><a href="/dictionary/${encodeURIComponent(h.head)}.html">${esc(h.head)}</a></li>`).join('') +
-    '</ul></div>'
+    '</ul></details>'
   ).join('\n');
+  const jump = `<nav class="dh-j" aria-label="자음 바로가기">${[...groups.keys()].map((c) => `<a href="#cho-${esc(c)}">${esc(c)}</a>`).join('')}</nav>`;
   const n = heads.length.toLocaleString('ko-KR');
 
   const body = [
@@ -1970,6 +1974,7 @@ function wordHub(heads) {
     '<p class="lead">국립국어원 한국어기초사전 뜻풀이를 담은 낱말입니다. 표제어마다 뜻풀이와 예문이 있고, 앱 사전에서 발음을 듣고 단어장에 담을 수 있습니다.<br>' +
       `${n} Korean words with meanings and example sentences, from the National Institute of Korean Language's basic dictionary.</p>`,
     '<a class="cta" href="/#dictionary">사전 열기<span>Search the full dictionary in the app</span></a>',
+    jump,
     sections,
   ].join('\n');
 
@@ -1979,8 +1984,21 @@ function wordHub(heads) {
     desc: clip(`한국어 낱말 ${n}개의 뜻풀이와 예문. 국립국어원 한국어기초사전 CC BY-SA 2.0 KR.`),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['사전', '/dictionary/']])],
+    extraCss: DICT_HUB_CSS,
   });
 }
+const DICT_HUB_CSS = [
+  '.dh-j{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 8px}',
+  '.dh-j a{min-width:36px;box-sizing:border-box;text-align:center;padding:7px 0;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}',
+  '.dh-j a:hover{background:var(--ink);color:var(--bg)}',
+  '.dh{border-bottom:1px solid var(--line)}',
+  '.dh>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;padding:13px 2px;font-weight:800;font-size:19px}',
+  '.dh>summary::-webkit-details-marker{display:none}.dh>summary small{font-size:13px;font-weight:600;color:var(--dim);margin-left:6px}',
+  ".dh>summary::after{content:'+';font-weight:600;color:var(--dim)}.dh[open]>summary::after{content:'−'}",
+  '.dh-l{scroll-margin-top:130px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 18px;margin:0 0 16px;padding:0;list-style:none}',
+  '.dh-l a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dh-l a:hover{text-decoration:underline}',
+  '@media(max-width:600px){.dh-l{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px}.dh-j a{min-width:34px}}',
+].join('');
 
 /* ── 블로그 ─────────────────────────────────────────────────── */
 /* 목록 쪽은 글이 없어도 항상 굽는다("곧 올릴게요" 안내가 뜬다) — 그래야
