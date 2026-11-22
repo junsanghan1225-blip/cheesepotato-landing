@@ -87,6 +87,13 @@
     const me = document.getElementById('cgMe');
     if (allN && me) me.querySelector('span').innerHTML = '지금까지 <b>' + allN + '강</b> 끝냈어요 · 전체 ' + allT + '강 중 ' + Math.round((allN / allT) * 100) + '% <small>(이 기기 기록)</small>';
   }
+  /* 레슨 쪽 「이 코스 길」 — 끝낸 레슨에 채운 점(같은 기록) */
+  const steps = document.querySelectorAll('.lx-ol li[data-lid]');
+  if (steps.length) {
+    let done = new Set();
+    try { done = new Set(JSON.parse(localStorage.getItem('cp_done_local') || '[]')); } catch (e) {}
+    steps.forEach((li) => { if (done.has(li.dataset.lid)) li.classList.add('done'); });
+  }
   /* 사전 찾기 칸(낱말 쪽 · 사전 첫 쪽, 2026-11-22) — 앱 사전 검색(/#dictionary/<낱말>)으로 보낸다. 한국어 · 영어 모두 */
   document.addEventListener('submit', (e) => {
     const f = e.target.closest?.('form[data-find]'); if (!f) return;

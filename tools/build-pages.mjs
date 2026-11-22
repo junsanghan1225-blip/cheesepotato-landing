@@ -731,7 +731,7 @@ function lessonPage(course, lesson, prev, next) {
   const desc = seo ? clip(seo.desc) : clip(`${tx(course.title)} · ${tx(lesson.title)} — ` +
     (read.find((b) => b.t === 'text')?.md || tx(course.tagline) || '').split('\n').filter((l) => !/^\s*\|/.test(l)).join(' ').replace(/[*`#]/g, ''));   // 표 줄은 설명글에서 뺀다
 
-  const body = [
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › ` +
       `<a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a></nav>`,
     `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
@@ -741,12 +741,21 @@ function lessonPage(course, lesson, prev, next) {
     blocks,
     nQ ? `<h2>연습 · Practice</h2><p class="lead">이 레슨에는 풀어 보는 문제가 ${nQ}개 있습니다. ` +
       `앱에서 하나씩 맞히며 넘어갑니다.<br>${nQ} exercises come with this lesson — open it to work through them.</p>` : '',
-    `<a class="cta" href="/#learn/courses">이 레슨 열기<span>Open this lesson in the app</span></a>`,
-    (prev || next) ? '<div class="near">' +
-      (prev ? `<a href="/lesson/${esc(prev.id)}.html"><b>← 앞 레슨</b>${esc(tx(prev.title))}</a>` : '') +
+    `<a class="tq-app" href="/#learn/courses">앱에서 이 레슨 풀기${nQ ? ` · 문제 ${nQ}개` : ''} →</a>`,
+    (prev || next) ? '<nav class="tq-nav">' +
+      (prev ? `<a href="/lesson/${esc(prev.id)}.html"><b>← 앞 레슨</b>${esc(tx(prev.title))}</a>` : '<span></span>') +
       (next ? `<a href="/lesson/${esc(next.id)}.html"><b>다음 레슨 →</b>${esc(tx(next.title))}</a>` : '') +
-      '</div>' : '',
+      '</nav>' : '',
   ].filter(Boolean).join('\n');
+  /* 오른쪽 「이 코스 길」(운영자 2026-11-22 시안 D) — 이 코스 레슨을 점 · 줄로: 지금 레슨은 테두리 점, 끝낸 레슨은 page.js 가
+     앱 기록(localStorage cp_done_local)을 읽어 채운 점으로. 끝에 같은 레벨의 다음 코스 */
+  const sameLv = COURSES.filter((c) => LV_OF(c) === lv);
+  const nextC = sameLv[sameLv.findIndex((c) => c.id === course.id) + 1];
+  const side = `<aside class="lx-side"><h3>이 코스 길<small><a href="/course/${esc(course.id)}.html">${esc(tx(course.title))}</a> · ${course.lessons.length}강</small></h3><ol class="lx-ol">` +
+    course.lessons.map((l, i) => `<li data-lid="${esc(l.id)}"${l.id === lesson.id ? ' class="on" aria-current="step"' : ''}><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title).replace(/^\d+강\.\s*/, ''))}</a><small>${i + 1}강${l.id === lesson.id ? ' · 지금' : ''}</small></li>`).join('') +
+    (nextC ? `<li class="nx"><a href="/course/${esc(nextC.id)}.html">다음 코스 →</a><small>${esc(tx(nextC.title))}</small></li>` : '') +
+    `</ol><p class="lx-all"><a href="/course/">코스 전체 보기 →</a></p></aside>`;
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
 
   const jsonld = [
     {
@@ -767,8 +776,18 @@ function lessonPage(course, lesson, prev, next) {
   ];
   /* 이모지 그림 글자(자료의 제목 꾸밈)는 쪽에서 뺀다 — 디자인 약속(이모지를 아이콘으로 쓰지 않는다), 앱 화면은 그대로 */
   return page({ url: `/lesson/${lesson.id}.html`, title, desc, body, jsonld,
-    extraCss: '.fact span b{display:inline;margin:0;font-size:inherit}.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
+    extraCss: TQ_CSS + LX_CSS + '.fact span b{display:inline;margin:0;font-size:inherit}.md-h{display:block;margin:6px 0 2px;font-size:17px}.md-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px;line-height:1.5}.md-t th,.md-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.md-t th{font-size:13px;color:var(--dim);border-bottom-color:var(--ink)}@media(max-width:600px){.md-t{font-size:14px}.md-t th,.md-t td{padding:7px 6px}}' });
 }
+
+const LX_CSS = [
+  '.lx-side{position:sticky;top:88px;font-size:14.5px}.lx-side h3{margin:0 0 12px;font-size:13.5px}.lx-side h3 small{display:block;margin-top:3px;font-weight:500;font-size:12.5px;color:var(--dim)}.lx-side h3 a{color:var(--dim)}',
+  '.lx-ol{list-style:none;margin:0;padding:0 0 0 30px;position:relative}.lx-ol::before{content:\'\';position:absolute;left:9px;top:10px;bottom:10px;border-left:2px solid var(--line)}',
+  '.lx-ol li{position:relative;padding:6px 0 10px}.lx-ol li::before{content:\'\';position:absolute;left:-26px;top:9px;width:12px;height:12px;border:2px solid var(--line);border-radius:50%;background:var(--bg)}',
+  '.lx-ol li.done::before{border-color:var(--ink);background:var(--ink)}.lx-ol li.on::before{border-color:var(--ink);box-shadow:0 0 0 3px var(--bg),0 0 0 4px var(--ink)}',
+  '.lx-ol a{color:var(--dim);text-decoration:none;line-height:1.4}.lx-ol a:hover{text-decoration:underline}.lx-ol li.on a{color:var(--ink);font-weight:800}.lx-ol li.done a,.lx-ol li.nx a{color:var(--ink)}.lx-ol li.nx a{font-weight:700}',
+  '.lx-ol small{display:block;color:var(--dim);font-size:12px}.lx-all{margin:10px 0 0;font-size:13px}.lx-all a{color:var(--dim)}',
+  '@media(max-width:900px){.lx-side{position:static;border-top:2px solid var(--ink);padding-top:18px}}',
+].join('');
 
 /* ── 코스 한 쪽 ─────────────────────────────────────────────── */
 function coursePage(course) {
