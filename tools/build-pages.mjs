@@ -838,11 +838,11 @@ function twPage(it) {
   const desc = clip(`TOPIK II 쓰기 ${it.q}번 유형 연습 문항. ${it.title} — ${it.cond}. ` +
     '기출이 아닌 창작 문항이고 모범답안과 채점 포인트가 함께 있습니다.');
 
-  const body = [
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-writing/">TOPIK 쓰기</a> › ${esc(q ? q.ko : it.q + '번')}</nav>`,
     `<span class="badge">${lvKo} · ${esc(q ? q.ko : '')} · ${q ? q.pt : ''}점</span>`,
     `<h1>${esc(it.title)}</h1>`,
-    `<p class="sub">${esc(it.cond)}</p>`,
+    `<p class="sub">${esc(it.cond)} · <span class="orig">치즈감자 창작 문항 · 기출 아님</span></p>`,
     /* 문항 먼저 → 바로 아래에 「직접 써 보기」 → 정답 · 채점은 접어 둔다(운영자 2026-10-17 「바로 답부터 나오고 엉망」 — 먼저 풀고 우리 사이트로 넘어가게). 접어도 글은 쪽 안에 그대로 있다.
        (2026-10-09 Clarity: 쓰기 문항 쪽에 온 사람이 9초 만에 모범답안만 보고 떠난다 — 그래서 직접 써 보기 단추를 문항 바로 밑에 둔다) */
     '<h2>문항 · Task</h2>',
@@ -851,8 +851,10 @@ function twPage(it) {
       `<div class="fact"><span>${esc(d)}</span></div>`).join('') + '</div>' : '',
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
-    `<a class="cta tw-try" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">이 문항 직접 써 보기 →<span>Write this task yourself — length and register checked as you type (AI scoring is Pro)</span></a>`,
-    '<details class="more tw-ans"><summary>정답 · 채점 포인트 보기 — 먼저 써 본 뒤에 열어 보세요 · Model answer &amp; scoring (try first)</summary>',
+    /* 큰 검정 단추 → 문항 쪽(읽기 · 듣기)과 같은 테두리 단추. 정답은 「정답과 해설 보기」와 같은 상자로 — 전엔 글줄처럼 보여 누를 수 있는지 몰랐다(2026-11-22) */
+    `<a class="tq-app" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">이 문항 앱에서 직접 써 보기 →</a>`,
+    '<p class="tw-note">글자 수 · 말투는 쓰는 동안 바로 확인돼요 · AI 채점은 Pro · Length and register are checked as you type</p>',
+    '<details class="ans-box tw-ans"><summary>정답 · 채점 포인트 보기 <small>먼저 써 본 뒤에 · Model answer &amp; scoring</small></summary>',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
     /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
        정답이 하나가 아니라 2~3개 표현이 모두 맞으므로, 화면(twReveal)과
@@ -874,11 +876,10 @@ function twPage(it) {
     /* 문항 번호까지 붙여 보낸다(#learn/writing/51-1) — 목록으로 떨어지면
        방금 읽은 이 문항을 다시 찾아야 한다. app.module.js 의 openLearnSub
        가 이 번호를 받아 목록 대신 이 문항을 바로 연다. */
-    `<a class="cta" href="/#learn/writing/${esc(it.id)}">직접 써 보기<span>Write it yourself — length and register checked as you type</span></a>`,
     '</details>',
-    twBook(),
-    LT_LINK,
   ].filter(Boolean).join('\n');
+  const body = tqFrame({ it, kind: 'w', list: TW_ITEMS, label: (x) => x.title, main, typeKo: q ? q.ko : `${it.q}번`,
+    appHref: `/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}` });
 
   const jsonld = [
     {
@@ -895,7 +896,7 @@ function twPage(it) {
     },
     crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/'], [it.title, null]]),
   ];
-  return page({ url: `/topik-writing/${it.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/topik-writing/${it.id}.html`, title, desc, body, jsonld, extraCss: TQ_CSS });
 }
 
 
@@ -1141,28 +1142,39 @@ function optsAndAnswer(options, answer, whyKo, whyEn) {
 /* 문항 쪽 사전식 곁칸(운영자 2026-11-22 시안 B 「B로 가자 · 더 깔끔하게 · 박스든지」) — 사전 · 문법 쪽과 같은 두 칸.
    본문: 문제 → 「← 앞 문제 · 다음 문제 →」(같은 시험 · 같은 유형, 모음 쪽과 같은 차례). 곁칸: 상자 셋 — 같은 유형 목록 · 더 풀기 · 책.
    전에는 한 문제를 풀면 앱으로 가는 검정 큰 단추뿐이라 검색으로 온 사람이 갈 곳이 없었다. */
-const TQ_BOOK = { r: { I: 'topik1-reading-mock', II: 'topik2-vocab-1000' }, l: { I: 'topik1-vocab', II: 'topik2-vocab-1000' } };
+const TQ_BOOK = { r: { I: 'topik1-reading-mock', II: 'topik2-vocab-1000' }, l: { I: 'topik1-vocab', II: 'topik2-vocab-1000' },
+  w: { 51: 'topik2-writing-51-52', 52: 'topik2-writing-51-52', 53: 'topik2-writing-53-54', 54: 'topik2-writing-53-54' },
+  e: { reading: 'topik1-vocab', listening: 'topik1-vocab' } };   // EPS 책은 아직 없다 — EPS 가 TOPIK I 수준이라 초급 단어장
+const TQ_DIR = { r: 'topik-reading', l: 'topik-listening', w: 'topik-writing', e: 'eps-topik' };
+const TQ_KO = { r: '읽기', l: '듣기', w: '쓰기', e: 'EPS-TOPIK' };
 const tqSort = (a, b) => a.slot - b.slot || a.id.localeCompare(b.id);
+const twN = (x) => Number(x.id.split('-').pop());   // w51-7 → 7
 function tqFrame({ it, kind, list, label, main, appHref, typeKo }) {
-  const dir = kind === 'r' ? 'topik-reading' : 'topik-listening';
+  const dir = TQ_DIR[kind];
   const href = (x) => `/${dir}/${esc(x.id)}.html`;
-  const same = list.filter((x) => x.exam === it.exam && x.type === it.type).sort(tqSort);
+  /* 쓰기는 번호(51~54)가 곧 유형 — 같은 번호끼리, 문항 차례대로 */
+  const same = kind === 'w' ? list.filter((x) => x.q === it.q).sort((a, b) => twN(a) - twN(b))
+    : kind === 'e' ? list.filter((x) => x.sec === it.sec && x.type === it.type).sort((a, b) => epsNo(a) - epsNo(b))
+    : list.filter((x) => x.exam === it.exam && x.type === it.type).sort(tqSort);
+  const num = (x) => (kind === 'w' ? `${twN(x)}` : kind === 'e' ? `${epsNo(x)}` : `${x.slot}번`);
+  const bookId = TQ_BOOK[kind][kind === 'w' ? it.q : kind === 'e' ? it.sec : it.exam];
   const i = same.findIndex((x) => x.id === it.id), prev = same[i - 1], next = same[i + 1];
   const nav = `<nav class="tq-nav">${prev ? `<a href="${href(prev)}"><b>← 앞 문제</b>${esc(label(prev))}</a>` : '<span></span>'}` +
     `${next ? `<a href="${href(next)}"><b>다음 문제 →</b>${esc(label(next))}</a>` : ''}</nav>`;
   const from = Math.max(0, Math.min(i - 2, same.length - 6));
   const pick = same.slice(from, from + 6);
-  const b = SHOPJ.books.find((x) => x.id === TQ_BOOK[kind][it.exam]);
-  if (!b) throw new Error('shop.json 에 없는 책: ' + TQ_BOOK[kind][it.exam]);
+  const b = SHOPJ.books.find((x) => x.id === bookId);
+  if (!b) throw new Error('shop.json 에 없는 책: ' + bookId);
   const bu = `/shop/${b.id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=t${kind}_side`;
   const side =
     `<section class="tq-box"><h3>같은 유형 <small>${esc(typeKo)} · ${same.length}문항</small></h3><ol class="tq-list">` +
-      pick.map((x) => `<li${x.id === it.id ? ' class="on" aria-current="page"' : ''}><a href="${href(x)}"><span>${x.slot}번</span>${esc(label(x))}</a></li>`).join('') +
-      `</ol><a class="tq-all" href="/${dir}/">${kind === 'r' ? '읽기' : '듣기'} 문항 전부 보기 →</a></section>` +
+      pick.map((x) => `<li${x.id === it.id ? ' class="on" aria-current="page"' : ''}><a href="${href(x)}"><span>${num(x)}</span>${esc(label(x))}</a></li>`).join('') +
+      `</ol><a class="tq-all" href="/${dir}/">${TQ_KO[kind]} 문항 전부 보기 →</a></section>` +
     '<section class="tq-box"><h3>더 풀기</h3><ul class="tq-go">' +
-      `<li><a href="${appHref}">이 유형 앱에서 이어 풀기<span>→</span></a></li>` +
+      `<li><a href="${appHref}">${kind === 'w' ? '이 문항 앱에서 써 보기' : '이 유형 앱에서 이어 풀기'}<span>→</span></a></li>` +
+      (kind === 'w' ? '<li><a href="/blog/topik-writing-score-tips.html">쓰기 점수 올리는 법 · 안내 글<span>→</span></a></li>' : '') +
       `<li><a href="/?lt=1&amp;utm_source=t${kind}">내 한국어 레벨 재기 · 3분<span>→</span></a></li>` +
-      `<li><a href="/exam-room/">TOPIK 시험장 · 실제 시간대로<span>→</span></a></li></ul></section>` +
+      (kind === 'e' ? '<li><a href="/#learn/eps">EPS 모의고사 · 70분<span>→</span></a></li>' : '<li><a href="/exam-room/">TOPIK 시험장 · 실제 시간대로<span>→</span></a></li>') + '</ul></section>' +
     `<section class="tq-box tq-bk"><h3>책으로 이어서</h3><div class="tq-bkin"><a href="${bu}"><img src="${esc(b.coverImg)}" alt="" width="56" height="80" loading="lazy"></a>` +
       `<div><b>${esc(b.title.ko)}</b><small>PDF · $${esc(b.price)}</small><a class="tq-bkgo" href="${bu}">책 보기 →</a>` +
       (b.sample ? `<a class="tq-smp" href="/assets/books/${b.id}/sample.pdf" download data-ev="샘플받기" data-ev-from="t${kind}_side">무료 샘플 ${b.sample.pages}쪽</a>` : '') + '</div></div></section>';
@@ -1174,6 +1186,7 @@ const TQ_CSS = [
   '.tq-app{display:inline-block;margin:18px 0 0;padding:10px 15px;border:1px solid var(--ink);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px}.tq-app:hover{background:var(--soft)}',
   '.tq-nav{display:flex;justify-content:space-between;gap:16px;margin:26px 0 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}',
   '.tq-nav a{flex:0 1 auto;min-width:0;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.45}.tq-nav a:hover{text-decoration:underline}.tq-nav a+a,.tq-nav span+a{text-align:right}',
+  '.tw-note{margin:8px 0 0;font-size:13px;color:var(--dim)}.tw-ans{margin-top:22px}.tw-ans summary small{font-weight:500;color:var(--dim);margin-left:6px}',
   '.tq-nav b{display:block;font-size:12.5px;color:var(--dim);font-weight:600}',
   '.tq-lis{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:18px 0 10px;padding:14px 16px;border:1.5px solid var(--ink);border-radius:8px;background:var(--card)}',
   '.tq-lis span{font-size:14px;color:var(--dim)}',
@@ -1479,8 +1492,10 @@ function tlHub() {
    듣기는 TOPIK 듣기 쪽과 같은 이유로 대본을 보여 준다(여기는 문제를 소개하는 읽는 쪽이다).
    「듣고 그림 고르기」의 그림은 정답이라 보기 아래, 해설 자리에 둔다. */
 const EPS_SEC = { reading: { ko: '읽기', en: 'Reading' }, listening: { ko: '듣기', en: 'Listening' } };
-const EPS_WHO = { '남': '👨', '여': '👩', '안내': '📢' };
+const EPS_WHO = { '남': '남자', '여': '여자', '안내': '안내' };   // 이모지 대신 글자(TOPIK 듣기 쪽과 같이, 2026-11-22)
 const epsNo = (it) => Number(it.id.slice(-3));
+/* 곁칸 · 앞뒤 문제의 이름 — 듣기는 대본 첫 줄, 읽기는 지문 · 물음 앞부분 */
+const epsLabel = (x) => { const g = String(x.sec === 'listening' ? x.script[0].replace(/^(남|여|안내)\s*:\s*/, '') : (x.passage || x.question)).replace(/\s+/g, ' '); return g.length > 22 ? `${g.slice(0, 22).trim()}…` : g; };
 
 function epsPage(it) {
   const sec = EPS_SEC[it.sec];
@@ -1496,20 +1511,25 @@ function epsPage(it) {
   const script = it.sec === 'listening'
     ? '<div class="dlg">\n  ' + it.script.map((l) => {
         const m = /^(남|여|안내)\s*:\s*/.exec(l);
-        return `<div class="line${m && m[1] === '여' ? ' b' : ''}"><span class="who" aria-hidden="true">${m ? EPS_WHO[m[1]] : '🗣️'}</span>` +
+        return `<div class="line${m && m[1] === '여' ? ' b' : ''}"><span class="who tl-who">${m ? EPS_WHO[m[1]] : '말'}</span>` +
           `<span class="bub">${esc(m ? l.slice(m[0].length) : l)}</span></div>`;
       }).join('\n  ') + '\n</div>'
+    : '';
+  /* 듣기 먼저 · 대본 접기(TOPIK 듣기 쪽과 같이). EPS 녹음 파일은 없어 기기 목소리로 읽는다 */
+  const listen = it.sec === 'listening'
+    ? `<div class="tq-lis"><button type="button" class="tq-play" data-say="${esc(it.script.map((l) => l.replace(/^(남|여|안내)\s*:\s*/, '')).join(' '))}"><i class="wd-say-i" aria-hidden="true"></i>듣기</button><span>먼저 듣고 고르세요 · Listen first, then choose</span></div>` +
+      `<details class="tq-scr"><summary>대본 보기 · Script</summary>${script}</details>`
     : '';
   const picTop = it.pic && it.sec === 'reading' ? `<div class="eps-pic" aria-hidden="true">${esc(it.pic)}</div>` : '';
   const picAns = it.pic && it.sec === 'listening' ? `<div class="eps-pic" aria-hidden="true">${esc(it.pic)}</div>` : '';
 
-  const body = [
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/eps-topik/">EPS-TOPIK</a> › ${esc(sec.ko)}</nav>`,
     `<span class="badge">EPS-TOPIK · ${esc(sec.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(h1)}</h1>`,
-    `<p class="sub">${esc(sec.ko)} ${n} · ${esc(tx.ko)} · ${esc(tx.en)}${it.sec === 'listening' ? ' · 대본 · Script' : ''}</p>`,
+    `<p class="sub">${esc(sec.ko)} ${n} · ${esc(tx.ko)} · ${esc(tx.en)} · <span class="orig">치즈감자 창작 문항 · 기출 아님</span></p>`,
     picTop,
-    script,
+    listen,
     it.passage ? `<div class="ex">${ulMark(it.passage, it.mark)}</div>` : '',
     `<p class="desc"${it.sec === 'listening' ? ' style="margin-top:20px"' : ''}>${esc(it.question)}</p>`,
     /* 정답 · 해설은 접어 둔다(읽기 · 듣기 쪽과 같은 까닭 — optsAndAnswer). 그림 보기의 정답 그림도 그 안에. */
@@ -1517,9 +1537,9 @@ function epsPage(it) {
     '<details class="ans-box"><summary>정답과 해설 보기 <small>Show answer</small></summary>' +
     `<p class="ans-right"><b>정답 ${ONUM[it.answer] || it.answer + 1}</b> ${esc(it.options[it.answer])}</p>` + (picAns || '') +
     `<div class="ex">${esc(it.why)}${it.why_en ? `<br><span lang="en" style="color:var(--dim)">${esc(it.why_en)}</span>` : ''}</div></details>`,
-    `<a class="cta more" href="/#learn/eps/${esc(it.id)}">비슷한 문제 더 풀기 →` +
-      `<span>Try it yourself — ${it.sec === 'listening' ? 'hear the audio and answer' : 'answer it'} in the app, then take a 70-minute mock test</span></a>`,
+    `<a class="tq-app" href="/#learn/eps/${esc(it.id)}">앱에서 비슷한 문제 더 풀기 →</a>`,
   ].filter(Boolean).join('\n');
+  const body = tqFrame({ it, kind: 'e', list: EPS_ITEMS, label: epsLabel, main, typeKo: `${sec.ko} · ${tx.ko}`, appHref: `/#learn/eps/${esc(it.id)}` });
 
   const jsonld = [
     {
@@ -1537,7 +1557,7 @@ function epsPage(it) {
     crumbLd([['치즈감자', '/'], ['EPS-TOPIK', '/eps-topik/'], [`${sec.ko} ${n}`, null]]),
   ];
   return page({ url: `/eps-topik/${it.id}.html`, title, desc, body, jsonld,
-    extraCss: '.eps-pic{font-size:72px;line-height:1;text-align:center;margin:10px 0 14px}' });
+    extraCss: TQ_CSS + '.eps-pic{font-size:72px;line-height:1;text-align:center;margin:10px 0 14px}' });
 }
 
 function epsHub() {
