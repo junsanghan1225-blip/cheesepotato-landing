@@ -45,10 +45,11 @@ const buy = (url, price, label) => url
 const cover = (k, big) => k.coverImg ? `<div class="bk-cover bk-img${big ? ' big' : ''}"><img src="${esc(k.coverImg)}" alt="${esc(k.title.ko)} — ${esc(k.title.en)}" width="700" height="995"${big ? '' : ' loading="lazy"'}></div>` : `<div class="bk-cover${big ? ' big' : ''}" style="--c:${esc(k.color)}"><span class="bk-ser">${esc(k.series === 'topik' ? 'TOPIK SERIES' : 'WORKBOOK SERIES')}</span><b>${esc(k.title.ko)}</b><i>${esc(k.title.en)}</i><span class="bk-lv">${esc(k.level)}</span><span class="bk-pub">${esc(pub.en)}</span></div>`;
 const STATUS = { planned: ['Coming soon', '출간 예정'], on: ['Available', '판매 중'] };
 const SHOP_CSS = `<style>
-.shop-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
-.shop-hero b{font-size:15px;letter-spacing:.5px}.shop-hero small{color:var(--ink-3)}
 .shop-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700;margin:10px 0 4px}.shop-nav a{color:var(--ink);text-decoration:none;display:inline-block;padding:10px 0}.cvh{display:inline-block;padding:10px 0}.ft a,.next p a,.crumb a{display:inline-block;padding:12px 4px;margin:-12px -4px}   /* 누르는 곳 키우기(2026-11-10) */
-.bk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 18px;margin:18px 0}
+.bk-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 18px;margin:18px 0}
+.bk-tag{display:block;font-size:11.5px;font-weight:700;color:var(--orange-deep,#AE4710);margin:8px 0 -4px}
+.shop-later{margin:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.shop-later>summary{padding:16px 4px;font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}.shop-later>summary::-webkit-details-marker{display:none}.shop-later>summary small{font-weight:600;color:var(--orange-deep,#AE4710)}.shop-later>summary::after{content:'+';flex:none}.shop-later[open]>summary::after{content:'−'}
+@media (max-width:900px){.bk-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .bk-item{text-decoration:none;color:var(--ink)}.bk-item:hover .bk-cover{transform:translateY(-3px)}
 .bk-item h3{font-size:15px;margin:10px 0 2px;line-height:1.35}.bk-item p{margin:0;font-size:13px;color:var(--ink-3)}
 .bk-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--tint);margin-top:6px}
@@ -85,11 +86,14 @@ const SHOP_CSS = `<style>
 .shop-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.shop-row:first-child{border-top:0}
 .shop-lv{font-size:12px;font-weight:800;color:var(--ink-3);width:28px}.shop-t{flex:1;min-width:0}.shop-t small{display:block;color:var(--ink-3)}
 .shop-row .btn{min-height:40px;padding:8px 14px;font-size:14px;white-space:nowrap}
-@media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.shop-hero .btn{display:none}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
+.shop-list{padding:4px 18px}.shop-list .shop-t a{color:var(--ink);font-weight:700;text-decoration:none}.shop-list .shop-t a:hover{text-decoration:underline}.shop-n{font-size:15px;color:var(--ink);text-align:center}.shop-px{font-weight:700;white-space:nowrap}.shop-st{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.shop-later h2{font-size:20px;margin:22px 0 6px}
+@media (max-width:600px){.shop-list{padding:2px 12px}.shop-row{flex-wrap:wrap;gap:4px 10px}.shop-row .shop-t{flex:1 1 calc(100% - 40px)}.shop-row .shop-px{margin-left:38px}}
+@media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
 </style>
 `;
-const shopHead = () => `<div class="shop-hero"><span><b>${esc(pub.en.toUpperCase())}</b><br><small>${esc(pub.ko)} · Korean books &amp; worksheets by a Korean teacher</small></span><a class="btn sub" href="/worksheets/">Free worksheets</a></div>
-<nav class="shop-nav"><a href="/shop/#books">Books · 책</a><a href="/shop/#packs">Worksheet packs · 묶음</a><a href="/shop/#singles">Single sheets · 낱장</a></nav>`;
+/* 상점 시안 S4-1(운영자 2026-11-22): 위 EVERYKOREANS 띠는 걷고(메뉴줄과 겹침) 차례는 책 · 묶음 · 무료 학습지 셋 */
+const shopHead = () => `<nav class="shop-nav"><a href="/shop/#books">Books · 책</a>${(SHOP.bundles || []).some((b) => b.status === 'on' && b.polar) ? '<a href="/shop/#bundles">Bundle · 묶음</a>' : ''}<a href="/worksheets/">Free worksheets · 무료 학습지</a></nav>`;
 const shopFoot = `<div class="next">
   <h3>How buying works</h3>
   <p>Payment is handled by Polar, our payment partner. Digital files download right after paying and arrive by email. Printed books will be sold through bookstores when published. See <a href="/refund.html">refunds</a> · <a href="/terms.html">terms</a>.</p>
@@ -111,30 +115,34 @@ function bundlesHtml() {
   }).join('');
 }
 function shopPage() {
-  const bookItem = (k) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `<span data-px="${esc(k.price)}">$${esc(k.price)}</span> · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
-  const books = (SHOP.series || []).map((g) => { const ks = g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean); return `<h2 class="bk-series" id="series-${esc(g.id)}">${esc(g.title.en)} · ${esc(g.title.ko)} <small style="font-weight:600;font-size:.6em;color:var(--ink-3)">· ${ks.length}권</small></h2>\n<div class="bk-grid">\n${ks.map(bookItem).join('\n')}\n</div>`; }).join('\n');
-  const packs = SHOP.packs.map((p) => {
+  const bookItem = (k, g) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}${g ? `<small class="bk-tag">${esc(g.title.en)}</small>` : ''}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `<span data-px="${esc(k.price)}">$${esc(k.price)}</span> · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
+  /* 시안 S4-1: 시리즈 제목 줄을 걷고 한 칸에 모두(시리즈 차례 그대로) — 시리즈 이름은 표지 아래 작은 주황 글자로 */
+  const books = `<div class="bk-grid">\n${(SHOP.series || []).flatMap((g) => g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter((k) => k && k.status === 'on').map((k) => bookItem(k, g))).join('\n')}\n</div>`;
+  /* 학습지 묶음 · 낱장(운영자 2026-11-22 「학습지 부분 엄청 지저분해」): 아직 파는 것이 없어 큰 카드 6장 · 「준비 중」 단추 38개가 이어졌다 →
+     묶음은 한 줄씩(장 수 · 이름 · 가격 · 준비 중), 낱장 32줄은 Polar 링크가 하나라도 생기기 전까지 한 문단(무료 학습지 쪽으로). 파는 것이 생기면 그 줄에 사기 단추 */
+  /* 운영자 2026-11-22 「COMING SOON 은 좀 빼 제발」: 상점에는 지금 살 수 있는 것만 — 출간 예정 책 · Polar 링크 없는 묶음 · 낱장은 안 보인다(링크가 생기면 저절로 나온다) */
+  const onPacks = SHOP.packs.filter((p) => p.polar);
+  const soon = '';
+  const packs = `<div class="box shop-list">\n${onPacks.map((p) => {
     const ws = packSheets(p);
-    return `<div class="shop-card"><a class="shop-pk lv-${esc(p.ws || p.level)}" href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}" title="See a sheet from this pack · 이 묶음의 학습지 보기"><b>${ws.length}</b><small>${esc(p.ws ? WS_LV[p.ws] : p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></a>
-  <div class="shop-body"><h3>${esc(p.title.en)}</h3><p class="bk-ko">${esc(p.title.ko)}</p><p>${esc(p.sub.en)}</p>
-    <p class="shop-price">$${esc(p.price)} <small>· ${ws.length} sheets + answer keys · PDF download</small></p>
-    ${buy(p.polar, p.price, 'Buy the pack')}
-    <details><summary>What is inside (${ws.length})</summary><ul>${ws.map((w) => `<li><a href="${esc(w.href || `/${w.id}-worksheet/`)}">${esc(w.title.en)}</a> · ${esc(w.title.ko)}</li>`).join('')}</ul></details></div></div>`;
-  }).join('\n');
-  const singles = sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${buy(SHOP.singles?.[w.id], SHOP.singlePrice, 'PDF')}</div>`).join('\n');
+    return `  <div class="shop-row"><span class="shop-lv shop-n">${ws.length}</span><span class="shop-t"><a href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}">${esc(p.title.en)}</a><small>${esc(p.title.ko)} · sheets + answer keys</small></span><span class="shop-px">$${esc(p.price)}</span>${p.polar ? buy(p.polar, p.price, 'Buy') : soon}</div>`;
+  }).join('\n')}\n</div>`;
+  const anySingle = sheets.some((w) => SHOP.singles?.[w.id]);
+  const singles = anySingle
+    ? `<div class="box shop-list">\n${sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${SHOP.singles?.[w.id] ? buy(SHOP.singles[w.id], SHOP.singlePrice, 'PDF') : soon}</div>`).join('\n')}\n</div>`
+    : '';
   return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
 `${shopHead()}
 <h1 id="books">Books</h1>
 <p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers. These books are independent study aids and are not operated, endorsed or certified by NIIED or the TOPIK Center.</p>
 ${books}
-${bundlesHtml()}<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
+${bundlesHtml()}${onPacks.length || anySingle ? `<details class="shop-later"><summary><span>Worksheet packs &amp; single sheets · 학습지 묶음 · 낱장</span></summary>
+${onPacks.length ? `<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
 <p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
-${packs}
-<h2 id="singles">Single worksheets · 낱장</h2>
-<p>$${esc(SHOP.singlePrice)} each · 학습지 한 장(정답지 포함) PDF</p>
-<div class="box">
-${singles}
-</div>
+${packs}` : ''}
+${anySingle ? `<h2 id="singles">Single worksheets · 낱장</h2>
+${singles}` : ''}
+</details>` : ''}
 ${shopFoot}<script src="/sale.js" defer></script>` + foot;
 }
 /* Yes24 식 책 쪽(운영자 2026-10-18 「판매페이지 · 미리보기 · 책소개」) — shop.json 책에 page 가 있으면 소개 · 특징 · 미리보기 · 저자 · 책 정보 · 자주 묻는 질문을 더 보여 준다. 미리보기 그림은 assets/books/<id>/pv-N.jpg, 크게 보기는 CSS :target(스크립트 없음). */
@@ -177,7 +185,8 @@ main{max-width:none;padding:0 0 70px}.hd-in{max-width:1120px}.pg2 table{min-widt
 .dsp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0}.dsp figure{margin:0;min-width:0}.dsp figcaption{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;margin-bottom:8px;line-height:1.3}.dsp figcaption i{font-style:normal;flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font:800 12px/28px ui-monospace,monospace;text-align:center}.dsp img{display:block;width:100%;height:auto;border:1px solid #d9d5ca;border-radius:8px;background:#fff}
 .drd{list-style:none;margin:10px 0 0;padding:0;border-top:1px solid var(--ink)}.drd li{display:grid;grid-template-columns:170px 1fr;gap:4px 14px;padding:12px 2px;border-bottom:1px solid #d9d5ca;font-size:14px}.drd li b{font-size:15px}.drd li em{grid-column:2;font-style:normal;color:var(--c2,#c0501c);font-weight:800;font-size:12px}
 .dex{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}.dex div{border:1px solid #d9d5ca;border-radius:8px;padding:14px;font-size:14px}.dex b{display:block;font-size:15px;margin-bottom:4px}.dex p{margin:0 0 4px;line-height:1.55}.dex p.ko{color:var(--ink-3);font-size:13px}
-@media(max-width:600px){.dsp,.dex{grid-template-columns:1fr}.drd li{grid-template-columns:1fr}.drd li em{grid-column:1}}
+@media(max-width:900px){.pg2-pv{display:flex;overflow-x:auto;gap:10px;padding-bottom:6px}.pg2-pv a{flex:0 0 110px;font-size:11px}}   /* 책 쪽 시안 B: 미리보기는 가로로 넘기는 작은 그림 줄 */
+@media(max-width:600px){.dex{grid-template-columns:1fr}.dsp{gap:10px}.dsp figcaption{font-size:12px}.drd li{grid-template-columns:1fr}.drd li em{grid-column:1}}
 </style>\n`;
 
 

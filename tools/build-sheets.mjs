@@ -147,39 +147,46 @@ ${ad}<div class="next">
 ` + foot;
 }
 const hand = [
-  ['/numbers-worksheet/', 'Korean numbers & counters', '수사 · 세는 말', 'all'],
+  ['/numbers-worksheet/', 'Korean numbers & counters', '수사 · 세는 말', 'A1'],
   ['/hangul-worksheet/', 'Hangul name tracing', '내 이름 따라 쓰기', 'A1'],
-  ['/worksheet/', 'Grammar worksheets', '문법 학습지', 'all'],
 ];
-/* 학습지 목록(운영자 2026-11-11 「목록이랑 UI 개선 · 정신이 없어」): 알약 + 긴 영어 설명 줄줄이 → 급별로 묶은 번호 차례 표(한국어 먼저 · 한 줄 요약 · 얇은 줄). 영어 설명 문장은 메타 설명 · 목록 JSON 에 있다. */
+/* 학습지 목록 시안 B(운영자 2026-11-22 「학습지 부분 엄청 지저분해」 → 「B로」): 번호 · 급 표시 · 긴 설명 · 「전체 2」 칸을 걷고
+   급마다 두 칸(PC) · 한 칸(폰) 목록(한국어 제목 + 영어 한 줄). 문법 학습지 290장은 맨 위 한 줄로 꺼내고, 책 상자는 목록 아래로.
+   설명 문장(sub)은 각 학습지 쪽 · 메타 설명에 있다 */
 const WL_CSS = `<style>
 .wl-jump{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.wl-jump a{font-size:13px;font-weight:800;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:5px;padding:5px 11px;background:var(--surface)}.wl-jump a:hover{background:var(--ink);color:#fff}
+.wl-gram{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;margin:18px 0 8px;padding:16px 18px;border:1px solid var(--ink);border-radius:8px;text-decoration:none;color:var(--ink)}
+.wl-gram b{font-size:17px}.wl-gram small{color:var(--ink-3)}.wl-gram span span{display:block;font-size:13.5px;color:var(--ink-2,var(--ink-3));margin-top:2px}.wl-gram em{font-style:normal;font-weight:700;color:var(--orange-deep,#AE4710);white-space:nowrap}
 .wl h2{display:flex;align-items:baseline;gap:10px;margin:30px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--ink);font-size:19px}.wl h2 small{font-size:12px;font-weight:700;color:var(--ink-3)}
-.wl-row{display:grid;grid-template-columns:34px minmax(0,1.25fr) minmax(0,1fr) 38px;gap:4px 14px;align-items:baseline;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
-.wl-row:hover{background:rgba(0,0,0,.035)}.wl-row i{font-style:normal;font-size:12px;font-weight:800;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.wl-row .t b{display:block;font-size:15.5px;line-height:1.35;word-break:keep-all}.wl-row .t em{display:block;font-style:normal;font-size:12px;color:var(--ink-3);line-height:1.35;margin-top:1px}
-.wl-row .s{font-size:13px;color:var(--ink-2,var(--ink-3));line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.wl-row .lv{font-size:11px;font-weight:800;text-align:center;border:1.5px solid var(--ink);border-radius:5px;padding:1px 0}
-@media(max-width:600px){.wl-row{grid-template-columns:28px minmax(0,1fr) 36px;padding:12px 2px}.wl-row .s{grid-column:2/3;-webkit-line-clamp:2}.wl-row .lv{grid-row:1;grid-column:3}}
+.wl-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
+.wl-row{display:block;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.wl-row:hover{background:rgba(0,0,0,.035)}
+.wl-row b{display:block;font-size:15.5px;line-height:1.35;word-break:keep-all}.wl-row em{display:block;font-style:normal;font-size:12px;color:var(--ink-3);line-height:1.35;margin-top:1px}
+@media(max-width:600px){.wl-grid{grid-template-columns:1fr}.wl-row{padding:12px 2px}.wl-gram{grid-template-columns:1fr}}
 </style>
 `;
 function hubPage() {
-  const all = [...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv, sub: '' })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level, sub: w.sub.ko }))];
-  const groups = [['all', '전체 · 모든 급', '여러 급에서 쓰는 학습지'], ['A1', 'A1 입문', '한글 · 생활 낱말 · 기본 문법'], ['A2', 'A2 초급', '연결 · 높임 · 불규칙 · 간접 인용']];
-  let no = 0;
+  const all = [...hand.map(([u, en, ko, lv]) => ({ u, en, ko, lv })), ...sheets.map((w) => ({ u: `/${w.id}-worksheet/`, en: w.title.en, ko: w.title.ko, lv: w.level }))];
+  const groups = [['A1', 'A1 입문', '한글 · 생활 낱말 · 기본 문법'], ['A2', 'A2 초급', '연결 · 높임 · 불규칙 · 간접 인용'], ['B1', 'B1 중급', ''], ['B2', 'B2 중상급', ''], ['all', '여러 급', '']];
   const sec = groups.map(([k, name, note]) => {
     const rows = all.filter((x) => x.lv === k); if (!rows.length) return '';
-    return `<h2 id="${k.toLowerCase()}">${name} <small>${rows.length}편 · ${note}</small></h2>\n` + rows.map((x) => `<a class="wl-row" href="${x.u}"><i>${String(++no).padStart(2, '0')}</i><span class="t"><b>${esc(x.ko)}</b><em>${esc(x.en)}</em></span>${x.sub ? `<span class="s">${esc(x.sub)}</span>` : '<span class="s"></span>'}<span class="lv">${esc(x.lv === 'all' ? '전체' : x.lv)}</span></a>`).join('\n');
+    return `<h2 id="${k.toLowerCase()}">${name} <small>${rows.length}편${note ? ` · ${note}` : ''}</small></h2>\n<div class="wl-grid">\n` + rows.map((x) => `<a class="wl-row" href="${x.u}"><b>${esc(x.ko)}</b><em>${esc(x.en)}</em></a>`).join('\n') + '\n</div>';
   }).join('\n');
   const cnt = (k) => all.filter((x) => x.lv === k).length;
+  /* 문법 학습지 수 — worksheet/list.json(build-worksheets 가 만든다)에서 */
+  const gram = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'worksheet/list.json'), 'utf8')); } catch (e) { return []; } })();
+  const gl = (l) => gram.filter((x) => x.l === l).length;
+  const gramBox = gram.length ? `<a class="wl-gram" id="grammar" href="/worksheet/"><span><b>문법 학습지 ${gram.length}장</b> <small>· Grammar worksheets</small><span>초급 ${gl('beginner')} · 중급 ${gl('intermediate')} · 고급 ${gl('advanced')} — 문법 하나에 한 장 · 설명 · 예문은 무료, 연습 · 정답은 Pro</span></span><em>보기 →</em></a>` : '';
+  const jump = groups.filter(([k]) => cnt(k)).map(([k, name]) => `<a href="#${k.toLowerCase()}">${name} ${cnt(k)}</a>`).join('') + (gram.length ? `<a href="#grammar">문법 ${gram.length}</a>` : '');
   return head('Free Korean Worksheets (Printable PDF)', 'Free printable Korean worksheets: numbers and counters, dates, hangul, grammar and more — each with an answer key. Print or save as PDF.', '/worksheets/', WL_CSS) +
 `<h1>Free Korean worksheets</h1>
 <p>학습지 모음 · ${all.length}편 · 인쇄하거나 PDF · Word 로 저장 · 모든 학습지에 정답지가 있어요</p>
-<nav class="wl-jump" aria-label="급별 바로가기"><a href="#all">전체 ${cnt('all')}</a><a href="#a1">A1 입문 ${cnt('A1')}</a><a href="#a2">A2 초급 ${cnt('A2')}</a></nav>
-<style>${HUB_BOOKS_CSS}</style>${hubBooks([...new Set([...booksWithSheets(sheets.map((w) => w.id)), 'particles-workbook'])], 'worksheets-hub')}
+<nav class="wl-jump" aria-label="급별 바로가기">${jump}</nav>
+${gramBox}
 <div class="wl">
 ${sec}
 </div>
+<style>${HUB_BOOKS_CSS}</style>${hubBooks([...new Set([...booksWithSheets(sheets.map((w) => w.id)), 'particles-workbook'])], 'worksheets-hub')}
 <div class="next">
   <h3>없는 학습지가 있나요?</h3>
   <p>교사 선생님은 주제를 알려 주세요. 새 학습지를 계속 더하고 있어요. <small>Teachers: tell us the topic.</small></p>

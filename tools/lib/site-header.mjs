@@ -12,16 +12,55 @@ const L = {
 };
 const LINKS = [['topik', '/#learn/topik'], ['words', '/#words'], ['books', '/shop/'], ['sheets', '/worksheets/']];
 
+/* ☰ 큰 메뉴 — 첫 화면 ☰(index.html #sideNav)의 다섯 칸과 같은 차례 · 같은 이름(운영자 2026-11-22 「상점에 들어가면 사이드바가 사라진다」 · 「3번도 넣어줘」).
+   만든 쪽에서는 앱 스크립트가 없어 단추 대신 첫 화면 주소(/#…)로 건다 — 누르면 첫 화면이 그 화면을 연다.
+   첫 화면 메뉴를 바꾸면 여기도 같이 바꾼다. [칸 이름, 주소, [[아래 이름, 주소] …], 칸 열쇠(밑줄)] */
+const MENU = [
+  [['오늘 공부', "Today's study"], '/#home', [
+    [['내 코스', 'My course (by level)'], '/#learn/mine'],
+    [['레벨테스트 결과', 'Level test results'], '/#learn/report'],
+    [['오답 노트', 'My mistakes'], '/#learn/wrong'],
+    [['내 반 · 숙제', 'My class · homework'], '/#learn/class'],
+    [['구독 · Pro', 'Subscription · Pro'], '/#pro'],
+  ], ''],
+  [['한국어 배우기', 'Learn Korean'], '/#learn/path', [
+    [['코스 전체', 'All courses'], '/#learn/courses'],
+    [['문법', 'Grammar'], '/#learn/sentence'],
+    [['회화 연습', 'Practice a conversation'], '/#learn/convo'],
+  ], ''],
+  [['TOPIK', 'TOPIK'], '/#learn/topik', [
+    [['듣기', 'Listening'], '/#learn/topik/listening'],
+    [['읽기', 'Reading'], '/#learn/topik/reading'],
+    [['쓰기 · AI 채점', 'Writing · AI scoring'], '/#learn/topik/II/writing'],
+    [['TOPIK 시험장', 'TOPIK exam room'], '/exam-room/'],
+    [['OX 퀴즈', 'OX quiz'], '/ox/'],
+    [['EPS-TOPIK', 'EPS-TOPIK (work in Korea)'], '/#learn/eps'],
+  ], 'topik'],
+  [['단어', 'Words'], '/#words', [
+    [['게임', 'Games'], '/#games'],
+    [['단어 감자', 'Word potatoes'], '/#blocks'],
+    [['오늘의 감자들', 'Potato Wordle'], '/#potdle'],
+  ], 'words'],
+  [['책', 'Books'], '/shop/', [
+    [['학습지', 'Worksheets'], '/worksheets/'],
+    [['블로그', 'Blog'], '/blog/'],
+  ], 'books'],
+];
+
 /** active: 'topik' | 'words' | 'books' | 'sheets' | '' — 지금 쪽이 속한 칸(밑줄) */
 export function siteHeader({ lang = 'ko', active = '' } = {}) {
-  const t = L[lang === 'ko' ? 'ko' : 'en'];
+  const ko = lang === 'ko';
+  const t = L[ko ? 'ko' : 'en'];
   const a = (k, href) => `<a href="${href}"${k === active ? ' aria-current="page"' : ''}>${t[k]}</a>`;
   const nav = LINKS.map(([k, h]) => a(k, h)).join('');
+  const nm = (p) => p[ko ? 0 : 1];
+  const cols = MENU.map(([h, href, subs, k]) => `<div class="sh-col"><a class="sh-h" href="${href}"${k && (k === active || (k === 'books' && active === 'sheets')) ? ' aria-current="page"' : ''}>${nm(h)}</a>` +
+    subs.map(([s, u]) => `<a href="${u}">${nm(s)}</a>`).join('') + `</div>`).join('');
   return `<header class="sh"><div class="sh-in">` +
     `<a class="sh-brand" href="/" aria-label="${t.home}"><img src="/logo-256.png" alt="" width="28" height="28"><span>치즈감자</span></a>` +
     `<nav class="sh-nav" aria-label="${t.menu}">${nav}</nav>` +
     `<a class="sh-go" href="/#learn">${t.go}</a>` +
-    `<details class="sh-menu"><summary aria-label="${t.menu}"><i></i><i></i></summary><nav aria-label="${t.menu}">${nav}</nav></details>` +
+    `<details class="sh-menu"><summary aria-label="${t.menu}"><i></i><i></i><i></i></summary><nav class="sh-pan" aria-label="${t.menu}">${cols}</nav></details>` +
     `</div></header>`;
 }
 
@@ -36,13 +75,18 @@ export const SITE_HEADER_CSS =
   `.sh-nav{display:flex;gap:2px}.sh-nav a{display:block;padding:8px 12px;border-radius:5px;color:${INK2};font-size:15px;font-weight:600;line-height:1.2}` +
   `.sh-nav a:hover{color:${INK};background:${LINE}}.sh-nav a[aria-current]{color:${INK};box-shadow:inset 0 -2px 0 ${INK};border-radius:0}` +
   `.sh-go{margin-left:10px;padding:9px 14px;border-radius:8px;background:${INK};color:${BG};font-size:14.5px;font-weight:700;line-height:1.2;white-space:nowrap}` +
-  `.sh-menu{display:none;position:relative}` +
-  `.sh-menu summary{list-style:none;cursor:pointer;width:40px;height:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:1px solid ${LINE};border-radius:8px}` +
+  /* ☰ 은 PC · 폰 모두 — 열면 머리글 아래로 다섯 칸(PC 다섯 줄 · 폰 두 줄) */
+  `.sh-in{position:relative}.sh-menu{margin-left:8px}` +
+  `.sh-menu summary{list-style:none;cursor:pointer;width:40px;height:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:1px solid ${LINE};border-radius:8px}` +
   `.sh-menu summary::-webkit-details-marker{display:none}.sh-menu summary i{display:block;width:16px;height:2px;background:${INK};border-radius:1px}` +
   `.sh-menu[open] summary{border-color:${INK}}` +
-  `.sh-menu nav{position:absolute;right:0;top:48px;min-width:190px;display:grid;padding:6px;background:${BG};border:1px solid ${INK};border-radius:8px}` +
-  `.sh-menu nav a{padding:11px 12px;border-radius:5px;color:${INK};font-size:15px;font-weight:600}.sh-menu nav a+a{border-top:1px solid ${LINE}}.sh-menu nav a[aria-current]{text-decoration:underline;text-underline-offset:4px}` +
-  `@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-nav{display:none}.sh-menu{display:block}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}}` +
+  `.sh-pan{position:absolute;left:40px;right:40px;top:58px;display:grid;grid-template-columns:repeat(5,1fr);gap:0 22px;padding:18px 22px 20px;background:${BG};border:1px solid ${INK};border-radius:8px;max-height:calc(100vh - 80px);overflow:auto;box-sizing:border-box}` +
+  `.sh-col{display:flex;flex-direction:column;min-width:0}` +
+  `.sh-pan a{padding:6px 0;color:${INK2};font-size:14.5px;font-weight:500;line-height:1.35}.sh-pan a:hover{color:${INK};text-decoration:underline;text-underline-offset:3px}` +
+  `.sh-pan .sh-h{color:${INK};font-size:15.5px;font-weight:700;padding:0 0 8px;margin-bottom:4px;border-bottom:1px solid ${LINE}}.sh-pan a[aria-current]{text-decoration:underline;text-underline-offset:4px}` +
+  `@media(max-width:900px){.sh-pan{left:20px;right:20px;grid-template-columns:repeat(3,1fr);gap:18px 18px}}` +
+  `@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-nav{display:none}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}` +
+  `.sh-pan{left:12px;right:12px;top:52px;grid-template-columns:1fr 1fr;padding:16px 16px 18px;max-height:calc(100vh - 66px)}.sh-pan a{padding:7px 0}}` +
   `@media print{.sh{display:none}}`;
 
 /** 머리글 + 스타일 한 번에(쪽 몸통 맨 앞에 넣는 용) */
