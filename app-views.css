@@ -7684,3 +7684,157 @@ html[data-theme="dark"] .bkw-card{background:#2a211b;color:#f4ece2}html[data-the
 .lt-textlink { padding:12px 10px; min-height:44px; }
 .hm-why a { display:inline-block; padding:10px 0; }
 .footer-info a { display:inline-block; padding:6px 7px; margin:0 -3px; }
+
+/* ══ 앱 공통 틀 — 「선생님의 워크북」(운영자 2026-11-22 「앱화면도 고쳐야지」 · 「공통 틀 먼저」) ══
+   검색용 쪽(만든 쪽)과 같은 부품: 고르기는 밑줄, 단추는 얇은 테두리(고른 것만 진하게), 탭은 밑줄, 로그인은 검정 단추.
+   회색 알약 칸 · 그림자 · 주황 채운 알약을 걷는다. 🧀 도우미 단추는 운영자 결정 전이라 그대로 둔다. */
+.site-hd .site-nav > #authBtn { border-radius:8px; background:var(--ink); color:var(--bg); }
+.site-hd .site-nav > #authBtn:hover { background:var(--ink); color:var(--bg); filter:none; opacity:.9; }
+.diff-seg { background:none; border-radius:0; padding:0; gap:22px; border-bottom:1px solid var(--line); box-shadow:none; }
+.diff-seg label { background:none; border-radius:0; padding:9px 0; box-shadow:none; }
+.diff-seg label:has(input:checked) { background:none; box-shadow:inset 0 -2px 0 var(--ink); }
+.tq-skill { border-radius:8px; background:none; border:1px solid var(--line); color:var(--ink-3); box-shadow:none; }
+.tq-skill:hover { border-color:var(--ink); color:var(--ink); }
+.tq-skill[aria-pressed="true"] { border-color:var(--ink); color:var(--ink); background:var(--surface); box-shadow:none; }
+.tq-tabs { background:none; padding:0; border-radius:0; border-bottom:1px solid var(--line); gap:24px; justify-content:flex-start; }
+.tq-tabs button { flex:0 0 auto; border-radius:0; padding:10px 0; }
+.tq-tabs button[aria-selected="true"] { background:none; box-shadow:inset 0 -2px 0 var(--ink); }
+.tq-tabs button i { background:none; padding:0; color:var(--ink-3); }
+
+/* ══ TOPIK 고르기 화면 — 시험지 목록형(운영자 2026-11-22 시안 D 「D로 하고 기존의 장점 섞어서」) ══
+   넓게(1120) · 왼쪽 정렬 · 본문 + 오른쪽 곁칸(#tqSide). 모의고사 줄은 칸 이름이 붙은 표. 이어서 풀기 · 추천 · 내 기록 · 3D 시험장은 그대로. */
+/* .pt-body 에 붙은 style="max-width:1000px"(index.html) 를 이 화면에서만 넘는다 — 그래서 !important */
+body #learnView.topik-mode .pt-body { max-width:1200px !important; padding-left:40px; padding-right:40px; }
+#learnView.topik-mode .tq-exam { margin-left:0; }
+#learnView.topik-mode #tqSkillBar { align-items:flex-start; }
+#learnView.topik-mode .learn-head { background:none; border:0; border-radius:0; padding:0; box-shadow:none; margin-bottom:6px; text-align:left; }
+#learnView.topik-mode .pt-lv-row { align-items:flex-start; text-align:left; }
+#learnView.topik-mode #lsecTitle { font-size:30px; letter-spacing:-.02em; }
+#learnView.topik-mode #tqSkillBar, #learnView.topik-mode .tq-skills { justify-content:flex-start; }
+#tqPick { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+#tqPick > * { grid-column:1; min-width:0; }
+#tqPick > .tq-aside { grid-column:2; grid-row:1 / span 8; position:sticky; top:84px; }
+#tqPick .pt-lv-row { align-items:flex-start; text-align:left; }
+#tqPick .learn-head { text-align:left; }
+.tq-aside:empty { display:none; }
+.tq-sbox { border:1px solid var(--line); border-radius:10px; background:var(--surface); margin:0 0 14px; overflow:hidden; }
+.tq-sbox h4 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+.tq-sdl { margin:0; padding:10px 16px 12px; display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:13.5px; }
+.tq-sdl dt { color:var(--ink-3); } .tq-sdl dd { margin:0; font-weight:700; }
+.tq-sol { margin:0; padding:10px 16px 12px 34px; font-size:13.5px; line-height:1.7; }
+.tq-sgo { list-style:none; margin:0; padding:0; }
+.tq-sgo li + li { border-top:1px solid var(--line); }
+.tq-sgo a, .tq-sgo button { display:flex; justify-content:space-between; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
+.tq-sgo a:hover, .tq-sgo button:hover { background:var(--bg); }
+.tq-sgo span { color:var(--ink-3); }
+.tq-sbk { margin:0; padding:12px 16px; font-size:14px; } .tq-sbk a { color:var(--orange-deep); font-weight:700; text-decoration:none; }
+/* 모의고사 표 — 회차 · 범위/시간/내 점수 · 상태 */
+.tq-rows-t { border:0; border-radius:0; background:none; box-shadow:none; border-top:1px solid var(--ink); }
+.tq-rows-h { display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:12px; padding:9px 0; font-size:12px; font-weight:700; color:var(--ink-3); border-bottom:1px solid var(--ink); }
+.tq-rows-t .tq-row { display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:12px; align-items:center; padding:13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+.tq-rows-t .tq-row-n { width:auto; height:auto; background:none; border:0; border-radius:0; justify-content:flex-start; font-size:15px; font-weight:800; color:var(--ink); }
+.tq-rows-t .tq-row-s { padding:7px 12px; border:1px solid var(--ink); border-radius:8px; font-size:13.5px; font-weight:700; color:var(--ink); background:var(--surface); }
+.tq-rows-t .tq-row.tq-locked .tq-row-n, .tq-rows-t .tq-row.tq-locked .tq-row-b b { color:var(--ink-3); }
+.tq-rows-t .tq-row.tq-locked .tq-row-s { border-color:var(--line); color:var(--ink-3); background:none; }
+.tq-rows-t .tq-row:hover { background:var(--surface); }
+@media (max-width:900px) {
+  #tqPick { display:block; }
+  #tqPick > .tq-aside { position:static; margin-top:24px; }
+  body #learnView.in-sec.topik-mode .pt-body, body #learnView.topik-mode .pt-body { padding-left:16px; padding-right:16px; }
+}
+@media (max-width:600px) {
+  .tq-rows-h, .tq-rows-t .tq-row { grid-template-columns:52px minmax(0,1fr) auto; gap:8px; }
+}
+/* TOPIK 고르기 — 시험 · 영역을 또렷하게(운영자 2026-11-22 「TOPIK I II 더 정확하게 분류 · 읽기 쓰기 듣기도 · 너무 작고」).
+   시험은 큰 칸 두 개(이름 + 급수), 영역은 큰 밑줄 탭. 급(1급 · 2급)은 그 아래 작은 밑줄 고르기 그대로. */
+#learnView.topik-mode .tq-exam { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:100%; max-width:640px; margin:6px 0 18px; border:0; }
+#learnView.topik-mode .tq-exam label { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:14px 18px; border:1px solid var(--line); border-radius:10px; background:none; box-shadow:none; cursor:pointer; }
+#learnView.topik-mode .tq-exam label span { font-size:19px; font-weight:800; color:var(--ink-3); line-height:1.25; }
+#learnView.topik-mode .tq-exam label span b { display:block; margin-top:3px; font-size:13px; font-weight:600; opacity:1; color:var(--ink-3); }
+#learnView.topik-mode .tq-exam label:has(input:checked) { border:1.5px solid var(--ink); background:var(--surface); box-shadow:none; }
+#learnView.topik-mode .tq-exam label:has(input:checked) span { color:var(--ink); }
+#learnView.topik-mode .tq-skills { display:flex; gap:30px; width:100%; border-bottom:1px solid var(--line); margin:0 0 18px; }
+#learnView.topik-mode .tq-skill { border:0; border-radius:0; background:none; padding:10px 0; font-size:18px; font-weight:800; color:var(--ink-3); box-shadow:none; }
+#learnView.topik-mode .tq-skill:hover { color:var(--ink); }
+#learnView.topik-mode .tq-skill[aria-pressed="true"] { color:var(--ink); background:none; box-shadow:inset 0 -3px 0 var(--ink); }
+@media (max-width:600px) {
+  #learnView.topik-mode .tq-exam { max-width:none; }
+  #learnView.topik-mode .tq-exam label { padding:12px 14px; }
+  #learnView.topik-mode .tq-exam label span { font-size:17px; }
+  #learnView.topik-mode .tq-skills { gap:24px; }
+}
+/* TOPIK 곁칸 — 개성(운영자 2026-11-22 「너무 개성 없어」): 시험지 표지 · 선생님 메모 · 번호 다음 할 일 · 책 표지 */
+.tq-cv { margin:0 0 14px; border:1.5px solid var(--ink); border-radius:10px; overflow:hidden; background:var(--surface); }
+.tq-cv-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; padding:12px 16px; background:var(--ink); color:var(--bg); }
+.tq-cv-top b { font-size:20px; letter-spacing:-.01em; } .tq-cv-top span { font-size:13px; opacity:.8; }
+.tq-cv-num { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px dashed var(--line); }
+.tq-cv-num div { padding:14px 8px 12px; text-align:center; } .tq-cv-num div + div { border-left:1px solid var(--line); }
+.tq-cv-num b { display:block; font-size:26px; font-weight:800; line-height:1.1; letter-spacing:-.02em; } .tq-cv-num span { font-size:12px; color:var(--ink-3); }
+.tq-cv-foot { margin:0; padding:10px 16px 12px; font-size:12.5px; color:var(--ink-3); line-height:1.55; }
+.tq-memo { margin:0 0 14px; padding:14px 16px 12px; border-radius:10px; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--ink); }
+.tq-memo-h { display:flex; align-items:center; gap:10px; margin:0 0 8px; } .tq-memo-h img { width:34px; height:34px; border-radius:8px; border:1px solid var(--line); }
+.tq-memo-h b { display:block; font-size:14px; } .tq-memo-h span { font-size:12px; color:var(--ink-3); }
+.tq-memo ol { margin:0; padding:0 0 0 18px; font-size:13.5px; line-height:1.7; }
+.tq-nx { margin:0 0 14px; } .tq-nx h4 { margin:0 0 6px; font-size:13px; font-weight:800; color:var(--ink-3); }
+.tq-nx ol { list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); }
+.tq-nx li { display:grid; grid-template-columns:38px 1fr; align-items:center; border-bottom:1px solid var(--line); }
+.tq-nx-n { font-size:20px; font-weight:800; color:var(--line); letter-spacing:-.02em; }
+.tq-nx a, .tq-nx button { display:block; width:100%; padding:10px 0; border:0; background:none; font:inherit; text-align:left; color:var(--ink); text-decoration:none; cursor:pointer; }
+.tq-nx b { display:block; font-size:14.5px; } .tq-nx small { display:block; font-size:12.5px; color:var(--ink-3); }
+.tq-nx li:hover .tq-nx-n { color:var(--ink); }
+.tq-bk2 { display:flex; gap:14px; align-items:center; padding:12px; border:1px solid var(--line); border-radius:10px; background:var(--surface); text-decoration:none; color:var(--ink); }
+.tq-bk2 img { width:64px; height:auto; border-radius:5px; border:1px solid var(--line); box-shadow:2px 2px 0 var(--line); }
+.tq-bk2 small { display:block; font-size:12px; color:var(--ink-3); } .tq-bk2 b { display:block; font-size:14.5px; margin:2px 0 4px; } .tq-bk2 em { font-style:normal; font-size:13px; font-weight:700; color:var(--orange-deep); }
+/* TOPIK 곁칸 — 수험표(운영자 2026-11-22 「B로 하고 D 한 줄 섞어서」) */
+.tq-tk { margin:0 0 14px; border:1.5px solid var(--ink); border-radius:10px; background:var(--surface); overflow:hidden; }
+.tq-tk-h { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 16px; border-bottom:1.5px solid var(--ink); }
+.tq-tk-h b { font-size:15px; letter-spacing:.08em; } .tq-tk-h span { font-size:12px; color:var(--ink-3); }
+.tq-tk dl { margin:0; padding:12px 16px; display:grid; grid-template-columns:62px 1fr; gap:8px 10px; font-size:14px; }
+.tq-tk dt { color:var(--ink-3); font-size:12.5px; padding-top:1px; } .tq-tk dd { margin:0; font-weight:800; } .tq-tk dd small { display:block; font-weight:600; font-size:12.5px; color:var(--orange-deep); }
+.tq-tk-cut { position:relative; border-top:2px dashed var(--line); margin:0 12px; }
+.tq-tk-cut::before, .tq-tk-cut::after { content:''; position:absolute; top:-10px; width:18px; height:18px; border-radius:50%; background:var(--bg); border:1.5px solid var(--ink); }
+.tq-tk-cut::before { left:-22px; } .tq-tk-cut::after { right:-22px; }
+.tq-tk-f { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:12px 16px 4px; }
+.tq-tk-bar { height:28px; flex:1; max-width:120px; background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px); opacity:.85; }
+.tq-tk-f button { padding:9px 15px; border:0; border-radius:8px; background:var(--ink); color:var(--bg); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
+.tq-tk-free { margin:0; padding:6px 16px 12px; font-size:12px; color:var(--ink-3); }
+.tq-tk-list { list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); }
+.tq-tk-list li { border-bottom:1px solid var(--line); }
+.tq-tk-list a, .tq-tk-list button { display:flex; justify-content:space-between; width:100%; padding:11px 2px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
+.tq-tk-list span { color:var(--ink-3); } .tq-tk-list a:hover, .tq-tk-list button:hover { text-decoration:underline; text-underline-offset:3px; }
+/* TOPIK 곁칸 — 검색용 문항 쪽(topik-reading/*.html)과 같은 상자(운영자 2026-11-22 「그냥 이런 느낌」) */
+#tqSide .tq-box { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+#tqSide .tq-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+#tqSide .tq-box h3 small { display:block; margin-top:2px; font-weight:500; font-size:12.5px; color:var(--ink-3); }
+#tqSide .tq-list, #tqSide .tq-go { margin:0; padding:0; list-style:none; }
+#tqSide .tq-list li + li, #tqSide .tq-go li + li { border-top:1px solid var(--line); }
+#tqSide .tq-list button, #tqSide .tq-go a, #tqSide .tq-go button { display:flex; align-items:center; gap:10px; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; line-height:1.4; cursor:pointer; }
+#tqSide .tq-list button:hover, #tqSide .tq-go a:hover, #tqSide .tq-go button:hover { background:var(--bg); }
+#tqSide .tq-list span { flex:none; width:34px; color:var(--ink-3); font-size:13px; }
+#tqSide .tq-list em { margin-left:auto; font-style:normal; font-size:12.5px; color:var(--ink-3); }
+#tqSide .tq-list li.on button { font-weight:800; box-shadow:inset 3px 0 0 var(--ink); background:var(--bg); }
+#tqSide .tq-go a, #tqSide .tq-go button { justify-content:space-between; }
+#tqSide .tq-go span { color:var(--ink-3); }
+#tqSide .tq-all { display:block; width:100%; padding:10px 16px; border:0; border-top:1px solid var(--line); background:none; font:inherit; font-size:12.5px; color:var(--ink-3); text-align:left; cursor:pointer; }
+#tqSide .tq-bkin { display:flex; gap:14px; padding:14px 16px; }
+#tqSide .tq-bkin img { display:block; width:56px; height:auto; border:1px solid var(--line); border-radius:5px; }
+#tqSide .tq-bkin b { display:block; font-size:14px; line-height:1.4; } #tqSide .tq-bkin small { display:block; margin:2px 0 8px; color:var(--ink-3); font-size:12.5px; }
+#tqSide .tq-bkgo { display:block; font-weight:700; color:var(--orange-deep); text-decoration:none; } #tqSide .tq-smp { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); }
+/* 급 고르기 한 줄(운영자 2026-11-22 시안 C 「조금 더 깔끔하게」) — 읽기는 「유형별 연습」 탭 안, 듣기는 탭 위. 「급 [1급][2급] 설명」 */
+.tq-lvbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; margin:0 0 14px; padding:0 0 12px; border-bottom:1px dashed var(--line); }
+.tq-lvbar-k { font-size:12.5px; font-weight:800; color:var(--ink-3); }
+.tq-lvbar-seg { display:flex; gap:6px; }
+.tq-lvbar-seg input { display:none; }
+.tq-lvbar-seg label span { display:inline-block; padding:5px 11px; border:1px solid var(--line); border-radius:5px; font-size:13.5px; font-weight:700; color:var(--ink-3); cursor:pointer; }
+.tq-lvbar-seg label:hover span { color:var(--ink); }
+.tq-lvbar-seg input:checked + span { border-color:var(--ink); color:var(--ink); background:var(--surface); }
+.tq-lvbar-d { font-size:13px; color:var(--ink-3); }
+#learnView.topik-mode #tqLevel:empty, #learnView.topik-mode #tqPick .learn-head:has(#tqLevel:empty) { display:none; }
+/* 유형별 연습 줄도 모의고사 표처럼 — 상자 · 주황 동그라미 · 주황 「시작」 대신 얇은 줄과 테두리 단추(2026-11-22 「조금 더 깔끔하게」) */
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-rows { border:0; border-radius:0; background:none; box-shadow:none; border-top:1px solid var(--ink); }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row { padding:13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row:hover { background:var(--surface); }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-n { width:28px; height:auto; background:none; border:0; color:var(--ink-3); font-weight:800; }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-s { padding:7px 12px; border:1px solid var(--ink); border-radius:8px; font-size:13.5px; font-weight:700; color:var(--ink); background:var(--surface); }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row.rec { background:none; box-shadow:inset 3px 0 0 var(--ink); padding-left:10px; }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-b b em { background:none; border:1px solid var(--ink); color:var(--ink); border-radius:5px; }
