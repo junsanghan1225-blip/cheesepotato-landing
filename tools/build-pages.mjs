@@ -1138,6 +1138,64 @@ function optsAndAnswer(options, answer, whyKo, whyEn) {
     `<p class="ans-right"><b>정답 ${ONUM[answer] || answer + 1}</b> ${esc(options[answer])}</p>` +
     `<div class="ex">${esc(whyKo)}</div>` + (whyEn ? `<div class="ex" lang="en">${esc(whyEn)}</div>` : '') + '</details>';
 }
+/* 문항 쪽 사전식 곁칸(운영자 2026-11-22 시안 B 「B로 가자 · 더 깔끔하게 · 박스든지」) — 사전 · 문법 쪽과 같은 두 칸.
+   본문: 문제 → 「← 앞 문제 · 다음 문제 →」(같은 시험 · 같은 유형, 모음 쪽과 같은 차례). 곁칸: 상자 셋 — 같은 유형 목록 · 더 풀기 · 책.
+   전에는 한 문제를 풀면 앱으로 가는 검정 큰 단추뿐이라 검색으로 온 사람이 갈 곳이 없었다. */
+const TQ_BOOK = { r: { I: 'topik1-reading-mock', II: 'topik2-vocab-1000' }, l: { I: 'topik1-vocab', II: 'topik2-vocab-1000' } };
+const tqSort = (a, b) => a.slot - b.slot || a.id.localeCompare(b.id);
+function tqFrame({ it, kind, list, label, main, appHref, typeKo }) {
+  const dir = kind === 'r' ? 'topik-reading' : 'topik-listening';
+  const href = (x) => `/${dir}/${esc(x.id)}.html`;
+  const same = list.filter((x) => x.exam === it.exam && x.type === it.type).sort(tqSort);
+  const i = same.findIndex((x) => x.id === it.id), prev = same[i - 1], next = same[i + 1];
+  const nav = `<nav class="tq-nav">${prev ? `<a href="${href(prev)}"><b>← 앞 문제</b>${esc(label(prev))}</a>` : '<span></span>'}` +
+    `${next ? `<a href="${href(next)}"><b>다음 문제 →</b>${esc(label(next))}</a>` : ''}</nav>`;
+  const from = Math.max(0, Math.min(i - 2, same.length - 6));
+  const pick = same.slice(from, from + 6);
+  const b = SHOPJ.books.find((x) => x.id === TQ_BOOK[kind][it.exam]);
+  if (!b) throw new Error('shop.json 에 없는 책: ' + TQ_BOOK[kind][it.exam]);
+  const bu = `/shop/${b.id}/?utm_source=hub&amp;utm_medium=page&amp;utm_content=t${kind}_side`;
+  const side =
+    `<section class="tq-box"><h3>같은 유형 <small>${esc(typeKo)} · ${same.length}문항</small></h3><ol class="tq-list">` +
+      pick.map((x) => `<li${x.id === it.id ? ' class="on" aria-current="page"' : ''}><a href="${href(x)}"><span>${x.slot}번</span>${esc(label(x))}</a></li>`).join('') +
+      `</ol><a class="tq-all" href="/${dir}/">${kind === 'r' ? '읽기' : '듣기'} 문항 전부 보기 →</a></section>` +
+    '<section class="tq-box"><h3>더 풀기</h3><ul class="tq-go">' +
+      `<li><a href="${appHref}">이 유형 앱에서 이어 풀기<span>→</span></a></li>` +
+      `<li><a href="/?lt=1&amp;utm_source=t${kind}">내 한국어 레벨 재기 · 3분<span>→</span></a></li>` +
+      `<li><a href="/exam-room/">TOPIK 시험장 · 실제 시간대로<span>→</span></a></li></ul></section>` +
+    `<section class="tq-box tq-bk"><h3>책으로 이어서</h3><div class="tq-bkin"><a href="${bu}"><img src="${esc(b.coverImg)}" alt="" width="56" height="80" loading="lazy"></a>` +
+      `<div><b>${esc(b.title.ko)}</b><small>PDF · $${esc(b.price)}</small><a class="tq-bkgo" href="${bu}">책 보기 →</a>` +
+      (b.sample ? `<a class="tq-smp" href="/assets/books/${b.id}/sample.pdf" download data-ev="샘플받기" data-ev-from="t${kind}_side">무료 샘플 ${b.sample.pages}쪽</a>` : '') + '</div></div></section>';
+  return `<div class="dx-lay"><article class="dx">${main}\n${nav}</article><aside class="dx-side tq-side">${side}</aside></div>`;
+}
+const TQ_CSS = [
+  '@media(min-width:901px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}',
+  '.dx-lay{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:56px;align-items:start}.dx{min-width:0;max-width:760px}',
+  '.tq-app{display:inline-block;margin:18px 0 0;padding:10px 15px;border:1px solid var(--ink);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px}.tq-app:hover{background:var(--soft)}',
+  '.tq-nav{display:flex;justify-content:space-between;gap:16px;margin:26px 0 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}',
+  '.tq-nav a{flex:0 1 auto;min-width:0;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.45}.tq-nav a:hover{text-decoration:underline}.tq-nav a+a,.tq-nav span+a{text-align:right}',
+  '.tq-nav b{display:block;font-size:12.5px;color:var(--dim);font-weight:600}',
+  '.tq-lis{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:18px 0 10px;padding:14px 16px;border:1.5px solid var(--ink);border-radius:8px;background:var(--card)}',
+  '.tq-lis span{font-size:14px;color:var(--dim)}',
+  '.tq-play{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:0;border-radius:8px;background:var(--ink);color:var(--bg);font:inherit;font-weight:700;font-size:15px;cursor:pointer}',
+  '.tq-play .wd-say-i{border-left-color:var(--bg)}.tq-play.on{outline:2px solid var(--brand,#e4631f);outline-offset:2px}',
+  '.tq-scr{margin:0 0 4px}.tq-scr>summary{cursor:pointer;padding:6px 0;font-size:14px;font-weight:700;color:var(--dim)}.tq-scr>summary:hover{color:var(--ink)}',
+  /* 곁칸 상자 — 얇은 줄 · 작은 모서리, 머리 줄 아래로 한 줄씩(디자인 약속: 그림자 · 알약 없음) */
+  '.tq-side{position:sticky;top:88px;font-size:14.5px}',
+  '.tq-box{margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}',
+  '.tq-box h3{margin:0;padding:11px 16px;font-size:13.5px;font-weight:800;border-bottom:1px solid var(--line)}.tq-box h3 small{display:block;margin-top:2px;font-weight:500;font-size:12.5px;color:var(--dim)}',
+  '.tq-list,.tq-go{margin:0;padding:0;list-style:none}.tq-list li+li,.tq-go li+li{border-top:1px solid var(--line)}',
+  '.tq-list a,.tq-go a{display:flex;gap:10px;padding:9px 16px;color:var(--ink);text-decoration:none;line-height:1.4}.tq-list a:hover,.tq-go a:hover{background:var(--soft)}',
+  '.tq-list span{flex:none;width:34px;color:var(--dim);font-size:13px;padding-top:1px}',
+  '.tq-list li.on a{font-weight:800;box-shadow:inset 3px 0 0 var(--ink);background:var(--soft)}',
+  '.tq-go a{justify-content:space-between}.tq-go span{color:var(--dim)}',
+  '.tq-all{display:block;padding:10px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim);text-decoration:none}.tq-all:hover{color:var(--ink)}',
+  '.tq-bkin{display:flex;gap:14px;padding:14px 16px}.tq-bkin img{display:block;width:56px;height:auto;border:1px solid var(--line);border-radius:5px}',
+  '.tq-bkin b{display:block;font-size:14px;line-height:1.4}.tq-bkin small{display:block;margin:2px 0 8px;color:var(--dim);font-size:12.5px}',
+  '.tq-bkin a.tq-bkgo{display:block;font-weight:700;color:var(--orange-deep,#AE4710);text-decoration:none}.tq-smp{display:block;margin-top:4px;font-size:12.5px;color:var(--dim)}',
+  '@media(max-width:900px){.dx-lay{grid-template-columns:minmax(0,1fr);gap:28px}.tq-side{position:static}}',
+].join('');
+
 function trPage(it) {
   const tx = TR_TYPES[it.exam][it.type] || { ko: it.type, en: it.type };
   const grade = trGradeTx(it.exam, it.grade);
@@ -1146,7 +1204,7 @@ function trPage(it) {
   const desc = clip(`TOPIK ${it.exam} 읽기 ${it.slot}번 유형 연습 문항. ${tx.ko} — ${it.topic}. ` +
     '기출이 아닌 창작 문항이고 정답과 해설이 함께 있습니다.');
 
-  const body = [
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-reading/">TOPIK 읽기</a> › ${esc(examName)}</nav>`,
     `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(it.topic)}</h1>`,
@@ -1154,10 +1212,10 @@ function trPage(it) {
     `<div class="ex">${ulMark(it.passage, it.mark)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
-    `<a class="cta more" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">비슷한 문제 더 풀기 →` +
-      `<span>Keep going — more questions of this type, free in the app</span></a>`,
-    LT_LINK,
+    `<a class="tq-app" href="/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}">앱에서 비슷한 문제 더 풀기 →</a>`,
   ].join('\n');
+  const body = tqFrame({ it, kind: 'r', list: TR_ALL, label: (x) => x.topic, main, typeKo: tx.ko,
+    appHref: `/#learn/topik/${esc(it.exam)}/reading/${esc(it.id)}` });
 
   const jsonld = [
     {
@@ -1174,7 +1232,7 @@ function trPage(it) {
     },
     crumbLd([['치즈감자', '/'], ['TOPIK 읽기', '/topik-reading/'], [it.topic, null]]),
   ];
-  return page({ url: `/topik-reading/${it.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/topik-reading/${it.id}.html`, title, desc, body, jsonld, extraCss: TQ_CSS });
 }
 
 function trSections() {
@@ -1287,7 +1345,10 @@ function trHub() {
    읽는 쪽이다. 정적 쪽에 소리 파일이 없어서(mp3 대신 브라우저
    음성합성을 쓴다) 대본이 이 쪽에서 유일하게 보여줄 수 있는 것이기도
    하다. */
-const TL_WHO = { m: { ko: '남자', en: 'Man' }, w: { ko: '여자', en: 'Woman' }, n: { ko: '안내', en: 'Announcer' } };
+const LISTEN_AUDIO = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'audio', 'listen');
+/* 곁칸 · 앞뒤 문제의 이름 — 대본 첫 줄 앞부분(같은 번호 문항이 여럿이라 번호만으로는 안 갈린다) */
+const tlLabel = (x) => { const g = x.script[0]?.text || x.q; return g.length > 22 ? `${g.slice(0, 22).trim()}…` : g; };
+const TL_WHO = { m:{ ko: '남자', en: 'Man' }, w: { ko: '여자', en: 'Woman' }, n: { ko: '안내', en: 'Announcer' } };
 
 function tlPage(it) {
   const bp = TOPIKL_BY_EXAM[it.exam].blueprint;
@@ -1306,18 +1367,24 @@ function tlPage(it) {
       `<span class="bub">${esc(l.text)}</span></div>`;
   }).join('\n  ');
 
-  const body = [
+  /* 듣기 먼저(2026-11-22 시안 B) — 녹음(assets/audio/listen/<id>.mp3)이 있으면 그 소리, 없으면 기기의 한국어 목소리.
+     대본은 접어 둔다: 전엔 대본이 다 보여 듣기 문제가 읽기 문제가 됐다. 글은 쪽에 그대로 있어 검색에도 읽힌다 */
+  const hasMp3 = existsSync(join(LISTEN_AUDIO, `${it.id}.mp3`));
+  const sayTx = it.script.map((l) => l.text).join(' ');
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-listening/">TOPIK 듣기</a> › ${esc(examName)}</nav>`,
     `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(gist.length > 40 ? gist.slice(0, 40) + '…' : gist)}</h1>`,
     `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · <span class="orig">치즈감자 창작 문항 · 기출 아님</span></p>`,
-    `<div class="dlg">\n  ${script}\n</div>`,
+    `<div class="tq-lis"><button type="button" class="tq-play" data-say="${esc(sayTx)}"${hasMp3 ? ` data-src="/assets/audio/listen/${esc(it.id)}.mp3"` : ''}><i class="wd-say-i" aria-hidden="true"></i>듣기</button>` +
+      `<span>먼저 듣고 고르세요 · Listen first, then choose</span></div>`,
+    `<details class="tq-scr"><summary>대본 보기 · Script</summary><div class="dlg">\n  ${script}\n</div></details>`,
     `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
-    `<a class="cta more" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">소리 듣고 비슷한 문제 더 풀기 →` +
-      `<span>Hear the audio and keep going — free in the app</span></a>`,
-    LT_LINK,
+    `<a class="tq-app" href="/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}">앱에서 비슷한 문제 더 풀기 →</a>`,
   ].join('\n');
+  const body = tqFrame({ it, kind: 'l', list: TL_ALL, label: tlLabel, main, typeKo: tx.ko,
+    appHref: `/#learn/topik/${esc(it.exam)}/listening/${esc(it.id)}` });
 
   const jsonld = [
     {
@@ -1334,7 +1401,7 @@ function tlPage(it) {
     },
     crumbLd([['치즈감자', '/'], ['TOPIK 듣기', '/topik-listening/'], [`${it.slot}번`, null]]),
   ];
-  return page({ url: `/topik-listening/${it.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/topik-listening/${it.id}.html`, title, desc, body, jsonld, extraCss: TQ_CSS });
 }
 
 function tlSections() {
@@ -3271,7 +3338,9 @@ urls.push({ loc: '/topik-writing/', freq: 'weekly', pri: '0.9' });
 
 /* ── TOPIK 읽기 ─────────────────────────────────────────────── */
 let nR = 0;
-for (const it of [...TOPIK_READING, ...TOPIK2_READING]) {
+const TR_ALL = [...TOPIK_READING, ...TOPIK2_READING];   // 문항 쪽 곁칸 · 앞뒤 문제(tqFrame)
+const TL_ALL = [...TOPIKL_BY_EXAM.I.items, ...TOPIKL_BY_EXAM.II.items];
+for (const it of TR_ALL) {
   writeFileSync(join(OUT_TR, `${it.id}.html`), trPage(it));
   urls.push({ loc: `/topik-reading/${it.id}.html`, freq: 'monthly', pri: '0.7' });
   nR++;
