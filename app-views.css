@@ -7802,3 +7802,21 @@ body #learnView.topik-mode .pt-body { max-width:1200px !important; padding-left:
 .tq-tk-list li { border-bottom:1px solid var(--line); }
 .tq-tk-list a, .tq-tk-list button { display:flex; justify-content:space-between; width:100%; padding:11px 2px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
 .tq-tk-list span { color:var(--ink-3); } .tq-tk-list a:hover, .tq-tk-list button:hover { text-decoration:underline; text-underline-offset:3px; }
+/* TOPIK 곁칸 — 검색용 문항 쪽(topik-reading/*.html)과 같은 상자(운영자 2026-11-22 「그냥 이런 느낌」) */
+#tqSide .tq-box { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+#tqSide .tq-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+#tqSide .tq-box h3 small { display:block; margin-top:2px; font-weight:500; font-size:12.5px; color:var(--ink-3); }
+#tqSide .tq-list, #tqSide .tq-go { margin:0; padding:0; list-style:none; }
+#tqSide .tq-list li + li, #tqSide .tq-go li + li { border-top:1px solid var(--line); }
+#tqSide .tq-list button, #tqSide .tq-go a, #tqSide .tq-go button { display:flex; align-items:center; gap:10px; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; line-height:1.4; cursor:pointer; }
+#tqSide .tq-list button:hover, #tqSide .tq-go a:hover, #tqSide .tq-go button:hover { background:var(--bg); }
+#tqSide .tq-list span { flex:none; width:34px; color:var(--ink-3); font-size:13px; }
+#tqSide .tq-list em { margin-left:auto; font-style:normal; font-size:12.5px; color:var(--ink-3); }
+#tqSide .tq-list li.on button { font-weight:800; box-shadow:inset 3px 0 0 var(--ink); background:var(--bg); }
+#tqSide .tq-go a, #tqSide .tq-go button { justify-content:space-between; }
+#tqSide .tq-go span { color:var(--ink-3); }
+#tqSide .tq-all { display:block; width:100%; padding:10px 16px; border:0; border-top:1px solid var(--line); background:none; font:inherit; font-size:12.5px; color:var(--ink-3); text-align:left; cursor:pointer; }
+#tqSide .tq-bkin { display:flex; gap:14px; padding:14px 16px; }
+#tqSide .tq-bkin img { display:block; width:56px; height:auto; border:1px solid var(--line); border-radius:5px; }
+#tqSide .tq-bkin b { display:block; font-size:14px; line-height:1.4; } #tqSide .tq-bkin small { display:block; margin:2px 0 8px; color:var(--ink-3); font-size:12.5px; }
+#tqSide .tq-bkgo { display:block; font-weight:700; color:var(--orange-deep); text-decoration:none; } #tqSide .tq-smp { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); }
