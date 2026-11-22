@@ -1554,13 +1554,11 @@ const refOk = (head, sent) => {
   const stem = /다$/.test(head) ? head.slice(0, -1) : head;
   return toks.some((tk) => tk.startsWith(stem));
 };
-/* 사전식 쪽의 「TOPIK 문항에서」 줄 — 같은 문장 셋, 긴 설명 대신 한 줄 주석(우리가 만든 문항 · 기출 아님) */
+/* 사전식 쪽 예문 줄에 합칠 TOPIK 문항 문장(우리가 만든 문항 · 기출 아님) — [문장, 주소, 출처 이름] */
 const dxTref = (head, src) => {
-  const r = REFS[head]; if (!r || !r.n) return '';
-  const rows = (r.r || []).filter(([, sk, id, sent]) => TREF_SK[sk] && refOk(head, sent) && existsSync(join(ROOT, TREF_SK[sk][0], `${id}.html`))).slice(0, 3);
-  if (!rows.length) return '';
-  return '<ul class="dx-tref">' + rows.map(([e, sk, id, sent]) => `<li>${esc(sent)}<a href="/${TREF_SK[sk][0]}/${id}.html?utm_source=${src}">TOPIK ${e} ${TREF_SK[sk][1]} 문항 · <span lang="en">${TREF_SK[sk][2]} question</span> →</a></li>`).join('') + '</ul>' +
-    '<p class="dx-tnote">치즈감자가 만든 연습 문항의 문장 · 기출 아님 <span lang="en">Our original practice questions, not past papers</span></p>';
+  const r = REFS[head]; if (!r || !r.n) return [];
+  return (r.r || []).filter(([, sk, id, sent]) => TREF_SK[sk] && refOk(head, sent) && existsSync(join(ROOT, TREF_SK[sk][0], `${id}.html`))).slice(0, 3)
+    .map(([e, sk, id, sent]) => [sent, `/${TREF_SK[sk][0]}/${id}.html?utm_source=${src}`, `TOPIK ${e} ${TREF_SK[sk][1]} 문항`]);
 };
 const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
   '.nx-a{display:block;padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);text-decoration:none}' +
@@ -1572,14 +1570,29 @@ const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-w
    학습자 사전 짜임: 머리(급수 · 품사 · 낱말 · 로마자 · 소리 · 발음) → 이름표 줄(뜻 · 관련어 · 활용 · TOPIK 문항) → 이전/다음.
    예문은 뜻 바로 아래. PC 는 오른쪽 곁칸(같은 주제 낱말 · 이 낱말로 더 하기 · 책), 폰 · 태블릿은 본문 아래로.
    걷은 것: 이모지 카드 「다음 한 걸음」 · 미니 퀴즈(정답이 바로 위에 보였다) · 레벨 테스트 띠 · 이메일 칸(샘플은 바로 받기 링크로) */
-const dxRow = (lab, html) => (html ? `<div class="dx-row"><div class="dx-lab">${lab}</div><div class="dx-val">${html}</div></div>` : '');
-function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels = '', conj = null, tref = '', same = [], sameAll = '', book = '', addHref, near = '', src = 'dict', note }) {
+const dxRow = (lab, html, id = '') => (html ? `<div class="dx-row"${id ? ` id="${id}"` : ''}><div class="dx-lab">${lab}</div><div class="dx-val">${html}</div></div>` : '');
+function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels = null, conj = null, tref = [], same = [], sameAll = '', book = '', addHref, near = '', src = 'dict', note }) {
   const enLine = String(en || '').split(';').map((x) => x.trim()).filter(Boolean).join(' · ');
   const sns = senses.slice(0, 4);
-  const sense = (sns.length > 1
+  const sense = sns.length > 1
     ? '<ol class="dx-ko">' + sns.map(([ko, enS]) => `<li>${esc(ko)}${enS && enS.trim() !== String(en || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>'
-    : sns.length ? `<p class="dx-ko1">${esc(sns[0][0])}</p>` : '') +
-    (exs.length ? '<ul class="dx-ex">' + exs.map(([ko, e]) => `<li class="ex">${esc(ko)}${e ? `<i lang="en">${esc(e)}</i>` : ''}</li>`).join('') + '</ul>' : '');
+    : sns.length ? `<p class="dx-ko1">${esc(sns[0][0])}</p>` : '';
+  /* 예문 — 문장마다 재생 단추 · 출처(참고: 큰 사전 쪽은 예문마다 소리와 출처를 단다). TOPIK 문항 문장도 같은 줄에 */
+  const play = (t) => `<button type="button" class="dx-play" data-say="${esc(t)}" aria-label="듣기 · Listen"><i class="wd-say-i" aria-hidden="true"></i></button>`;
+  const exList = [
+    ...exs.map(([ko, e]) => `<li><p class="dx-xs">${play(ko)}<span class="ex">${esc(ko)}</span></p>${e ? `<i lang="en">${esc(e)}</i>` : ''}<small>치즈감자 예문</small></li>`),
+    ...tref.map(([t, href, name]) => `<li><p class="dx-xs">${play(t)}<span class="ex">${esc(t)}</span></p><small><a href="${href}">${esc(name)} →</a></small></li>`),
+  ];
+  const exHtml = exList.length ? `<ul class="dx-ex">${exList.join('')}</ul>` + (tref.length ? '<p class="dx-tnote">TOPIK 문항 문장은 치즈감자가 만든 연습 문항이에요 · 기출 아님 <span lang="en">Our original practice questions, not past papers</span></p>' : '') : '';
+  /* 관련어 지도 — 가운데 낱말, 양옆에 비슷한 말 · 반대말 · 높임말(참고: 큰 사전 쪽의 유의어 지도를 줄과 글자만으로) */
+  const RN = { syn: ['비슷한 말', 'similar'], ant: ['반대말', 'opposite'], hon: ['높임말', 'polite'] };
+  const groups = rels ? Object.entries(rels).filter(([k, v]) => RN[k] && v?.length) : [];
+  const word = (x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : `<span>${esc(x)}</span>`);
+  const grp = ([k, v]) => `<div class="dx-mg"><b>${RN[k][0]} <small lang="en">${RN[k][1]}</small></b>${v.map(word).join('')}</div>`;
+  const relHtml = groups.length ? `<div class="dx-map"><div class="dx-ml">${groups.filter((_, i) => i % 2 === 0).map(grp).join('')}</div><div class="dx-mc">${esc(head)}</div><div class="dx-mr">${groups.filter((_, i) => i % 2 === 1).map(grp).join('')}</div></div>` : '';
+  const conjHtml = conj ? '<table class="dx-conj">' + conj.map(([k, v]) => `<tr><td>${CONJ_NAME[k][0]}</td><td><b>${esc(v)}</b></td></tr>`).join('') + '</table>' : '';
+  /* 바로가기 줄 — 있는 칸만, 내리는 동안 머리글 밑에 붙어 있다 */
+  const tabs = [['dx-mean', '뜻'], exHtml && ['dx-exs', `예문 ${exList.length}`], relHtml && ['dx-rels', '관련어'], conjHtml && ['dx-conjs', '활용']].filter(Boolean);
   const main = [
     crumb,
     '<header class="dx-head">' +
@@ -1589,10 +1602,11 @@ function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels =
       pronBlock(head, pos) +
       `<div class="dx-act"><a class="dx-p" href="${addHref}">＋ 단어장에 담기</a><a class="dx-s" href="/?utm_source=${src}#blocks">이 낱말로 게임 · 2분</a></div>` +
     '</header>',
-    dxRow('뜻 <small>Meaning</small>', (enLine ? `<p class="dx-en" lang="en">${esc(enLine)}</p>` : `<p class="dx-en">${esc(t2(pos))}</p>`) + sense),
-    dxRow('관련어', rels),
-    dxRow('활용 <small>해요체</small>', conj ? '<table class="dx-conj">' + conj.map(([k, v]) => `<tr><td>${CONJ_NAME[k][0]}</td><td><b>${esc(v)}</b></td></tr>`).join('') + '</table>' : ''),
-    dxRow('TOPIK 문항에서', tref),
+    `<nav class="dx-tabs" aria-label="바로가기">${tabs.map(([id, n]) => `<a href="#${id}">${n}</a>`).join('')}</nav>`,
+    dxRow('뜻 <small>Meaning</small>', (enLine ? `<p class="dx-en" lang="en">${esc(enLine)}</p>` : `<p class="dx-en">${esc(t2(pos))}</p>`) + sense, 'dx-mean'),
+    dxRow('예문 <small>Examples</small>', exHtml, 'dx-exs'),
+    dxRow('관련어 <small>Related</small>', relHtml, 'dx-rels'),
+    dxRow('활용 <small>해요체</small>', conjHtml, 'dx-conjs'),
     near,
     note,
   ].filter(Boolean).join('\n');
@@ -1635,12 +1649,26 @@ const DX_CSS = [
   '.dx-en{margin:0;font-size:21px;font-weight:700;line-height:1.4}',
   '.dx-ko1{margin:4px 0 0;font-size:15.5px;color:var(--ink-2,var(--ink))}',
   '.dx-ko{margin:8px 0 0;padding-left:22px;font-size:15.5px}.dx-ko li{margin:3px 0}.dx-ko li::marker{color:var(--orange-deep,#AE4710);font-weight:800}.dx-ko i{display:block;font-style:normal;font-size:13.5px;color:var(--dim)}',
-  '.dx-ex{margin:12px 0 0;padding:0 0 0 14px;list-style:none;border-left:2px solid var(--line)}',
-  '.dx-ex li{font-size:16.5px;line-height:1.55;margin:0 0 8px;background:none;border:0;border-radius:0;padding:0}.dx-ex li:last-child{margin:0}.dx-ex i{display:block;font-style:normal;font-size:14px;color:var(--dim)}',
-  '.dx-rel{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:15.5px}.dx-rel dt{color:var(--dim);font-size:13.5px;padding-top:2px}.dx-rel dd{margin:0}.dx-rel a{color:var(--ink)}',
+  '.dx-ex{margin:0;padding:0;list-style:none}',
+  '.dx-ex li{padding:0 0 12px;margin:0 0 12px;border-bottom:1px dashed var(--line)}.dx-ex li:last-child{border:0;margin:0;padding:0}',
+  '.dx-xs{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:16.5px;line-height:1.55}',
+  '.dx-xs .ex{flex:1;min-width:0;cursor:pointer;background:none;border:0;border-radius:0;padding:0;margin:0;font-size:inherit}',
+  '.dx-ex>li>i{display:block;font-style:normal;font-size:14px;color:var(--dim);margin:2px 0 0 38px}',
+  '.dx-ex>li>small{display:block;margin:4px 0 0 38px;font-size:12px;color:var(--dim)}.dx-ex small a{color:var(--dim)}',
+  '.dx-play{flex:none;width:28px;height:28px;margin-top:1px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:5px;background:var(--soft);color:var(--ink);cursor:pointer;padding:0 0 0 2px}.dx-play:hover{border-color:var(--ink)}.dx-play.on{border-color:var(--brand)}',
+  '.dx-tabs{position:sticky;top:64px;z-index:5;display:flex;gap:20px;margin:0;padding:12px 0;background:var(--bg);border-bottom:1px solid var(--line);font-size:14.5px;font-weight:700}',
+  '.dx-tabs a{color:var(--dim);text-decoration:none}.dx-tabs a:hover{color:var(--ink)}',
+  '.dx-row{scroll-margin-top:120px}',
+  '.dx-map{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:0}',
+  '.dx-mc{padding:10px 18px;border:1.5px solid var(--ink);border-radius:8px;font-size:19px;font-weight:800;background:var(--card)}',
+  '.dx-ml,.dx-mr{display:flex;flex-direction:column;gap:10px}.dx-ml{align-items:flex-end}',
+  '.dx-mg{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:6px 14px;position:relative;font-size:15.5px}',
+  '.dx-ml .dx-mg{justify-content:flex-end;border-right:1px solid var(--ink);margin-right:0}.dx-mr .dx-mg{border-left:1px solid var(--ink)}',
+  ".dx-ml .dx-mg::after,.dx-mr .dx-mg::before{content:'';position:absolute;top:50%;width:14px;border-top:1px solid var(--ink)}.dx-ml .dx-mg::after{right:-15px}.dx-mr .dx-mg::before{left:-15px}",
+  '.dx-ml{padding-right:14px}.dx-mr{padding-left:14px}',
+  '.dx-mg b{width:100%;font-size:12px;font-weight:700;color:var(--dim)}.dx-ml .dx-mg b{text-align:right}.dx-mg b small{font-weight:500}',
+  '.dx-mg a{color:var(--ink)}',
   '.dx-conj{border-collapse:collapse;font-size:15.5px}.dx-conj td{padding:6px 22px 6px 0;border-bottom:1px solid var(--line)}.dx-conj td:first-child{color:var(--dim);font-size:13px}.dx-conj tr:last-child td{border-bottom:0}',
-  '.dx-tref{margin:0;padding:0;list-style:none}.dx-tref li{margin:0 0 10px;font-size:15.5px;line-height:1.55}.dx-tref li:last-child{margin:0}',
-  '.dx-tref a{display:block;font-size:12.5px;color:var(--dim);text-decoration:none;margin-top:2px}.dx-tref a:hover{text-decoration:underline}',
   '.dx-tnote{margin:8px 0 0;font-size:12.5px;color:var(--dim)}',
   '.dx .near{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:12px;margin:20px 0 0}',
   '.dx .near a{flex:0 1 auto;background:none;border:0;padding:4px 0;font-size:15.5px;color:var(--ink);text-decoration:none}.dx .near a:hover{text-decoration:underline}',
@@ -1655,7 +1683,7 @@ const DX_CSS = [
   '.dx-bk b{display:block;font-size:14.5px}.dx-bk span{display:block;font-size:13px;color:var(--dim);margin:2px 0 8px}',
   'a.dx-bk-go{font-weight:700;color:var(--orange-deep,#AE4710)}',
   '@media(max-width:900px){.dx-lay{grid-template-columns:minmax(0,1fr);gap:28px}.dx-side{position:static;border-top:2px solid var(--ink);padding-top:20px}}',
-  '@media(max-width:600px){.dx-row{grid-template-columns:minmax(0,1fr);gap:6px;padding:15px 0}.dx-head h1{font-size:40px}.dx-en{font-size:19px}}',
+  '@media(max-width:600px){.dx-tabs{top:56px;gap:16px}.dx-map{grid-template-columns:auto 1fr}.dx-mc{grid-column:1;grid-row:1/3;font-size:17px;padding:8px 12px}.dx-ml{grid-column:2;grid-row:1}.dx-mr{grid-column:2;grid-row:2}.dx-ml,.dx-mr{align-items:stretch;padding:0 0 0 14px}.dx-ml .dx-mg{justify-content:flex-start;border-right:0;border-left:1px solid var(--ink)}.dx-ml .dx-mg b{text-align:left}.dx-ml .dx-mg::after{display:none}.dx-ml .dx-mg::before{content:\'\';position:absolute;top:50%;left:-15px;width:14px;border-top:1px solid var(--ink)}.dx-row{grid-template-columns:minmax(0,1fr);gap:6px;padding:15px 0}.dx-head h1{font-size:40px}.dx-en{font-size:19px}}',
 ].join('');
 
 function wordPage(entry, prev, next) {
@@ -1775,10 +1803,6 @@ function vocabPage(w, prev, next) {
   const desc = clip(`${head} 영어로 "${firstEn}" · 뜻. ${head} (${rom}) means "${firstEn}" in Korean — a TOPIK ${isT2(w) ? 'II' : 'I'} level ${w.l}${posEn || ' word'}. 🔊 Hear it · examples${conj ? ' · conjugation' : ''} · related words. Free.`);   // 2026-10-21: 155자 안에 끝나게 줄임 — 검색 결과에서 「Free, no…」처럼 잘리던 쪽이 많았다
 
 
-  /* 비슷한 말 · 반대말 · 높임말 — 사전식 「관련어」 줄 */
-  const rel = w.r ? '<dl class="dx-rel">' + Object.entries(w.r).map(([k, v]) =>
-    `<dt>${{ syn: '비슷한 말', ant: '반대말', hon: '높임말' }[k]}</dt><dd>${
-      v.map((x) => (PAGE_SET.has(x) ? `<a href="${dictHref(x)}">${esc(x)}</a>` : esc(x))).join(', ')}</dd>`).join('') + '</dl>' : '';
   const same = ((isT2(w) ? byTopic2 : byTopic).get(topicMain(w)) || []).filter((x) => x !== w).slice(0, 14);
   const bookId = isT2(w) ? 'topik2-vocab-1000' : 'topik1-vocab';
 
@@ -1786,7 +1810,7 @@ function vocabPage(w, prev, next) {
     head, pos: w.p, en: w.e, rom, src: 'dict',
     crumb: `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a>${tp ? ` › <a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)}</a>` : ''} › ${esc(head)}</nav>`,
     meta: `<b>TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</b> · ${esc(w.p)}`,
-    senses, exs: w.x, rels: rel, conj,
+    senses, exs: w.x, rels: w.r || null, conj,
     tref: dxTref(head, 'dict-topik'),
     same: same.map((x) => x.h),
     sameAll: tp ? `<p class="dx-all"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 →</a></p>` : '',
