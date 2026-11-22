@@ -363,47 +363,53 @@ function pointPage(cat, p, prev, next) {
     ['주의할 점 / Watch out', more[2], addEn(more[2], en?.care)],
   ].filter(([, v]) => v);
 
+  /* 문법 한 쪽 = 낱말 쪽과 같은 사전식(운영자 2026-11-22 시안 「①새 시안」): 머리(급수 · 갈래 · 표현 · 단추 둘) → 바로가기 →
+     이름표 줄(뜻 · 꼴과 주의 · 예문 · 대화, 문장마다 듣기) → 앞/다음. PC 곁칸: 같은 갈래 표현 · 더 하기 · (초급만) 책.
+     걷은 것: 이모지(🤔 · 🧀 · 🥔) · 검정 큰 단추 둘 · 이메일 칸 */
   const dlg = (p.dlg || []).map((line) => {
-    /* 자료에는 A/B 지만 화면에는 치즈와 감자가 선다. 앱 화면과 같은 규칙이다. */
+    /* 자료에는 A/B — 화면에는 치즈 · 감자(앱 화면과 같은 이름) */
     const m = /^([AB]):\s*(.+)$/.exec(line);
-    const who = m ? m[1] : 'A';
-    const txt = m ? m[2] : line;
-    return `<div class="line ${who === 'A' ? 'a' : 'b'}">` +
-      `<span class="who" aria-hidden="true">${who === 'A' ? '🧀' : '🥔'}</span>` +
-      `<span class="bub">${esc(txt)}</span></div>`;
-  }).join('\n  ');
-
-  const body = [
+    return [m ? m[1] : 'A', m ? m[2] : line];
+  });
+  const exs = [p.ex, more[3]].filter(Boolean);
+  const cmpHref = cat.points.length >= 2 ? `/compare/${esc(cat.id)}.html` : '';
+  const ws = WS_SET.has(p.id) ? `/worksheet/${esc(p.id)}.html` : '';
+  const app = `/#learn/sentence/${esc(p.id)}`;
+  const factHtml = facts.length ? '<dl class="g-facts">' + facts.map(([k, v, e]) =>
+    `<dt>${esc(k.split(' / ')[0].replace('형태', '꼴').replace('자주 함께 쓰는 말', '함께 쓰는 말'))}</dt><dd><p class="g-v${/주의/.test(k) ? ' g-c' : ''}">${esc(v)}</p>${e ? `<p class="g-e" lang="en">${esc(e)}</p>` : ''}</dd>`).join('') + '</dl>' : '';
+  const exHtml = '<ul class="dx-ex">' + exs.map((t) => `<li><p class="dx-xs">${dxPlay(t)}<span class="ex">${esc(t)}</span></p></li>`).join('') + '</ul>';
+  const dlgHtml = dlg.length ? '<ul class="g-dlg">' + dlg.map(([w, t]) => `<li><b>${w === 'A' ? '치즈' : '감자'}</b><p class="dx-xs">${dxPlay(t)}<span class="ex">${esc(t)}</span></p></li>`).join('') + '</ul>' : '';
+  const tabs = [['g-mean', '뜻'], factHtml && ['g-form', '꼴 · 주의'], ['g-exs', `예문 ${exs.length}`], dlgHtml && ['g-dlg', '대화']].filter(Boolean);
+  const main = [
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/sentence/">문법 표현</a> › ${esc(cat.ko)}</nav>`,
-    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(p.name)}</h1>`,
-    `<p class="sub">${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)} · ${esc(cat.en)}</p>`,
-    `<p class="desc">${esc(p.desc)}</p>`,
-    addEn(p.desc, en?.desc) ? `<p class="desc en" lang="en">${esc(en.desc)}</p>` : '',
-    facts.length ? '<div class="facts">' + facts.map(([k, v, e]) =>
-      `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}` +
-      (e ? `<i lang="en">${esc(e)}</i>` : '') + '</span></div>').join('') + '</div>' : '',
-    '<h2>예문 · Examples</h2>',
-    `<div class="ex">${esc(p.ex)}</div>`,
-    more[3] ? `<div class="ex">${esc(more[3])}</div>` : '',
-    dlg ? `<h2>대화로 보기 · In conversation</h2>\n<div class="dlg">\n  ${dlg}\n</div>` : '',
-    /* 검색에서 들어온 사람을 앱 화면으로 보낸다. 이 쪽은 읽는 곳이고,
-       직접 문장을 써 보는 곳은 앱이다. */
-    `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
-      `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
-    /* 초급 책 두 권은 초급 표현 쪽에만 — 고급 「-느니」 쪽에 첫걸음 워크북을 권하던 것(2026-11-22) */
-    lv === 'beginner' ? bookSteps(['particles-workbook', 'first-steps-workbook'], '이 표현을 연습하고 나서 · 책으로 이어서 (Next step: the workbooks)', 'sentence') : '',
-    lv === 'beginner' ? leadSample('particles-workbook', 'sentence') : '',
-    WS_SET.has(p.id) ? `<a class="cta" href="/worksheet/${esc(p.id)}.html">인쇄용 학습지 받기 · 연습 + 정답<span>Free printable worksheet (PDF) for ${esc(p.name)}</span></a>` : '',
-    `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
-      `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
-      // 문법을 익혔으면 쓰기로 — TOPIK 쓰기 모음은 클릭률이 가장 높은 쪽(2026-10-10)
-      `<a href="/topik-writing/?utm_source=grammar"><b>TOPIK 쓰기로 써 보기</b>쓰기 연습 200문항 · AI 채점 — TOPIK writing practice</a></div>`,
+    '<header class="dx-head">' +
+      `<p class="dx-meta"><b>${LV_KO[lv]} · ${LV_EN[lv]}</b> · ${cmpHref ? `<a href="${cmpHref}">${esc(cat.ko)}</a>` : esc(cat.ko)}</p>` +
+      `<h1>${esc(p.name)}</h1><p class="g-cat" lang="en">${esc(cat.en)}</p>` +
+      `<div class="dx-act"><a class="dx-p" href="${app}">이 표현으로 문장 만들기</a>${ws ? `<a class="dx-s" href="${ws}">인쇄용 학습지 · 정답</a>` : ''}</div>` +
+    '</header>',
+    `<nav class="dx-tabs" aria-label="바로가기">${tabs.map(([id, n]) => `<a href="#${id}">${n}</a>`).join('')}</nav>`,
+    dxRow('뜻 <small>Meaning</small>', `<p class="g-mean">${esc(p.desc)}</p>` + (addEn(p.desc, en?.desc) ? `<p class="g-en" lang="en">${esc(en.desc)}</p>` : ''), 'g-mean'),
+    dxRow('꼴 · 주의 <small>Form</small>', factHtml, 'g-form'),
+    dxRow('예문 <small>Examples</small>', exHtml, 'g-exs'),
+    dxRow('대화 <small>Dialogue</small>', dlgHtml, 'g-dlg'),
     (prev || next) ? '<div class="near">' +
-      (prev ? `<a href="/sentence/${esc(prev.id)}.html"><b>← 앞 표현</b>${esc(prev.name)}</a>` : '') +
+      (prev ? `<a href="/sentence/${esc(prev.id)}.html"><b>← 앞 표현</b>${esc(prev.name)}</a>` : '<span></span>') +
       (next ? `<a href="/sentence/${esc(next.id)}.html"><b>다음 표현 →</b>${esc(next.name)}</a>` : '') +
       '</div>' : '',
   ].filter(Boolean).join('\n');
+  const side = [
+    cat.points.length >= 2 ? `<section><h3>${esc(cat.ko)} 표현 ${cat.points.length}가지</h3><ol>` +
+      cat.points.map((q) => q.id === p.id ? `<li><b>${esc(q.name)}</b></li>` : `<li><a href="/sentence/${esc(q.id)}.html">${esc(q.name)}</a></li>`).join('') + '</ol>' +
+      `<p class="dx-all"><a href="${cmpHref}">한 쪽에서 견주어 보기 →</a></p></section>` : '',
+    '<section><h3>이 표현으로 더 하기</h3><ol>' +
+      `<li><a href="${app}">문장 만들어 보기</a></li>` +
+      (ws ? `<li><a href="${ws}">인쇄용 학습지 · 정답</a></li>` : '') +
+      '<li><a href="/topik-writing/?utm_source=grammar">TOPIK 쓰기 연습 · AI 채점</a></li>' +
+      '<li><a href="/?lt=1&amp;utm_source=grammar">내 한국어 레벨 재기 · 3분</a></li></ol></section>',
+    /* 초급 책 두 권은 초급 표현 쪽에만 — 고급 「-느니」 쪽에 첫걸음 워크북을 권하던 것(2026-11-22) */
+    lv === 'beginner' ? dxBook('particles-workbook', 'sentence') : '',
+  ].filter(Boolean).join('');
+  const body = `<div class="dx-lay"><article class="dx">${main}</article><aside class="dx-side">${side}</aside></div>`;
 
   /* 문법 표현은 낱말이 아니라 **뜻이 정해진 용어**다. DefinedTerm 이
      그 자리에 가장 정확하다 — Article 로 두면 기계가 이것을 글 한 편으로
@@ -435,8 +441,35 @@ function pointPage(cat, p, prev, next) {
              ...(cat.points.length >= 2 ? [[cat.ko, `/compare/${cat.id}.html`]] : []),
              [p.name, null]]),
   ];
-  return page({ url: `/sentence/${p.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/sentence/${p.id}.html`, title, desc, body, jsonld, extraCss: DX_CSS + GR_CSS });
 }
+/* 문법 한 쪽 — 사전식(DX_CSS) 위에 문법만의 칸 */
+const GR_CSS = [
+  '.g-cat{margin:0;font-size:14px;color:var(--dim)}',
+  '.g-mean{margin:0;font-size:18px;font-weight:600;line-height:1.6}.g-en{margin:6px 0 0;font-size:15px;color:var(--dim)}',
+  '.g-facts{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px 16px;margin:0}.g-facts dt{font-size:13px;color:var(--dim);padding-top:3px}.g-facts dd{margin:0;min-width:0}',
+  '.g-v{margin:0;font-size:16.5px;font-weight:600}.g-v.g-c{font-weight:400;font-size:15.5px;line-height:1.6}.g-e{margin:3px 0 0;font-size:14px;color:var(--dim)}',
+  '.g-dlg{margin:0;padding:0;list-style:none}.g-dlg li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:start;margin:0 0 12px}.g-dlg li:last-child{margin:0}',
+  '.g-dlg b{font-size:12.5px;color:var(--dim);padding-top:5px}',
+  '.dx-side ol b{font-weight:800}',
+  '@media(max-width:600px){.g-facts{grid-template-columns:minmax(0,1fr);gap:2px}.g-facts dd{margin-bottom:10px}}',
+].join('');
+
+const GL_CSS = [
+  '@media(min-width:901px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}',
+  '.gl-j{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 10px}',
+  '.gl-j a{padding:8px 14px;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px}',
+  '.gl-j a.gl-app{border:0;padding:8px 4px;margin-left:auto;color:var(--dim);font-weight:600}',
+  '.gl-lv>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;padding:16px 2px;border-bottom:2px solid var(--ink);font-size:22px;font-weight:800}',
+  '.gl-lv>summary::-webkit-details-marker{display:none}.gl-lv>summary small{font-size:14px;color:var(--dim);font-weight:600;margin-left:8px}',
+  ".gl-lv>summary::after{content:'+';font-weight:600}.gl-lv[open]>summary::after{content:'−'}",
+  '.gl-lv{margin-bottom:6px}.gl-r{scroll-margin-top:130px}',
+  '.gl-r{display:grid;grid-template-columns:220px minmax(0,1fr);gap:4px 28px;padding:14px 0;border-bottom:1px solid var(--line)}',
+  '.gl-r h3{margin:0;font-size:15.5px}.gl-r h3 small{display:block;font-weight:500;font-size:12.5px;color:var(--dim)}',
+  '.gl-r ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px}',
+  '.gl-r a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid var(--line)}.gl-r a:hover{border-color:var(--ink)}',
+  '@media(max-width:600px){.gl-r{grid-template-columns:minmax(0,1fr)}.gl-j a.gl-app{margin-left:0}}',
+].join('');
 
 /* ── 전체 목록 한 쪽 ────────────────────────────────────────────
    낱쪽 290개만 두면 서로 이어지지 않아 크롤러가 몇 쪽 보다 만다. 전부를
@@ -449,12 +482,12 @@ function hubPage(cats, total) {
       .filter((x) => x.points.length);
     if (!inLv.length) return '';
     const n = inLv.reduce((a, x) => a + x.points.length, 0);
-    return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — ${n}개</h2>` +
-      inLv.map(({ cat, points }) =>
-        `<div class="cat"><h3>${esc(cat.emoji ? cat.emoji + ' ' : '')}${esc(cat.ko)}</h3>` +
-        `<p>${esc(cat.en)}</p><ul class="pts">` +
+    /* 문법 첫 쪽 시안 A(운영자 2026-11-22 「②A」): 급마다 접기(초급만 펼침) · 갈래 이름 왼쪽 · 표현은 글자 목록(알약 · 이모지 없음) */
+    return `<details class="gl-lv"${lv === 'beginner' ? ' open' : ''}><summary><span>${LV_KO[lv]} · ${LV_EN[lv]}<small>${n}개</small></span></summary>` +
+      inLv.map(({ cat, points }, i) =>
+        `<div class="gl-r"${i ? '' : ` id="${lv}"`}><h3>${esc(cat.ko)}<small lang="en">${esc(cat.en)}</small></h3><ul>` +
         points.map((p) => `<li><a href="/sentence/${esc(p.id)}.html">${esc(p.name)}</a></li>`).join('') +
-        '</ul></div>').join('\n');
+        '</ul></div>').join('\n') + '</details>';
   }).filter(Boolean).join('\n');
 
   const body = [
@@ -462,7 +495,7 @@ function hubPage(cats, total) {
     `<h1>한국어 문법 표현 ${total}개</h1>`,
     '<p class="lead">초급부터 고급까지, 표현마다 뜻풀이 · 형태 · 주의할 점 · 예문과 대화문을 붙였습니다.<br>' +
     `${total} Korean grammar points from beginner to advanced — each with meaning, form, examples and a short dialogue.</p>`,
-    `<a class="cta" href="/#learn/sentence">예문 만들기 열기<span>Open the sentence builder</span></a>`,
+    `<nav class="gl-j" aria-label="급 바로가기">${order.map((lv) => { const n = cats.reduce((a, c) => a + c.points.filter((p) => tier(p) === lv).length, 0); return n ? `<a href="#${lv}">${LV_KO[lv]} ${n}</a>` : ''; }).join('')}<a class="gl-app" href="/#learn/sentence">예문 만들기 →</a></nav>`,
     sections,
   ].join('\n');
 
@@ -483,6 +516,7 @@ function hubPage(cats, total) {
     url: '/sentence/',
     kind: 'website',
     jsonld,
+    extraCss: GL_CSS,
     title: `한국어 문법 표현 ${total}개 — 초급·중급·고급 | CheesePotato`,
     desc: clip(`한국어 문법 표현 ${total}개를 초급·중급·고급으로 정리했습니다. ` +
       '표현마다 뜻풀이와 형태, 주의할 점, 예문과 대화문이 있습니다. ' +
@@ -1573,6 +1607,7 @@ const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-w
    걷은 것: 이모지 카드 「다음 한 걸음」 · 미니 퀴즈(정답이 바로 위에 보였다) · 레벨 테스트 띠 · 이메일 칸(샘플은 바로 받기 링크로) */
 /* 사전 찾기 칸 — 참고 사전 쪽처럼 맨 위에서 바로 다른 낱말을 찾는다. page.js 가 앱 사전 검색으로 보낸다(스크립트가 없으면 앱 사전 첫 화면으로) */
 const DX_FIND = '<form class="dx-find" data-find role="search" action="/#dictionary"><input name="q" type="search" placeholder="낱말 찾기 · 한국어나 영어로" aria-label="낱말 찾기 · Search a word" autocomplete="off" enterkeyhint="search"><button type="submit">찾기</button></form>';
+const dxPlay = (t) => `<button type="button" class="dx-play" data-say="${esc(t)}" aria-label="듣기 · Listen"><i class="wd-say-i" aria-hidden="true"></i></button>`;
 const dxRow = (lab, html, id = '') => (html ? `<div class="dx-row"${id ? ` id="${id}"` : ''}><div class="dx-lab">${lab}</div><div class="dx-val">${html}</div></div>` : '');
 function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels = null, conj = null, tref = [], same = [], sameAll = '', book = '', addHref, near = '', src = 'dict', note }) {
   const enLine = String(en || '').split(';').map((x) => x.trim()).filter(Boolean).join(' · ');
@@ -1581,7 +1616,7 @@ function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels =
     ? '<ol class="dx-ko">' + sns.map(([ko, enS]) => `<li>${esc(ko)}${enS && enS.trim() !== String(en || '').trim() ? `<i lang="en">${esc(enS)}</i>` : ''}</li>`).join('') + '</ol>'
     : sns.length ? `<p class="dx-ko1">${esc(sns[0][0])}</p>` : '';
   /* 예문 — 문장마다 재생 단추 · 출처(참고: 큰 사전 쪽은 예문마다 소리와 출처를 단다). TOPIK 문항 문장도 같은 줄에 */
-  const play = (t) => `<button type="button" class="dx-play" data-say="${esc(t)}" aria-label="듣기 · Listen"><i class="wd-say-i" aria-hidden="true"></i></button>`;
+  const play = dxPlay;
   const exList = [
     ...exs.map(([ko, e]) => `<li><p class="dx-xs">${play(ko)}<span class="ex">${esc(ko)}</span></p>${e ? `<i lang="en">${esc(e)}</i>` : ''}<small>치즈감자 예문</small></li>`),
     ...tref.map(([t, href, name]) => `<li><p class="dx-xs">${play(t)}<span class="ex">${esc(t)}</span></p><small><a href="${href}">${esc(name)} →</a></small></li>`),
