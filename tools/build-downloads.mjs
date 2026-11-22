@@ -29,7 +29,7 @@ const GR = SB_CATS.flatMap((c) => c.points.map((p) => ({ p, cat: c }))).filter((
    로그인한 사람만 /download/ 에서 임시 주소를 받는다(db/add_downloads.sql). 낱말 원자료 자체(vocab/data)는 사이트 학습 화면이 쓰므로 공개 — 막는 것은 내려받기용 묶음 파일이다. */
 const FREE = new Set(['topik-vocabulary-basic']);   // 국립국어원 자료만 담은 기본 목록 — 누구나. 우리가 쓴 뜻 · 예문이 든 풍부한 목록은 전부 로그인(운영자 2026-10-19 「나누기」)
 const dl = (name, label) => (FREE.has(name) ? `<a href="/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" download>${label}</a>`
-  : `<a href="/download/?f=/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" rel="nofollow">${label} <small>🔒 free account</small></a>`);
+  : `<a href="/download/?f=/downloads/${name}${name.endsWith('-anki') ? '.txt' : '.csv'}" rel="nofollow">${label} <small>· free account</small></a>`);
 const cell = (s) => `"${String(s ?? '').replace(/"/g, '""')}"`;
 const clean = (s) => String(s ?? '').replace(/[\t\r\n]+/g, ' ').trim();
 const ex = (w) => w.examples?.[0] || {};
@@ -76,16 +76,16 @@ const page = `<!DOCTYPE html>
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
-<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
+<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px;font-size:13.5px}.dl th{white-space:normal;overflow-wrap:normal;font-size:12px}.dl small{display:block;font-weight:500}}.dl{width:100%;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}.dl td:nth-child(2){color:var(--ink-3)}.dl a{font-weight:700}</style>
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'en', active: 'words' })}
 <main class="wide">
 <h1>TOPIK vocabulary list — free download</h1>
 <p>${ALL.length.toLocaleString('en-US')} Korean words for TOPIK Levels 1–6, each with a level. The <strong>basic list</strong> (Korean word, part of speech, level) is free to download — no account needed. The <strong>study lists</strong> below add English, Vietnamese and Japanese meanings and example sentences written by CheesePotato, as a spreadsheet (CSV) or an Anki deck; they need a free account (one click to sign up).</p>
-<table class="dl"><thead><tr><th>Basic list (all levels)</th><th>Words</th><th>Spreadsheet</th></tr></thead><tbody><tr><td>Korean · part of speech · level</td><td>${ALL.length.toLocaleString('en-US')}</td><td>${dl('topik-vocabulary-basic', 'CSV')}</td></tr></tbody></table>
+<table class="dl"><thead><tr><th>Basic list (all levels)</th><th>Words</th><th>CSV</th></tr></thead><tbody><tr><td>Korean · part of speech · level</td><td>${ALL.length.toLocaleString('en-US')}</td><td>${dl('topik-vocabulary-basic', 'CSV')}</td></tr></tbody></table>
 <h2>Study lists (free account)</h2>
-<table class="dl"><thead><tr><th>Level</th><th>Words</th><th>Spreadsheet</th><th>Anki deck</th></tr></thead><tbody>
+<table class="dl"><thead><tr><th>Level</th><th>Words</th><th>CSV</th><th>Anki</th></tr></thead><tbody>
 ${BAND.map(li).join('\n')}
 </tbody></table>
 <h2>Grammar list</h2>
@@ -142,7 +142,7 @@ const gpage = `<!DOCTYPE html>
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/vendor/pretendard.css">
 <link rel="stylesheet" href="/page.css">
-<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px}}.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:600px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
+<style>@media(max-width:600px){.dl{table-layout:fixed;width:100%;min-width:0}.dl th,.dl td{overflow-wrap:anywhere;padding:9px 5px;font-size:13.5px}.dl th{white-space:normal;overflow-wrap:normal;font-size:12px}.dl small{display:block;font-weight:500}}.dl{width:100%;min-width:0;border-collapse:collapse;margin:14px 0}.dl th,.dl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}.dl td:first-child{font-weight:700;white-space:nowrap}.dl td:last-child{color:var(--ink-3)}.dl td{overflow-wrap:anywhere}@media(max-width:600px){.dl{table-layout:fixed}.dl td:last-child,.dl th:last-child{display:none}.dl th:first-child,.dl td:first-child{white-space:normal;width:36%}.dl th:nth-child(2){width:64%}.dl th,.dl td{padding:10px 6px}}</style>
 </head>
 <body>
 ${siteHeaderBlock({ lang: 'en' })}

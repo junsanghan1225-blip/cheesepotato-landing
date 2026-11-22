@@ -2,6 +2,7 @@
    검색으로 들어온 사람이 3초 안에 「해 봤다」를 느끼게(운영자 요청 2026-10-01 「훅이라 더 직관적이게」):
    · [data-say] 🔊 — 녹음 파일이 있으면 그 소리, 없으면 기기의 한국어 목소리(speechSynthesis)
    · .opts[data-ans] 보기 — 누르면 그 자리에서 ⭕/❌, 정답과 해설을 펼친다
+   · form[data-find] 사전 찾기 — 앱 사전 검색으로
    스크립트가 없어도 쪽은 다 읽힌다(정답은 「정답과 해설 보기」에 그대로 있다). */
 (() => {
   const say = (btn) => {
@@ -55,5 +56,12 @@
   });
   document.addEventListener('keydown', (e) => {
     if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('.opts[data-ans] > li')) { e.preventDefault(); pick(e.target); }
+  });
+  /* 사전 찾기 칸(낱말 쪽 · 사전 첫 쪽, 2026-11-22) — 앱 사전 검색(/#dictionary/<낱말>)으로 보낸다. 한국어 · 영어 모두 */
+  document.addEventListener('submit', (e) => {
+    const f = e.target.closest?.('form[data-find]'); if (!f) return;
+    e.preventDefault();
+    const q = (f.querySelector('input[name="q"]')?.value || '').trim();
+    location.href = q ? '/#dictionary/' + encodeURIComponent(q) : '/#dictionary';
   });
 })();
