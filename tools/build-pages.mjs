@@ -152,6 +152,8 @@ h2{font-size:15px;margin:32px 0 10px;color:var(--dim);letter-spacing:.02em}
 .line{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
 .line.b{flex-direction:row-reverse}
 .who{font-size:22px;line-height:1.3;flex:none}
+.tl-who{font-size:12.5px;font-weight:700;color:var(--dim);padding-top:9px;min-width:30px}
+.orig{white-space:nowrap}
 .bub{cursor:pointer;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:15px}
 .line.b .bub{background:var(--tint);border-color:var(--line);color:var(--ink)}
 .cta{display:block;margin:34px 0 8px;padding:16px 20px;border-radius:8px;background:var(--cta);color:var(--cta-ink);
@@ -1148,7 +1150,7 @@ function trPage(it) {
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-reading/">TOPIK 읽기</a> › ${esc(examName)}</nav>`,
     `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(it.topic)}</h1>`,
-    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)}</p>`,
+    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · <span class="orig">치즈감자 창작 문항 · 기출 아님</span></p>`,   // 쪽에서도 보이게(전엔 검색 설명에만, 2026-11-22)
     `<div class="ex">${ulMark(it.passage, it.mark)}</div>`,
     `<p class="desc">${esc(it.question)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
@@ -1300,7 +1302,7 @@ function tlPage(it) {
 
   const script = it.script.map((l) => {
     return `<div class="line${l.who === 'w' ? ' b' : ''}">` +
-      `<span class="who" aria-hidden="true">${l.who === 'w' ? '👩' : l.who === 'm' ? '👨' : '📢'}</span>` +
+      `<span class="who tl-who">${(TL_WHO[l.who] || TL_WHO.n).ko}</span>` +   // 이모지 대신 글자(디자인 약속 — 이모지를 아이콘으로 쓰지 않는다)
       `<span class="bub">${esc(l.text)}</span></div>`;
   }).join('\n  ');
 
@@ -1308,7 +1310,7 @@ function tlPage(it) {
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/topik-listening/">TOPIK 듣기</a> › ${esc(examName)}</nav>`,
     `<span class="badge">${esc(grade.ko)} · ${esc(tx.ko)}</span>`,
     `<h1>${esc(gist.length > 40 ? gist.slice(0, 40) + '…' : gist)}</h1>`,
-    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · 대본 · Script</p>`,
+    `<p class="sub">${esc(examName)} ${it.slot}번 · ${esc(tx.ko)} · ${esc(tx.en)} · <span class="orig">치즈감자 창작 문항 · 기출 아님</span></p>`,
     `<div class="dlg">\n  ${script}\n</div>`,
     `<p class="desc" style="margin-top:20px">${esc(it.q)}</p>`,
     optsAndAnswer(it.options, it.answer, it.why),
