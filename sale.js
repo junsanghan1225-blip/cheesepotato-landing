@@ -28,7 +28,8 @@
     document.querySelectorAll('.pg2-bundle, .hm-bundle').forEach(function (x) { x.hidden = true; x.style.display = 'none'; });
     var bh = document.getElementById('bundles');
     if (bh) { bh.style.display = 'none'; var bn = bh.nextElementSibling; if (bn && bn.classList.contains('shop-card')) bn.style.display = 'none'; }
-    var at = document.querySelector('.pg2-hero, .shop-hero, #hmBooks');
+    document.querySelectorAll('.shop-nav a[href$="#bundles"]').forEach(function (x) { x.style.display = 'none'; });   // 묶음을 감추면 차례의 「묶음」도(갈 곳이 없다)
+    var at = document.querySelector('.pg2-hero, .shop-hero, .shop-nav, #hmBooks');
     if (at && !document.querySelector('.sale-promo')) {
       var d = Math.max(1, Math.ceil((e - now) / 864e5));
       var seen = {}, ps = [];   // 이 쪽에 나온 정가(9.90 · 6.90 …)마다 반값을 한 줄씩 — 가격을 지어내지 않고 쪽의 data-px 에서 읽는다
@@ -41,6 +42,7 @@
         (rows ? '<div class="sp-p">' + rows + '</div>' : '') +
         '<p class="sp-n">' + t(`결제 화면에 코드가 자동으로 들어가요. 안 보이면 「Add discount code」 칸에 ${SALE.code} 를 넣어 주세요.`, `The code is added at checkout. If it is not, enter ${SALE.code} under “Add discount code”.`) + '</p>';
       if (at.id === 'hmBooks') at.insertBefore(bar, at.firstChild);   // 첫 화면은 책 코너 안쪽 첫 줄(다른 상자와 폭 맞춤)
+      else if (at.classList.contains('shop-nav')) at.parentNode.insertBefore(bar, at.nextSibling);   // 상점(시안 S4-1, 위 띠를 걷음): 차례 줄 바로 아래, 본문 폭 그대로
       else {   // 상점 · 가격 쪽은 머리 위 — 머리 안쪽 칸(.in)의 좌우 여백 · 최대 폭을 읽어 같은 폭으로(전체 폭으로 늘어나 안 맞던 것, 2026-11-20)
         var c = at.firstElementChild, cs = c && getComputedStyle(c);
         if (cs) {
