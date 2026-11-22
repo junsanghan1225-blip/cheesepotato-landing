@@ -391,8 +391,9 @@ function pointPage(cat, p, prev, next) {
        직접 문장을 써 보는 곳은 앱이다. */
     `<a class="cta" href="/#learn/sentence/${esc(p.id)}">이 표현으로 문장 만들어 보기` +
       `<span>Practice writing your own sentence with ${esc(p.name)}</span></a>`,
-    bookSteps(['particles-workbook', 'first-steps-workbook'], '이 표현을 연습하고 나서 · 책으로 이어서 (Next step: the workbooks)', 'sentence'),
-    leadSample('particles-workbook', 'sentence'),
+    /* 초급 책 두 권은 초급 표현 쪽에만 — 고급 「-느니」 쪽에 첫걸음 워크북을 권하던 것(2026-11-22) */
+    lv === 'beginner' ? bookSteps(['particles-workbook', 'first-steps-workbook'], '이 표현을 연습하고 나서 · 책으로 이어서 (Next step: the workbooks)', 'sentence') : '',
+    lv === 'beginner' ? leadSample('particles-workbook', 'sentence') : '',
     WS_SET.has(p.id) ? `<a class="cta" href="/worksheet/${esc(p.id)}.html">인쇄용 학습지 받기 · 연습 + 정답<span>Free printable worksheet (PDF) for ${esc(p.name)}</span></a>` : '',
     `<div class="near"><a href="/compare/${esc(cat.id)}.html"><b>같은 갈래 견주어 보기</b>` +
       `${esc(cat.ko)} 표현 ${cat.points.length}가지</a>` +
