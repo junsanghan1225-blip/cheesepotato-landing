@@ -2093,19 +2093,14 @@ function vocabListPage(vs, tp, list) {
     `<nav class="crumb"><a href="/">치즈감자</a> › <a href="${vs.dir}">${vs.name} 낱말</a> › ${esc(tp.ko)}</nav>`,
     `<span class="badge">${vs.name} · ${esc(tp.en)}</span>`,
     `<h1>${vs.name} ${esc(tp.ko)} 낱말 <small>${n}개</small></h1>`,
-    `<p class="lead">TOPIK ${vs.num} ${esc(tp.en)} vocabulary — ${n} Korean words with romanization and English, most frequent first. ` +
-      `${esc(tp.subs.map((x) => x.ko).join(' · '))}. 낱말을 누르면 예문 · 활용 · 발음이 있어요.</p>`,
+    `<p class="lead">자주 나오는 차례로 ${n}개 — 낱말을 누르면 예문 · 활용 · 발음이 있어요.<br><span lang="en">TOPIK ${vs.num} ${esc(tp.en)} vocabulary, most frequent first.</span></p>`,
     `<a class="tq-app" href="/#words/topic/${tp.id}/${vs.key}">이 ${n}개를 카드로 외우기 →</a>`,
     `<table class="vl"><thead><tr><th>낱말</th><th>Romanization</th><th>English</th><th>품사</th></tr></thead><tbody>${rows}</tbody></table>`,
-    '<p class="note">어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
+    '<p class="note"><a href="/topik-vocabulary-list/">CSV · Anki 로 내려받기 →</a> · 어휘 급수: 국립국어원 「국제 통용 한국어 표준 교육과정」(공공누리 1유형) · 뜻 · 예문: 치즈감자</p>',
   ].join('\n');
   const side = '<aside class="dx-side tq-side">' +
     `<section class="tq-box"><h3>다른 주제 <small>${vs.name} · ${topics.length}갈래</small></h3><ol class="tq-list">` +
       topics.map((x) => `<li${x.id === tp.id ? ' class="on" aria-current="page"' : ''}><a href="${vs.dir}${x.id}.html"><span>${vs.by.get(x.id).length}</span>${esc(x.ko)}</a></li>`).join('') + '</ol></section>' +
-    '<section class="tq-box"><h3>더 하기</h3><ul class="tq-go">' +
-      `<li><a href="/#words/topic/${tp.id}/${vs.key}">카드로 외우기 · 복습<span>→</span></a></li>` +
-      '<li><a href="/#blocks">낱말 감자 게임 · 2분<span>→</span></a></li>' +
-      '<li><a href="/topik-vocabulary-list/">CSV · Anki 로 내려받기<span>→</span></a></li></ul></section>' +
     vlBookBox(vs, `vl_${vs.key}`) + '</aside>';
   const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
   const url = `${vs.dir}${tp.id}.html`;
@@ -2121,7 +2116,7 @@ function vocabListPage(vs, tp, list) {
     extraCss: TQ_CSS + VL_CSS,
   });
 }
-const VL_CSS = '.dx h1 small{font-size:16px;color:var(--dim);font-weight:500;margin-left:6px}' +
+const VL_CSS = '.tq-side .tq-list a,.tq-side .tq-go a{padding:7px 16px}.tq-side .tq-box h3{padding:10px 16px}.dx h1 small{font-size:16px;color:var(--dim);font-weight:500;margin-left:6px}' +
   '.vl{width:100%;border-collapse:collapse;margin-top:18px;border-top:2px solid var(--ink)}' +
   '.vl th,.vl td{padding:9px 12px 9px 0;border-bottom:1px solid var(--line);text-align:left;font-size:15px;vertical-align:top}' +
   '.vl th{font-size:12.5px;color:var(--dim);font-weight:600}.vl .rom{font-style:italic;color:var(--dim)}.vl td:first-child a{color:var(--ink);font-weight:700;text-decoration:none}' +
@@ -2233,14 +2228,11 @@ function engPage(slug, { key, words }) {
   const side = '<aside class="dx-side tq-side">' +
     (rel.length ? `<section class="tq-box"><h3>More ways to say it <small>같은 주제의 낱말</small></h3><ul class="tq-go">` +
       rel.map(([s2, v2]) => `<li><a href="/korean-word-for/${s2}.html">“${esc(v2.key)}” — ${esc(v2.words[0].h)}<span>→</span></a></li>`).join('') + '</ul></section>' : '') +
-    '<section class="tq-box"><h3>Practice <small>더 하기</small></h3><ul class="tq-go">' +
+    '<section class="tq-box"><h3>More <small>더 하기</small></h3><ul class="tq-go">' +
       `<li><a href="/?utm_source=wordfor#blocks">Word potato game · 2 min<span>→</span></a></li>` +
       `<li><a href="/?utm_source=wordfor#words/w/${encodeURIComponent(top.h)}">Flashcards for ${esc(top.h)}<span>→</span></a></li>` +
-      '<li><a href="/?lt=1&amp;utm_source=wordfor">Find your level · 3 min<span>→</span></a></li></ul></section>' +
-    '<section class="tq-box"><h3>Word lists <small>낱말 목록</small></h3><ul class="tq-go">' +
-      '<li><a href="/topik1-words/">TOPIK 1 vocabulary list<span>→</span></a></li>' +
-      '<li><a href="/topik2-words/">TOPIK 2 vocabulary list<span>→</span></a></li>' +
-      '<li><a href="/topik-vocabulary-list/">Download · CSV · Anki<span>→</span></a></li></ul></section></aside>';
+      '<li><a href="/?lt=1&amp;utm_source=wordfor">Find your level · 3 min<span>→</span></a></li>' +
+      '<li><a href="/topik1-words/">TOPIK 1 · 2 word lists<span>→</span></a></li></ul></section></aside>';
   const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
@@ -2259,7 +2251,7 @@ function ewRelatedList(slug, v) {
   for (let k = 1; k < list.length && pick.length < 6; k++) { const e = list[(i + k) % list.length]; if (seen.has(e[1].words[0].h)) continue; seen.add(e[1].words[0].h); pick.push(e); }
   return pick;
 }
-const EW_CSS = '.ewc{padding:18px 0;border-bottom:1px solid var(--line)}.ewc:first-of-type{border-top:2px solid var(--ink)}' +
+const EW_CSS = '.tq-side .tq-go a{padding:8px 16px}.ewc{padding:18px 0;border-bottom:1px solid var(--line)}.ewc:first-of-type{border-top:2px solid var(--ink)}' +
   '.ewh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:30px;font-weight:800}.ewh a{color:var(--ink);text-decoration:none}.ewh i{font-size:15px;color:var(--dim);font-weight:500}' +
   '.ewh .wd-say{font-size:13px;padding:6px 11px;border-radius:5px}' +
   '.ewn{display:inline-grid;place-items:center;width:24px;height:24px;border:1px solid var(--line);border-radius:50%;font-size:12px;font-weight:700}' +
