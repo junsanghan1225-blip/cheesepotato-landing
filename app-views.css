@@ -7838,3 +7838,63 @@ body #learnView.topik-mode .pt-body { max-width:1200px !important; padding-left:
 #learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-s { padding:7px 12px; border:1px solid var(--ink); border-radius:8px; font-size:13.5px; font-weight:700; color:var(--ink); background:var(--surface); }
 #learnView.topik-mode .tq-pane[data-pane="type"] .tq-row.rec { background:none; box-shadow:inset 3px 0 0 var(--ink); padding-left:10px; }
 #learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-b b em { background:none; border:1px solid var(--ink); color:var(--ink); border-radius:5px; }
+/* 모의고사 표 오른쪽 칸 다시(운영자 2026-11-22 「맛보기 버튼이 너무 타이트하게 붙어 있고 · 시작 버튼 촌스러워」):
+   테두리 단추를 걷고 글자 링크로 — 열린 회차는 진한 글자 + 밑줄 화살표, 잠긴 회차는 흐린 글자 「맛보기」 앞에 작은 Pro 표시.
+   줄 오른쪽에 여백을 두고, 줄 전체에 마우스를 올리면 바탕이 바뀐다(누르는 곳은 원래대로 줄 전체) */
+.tq-rows-t .tq-row { padding:14px 14px 14px 0; }
+.tq-rows-t .tq-row:hover { background:var(--surface); }
+.tq-rows-t .tq-row-s, .tq-rows-t .tq-row.tq-locked .tq-row-s { padding:0; border:0; border-radius:0; background:none; font-size:14px; font-weight:800; color:var(--ink); white-space:nowrap; }
+.tq-rows-t .tq-row:not(.tq-locked) .tq-row-s { text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px; }
+.tq-rows-t .tq-row.tq-locked .tq-row-s { color:var(--ink-3); font-weight:700; }
+.tq-rows-t .tq-row.tq-locked .tq-row-s::before { content:'Pro'; display:inline-block; margin-right:8px; padding:1px 6px; border:1px solid var(--line); border-radius:5px; font-size:11px; font-weight:800; letter-spacing:.02em; vertical-align:1px; }
+.tq-rows-h { padding-right:14px; }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row { padding-right:14px; }
+#learnView.topik-mode .tq-pane[data-pane="type"] .tq-row-s { padding:0; border:0; background:none; font-size:14px; font-weight:800; text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px; }
+
+/* ══ 앱 코스 화면(운영자 2026-11-22 「앱화면도」 — TOPIK 화면과 같은 틀) ══
+   위 첫 화면 큰 제목 · 「← 배우기」 내림, 넓게(1120) · 왼쪽 정렬, 레벨은 큰 밑줄 탭, 코스 줄은 얇은 줄 표, 오른쪽 곁칸(#lcSide) */
+#learnView.course-mode .pt-hero, #learnView.course-mode #lsecBack { display:none; }
+body #learnView.course-mode .pt-body { max-width:1200px !important; padding-left:40px; padding-right:40px; padding-top:28px; }
+#learnView.course-mode #lsecTitle { font-size:30px; letter-spacing:-.02em; }
+#lcWrap { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+#lcWrap > * { grid-column:1; min-width:0; }
+#lcWrap > #lcSide { grid-column:2; grid-row:1 / span 4; position:sticky; top:84px; }
+#lcWrap > #llWrap { grid-column:1 / -1; }
+#learnView.course-mode #lcWrap .learn-head { background:none; border:0; border-radius:0; padding:0; box-shadow:none; text-align:left; margin-bottom:8px; }
+#learnView.course-mode #lcLevel .pt-lv-row { align-items:flex-start; text-align:left; }
+#learnView.course-mode #lcLevel .diff-seg { gap:30px; border-bottom:1px solid var(--line); width:100%; justify-content:flex-start; }
+#learnView.course-mode #lcLevel .diff-seg label { padding:10px 0; }
+#learnView.course-mode #lcLevel .diff-seg label span { font-size:18px; font-weight:800; }
+#learnView.course-mode #lcLevel .diff-seg label:has(input:checked) { box-shadow:inset 0 -3px 0 var(--ink); }
+#learnView.course-mode .cl-sum { margin-top:10px; }
+#learnView.course-mode .cl-g { margin-top:22px; }
+#learnView.course-mode .cl-gk { color:var(--ink-3); }
+#learnView.course-mode .cl-gh { padding-bottom:8px; border-bottom:1px solid var(--ink); }
+#learnView.course-mode .cl-list { border:0; border-radius:0; background:none; box-shadow:none; }
+#learnView.course-mode .cl-row { padding:13px 14px 13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+#learnView.course-mode .cl-row:hover { background:var(--surface); }
+#learnView.course-mode .cl-row.next { background:none; box-shadow:inset 3px 0 0 var(--ink); padding-left:12px; }
+#learnView.course-mode .cl-e { background:none; border:1px solid var(--line); }
+#learnView.course-mode .cl-pill { background:none; border:1px solid var(--ink); color:var(--ink); border-radius:5px; }
+#learnView.course-mode .cl-n { color:var(--ink-3); font-weight:700; }
+/* 곁칸 상자 — TOPIK 곁칸(#tqSide)과 같은 모양을 함께 쓴다 */
+#lcSide .tq-box { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+#lcSide .tq-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+#lcSide .tq-box h3 small { display:block; margin-top:2px; font-weight:500; font-size:12.5px; color:var(--ink-3); }
+#lcSide .tq-go { margin:0; padding:0; list-style:none; } #lcSide .tq-go li + li { border-top:1px solid var(--line); }
+#lcSide .tq-go a { display:flex; justify-content:space-between; padding:9px 16px; color:var(--ink); text-decoration:none; } #lcSide .tq-go a:hover { background:var(--bg); } #lcSide .tq-go span { color:var(--ink-3); }
+#lcSide .tq-bkin { display:flex; gap:14px; padding:14px 16px; } #lcSide .tq-bkin img { width:56px; height:auto; border:1px solid var(--line); border-radius:5px; }
+#lcSide .tq-bkin b { display:block; font-size:14px; } #lcSide .tq-bkin small { display:block; margin:2px 0 8px; color:var(--ink-3); font-size:12.5px; }
+#lcSide .tq-bkgo { display:block; font-weight:700; color:var(--orange-deep); text-decoration:none; } #lcSide .tq-smp { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); }
+.lc-up { padding:14px 16px; } .lc-up b { display:block; font-size:16px; } .lc-up span { display:block; margin:2px 0 12px; font-size:12.5px; color:var(--ink-3); }
+.lc-up-go { width:100%; padding:10px; border:0; border-radius:8px; background:var(--ink); color:var(--bg); font:inherit; font-weight:800; font-size:14px; cursor:pointer; }
+.lc-road { list-style:none; margin:0; padding:6px 16px 10px; }
+.lc-road li { display:grid; grid-template-columns:1fr 60px 52px; gap:8px; align-items:center; padding:6px 0; font-size:13.5px; color:var(--ink-3); }
+.lc-road li.on { color:var(--ink); font-weight:800; } .lc-road li.done { color:var(--ink); }
+.lc-road i { display:block; height:5px; background:var(--line); border-radius:4px; overflow:hidden; } .lc-road u { display:block; height:100%; background:var(--ink); }
+.lc-road em { font-style:normal; font-size:12px; text-align:right; }
+@media (max-width:900px) {
+  #lcWrap { display:block; } #lcWrap > #lcSide { position:static; margin-top:24px; }
+  body #learnView.course-mode .pt-body { padding-left:16px; padding-right:16px; }
+}
+#learnView.course-mode .cl-bar i { background:var(--ink); }   /* 진도 막대도 검정 — 주황은 한 곳만 */
