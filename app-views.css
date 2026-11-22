@@ -7898,3 +7898,44 @@ body #learnView.course-mode .pt-body { max-width:1200px !important; padding-left
   body #learnView.course-mode .pt-body { padding-left:16px; padding-right:16px; }
 }
 #learnView.course-mode .cl-bar i { background:var(--ink); }   /* 진도 막대도 검정 — 주황은 한 곳만 */
+/* 앱 듣기 고르기 화면 — 읽기와 같은 두 칸 + 곁칸(#tlSide, 2026-11-22) */
+#tlPick { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+#tlPick > * { grid-column:1; min-width:0; }
+#tlPick > .tq-aside { grid-column:2; grid-row:1 / span 6; position:sticky; top:84px; }
+#tlSide .tq-box { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+#tlSide .tq-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+#tlSide .tq-box h3 small { display:block; margin-top:2px; font-weight:500; font-size:12.5px; color:var(--ink-3); }
+#tlSide .tq-go { margin:0; padding:0; list-style:none; } #tlSide .tq-go li + li { border-top:1px solid var(--line); }
+#tlSide .tq-go a, #tlSide .tq-go button { display:flex; justify-content:space-between; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
+#tlSide .tq-go a:hover, #tlSide .tq-go button:hover { background:var(--bg); } #tlSide .tq-go span { color:var(--ink-3); }
+#tlSide .tq-bkin { display:flex; gap:14px; padding:14px 16px; } #tlSide .tq-bkin img { width:56px; height:auto; border:1px solid var(--line); border-radius:5px; }
+#tlSide .tq-bkin b { display:block; font-size:14px; } #tlSide .tq-bkin small { display:block; margin:2px 0 8px; color:var(--ink-3); font-size:12.5px; }
+#tlSide .tq-bkgo { display:block; font-weight:700; color:var(--orange-deep); text-decoration:none; } #tlSide .tq-smp { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); }
+#tlPick .learn-head { background:none; border:0; border-radius:0; padding:0; box-shadow:none; }
+@media (max-width:900px) { #tlPick { display:block; } #tlPick > .tq-aside { position:static; margin-top:24px; } }
+/* 앱 쓰기 고르기 화면 — 읽기 · 듣기와 같은 두 칸 + 곁칸(#twSide, 2026-11-22)
+   목록은 유형별 연습 표처럼: 주황 동그라미 · 색 난이도 점 · 주황 「다음 추천」 대신 얇은 줄 · 회색 번호 · 글자 링크. 쓰는 화면이 열리면 곁칸을 숨기고 한 칸 */
+#tqBodyWrite:not(.hidden) { display:grid; grid-template-columns:minmax(0,1fr) 290px; column-gap:44px; align-items:start; }
+#tqBodyWrite > * { grid-column:1; min-width:0; }
+#tqBodyWrite > .tq-aside { grid-column:2; grid-row:1 / span 4; position:sticky; top:84px; }
+#tqBodyWrite:has(#twDesk:not(.hidden)) { display:block; } #tqBodyWrite:has(#twDesk:not(.hidden)) > #twSide { display:none; }
+#twSide:empty { display:none; }
+#twSide .tq-box { margin:0 0 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden; font-size:14.5px; }
+#twSide .tq-box h3 { margin:0; padding:11px 16px; font-size:13.5px; font-weight:800; border-bottom:1px solid var(--line); }
+#twSide .tq-box h3 small { display:block; margin-top:2px; font-weight:500; font-size:12.5px; color:var(--ink-3); }
+#twSide .tq-go { margin:0; padding:0; list-style:none; } #twSide .tq-go li + li { border-top:1px solid var(--line); }
+#twSide .tq-go a, #twSide .tq-go button { display:flex; justify-content:space-between; width:100%; padding:9px 16px; border:0; background:none; font:inherit; font-size:14.5px; color:var(--ink); text-decoration:none; text-align:left; cursor:pointer; }
+#twSide .tq-go a:hover, #twSide .tq-go button:hover { background:var(--bg); } #twSide .tq-go span { color:var(--ink-3); }
+#twSide .tq-bkin { display:flex; gap:14px; padding:14px 16px; } #twSide .tq-bkin img { width:56px; height:auto; border:1px solid var(--line); border-radius:5px; }
+#twSide .tq-bkin b { display:block; font-size:14px; } #twSide .tq-bkin small { display:block; margin:2px 0 8px; color:var(--ink-3); font-size:12.5px; }
+#twSide .tq-bkgo { display:block; font-weight:700; color:var(--orange-deep); text-decoration:none; } #twSide .tq-smp { display:block; margin-top:4px; font-size:12.5px; color:var(--ink-3); }
+#tqBodyWrite .learn-head { background:none; border:0; border-radius:0; padding:0; box-shadow:none; }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-rows { border:0; border-radius:0; background:none; box-shadow:none; border-top:1px solid var(--ink); }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row { padding:13px 14px 13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row:hover { background:var(--surface); }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row-n { width:28px; height:auto; background:none; border:0; color:var(--ink-3); font-weight:800; }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row-s { padding:0; border:0; background:none; font-size:14px; font-weight:800; color:var(--ink); text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px; }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row.rec { background:none; box-shadow:inset 3px 0 0 var(--ink); padding-left:10px; }
+#tqBodyWrite .tq-pane[data-pane="list"] .tq-row-b b em { background:none; border:1px solid var(--ink); color:var(--ink); border-radius:5px; }
+#tqBodyWrite .tq-diff.d1, #tqBodyWrite .tq-diff.d2, #tqBodyWrite .tq-diff.d3 { color:var(--ink-3); }
+@media (max-width:900px) { #tqBodyWrite:not(.hidden) { display:block; } #tqBodyWrite > .tq-aside { position:static; margin-top:24px; } }
