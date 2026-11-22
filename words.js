@@ -511,35 +511,37 @@ export function wordsInit(D) {
     const w = ws.find((x) => !learned(idOf(x))) || ws[0];
     const pathName = topicName(path.topic), doneAll = list.filter((x) => learned(idOf(x))).length;
     const tops = TOPICS.map((tp) => [tp, listFor(tp.id)]).filter(([, l]) => l.length).sort((a, b) => b[1].length - a[1].length).slice(0, 4);
-    return `<div class="wd-today">
-      <div class="wd-hello">
-        <p class="wd-hello-k">${esc(hello)}</p>
-        <p class="wd-hello-p">${esc(t('내 길', 'My path'))} <b>${esc(pathName)}</b><small> · ${doneAll.toLocaleString()} / ${list.length.toLocaleString()} ${esc(t('낱말', 'words'))}</small>
-          <button type="button" class="wd-more wd-path-x" data-act="pathchange">${esc(t('레벨테스트로 바꾸기', 'Change via level test'))}</button></p>
-        ${bar(doneAll, list.length)}
-      </div>
+    /* 「사전 한 장」(운영자 2026-11-22 시안 B): 왼쪽 — 복습 줄 · 오늘의 낱말(사전처럼 크게) · 주제 표와 게임 표 나란히,
+       오른쪽 곁칸 — 내 길 진도 · 책. 전에는 가운데 좁은 한 칸에 검정 카드 · 갈색 게임 띠 · 색 아이콘 카드였다. */
+    return `<div class="wd-today wd-lay"><div class="wd-main">
       ${dueLine}
       ${w ? `<div class="wd-day">
         <span class="wd-day-k">${esc(d.length ? t('② ', '② ') : '')}${esc(t(`오늘의 낱말 · 세션 ${n + 1}`, `Today’s words · session ${n + 1}`))} · ${esc(lvTag(w)[0] || '')}</span>
         <button type="button" class="wd-day-w" data-word="${esc(w.h)}"><b>${esc(w.h)}</b><span>${esc(roman(w.h))}</span></button>
-        <p class="wd-day-m">${esc(mean(w))}</p>
+        <p class="wd-day-m">${esc(mean(w))}</p>${w.x?.[0] ? `<p class="wd-day-x">${esc(w.x[0][0])} <small>${esc(w.x[0][1] || '')}</small></p>` : ''}
         <div class="wd-day-btns">
           <button type="button" class="dict-say wd-day-say" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}<span>${esc(t('듣기', 'Listen'))}</span></button>
           <button type="button" class="wd-day-go" data-act="session" data-topic="${esc(path.topic)}" data-n="${n}">${esc(caps().add && newToday() >= caps().add ? t(`오늘 새 낱말 ${newToday()}개 완료 — 더 해도 돼요`, `${newToday()} new words done today — keep going if you like`) : got ? t(`이어서 · ${ws.length - got}개 남음`, `Continue · ${ws.length - got} left`) : t(`오늘 ${ws.length}개 시작`, `Start today’s ${ws.length}`))}${ico('arrow')}</button>
         </div>
         <div class="wd-day-rest">${ws.map((x) => `<button type="button" class="${learned(idOf(x)) ? 'ok' : x === w ? 'on' : ''}" data-word="${esc(x.h)}">${esc(x.h)}</button>`).join('')}</div>
       </div>` : `<div class="wd-day"><span class="wd-day-k">${esc(pathName)}</span><b class="wd-choose-t">${esc(t('이 길의 낱말을 다 봤어요!', 'You have seen every word on this path!'))}</b></div>`}
-      ${potHero()}
-      <div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('둘러보기 — 주제', 'Explore — topics'))}</h3><button type="button" class="wd-more" data-tab="learn">${esc(t('모두 보기', 'See all'))}${ico('chev')}</button></div>
-      <div class="wd-themes">${tops.map(([tp, l]) => {
-        const g = l.filter((x) => learned(idOf(x))).length, [ic, h] = look(tp.id);
-        return `<button type="button" class="wd-theme" style="--h:${h}" data-act="topic" data-topic="${esc(tp.id)}">
-          <span class="wd-topic-ico" aria-hidden="true">${ic}</span><b>${esc(t(tp.ko, tp.en))}</b>
+      <div class="wd-two"><section>
+      <div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('주제', 'Topics'))}</h3><button type="button" class="wd-more" data-tab="learn">${esc(t('모두 보기', 'See all'))}${ico('chev')}</button></div>
+      <div class="wd-themes">${tops.map(([tp, l], i) => {
+        const g = l.filter((x) => learned(idOf(x))).length;
+        return `<button type="button" class="wd-theme" data-act="topic" data-topic="${esc(tp.id)}"><span class="wd-n">${i + 1}</span><b>${esc(t(tp.ko, tp.en))}</b>
           <span class="wd-meta">${esc(t(`${l.length}개 · ${Math.round((g / l.length) * 100)}%`, `${l.length} words · ${Math.round((g / l.length) * 100)}%`))}</span></button>`;
-      }).join('')}</div>
-      ${homeGames()}
-      ${D.bookBox ? D.bookBox(['topik1-vocab', 'topik2-vocab-1000'], 'words', t('낱말을 종이로도 공부하고 싶다면', 'Want the words on paper too?')) : ''}
-    </div>`;
+      }).join('')}</div></section>
+      <section>${homeGames()}</section></div>
+    </div><aside class="wd-aside">
+      <div class="wd-hello wd-box">
+        <p class="wd-hello-k">${esc(hello)}</p>
+        <p class="wd-hello-p">${esc(t('내 길', 'My path'))} <b>${esc(pathName)}</b><small> · ${doneAll.toLocaleString()} / ${list.length.toLocaleString()} ${esc(t('낱말', 'words'))}</small>
+          <button type="button" class="wd-more wd-path-x" data-act="pathchange">${esc(t('레벨테스트로 바꾸기', 'Change via level test'))}</button></p>
+        ${bar(doneAll, list.length)}
+      </div>
+      ${D.bookBox ? D.bookBox(['topik1-vocab', 'topik2-vocab-1000'], 'words', t('책으로 이어서', 'Workbooks')) : ''}
+    </aside></div>`;
   }
   /* 게임으로 공부(운영자 2026-10-07 「밑에 게임 학습도 — 학습하고 있는 단어로 바로」): 오늘 외우는 세션 낱말로 바로 판을 연다.
      블록 쌓기 · 스피드 퀴즈는 제 화면(레벨 낱말 · 내 단어장)으로 간다. */
@@ -576,7 +578,7 @@ export function wordsInit(D) {
     const SRC = [['now', t('지금 외우는 낱말', 'My current words')], ['lv', t('내 레벨 랜덤', 'Random · my level')], ['any', t('아무 레벨 랜덤', 'Random · any level')]];
     return `<div class="wd-sec-hd"><h3 class="wd-h3">${esc(t('게임으로 공부', 'Learn with games'))}</h3></div>
       <div class="wd-group wd-gsrc" role="radiogroup">${SRC.map(([k, l]) => `<button type="button" role="radio" aria-checked="${k === src}" class="wd-chip${k === src ? ' on' : ''}" data-act="gsrc" data-k="${k}">${esc(l)}</button>`).join('')}</div>
-      <div class="wd-hgames">${G.map(([k, ic, n, d]) => `<button type="button" class="wd-hgame" data-act="hgame" data-k="${k}"><span class="wd-hgame-ic" aria-hidden="true">${ico(ic)}</span><b>${esc(n)}</b><span>${esc(d)}</span></button>`).join('')}</div>`;
+      <div class="wd-hgames">${G.map(([k, ic, n, d], i) => `<button type="button" class="wd-hgame" data-act="hgame" data-k="${k}"><span class="wd-n">${i + 1}</span><span class="wd-hgame-ic" aria-hidden="true">${ico(ic)}</span><b>${esc(n)}</b><span>${esc(d)}</span><em>${esc(t('하기', 'Play'))}</em></button>`).join('')}</div>`;
   }
 
   /* 외우기 탭의 보기 — 주제별(기본) · 목적별. 이 브라우저에만 기억한다. */
@@ -975,7 +977,16 @@ export function wordsInit(D) {
         `<p class="wd-note">${esc(t('한국어 도우미와 같은 AI예요(하루 한도 같이 씀).', 'Same AI as the Korean helper (shares the daily limit).'))}</p></div>`;
     }
     const nextH = TRACKS[trackOf(w)][pos + 1]?.h;
-    return `<div class="wd-word wd-word2" style="--h:${hue}">
+    /* 낱말 한 장(운영자 2026-11-22 시안 D): 왼쪽 본문(낱말 · 탭 · 단추 한 줄), 오른쪽 곁칸(관련 말 · 주제 · 책) */
+    const relList = w.r ? Object.entries(w.r).flatMap(([k, v]) => v.map((x) => [k, x])) : [];
+    const RK = { syn: t('비슷한 말', 'Similar'), ant: t('반대말', 'Opposite'), hon: t('높임말', 'Honorific') };
+    const side = '<aside class="wd-aside">' +
+      (relList.length ? `<section class="wd-box"><h3>${esc(t('관련 말', 'Related words'))}</h3><ul class="wd-go">${relList.slice(0, 6).map(([k, x]) =>
+        `<li><button type="button" data-word="${esc(x)}">${esc(x)} <small>${esc(RK[k] || '')}</small><span>→</span></button></li>`).join('')}</ul></section>` : '') +
+      (w.t.length ? `<section class="wd-box"><h3>${esc(t('같은 주제', 'Same topic'))}</h3><ul class="wd-go">${w.t.slice(0, 3).map((x) => { const [a, b] = x.split('/'); const tp = topicOf(a); const sb = tp?.subs.find((y) => y.id === b);
+        return tp ? `<li><button type="button" data-act="topic" data-topic="${esc(sb ? x : a)}">${esc(t(tp.ko, tp.en))}${sb ? ' · ' + esc(t(sb.ko, sb.en)) : ''}<span>→</span></button></li>` : ''; }).join('')}</ul></section>` : '') +
+      (D.bookBox ? D.bookBox([trackOf(w) === 'topik2' ? 'topik2-vocab-1000' : 'topik1-vocab'], 'word', t('책으로 이어서', 'Workbook')) : '') + '</aside>';
+    return `<div class="wd-lay wd-lay-w"><div class="wd-word wd-word2" style="--h:${hue}">
       <div class="wd-word-top">
         <div class="wd-w2-head"><div><b class="wd-w2-h">${esc(w.h)}</b><span class="wd-rom">[${esc(roman(w.h))}]</span></div>
           <div class="wd-w2-ic"><button type="button" class="dict-say wd-say-big" data-say="${esc(w.h)}" aria-label="${esc(t('발음 듣기', 'Play'))}">${icon}</button>
@@ -992,7 +1003,7 @@ export function wordsInit(D) {
         <button type="button" class="wd-w2-pron" data-act="pron" data-h="${esc(w.h)}">${esc(t('발음 연습', 'Pronounce'))}</button>
         ${nextH ? `<button type="button" class="wd-w2-next" data-word="${esc(nextH)}">${esc(t('다음 낱말', 'Next word'))} →</button>` : ''}
       </div>
-    </div>`;
+    </div>${side}</div>`;
   }
   /* 여러 뜻 — 국어사전 뜻풀이(glossary-senses). 한 번 받으면 기억 */
   const sensesCache = new Map(), aiCache = new Map(), refsCache = new Map();
