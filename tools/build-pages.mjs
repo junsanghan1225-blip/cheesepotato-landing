@@ -2233,7 +2233,8 @@ const BLOG_CSS = `
 .rb-banner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px 18px;margin:0 0 16px}
 .rb-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--brand);
-  display:grid;place-items:center;font-size:26px;line-height:1}
+  display:grid;place-items:center;font-size:26px;line-height:1;overflow:hidden}
+.rb-avatar img,.rb-avatar-sm img{width:100%;height:100%;display:block}
 .rb-id{flex:1 1 220px;min-width:0}
 .rb-id h1{font-size:22px;margin:0;letter-spacing:-.02em;line-height:1.25}
 .rb-id p{margin:3px 0 0;font-size:13px;color:var(--dim);line-height:1.5}
@@ -2847,7 +2848,7 @@ const flair = (tags) => (tags && tags.length)
 /* 글 머리에 서는 한 줄. 목록과 본문 쪽이 같은 줄을 써야 목록에서 본 것과
    눌러 들어간 쪽이 어긋나지 않는다. */
 function postMeta(post) {
-  return '<div class="rb-meta"><span class="rb-who">🧀 치즈감자</span>' +
+  return '<div class="rb-meta"><span class="rb-who">치즈감자</span>' +
     ` <span class="dot">·</span> ${timeTag(post.date)}` +
     (post.updated && post.updated !== post.date
       ? ` <span class="dot">·</span> 고침 ${timeTag(post.updated)}` : '') +
@@ -2886,7 +2887,7 @@ function relatedPosts(post, all, skip, n = 3) {
 function postByline(post) {
   const en = post.lang === 'en';
   return '<div class="rb-byline">' +
-    '<span class="rb-avatar-sm" aria-hidden="true">🧀</span>' +
+    '<span class="rb-avatar-sm" aria-hidden="true"><img src="/logo-256.png" alt="" width="44" height="44"></span>' +
     '<div class="rb-byline-info">' +
       `<div class="rb-byline-name">${en ? 'CheesePotato' : '치즈감자'}</div>` +
       `<div class="rb-byline-role">${en ? 'We teach Korean' : '한국어를 가르치는 사람'}` +
@@ -2936,38 +2937,133 @@ function altOf(post) {
   return hit;
 }
 
-function blogPage(post, prev, next, related) {
+/* ── 블로그 틀 — 네이버 블로그 짜임(운영자 2026-11-22 「네이버 블로그 참고」 → 시안 E) ──
+   왼쪽: 프로필 · 카테고리(전체 · 넷 · 묻고 답하기) · 말(한국어 · English). 가운데: 「글 제목 · 작성일」 표 + 쪽 번호.
+   글 쪽: 위 「목록 열기」(같은 카테고리 글) → 카테고리 · 제목 · 쓴이 줄 → 글 → 태그 → 「읽었으면, 이제 해 보기」 → 「카테고리의 다른 글」 표.
+   전에는 84편이 큰 카드로 다 펼쳐져 첫 쪽이 PC 14,000px · 폰 20,000px 가까이 됐고, 한국어 · 영어 글이 섞여 고르기 어려웠다.
+   카테고리는 글의 태그로 정한다 — 앞에서부터 처음 맞는 칸 하나(글마다 한 칸). 태그를 바꾸면 칸도 따라간다. */
+const BLOG_CATS = [
+  { slug: 'topik', ko: 'TOPIK 준비', en: 'TOPIK prep', tags: ['TOPIK'],
+    go: [['TOPIK 연습 문항 · 읽기 · 듣기 · 쓰기', '/#learn/topik'], ['3분 레벨 테스트', '/?lt=1&utm_source=blog']] },
+  { slug: 'grammar', ko: '문법', en: 'Grammar', tags: ['문법', 'Grammar'],
+    go: [['문법 표현 · 뜻 · 예문 · 대화', '/sentence/'], ['헷갈리는 표현 견주기', '/compare/']] },
+  { slug: 'life', ko: '한국 생활 · 진짜 한국어', en: 'Life & real Korean', tags: ['Real Korean', 'Life in Korea', '여행', 'Travel', '회화'],
+    go: [['낱말 · 표현 공부', '/#words'], ['회화 연습', '/#learn/convo']] },
+  { slug: 'study', ko: '공부법', en: 'How to study', tags: ['Roadmap', '준비', '한글'],
+    go: [['3분 레벨 테스트 · 내 길 찾기', '/?lt=1&utm_source=blog'], ['코스 전체 보기', '/course/']] },
+];
+const catOfPost = (p) => BLOG_CATS.find((c) => (p.tags || []).some((t) => c.tags.includes(t))) || BLOG_CATS[BLOG_CATS.length - 1];
+const BLOG_PER = 10;   // 첫 쪽 표 한 쪽에 10줄(네이버 「전체글」 표와 같이)
+const ymd = (iso) => esc(String(iso || '').replace(/-/g, '.'));
+const nbRows = (list, cur = '') => '<table class="nb-t">' + list.map((p) =>
+  `<tr${p.id === cur ? ' class="on"' : ''}><td><a href="/blog/${esc(p.id)}.html"${p.id === cur ? ' aria-current="page"' : ''}>${esc(p.title)}</a></td><td>${ymd(p.date)}</td></tr>`).join('') + '</table>';
+const nbBar = (title, n) => `<div class="nb-bar"><b>${title}${n != null ? `<small>${n}개</small>` : ''}</b><span>글 제목 · 작성일</span></div>`;
+const nbPager = (cur, pages) => (pages < 2 ? '' : '<nav class="nb-pg" aria-label="쪽 · Pages">' +
+  Array.from({ length: pages }, (_, i) => i + 1).map((k) => `<a href="${k === 1 ? '/blog/' : `/blog/page/${k}.html`}"${k === cur ? ' class="on" aria-current="page"' : ''}>${k}</a>`).join('') +
+  (cur < pages ? `<a href="/blog/page/${cur + 1}.html">다음 →</a>` : '') + '</nav>');
+/* 같은 카테고리에서 지금 글 둘레 n편(앞뒤가 고루 보이게) */
+const nbAround = (list, id, n) => { const i = Math.max(0, list.findIndex((p) => p.id === id)); const s = Math.max(0, Math.min(i - Math.floor(n / 2), list.length - n)); return list.slice(s, s + n); };
+function nbSide(all, on = '') {
+  const cnt = (c) => all.filter((p) => catOfPost(p) === c).length;
+  const li = (key, href, name, n, sub = false, extra = '') => `<li class="${sub ? 'sub' : ''}${key === on ? ' on' : ''}"><a href="${href}"${extra}>${name}${n != null ? ` <small>${n}</small>` : ''}</a></li>`;
+  return '<aside class="nb-side">' +
+    '<div class="nb-pf"><img src="/logo-256.png" alt="" width="64" height="64"><div><b>치즈감자</b>' +
+      '<span>한국어 선생님이 문법 · TOPIK · 한국 생활을 씁니다. 광고 없음, 연습 문항은 모두 창작(기출 아님).</span>' +
+      '<a class="nb-rss" href="/blog/rss.xml">새 글 받기 · RSS</a></div></div>' +
+    '<nav class="nb-cat" aria-label="카테고리 · Categories"><h3>카테고리</h3><ul>' +
+      li('all', '/blog/', '전체 보기', all.length) +
+      BLOG_CATS.map((c) => li(c.slug, `/blog/cat/${c.slug}.html`, esc(c.ko), cnt(c), true)).join('') +
+      li('qna', '/blog/#qna', '묻고 답하기', null, true, ' data-rb-tab="qna"') + '</ul>' +
+      '<h3>말 · Language</h3><ul>' +
+      li('ko', '/blog/cat/ko.html', '한국어 글', all.filter((p) => p.lang !== 'en').length) +
+      li('en', '/blog/tag/english.html', 'English', all.filter((p) => p.lang === 'en').length) + '</ul></nav></aside>';
+}
+const nbHead = (h1, sub) => `<header class="nb-hd"><h1>${h1}</h1><p>${sub}</p></header>`;
+const nbCard = (p) => { const c = catOfPost(p);
+  return `<div class="nb-post"><a class="c" href="/blog/cat/${c.slug}.html">${esc(c.ko)}</a><a class="t" href="/blog/${esc(p.id)}.html">${esc(p.title)}</a>` +
+    `<p>${esc(p.excerpt || '')}</p><small>${ymd(p.date)} · ${readMins(postHtml(p))}분</small></div>`; };
+const NB_CSS = [
+  '@media(min-width:601px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}',
+  '.nb-hd{padding:10px 0 20px;border-bottom:2px solid var(--ink);margin-bottom:28px}.nb-hd h1{margin:0;font-size:30px;letter-spacing:-.02em}.nb-hd p{margin:6px 0 0;color:var(--dim);font-size:14.5px}',
+  '.nb-lay{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;align-items:start}.nb-main{min-width:0}',
+  '.nb-side{font-size:14px;position:sticky;top:90px}',
+  '.nb-pf{padding:0 0 18px;border-bottom:1px solid var(--line)}.nb-pf img{width:64px;height:64px;border-radius:10px;border:1px solid var(--line);display:block}',
+  '.nb-pf b{display:block;margin:10px 0 2px;font-size:15.5px}.nb-pf span{display:block;color:var(--dim);font-size:13px;line-height:1.5}',
+  '.nb-rss{display:inline-block;margin-top:10px;padding:7px 12px;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-weight:700;font-size:13px}',
+  '.nb-cat{padding:14px 0 0}.nb-cat h3{margin:0 0 6px;font-size:12.5px;color:var(--dim);font-weight:700}.nb-cat ul+h3{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}',
+  '.nb-cat ul{list-style:none;margin:0;padding:0}.nb-cat li{margin:0;padding:0}.nb-cat li a{display:flex;justify-content:space-between;gap:8px;padding:5px 0;color:var(--ink);text-decoration:none}.nb-cat li a:hover{text-decoration:underline}',
+  '.nb-cat li a small{color:var(--dim)}.nb-cat li.sub a{padding-left:12px;margin-left:4px;border-left:1px solid var(--line)}.nb-cat li.on>a{font-weight:800}.nb-cat li.sub.on>a{border-left-color:var(--ink)}',
+  '.nb-box{border-top:2px solid var(--ink)}',
+  '.nb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--ink);font-size:14.5px}.nb-bar b small{font-weight:500;color:var(--dim);margin-left:6px}.nb-bar>span{flex:none;font-size:13px;color:var(--dim)}',
+  '.nb-t{width:100%;border-collapse:collapse;font-size:15px}.nb-t td{padding:11px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}',
+  '.nb-t td:first-child a{color:var(--ink);text-decoration:none}.nb-t td:first-child a:hover{text-decoration:underline}',
+  '.nb-t td:last-child{width:96px;text-align:right;color:var(--dim);font-size:13px;padding-top:13px}.nb-t tr.on a{font-weight:800}',
+  '.nb-pg{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;padding:14px 0;font-size:14px}.nb-pg a{color:var(--dim);text-decoration:none}.nb-pg a.on{color:var(--ink);font-weight:800;text-decoration:underline;text-underline-offset:4px}',
+  '.nb-all{display:block;padding:12px 0;font-size:13.5px;color:var(--dim);text-decoration:none}.nb-all:hover{color:var(--ink)}',
+  '.nb-latest{margin-top:36px}.nb-latest>h2{font-size:13px;color:var(--dim);margin:0 0 4px}',
+  '.nb-post{padding:22px 0;border-bottom:1px solid var(--line)}.nb-post .c{font-size:13px;color:var(--orange-deep,#AE4710);font-weight:700;text-decoration:none}',
+  '.nb-post .t{display:block;margin:4px 0 6px;font-size:21px;font-weight:800;color:var(--ink);text-decoration:none;line-height:1.35}.nb-post .t:hover{text-decoration:underline}',
+  '.nb-post p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.6}.nb-post small{display:block;margin-top:8px;color:var(--dim);font-size:12.5px}',
+  /* 글 쪽 */
+  '.nb-open{margin:0 0 30px}.nb-open summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);font-size:14.5px;font-weight:700}',
+  '.nb-open summary::-webkit-details-marker{display:none}.nb-open summary span{flex:none;font-weight:500;color:var(--dim);font-size:13px}.nb-open[open] summary span{color:var(--ink)}',
+  '.nb-ph .c{font-size:13.5px;color:var(--orange-deep,#AE4710);font-weight:700;text-decoration:none}.nb-ph h1{font-size:34px;margin:6px 0 14px;line-height:1.3;letter-spacing:-.02em}',
+  '.nb-by{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--dim)}',
+  '.nb-by img{width:30px;height:30px;border-radius:7px}.nb-by b{color:var(--ink)}.nb-by a{color:var(--ink);font-weight:700}',
+  '.nb-art .blog-article{max-width:720px;margin-top:18px}',
+  '.nb-tags{margin:30px 0 0;font-size:14px}.nb-tags a{margin-right:12px;color:var(--dim);text-decoration:none}.nb-tags a:hover{color:var(--ink)}',
+  '.nb-do{margin:28px 0 0;padding:16px 18px;border:1px solid var(--ink);border-radius:8px}.nb-do b{display:block;font-size:14px;margin-bottom:6px}',
+  '.nb-do a{display:block;padding:6px 0;color:var(--ink);text-decoration:none;font-weight:600}.nb-do a:hover{text-decoration:underline}.nb-do a i{font-style:normal;color:var(--orange-deep,#AE4710);margin-right:6px}',
+  '.nb-near{display:flex;justify-content:space-between;gap:16px;margin:26px 0 0;font-size:15px}.nb-near a{color:var(--ink);text-decoration:none;min-width:0}.nb-near a+a,.nb-near span+a{text-align:right}.nb-near b{display:block;font-size:12.5px;color:var(--dim);font-weight:600}',
+  '.nb-more{margin-top:34px}',
+  '@media(max-width:900px){.nb-lay{grid-template-columns:minmax(0,1fr);gap:0}.nb-side{position:static;margin:0 0 20px;padding:0 0 14px;border-bottom:1px solid var(--line)}',
+  '.nb-pf{display:flex;gap:12px;align-items:center;border:0;padding:0 0 10px}.nb-pf img{width:44px;height:44px}.nb-pf b{margin:0}.nb-pf span{display:none}.nb-rss{display:none}',
+  '.nb-cat{padding:0}.nb-cat h3{display:none}.nb-cat ul{display:flex;flex-wrap:wrap;gap:2px 14px}.nb-cat ul+h3+ul{margin-top:4px}.nb-cat li.sub a{padding-left:0;margin:0;border:0}.nb-cat li a{padding:4px 0}}',
+  '@media(max-width:600px){.nb-hd h1{font-size:26px}.nb-ph h1{font-size:27px}.nb-t td:last-child{width:78px}.nb-post .t{font-size:18.5px}}',
+].join('');
+/* 「읽었으면, 이제 해 보기」의 책 한 권 — 글 주소 · 제목 · 카테고리로 고른다(가장 가까운 책). 이름 · 가격은 shop.json */
+function nbBook(p) {
+  const k = `${p.id} ${p.title}`.toLowerCase(); const c = catOfPost(p);
+  const id = /51|52/.test(k) && /writing|쓰기/.test(k) ? 'topik2-writing-51-52' : /writing|쓰기/.test(k) ? 'topik2-writing-53-54'
+    : /reading|읽기/.test(k) ? 'topik1-reading-mock' : /vocab|단어|낱말/.test(k) ? (/ii|2|중급/.test(k) ? 'topik2-vocab-1000' : 'topik1-vocab')
+    : c.slug === 'grammar' ? 'particles-workbook' : c.slug === 'topik' ? 'topik1-vocab' : 'first-steps-workbook';
+  const b = SHOPJ.books.find((x) => x.id === id); if (!b) throw new Error('shop.json 에 없는 책: ' + id);
+  return `<a href="/shop/${id}/?utm_source=blog&amp;utm_medium=post&amp;utm_content=${esc(p.id)}"><i>책</i>${esc(b.title.ko)} · PDF $${esc(b.price)}${b.sample ? ' · 무료 샘플' : ''} →</a>`;
+}
+
+function blogPage(post, prev, next) {
   const lang = post.lang === 'en' ? 'en' : 'ko';
+  const en = lang === 'en';
   const t = BLOG_UI[lang];
   const alt = altOf(post);
   const title = `${post.title} | ${t.suffix}`;
   const desc = clip(post.excerpt);
-  const body = [
-    `<a class="blog-back" href="${t.hub}">${t.back}</a>`,
-    `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="${t.hub}">${esc(t.blog)}</a></nav>`,
-    `<article class="rb-card">`,
-      postByline(post),
-      `<h1>${esc(post.title)}</h1>`,
-      alt ? `<a class="blog-alt" href="/blog/${esc(alt.id)}.html" hreflang="${alt.lang === 'en' ? 'en' : 'ko'}">${esc(t.alt)}</a>` : '',
-      flair(post.tags),
+  const c = catOfPost(post);
+  const same = BLOG_POSTS.filter((p) => catOfPost(p) === c);
+  const cName = en ? c.en : c.ko;
+  const main = [
+    `<details class="nb-open"><summary>${en ? `${esc(cName)} · ${same.length} posts` : `'${esc(c.ko)}' 카테고리 글 ${same.length}개`}<span>${en ? 'Open list' : '목록 열기'}</span></summary>` +
+      nbRows(nbAround(same, post.id, 5), post.id) + `<a class="nb-all" href="/blog/cat/${c.slug}.html">${en ? 'All posts in this category →' : '이 카테고리 글 모두 보기 →'}</a></details>`,
+    '<article class="nb-art">',
+      `<header class="nb-ph"><a class="c" href="/blog/cat/${c.slug}.html">${esc(cName)}</a><h1>${esc(post.title)}</h1>` +
+        `<div class="nb-by"><img src="/logo-256.png" alt="" width="30" height="30"><b>${en ? 'CheesePotato' : '치즈감자'}</b> · ${en ? 'Korean teacher' : '한국어 선생님'} · ${timeTag(post.date)}` +
+        (post.updated && post.updated !== post.date ? ` · ${en ? 'updated' : '고침'} ${timeTag(post.updated)}` : '') +
+        ` · ${readMins(postHtml(post))}${en ? ' min' : '분'}` +
+        (alt ? ` · <a href="/blog/${esc(alt.id)}.html" hreflang="${alt.lang === 'en' ? 'en' : 'ko'}">${esc(t.alt)}</a>` : '') + '</div></header>',
       shareRow(),
       `<div class="blog-article">${postHtml(post)}</div>`,
-    `</article>`,
-    `<a class="cta" href="/#learn">${esc(t.cta[0])}<span>${esc(t.cta[1])}</span></a>`,
-    /* 앞뒤 글. 배열은 최신이 앞이므로 「이전 글」은 한 칸 뒤(더 오래된 것),
-       「다음 글」은 한 칸 앞(더 새것)이다. 표현·레슨 쪽과 같은 .near 를 쓴다. */
-    (prev || next) ? '<div class="near">' +
-      (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>${esc(t.prev)}</b>${esc(prev.title)}</a>` : '') +
-      (next ? `<a href="/blog/${esc(next.id)}.html"><b>${esc(t.next)}</b>${esc(next.title)}</a>` : '') +
-      '</div>' : '',
-    related.length
-      ? `<h2 class="rb-next">${esc(t.more)}</h2>` +
-        '<ul class="rb-feed">' + related.map(postRow).join('') + '</ul>'
-      : '',
+      (post.tags || []).length ? '<p class="nb-tags">' + post.tags.map((x) => `<a href="/blog/tag/${tagSlug(x)}.html">#${esc(x)}</a>`).join('') + '</p>' : '',
+    '</article>',
+    `<div class="nb-do"><b>${en ? 'Read it? Now try it' : '읽었으면, 이제 해 보기'}</b>` + c.go.map(([n, h]) => `<a href="${h}">${esc(n)} →</a>`).join('') + nbBook(post) + '</div>',
+    (prev || next) ? '<nav class="nb-near">' + (prev ? `<a href="/blog/${esc(prev.id)}.html"><b>${esc(t.prev)}</b>${esc(prev.title)}</a>` : '<span></span>') +
+      (next ? `<a href="/blog/${esc(next.id)}.html"><b>${esc(t.next)}</b>${esc(next.title)}</a>` : '') + '</nav>' : '',
+    `<section class="nb-box nb-more">${nbBar(en ? `More in ${esc(cName)}` : `'${esc(c.ko)}' 카테고리의 다른 글`)}${nbRows(nbAround(same, post.id, 7), post.id)}` +
+      `<a class="nb-all" href="/blog/cat/${c.slug}.html">${en ? `All ${same.length} posts →` : `'${esc(c.ko)}' 글 ${same.length}개 모두 보기 →`}</a></section>`,
     giscus(lang),
-    AGO_JS,
     SHARE_JS,
   ].filter(Boolean).join('\n');
+  const body = `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="${t.hub}">${esc(t.blog)}</a> › <a href="/blog/cat/${c.slug}.html">${esc(cName)}</a></nav>` +
+    `<div class="nb-lay">${nbSide(BLOG_POSTS, c.slug)}<div class="nb-main">${main}</div></div>`;
 
   const jsonld = [
     {
@@ -3003,97 +3099,40 @@ function blogPage(post, prev, next, related) {
       `\n<link rel="alternate" hreflang="x-default" href="${SITE}/blog/${esc(lang === 'en' ? post.id : alt.id)}.html">`,
     ].join('') : '');
 
-  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS, extraHead, lang });
+  return page({ url: `/blog/${post.id}.html`, title, desc, body, jsonld, extraCss: BLOG_CSS + NB_CSS, extraHead, lang });
 }
 
-/* 오른쪽 기둥에 세우는 것. 레딧으로 치면 소개·규칙 상자 자리다.
-   **셀 수 있는 것만 센다** — 방문자 수처럼 우리가 모르는 숫자는 안 적는다. */
-function blogSide(posts, activeTag) {
-  const tags = new Map();
-  for (const p of posts) for (const t of (p.tags || [])) tags.set(t, (tags.get(t) || 0) + 1);
-  const oldest = posts[posts.length - 1];
-
-  /* 규칙 상자. 레딧의 「규칙」 자리인데, 남에게 거는 규칙이 아니라
-     이 블로그가 스스로 지키는 것을 적는다. 실제로 글을 쓸 때 지킨 것만
-     적는다 — 안 지킬 것을 걸어 두면 그게 제일 나쁘다. */
-  const rules = [
-    '광고를 쓰지 않는다. 사이트에 실제로 있는 것만 적는다.',
-    '연습 문항은 기출이 아니라 창작이라는 것을 그때마다 밝힌다.',
-    '자주 바뀌는 제도(접수·비자 기준)는 숫자를 옮겨 적지 않고 공식 안내로 보낸다.',
-    '없는 쪽은 걸지 않는다. 글 안의 링크는 전부 실재하는 주소다.',
-  ];
-
-  return [
-    '<aside class="rb-side">',
-    '<section class="rb-box">',
-      '<h2>블로그 정보</h2>',
-      `<div class="rb-stats">` +
-        `<div><b>${posts.length}</b><span>올린 글</span></div>` +
-        `<div><b>${tags.size}</b><span>갈래</span></div>` +
-        (oldest ? `<div><b>${esc(oldest.date.slice(0, 4))}.${esc(String(+oldest.date.slice(5, 7)))}</b><span>시작</span></div>` : '') +
-      `</div>`,
-      '<div class="in"><p>한국어를 배우다 막히는 자리에 대해 씁니다. 문법 하나를 ' +
-        '가려 쓰는 법, TOPIK 을 어디까지 준비할지 같은 것들입니다.</p></div>',
-    '</section>',
-    tags.size ? '<section class="rb-box"><h2>갈래</h2><div class="in">' +
-      '<ul class="rb-flair">' + [...tags.entries()]
-        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'))
-        .map(([t, n]) => `<li${t === activeTag ? ' class="on"' : ''}>` +
-          `<a href="/blog/tag/${tagSlug(t)}.html">${esc(t)} ${n}</a></li>`).join('') +
-      '</ul></div></section>' : '',
-    '<section class="rb-box"><h2>이 블로그가 지키는 것</h2><ol class="rb-rules">' +
-      rules.map((r) => `<li>${esc(r)}</li>`).join('') + '</ol></section>',
-    '<section class="rb-box"><h2>둘러보기</h2><ul class="rb-links">' +
-      '<li><a href="/course/">코스 21개 · 레슨 82개</a></li>' +
-      '<li><a href="/sentence/">문법 표현 290개</a></li>' +
-      '<li><a href="/compare/">헷갈리는 표현 견주기 73갈래</a></li>' +
-      '<li><a href="/topik-reading/">TOPIK 읽기 연습</a></li>' +
-      (posts.length ? '<li><a href="/blog/rss.xml">RSS 로 새 글 받기</a></li>' : '') +
-      '</ul></section>',
-    '</aside>',
-  ].filter(Boolean).join('\n');
-}
-
-function blogHub(posts) {
-  const feed = posts.length
-    ? '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>'
-    : '<div class="rb-empty"><span class="emoji">🧀</span>아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요.<br>No posts yet — the first one is coming soon.</div>';
-
-  const body = [
-    '<nav class="crumb"><a href="/">치즈감자</a> › 블로그</nav>',
-    '<header class="rb-banner">',
-      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
-      '<div class="rb-id"><h1>치즈감자 블로그</h1>' +
-        '<p>한국어 공부, 문법, TOPIK 준비에 관한 글 · Notes on learning Korean, grammar, and TOPIK prep</p></div>',
-      '<a class="rb-join" href="/#learn">한국어 배우러 가기</a>',
-    '</header>',
-    /* 글 | 묻고 답하기 — Q&A 는 블로그 안에(운영자 결정 2026-10-02). 질문 · 답은 blog-qna.js 가 표에서 읽어 온다 */
-    '<div class="rb-tabs" role="tablist">' +
-      `<button type="button" role="tab" data-rb-tab="posts" class="on" aria-selected="true">✍️ 글 <small>${posts.length}</small></button>` +
-      '<button type="button" role="tab" data-rb-tab="qna" aria-selected="false">🙋 묻고 답하기 <small>Q&amp;A</small></button>' +
+/* 블로그 첫 쪽(1쪽은 /blog/, 2쪽부터 /blog/page/N.html) — 「전체 글」 표 10줄 + 쪽 번호. 1쪽에는 최근 글 셋과 묻고 답하기 칸 */
+function blogHub(posts, k = 1) {
+  const pages = Math.max(1, Math.ceil(posts.length / BLOG_PER));
+  const list = posts.slice((k - 1) * BLOG_PER, k * BLOG_PER);
+  const url = k === 1 ? '/blog/' : `/blog/page/${k}.html`;
+  const main = [
+    '<div id="rbPosts">',
+      `<section class="nb-box">${nbBar('전체 글', posts.length)}${nbRows(list)}${nbPager(k, pages)}</section>`,
+      k === 1 && posts.length ? '<section class="nb-latest"><h2>최근 글</h2>' + posts.slice(0, 3).map(nbCard).join('') + '</section>' : '',
+      posts.length ? '' : '<p class="nb-all">아직 올린 글이 없습니다 — 곧 첫 글을 올릴게요. · No posts yet.</p>',
     '</div>',
-    '<div class="rb-cols" id="rbPosts">',
-      `<main>${feed}</main>`,
-      blogSide(posts),
-    '</div>',
-    '<section class="rb-qna" id="rbQna" hidden>',
+    k === 1 ? '<section class="rb-qna" id="rbQna" hidden>' +
       '<div class="rb-qna-hd"><div><h2>묻고 답하기</h2><p>궁금한 한국어를 물어보면 치즈감자가 답해요 · Ask anything about Korean — we answer.</p></div>' +
-        '<a class="rb-join" href="/#learn/qna">질문하기 · Ask</a></div>',
-      '<div class="rb-qna-chips" id="rbQnaChips"></div>',
-      '<div id="rbQnaList"></div>',
-    '</section>',
-    AGO_JS,
+        '<a class="rb-join" href="/#learn/qna">질문하기 · Ask</a></div>' +
+      '<div class="rb-qna-chips" id="rbQnaChips"></div><div id="rbQnaList"></div></section>' : '',
+  ].filter(Boolean).join('\n');
+  const body = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › ${k === 1 ? '블로그' : `<a href="/blog/">블로그</a> › ${k}쪽`}</nav>`,
+    nbHead('치즈감자 블로그', '한국어 선생님의 공부 노트 — 문법 · TOPIK · 한국 생활 · Notes on learning Korean'),
+    `<div class="nb-lay">${nbSide(posts, 'all')}<div class="nb-main">${main}</div></div>`,
     `<script src="${QNA_JS}" defer></script>`,
   ].join('\n');
 
   return page({
-    url: '/blog/', kind: 'website',
-    title: '블로그 | CheesePotato',
-    desc: clip('한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.'),
+    url, kind: 'website',
+    title: k === 1 ? '블로그 | CheesePotato' : `블로그 ${k}쪽 | CheesePotato`,
+    desc: clip(k === 1 ? '한국어 공부, 문법, TOPIK 준비에 관한 치즈감자 블로그입니다.' : `치즈감자 블로그 전체 글 ${k}쪽 — 한국어 공부, 문법, TOPIK 준비.`),
     body,
     jsonld: [
-      crumbLd([['치즈감자', '/'], ['블로그', '/blog/']]),
-      ...(posts.length ? [{
+      crumbLd(k === 1 ? [['치즈감자', '/'], ['블로그', '/blog/']] : [['치즈감자', '/'], ['블로그', '/blog/'], [`${k}쪽`, null]]),
+      ...(k === 1 && posts.length ? [{
         '@context': 'https://schema.org',
         '@type': 'Blog',
         '@id': `${SITE}/blog/`,
@@ -3110,42 +3149,33 @@ function blogHub(posts) {
         })),
       }] : []),
     ],
-    extraCss: BLOG_CSS + BLOG_HUB_CSS,
+    extraCss: BLOG_CSS + BLOG_HUB_CSS + NB_CSS,
     extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
   });
 }
 
-/* 갈래 쪽 — /blog/tag/<slug>.html. 목록(blogHub)과 같은 틀을 쓰되 본문
-   목록만 그 갈래로 좁힌다. 오른쪽 기둥은 블로그 전체 정보를 그대로
-   보여주고(blogSide 는 언제나 전체 글로 통계를 낸다), 지금 보는 갈래만
-   .on 으로 강조한다 — 다른 갈래로 바로 옮겨 갈 수 있어야 한다. */
+/* 목록 쪽 하나(카테고리 · 말 · 태그) — 첫 쪽과 같은 틀, 표에는 그 묶음의 글 전부(많아야 수십 편이라 쪽을 나누지 않는다) */
+function blogListPage({ url, on, name, sub, posts, all, lang = 'ko', crumbName }) {
+  const en = lang === 'en';
+  const t = BLOG_UI[lang];
+  const body = [
+    `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="/blog/">${esc(t.blog)}</a> › ${esc(crumbName || name)}</nav>`,
+    nbHead(esc(name), sub),
+    `<div class="nb-lay">${nbSide(all, on)}<div class="nb-main"><section class="nb-box">${nbBar(en ? 'Posts' : '글', posts.length)}${nbRows(posts)}</section></div></div>`,
+  ].join('\n');
+  return { url, lang, body, en, t };
+}
+
+/* 갈래(태그) 쪽 — /blog/tag/<slug>.html. 주소는 그대로 두고 첫 쪽과 같은 틀로.
+   그 갈래의 글이 전부 영어면 쪽도 영어로 낸다(영어 글에서 「Blog」를 눌러 온 사람이 한국어 쪽에 서지 않게). */
 function blogTagPage(tag, posts, allPosts) {
   const slug = tagSlug(tag);
-  const feed = '<ul class="rb-feed">' + posts.map(postRow).join('') + '</ul>';
-
-  /* 그 갈래의 글이 전부 영어면 쪽도 영어로 낸다. 영어 글만 걸리는 쪽에
-     한국어 머리글을 두면, 영어 글에서 「Blog」를 눌러 온 사람이 다시
-     한국어 쪽에 서게 된다 — 껍데기를 옮긴 뜻이 없어진다. */
   const lang = posts.length && posts.every((x) => x.lang === 'en') ? 'en' : 'ko';
-  const t = BLOG_UI[lang];
   const en = lang === 'en';
-
-  const body = [
-    `<nav class="crumb"><a href="/">${esc(t.site)}</a> › <a href="${t.hub}">${esc(t.blog)}</a> › ${esc(tag)}</nav>`,
-    '<header class="rb-banner">',
-      '<div class="rb-avatar" aria-hidden="true">🧀</div>',
-      `<div class="rb-id"><h1>${esc(en ? tag : `${tag} 글`)}</h1>` +
-        `<p>${en ? `${posts.length} post${posts.length === 1 ? '' : 's'} tagged 「${esc(tag)}」 on the CheesePotato blog.`
-                 : `치즈감자 블로그에서 「${esc(tag)}」로 묶은 글 ${posts.length}편입니다.`}</p></div>`,
-      `<a class="rb-join" href="/blog/">${en ? 'All posts (Korean)' : '전체 글 보기'}</a>`,
-    '</header>',
-    '<div class="rb-cols">',
-      `<main>${feed}</main>`,
-      blogSide(allPosts, tag),
-    '</div>',
-    AGO_JS,
-  ].join('\n');
-
+  const t = BLOG_UI[lang];
+  const { body } = blogListPage({ url: `/blog/tag/${slug}.html`, on: tag === 'English' ? 'en' : '', name: en ? (tag === 'English' ? 'Posts in English' : tag) : `#${tag}`,
+    sub: en ? `${posts.length} post${posts.length === 1 ? '' : 's'} tagged 「${esc(tag)}」 on the CheesePotato blog.` : `치즈감자 블로그에서 「${esc(tag)}」로 묶은 글 ${posts.length}편입니다.`,
+    posts, all: allPosts, lang, crumbName: tag });
   return page({
     url: `/blog/tag/${slug}.html`, kind: 'website', lang,
     title: en ? `${tag} | ${t.suffix}` : `${tag} 글 | 치즈감자 블로그`,
@@ -3171,10 +3201,29 @@ function blogTagPage(tag, posts, allPosts) {
         })),
       },
     ],
-    extraCss: BLOG_CSS + BLOG_HUB_CSS,
+    extraCss: BLOG_CSS + NB_CSS,
     extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
   });
 }
+
+/* 카테고리 쪽 — /blog/cat/<slug>.html(넷 + 한국어 글 ko) */
+function blogCatPage(key, all) {
+  const c = BLOG_CATS.find((x) => x.slug === key);
+  const posts = c ? all.filter((p) => catOfPost(p) === c) : all.filter((p) => p.lang !== 'en');
+  const name = c ? c.ko : '한국어 글';
+  const sub = c ? `${esc(c.ko)} 카테고리 글 ${posts.length}편 · ${esc(c.en)}` : `한국어로 쓴 글 ${posts.length}편 · Posts written in Korean`;
+  const { body } = blogListPage({ url: `/blog/cat/${key}.html`, on: key, name, sub, posts, all });
+  return page({
+    url: `/blog/cat/${key}.html`, kind: 'website',
+    title: `${name} 글 | 치즈감자 블로그`,
+    desc: clip(`치즈감자 블로그 「${name}」 글 ${posts.length}편 — 한국어 공부, 문법, TOPIK 준비.`),
+    body,
+    jsonld: [crumbLd([['치즈감자', '/'], ['블로그', '/blog/'], [name, null]])],
+    extraCss: BLOG_CSS + NB_CSS,
+    extraHead: `\n<link rel="alternate" type="application/rss+xml" title="치즈감자 블로그" href="${SITE}/blog/rss.xml">`,
+  });
+}
+
 
 /* RSS. 정적 사이트라 글이 올라온 것을 알릴 방법이 달리 없다 — 메일 주소를
    받아 두는 것도 아니니, 구독하고 싶은 사람에게 줄 수 있는 것은 이것뿐이다.
@@ -3460,6 +3509,17 @@ BLOG_POSTS.forEach((post, i) => {
 });
 writeFileSync(join(OUT_BLOG, 'index.html'), blogHub(BLOG_POSTS));
 urls.push({ loc: '/blog/', freq: 'weekly', pri: '0.6' });
+/* 전체 글 2쪽부터(/blog/page/N.html) · 카테고리 쪽(/blog/cat/<칸>.html) — 네이버식 틀(2026-11-22) */
+mkdirSync(join(OUT_BLOG, 'page'), { recursive: true });
+mkdirSync(join(OUT_BLOG, 'cat'), { recursive: true });
+for (let k = 2; k <= Math.ceil(BLOG_POSTS.length / BLOG_PER); k++) {
+  writeFileSync(join(OUT_BLOG, 'page', `${k}.html`), blogHub(BLOG_POSTS, k));
+  urls.push({ loc: `/blog/page/${k}.html`, freq: 'weekly', pri: '0.3' });
+}
+for (const key of [...BLOG_CATS.map((c) => c.slug), 'ko']) {
+  writeFileSync(join(OUT_BLOG, 'cat', `${key}.html`), blogCatPage(key, BLOG_POSTS));
+  urls.push({ loc: `/blog/cat/${key}.html`, freq: 'weekly', pri: '0.5' });
+}
 
 /* 갈래 쪽. BLOG_POSTS 순서(최신이 앞)를 그대로 따라가며 갈래별로 묶으므로
    갈래 쪽 목록도 최신순으로 나온다. */
