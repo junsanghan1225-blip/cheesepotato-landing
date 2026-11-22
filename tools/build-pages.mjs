@@ -635,7 +635,7 @@ const K_CSS = [
   '.k-foot{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}.k-foot a{padding:9px 13px;border:1px solid var(--ink);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px}.k-foot a:hover{background:var(--soft)}',
   /* 폰: A 는 표현마다 묶음으로 쌓고 각 칸 앞에 「뜻 · 꼴 …」 이름을 붙인다, B 는 줄마다 쌓는다 */
   /* 칸은 줄 차례(뜻 넷 → 꼴 넷 …)로 놓여 있어 폰에서 표현별로 모으려면 order(--o = 표현 × 10 + 줄)로 다시 세운다 */
-  '@media(max-width:700px){.ka{display:flex;flex-direction:column}.ka>div{order:var(--o,0);border-left:0!important;padding:8px 0}.ka>.lab{display:none}.ka>.h{margin-top:14px;padding-top:12px;border-top:2px solid var(--ink);border-bottom:0}.ka>.h:first-of-type{margin-top:0}.ka>.eg{padding:10px 12px}',
+  '@media(max-width:600px){.ka{display:flex;flex-direction:column}.ka>div{order:var(--o,0);border-left:0!important;padding:8px 0}.ka>.lab{display:none}.ka>.h{margin-top:14px;padding-top:12px;border-top:2px solid var(--ink);border-bottom:0}.ka>.h:first-of-type{margin-top:0}.ka>.eg{padding:10px 12px}',
   ".ka>div[data-k]::before{content:attr(data-k);display:block;font-size:12px;font-weight:700;color:var(--dim)}",
   '.kb thead{display:none}.kb tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}.kb td{display:block;border:0;padding:3px 0;width:auto!important}}',
 ].join('');
