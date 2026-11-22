@@ -1570,6 +1570,8 @@ const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-w
    학습자 사전 짜임: 머리(급수 · 품사 · 낱말 · 로마자 · 소리 · 발음) → 이름표 줄(뜻 · 관련어 · 활용 · TOPIK 문항) → 이전/다음.
    예문은 뜻 바로 아래. PC 는 오른쪽 곁칸(같은 주제 낱말 · 이 낱말로 더 하기 · 책), 폰 · 태블릿은 본문 아래로.
    걷은 것: 이모지 카드 「다음 한 걸음」 · 미니 퀴즈(정답이 바로 위에 보였다) · 레벨 테스트 띠 · 이메일 칸(샘플은 바로 받기 링크로) */
+/* 사전 찾기 칸 — 참고 사전 쪽처럼 맨 위에서 바로 다른 낱말을 찾는다. page.js 가 앱 사전 검색으로 보낸다(스크립트가 없으면 앱 사전 첫 화면으로) */
+const DX_FIND = '<form class="dx-find" data-find role="search" action="/#dictionary"><input name="q" type="search" placeholder="낱말 찾기 · 한국어나 영어로" aria-label="낱말 찾기 · Search a word" autocomplete="off" enterkeyhint="search"><button type="submit">찾기</button></form>';
 const dxRow = (lab, html, id = '') => (html ? `<div class="dx-row"${id ? ` id="${id}"` : ''}><div class="dx-lab">${lab}</div><div class="dx-val">${html}</div></div>` : '');
 function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels = null, conj = null, tref = [], same = [], sameAll = '', book = '', addHref, near = '', src = 'dict', note }) {
   const enLine = String(en || '').split(';').map((x) => x.trim()).filter(Boolean).join(' · ');
@@ -1593,17 +1595,22 @@ function dxBody({ head, crumb, meta, rom, pos, en, senses = [], exs = [], rels =
   const conjHtml = conj ? '<table class="dx-conj">' + conj.map(([k, v]) => `<tr><td>${CONJ_NAME[k][0]}</td><td><b>${esc(v)}</b></td></tr>`).join('') + '</table>' : '';
   /* 바로가기 줄 — 있는 칸만, 내리는 동안 머리글 밑에 붙어 있다 */
   const tabs = [['dx-mean', '뜻'], exHtml && ['dx-exs', `예문 ${exList.length}`], relHtml && ['dx-rels', '관련어'], conjHtml && ['dx-conjs', '활용']].filter(Boolean);
+  /* 발음 상자 — 참고 사전처럼 [발음] 과 듣기를 한 상자에. 소리가 바뀌는 낱말은 규칙과 「왜?」 풀이를 아래에 */
+  const pr = pron(head, pos);
+  const prNames = pr ? pr.rules.map((k) => PRON_RULES[k]).filter(Boolean) : [];
+  const sound = `<div class="dx-sound"><b class="dx-pr">[${esc(pr ? pr.s : head)}]</b>${rom ? `<i lang="en">${esc(rom)}</i>` : ''}${sayBtn(head)}</div>` +
+    (prNames.length ? `<details class="dx-why"><summary>${prNames.map((n) => `${esc(n[0])} <span lang="en">${esc(n[1])}</span>`).join(' · ')} — 왜 다르게 소리 나요?</summary><ul>${prNames.map((n) => `<li><b>${esc(n[0])} (${esc(n[1])})</b> <span lang="en">${esc(n[2])}</span></li>`).join('')}</ul></details>` : '');
   const main = [
+    DX_FIND,
     crumb,
     '<header class="dx-head">' +
       `<p class="dx-meta">${meta}</p>` +
       `<h1>${esc(head)}</h1>` +
-      `<div class="dx-say">${rom ? `<i lang="en">${esc(rom)}</i>` : ''}${sayBtn(head)}</div>` +
-      pronBlock(head, pos) +
+      sound +
       `<div class="dx-act"><a class="dx-p" href="${addHref}">＋ 단어장에 담기</a><a class="dx-s" href="/?utm_source=${src}#blocks">이 낱말로 게임 · 2분</a></div>` +
     '</header>',
     `<nav class="dx-tabs" aria-label="바로가기">${tabs.map(([id, n]) => `<a href="#${id}">${n}</a>`).join('')}</nav>`,
-    dxRow('뜻 <small>Meaning</small>', (enLine ? `<p class="dx-en" lang="en">${esc(enLine)}</p>` : `<p class="dx-en">${esc(t2(pos))}</p>`) + sense, 'dx-mean'),
+    dxRow('뜻 <small>Meaning</small>', (enLine ? `<p class="dx-en" lang="en">${esc(enLine)}</p>` : `<p class="dx-en">${esc(t2(pos))}</p>`) + sense + (sns.length ? '<p class="dx-srcl">뜻풀이 · 국립국어원 한국어기초사전</p>' : ''), 'dx-mean'),
     dxRow('예문 <small>Examples</small>', exHtml, 'dx-exs'),
     dxRow('관련어 <small>Related</small>', relHtml, 'dx-rels'),
     dxRow('활용 <small>해요체</small>', conjHtml, 'dx-conjs'),
@@ -1637,9 +1644,14 @@ const DX_CSS = [
   '.dx-head{padding:2px 0 20px;border-bottom:2px solid var(--ink)}',
   '.dx-meta{margin:0;font-size:13px;color:var(--dim)}.dx-meta b{color:var(--orange-deep,#AE4710);font-weight:700}',
   '.dx-head h1{font-size:48px;line-height:1.1;margin:8px 0 8px;letter-spacing:-.03em}',
-  '.dx-say{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}.dx-say>i{font-style:italic;color:var(--dim);font-size:15.5px}',
-  '.dx-say .wd-say{padding:6px 12px;font-size:13.5px;border-radius:5px}',
-  '.dx-head .wd-pron{margin:8px 0 0}',
+  '.dx-find{display:flex;gap:0;margin:0 0 18px;max-width:520px;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:var(--card)}',
+  '.dx-find input{flex:1;min-width:0;border:0;padding:11px 14px;font:inherit;font-size:15.5px;background:transparent;color:var(--ink);outline:0}',
+  '.dx-find button{border:0;padding:0 18px;font:inherit;font-weight:700;font-size:14.5px;background:var(--ink);color:var(--bg);cursor:pointer}',
+  '.dx-sound{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}',
+  '.dx-pr{font-size:19px;letter-spacing:.02em}.dx-sound>i{font-style:italic;color:var(--dim);font-size:15px}',
+  '.dx-sound .wd-say{padding:6px 12px;font-size:13.5px;border-radius:5px}',
+  '.dx-why{margin:8px 0 0;font-size:13.5px;color:var(--dim)}.dx-why summary{cursor:pointer}.dx-why ul{margin:6px 0 0;padding-left:18px}.dx-why b{color:var(--ink)}',
+  '.dx-srcl{margin:10px 0 0;font-size:12px;color:var(--dim)}',
   '.dx-act{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}',
   '.dx-act a{padding:10px 15px;border-radius:8px;font-weight:700;font-size:14.5px;text-decoration:none}',
   '.dx-p{background:var(--ink);color:var(--bg)}.dx-s{border:1px solid var(--ink);color:var(--ink)}',
@@ -1945,13 +1957,6 @@ function ewRelated(slug, v) {
 const HON_OF = new Map();
 VOCAB.forEach((w) => (w.r?.hon || []).forEach((h) => { if (!HON_OF.has(h)) HON_OF.set(h, w.h); }));
 /* 소리 나는 대로(운영자 2026-10-11 「3번」) — 글자와 소리가 다른 낱말에만 「Pronounced [소리]」 한 줄 + 왜(규칙). 규칙 엔진은 확실한 것만 말한다(tools/ko-pron.mjs) */
-function pronBlock(head, pos) {
-  const r = pron(head, pos); if (!r) return '';
-  const names = r.rules.map((k) => PRON_RULES[k]).filter(Boolean);
-  return `<p class="wd-pron" lang="en">Pronounced <b>[${esc(r.s)}]</b> <span>— ${names.map((n) => `${esc(n[1])} · ${esc(n[0])}`).join(', ')}</span></p>` +
-    `<details class="wd-pron-why" lang="en"><summary>Why does it sound different?</summary><ul>${names.map((n) => `<li><b>${esc(n[1])} (${esc(n[0])})</b> — ${esc(n[2])}</li>`).join('')}</ul>` +
-    '<p>Standard pronunciation of the word on its own. Sounds can shift a little inside a sentence.</p></details>';
-}
 const POS_EN = { 동사: 'verb', 형용사: 'adjective', 명사: 'noun', 부사: 'adverb', 대명사: 'pronoun', 수사: 'number', 관형사: 'determiner', 감탄사: 'interjection', '의존 명사': 'bound noun', 조사: 'particle' };
 
 function engPage(slug, { key, words }) {
@@ -2046,7 +2051,7 @@ function wordHub(heads) {
     `<h1>한국어 낱말 사전 — ${n}개</h1>`,
     '<p class="lead">국립국어원 한국어기초사전 뜻풀이를 담은 낱말입니다. 표제어마다 뜻풀이와 예문이 있고, 앱 사전에서 발음을 듣고 단어장에 담을 수 있습니다.<br>' +
       `${n} Korean words with meanings and example sentences, from the National Institute of Korean Language's basic dictionary.</p>`,
-    '<a class="cta" href="/#dictionary">사전 열기<span>Search the full dictionary in the app</span></a>',
+    DX_FIND,   // 「사전 열기」 큰 단추 대신 바로 찾는 칸(2026-11-22 참고 사전)
     jump,
     sections,
   ].join('\n');
@@ -2061,6 +2066,9 @@ function wordHub(heads) {
   });
 }
 const DICT_HUB_CSS = [
+  '.dx-find{display:flex;margin:20px 0 6px;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:var(--card)}',
+  '.dx-find input{flex:1;min-width:0;border:0;padding:13px 16px;font:inherit;font-size:16px;background:transparent;color:var(--ink);outline:0}',
+  '.dx-find button{border:0;padding:0 22px;font:inherit;font-weight:700;background:var(--ink);color:var(--bg);cursor:pointer}',
   '.dh-j{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 8px}',
   '.dh-j a{min-width:36px;box-sizing:border-box;text-align:center;padding:7px 0;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}',
   '.dh-j a:hover{background:var(--ink);color:var(--bg)}',
