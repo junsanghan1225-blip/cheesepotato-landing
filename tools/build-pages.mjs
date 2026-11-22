@@ -51,6 +51,8 @@ const WS_SET = new Set(WS_IDS);
 import { readFileSync as readEn } from 'node:fs';
 import { createHash } from 'node:crypto';
 
+/* 받침 있으면 「이」, 없으면 「가」(「참기름」가 → 「참기름」이, 2026-11-22). 한글이 아니면 「이/가」 */
+const iGa = (w) => { const c = String(w).trim().slice(-1).charCodeAt(0) - 0xAC00; return c >= 0 && c < 11172 ? (c % 28 ? '이' : '가') : '이/가'; };
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 /* 낱말 → 우리 TOPIK 문항에서 쓰인 문장(topik-refs/ ← tools/build-topik-refs.mjs). TOPIK 낱말 쪽에 「TOPIK 문항에서」 칸을 붙여
    노출이 많은 사전 쪽(검색 노출의 대부분)에서 TOPIK 문항 쪽으로 안쪽 링크를 잇는다(운영자 2026-10-11 「TOPIK 쪽 노출 더 늘리자」). */
@@ -1559,7 +1561,7 @@ const trefBlock = (head, src) => {
   const rows = (r.r || []).filter(([, sk, id, sent]) => TREF_SK[sk] && refOk(head, sent) && existsSync(join(ROOT, TREF_SK[sk][0], `${id}.html`))).slice(0, 3);
   if (!rows.length) return '';
   return `<h2>TOPIK 문항에서 <small>In our TOPIK practice questions</small></h2>` +
-    `<p class="tref-n">「${esc(head)}」가 나온 치즈감자 TOPIK 연습 문항의 문장이에요. <span lang="en">Sentences from our original TOPIK questions that use this word — see it in a real exam context.</span></p>` +
+    `<p class="tref-n">「${esc(head)}」${iGa(head)} 나온 치즈감자 TOPIK 연습 문항의 문장이에요. <span lang="en">Sentences from our original TOPIK questions that use this word — see it in a real exam context.</span></p>` +
     '<ul class="tref">' + rows.map(([e, sk, id, sent]) => `<li><span>${esc(sent)}</span><a href="/${TREF_SK[sk][0]}/${id}.html?utm_source=${src}">TOPIK ${e} ${TREF_SK[sk][1]} <span lang="en">${TREF_SK[sk][2]} question</span> →</a></li>`).join('') + '</ul>';
 };
 const NX_CSS = '.nx{margin:18px 0 6px;display:grid;gap:8px}.nx-h{margin:0;font-weight:800;font-size:14px;color:var(--dim)}.nx-h small{font-weight:600}' +
