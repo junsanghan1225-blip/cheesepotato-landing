@@ -117,30 +117,32 @@ function bundlesHtml() {
 function shopPage() {
   const bookItem = (k, g) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}${g ? `<small class="bk-tag">${esc(g.title.en)}</small>` : ''}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `<span data-px="${esc(k.price)}">$${esc(k.price)}</span> · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
   /* 시안 S4-1: 시리즈 제목 줄을 걷고 한 칸에 모두(시리즈 차례 그대로) — 시리즈 이름은 표지 아래 작은 주황 글자로 */
-  const books = `<div class="bk-grid">\n${(SHOP.series || []).flatMap((g) => g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean).map((k) => bookItem(k, g))).join('\n')}\n</div>`;
+  const books = `<div class="bk-grid">\n${(SHOP.series || []).flatMap((g) => g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter((k) => k && k.status === 'on').map((k) => bookItem(k, g))).join('\n')}\n</div>`;
   /* 학습지 묶음 · 낱장(운영자 2026-11-22 「학습지 부분 엄청 지저분해」): 아직 파는 것이 없어 큰 카드 6장 · 「준비 중」 단추 38개가 이어졌다 →
      묶음은 한 줄씩(장 수 · 이름 · 가격 · 준비 중), 낱장 32줄은 Polar 링크가 하나라도 생기기 전까지 한 문단(무료 학습지 쪽으로). 파는 것이 생기면 그 줄에 사기 단추 */
-  const soon = '<span class="shop-st">Coming soon · 준비 중</span>';
-  const packs = `<div class="box shop-list">\n${SHOP.packs.map((p) => {
+  /* 운영자 2026-11-22 「COMING SOON 은 좀 빼 제발」: 상점에는 지금 살 수 있는 것만 — 출간 예정 책 · Polar 링크 없는 묶음 · 낱장은 안 보인다(링크가 생기면 저절로 나온다) */
+  const onPacks = SHOP.packs.filter((p) => p.polar);
+  const soon = '';
+  const packs = `<div class="box shop-list">\n${onPacks.map((p) => {
     const ws = packSheets(p);
     return `  <div class="shop-row"><span class="shop-lv shop-n">${ws.length}</span><span class="shop-t"><a href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}">${esc(p.title.en)}</a><small>${esc(p.title.ko)} · sheets + answer keys</small></span><span class="shop-px">$${esc(p.price)}</span>${p.polar ? buy(p.polar, p.price, 'Buy') : soon}</div>`;
   }).join('\n')}\n</div>`;
   const anySingle = sheets.some((w) => SHOP.singles?.[w.id]);
   const singles = anySingle
     ? `<div class="box shop-list">\n${sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${SHOP.singles?.[w.id] ? buy(SHOP.singles[w.id], SHOP.singlePrice, 'PDF') : soon}</div>`).join('\n')}\n</div>`
-    : `<p>${sheets.length} sheets, $${esc(SHOP.singlePrice)} each — coming soon. Until then every sheet is free to view and print on the site: <a href="/worksheets/">free worksheets →</a><br><small>학습지 ${sheets.length}장 · 한 장 $${esc(SHOP.singlePrice)}(정답지 포함) PDF 는 준비 중이에요. 지금은 사이트에서 무료로 보고 인쇄할 수 있어요.</small></p>`;
+    : '';
   return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
 `${shopHead()}
 <h1 id="books">Books</h1>
 <p>책 · original Korean workbooks and TOPIK practice books. TOPIK questions are newly written in the official format — not past papers. These books are independent study aids and are not operated, endorsed or certified by NIIED or the TOPIK Center.</p>
 ${books}
-${bundlesHtml()}<details class="shop-later"><summary><span>Worksheet packs &amp; single sheets · 학습지 묶음 · 낱장 <small>${SHOP.packs.some((p) => p.polar) ? '' : '곧 나와요 · '}${SHOP.packs.length} packs · ${sheets.length} sheets</small></span></summary>
-<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
+${bundlesHtml()}${onPacks.length || anySingle ? `<details class="shop-later"><summary><span>Worksheet packs &amp; single sheets · 학습지 묶음 · 낱장</span></summary>
+${onPacks.length ? `<h2 id="packs">Worksheet packs · 학습지 묶음</h2>
 <p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
-${packs}
-<h2 id="singles">Single worksheets · 낱장</h2>
-${singles}
-</details>
+${packs}` : ''}
+${anySingle ? `<h2 id="singles">Single worksheets · 낱장</h2>
+${singles}` : ''}
+</details>` : ''}
 ${shopFoot}<script src="/sale.js" defer></script>` + foot;
 }
 /* Yes24 식 책 쪽(운영자 2026-10-18 「판매페이지 · 미리보기 · 책소개」) — shop.json 책에 page 가 있으면 소개 · 특징 · 미리보기 · 저자 · 책 정보 · 자주 묻는 질문을 더 보여 준다. 미리보기 그림은 assets/books/<id>/pv-N.jpg, 크게 보기는 CSS :target(스크립트 없음). */
