@@ -8027,3 +8027,57 @@ body #learnView.course-mode .pt-body { max-width:1200px !important; padding-left
 .wd-aside .bkbox-img { width:56px !important; height:auto !important; flex:none; border:1px solid var(--line); border-radius:5px; }
 .wd-aside .bkbox-tx b { font-size:14px; } .wd-aside .bkbox-tx > small { display:none; }
 .wd-aside .bkbox-meta { font-size:12.5px; } .wd-aside .bkbox-tx em { font-size:13px; }
+
+/* ══ 앱 「단어」 나머지 탭(외우기 · 사자성어/속담/관용표현 · 팟캐스트 · 내 단어장 · 기록) — 「오늘」과 같은 틀(2026-11-22 「다음 영역」) ══
+   넓게(1200) · 색 아이콘 카드 → 번호 붙은 얇은 줄 표 · 주황 단추/선택 → 잉크 · 갈색 그라데이션 띠 → 굵은 줄 아래 제목 */
+.wd-wrap:not(.wd-studying) { max-width:1200px; padding-left:40px; padding-right:40px; }
+.wd-btn:not(.ghost):not(.danger), .wd-day-go { background:var(--ink) !important; color:var(--bg) !important; border:0; font-weight:700; }
+.wd-wrap .wd-chip.on { border-color:var(--ink); background:none; font-weight:700; }
+.wd-wrap .wd-group { padding:0; gap:18px; border:0; border-radius:0; background:none; }
+.wd-wrap .wd-group .wd-chip { padding:6px 0; border:0; border-radius:0; background:none; color:var(--ink-3); font-weight:700; min-height:0; }
+.wd-wrap .wd-group .wd-chip.on { color:var(--ink); box-shadow:inset 0 -2px 0 var(--ink); }
+.wd-wrap .wd-track .wd-chip { border-radius:8px; }
+.wd-wrap .wd-tsearch, .wd-wrap .wd-x-q { border:1px solid var(--line); }
+.wd-wrap .wd-tsearch:focus-within { border-color:var(--ink); }
+/* 내 길 카드 → 굵은 줄 아래 한 줄 */
+.wd-wrap .wd-topic-main { padding:14px 0; border:0; border-top:2px solid var(--ink); border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+.wd-wrap .wd-topic-main .wd-topic-ico { display:none; }
+/* 주제 카드 격자 → 두 단 줄 표 */
+.wd-wrap .wd-topics { grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 32px; border-top:1px solid var(--ink); }
+.wd-wrap .wd-topics .wd-topic { display:grid; grid-template-columns:1fr auto; align-items:center; gap:4px 12px; padding:12px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; transform:none; }
+.wd-wrap .wd-topics .wd-topic:hover { background:var(--surface); }
+.wd-wrap .wd-topics .wd-topic-ico { display:none; }
+.wd-wrap .wd-topics .wd-topic b { font-size:15px; }
+.wd-wrap .wd-topics .wd-meta { font-size:13px; color:var(--ink-3); }
+.wd-wrap .wd-topics .wd-bar { grid-column:1 / -1; height:3px; }
+.wd-wrap .wd-bar i { background:var(--ink) !important; }
+/* 게임 두 칸 → 줄 */
+.wd-wrap .wd-games { gap:0 32px; border-top:1px solid var(--ink); }
+.wd-wrap .wd-game { padding:12px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+.wd-wrap .wd-game:hover { background:var(--surface); }
+/* 사자성어 · 속담 · 관용표현 */
+.wd-wrap .wd-x-hero { padding:16px 0 18px; border-radius:0; color:var(--ink); background:none; border-top:2px solid var(--ink); border-bottom:1px solid var(--line); }
+.wd-wrap .wd-x-hero span { opacity:1; color:var(--ink-2); }
+.wd-wrap .wd-x-list { gap:0; border-top:1px solid var(--ink); }
+.wd-wrap .wd-x-row { padding:13px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; }
+.wd-wrap .wd-x-row:hover { background:var(--surface); border-color:var(--line); }
+/* 내 단어장 */
+.wd-wrap .wd-card.hot { border-color:var(--line); background:var(--surface); }
+.wd-wrap .wd-card:hover { transform:none; }
+.wd-wrap .wd-folder { box-shadow:none; }
+.wd-wrap .wd-folder.on { border-color:var(--ink); box-shadow:none; } .wd-wrap .wd-folder.on .wd-fchk { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+/* 기록 */
+.wd-wrap .wd-cap button.on { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+.wd-wrap .wd-stats { gap:0; border-top:2px solid var(--ink); border-bottom:1px solid var(--line); }
+.wd-wrap .wd-stats div { padding:14px 16px; border:0; border-radius:0; background:none; }
+.wd-wrap .wd-stats div + div { border-left:1px solid var(--line); }
+.wd-wrap .wd-week i { background:var(--ink); opacity:.85; border-radius:2px 2px 0 0; }
+.wd-wrap .wd-tprog { gap:0; border-top:1px solid var(--ink); display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:32px; }
+.wd-wrap .wd-tprog button { padding:11px 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; }
+.wd-wrap .wd-tprog button:hover { background:var(--surface); }
+.wd-wrap .wd-tprog .wd-bar { height:3px; }
+@media (max-width:900px) {
+  .wd-wrap:not(.wd-studying) { padding-left:var(--gut); padding-right:var(--gut); }
+  .wd-wrap .wd-topics, .wd-wrap .wd-tprog, .wd-wrap .wd-games { grid-template-columns:1fr; }
+}
+@media (max-width:600px) { .wd-wrap .wd-stats { grid-template-columns:1fr 1fr; } .wd-wrap .wd-stats div:nth-child(3) { border-left:0; } .wd-wrap .wd-stats div:nth-child(n+3) { border-top:1px solid var(--line); } }
