@@ -45,6 +45,7 @@ for (let k = 0; k * 500 < VOCAB2.length; k++) {
 }
 import { conjugate, romanize } from './ko-conj.mjs';
 import { pron, PRON_RULES } from './ko-pron.mjs';
+import { grammarMarkRe } from '../grammar-mark.js';   // 견주기 예문에서 그 표현 부분에 형광 줄(앱 색칠과 같은 규칙)
 import { readdirSync as wsDir } from 'node:fs';   // 학습지 틀(build-sheets.mjs)의 자료 목록 — 사이트맵용
 import { WS_IDS } from './build-worksheets.mjs';   // 문법 학습지(worksheet/) — 가져오는 것만으로 쪽이 구워진다
 const WS_SET = new Set(WS_IDS);
@@ -566,40 +567,33 @@ function comparePage(cat) {
   const desc = clip(`${cat.ko}(${cat.en})에 쓰는 표현 ${pts.length}가지를 한자리에서 견줍니다. ` +
     `${names.slice(0, 4).join(' · ')}${names.length > 4 ? ' 외' : ''} — 뜻과 형태, 주의할 점을 나란히 놓았습니다.`);
 
-  const rows = pts.map((p) => {
-    const more = SB_MORE[p.id] || ['', '', '', ''];
-    return `<div class="fact"><b><a href="/sentence/${esc(p.id)}.html">${esc(p.name)}</a></b>` +
-      `<span>${esc(p.desc)}${more[0] ? `<br><small>형태 · ${esc(more[0])}</small>` : ''}` +
-      `${more[2] ? `<br><small>주의 · ${esc(more[2])}</small>` : ''}</span></div>`;
-  }).join('');
-
-  /* 표현마다 하나씩. 이게 FAQPage 표시가 가리키는 실제 본문이다. */
-  const qas = pts.map((p) => {
-    const more = SB_MORE[p.id] || ['', '', '', ''];
-    const q = `「${p.name}」${eunNeun(p.name)} 언제 쓰나요?`;
-    /* 화면에 그리는 글과 **똑같은 조각**으로 답을 만든다. 여기서 말이
-       갈리면 FAQPage 표시가 화면에 없는 글을 가리키게 된다 — 표시만
-       붙이고 본문이 다르면 그건 거짓말이다. */
-    const warn = more[2] ? `주의할 점 — ${more[2]}` : '';
-    const eg = `예: ${p.ex}`;
-    const a = [p.desc, warn, eg].filter(Boolean).join(' ');
-    return { q, a,
-      html: `<h2>${esc(q)}</h2><p class="desc">${esc(p.desc)}</p>` +
-        (warn ? `<div class="ex">${esc(warn)}</div>` : '') +
-        `<div class="ex">${esc(eg)}</div>` +
-        `<p class="sub"><a href="/sentence/${esc(p.id)}.html">${esc(p.name)} 자세히 보기 →</a></p>` };
-  });
+  /* 나란히 견주기(운영자 2026-11-22 시안 「A로 하고 5개 넘으면 B로」) — 표현이 넷까지면 표현마다 세로 한 칸(A: 뜻 · 꼴 · 주의 · 예문 줄을 가로로 맞춤),
+     다섯 이상이면 칸이 너무 좁아져 표현마다 가로 한 줄 표(B). 전에는 표 아래에 같은 글을 표현마다 상자로 한 번 더 늘어놓았다.
+     예문 속 그 표현에는 형광 줄(grammar-mark.js — 앱 색칠과 같은 규칙, 못 찾으면 칠하지 않는다). */
+  const cell = (p) => { const more = SB_MORE[p.id] || ['', '', '', '']; return { form: more[0] || '', warn: more[2] || '' }; };
+  const hlEx = (ex, name) => {
+    const s0 = String(ex || ''); let re = null; try { re = grammarMarkRe(name); } catch (e) { re = null; }
+    if (!re) return esc(s0);
+    let out = '', last = 0;
+    for (const m of s0.matchAll(re)) { out += esc(s0.slice(last, m.index)) + `<mark>${esc(m[0])}</mark>`; last = m.index + m[0].length; }
+    return out + esc(s0.slice(last));
+  };
+  const nameA = (p) => `<a href="/sentence/${esc(p.id)}.html">${esc(p.name)}</a>`;
+  const grid = pts.length <= 4
+    ? `<div class="ka" style="--n:${pts.length}"><div class="lab h"></div>${pts.map((p, i) => `<div class="h" style="--o:${i * 10}">${nameA(p)}</div>`).join('')}` +
+      [['뜻', (p) => esc(p.desc)], ['꼴', (p) => esc(cell(p).form)], ['주의', (p) => esc(cell(p).warn)], ['예문', (p) => hlEx(p.ex, p.name)]]
+        .map(([lab, f], ri) => `<div class="lab">${lab}</div>` + pts.map((p, i) => `<div${ri === 3 ? ' class="eg"' : ''} data-k="${lab}" style="--o:${i * 10 + ri + 1}">${f(p)}</div>`).join('')).join('') + '</div>'
+    : '<table class="kb"><thead><tr><th>표현</th><th>뜻</th><th>꼴 · 주의</th><th>예문</th></tr></thead><tbody>' +
+      pts.map((p) => `<tr><td>${nameA(p)}</td><td>${esc(p.desc)}</td><td>${esc(cell(p).form)}${cell(p).warn ? `<br><small>${esc(cell(p).warn)}</small>` : ''}</td><td class="eg">${hlEx(p.ex, p.name)}</td></tr>`).join('') + '</tbody></table>';
+  /* FAQPage 답은 화면 칸에 그대로 있는 글로만 만든다(뜻 · 주의 · 예문) — 화면에 없는 글을 가리키지 않게 */
+  const qas = pts.map((p) => ({ q: `「${p.name}」${eunNeun(p.name)} 언제 쓰나요?`, a: [p.desc, cell(p).warn, p.ex].filter(Boolean).join(' ') }));
 
   const body = [
-    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/compare/">갈래별 비교</a> › ${esc(cat.ko)}</nav>`,
-    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
-    `<h1>${esc(cat.ko)} — 표현 ${pts.length}가지</h1>`,
-    `<p class="sub">${esc(cat.en)}</p>`,
-    `<p class="lead">뜻이 비슷해 보이지만 쓰는 자리가 다릅니다. 아래 표에서 뜻과 형태, 주의할 점을 나란히 놓고 견주세요.<br>` +
-    `${pts.length} Korean expressions for ${esc(cat.en.toLowerCase())} — compared side by side.</p>`,
-    `<div class="facts">${rows}</div>`,
-    qas.map((x) => x.html).join('\n'),
-    `<a class="cta" href="/#learn/sentence">이 갈래로 문장 만들어 보기<span>Practice these expressions in the app</span></a>`,
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/compare/">견주기</a> › ${esc(cat.ko)}</nav>`,
+    `<header class="k-top"><span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span><h1>${esc(cat.ko)} <small>표현 ${pts.length}가지</small></h1>` +
+      `<p>뜻이 비슷해 보이지만 쓰는 자리가 달라요. 나란히 놓고 견줘 보세요. · <span lang="en">${pts.length} expressions for ${esc(cat.en.toLowerCase())}, side by side.</span></p></header>`,
+    grid,
+    '<div class="k-foot"><a href="/#learn/sentence">이 표현들로 문장 만들어 보기 →</a><a href="/compare/">다른 견주기 보기</a></div>',
   ].join('\n');
 
   const jsonld = [
@@ -625,19 +619,35 @@ function comparePage(cat) {
     },
     crumbLd([['치즈감자', '/'], ['갈래별 비교', '/compare/'], [cat.ko, null]]),
   ];
-  return page({ url: `/compare/${cat.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/compare/${cat.id}.html`, title, desc, body, jsonld, extraCss: K_CSS });
 }
+
+const K_CSS = [
+  '@media(min-width:601px){.wrap{max-width:1200px;padding-left:40px;padding-right:40px}}',
+  '.k-top h1{margin:8px 0 6px;font-size:34px;letter-spacing:-.02em}.k-top h1 small{font-size:15px;color:var(--dim);font-weight:500;margin-left:6px}.k-top p{margin:0 0 22px;color:var(--dim);font-size:15px}',
+  '.ka{display:grid;grid-template-columns:96px repeat(var(--n),minmax(0,1fr));border-top:2px solid var(--ink)}',
+  '.ka>div{padding:14px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6;min-width:0}.ka>div:not(.lab){border-left:1px solid var(--line)}',
+  '.ka>.h{font-size:20px;font-weight:800;padding-top:16px}.ka>.h a{color:var(--ink);text-decoration:none}.ka>.h a:hover{text-decoration:underline}',
+  '.ka>.lab{padding-left:0;font-size:12.5px;font-weight:700;color:var(--dim)}.ka>.eg{background:var(--card)}',
+  '.ka mark,.kb mark{background:linear-gradient(transparent 58%,rgba(228,99,31,.28) 0);color:inherit;font-weight:700}',
+  '.kb{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.6}.kb th{text-align:left;font-size:12.5px;color:var(--dim);padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}',
+  '.kb td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}.kb td:first-child{font-weight:800;font-size:17px;width:160px}.kb td:first-child a{color:var(--ink);text-decoration:none}.kb small{color:var(--dim)}',
+  '.k-foot{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}.k-foot a{padding:9px 13px;border:1px solid var(--ink);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px}.k-foot a:hover{background:var(--soft)}',
+  /* 폰: A 는 표현마다 묶음으로 쌓고 각 칸 앞에 「뜻 · 꼴 …」 이름을 붙인다, B 는 줄마다 쌓는다 */
+  /* 칸은 줄 차례(뜻 넷 → 꼴 넷 …)로 놓여 있어 폰에서 표현별로 모으려면 order(--o = 표현 × 10 + 줄)로 다시 세운다 */
+  '@media(max-width:600px){.ka{display:flex;flex-direction:column}.ka>div{order:var(--o,0);border-left:0!important;padding:8px 0}.ka>.lab{display:none}.ka>.h{margin-top:14px;padding-top:12px;border-top:2px solid var(--ink);border-bottom:0}.ka>.h:first-of-type{margin-top:0}.ka>.eg{padding:10px 12px}',
+  ".ka>div[data-k]::before{content:attr(data-k);display:block;font-size:12px;font-weight:700;color:var(--dim)}",
+  '.kb thead{display:none}.kb tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}.kb td{display:block;border:0;padding:3px 0;width:auto!important}}',
+].join('');
 
 function compareHub(cats) {
   const order = ['beginner', 'intermediate', 'advanced'];
   const sections = order.map((lv) => {
     const inLv = cats.filter((c) => tier(c.points[0]) === lv);
     if (!inLv.length) return '';
-    return `<h2 id="${lv}">${LV_KO[lv]} · ${LV_EN[lv]} — ${inLv.length}갈래</h2>` +
-      inLv.map((c) =>
-        `<div class="cat"><h3><a href="/compare/${esc(c.id)}.html">` +
-        `${esc(c.ko)}</a></h3>` +
-        `<p>${esc(c.points.map((p) => p.name).join(' · '))}</p></div>`).join('\n');
+    /* 갈래마다 한 줄 표(견주기 쪽과 같은 얇은 줄) — 전에는 갈래마다 카드라 73갈래가 PC 10,000px 이었다 */
+    return `<h2 id="${lv}" class="kh-h">${LV_KO[lv]} <small>${LV_EN[lv]} · ${inLv.length}갈래</small></h2><table class="kb kh"><tbody>` +
+      inLv.map((c) => `<tr><td><a href="/compare/${esc(c.id)}.html">${esc(c.ko)}</a></td><td>${esc(c.points.map((p) => p.name).join(' · '))}</td><td>${c.points.length}개</td></tr>`).join('') + '</tbody></table>';
   }).filter(Boolean).join('\n');
 
   const body = [
@@ -657,6 +667,7 @@ function compareHub(cats) {
       'Similar Korean grammar expressions compared side by side.'),
     body,
     jsonld: [crumbLd([['치즈감자', '/'], ['갈래별 비교', '/compare/']])],
+    extraCss: K_CSS + '.kh-h{margin:30px 0 4px;font-size:22px}.kh-h small{font-size:13px;color:var(--dim);font-weight:500;margin-left:6px}.kh td:first-child{width:260px;font-size:16px}.kh td:last-child{width:60px;text-align:right;color:var(--dim);font-size:13px}.kh td:nth-child(2){color:var(--dim);font-size:14px}',
   });
 }
 
