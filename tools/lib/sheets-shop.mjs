@@ -86,6 +86,9 @@ const SHOP_CSS = `<style>
 .shop-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.shop-row:first-child{border-top:0}
 .shop-lv{font-size:12px;font-weight:800;color:var(--ink-3);width:28px}.shop-t{flex:1;min-width:0}.shop-t small{display:block;color:var(--ink-3)}
 .shop-row .btn{min-height:40px;padding:8px 14px;font-size:14px;white-space:nowrap}
+.shop-list{padding:4px 18px}.shop-list .shop-t a{color:var(--ink);font-weight:700;text-decoration:none}.shop-list .shop-t a:hover{text-decoration:underline}.shop-n{font-size:15px;color:var(--ink);text-align:center}.shop-px{font-weight:700;white-space:nowrap}.shop-st{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.shop-later h2{font-size:20px;margin:22px 0 6px}
+@media (max-width:600px){.shop-list{padding:2px 12px}.shop-row{flex-wrap:wrap;gap:4px 10px}.shop-row .shop-t{flex:1 1 calc(100% - 40px)}.shop-row .shop-px{margin-left:38px}}
 @media (max-width:600px){.bk-info{width:100%}.bk-info h1{font-size:26px;overflow-wrap:anywhere}.bk-spec th{width:84px}.bk-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}.bk-detail{flex-direction:column}.bk-cover.big{width:200px;align-self:center}.shop-card{flex-direction:column}.shop-pk{flex:none;width:100%;height:96px;flex-direction:row;gap:10px}.shop-body ul{columns:1}}
 </style>
 `;
@@ -115,15 +118,17 @@ function shopPage() {
   const bookItem = (k, g) => `<a class="bk-item" href="/shop/${k.id}/">${cover(k)}${g ? `<small class="bk-tag">${esc(g.title.en)}</small>` : ''}<h3>${esc(k.title.en)}</h3><p>${esc(k.title.ko)}</p><span class="bk-badge">${k.status === 'on' && k.price ? `<span data-px="${esc(k.price)}">$${esc(k.price)}</span> · PDF` : `${esc(STATUS[k.status]?.[0] || k.status)} · ${esc(STATUS[k.status]?.[1] || '')}`}</span></a>`;   // 판매 중인 책은 「Available」 대신 가격(운영자 2026-11-17)
   /* 시안 S4-1: 시리즈 제목 줄을 걷고 한 칸에 모두(시리즈 차례 그대로) — 시리즈 이름은 표지 아래 작은 주황 글자로 */
   const books = `<div class="bk-grid">\n${(SHOP.series || []).flatMap((g) => g.books.map((id) => SHOP.books.find((k) => k.id === id)).filter(Boolean).map((k) => bookItem(k, g))).join('\n')}\n</div>`;
-  const packs = SHOP.packs.map((p) => {
+  /* 학습지 묶음 · 낱장(운영자 2026-11-22 「학습지 부분 엄청 지저분해」): 아직 파는 것이 없어 큰 카드 6장 · 「준비 중」 단추 38개가 이어졌다 →
+     묶음은 한 줄씩(장 수 · 이름 · 가격 · 준비 중), 낱장 32줄은 Polar 링크가 하나라도 생기기 전까지 한 문단(무료 학습지 쪽으로). 파는 것이 생기면 그 줄에 사기 단추 */
+  const soon = '<span class="shop-st">Coming soon · 준비 중</span>';
+  const packs = `<div class="box shop-list">\n${SHOP.packs.map((p) => {
     const ws = packSheets(p);
-    return `<div class="shop-card"><a class="shop-pk lv-${esc(p.ws || p.level)}" href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}" title="See a sheet from this pack · 이 묶음의 학습지 보기"><b>${ws.length}</b><small>${esc(p.ws ? WS_LV[p.ws] : p.level === 'all' ? 'A1–A2' : p.level)} · PDF</small></a>
-  <div class="shop-body"><h3>${esc(p.title.en)}</h3><p class="bk-ko">${esc(p.title.ko)}</p><p>${esc(p.sub.en)}</p>
-    <p class="shop-price">$${esc(p.price)} <small>· ${ws.length} sheets + answer keys · PDF download</small></p>
-    ${buy(p.polar, p.price, 'Buy the pack')}
-    <details><summary>What is inside (${ws.length})</summary><ul>${ws.map((w) => `<li><a href="${esc(w.href || `/${w.id}-worksheet/`)}">${esc(w.title.en)}</a> · ${esc(w.title.ko)}</li>`).join('')}</ul></details></div></div>`;
-  }).join('\n');
-  const singles = sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${buy(SHOP.singles?.[w.id], SHOP.singlePrice, 'PDF')}</div>`).join('\n');
+    return `  <div class="shop-row"><span class="shop-lv shop-n">${ws.length}</span><span class="shop-t"><a href="${esc(ws[0] ? (ws[0].href || `/${ws[0].id}-worksheet/`) : '/worksheets/')}">${esc(p.title.en)}</a><small>${esc(p.title.ko)} · sheets + answer keys</small></span><span class="shop-px">$${esc(p.price)}</span>${p.polar ? buy(p.polar, p.price, 'Buy') : soon}</div>`;
+  }).join('\n')}\n</div>`;
+  const anySingle = sheets.some((w) => SHOP.singles?.[w.id]);
+  const singles = anySingle
+    ? `<div class="box shop-list">\n${sheets.map((w) => `  <div class="shop-row"><span class="shop-lv">${esc(w.level)}</span><span class="shop-t"><a href="/${w.id}-worksheet/">${esc(w.title.en)}</a><small>${esc(w.title.ko)}</small></span>${SHOP.singles?.[w.id] ? buy(SHOP.singles[w.id], SHOP.singlePrice, 'PDF') : soon}</div>`).join('\n')}\n</div>`
+    : `<p>${sheets.length} sheets, $${esc(SHOP.singlePrice)} each — coming soon. Until then every sheet is free to view and print on the site: <a href="/worksheets/">free worksheets →</a><br><small>학습지 ${sheets.length}장 · 한 장 $${esc(SHOP.singlePrice)}(정답지 포함) PDF 는 준비 중이에요. 지금은 사이트에서 무료로 보고 인쇄할 수 있어요.</small></p>`;
   return head(`${pub.en} — Korean Books & Worksheet Shop`, 'Korean workbooks, TOPIK practice books and printable worksheet PDFs with answer keys — made by a Korean teacher.', '/shop/', SHOP_CSS) +
 `${shopHead()}
 <h1 id="books">Books</h1>
@@ -134,10 +139,7 @@ ${bundlesHtml()}<details class="shop-later"><summary><span>Worksheet packs &amp;
 <p>Every worksheet stays free to use on the site — the packs are clean print-ready PDFs you keep.</p>
 ${packs}
 <h2 id="singles">Single worksheets · 낱장</h2>
-<p>$${esc(SHOP.singlePrice)} each · 학습지 한 장(정답지 포함) PDF</p>
-<div class="box">
 ${singles}
-</div>
 </details>
 ${shopFoot}<script src="/sale.js" defer></script>` + foot;
 }
