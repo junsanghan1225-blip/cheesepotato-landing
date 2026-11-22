@@ -804,18 +804,36 @@ const LX_CSS = [
 function coursePage(course) {
   const lv = LV_OF(course);
   const title = `${tx(course.title)} — ${LV_KO[lv]} 한국어 코스 | CheesePotato`;
-  const desc = clip(`${tx(course.title)} · ${tx(course.tagline)} — ${tx(course.blurb)}`);
-  const body = [
-    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a></nav>`,
-    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]}</span>`,
+  const desc = clip(`${tx(course.title)} · ${tx(course.tagline)} — ${tx(course.blurb).replace(/\*\*/g, "")}`);
+  /* 코스 한 쪽 — 코스 목록(G) · 레슨 쪽(D)과 같은 짜임(2026-11-22): 왼쪽에 이 코스 길(레슨을 점 · 줄로, 끝낸 레슨은 page.js 가
+     앱 기록 cp_done_local 로 채운 점), 오른쪽 곁칸에 같은 레벨 코스 목록 · 더 하기. 전에는 레슨이 칩으로 놓이고 검정 큰 단추뿐이었다.
+     설명(blurb)의 **굵게** 가 글자 그대로 찍히던 것도 mdInline 으로 */
+  const sameLv = COURSES.filter((c) => LV_OF(c) === lv);
+  const ci = sameLv.findIndex((c) => c.id === course.id);
+  const from = Math.max(0, Math.min(ci - 3, sameLv.length - 7));
+  const mins = course.lessons.reduce((a, l) => a + (l.minutes || 0), 0);
+  const main = [
+    `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/course/">코스</a> › <a href="/course/#${lv}">${LV_KO[lv]}</a></nav>`,
+    `<span class="badge">${LV_KO[lv]} · ${LV_EN[lv]} · 코스 ${ci + 1} / ${sameLv.length}</span>`,
     `<h1>${esc(tx(course.title))}</h1>`,
-    `<p class="sub">${esc(tx(course.tagline))}</p>`,
-    `<p class="desc">${esc(tx(course.blurb))}</p>`,
-    `<h2>레슨 ${course.lessons.length}강 · Lessons</h2>`,
-    '<ul class="pts">' + course.lessons.map((l) =>
-      `<li><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title))}</a></li>`).join('') + '</ul>',
-    `<a class="cta" href="/#learn/courses">코스 열기<span>Open this course in the app</span></a>`,
-  ].join('\n');
+    tx(course.tagline) ? `<p class="sub">${esc(tx(course.tagline))}</p>` : '',
+    tx(course.blurb) ? `<p class="desc">${mdInline(tx(course.blurb))}</p>` : '',
+    `<h2 class="cx-h">이 코스 길 <small>레슨 ${course.lessons.length}강${mins ? ` · 약 ${mins}분` : ''}</small></h2>`,
+    '<ol class="lx-ol cx-ol">' + course.lessons.map((l, i) => `<li data-lid="${esc(l.id)}"><a href="/lesson/${esc(l.id)}.html">${esc(tx(l.title).replace(/^\d+강\.\s*/, ''))}</a><small>${i + 1}강${l.minutes ? ` · ${l.minutes}분` : ''}</small></li>`).join('') + '</ol>',
+    `<a class="tq-app" href="/lesson/${esc(course.lessons[0].id)}.html">1강부터 읽기 →</a> <a class="tq-app" href="/#learn/courses">앱에서 이 코스 열기 →</a>`,
+    (sameLv[ci - 1] || sameLv[ci + 1]) ? '<nav class="tq-nav">' +
+      (sameLv[ci - 1] ? `<a href="/course/${esc(sameLv[ci - 1].id)}.html"><b>← 앞 코스</b>${esc(tx(sameLv[ci - 1].title))}</a>` : '<span></span>') +
+      (sameLv[ci + 1] ? `<a href="/course/${esc(sameLv[ci + 1].id)}.html"><b>다음 코스 →</b>${esc(tx(sameLv[ci + 1].title))}</a>` : '') + '</nav>' : '',
+  ].filter(Boolean).join('\n');
+  const side = '<aside class="dx-side tq-side">' +
+    `<section class="tq-box"><h3>${LV_KO[lv]} 코스 <small>${sameLv.length}개 · 차례대로</small></h3><ol class="tq-list">` +
+      sameLv.slice(from, from + 7).map((c, k) => `<li${c.id === course.id ? ' class="on" aria-current="page"' : ''}><a href="/course/${esc(c.id)}.html"><span>${from + k + 1}</span>${esc(tx(c.title))}</a></li>`).join('') +
+      `</ol><a class="tq-all" href="/course/#${lv}">${LV_KO[lv]} 코스 전부 보기 →</a></section>` +
+    '<section class="tq-box"><h3>더 하기</h3><ul class="tq-go">' +
+      '<li><a href="/#learn/courses">앱에서 코스 이어 하기<span>→</span></a></li>' +
+      '<li><a href="/?lt=1">내 한국어 레벨 재기 · 3분<span>→</span></a></li>' +
+      '<li><a href="/compare/">헷갈리는 표현 견주기<span>→</span></a></li></ul></section></aside>';
+  const body = `<div class="dx-lay"><article class="dx">${main}</article>${side}</div>`;
 
   const jsonld = [
     {
@@ -823,7 +841,7 @@ function coursePage(course) {
       '@type': 'Course',
       '@id': `${SITE}/course/${course.id}.html`,
       name: tx(course.title),
-      description: tx(course.blurb),
+      description: tx(course.blurb).replace(/\*\*/g, ""),
       inLanguage: 'ko',
       educationalLevel: LV_EN[lv],
       teaches: tx(course.tagline),
@@ -840,7 +858,8 @@ function coursePage(course) {
     },
     crumbLd([['치즈감자', '/'], ['코스', '/course/'], [tx(course.title), null]]),
   ];
-  return page({ url: `/course/${course.id}.html`, title, desc, body, jsonld });
+  return page({ url: `/course/${course.id}.html`, title, desc, body, jsonld,
+    extraCss: TQ_CSS + LX_CSS + '.cx-h{margin:26px 0 12px;font-size:18px}.cx-h small{font-size:13px;color:var(--dim);font-weight:500;margin-left:6px}.cx-ol{margin-bottom:6px}.cx-ol li{padding:8px 0 12px}.cx-ol a{font-size:16px;color:var(--ink)}.tq-app+.tq-app{margin-left:6px}' });
 }
 
 /* ── 코스 목록 ─────────────────────────────────────────────── */
