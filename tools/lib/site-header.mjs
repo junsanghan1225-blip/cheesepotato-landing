@@ -80,12 +80,15 @@ export const SITE_HEADER_CSS =
   `.sh-menu summary{list-style:none;cursor:pointer;width:40px;height:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:1px solid ${LINE};border-radius:8px}` +
   `.sh-menu summary::-webkit-details-marker{display:none}.sh-menu summary i{display:block;width:16px;height:2px;background:${INK};border-radius:1px}` +
   `.sh-menu[open] summary{border-color:${INK}}` +
-  `.sh-pan{position:absolute;left:40px;right:40px;top:58px;display:grid;grid-template-columns:repeat(5,1fr);gap:0 22px;padding:18px 22px 20px;background:${BG};border:1px solid ${INK};border-radius:8px;max-height:calc(100vh - 80px);overflow:auto;box-sizing:border-box}` +
+  /* 열린 메뉴 뒤 쪽을 흐리게 덮는다 — 뒤의 상자(할인 알림 등) 테두리가 메뉴 밑으로 비쳐 상자가 겹쳐 보였다(운영자 2026-11-22).
+     덮개는 summary 의 ::before 라 누르면 메뉴가 닫힌다(스크립트 없이 바깥 누르기 = 닫기) */
+  `.sh-menu[open]>summary::before{content:'';position:fixed;left:0;right:0;top:64px;bottom:0;background:rgba(27,21,18,.28);cursor:default}` +
+  `.sh-pan{z-index:1;position:absolute;left:40px;right:40px;top:58px;display:grid;grid-template-columns:repeat(5,1fr);gap:0 22px;padding:18px 22px 20px;background:${BG};border:1px solid ${INK};border-radius:8px;max-height:calc(100vh - 80px);overflow:auto;box-sizing:border-box}` +
   `.sh-col{display:flex;flex-direction:column;min-width:0}` +
   `.sh-pan a{padding:6px 0;color:${INK2};font-size:14.5px;font-weight:500;line-height:1.35}.sh-pan a:hover{color:${INK};text-decoration:underline;text-underline-offset:3px}` +
   `.sh-pan .sh-h{color:${INK};font-size:15.5px;font-weight:700;padding:0 0 8px;margin-bottom:4px;border-bottom:1px solid ${LINE}}.sh-pan a[aria-current]{text-decoration:underline;text-underline-offset:4px}` +
   `@media(max-width:900px){.sh-pan{left:20px;right:20px;grid-template-columns:repeat(3,1fr);gap:18px 18px}}` +
-  `@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-nav{display:none}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}` +
+  `@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-menu[open]>summary::before{top:56px}.sh-nav{display:none}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}` +
   `.sh-pan{left:12px;right:12px;top:52px;grid-template-columns:1fr 1fr;padding:16px 16px 18px;max-height:calc(100vh - 66px)}.sh-pan a{padding:7px 0}}` +
   `@media print{.sh{display:none}}`;
 
