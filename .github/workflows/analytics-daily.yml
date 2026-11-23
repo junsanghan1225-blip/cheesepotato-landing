@@ -21,6 +21,9 @@ on:
         description: '검색 유입 진단만 돌리기(tools/seo-diagnose.mjs — 결과는 이 실행의 요약 · 로그, 일간 수집은 안 함)'
         type: boolean
         default: false
+      drop_sitemap:
+        description: '(진단과 함께) Search Console 에서 지울 사이트맵 주소 하나 — 비우면 안 지움'
+        default: ''
 
 permissions:
   contents: write
@@ -47,7 +50,8 @@ jobs:
             echo "skip=1" >> $GITHUB_OUTPUT; exit 0
           fi
           if [ '${{ inputs.diag }}' = 'true' ]; then
-            node tools/seo-diagnose.mjs > "$RUNNER_TEMP/diag.md" || true
+            DS='${{ inputs.drop_sitemap }}'
+            if [ -n "$DS" ]; then node tools/seo-diagnose.mjs --drop-sitemap "$DS" > "$RUNNER_TEMP/diag.md" || true; else node tools/seo-diagnose.mjs > "$RUNNER_TEMP/diag.md" || true; fi
             cat "$RUNNER_TEMP/diag.md"; cat "$RUNNER_TEMP/diag.md" >> $GITHUB_STEP_SUMMARY
             echo "skip=1" >> $GITHUB_OUTPUT; exit 0
           fi

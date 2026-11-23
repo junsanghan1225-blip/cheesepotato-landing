@@ -15,6 +15,9 @@ const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5) + 1;
 const DA = days(A0, A1), DB = days(B0, B1);
 const SITE = process.env.SC_SITE;
 const ORIGIN = 'https://everykoreans.com';
+/* --drop-sitemap <주소> : Search Console 에 사이트맵으로 잘못 등록된 것 하나를 지운다(운영자 2026-11-23 「너가 다 해」).
+   쓰기 권한(webmasters)이 필요하다 — 서비스 계정이 Search Console 에서 「전체」 사용자가 아니면 거절되고, 그 이유를 찍는다. */
+const DROP = arg('--drop-sitemap', '');
 
 async function token() {
   const key = JSON.parse(process.env.GOOGLE_SA_KEY || '{}');
@@ -23,7 +26,7 @@ async function token() {
   const now = Math.floor(Date.now() / 1000);
   const unsigned = b64({ alg: 'RS256', typ: 'JWT' }) + '.' + b64({
     iss: key.client_email, aud: 'https://oauth2.googleapis.com/token', iat: now, exp: now + 3000,
-    scope: 'https://www.googleapis.com/auth/analytics.readonly https://www.googleapis.com/auth/webmasters.readonly',
+    scope: 'https://www.googleapis.com/auth/analytics.readonly ' + (DROP ? 'https://www.googleapis.com/auth/webmasters' : 'https://www.googleapis.com/auth/webmasters.readonly'),
   });
   const sig = crypto.createSign('RSA-SHA256').update(unsigned).sign(key.private_key, 'base64url');
   const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -66,6 +69,11 @@ const table = (rows, label) => {
 
 async function main() {
   TOK = await token();
+  if (DROP) {
+    const r = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(DROP)}`, { method: 'DELETE', headers: { authorization: 'Bearer ' + TOK } });
+    P(r.ok ? `사이트맵 지움: ${DROP}` : `사이트맵 못 지움(${r.status}): ${(await r.text()).slice(0, 300)}`);
+    return;
+  }
   P(`# 검색 유입 진단 — A ${A0}~${A1}(${DA}일) vs B ${B0}~${B1}(${DB}일)`); P();
   P('> 숫자는 하루 평균. Search Console · GA4 API 에서 바로 받은 값.'); P();
 
