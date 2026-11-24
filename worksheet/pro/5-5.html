@@ -33,6 +33,8 @@
 .ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}
 .ws-side{position:sticky;top:84px}.ws-box{margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;font-size:14.5px}
@@ -51,7 +53,7 @@
 .ws-tb b{font-size:15.5px}.ws-tb span{grid-column:1;font-size:13px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ws-tb em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-size:12px;font-weight:700;color:var(--ink-3);padding:1px 6px;border:1px solid var(--line);border-radius:5px}.ws-tb em.f{color:var(--ink);border-color:var(--ink)}
 @media(max-width:900px){.ws-lay{display:block}.ws-side{position:static;margin-top:24px}.ws-tb{grid-template-columns:1fr}}
 @media(max-width:600px){.ws-p{padding:16px}.ws-t{table-layout:fixed;width:100%;min-width:0}.ws-t td:first-child{width:36%;overflow-wrap:anywhere}.ws-t td:nth-child(2){width:9%}.ws-line{min-width:0}.ws-top{flex-direction:column;gap:4px}.ws-p h1{font-size:24px;overflow-wrap:anywhere}}
-@media print{@page{margin:12mm}.ws-p h2{margin:12px 0 6px;padding-top:8px;break-after:avoid}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li{break-inside:avoid}.ws-q li{margin:0 0 9px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:24px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+@media print{@page{margin:12mm}.ws-p h2{font-size:13.5px;margin:9px 0 4px;padding-top:6px;break-after:avoid}.ws-q small{font-size:11px}.ws-t td{padding:3px 8px;font-size:14px}.ws-top{padding-bottom:5px}.ws-kicker{margin-top:8px}.ws-dlg{padding:6px 10px}.ws-w td{padding:3px 8px 3px 0}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li,.ws-w tr{break-inside:avoid}.ws-w{font-size:12.5px}.ws-q li{margin:0 0 6px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:22px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
 </head>
 <body>
 <style>.sh{position:sticky;top:0;z-index:30;background:var(--bg,#F2EEE4);border-bottom:1px solid var(--line,rgba(27,21,18,.11));font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}.sh-in{box-sizing:border-box;max-width:1200px;height:64px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:6px}.sh a{text-decoration:none}.sh-brand{display:flex;align-items:center;gap:9px;margin-right:auto;color:var(--ink,#1B1512);font-size:16px;font-weight:800;letter-spacing:-.02em}.sh-brand img{width:28px;height:28px;border-radius:7px}.sh-nav{display:flex;gap:2px}.sh-nav a{display:block;padding:8px 12px;border-radius:5px;color:var(--ink-2,var(--ink2,#4E3E31));font-size:15px;font-weight:600;line-height:1.2}.sh-nav a:hover{color:var(--ink,#1B1512);background:var(--line,rgba(27,21,18,.11))}.sh-nav a[aria-current]{color:var(--ink,#1B1512);box-shadow:inset 0 -2px 0 var(--ink,#1B1512);border-radius:0}.sh-go{margin-left:10px;padding:9px 14px;border-radius:8px;background:var(--ink,#1B1512);color:var(--bg,#F2EEE4);font-size:14.5px;font-weight:700;line-height:1.2;white-space:nowrap}.sh-in{position:relative}.sh-menu{margin-left:8px}.sh-menu summary{list-style:none;cursor:pointer;width:40px;height:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:1px solid var(--line,rgba(27,21,18,.11));border-radius:8px}.sh-menu summary::-webkit-details-marker{display:none}.sh-menu summary i{display:block;width:16px;height:2px;background:var(--ink,#1B1512);border-radius:1px}.sh-menu[open] summary{border-color:var(--ink,#1B1512)}.sh-menu[open]>summary::before{content:'';position:fixed;left:0;right:0;top:64px;bottom:0;background:rgba(27,21,18,.28);cursor:default}.sh-pan{z-index:1;position:absolute;left:40px;right:40px;top:58px;display:grid;grid-template-columns:repeat(5,1fr);gap:0 22px;padding:18px 22px 20px;background:var(--bg,#F2EEE4);border:1px solid var(--ink,#1B1512);border-radius:8px;max-height:calc(100vh - 80px);overflow:auto;box-sizing:border-box}.sh-col{display:flex;flex-direction:column;min-width:0}.sh-pan a{padding:6px 0;color:var(--ink-2,var(--ink2,#4E3E31));font-size:14.5px;font-weight:500;line-height:1.35}.sh-pan a:hover{color:var(--ink,#1B1512);text-decoration:underline;text-underline-offset:3px}.sh-pan .sh-h{color:var(--ink,#1B1512);font-size:15.5px;font-weight:700;padding:0 0 8px;margin-bottom:4px;border-bottom:1px solid var(--line,rgba(27,21,18,.11))}.sh-pan a[aria-current]{text-decoration:underline;text-underline-offset:4px}@media(max-width:900px){.sh-pan{left:20px;right:20px;grid-template-columns:repeat(3,1fr);gap:18px 18px}}@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-menu[open]>summary::before{top:56px}.sh-nav{display:none}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}.sh-pan{left:12px;right:12px;top:52px;grid-template-columns:1fr 1fr;padding:16px 16px 18px;max-height:calc(100vh - 66px)}.sh-pan a{padding:7px 0}}@media print{.sh{display:none}}</style>
@@ -71,6 +73,8 @@
   <h2>예문 · Examples</h2>
   <ul class="ws-ex"><li>그렇다고 쳐도 설명은 해야지요.</li></ul>
   <div class="ws-dlg"><p>A: 걔가 진짜 몰랐을까?</p><p>B: 몰랐다고 쳐도 미리 물어봤어야지.</p></div>
+  <h2>TOPIK 에서는 · In TOPIK-style sentences</h2><p class="ws-tpk">그 제안을 받아들인<mark>다고 치</mark>더라도 예산이 너무 많이 듭니다.</p><p class="ws-en" lang="en">Even supposing that we accept that proposal, it costs too much budget.</p>
+  
 </section>
 <section class="ws-p">
   <div class="ws-top"><span>-(느)ㄴ다고 치다 — 연습 Practice</span><span>이름 Name: ____________</span></div>
@@ -79,19 +83,23 @@
   <h2>② 빈칸에 알맞은 말을 써요 · Fill in the blank (-(느)ㄴ다고 치다)</h2>
   <ol class="ws-q"><li>다 안<span class="ws-blank"></span>고 넘어갑시다.<small lang="en">Let's assume you know everything and move on.</small></li><li>이번에는 진<span class="ws-blank"></span>자.<small lang="en">Let's assume we lose this time.</small></li><li>그가 온<span class="ws-blank"></span>더라도 문제없어요.<small lang="en">Even supposing he comes, there is no problem.</small></li></ol>
   
-  <h2>③ 한국어로 써요 · Write it in Korean (use -(느)ㄴ다고 치다)</h2>
+  <h2>③ 순서대로 써요 · Put the words in order</h2>
+  <ol class="ws-q"><li><span class="ws-chips"><span>실내로</span> / <span>치고</span> / <span>온다고</span> / <span>비가</span> / <span>갑시다</span></span><small lang="en">Supposing it rains, let's go indoors.</small><div class="ws-wl"></div></li></ol>
+  <h2>④ 한국어로 써요 · Write it in Korean (use -(느)ㄴ다고 치다)</h2>
   <ol class="ws-q"><li lang="en">Supposing we buy a house, money is insufficient.<div class="ws-wl"></div></li><li lang="en">Let's suppose we win this time.<div class="ws-wl"></div></li></ol>
-  <h2>④ 내 문장 · My own sentences</h2>
+  <h2>⑤ 내 문장 · My own sentences</h2>
   <div class="ws-wl"></div><div class="ws-wl"></div>
-  
 </section>
 <section class="ws-p ws-key">
   <div class="ws-top"><span>-(느)ㄴ다고 치다 — 정답 Answer key</span><span>선생님 · 스스로 확인 Check yourself</span></div>
   <h2>① 바꿔 써요 · Change the word</h2><p>성공하다 → <b>성공한다고 치다</b> · 지다 → <b>진다고 치다</b> · 속다 → <b>속는다고 치다</b> · 믿다 → <b>믿는다고 치다</b></p>
   <h2>② 빈칸 · Fill in the blank</h2><ol class="ws-q"><li>다 안<mark>다고 치</mark>고 넘어갑시다.</li><li>이번에는 진<mark>다고 치</mark>자.</li><li>그가 온<mark>다고 치</mark>더라도 문제없어요.</li></ol>
   
-  <h2>③ 예시 답 · Model answers</h2><ol class="ws-q"><li>집을 산<mark>다고 치</mark>면 돈이 모자라요.</li><li>이번에는 우리가 이긴<mark>다고 치</mark>자.</li></ol>
-  <h2>④ 내 문장 · My own sentences</h2><p>자유 답이에요. 문법 모양과 뜻이 맞으면 좋아요. · Free answers — check the form and the meaning.</p>
+  <h2>③ 순서대로 써요 · Put in order</h2><ol class="ws-q"><li>비가 온<mark>다고 치</mark>고 실내로 갑시다.</li></ol>
+  <h2>④ 예시 답 · Model answers</h2><ol class="ws-q"><li>집을 산<mark>다고 치</mark>면 돈이 모자라요.</li><li>이번에는 우리가 이긴<mark>다고 치</mark>자.</li></ol>
+  <h2>⑤ 내 문장 · My own sentences</h2><p>자유 답이에요. 문법 모양과 뜻이 맞으면 좋아요. · Free answers — check the form and the meaning.</p>
+  <h2>같이 알면 좋은 단어 · Useful words</h2><table class="ws-w"><tbody><tr><td><b>바쁘다</b></td><td lang="en">be busy</td><td>바빴다고 쳐도 연락은 해 줬어야지요.</td></tr><tr><td><b>실수하다</b></td><td lang="en">make a mistake</td><td>실수했다고 쳐도 이번엔 너무 심해요.</td></tr><tr><td><b>비싸다</b></td><td lang="en">be expensive</td><td>비싸다고 쳐도 품질이 좋으면 사요.</td></tr><tr><td><b>합격하다</b></td><td lang="en">pass an exam</td><td>합격한다고 쳐도 아직 면접이 남았어요.</td></tr></tbody></table>
+  <h2>스스로 점검 · Can I do it?</h2><ul class="ws-can"><li>□ -(느)ㄴ다고 치다 의 뜻을 내 말로 설명할 수 있어요 · I can explain what it means</li><li>□ 낱말에 바르게 붙여 쓸 수 있어요 · I can attach it to words correctly</li><li>□ 이 문법으로 내 이야기를 두 문장 말할 수 있어요 · I can say two sentences about myself with it</li></ul>
   <p class="ws-foot">모든 문제는 치즈감자가 만든 창작 문항이에요(기출 아님). Original practice written for CheesePotato — not past exam questions.</p>
 </section>
 </div>

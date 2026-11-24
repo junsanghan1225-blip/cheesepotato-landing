@@ -33,6 +33,8 @@
 .ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}
 .ws-side{position:sticky;top:84px}.ws-box{margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;font-size:14.5px}
@@ -51,7 +53,7 @@
 .ws-tb b{font-size:15.5px}.ws-tb span{grid-column:1;font-size:13px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ws-tb em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-size:12px;font-weight:700;color:var(--ink-3);padding:1px 6px;border:1px solid var(--line);border-radius:5px}.ws-tb em.f{color:var(--ink);border-color:var(--ink)}
 @media(max-width:900px){.ws-lay{display:block}.ws-side{position:static;margin-top:24px}.ws-tb{grid-template-columns:1fr}}
 @media(max-width:600px){.ws-p{padding:16px}.ws-t{table-layout:fixed;width:100%;min-width:0}.ws-t td:first-child{width:36%;overflow-wrap:anywhere}.ws-t td:nth-child(2){width:9%}.ws-line{min-width:0}.ws-top{flex-direction:column;gap:4px}.ws-p h1{font-size:24px;overflow-wrap:anywhere}}
-@media print{@page{margin:12mm}.ws-p h2{margin:12px 0 6px;padding-top:8px;break-after:avoid}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li{break-inside:avoid}.ws-q li{margin:0 0 9px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:24px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+@media print{@page{margin:12mm}.ws-p h2{font-size:13.5px;margin:9px 0 4px;padding-top:6px;break-after:avoid}.ws-q small{font-size:11px}.ws-t td{padding:3px 8px;font-size:14px}.ws-top{padding-bottom:5px}.ws-kicker{margin-top:8px}.ws-dlg{padding:6px 10px}.ws-w td{padding:3px 8px 3px 0}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li,.ws-w tr{break-inside:avoid}.ws-w{font-size:12.5px}.ws-q li{margin:0 0 6px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:22px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
 </head>
 <body>
 <style>.sh{position:sticky;top:0;z-index:30;background:var(--bg,#F2EEE4);border-bottom:1px solid var(--line,rgba(27,21,18,.11));font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}.sh-in{box-sizing:border-box;max-width:1200px;height:64px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:6px}.sh a{text-decoration:none}.sh-brand{display:flex;align-items:center;gap:9px;margin-right:auto;color:var(--ink,#1B1512);font-size:16px;font-weight:800;letter-spacing:-.02em}.sh-brand img{width:28px;height:28px;border-radius:7px}.sh-nav{display:flex;gap:2px}.sh-nav a{display:block;padding:8px 12px;border-radius:5px;color:var(--ink-2,var(--ink2,#4E3E31));font-size:15px;font-weight:600;line-height:1.2}.sh-nav a:hover{color:var(--ink,#1B1512);background:var(--line,rgba(27,21,18,.11))}.sh-nav a[aria-current]{color:var(--ink,#1B1512);box-shadow:inset 0 -2px 0 var(--ink,#1B1512);border-radius:0}.sh-go{margin-left:10px;padding:9px 14px;border-radius:8px;background:var(--ink,#1B1512);color:var(--bg,#F2EEE4);font-size:14.5px;font-weight:700;line-height:1.2;white-space:nowrap}.sh-in{position:relative}.sh-menu{margin-left:8px}.sh-menu summary{list-style:none;cursor:pointer;width:40px;height:40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:1px solid var(--line,rgba(27,21,18,.11));border-radius:8px}.sh-menu summary::-webkit-details-marker{display:none}.sh-menu summary i{display:block;width:16px;height:2px;background:var(--ink,#1B1512);border-radius:1px}.sh-menu[open] summary{border-color:var(--ink,#1B1512)}.sh-menu[open]>summary::before{content:'';position:fixed;left:0;right:0;top:64px;bottom:0;background:rgba(27,21,18,.28);cursor:default}.sh-pan{z-index:1;position:absolute;left:40px;right:40px;top:58px;display:grid;grid-template-columns:repeat(5,1fr);gap:0 22px;padding:18px 22px 20px;background:var(--bg,#F2EEE4);border:1px solid var(--ink,#1B1512);border-radius:8px;max-height:calc(100vh - 80px);overflow:auto;box-sizing:border-box}.sh-col{display:flex;flex-direction:column;min-width:0}.sh-pan a{padding:6px 0;color:var(--ink-2,var(--ink2,#4E3E31));font-size:14.5px;font-weight:500;line-height:1.35}.sh-pan a:hover{color:var(--ink,#1B1512);text-decoration:underline;text-underline-offset:3px}.sh-pan .sh-h{color:var(--ink,#1B1512);font-size:15.5px;font-weight:700;padding:0 0 8px;margin-bottom:4px;border-bottom:1px solid var(--line,rgba(27,21,18,.11))}.sh-pan a[aria-current]{text-decoration:underline;text-underline-offset:4px}@media(max-width:900px){.sh-pan{left:20px;right:20px;grid-template-columns:repeat(3,1fr);gap:18px 18px}}@media(max-width:600px){.sh-in{height:56px;padding:0 20px}.sh-menu[open]>summary::before{top:56px}.sh-nav{display:none}.sh-go{padding:8px 12px;font-size:14px;margin-left:0}.sh-pan{left:12px;right:12px;top:52px;grid-template-columns:1fr 1fr;padding:16px 16px 18px;max-height:calc(100vh - 66px)}.sh-pan a{padding:7px 0}}@media print{.sh{display:none}}</style>
@@ -71,6 +73,8 @@
   <h2>예문 · Examples</h2>
   <ul class="ws-ex"><li>미리 연락했<mark>어야 했는데</mark> 깜빡했어요.</li><li>좀 더 일찍 준비했<mark>어야 했는데</mark>요.</li></ul>
   <div class="ws-dlg"><p>A: 기차표가 벌써 매진되었네요.</p><p>B: 미리 서둘러서 예매했<mark>어야 했는데</mark> 후회되네요.</p></div>
+  <h2>TOPIK 에서는 · In TOPIK-style sentences</h2><p class="ws-tpk">중요한 비즈니스 미팅인데 차가 막혀 늦다니 더 일찍 출발했<mark>어야 했는데</mark> 죄송합니다.</p><p class="ws-en" lang="en">To be late for an important business meeting because of traffic, I should have left earlier, I am sorry.</p>
+  <h2>헷갈리는 문법 · Often confused</h2><p><b>-(으)ㄹ걸 그랬다 vs -았/었어야 했는데</b> — 둘 다 과거 일에 대한 후회이지만, 「-(으)ㄹ걸 그랬다」는 개인적인 아쉬운 혼잣말에 가깝고 「-았/었어야 했는데」는 마땅히 지켰어야 할 의무를 놓친 자책이에요.</p><p class="ws-en" lang="en">Both convey regret about past choices; -(으)ㄹ걸 그랬다 is a gentle personal wistful sigh, whereas -았/었어야 했는데 expresses sharper regret over missed duty/necessity.</p>
 </section>
 <section class="ws-p">
   <div class="ws-top"><span>-았/었어야 했는데 — 연습 Practice</span><span>이름 Name: ____________</span></div>
@@ -79,19 +83,23 @@
   <h2>② 빈칸에 알맞은 말을 써요 · Fill in the blank (-았/었어야 했는데)</h2>
   <ol class="ws-q"><li>조심했<span class="ws-blank"></span> 죄송해요.<small lang="en">I should have been careful, sorry.</small></li><li>말했<span class="ws-blank"></span> 미안합니다.<small lang="en">I should have told you, sorry.</small></li><li>확인했<span class="ws-blank"></span> 놓쳤어요.<small lang="en">I should have checked, but missed it.</small></li></ol>
   
-  <h2>③ 한국어로 써요 · Write it in Korean (use -았/었어야 했는데)</h2>
+  <h2>③ 순서대로 써요 · Put the words in order</h2>
+  <ol class="ws-q"><li><span class="ws-chips"><span>깜빡</span> / <span>했는데</span> / <span>챙겼어야</span> / <span>우산을</span> / <span>잊었습니다</span></span><small lang="en">I should have taken an umbrella, but forgot.</small><div class="ws-wl"></div></li></ol>
+  <h2>④ 한국어로 써요 · Write it in Korean (use -았/었어야 했는데)</h2>
   <ol class="ws-q"><li lang="en">I should have helped, but couldn't go.<div class="ws-wl"></div></li><li lang="en">I should have woken early, but overslept.<div class="ws-wl"></div></li></ol>
-  <h2>④ 내 문장 · My own sentences</h2>
+  <h2>⑤ 내 문장 · My own sentences</h2>
   <div class="ws-wl"></div><div class="ws-wl"></div>
-  <p class="ws-pair" lang="en"><b>Often confused:</b> -(으)ㄹ걸 그랬다 vs -았/었어야 했는데 — Both convey regret about past choices; -(으)ㄹ걸 그랬다 is a gentle personal wistful sigh, whereas -았/었어야 했는데 expresses sharper regret over missed duty/necessity.</p>
 </section>
 <section class="ws-p ws-key">
   <div class="ws-top"><span>-았/었어야 했는데 — 정답 Answer key</span><span>선생님 · 스스로 확인 Check yourself</span></div>
   <h2>① 바꿔 써요 · Change the word</h2><p>마시다 → <b>마셨어야 했는데</b> · 찾다 → <b>찾았어야 했는데</b> · 돕다 → <b>도왔어야 했는데</b> · 읽다 → <b>읽었어야 했는데</b></p>
   <h2>② 빈칸 · Fill in the blank</h2><ol class="ws-q"><li>조심했<mark>어야 했는데</mark> 죄송해요.</li><li>말했<mark>어야 했는데</mark> 미안합니다.</li><li>확인했<mark>어야 했는데</mark> 놓쳤어요.</li></ol>
   
-  <h2>③ 예시 답 · Model answers</h2><ol class="ws-q"><li>도왔<mark>어야 했는데</mark> 못 갔습니다.</li><li>일찍 일어났<mark>어야 했는데</mark> 늦잠을 잤어요.</li></ol>
-  <h2>④ 내 문장 · My own sentences</h2><p>자유 답이에요. 문법 모양과 뜻이 맞으면 좋아요. · Free answers — check the form and the meaning.</p>
+  <h2>③ 순서대로 써요 · Put in order</h2><ol class="ws-q"><li>우산을 챙겼<mark>어야 했는데</mark> 깜빡 잊었습니다.</li></ol>
+  <h2>④ 예시 답 · Model answers</h2><ol class="ws-q"><li>도왔<mark>어야 했는데</mark> 못 갔습니다.</li><li>일찍 일어났<mark>어야 했는데</mark> 늦잠을 잤어요.</li></ol>
+  <h2>⑤ 내 문장 · My own sentences</h2><p>자유 답이에요. 문법 모양과 뜻이 맞으면 좋아요. · Free answers — check the form and the meaning.</p>
+  <h2>같이 알면 좋은 단어 · Useful words</h2><table class="ws-w"><tbody><tr><td><b>미리 연락하다</b></td><td lang="en">contact in advance</td><td>약속에 늦을 때 미리 연락했<mark>어야 했는데</mark> 깜빡했어요.</td></tr><tr><td><b>준비하다</b></td><td lang="en">prepare</td><td>시험을 미리 준비했<mark>어야 했는데</mark> 후회돼요.</td></tr><tr><td><b>사과하다</b></td><td lang="en">apologize</td><td>친구의 마음이 상하기 전에 사과했<mark>어야 했는데</mark> 미안해요.</td></tr><tr><td><b>병원에 가다</b></td><td lang="en">go to the hospital</td><td>감기가 심해지기 전에 병원에 갔<mark>어야 했는데</mark> 늦었네요.</td></tr></tbody></table>
+  <h2>스스로 점검 · Can I do it?</h2><ul class="ws-can"><li>□ -았/었어야 했는데 의 뜻을 내 말로 설명할 수 있어요 · I can explain what it means</li><li>□ 낱말에 바르게 붙여 쓸 수 있어요 · I can attach it to words correctly</li><li>□ 이 문법으로 내 이야기를 두 문장 말할 수 있어요 · I can say two sentences about myself with it</li></ul>
   <p class="ws-foot">모든 문제는 치즈감자가 만든 창작 문항이에요(기출 아님). Original practice written for CheesePotato — not past exam questions.</p>
 </section>
 </div>

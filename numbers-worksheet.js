@@ -66,20 +66,20 @@
   const wline = (n = 1) => {
     const nb = ['top', 'left', 'right', 'insideV'].map((x) => `<w:${x} w:val="nil"/>`).join('') + '<w:bottom w:val="single" w:sz="6" w:color="999999"/><w:insideH w:val="single" w:sz="6" w:color="999999"/>';
     return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${nb}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid><w:gridCol w:w="10200"/></w:tblGrid>` +
-      `<w:tr><w:trPr><w:trHeight w:val="560"/></w:trPr><w:tc><w:tcPr><w:tcW w:w="10200" w:type="dxa"/></w:tcPr>${para('', { after: 0 })}</w:tc></w:tr>`.repeat(n) + '</w:tbl>' + para('', { after: 40 });
+      `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr><w:tc><w:tcPr><w:tcW w:w="10200" w:type="dxa"/></w:tcPr>${para('', { after: 0 })}</w:tc></w:tr>`.repeat(n) + '</w:tbl>' + para('', { after: 0, sz: 8 });
   };
   /* 문법 학습지 「바꿔 써요」 표(.ws-t) — 머리줄이 없는 표라 첫 줄을 칠하지 않고, 낱말 · → · 쓰는 칸(밑줄)으로 */
   const wsTbl = (t) => {
     const cols = [3400, 700, 6100], nb = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="nil"/>`).join('');
     return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${nb}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${cols.map((w) => `<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>` +
-      [...t.rows].map((r) => `<w:tr><w:trPr><w:trHeight w:val="560"/></w:trPr>${[...r.cells].map((c, i) => `<w:tc><w:tcPr><w:tcW w:w="${cols[i] || 3400}" w:type="dxa"/>${i === 2 ? '<w:tcBorders><w:bottom w:val="single" w:sz="6" w:color="999999"/></w:tcBorders>' : ''}<w:vAlign w:val="bottom"/></w:tcPr>${para(i === 2 ? '' : txt(c), { sz: 22, after: 40 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
+      [...t.rows].map((r) => `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr>${[...r.cells].map((c, i) => `<w:tc><w:tcPr><w:tcW w:w="${cols[i] || 3400}" w:type="dxa"/>${i === 2 ? '<w:tcBorders><w:bottom w:val="single" w:sz="6" w:color="999999"/></w:tcBorders>' : ''}<w:vAlign w:val="bottom"/></w:tcPr>${para(i === 2 ? '' : txt(c), { sz: 22, after: 40 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
   };
   const tbl = (t) => {
     if (t.classList.contains('ws-t')) return wsTbl(t);
     const rows = [...t.rows]; const n = Math.max(...rows.map((r) => r.cells.length)), w = Math.floor(10200 / n);
     const bd = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="single" w:sz="4" w:color="999999"/>`).join('');
     return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${bd}</w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="80" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${'<w:gridCol w:w="' + w + '"/>'.repeat(n)}</w:tblGrid>` +
-      rows.map((r, ri) => `<w:tr>${[...r.cells].map((c) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${ri === 0 ? '<w:shd w:val="clear" w:color="auto" w:fill="EFE7DA"/>' : ''}</w:tcPr>${para(txt(c), { sz: 18, b: ri === 0 || c.classList.contains('k'), after: 20 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
+      rows.map((r, ri) => `<w:tr>${[...r.cells].map((c) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${ri === 0 && !t.classList.contains('ws-w') ? '<w:shd w:val="clear" w:color="auto" w:fill="EFE7DA"/>' : ''}</w:tcPr>${para(txt(c), { sz: 18, b: (ri === 0 && !t.classList.contains('ws-w')) || c.classList.contains('k'), after: 20 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
   };
   function body1(paper, brk) {
     let out = '', first = true;

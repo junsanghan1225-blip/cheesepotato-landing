@@ -14,6 +14,8 @@ import { GRAMMAR_PRACTICE } from '../grammar-usage.js';
 import { GRAMMAR_DRILL } from '../grammar-drill.js';
 import { GRAMMAR_PAIRS } from '../grammar-pairs.js';
 import { grammarMarkRe } from '../grammar-mark.js';
+import { GRAMMAR_WORDS } from '../grammar-words.js';   // 같이 알면 좋은 단어(낱말 · 예문 · 뜻)
+import { GRAMMAR_TOPIK } from '../grammar-topik.js';   // TOPIK 에서는 이렇게(TOPIK 스타일 예문 — 문제 아님, 기출 아님)
 import { hubBooks, HUB_BOOKS_CSS } from './lib/hub-books.mjs';   // 목록 쪽 → 책 한 줄(문법과 가까운 판매 중 책: 조사 · 첫걸음)
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -53,12 +55,20 @@ function sheet(p) {
   }
   // 빈칸이 세 개가 안 되는 문법(조사 · 어미 꼴이 복잡한 것)은 따라 쓰기로 채운다 — 빈 연습을 내지 않고, 초급에는 소리 내어 따라 쓰는 연습도 맞다
   const copyList = copies.slice(0, Math.max(0, 3 - blanks.length));
+  /* 순서대로 써요(2026-11-24 운영자 「학습에 도움되는 요소들 넣고 채워서」) — 아직 안 쓴 연습 문장 둘을 띄어쓰기 덩어리로 섞는다.
+     섞는 차례는 고정(빌드마다 같다) — 뒤집고 한 칸 돌려서, 원래 차례와 같아지면 뺀다. 3~7 덩어리인 문장만 */
+  const used = new Set([...blanks.map((b) => b.sp.join('')), ...writes.map((w) => w.ko), ...copyList.map((c) => c.ko)]);
+  const scr = pr.map(([ko, enS]) => ({ ko, en: enS, t: ko.replace(/[.?!]$/, '').split(/\s+/) })).filter((x) => !used.has(x.ko) && x.t.length >= 3 && x.t.length <= 7)
+    .map((x) => { const r = [...x.t].reverse(); const m = [...r.slice(1), r[0]]; return { ...x, mix: m, end: (x.ko.match(/[.?!]$/) || ['.'])[0] }; })
+    .filter((x) => x.mix.join(' ') !== x.t.join(' ')).slice(0, Math.max(0, Math.min(2, 6 - blanks.length - copyList.length - writes.length)));   // 2쪽이 한 장을 넘지 않게 — 연습 문항 합 6개까지
+  const words = (GRAMMAR_WORDS[p.id] || []).slice(0, 4);
+  const tpk = (GRAMMAR_TOPIK[p.id] || [])[0];
   const rows = (dr?.x || []).slice(0, 4);
   const pair = GRAMMAR_PAIRS.find((x) => x.a === p.id || x.b === p.id);
   const collo = more[1] && !/^\s*$/.test(more[1]) ? more[1] : '';
   const CIRC = ['①', '②', '③', '④', '⑤', '⑥'];
-  const secs = [rows.length && 'drill', blanks.length && 'blank', copyList.length && 'copy', writes.length && 'write', 'own'].filter(Boolean);
-  const SN = { drill: '바꿔 써요 · Change the word', blank: '빈칸 · Fill in the blank', copy: '따라 쓰기 · Copy', write: '한국어로 써요 · Write it in Korean', own: '내 문장 · My own sentences' };   // 정답지 소제목(2026-11-24 — 전에는 번호만 있었다)
+  const secs = [rows.length && 'drill', blanks.length && 'blank', copyList.length && 'copy', scr.length && 'order', writes.length && 'write', 'own'].filter(Boolean);
+  const SN = { drill: '바꿔 써요 · Change the word', blank: '빈칸 · Fill in the blank', copy: '따라 쓰기 · Copy', write: '한국어로 써요 · Write it in Korean', order: '순서대로 써요 · Put in order', own: '내 문장 · My own sentences' };   // 정답지 소제목(2026-11-24 — 전에는 번호만 있었다)
   const N = (k) => CIRC[secs.indexOf(k)];
   const sheet1 = `<section class="ws-p">
   <div class="ws-top"><span>이름 Name: ______________________</span><span>날짜 Date: ____________</span></div>
@@ -74,6 +84,8 @@ function sheet(p) {
   <h2>예문 · Examples</h2>
   <ul class="ws-ex"><li>${hi(p, p.ex)}</li>${more[3] ? `<li>${hi(p, more[3])}</li>` : ''}</ul>
   ${p.dlg?.length ? `<div class="ws-dlg">${p.dlg.map((l) => `<p>${hi(p, l)}</p>`).join('')}</div>` : ''}
+  ${tpk ? `<h2>TOPIK 에서는 · In TOPIK-style sentences</h2><p class="ws-tpk">${hi(p, tpk[0])}</p>${tpk[1] ? `<p class="ws-en" lang="en">${esc(tpk[1])}</p>` : ''}` : ''}
+  ${pair ? `<h2>헷갈리는 문법 · Often confused</h2><p><b>${esc(pair.title.ko)}</b> — ${esc(pair.gist.ko)}</p><p class="ws-en" lang="en">${esc(pair.gist.en)}</p>` : ''}
 </section>`;
   const sheet2 = `<section class="ws-p">
   <div class="ws-top"><span>${esc(p.name)} — 연습 Practice</span><span>이름 Name: ____________</span></div>
@@ -83,22 +95,26 @@ function sheet(p) {
   <ol class="ws-q">${blanks.map((b) => `<li>${esc(b.sp[0])}<span class="ws-blank"></span>${esc(b.sp[2])}<small lang="en">${esc(b.en)}</small></li>`).join('')}</ol>` : ''}
   ${copyList.length ? `<h2>${N('copy')} 소리 내어 읽고 따라 써요 · Read aloud, then copy</h2>
   <ol class="ws-q">${copyList.map((c) => `<li>${hi(p, c.ko)}<small lang="en">${esc(c.en)}</small><div class="ws-wl"></div></li>`).join('')}</ol>` : ''}
+  ${scr.length ? `<h2>${N('order')} 순서대로 써요 · Put the words in order</h2>
+  <ol class="ws-q">${scr.map((x) => `<li><span class="ws-chips">${x.mix.map((c) => `<span>${esc(c)}</span>`).join(' / ')}</span><small lang="en">${esc(x.en)}</small><div class="ws-wl"></div></li>`).join('')}</ol>` : ''}
   ${writes.length ? `<h2>${N('write')} 한국어로 써요 · Write it in Korean (use ${esc(p.name)})</h2>
   <ol class="ws-q">${writes.map((w) => `<li lang="en">${esc(w.en)}<div class="ws-wl"></div></li>`).join('')}</ol>` : ''}
   <h2>${N('own')} 내 문장 · My own sentences</h2>
   <div class="ws-wl"></div><div class="ws-wl"></div>
-  ${pair ? `<p class="ws-pair" lang="en"><b>Often confused:</b> ${esc(pair.title.en)} — ${esc(pair.gist.en)}</p>` : ''}
 </section>`;
   const sheet3 = `<section class="ws-p ws-key">
   <div class="ws-top"><span>${esc(p.name)} — 정답 Answer key</span><span>선생님 · 스스로 확인 Check yourself</span></div>
   ${rows.length ? `<h2>${N('drill')} ${SN.drill}</h2><p>${rows.map(([b, a]) => `${esc(b)} → <b>${esc(a)}</b>`).join(' · ')}</p>` : ''}
   ${blanks.length ? `<h2>${N('blank')} ${SN.blank}</h2><ol class="ws-q">${blanks.map((b) => `<li>${esc(b.sp[0])}<mark>${esc(b.sp[1])}</mark>${esc(b.sp[2])}</li>`).join('')}</ol>` : ''}
   ${copyList.length ? `<h2>${N('copy')} ${SN.copy}</h2><p>읽은 문장 그대로 · Exactly as printed.</p>` : ''}
+  ${scr.length ? `<h2>${N('order')} ${SN.order}</h2><ol class="ws-q">${scr.map((x) => `<li>${hi(p, x.ko)}</li>`).join('')}</ol>` : ''}
   ${writes.length ? `<h2>${N('write')} 예시 답 · Model answers</h2><ol class="ws-q">${writes.map((w) => `<li>${hi(p, w.ko)}</li>`).join('')}</ol>` : ''}
   <h2>${N('own')} ${SN.own}</h2><p>자유 답이에요. 문법 모양과 뜻이 맞으면 좋아요. · Free answers — check the form and the meaning.</p>
+  ${words.length ? `<h2>같이 알면 좋은 단어 · Useful words</h2><table class="ws-w"><tbody>${words.map(([w, ex, we]) => `<tr><td><b>${esc(w)}</b></td><td lang="en">${esc(we)}</td><td>${hi(p, ex)}</td></tr>`).join('')}</tbody></table>` : ''}
+  <h2>스스로 점검 · Can I do it?</h2><ul class="ws-can"><li>□ ${esc(p.name)} 의 뜻을 내 말로 설명할 수 있어요 · I can explain what it means</li><li>□ 낱말에 바르게 붙여 쓸 수 있어요 · I can attach it to words correctly</li><li>□ 이 문법으로 내 이야기를 두 문장 말할 수 있어요 · I can say two sentences about myself with it</li></ul>
   <p class="ws-foot">모든 문제는 치즈감자가 만든 창작 문항이에요(기출 아님). Original practice written for CheesePotato — not past exam questions.</p>
 </section>`;
-  return { sheet1, sheet2, sheet3, has: { rows: rows.length, blanks: blanks.length, writes: writes.length, copies: copyList.length } };
+  return { sheet1, sheet2, sheet3, has: { order: scr.length, rows: rows.length, blanks: blanks.length, writes: writes.length, copies: copyList.length } };
 }
 
 const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;margin:18px 0}
@@ -113,6 +129,8 @@ const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:
 .ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}
 .ws-side{position:sticky;top:84px}.ws-box{margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;font-size:14.5px}
@@ -131,7 +149,7 @@ const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:
 .ws-tb b{font-size:15.5px}.ws-tb span{grid-column:1;font-size:13px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ws-tb em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-size:12px;font-weight:700;color:var(--ink-3);padding:1px 6px;border:1px solid var(--line);border-radius:5px}.ws-tb em.f{color:var(--ink);border-color:var(--ink)}
 @media(max-width:900px){.ws-lay{display:block}.ws-side{position:static;margin-top:24px}.ws-tb{grid-template-columns:1fr}}
 @media(max-width:600px){.ws-p{padding:16px}.ws-t{table-layout:fixed;width:100%;min-width:0}.ws-t td:first-child{width:36%;overflow-wrap:anywhere}.ws-t td:nth-child(2){width:9%}.ws-line{min-width:0}.ws-top{flex-direction:column;gap:4px}.ws-p h1{font-size:24px;overflow-wrap:anywhere}}
-@media print{@page{margin:12mm}.ws-p h2{margin:12px 0 6px;padding-top:8px;break-after:avoid}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li{break-inside:avoid}.ws-q li{margin:0 0 9px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:24px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}`;
+@media print{@page{margin:12mm}.ws-p h2{font-size:13.5px;margin:9px 0 4px;padding-top:6px;break-after:avoid}.ws-q small{font-size:11px}.ws-t td{padding:3px 8px;font-size:14px}.ws-top{padding-bottom:5px}.ws-kicker{margin-top:8px}.ws-dlg{padding:6px 10px}.ws-w td{padding:3px 8px 3px 0}.ws-q li,.ws-t tr,.ws-dlg,.ws-ex li,.ws-w tr{break-inside:avoid}.ws-w{font-size:12.5px}.ws-q li{margin:0 0 6px}body{background:#fff}.hd,.ws-acts,.ws-nav,.ft,.ws-intro,.ws-side{display:none!important}.ws-lay{display:block}main{padding:0!important;max-width:none}.ws-p{border:0;border-radius:0;padding:0;margin:0;break-after:page}.ws-p:last-child{break-after:auto}.ws-p h1{font-size:26px}.ws-p p,.ws-q li{font-size:13.5px}.ws-wl{height:22px}mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}`;
 
 /* 받을 때 파일 이름(.docx · PDF 저장)의 앞부분 — Cheesepotato_Grammar_<번호(두 자리)>_<이름>. numbers-worksheet.js 가 읽는다 */
 const wsFile = (p) => `<meta name="ws-file" content="${esc('Cheesepotato_Grammar_' + p.id.split('-').map((x) => x.padStart(2, '0')).join('-') + '_' + String(p.name).replace(/[^0-9A-Za-z가-힣]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 36))}">\n`;
