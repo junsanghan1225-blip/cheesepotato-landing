@@ -17,6 +17,13 @@ on:
       from:
         description: '지난 날 채우기 시작일 YYYY-MM-DD (비우면 안 채움 — 있으면 시작일~기준일을 하루씩 모은다)'
         default: ''
+      diag:
+        description: '검색 유입 진단만 돌리기(tools/seo-diagnose.mjs — 결과는 이 실행의 요약 · 로그, 일간 수집은 안 함)'
+        type: boolean
+        default: false
+      drop_sitemap:
+        description: '(진단과 함께) Search Console 에서 지울 사이트맵 주소 하나 — 비우면 안 지움'
+        default: ''
 
 permissions:
   contents: write
@@ -40,6 +47,12 @@ jobs:
         run: |
           if [ -z "$GOOGLE_SA_KEY" ] || [ -z "$GA_PROPERTY_ID" ] || [ -z "$SC_SITE" ]; then
             echo "::notice::GOOGLE_SA_KEY · GA_PROPERTY_ID · SC_SITE 가 아직 없어요 — docs/ops/analytics-api-setup.md 대로 설정하면 켜집니다."
+            echo "skip=1" >> $GITHUB_OUTPUT; exit 0
+          fi
+          if [ '${{ inputs.diag }}' = 'true' ]; then
+            DS='${{ inputs.drop_sitemap }}'
+            if [ -n "$DS" ]; then node tools/seo-diagnose.mjs --drop-sitemap "$DS" > "$RUNNER_TEMP/diag.md" || true; else node tools/seo-diagnose.mjs > "$RUNNER_TEMP/diag.md" || true; fi
+            cat "$RUNNER_TEMP/diag.md"; cat "$RUNNER_TEMP/diag.md" >> $GITHUB_STEP_SUMMARY
             echo "skip=1" >> $GITHUB_OUTPUT; exit 0
           fi
           D='${{ inputs.date }}'; [ -z "$D" ] && D=$(TZ=Asia/Seoul date -d yesterday +%F)

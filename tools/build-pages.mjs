@@ -1775,6 +1775,33 @@ const refOk = (head, sent) => {
   const stem = /다$/.test(head) ? head.slice(0, -1) : head;
   return toks.some((tk) => tk.startsWith(stem));
 };
+/* 예문 더 찾기(2026-11-23 검색 유입 진단 — 사전 · 영어로 찾기 쪽 구글 노출 -75%, 순위 9 → 14. 예문이 하나뿐인 얇은 쪽이 많았다):
+   우리 TOPIK I · II 낱말 예문(한 · 영 약 2만 문장, 이미 검토해 넣은 것)에서 이 낱말이 실제로 쓰인 문장을 찾아 붙인다. 새로 지어내는 글은 없다.
+   잘못 걸리지 않게 — 명사 · 부사는 낱말 그대로이거나 뒤에 조사만 붙은 말, 용언은 refOk(줄기로 시작) 규칙. 한 글자 줄기는 건너뛴다(「옮다」가 「옮기다」로 잡힌다). */
+const EX_CORPUS = [];
+for (const w of VOCAB) for (const x of w.x || []) EX_CORPUS.push([x[0], x[1], w.h]);
+for (const f of readdirSync(join(ROOT, 'vocab-topik2-ex')).filter((x) => /^\d+\.js$/.test(x))) {
+  const { EX } = await import(`../vocab-topik2-ex/${f}`); const base = Number(f.split('.')[0]) * 500;
+  EX.forEach((xs, i) => (xs || []).forEach((x) => EX_CORPUS.push([x[0], x[1], VOCAB2[base + i]?.h])));
+}
+const EXC_TOK = EX_CORPUS.map(([ko]) => ko.replace(/[()「」"'“”‘’.,!?·…]/g, ' ').split(/\s+/).filter(Boolean));
+const EXC_BY = new Map();
+EXC_TOK.forEach((tk, i) => { for (const c of new Set(tk.map((x) => x[0]))) { if (!EXC_BY.has(c)) EXC_BY.set(c, []); EXC_BY.get(c).push(i); } });
+const JOSA = /^(들)?(이|가|은|는|을|를|에|에서|에게|의|도|만|과|와|으로|로|이다|이에요|예요|입니다|이나|나|까지|부터|처럼|보다|하고|이랑|랑|께|한테|인|이고|이라는|이라고|라고|이었다|였다|으로서|으로써|에는|에도|에서는|에서도|과의|와의|으로는|로는|이며|이지만|이라서)?$/;
+function moreEx(head, pos, skip = [], n = 3) {
+  const verb = /다$/.test(head) && /동사|형용사/.test(pos || '');
+  if (verb ? head.length < 3 : head.length < 2) return [];
+  const seen = new Set(skip), out = [];
+  for (const i of EXC_BY.get(head[0]) || []) {
+    const [ko, en, src] = EX_CORPUS[i];
+    if (!en || seen.has(ko) || ko.length > 70) continue;
+    const ok = verb ? refOk(head, ko) : EXC_TOK[i].some((tk) => tk.startsWith(head) && JOSA.test(tk.slice(head.length)));
+    if (!ok) continue;
+    seen.add(ko); out.push([ko, en]);
+    if (out.length >= n) break;
+  }
+  return out;
+}
 /* 사전식 쪽 예문 줄에 합칠 TOPIK 문항 문장(우리가 만든 문항 · 기출 아님) — [문장, 주소, 출처 이름] */
 const dxTref = (head, src) => {
   const r = REFS[head]; if (!r || !r.n) return [];
@@ -1942,7 +1969,7 @@ function wordPage(entry, prev, next) {
     meta: pos ? esc(pos) : '낱말',
     rom: romanize(head),
     senses: senses || [],
-    exs: example ? [[example.ex, example.en]] : [],
+    exs: [...(example ? [[example.ex, example.en]] : []), ...moreEx(head, pos, example ? [example.ex] : [], example ? 2 : 3)],
     tref: dxTref(head, 'dict-topik'),
     addHref: `/#dictionary/${encodeURIComponent(head)}`,
     near: (prev || next) ? '<div class="near">' +
@@ -2038,7 +2065,7 @@ function vocabPage(w, prev, next) {
     head, pos: w.p, en: w.e, rom, src: 'dict',
     crumb: `<nav class="crumb"><a href="/">치즈감자</a> › <a href="/dictionary/">사전</a>${tp ? ` › <a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)}</a>` : ''} › ${esc(head)}</nav>`,
     meta: `<b>TOPIK ${isT2(w) ? 'II' : 'I'} · ${w.l}급</b> · ${esc(w.p)}`,
-    senses, exs: w.x, rels: w.r || null, conj,
+    senses, exs: [...(w.x || []), ...moreEx(w.h, w.p, (w.x || []).map((x) => x[0]), Math.max(0, 4 - (w.x || []).length))], rels: w.r || null, conj,   // 예문 4개까지 — 모자라면 우리 낱말 예문에서 (2026-11-23)
     tref: dxTref(head, 'dict-topik'),
     same: same.map((x) => x.h),
     sameAll: tp ? `<p class="dx-all"><a href="${vs.dir}${tp.id}.html">${vs.name} ${esc(tp.ko)} 낱말 전부 보기 →</a></p>` : '',
