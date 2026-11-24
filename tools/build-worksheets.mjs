@@ -41,6 +41,24 @@ function splitAt(point, sentence) {
   return [sentence.slice(0, m.index), m[0], sentence.slice(m.index + m[0].length)];
 }
 const hi = (point, s) => { const sp = splitAt(point, s); return sp ? `${esc(sp[0])}<mark>${esc(sp[1])}</mark>${esc(sp[2])}` : esc(s); };
+/* 블록(2026-11-24 운영자 「너무 글만 있다 · 블럭으로 도와줘」) — 낱말 한 덩어리를 상자로, 그 문법 자리는 진한 상자로.
+   blk: 낱말 하나 → [앞 | 문법] 상자, sent: 문장을 띄어쓰기 덩어리 상자로(문법이 든 덩어리만 진하게) */
+const blk = (point, w) => { const sp = splitAt(point, w); return sp ? `<span class="bk">${sp[0] ? `<i>${esc(sp[0])}</i>` : ''}<b>${esc(sp[1])}</b>${sp[2] ? `<i>${esc(sp[2])}</i>` : ''}</span>` : `<span class="bk"><i>${esc(w)}</i></span>`; };
+/* 바꾼 꼴 블록 — 문법 자리 찾기가 안 되는 문법(「못 V-아/어요」 · 「-아/어서」 …)은 원래 낱말 줄기를 답 안에서 찾아 나머지를 문법으로 칠한다 */
+const blkDiff = (point, base, ans) => {
+  if (splitAt(point, ans)) return blk(point, ans);
+  const st = base.replace(/다$/, '');
+  for (let k = st.length; k >= 1; k--) { const i = ans.indexOf(st.slice(0, k)); if (i < 0) continue;
+    const pre = ans.slice(0, i), core = ans.slice(i, i + k), post = ans.slice(i + k);
+    return `<span class="bk">${pre.trim() ? `<b>${esc(pre.trim())}</b>` : ''}<i>${esc(core)}</i>${post ? `<b>${esc(post)}</b>` : ''}</span>`; }
+  return blk(point, ans);
+};
+/* 문법 자리 찾기가 안 되는 문장 — 바꾼 꼴에서 얻은 문법 조각(앞에 붙는 말 「못」 · 두 글자 넘는 끝 「-아서」)이 든 덩어리만 진하게.
+   「못」처럼 앞에 붙는 말이 있으면 끝은 안 보고, 「어요 · 아요 · 해요」 같은 흔한 끝도 안 본다(아무 동사나 걸린다) */
+const piecesOf = (rows) => { const pre = new Set(), post = new Set(); for (const [b, a] of rows) { const st = b.replace(/다$/, ''); for (let k = st.length; k >= 1; k--) { const i = a.indexOf(st.slice(0, k)); if (i < 0) continue; if (a.slice(0, i).trim()) pre.add(a.slice(0, i).trim()); if (a.slice(i + k).length >= 2) post.add(a.slice(i + k)); break; } } return { pre, post }; };
+const sent = (point, s, pc) => { const sp = splitAt(point, s); if (!sp) return `<span class="bks">${s.split(/\s+/).map((c) => { const w = c.replace(/[.?!,]$/, ''); const on = pc && (pc.pre.has(w) || (!pc.pre.size && [...pc.post].some((x) => w.endsWith(x) && !/^(어요|아요|해요|요)$/.test(x)))); return on ? `<span class="bk on"><b>${esc(c)}</b></span>` : `<span class="bk"><i>${esc(c)}</i></span>`; }).join('')}</span>`;
+  const a = sp[0].split(/\s+/), z = sp[2].split(/\s+/); const mid = (a.pop() || '') + '\u0001' + sp[1] + '\u0002' + (z.shift() || '');
+  return `<span class="bks">${[...a.filter(Boolean).map((c) => `<span class="bk"><i>${esc(c)}</i></span>`), `<span class="bk on">${esc(mid).replace('\u0001', '<b>').replace('\u0002', '</b>')}</span>`, ...z.filter(Boolean).map((c) => `<span class="bk"><i>${esc(c)}</i></span>`)].join('')}</span>`; };
 /* more[2] 는 「한국어 설명. English …」 — 한국어 끝에서 영어 시작을 찾는다 */
 const koPart = (s) => { const m = /\s(?=[A-Z][a-z]+\s)/.exec(String(s || '')); return m ? s.slice(0, m.index).trim() : String(s || '').trim(); };
 
@@ -64,6 +82,7 @@ function sheet(p) {
   const words = (GRAMMAR_WORDS[p.id] || []).slice(0, 4);
   const tpk = (GRAMMAR_TOPIK[p.id] || [])[0];
   const rows = (dr?.x || []).slice(0, 4);
+  const pc = piecesOf(rows);
   const pair = GRAMMAR_PAIRS.find((x) => x.a === p.id || x.b === p.id);
   const collo = more[1] && !/^\s*$/.test(more[1]) ? more[1] : '';
   const CIRC = ['①', '②', '③', '④', '⑤', '⑥'];
@@ -77,20 +96,21 @@ function sheet(p) {
   <h2>뜻 · Meaning</h2>
   <p>${esc(p.desc)}</p>${en.desc ? `<p class="ws-en" lang="en">${esc(en.desc)}</p>` : ''}
   <h2>형태 · Form</h2>
+  ${rows.length ? `<div class="ws-make">${rows.slice(0, 2).map(([b, a]) => `<div class="ws-mk"><span class="bk"><i>${esc(b)}</i></span><em>→</em>${blkDiff(p, b, a)}</div>`).join('')}</div>` : ''}
   <p class="ws-form">${esc(en.form || more[0] || '')}${en.form && more[0] && en.form !== more[0] ? `<br><span class="ws-ko">${esc(more[0])}</span>` : ''}</p>
   ${collo ? `<h2>함께 쓰는 말 · Often used with</h2><p>${esc(collo)}</p>` : ''}
   <h2>주의할 점 · Watch out</h2>
   <p>${esc(koPart(more[2]) || '')}</p>${en.care ? `<p class="ws-en" lang="en">${esc(en.care)}</p>` : ''}
   <h2>예문 · Examples</h2>
-  <ul class="ws-ex"><li>${hi(p, p.ex)}</li>${more[3] ? `<li>${hi(p, more[3])}</li>` : ''}</ul>
-  ${p.dlg?.length ? `<div class="ws-dlg">${p.dlg.map((l) => `<p>${hi(p, l)}</p>`).join('')}</div>` : ''}
+  <ul class="ws-ex"><li>${sent(p, p.ex, pc)}</li>${more[3] ? `<li>${sent(p, more[3], pc)}</li>` : ''}</ul>
+  ${p.dlg?.length ? `<div class="ws-dlg">${p.dlg.map((l) => { const m = /^([AB가나])\s*[:：]\s*(.*)$/.exec(l); return `<p class="${m && /[B나]/.test(m[1]) ? 'b' : 'a'}">${m ? `<small>${esc(m[1])}</small>` : ''}${hi(p, m ? m[2] : l)}</p>`; }).join('')}</div>` : ''}
   ${tpk ? `<h2>TOPIK 에서는 · In TOPIK-style sentences</h2><p class="ws-tpk">${hi(p, tpk[0])}</p>${tpk[1] ? `<p class="ws-en" lang="en">${esc(tpk[1])}</p>` : ''}` : ''}
   ${pair ? `<h2>헷갈리는 문법 · Often confused</h2><p><b>${esc(pair.title.ko)}</b> — ${esc(pair.gist.ko)}</p><p class="ws-en" lang="en">${esc(pair.gist.en)}</p>` : ''}
 </section>`;
   const sheet2 = `<section class="ws-p">
   <div class="ws-top"><span>${esc(p.name)} — 연습 Practice</span><span>이름 Name: ____________</span></div>
   ${rows.length ? `<h2>${N('drill')} 바꿔 써요 · Change the word — <b>${esc(dr.t)}</b></h2>
-  <table class="ws-t"><tbody>${rows.map(([b]) => `<tr><td>${esc(b)}</td><td>→</td><td class="ws-line"></td></tr>`).join('')}</tbody></table>` : ''}
+  <table class="ws-t"><tbody><tr class="ws-ex1"><td><span class="bk"><i>${esc(rows[0][0])}</i></span> <small>보기 e.g.</small></td><td>→</td><td>${blkDiff(p, rows[0][0], rows[0][1])}</td></tr>${rows.slice(1).map(([b]) => `<tr><td><span class="bk"><i>${esc(b)}</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr>`).join('')}</tbody></table>` : ''}
   ${blanks.length ? `<h2>${N('blank')} 빈칸에 알맞은 말을 써요 · Fill in the blank (${esc(p.name)})</h2>
   <ol class="ws-q">${blanks.map((b) => `<li>${esc(b.sp[0])}<span class="ws-blank"></span>${esc(b.sp[2])}<small lang="en">${esc(b.en)}</small></li>`).join('')}</ol>` : ''}
   ${copyList.length ? `<h2>${N('copy')} 소리 내어 읽고 따라 써요 · Read aloud, then copy</h2>
@@ -126,10 +146,17 @@ const CSS = `.ws-doc{max-width:820px;margin:0 auto}.ws-p{background:#fff;border:
 .ws-dlg{margin-top:8px;padding:10px 12px;background:#FBF6EC;border-radius:10px}.ws-dlg p{margin:2px 0!important}
 .ws-t{border-collapse:collapse}.ws-t td{padding:6px 8px;font-size:16px}.ws-line{min-width:180px;border-bottom:1.5px solid #999}
 .ws-q{margin:0;padding-left:22px}.ws-q li{margin:0 0 12px;font-size:16px}.ws-q small{display:block;color:var(--ink-3);font-size:12.5px}
-.ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
+.ws-blank{display:inline-block;min-width:92px;height:1.5em;vertical-align:-.35em;border:1.5px solid #777;border-radius:5px;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.bk{display:inline-flex;align-items:stretch;border:1.5px solid #8a8174;border-radius:5px;overflow:hidden;margin:2px 3px 2px 0;vertical-align:middle;font-size:15px;line-height:1.5}.bk i{font-style:normal;padding:1px 7px}.bk b{padding:1px 7px;background:#1B1512;color:#fff;font-weight:700}
+.bk.on{border-color:#1B1512;padding:1px 7px}.bk.on b{padding:0 2px;margin:0 1px;border-radius:3px}.bks{display:inline-flex;flex-wrap:wrap;gap:2px}
+.ws-make{display:flex;flex-wrap:wrap;gap:6px 22px;margin:2px 0 4px}.ws-mk{display:flex;align-items:center;gap:8px}.ws-mk em{font-style:normal;color:var(--ink-3)}
+.ws-ex{list-style:none;padding:0!important}.ws-ex li{margin:3px 0!important}
+.ws-dlg{background:none!important;padding:0!important;display:grid;gap:4px;margin-top:4px}.ws-dlg p{max-width:82%;padding:6px 10px!important;border:1.5px solid #8a8174;border-radius:10px;margin:0!important}.ws-dlg p.b{justify-self:end;border-color:#1B1512}.ws-dlg small{font-weight:800;margin-right:6px;color:var(--ink-3)}
+.ws-box{display:inline-block;width:150px;height:1.7em;border:1.5px solid #555;border-radius:5px;vertical-align:middle}.ws-ex1 td{color:var(--ink-3)}.ws-ex1 small{font-size:11px}
+.bk b,.ws-dlg p,.bk{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
 .ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}

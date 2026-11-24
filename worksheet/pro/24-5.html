@@ -30,10 +30,17 @@
 .ws-dlg{margin-top:8px;padding:10px 12px;background:#FBF6EC;border-radius:10px}.ws-dlg p{margin:2px 0!important}
 .ws-t{border-collapse:collapse}.ws-t td{padding:6px 8px;font-size:16px}.ws-line{min-width:180px;border-bottom:1.5px solid #999}
 .ws-q{margin:0;padding-left:22px}.ws-q li{margin:0 0 12px;font-size:16px}.ws-q small{display:block;color:var(--ink-3);font-size:12.5px}
-.ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
+.ws-blank{display:inline-block;min-width:92px;height:1.5em;vertical-align:-.35em;border:1.5px solid #777;border-radius:5px;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.bk{display:inline-flex;align-items:stretch;border:1.5px solid #8a8174;border-radius:5px;overflow:hidden;margin:2px 3px 2px 0;vertical-align:middle;font-size:15px;line-height:1.5}.bk i{font-style:normal;padding:1px 7px}.bk b{padding:1px 7px;background:#1B1512;color:#fff;font-weight:700}
+.bk.on{border-color:#1B1512;padding:1px 7px}.bk.on b{padding:0 2px;margin:0 1px;border-radius:3px}.bks{display:inline-flex;flex-wrap:wrap;gap:2px}
+.ws-make{display:flex;flex-wrap:wrap;gap:6px 22px;margin:2px 0 4px}.ws-mk{display:flex;align-items:center;gap:8px}.ws-mk em{font-style:normal;color:var(--ink-3)}
+.ws-ex{list-style:none;padding:0!important}.ws-ex li{margin:3px 0!important}
+.ws-dlg{background:none!important;padding:0!important;display:grid;gap:4px;margin-top:4px}.ws-dlg p{max-width:82%;padding:6px 10px!important;border:1.5px solid #8a8174;border-radius:10px;margin:0!important}.ws-dlg p.b{justify-self:end;border-color:#1B1512}.ws-dlg small{font-weight:800;margin-right:6px;color:var(--ink-3)}
+.ws-box{display:inline-block;width:150px;height:1.7em;border:1.5px solid #555;border-radius:5px;vertical-align:middle}.ws-ex1 td{color:var(--ink-3)}.ws-ex1 small{font-size:11px}
+.bk b,.ws-dlg p,.bk{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
 .ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}
@@ -66,20 +73,21 @@
   <h2>뜻 · Meaning</h2>
   <p>지금 하고 있는 중이라는 뜻입니다.</p><p class="ws-en" lang="en">Indicates that an action is currently in progress right now.</p>
   <h2>형태 · Form</h2>
+  <div class="ws-make"><div class="ws-mk"><span class="bk"><i>공부하다</i></span><em>→</em><span class="bk"><i>공부하</i><b>고 있</b><i>다</i></span></div><div class="ws-mk"><span class="bk"><i>돕다</i></span><em>→</em><span class="bk"><i>돕</i><b>고 있</b><i>다</i></span></div></div>
   <p class="ws-form">Verb stem + 「-고 있어요」 (Honorific: 「-고 계세요」)<br><span class="ws-ko">V + 고 있어요 · 높임은 -고 계세요</span></p>
   <h2>함께 쓰는 말 · Often used with</h2><p>지금 · 아직 · 계속</p>
   <h2>주의할 점 · Watch out</h2>
   <p>높은 분께는 「-고 계세요」를 씁니다. 「선생님이 기다리고 계세요」처럼요.</p><p class="ws-en" lang="en">Use 「-고 계세요」 for honored elders or teachers, as in 「선생님이 기다리고 계세요」.</p>
   <h2>예문 · Examples</h2>
-  <ul class="ws-ex"><li>지금 밥을 먹<mark>고 있</mark>어요.</li><li>동생은 방에서 자<mark>고 있</mark>어요.</li></ul>
-  <div class="ws-dlg"><p>A: 김 대리님 계신가요?</p><p>B: 지금 회의실에서 손님과 이야기하고 계세요.</p></div>
+  <ul class="ws-ex"><li><span class="bks"><span class="bk"><i>지금</i></span><span class="bk"><i>밥을</i></span><span class="bk on">먹<b>고 있</b>어요.</span></span></li><li><span class="bks"><span class="bk"><i>동생은</i></span><span class="bk"><i>방에서</i></span><span class="bk on">자<b>고 있</b>어요.</span></span></li></ul>
+  <div class="ws-dlg"><p class="a"><small>A</small>김 대리님 계신가요?</p><p class="b"><small>B</small>지금 회의실에서 손님과 이야기하고 계세요.</p></div>
   <h2>TOPIK 에서는 · In TOPIK-style sentences</h2><p class="ws-tpk">지금 거실에서 음악을 듣<mark>고 있</mark>어요.</p><p class="ws-en" lang="en">I am listening to music in the living room now.</p>
   <h2>헷갈리는 문법 · Often confused</h2><p><b>-고 있다 vs -아/어 있다</b> — 「-고 있다」는 하고 있는 중, 「-아/어 있다」는 그렇게 된 채로 있는 상태예요.</p><p class="ws-en" lang="en">-고 있다 = an action in progress; -아/어 있다 = a state that stays after something happened.</p>
 </section>
 <section class="ws-p">
   <div class="ws-top"><span>V-고 있다 ① — 연습 Practice</span><span>이름 Name: ____________</span></div>
   <h2>① 바꿔 써요 · Change the word — <b>-고 있다</b></h2>
-  <table class="ws-t"><tbody><tr><td>공부하다</td><td>→</td><td class="ws-line"></td></tr><tr><td>돕다</td><td>→</td><td class="ws-line"></td></tr><tr><td>부르다</td><td>→</td><td class="ws-line"></td></tr><tr><td>입다</td><td>→</td><td class="ws-line"></td></tr></tbody></table>
+  <table class="ws-t"><tbody><tr class="ws-ex1"><td><span class="bk"><i>공부하다</i></span> <small>보기 e.g.</small></td><td>→</td><td><span class="bk"><i>공부하</i><b>고 있</b><i>다</i></span></td></tr><tr><td><span class="bk"><i>돕다</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr><tr><td><span class="bk"><i>부르다</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr><tr><td><span class="bk"><i>입다</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr></tbody></table>
   <h2>② 빈칸에 알맞은 말을 써요 · Fill in the blank (V-고 있다 ①)</h2>
   <ol class="ws-q"><li>밥을 먹<span class="ws-blank"></span>어요.<small lang="en">I am eating a meal.</small></li><li>책을 읽<span class="ws-blank"></span>어요.<small lang="en">I am reading a book.</small></li><li>지금 가<span class="ws-blank"></span>어요.<small lang="en">I am going right now.</small></li></ol>
   

@@ -30,10 +30,17 @@
 .ws-dlg{margin-top:8px;padding:10px 12px;background:#FBF6EC;border-radius:10px}.ws-dlg p{margin:2px 0!important}
 .ws-t{border-collapse:collapse}.ws-t td{padding:6px 8px;font-size:16px}.ws-line{min-width:180px;border-bottom:1.5px solid #999}
 .ws-q{margin:0;padding-left:22px}.ws-q li{margin:0 0 12px;font-size:16px}.ws-q small{display:block;color:var(--ink-3);font-size:12.5px}
-.ws-blank{display:inline-block;min-width:90px;border-bottom:1.5px solid #666;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
+.ws-blank{display:inline-block;min-width:92px;height:1.5em;vertical-align:-.35em;border:1.5px solid #777;border-radius:5px;margin:0 4px}.ws-wl{height:30px;border-bottom:1.5px solid #bbb;margin-top:6px}
 .ws-pair{margin-top:14px!important;padding:8px 12px;background:#FBF6EC;border-radius:7px;font-size:13px!important}.ws-foot{margin-top:16px!important;font-size:12px!important;color:var(--ink-3)}
 .ws-acts{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
+.ws-top+h2{border-top:0!important;padding-top:0!important}.ws-t td{border:0!important;vertical-align:bottom}.ws-t td.ws-line{border-bottom:1.5px solid #999!important;width:60%}.bk{display:inline-flex;align-items:stretch;border:1.5px solid #8a8174;border-radius:5px;overflow:hidden;margin:2px 3px 2px 0;vertical-align:middle;font-size:15px;line-height:1.5}.bk i{font-style:normal;padding:1px 7px}.bk b{padding:1px 7px;background:#1B1512;color:#fff;font-weight:700}
+.bk.on{border-color:#1B1512;padding:1px 7px}.bk.on b{padding:0 2px;margin:0 1px;border-radius:3px}.bks{display:inline-flex;flex-wrap:wrap;gap:2px}
+.ws-make{display:flex;flex-wrap:wrap;gap:6px 22px;margin:2px 0 4px}.ws-mk{display:flex;align-items:center;gap:8px}.ws-mk em{font-style:normal;color:var(--ink-3)}
+.ws-ex{list-style:none;padding:0!important}.ws-ex li{margin:3px 0!important}
+.ws-dlg{background:none!important;padding:0!important;display:grid;gap:4px;margin-top:4px}.ws-dlg p{max-width:82%;padding:6px 10px!important;border:1.5px solid #8a8174;border-radius:10px;margin:0!important}.ws-dlg p.b{justify-self:end;border-color:#1B1512}.ws-dlg small{font-weight:800;margin-right:6px;color:var(--ink-3)}
+.ws-box{display:inline-block;width:150px;height:1.7em;border:1.5px solid #555;border-radius:5px;vertical-align:middle}.ws-ex1 td{color:var(--ink-3)}.ws-ex1 small{font-size:11px}
+.bk b,.ws-dlg p,.bk{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.ws-tpk{font-size:15.5px!important}.ws-w{width:100%;border-collapse:collapse;font-size:14px}.ws-w td{padding:5px 8px 5px 0;border-bottom:1px solid var(--line);vertical-align:top}.ws-w td:first-child{width:18%}.ws-w td:nth-child(2){width:22%;color:var(--ink-3)}
 .ws-chips span{display:inline-block;padding:1px 8px;border:1px solid #999;border-radius:5px;margin:2px 0}.ws-can{list-style:none;padding:0;margin:0}.ws-can li{margin:4px 0;font-size:14px}
 /* 화면 틀(운영자 2026-11-24 「문법 학습지 포맷 · 디자인」): 학습지 종이는 가운데 그대로, PC 는 오른쪽 곁칸(받기 · 같은 갈래 · 연습), 주황은 뺀다 */
 .ws-lay{display:grid;grid-template-columns:minmax(0,820px) 280px;gap:40px;justify-content:center;align-items:start}
@@ -66,20 +73,21 @@
   <h2>뜻 · Meaning</h2>
   <p>하나하나 빠짐없이, 또는 그 주기로 되풀이됨을 나타냅니다.</p><p class="ws-en" lang="en">Every one without exception, or repeating at that interval.</p>
   <h2>형태 · Form</h2>
+  <div class="ws-make"><div class="ws-mk"><span class="bk"><i>날</i></span><em>→</em><span class="bk"><i>날</i><b>마다</b></span></div><div class="ws-mk"><span class="bk"><i>주</i></span><em>→</em><span class="bk"><i>주</i><b>마다</b></span></div></div>
   <p class="ws-form">N + 마다</p>
   <h2>함께 쓰는 말 · Often used with</h2><p>날마다 · 해마다 · 사람마다</p>
   <h2>주의할 점 · Watch out</h2>
   <p>「매일」은 한 낱말이고 「날마다」는 조사입니다. 둘 다 자연스럽습니다. 「매일」 is a single word, while 「날마다」 uses a particle.</p><p class="ws-en" lang="en">「매일」 is one word and 「날마다」 is a particle. Both are natural.</p>
   <h2>예문 · Examples</h2>
-  <ul class="ws-ex"><li>주말<mark>마다</mark> 등산을 해요.</li><li>사람<mark>마다</mark> 생각이 달라요.</li></ul>
-  <div class="ws-dlg"><p>A: 이 기차는 얼마나 자주 다니나요?</p><p>B: 삼십 분<mark>마다</mark> 한 대씩 있습니다.</p></div>
+  <ul class="ws-ex"><li><span class="bks"><span class="bk on">주말<b>마다</b></span><span class="bk"><i>등산을</i></span><span class="bk"><i>해요.</i></span></span></li><li><span class="bks"><span class="bk on">사람<b>마다</b></span><span class="bk"><i>생각이</i></span><span class="bk"><i>달라요.</i></span></span></li></ul>
+  <div class="ws-dlg"><p class="a"><small>A</small>이 기차는 얼마나 자주 다니나요?</p><p class="b"><small>B</small>삼십 분<mark>마다</mark> 한 대씩 있습니다.</p></div>
   
   
 </section>
 <section class="ws-p">
   <div class="ws-top"><span>N마다 — 연습 Practice</span><span>이름 Name: ____________</span></div>
   <h2>① 바꿔 써요 · Change the word — <b>보조사 「마다」를 붙이세요</b></h2>
-  <table class="ws-t"><tbody><tr><td>날</td><td>→</td><td class="ws-line"></td></tr><tr><td>주</td><td>→</td><td class="ws-line"></td></tr><tr><td>사람</td><td>→</td><td class="ws-line"></td></tr><tr><td>나라</td><td>→</td><td class="ws-line"></td></tr></tbody></table>
+  <table class="ws-t"><tbody><tr class="ws-ex1"><td><span class="bk"><i>날</i></span> <small>보기 e.g.</small></td><td>→</td><td><span class="bk"><i>날</i><b>마다</b></span></td></tr><tr><td><span class="bk"><i>주</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr><tr><td><span class="bk"><i>사람</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr><tr><td><span class="bk"><i>나라</i></span></td><td>→</td><td><span class="ws-box"></span></td></tr></tbody></table>
   <h2>② 빈칸에 알맞은 말을 써요 · Fill in the blank (N마다)</h2>
   <ol class="ws-q"><li>아침<span class="ws-blank"></span> 운동해요.<small lang="en">I exercise every morning.</small></li><li>날<span class="ws-blank"></span> 일기를 써요.<small lang="en">I write a diary every day.</small></li><li>나라<span class="ws-blank"></span> 문화가 달라요.<small lang="en">Every country has a different culture.</small></li></ol>
   

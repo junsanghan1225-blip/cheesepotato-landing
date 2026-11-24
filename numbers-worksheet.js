@@ -72,7 +72,7 @@
   const wsTbl = (t) => {
     const cols = [3400, 700, 6100], nb = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="nil"/>`).join('');
     return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${nb}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${cols.map((w) => `<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>` +
-      [...t.rows].map((r) => `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr>${[...r.cells].map((c, i) => `<w:tc><w:tcPr><w:tcW w:w="${cols[i] || 3400}" w:type="dxa"/>${i === 2 ? '<w:tcBorders><w:bottom w:val="single" w:sz="6" w:color="999999"/></w:tcBorders>' : ''}<w:vAlign w:val="bottom"/></w:tcPr>${para(i === 2 ? '' : txt(c), { sz: 22, after: 40 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
+      [...t.rows].map((r) => `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr>${[...r.cells].map((c, i) => `<w:tc><w:tcPr><w:tcW w:w="${cols[i] || 3400}" w:type="dxa"/>${i === 2 && !r.classList.contains('ws-ex1') ? '<w:tcBorders><w:bottom w:val="single" w:sz="6" w:color="999999"/></w:tcBorders>' : ''}<w:vAlign w:val="bottom"/></w:tcPr>${para(i === 2 && !r.classList.contains('ws-ex1') ? '' : txt(c), { sz: 22, after: 40, color: r.classList.contains('ws-ex1') ? '777777' : '' })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
   };
   const tbl = (t) => {
     if (t.classList.contains('ws-t')) return wsTbl(t);
