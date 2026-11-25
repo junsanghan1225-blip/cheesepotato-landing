@@ -4,9 +4,9 @@
    "metricName": "DeadClickCount",
    "information": [
     {
-     "sessionsCount": 67,
-     "sessionsWithMetricPercentage": 2.99,
-     "sessionsWithoutMetricPercentage": 97.01,
+     "sessionsCount": 59,
+     "sessionsWithMetricPercentage": 3.39,
+     "sessionsWithoutMetricPercentage": 96.61,
      "pagesViews": 2,
      "subTotal": 7
     }
@@ -16,11 +16,11 @@
    "metricName": "ExcessiveScroll",
    "information": [
     {
-     "sessionsCount": 67,
-     "sessionsWithMetricPercentage": 1.49,
-     "sessionsWithoutMetricPercentage": 98.51,
-     "pagesViews": 1,
-     "subTotal": 1
+     "sessionsCount": 59,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
     }
    ]
   },
@@ -28,7 +28,7 @@
    "metricName": "RageClickCount",
    "information": [
     {
-     "sessionsCount": 67,
+     "sessionsCount": 59,
      "sessionsWithMetricPercentage": 0,
      "sessionsWithoutMetricPercentage": 100,
      "pagesViews": 0,
@@ -40,9 +40,9 @@
    "metricName": "QuickbackClick",
    "information": [
     {
-     "sessionsCount": 67,
-     "sessionsWithMetricPercentage": 4.48,
-     "sessionsWithoutMetricPercentage": 95.52,
+     "sessionsCount": 59,
+     "sessionsWithMetricPercentage": 5.08,
+     "sessionsWithoutMetricPercentage": 94.92,
      "pagesViews": 30,
      "subTotal": 30
     }
@@ -52,7 +52,7 @@
    "metricName": "ScriptErrorCount",
    "information": [
     {
-     "sessionsCount": 67,
+     "sessionsCount": 59,
      "sessionsWithMetricPercentage": 0,
      "sessionsWithoutMetricPercentage": 100,
      "pagesViews": 0,
@@ -64,7 +64,7 @@
    "metricName": "ErrorClickCount",
    "information": [
     {
-     "sessionsCount": 67,
+     "sessionsCount": 59,
      "sessionsWithMetricPercentage": 0,
      "sessionsWithoutMetricPercentage": 100,
      "pagesViews": 0,
@@ -76,7 +76,7 @@
    "metricName": "ScrollDepth",
    "information": [
     {
-     "averageScrollDepth": 35.69
+     "averageScrollDepth": 35.53
     }
    ]
   },
@@ -84,10 +84,10 @@
    "metricName": "Traffic",
    "information": [
     {
-     "totalSessionCount": 67,
-     "totalBotSessionCount": 47,
-     "distinctUserCount": 62,
-     "pagesPerSessionPercentage": 2.7313432835820897
+     "totalSessionCount": 59,
+     "totalBotSessionCount": 48,
+     "distinctUserCount": 54,
+     "pagesPerSessionPercentage": 2.9661016949152543
     }
    ]
   },
@@ -95,8 +95,8 @@
    "metricName": "EngagementTime",
    "information": [
     {
-     "totalTime": 197,
-     "activeTime": 159
+     "totalTime": 166,
+     "activeTime": 125
     }
    ]
   },
@@ -105,7 +105,7 @@
    "information": [
     {
      "name": "Chrome",
-     "sessionsCount": 39
+     "sessionsCount": 37
     },
     {
      "name": "ChromeMobile",
@@ -113,15 +113,15 @@
     },
     {
      "name": "Edge",
-     "sessionsCount": 8
-    },
-    {
-     "name": "MiuiBrowser",
      "sessionsCount": 6
     },
     {
      "name": "MobileSafari",
      "sessionsCount": 5
+    },
+    {
+     "name": "MiuiBrowser",
+     "sessionsCount": 2
     }
    ]
   },
@@ -130,11 +130,11 @@
    "information": [
     {
      "name": "PC",
-     "sessionsCount": 46
+     "sessionsCount": 42
     },
     {
      "name": "Mobile",
-     "sessionsCount": 18
+     "sessionsCount": 14
     },
     {
      "name": "Tablet",
@@ -147,15 +147,15 @@
    "information": [
     {
      "name": "Linux",
-     "sessionsCount": 30
+     "sessionsCount": 31
     },
     {
      "name": "Android",
-     "sessionsCount": 13
+     "sessionsCount": 9
     },
     {
      "name": "Windows",
-     "sessionsCount": 13
+     "sessionsCount": 9
     },
     {
      "name": "IOS",
@@ -163,7 +163,7 @@
     },
     {
      "name": "MacOSX",
-     "sessionsCount": 3
+     "sessionsCount": 2
     }
    ]
   },
@@ -176,11 +176,7 @@
     },
     {
      "name": "Korea, Republic of",
-     "sessionsCount": 9
-    },
-    {
-     "name": "China",
-     "sessionsCount": 7
+     "sessionsCount": 8
     },
     {
      "name": "India",
@@ -195,19 +191,23 @@
      "sessionsCount": 3
     },
     {
+     "name": "China",
+     "sessionsCount": 3
+    },
+    {
      "name": "Hong Kong",
      "sessionsCount": 2
     },
     {
-     "name": "Brazil",
-     "sessionsCount": 2
-    },
-    {
-     "name": "Kyrgyzstan",
+     "name": "Philippines",
      "sessionsCount": 1
     },
     {
-     "name": "Philippines",
+     "name": "Singapore",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Thailand",
      "sessionsCount": 1
     }
    ]
@@ -217,7 +217,7 @@
    "information": [
     {
      "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
-     "sessionsCount": 40
+     "sessionsCount": 36
     },
     {
      "name": "토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato",
@@ -229,10 +229,6 @@
     },
     {
      "name": "2,111 TOPIK Okuma Alıştırma Soruları | PeynirPatates",
-     "sessionsCount": 2
-    },
-    {
-     "name": "EPS-TOPIK 연습 문제 100개 · 무료 모의고사 — Free EPS-TOPIK practice test | CheesePotato",
      "sessionsCount": 2
     },
     {
@@ -254,6 +250,10 @@
     {
      "name": "Wishes, Obligations & Permissions (Free PDF) | CheesePotato",
      "sessionsCount": 2
+    },
+    {
+     "name": "\"example\" in Korean — 예 (ye) with examples | CheesePotato",
+     "sessionsCount": 1
     }
    ]
   },
@@ -265,12 +265,12 @@
      "sessionsCount": 28
     },
     {
-     "name": "www.bing.com",
-     "sessionsCount": 6
-    },
-    {
      "name": "accounts.google.com",
      "sessionsCount": 5
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 4
     },
     {
      "name": "www.google.com",
@@ -287,7 +287,7 @@
    "information": [
     {
      "url": "https://everykoreans.com/",
-     "visitsCount": 40
+     "visitsCount": 36
     },
     {
      "url": "https://everykoreans.com/topik-writing/",
@@ -299,10 +299,6 @@
     },
     {
      "url": "https://everykoreans.com/demonstratives-worksheet/",
-     "visitsCount": 2
-    },
-    {
-     "url": "https://everykoreans.com/eps-topik/",
      "visitsCount": 2
     },
     {
@@ -323,6 +319,10 @@
     },
     {
      "url": "https://everykoreans.com/basic-verbs-adjectives-worksheet/",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/colors-shapes-opposites-worksheet/",
      "visitsCount": 1
     }
    ]

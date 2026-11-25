@@ -245,49 +245,49 @@
 ## Clarity (최근 24시간 — 날짜 기준이 아니라 호출한 시각 기준)
 
 - **DeadClickCount**
-  - sessionsCount 67 · sessionsWithMetricPercentage 2.99 · sessionsWithoutMetricPercentage 97.01 · pagesViews 2 · subTotal 7
+  - sessionsCount 59 · sessionsWithMetricPercentage 3.39 · sessionsWithoutMetricPercentage 96.61 · pagesViews 2 · subTotal 7
 - **ExcessiveScroll**
-  - sessionsCount 67 · sessionsWithMetricPercentage 1.49 · sessionsWithoutMetricPercentage 98.51 · pagesViews 1 · subTotal 1
+  - sessionsCount 59 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **RageClickCount**
-  - sessionsCount 67 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 59 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **QuickbackClick**
-  - sessionsCount 67 · sessionsWithMetricPercentage 4.48 · sessionsWithoutMetricPercentage 95.52 · pagesViews 30 · subTotal 30
+  - sessionsCount 59 · sessionsWithMetricPercentage 5.08 · sessionsWithoutMetricPercentage 94.92 · pagesViews 30 · subTotal 30
 - **ScriptErrorCount**
-  - sessionsCount 67 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 59 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ErrorClickCount**
-  - sessionsCount 67 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
+  - sessionsCount 59 · sessionsWithMetricPercentage 0 · sessionsWithoutMetricPercentage 100 · pagesViews 0 · subTotal 0
 - **ScrollDepth**
-  - averageScrollDepth 35.69
+  - averageScrollDepth 35.53
 - **Traffic**
-  - totalSessionCount 67 · totalBotSessionCount 47 · distinctUserCount 62 · pagesPerSessionPercentage 2.73
+  - totalSessionCount 59 · totalBotSessionCount 48 · distinctUserCount 54 · pagesPerSessionPercentage 2.97
 - **EngagementTime**
-  - totalTime 197 · activeTime 159
+  - totalTime 166 · activeTime 125
 - **Browser**
-  - name Chrome · sessionsCount 39
+  - name Chrome · sessionsCount 37
   - name ChromeMobile · sessionsCount 9
-  - name Edge · sessionsCount 8
+  - name Edge · sessionsCount 6
 - **Device**
-  - name PC · sessionsCount 46
-  - name Mobile · sessionsCount 18
+  - name PC · sessionsCount 42
+  - name Mobile · sessionsCount 14
   - name Tablet · sessionsCount 3
 - **OS**
-  - name Linux · sessionsCount 30
-  - name Android · sessionsCount 13
-  - name Windows · sessionsCount 13
+  - name Linux · sessionsCount 31
+  - name Android · sessionsCount 9
+  - name Windows · sessionsCount 9
 - **Country**
   - name Turkey · sessionsCount 31
-  - name Korea, Republic of · sessionsCount 9
-  - name China · sessionsCount 7
+  - name Korea, Republic of · sessionsCount 8
+  - name India · sessionsCount 4
 - **PageTitle**
-  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 40
+  - name 치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free · sessionsCount 36
   - name 토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato · sessionsCount 9
   - name 200 TOPIK Yazma Alıştırma Sorusu, Ücretsiz Örnek Cevaplar — TOPIK II 51-54 Numaralı Sorular | CheesePotato · sessionsCount 5
 - **ReferrerUrl**
   - name everykoreans.com · sessionsCount 28
-  - name www.bing.com · sessionsCount 6
   - name accounts.google.com · sessionsCount 5
+  - name www.bing.com · sessionsCount 4
 - **PopularPages**
-  - url https://everykoreans.com/ · visitsCount 40
+  - url https://everykoreans.com/ · visitsCount 36
   - url https://everykoreans.com/topik-writing/ · visitsCount 14
   - url https://everykoreans.com/adjective-noun-modifiers-worksheet/ · visitsCount 2
 
