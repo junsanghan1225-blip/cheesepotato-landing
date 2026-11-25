@@ -71,6 +71,13 @@ async function main() {
   P('## 6. 쓰기 쪽으로 처음 들어온 손님 — 출처 × 나라'); P('| 출처 | 나라 | 방문 | 평균 머문 초 |'); P('|---|---|---|---|');
   for (const r of src.slice(0, 20)) P(`| ${r[0]} | ${r[1]} | ${n0(r[2])} | ${n0(r[3])} |`); P();
 
+  /* 8. 쓰기 쪽 헛누름 — 어디를 눌렀나(cp_el 맞춤 측정기준) */
+  try {
+    const dc = await ga({ dimensions: [{ name: 'pagePath' }, { name: 'customEvent:cp_el' }], metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+      dimensionFilter: and(f('pagePath', '/topik-writing'), f('eventName', 'dead_click', 'EXACT')), orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }] });
+    P('## 8. 쓰기 쪽 헛누름 — 누른 곳'); P('| 쪽 | 누른 곳 | 횟수 | 사람 |'); P('|---|---|---|---|');
+    for (const r of dc.slice(0, 30)) P(`| ${r[0]} | ${String(r[1]).replace(/\|/g, '/')} | ${n0(r[2])} | ${n0(r[3])} |`); P();
+  } catch (e) { P('- 8번 못 받음: ' + e.message); }
   /* 7. 앱 안 쓰기 화면 — cp_screen 맞춤 측정기준이 있으면 */
   try {
     const app = await ga({ dimensions: [{ name: 'eventName' }], metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
