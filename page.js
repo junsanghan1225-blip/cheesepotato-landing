@@ -94,6 +94,27 @@
     try { done = new Set(JSON.parse(localStorage.getItem('cp_done_local') || '[]')); } catch (e) {}
     steps.forEach((li) => { if (done.has(li.dataset.lid)) li.classList.add('done'); });
   }
+  /* TOPIK 쓰기 문항 쪽에서 바로 쓰기(2026-11-25) — 글자 수(띄어쓰기 포함)를 세고, 앱과 같은 열쇠(cp-tw-draft-<문항 id>, 칸마다 글 배열)에 저장한다.
+     그래서 「앱에서 이어 쓰기」를 누르면 앱 쓰기 화면이 이 글을 그대로 불러온다(app.module.js twDraftLoad) */
+  const pad = document.querySelector('.tw-pad[data-tw]');
+  if (pad) {
+    const key = 'cp-tw-draft-' + pad.dataset.tw, ins = [...pad.querySelectorAll('.tw-in')];
+    const min = Number(pad.dataset.min) || 0, max = Number(pad.dataset.max) || 0, cnt = pad.querySelector('.tw-cnt'), num = cnt && cnt.querySelector('b');
+    try { const v = JSON.parse(localStorage.getItem(key) || 'null'); if (Array.isArray(v)) ins.forEach((x, i) => { if (typeof v[i] === 'string') x.value = v[i]; }); } catch (e) {}
+    let t = 0, told = ins.some((x) => x.value.trim());   // 불러온 글만 있을 때는 「썼다」로 세지 않는다
+    const sync = () => {
+      const n = ins.reduce((a, x) => a + x.value.length, 0);
+      if (num) num.textContent = n;
+      if (cnt && max) { cnt.classList.toggle('ok', n >= min && n <= max); cnt.classList.toggle('over', n > max); }
+      clearTimeout(t);
+      t = setTimeout(() => {
+        try { if (ins.some((x) => x.value.trim())) localStorage.setItem(key, JSON.stringify(ins.map((x) => x.value))); else localStorage.removeItem(key); } catch (e) {}
+        if (!told && n > 0) { told = true; try { (window.dataLayer = window.dataLayer || []).push({ event: 'tw_pad_write', cp_from: location.pathname }); } catch (e) {} }
+      }, 400);
+    };
+    ins.forEach((x) => x.addEventListener('input', sync));
+    sync();
+  }
   /* 사전 찾기 칸(낱말 쪽 · 사전 첫 쪽, 2026-11-22) — 앱 사전 검색(/#dictionary/<낱말>)으로 보낸다. 한국어 · 영어 모두 */
   document.addEventListener('submit', (e) => {
     const f = e.target.closest?.('form[data-find]'); if (!f) return;
