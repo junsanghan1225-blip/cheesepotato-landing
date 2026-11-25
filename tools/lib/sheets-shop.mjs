@@ -153,6 +153,27 @@ const heroColors = (k) => { try { const c = JSON.parse(fs.readFileSync(path.join
 const bundleOf = (k) => (SHOP.bundles || []).find((b) => b.status === 'on' && b.polar && b.books.includes(k.id));
 const stars0 = '<span class="stars">☆☆☆☆☆</span>';
 const BOOK_CSS = `<style>
+/* 시안 A(2026-11-25) — 아래 옛 규칙을 덮는다: 종이 바탕 · 잉크 글 · 표지 왼쪽 · 책 속 쪽 바로 보이기 · 단추 잉크/옅은 면 */
+.pg2 .pg2-hero.pg2-a{color:var(--ink);background:none;padding:22px 0 8px}.pg2-a .crumb{color:var(--ink-3)}.pg2-a .crumb a{color:var(--ink-3)}
+.pg2-ag{display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;align-items:start;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.pg2-acv img{width:100%;height:auto;border:1px solid var(--line);border-radius:8px}.pg2-ak{margin:4px 0 0;font-size:13px;font-weight:700;color:var(--ink-3)}
+.pg2 .pg2-a h1{font-size:34px;line-height:1.25;margin:6px 0 2px;color:var(--ink)!important}.pg2 .pg2-a .crumb a{color:var(--ink-3)!important;text-decoration:none}.pg2-aen{margin:0 0 14px;color:var(--ink-3);font-size:17px}
+.pg2 .pg2-steps{display:block!important;list-style:none;counter-reset:s;margin:0 0 16px;padding:0;border-top:1px solid var(--ink);max-width:600px}.pg2-steps small{display:block;font-size:13px;color:var(--ink-3)}.pg2 .pg2-steps li{counter-increment:s;display:block!important;padding:10px 0 10px 32px;border-bottom:1px solid var(--line);position:relative;font-size:15.5px}.pg2-steps li::before{content:counter(s);position:absolute;left:0;color:var(--ink-3);font-weight:800}
+.pg2 .pg2-a .btn.yel{background:var(--ink);border-color:var(--ink);color:var(--bg,#F2EEE4)}.pg2 .pg2-a .btn.ghost{background:rgba(27,21,18,.06);border:1px solid rgba(27,21,18,.14);color:var(--ink)}
+.pg2 .pg2-a .pg2-one{margin:8px 0 0;color:var(--ink-3);font-size:13px;text-align:left}
+.pg2-apv{padding:22px 0 6px}.pg2-apv h2{font-size:20px;margin:0 0 12px}.pg2-apv h2 small{font-size:13px;color:var(--ink-3);font-weight:500;margin-left:6px}
+.pg2-apv .pg2-pv{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pg2 .pg2-lay{margin-top:24px}.pg2 .pg2-card .btn:not(.sub){background:var(--ink);border-color:var(--ink);color:var(--bg,#F2EEE4)}.pg2 .pg2-bar .btn:not(.sub){background:var(--ink);color:var(--bg,#F2EEE4)}
+/* 간격 한 줄로 맞추기(운영자 2026-11-25 「간격 좀 잘 맞춰」) — 8 의 배수: 머리 위 아래 24 · 묶음 사이 16 · 글줄 사이 4~8 */
+.pg2 .pg2-hero.pg2-a{padding:16px 0 0}.pg2 .pg2-a .crumb{margin:0 0 16px;font-size:13px}
+.pg2 .pg2-ag{padding-bottom:24px}.pg2 .pg2-ak{margin:0 0 4px}.pg2 .pg2-a h1{margin:0 0 4px}.pg2 .pg2-aen{margin:0 0 16px;font-size:16px}
+.pg2 .pg2-steps{margin:0 0 16px}.pg2 .pg2-steps li{padding:8px 0 8px 28px;font-size:15px;line-height:1.45}.pg2 .pg2-steps small{margin-top:2px}
+.pg2 .pg2-a .pg2-cta{margin:0;gap:8px}.pg2 .pg2-a .pg2-cta .btn{min-height:44px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;font-size:15px}.pg2 .pg2-a .pg2-one{margin:8px 0 0}
+.pg2 .pg2-apv{padding:24px 0 0}.pg2 .pg2-apv h2{margin:0 0 16px}.pg2 .pg2-apv .pg2-pv{gap:16px}.pg2 .pg2-lay{margin-top:24px}
+@media(max-width:600px){.pg2 .pg2-a .pg2-cta{display:grid;grid-template-columns:1fr 1fr}.pg2 .pg2-a .pg2-cta .btn{padding:0 10px;font-size:14.5px}.pg2 .pg2-apv .pg2-pv{gap:12px}.pg2 .pg2-ag{gap:16px}}
+@media(max-width:900px){.pg2-ag{grid-template-columns:200px minmax(0,1fr);gap:24px}.pg2-a h1{font-size:24px}.pg2-apv .pg2-pv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.pg2-ag{grid-template-columns:1fr;gap:16px}.pg2-acv{width:62%;max-width:240px;margin:0 auto}.pg2-acv img{box-shadow:0 1px 0 rgba(0,0,0,.06)}.pg2-steps small{display:none}.pg2 .pg2-a h1{font-size:22px}}
+
 main{max-width:none;padding:0 0 70px}.hd-in{max-width:1120px}.pg2 table{min-width:0}
 .pg2 .in{max-width:1120px;margin:0 auto;padding:0 20px}.pg2 h2{font-size:24px;line-height:1.3;margin:0 0 14px;border:0;padding:0;color:var(--ink)}.pg2 a{color:var(--orange-deep)}
 .pg2-hero{color:#fff;padding:26px 0 70px;background:var(--c1)}.pg2-hg{display:grid;grid-template-columns:1fr 250px;gap:44px;align-items:center}.pg2-hero .crumb{font-size:13px;opacity:.8;margin-bottom:14px}.pg2-hero .crumb a{color:#fff}
@@ -225,11 +246,11 @@ function bookPage(k) {
   const level = k.level;
   const stDev = { en: k.pages ? '' : '' };
   const sample = k.sample ? `${base}#sample` : '';
-  const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}" data-sale>Buy the PDF · <span data-px="${esc(k.price)}">$${esc(k.price)}</span></a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
+  const ctaMain = on ? `<a class="btn yel" href="${esc(k.polar)}" rel="nofollow noopener" data-ev="책구매클릭" data-ev-from="${esc(k.id)}" data-sale>PDF 사기 · <span data-px="${esc(k.price)}">$${esc(k.price)}</span></a>` : `<a class="btn yel" href="#notify">Tell me when it is out</a>`;
   /* 샘플 단추는 누르면 바로 PDF 를 받는다(2026-11-14 운영자 「책 상세 쪽 샘플 · 구매 단추 고쳐줘」 — 책 클릭 18 · 샘플 0: 예전엔 아래 이메일 칸으로 내려가기만 했다).
      이메일 칸(#sample)은 아래에 그대로 둔다 — 소식을 받고 싶은 사람만 쓴다. 누른 자리는 data-ev-from 으로 가른다(hero · card · bar). */
   const sampleA = (where, label, cls) => k.sample ? `<a class="${cls}" href="/assets/books/${esc(k.id)}/sample.pdf" download data-ev="샘플받기" data-ev-from="${esc(k.id)}-${where}">${label}</a>` : '';
-  const ctaSub = sampleA('hero', `Free sample · ${k.sample?.pages || ''} pages PDF`, 'btn ghost');
+  const ctaSub = sampleA('hero', `무료 샘플 ${k.sample?.pages || ''}쪽 받기`, 'btn ghost');
   // 예스24 단추는 뺐다(운영자 2026-11-11 「이건 빼자」) — shop.json 의 yes24 주소는 그대로 둔다.
   const cp = (o) => o ? `${esc(o.en)}${o.ko ? ` <small>· ${esc(o.ko)}</small>` : ''}` : '';
   const pvN = (g.previews || []).length;
@@ -251,18 +272,21 @@ const proBox = (id, where) => `<div class="pg2-pro"><span class="ph">PRO · 연�
     const ex = d.extras ? `<div class="dex">${d.extras.map(([t, x]) => `<div><b>${esc(t.en)} <small>· ${esc(t.ko)}</small></b><p>${esc(x.en)}</p><p class="ko">${esc(x.ko)}</p></div>`).join('')}</div>` : '';
     return `<section class="pg2-sec pg2-det"><span class="dn">${esc(d.no)}</span><h2>${esc(d.h.en)} <small>· ${esc(d.h.ko)}</small></h2>${d.sub ? `<p class="dsub">${esc(d.sub.en)}</p><p class="dsub ko">${esc(d.sub.ko)}</p>` : ''}${chips}${imgs}${road}${ex}</section>`;
   }).join('');
+  const steps = (g.detail || []).length >= 2 ? g.detail.slice(0, 3).map((d) => [d.h.ko || d.h.en, d.h.ko ? d.h.en : '']) : [];
   const head2 = `${BOOK_CSS}<style>.pg2{--c1:${c1};--c2:${c2}}</style>\n${SHOP_CSS}${ld}`;
   const body = `<div class="pg2">
-<section class="pg2-hero"><div class="in"><div class="crumb"><a href="/shop/">Books</a> › ${esc(level)} › ${esc(k.title.en)}</div><div class="pg2-hg"><div>
-  <span class="pg2-chip">${esc(level)} · PDF${on ? '' : ' · Coming soon'}</span><h1>${esc(k.title.en)}</h1><div class="pg2-ko">${esc(k.title.ko)} · Junsang</div>
-  <p class="pg2-lead">${esc(g.headline?.en || k.sub.en)}</p>
+<section class="pg2-hero pg2-a"><div class="in"><div class="crumb"><a href="/shop/">책 · Books</a> › ${esc(level)}</div><div class="pg2-ag">
+  <div class="pg2-acv">${k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.ko)}" width="700" height="995">` : cover(k, true)}</div>
+  <div><p class="pg2-ak">${esc(level)} · PDF${k.pages ? ` · ${esc(String(k.pages).replace(/\s*\(.*\)\s*$/, ''))}${/쪽|page/i.test(String(k.pages)) ? '' : '쪽'}` : ''} · 정답 포함${on ? '' : ' · 준비 중'}</p><h1>${esc(k.title.ko)}</h1><p class="pg2-aen">${esc(k.title.en)}</p>
+  ${steps.length ? `<ol class="pg2-steps">${steps.map(([a, b]) => `<li><b>${esc(a)}</b>${b ? `<small lang="en">${esc(b)}</small>` : ''}</li>`).join('')}</ol>` : `<p class="pg2-lead">${esc(g.headline?.en || k.sub.en)}</p>`}
   <a class="rv-hero" href="#reviews" data-rv-hero hidden></a>
-  <div class="pg2-cta">${ctaMain}${ctaSub}</div></div><div class="cv">${pvN && k.coverImg ? `<div class="flip" data-flip="${pvN}"><img class="fp on" src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">${(g.previews || []).map((c, i) => `<img class="fp" data-src="/assets/books/${esc(k.id)}/pv-${i + 1}.jpg" alt="${esc(c[0])}" width="1100" height="1554">`).join('')}</div><div class="flipbar" hidden><button type="button" data-fp="-1" aria-label="Previous page">‹</button><span class="flipn">Cover</span><button type="button" data-fp="1" aria-label="Next page">›</button></div><a class="cvh" href="#preview">Look inside · 미리보기 ${pvN}쪽 ›</a>` : k.coverImg ? `<img src="${esc(k.coverImg)}" alt="${esc(k.title.en)}" width="700" height="995">` : cover(k, true)}</div></div></div></section>
+  <div class="pg2-cta">${ctaMain}${ctaSub}</div><p class="pg2-one">바로 내려받기 · Instant download${on ? ' · Pro 연간이면 무료' : ''}</p></div></div>
+  ${pvN ? `<div class="pg2-apv" id="preview"><h2>책 속 실제 쪽 <small>Look inside · 누르면 크게</small></h2><div class="pg2-pv">${pv}</div>${lb}</div>` : ''}
+</div></section>
 <div class="in"><div class="pg2-lay"><main class="pg2-main">
 ${notify}
 <section class="pg2-sec pg2-prob"><p>${esc(g.lead?.en || k.about.en)}</p><p class="ko">${esc(g.lead?.ko || k.about.ko)}</p></section>
 ${dsec}
-${pvN ? `<section class="pg2-sec" id="preview"><h2>Look inside · 미리보기</h2><p style="color:var(--ink-3);margin:-6px 0 12px">${esc(g.previewNote.en)} <small>· ${esc(g.previewNote.ko)}</small></p><div class="pg2-pv">${pv}</div>${lb}</section>` : ''}
 ${k.sample ? `<section class="pg2-sec">${sampleBox(k)}</section>` : ''}
 ${on ? `<section class="pg2-sec pg2-prom">${proBox(k.id, 'main')}</section>` : ''}
 <section class="pg2-sec"><h2>Who it is for · 이런 분께</h2><ul class="pg2-fl">${k.for.en.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
