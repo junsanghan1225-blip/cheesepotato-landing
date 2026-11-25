@@ -164,6 +164,13 @@ const BOOK_CSS = `<style>
 .pg2-apv{padding:22px 0 6px}.pg2-apv h2{font-size:20px;margin:0 0 12px}.pg2-apv h2 small{font-size:13px;color:var(--ink-3);font-weight:500;margin-left:6px}
 .pg2-apv .pg2-pv{grid-template-columns:repeat(4,minmax(0,1fr))}
 .pg2 .pg2-lay{margin-top:24px}.pg2 .pg2-card .btn:not(.sub){background:var(--ink);border-color:var(--ink);color:var(--bg,#F2EEE4)}.pg2 .pg2-bar .btn:not(.sub){background:var(--ink);color:var(--bg,#F2EEE4)}
+/* 간격 한 줄로 맞추기(운영자 2026-11-25 「간격 좀 잘 맞춰」) — 8 의 배수: 머리 위 아래 24 · 묶음 사이 16 · 글줄 사이 4~8 */
+.pg2 .pg2-hero.pg2-a{padding:16px 0 0}.pg2 .pg2-a .crumb{margin:0 0 16px;font-size:13px}
+.pg2 .pg2-ag{padding-bottom:24px}.pg2 .pg2-ak{margin:0 0 4px}.pg2 .pg2-a h1{margin:0 0 4px}.pg2 .pg2-aen{margin:0 0 16px;font-size:16px}
+.pg2 .pg2-steps{margin:0 0 16px}.pg2 .pg2-steps li{padding:8px 0 8px 28px;font-size:15px;line-height:1.45}.pg2 .pg2-steps small{margin-top:2px}
+.pg2 .pg2-a .pg2-cta{margin:0;gap:8px}.pg2 .pg2-a .pg2-cta .btn{min-height:44px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;font-size:15px}.pg2 .pg2-a .pg2-one{margin:8px 0 0}
+.pg2 .pg2-apv{padding:24px 0 0}.pg2 .pg2-apv h2{margin:0 0 16px}.pg2 .pg2-apv .pg2-pv{gap:16px}.pg2 .pg2-lay{margin-top:24px}
+@media(max-width:600px){.pg2 .pg2-a .pg2-cta{display:grid;grid-template-columns:1fr 1fr}.pg2 .pg2-a .pg2-cta .btn{padding:0 10px;font-size:14.5px}.pg2 .pg2-apv .pg2-pv{gap:12px}.pg2 .pg2-ag{gap:16px}}
 @media(max-width:900px){.pg2-ag{grid-template-columns:200px minmax(0,1fr);gap:24px}.pg2-a h1{font-size:24px}.pg2-apv .pg2-pv{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.pg2-ag{grid-template-columns:1fr;gap:16px}.pg2-acv{width:62%;max-width:240px;margin:0 auto}.pg2-acv img{box-shadow:0 1px 0 rgba(0,0,0,.06)}.pg2-steps small{display:none}.pg2 .pg2-a h1{font-size:22px}}
 
