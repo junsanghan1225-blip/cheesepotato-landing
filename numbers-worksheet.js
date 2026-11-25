@@ -61,11 +61,25 @@
     `<w:r><w:rPr>${FONT}${o.b ? '<w:b/>' : ''}${o.color ? `<w:color w:val="${o.color}"/>` : ''}<w:sz w:val="${o.sz || 20}"/></w:rPr><w:t xml:space="preserve">${xe(text)}</w:t></w:r></w:p>`;
   /* 빈칸(.nw-line) 은 밑줄 글자로 */
   const txt = (n) => { let r = ''; n.childNodes.forEach((c) => { r += c.nodeType === 3 ? c.textContent : c.classList?.contains('nw-line') || c.classList?.contains('ws-blank') || c.classList?.contains('ws-line') ? '__________' : txt(c); }); return r.replace(/\s+/g, ' ').trim(); };
+  /* 쓰는 줄 — 밑줄 글자(반 폭에서 끝났다) 대신 문단 아래 테두리로 쪽 폭 가득(2026-11-24 운영자 「인쇄할 때랑 다르고 · 잘리는 부분」) */
+  /* 이웃한 문단의 테두리가 같으면 Word 가 한 묶음으로 보고 마지막 줄만 그린다 — 그래서 한 칸짜리 표의 줄마다 아래 테두리로 */
+  const wline = (n = 1) => {
+    const nb = ['top', 'left', 'right', 'insideV'].map((x) => `<w:${x} w:val="nil"/>`).join('') + '<w:bottom w:val="single" w:sz="6" w:color="999999"/><w:insideH w:val="single" w:sz="6" w:color="999999"/>';
+    return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${nb}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid><w:gridCol w:w="10200"/></w:tblGrid>` +
+      `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr><w:tc><w:tcPr><w:tcW w:w="10200" w:type="dxa"/></w:tcPr>${para('', { after: 0 })}</w:tc></w:tr>`.repeat(n) + '</w:tbl>' + para('', { after: 0, sz: 8 });
+  };
+  /* 문법 학습지 「바꿔 써요」 표(.ws-t) — 머리줄이 없는 표라 첫 줄을 칠하지 않고, 낱말 · → · 쓰는 칸(밑줄)으로 */
+  const wsTbl = (t) => {
+    const cols = [3400, 700, 6100], nb = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="nil"/>`).join('');
+    return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${nb}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${cols.map((w) => `<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>` +
+      [...t.rows].map((r) => `<w:tr><w:trPr><w:trHeight w:val="440"/></w:trPr>${[...r.cells].map((c, i) => `<w:tc><w:tcPr><w:tcW w:w="${cols[i] || 3400}" w:type="dxa"/>${i === 2 && !r.classList.contains('ws-ex1') ? '<w:tcBorders><w:bottom w:val="single" w:sz="6" w:color="999999"/></w:tcBorders>' : ''}<w:vAlign w:val="bottom"/></w:tcPr>${para(i === 2 && !r.classList.contains('ws-ex1') ? '' : txt(c), { sz: 22, after: 40, color: r.classList.contains('ws-ex1') ? '777777' : '' })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
+  };
   const tbl = (t) => {
+    if (t.classList.contains('ws-t')) return wsTbl(t);
     const rows = [...t.rows]; const n = Math.max(...rows.map((r) => r.cells.length)), w = Math.floor(10200 / n);
     const bd = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map((x) => `<w:${x} w:val="single" w:sz="4" w:color="999999"/>`).join('');
     return `<w:tbl><w:tblPr><w:tblW w:w="10200" w:type="dxa"/><w:tblBorders>${bd}</w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="80" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${'<w:gridCol w:w="' + w + '"/>'.repeat(n)}</w:tblGrid>` +
-      rows.map((r, ri) => `<w:tr>${[...r.cells].map((c) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${ri === 0 ? '<w:shd w:val="clear" w:color="auto" w:fill="EFE7DA"/>' : ''}</w:tcPr>${para(txt(c), { sz: 18, b: ri === 0 || c.classList.contains('k'), after: 20 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
+      rows.map((r, ri) => `<w:tr>${[...r.cells].map((c) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${ri === 0 && !t.classList.contains('ws-w') ? '<w:shd w:val="clear" w:color="auto" w:fill="EFE7DA"/>' : ''}</w:tcPr>${para(txt(c), { sz: 18, b: (ri === 0 && !t.classList.contains('ws-w')) || c.classList.contains('k'), after: 20 })}</w:tc>`).join('')}</w:tr>`).join('') + '</w:tbl>' + para('', { after: 60 });
   };
   function body1(paper, brk) {
     let out = '', first = true;
@@ -77,9 +91,16 @@
         else if (k.contains('nw-tw')) walk(c);
         else if (k.contains('nw-h') || c.matches('h1')) P(txt(c), { sz: 32, b: 1, after: 60 });
         else if (c.matches('h2')) P(txt(c), { sz: 22, b: 1, before: 180, after: 80 });
-        else if (k.contains('ws-kicker')) P(txt(c), { sz: 18, b: 1, color: '9C4A1A', before: 120, after: 40 });
+        else if (k.contains('ws-kicker')) P(txt(c), { sz: 18, b: 1, color: '666666', before: 120, after: 40 });
         else if (k.contains('ws-top')) P([...c.children].map(txt).join('        '), { sz: 18, color: '555555', after: 120 });
-        else if (k.contains('ws-wl')) P('________________________________________________', { color: 'AAAAAA', after: 120 });
+        else if (k.contains('ws-wl')) { out += wline(); first = false; }
+        /* 문법 학습지 문항 — 본문 · 영어(작은 회색 줄) · 쓰는 줄을 따로(전에는 한 줄로 붙고 쓰는 줄이 빠졌다) */
+        else if (k.contains('ws-q')) [...c.children].forEach((li, i) => {
+          const sm = li.querySelector('small'), cl = li.cloneNode(true); cl.querySelectorAll('small,.ws-wl').forEach((x) => x.remove());
+          P(`${i + 1}. ${txt(cl)}`, { sz: 22, before: 60, after: sm ? 20 : 80 });
+          if (sm) P(txt(sm), { sz: 17, color: '777777', after: 80 });
+          const nl = li.querySelectorAll('.ws-wl').length; if (nl) { out += wline(nl); first = false; }
+        });
         else if (k.contains('nw-h3')) P(txt(c), { sz: 22, b: 1, before: 180, after: 80 });
         else if (k.contains('nw-g')) P(txt(c), { sz: 20, b: 1, before: 100, after: 40 });
         else if (k.contains('nw-top')) P([...c.children].map(txt).join('        '), { sz: 18, color: '555555', after: 120 });

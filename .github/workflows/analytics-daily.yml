@@ -21,6 +21,10 @@ on:
         description: '검색 유입 진단만 돌리기(tools/seo-diagnose.mjs — 결과는 이 실행의 요약 · 로그, 일간 수집은 안 함)'
         type: boolean
         default: false
+      writing:
+        description: 'TOPIK 쓰기 깔때기만 돌리기(tools/writing-funnel.mjs — 결과는 이 실행의 요약 · 로그)'
+        type: boolean
+        default: false
       drop_sitemap:
         description: '(진단과 함께) Search Console 에서 지울 사이트맵 주소 하나 — 비우면 안 지움'
         default: ''
@@ -47,6 +51,11 @@ jobs:
         run: |
           if [ -z "$GOOGLE_SA_KEY" ] || [ -z "$GA_PROPERTY_ID" ] || [ -z "$SC_SITE" ]; then
             echo "::notice::GOOGLE_SA_KEY · GA_PROPERTY_ID · SC_SITE 가 아직 없어요 — docs/ops/analytics-api-setup.md 대로 설정하면 켜집니다."
+            echo "skip=1" >> $GITHUB_OUTPUT; exit 0
+          fi
+          if [ '${{ inputs.writing }}' = 'true' ]; then
+            node tools/writing-funnel.mjs > "$RUNNER_TEMP/wf.md" || true
+            cat "$RUNNER_TEMP/wf.md"; cat "$RUNNER_TEMP/wf.md" >> $GITHUB_STEP_SUMMARY
             echo "skip=1" >> $GITHUB_OUTPUT; exit 0
           fi
           if [ '${{ inputs.diag }}' = 'true' ]; then

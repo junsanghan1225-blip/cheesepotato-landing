@@ -957,8 +957,13 @@ function twPage(it) {
     it.tasks ? '<h2>다뤄야 할 것 · Must cover</h2><ul class="pts">' +
       it.tasks.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>' : '',
     /* 큰 검정 단추 → 문항 쪽(읽기 · 듣기)과 같은 테두리 단추. 정답은 「정답과 해설 보기」와 같은 상자로 — 전엔 글줄처럼 보여 누를 수 있는지 몰랐다(2026-11-22) */
-    `<a class="tq-app" href="/?utm_source=twpage#learn/writing/${encodeURIComponent(it.id)}">이 문항 앱에서 직접 써 보기 →</a>`,
-    '<p class="tw-note">글자 수 · 말투는 쓰는 동안 바로 확인돼요 · AI 채점은 Pro · Length and register are checked as you type</p>',
+    /* 쪽에서 바로 쓰기(2026-11-25 쓰기 깔때기 — 문항 쪽에서 한 사람이 같은 자리를 14번 헛눌렀다: 쓸 칸을 찾았다).
+       글자 수를 세고, 앱과 같은 열쇠(cp-tw-draft-<id>)에 저장해서 「앱에서 이어 쓰기 · AI 채점」을 누르면 쓴 글이 그대로 열린다. page.js 가 움직인다 */
+    `<div class="tw-pad" data-tw="${esc(it.id)}"${it.min ? ` data-min="${it.min}" data-max="${it.max}"` : ''}>` +
+      (it.blanks ? it.blanks.map((_, i) => `<label><b>${'㉠㉡㉢㉣'[i]}</b><input class="tw-in" type="text" autocomplete="off" placeholder="빈칸 ${'㉠㉡㉢㉣'[i]} 에 들어갈 문장 · Write here"></label>`).join('')
+        : `<textarea class="tw-in" rows="7" placeholder="여기에 바로 써 보세요 · Write your answer here"></textarea>`) +
+      `<p class="tw-cnt"><span>${it.min ? `<b>0</b>자 / ${it.min}~${it.max}자 (띄어쓰기 포함)` : '쓰면 이 기기에 저장돼요'}</span><a class="tw-go-app" href="/?utm_source=twpage&amp;utm_content=pad#learn/writing/${encodeURIComponent(it.id)}">앱에서 이어 쓰기 · AI 채점 →</a></p></div>`,
+    '<p class="tw-note">쓴 글은 이 기기에만 저장되고, 앱에서 그대로 이어져요 · AI 채점은 Pro · Saved on this device and opens in the app</p>',
     '<details class="ans-box tw-ans"><summary>정답 · 채점 포인트 보기 <small>먼저 써 본 뒤에 · Model answer &amp; scoring</small></summary>',
     it.model ? `<h2>모범답안 · Model answer</h2><div class="ex">${esc(it.model).replace(/\n/g, '<br>')}</div>` : '',
     /* 51·52번(빈칸형)은 model 대신 blanks 배열로 답을 담는다 — 빈칸마다
@@ -1076,6 +1081,9 @@ const HUB_MODERN_CSS = '.wrap{max-width:1200px;padding-left:40px;padding-right:4
       '.cat .pts li a:hover{color:var(--cta,#C4561B)}' +
       '.cat details.more summary{margin-top:12px;font-size:14px;font-weight:600;color:var(--cta,#C4561B);cursor:pointer;list-style:none}' +
       '.tw-how-h{margin-top:44px}.tw-how{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}' +
+      /* 쓰는 법 카드 전체를 누르면 「자세히 보기」로(2026-11-25 쓰기 첫 쪽 헛누름 30번 — 카드처럼 생겨서 아무 데나 누른다) */
+      '.tw-faq details{border-bottom:1px solid var(--line);padding:12px 0}.tw-faq summary{cursor:pointer;font-weight:700;font-size:15.5px}.tw-faq p{margin:8px 0 0;color:var(--ink);font-size:15px;line-height:1.65}' +
+      '.tw-h{position:relative;cursor:pointer}.tw-h>a::after{content:"";position:absolute;inset:0}' +
       '.tw-h{display:flex;flex-direction:column;padding:20px 22px;border-radius:20px;background:var(--line2)}.tw-h b{font-size:13px;color:var(--cta,#C4561B)}' +
       '.tw-h ol{margin:10px 0 14px;padding-left:18px;font-size:14.5px;line-height:1.55;color:var(--ink)}.tw-h li{margin:0 0 6px}' +
       '.tw-h a{margin-top:auto;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}.tw-h a::after{content:" →"}.tw-h a:hover{color:var(--cta,#C4561B)}' +
@@ -1187,6 +1195,17 @@ function twHub(items) {
     '<div class="tw-more" id="twMore" hidden><span id="twCount"></span><button type="button" id="twMoreBtn">더 보기 ↓</button></div>' +
     '<p class="tw-empty" id="twEmpty" hidden>맞는 문항이 없어요. 다른 낱말로 찾아보세요.</p>' +
     '<p class="tw-note">「본 것」은 이 기기(브라우저)에 저장돼요 · Seen marks stay on this device.</p>';
+  /* 자주 묻는 질문(2026-11-25 쓰기 집중 2단계 — ChatGPT · Bing 손님이 쓰기 쪽에 가장 오래 머문다. AI 답변이 그대로 옮기기 좋게 질문 · 짧은 답).
+     시험 형식은 공개된 TOPIK II 쓰기 형식(문항 넷 · 배점 51·52 10점 · 53 30점 · 54 50점, 53 200~300자 · 54 600~700자, 쓰기 시간 50분)만 — 다른 사실은 적지 않는다.
+     화면 글과 FAQPage JSON-LD 가 같은 글(TW_FAQ 하나에서) */
+  const TW_FAQ = [
+    ['TOPIK II 쓰기는 몇 문항이고 몇 점인가요? · How many writing questions are there?', `51 · 52 · 53 · 54번 네 문항이에요. 배점은 ${TW_QS.map((g) => `${g.q}번 ${g.pt}점`).join(' · ')}, 합 100점이에요. Four questions: ${TW_QS.map((g) => `Q${g.q} ${g.pt} pts`).join(', ')} (100 in total).`],
+    ['쓰기 시간은 얼마나 되나요? · How long is the writing section?', 'TOPIK II 1교시에 듣기 뒤에 이어서 50분이에요. 51 · 52번은 빨리 끝내고 53 · 54번에 시간을 많이 두세요. 50 minutes, right after listening in the first session.'],
+    ['53번 · 54번은 몇 자를 써야 하나요? · How long should Q53 and Q54 be?', '53번은 200~300자, 54번은 600~700자예요(띄어쓰기 포함). 두 문항 모두 「-다」 체로 써요. Q53: 200–300 characters; Q54: 600–700 characters, in the formal -다 style.'],
+    ['51번 · 52번은 어떻게 쓰나요? · How do I answer Q51 and Q52?', '빈칸 ㉠ · ㉡ 에 알맞은 문장을 한 문장씩 써요. 51번은 실용문(안내 · 문자)이라 말투(-습니다 · -(으)세요)를 앞뒤에 맞추고, 52번은 설명문이라 「-다」 체로 써요. Write one sentence per blank, matching the style around it.'],
+    ['치즈감자에서는 어떻게 연습하나요? · How can I practise here?', `창작 연습 문항 ${items.length}개(번호별 50개)가 있고, 문항 쪽에서 바로 쓰면 글자 수를 세 줘요. 모범답안 · 채점 포인트는 모두 무료, 53 · 54번 AI 채점은 로그인하면 1번 무료예요. 기출 문제가 아니에요. ${items.length} original practice tasks, free model answers, AI scoring for Q53–54 (first one free).`],
+  ];
+  const twFaq = '<h2 class="tw-how-h">자주 묻는 질문 · FAQ</h2><div class="tw-faq">' + TW_FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('') + '</div>';
   const body = [
     '<nav class="crumb"><a href="/">치즈감자</a> › TOPIK 쓰기</nav>',
     `<h1>TOPIK II 쓰기 연습 ${items.length}문항</h1>`,
@@ -1197,6 +1216,7 @@ function twHub(items) {
     twList,
     twBooks,
     twGuides(),
+    twFaq,
     leadSample('topik2-writing-51-52', 'tw'),
     '<p class="hub-note">레벨이 궁금하면 <a href="/?lt=1&utm_source=hub">3분 레벨테스트 →</a> · Not sure of your level? Take the 3-min test.</p>',
     hubNext('/topik-writing/', 3),
@@ -1212,7 +1232,8 @@ function twHub(items) {
     title: `토픽 쓰기 연습 문제 ${items.length}개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato`,
     desc: clip(`토픽 쓰기 연습 문제 ${items.length}개. TOPIK II writing 51·52·53·54번을 유형별로 풀고, 모범답안(무료)과 채점 기준 · 감점 요인을 바로 확인하세요. 53·54번 AI 채점은 로그인하면 1번 무료. 가입 없이 시작. 기출이 아닌 창작 문항입니다.`),
     body,
-    jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/']])],
+    jsonld: [crumbLd([['치즈감자', '/'], ['TOPIK 쓰기', '/topik-writing/']]),
+      { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: TW_FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
   });
 }
 
@@ -1312,6 +1333,11 @@ const TQ_CSS = [
   '.tq-bkin b{display:block;font-size:14px;line-height:1.4}.tq-bkin small{display:block;margin:2px 0 8px;color:var(--dim);font-size:12.5px}',
   '.tq-bkin a.tq-bkgo{display:block;font-weight:700;color:var(--orange-deep,#AE4710);text-decoration:none}.tq-smp{display:block;margin-top:4px;font-size:12.5px;color:var(--dim)}',
   '@media(max-width:900px){.dx-lay{grid-template-columns:minmax(0,1fr);gap:28px}.tq-side{position:static}}',
+  /* 쪽에서 바로 쓰기 칸(2026-11-25) — 종이 느낌 칸, 글자 수가 범위 안이면 잉크, 넘치거나 모자라면 흐리게 */
+  '.tw-pad{margin:18px 0 0;border:1px solid var(--ink);border-radius:10px;background:var(--surface,#fff);padding:12px}.tw-pad label{display:flex;align-items:center;gap:8px;margin:0 0 8px}.tw-pad label b{flex:none}',
+  '.tw-pad .tw-in{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.7;background:var(--bg,#fff);color:var(--ink);resize:vertical}.tw-pad .tw-in:focus{outline:2px solid var(--ink);outline-offset:1px}',
+  '.tw-cnt{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:center;margin:8px 0 0!important;font-size:13.5px;color:var(--dim)}.tw-cnt b{color:var(--ink)}.tw-cnt.ok b{text-decoration:underline;text-decoration-thickness:2px}.tw-cnt.over b{color:#B3261E}',
+  '.tw-go-app{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:4px}',
 ].join('');
 
 function trPage(it) {
