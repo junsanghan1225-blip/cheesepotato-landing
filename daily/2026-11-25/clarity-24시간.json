@@ -1,0 +1,365 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 9.57,
+     "sessionsWithoutMetricPercentage": 90.43,
+     "pagesViews": 9,
+     "subTotal": 87
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 1.06,
+     "sessionsWithoutMetricPercentage": 98.94,
+     "pagesViews": 1,
+     "subTotal": 1
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 1.06,
+     "sessionsWithoutMetricPercentage": 98.94,
+     "pagesViews": 1,
+     "subTotal": 5
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 4.26,
+     "sessionsWithoutMetricPercentage": 95.74,
+     "pagesViews": 11,
+     "subTotal": 11
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 94,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 54.77
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 94,
+     "totalBotSessionCount": 52,
+     "distinctUserCount": 84,
+     "pagesPerSessionPercentage": 1.4042553191489362
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 247,
+     "activeTime": 162
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "Chrome",
+     "sessionsCount": 50
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 12
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 11
+    },
+    {
+     "name": "MiuiBrowser",
+     "sessionsCount": 9
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 5
+    },
+    {
+     "name": "SamsungInternet",
+     "sessionsCount": 3
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Other",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 63
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 28
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 3
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 58
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 16
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 15
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 2
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 2
+    },
+    {
+     "name": "ChromeOS",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 49
+    },
+    {
+     "name": "China",
+     "sessionsCount": 14
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Poland",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Hong Kong",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Argentina",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Italy",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Mongolia",
+     "sessionsCount": 2
+    },
+    {
+     "name": "India",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 36
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 14
+    },
+    {
+     "name": "토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato",
+     "sessionsCount": 7
+    },
+    {
+     "name": "당신의 이름을 한국어로 (한글로) 변환해 드리는 무료 이름 변환기 | 치즈포테이토",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Download — CheesePotato",
+     "sessionsCount": 5
+    },
+    {
+     "name": "Free Korean Worksheets (Printable PDF) | CheesePotato",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Shopping, Prices & Clothing (Free PDF) | CheesePotato",
+     "sessionsCount": 3
+    },
+    {
+     "name": "오빠 영어로 · 뜻 — \"older brother (for females)\" (oppa) meaning in Korean",
+     "sessionsCount": 3
+    },
+    {
+     "name": "CheesePotato 소개: 누가, 어떻게 만드는가 | 치즈감자 소개",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Korean Age Calculator — 만 나이, Korean Age & How to Say It | CheesePotato",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 41
+    },
+    {
+     "name": "accounts.google.com",
+     "sessionsCount": 9
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 7
+    },
+    {
+     "name": "m.search.naver.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "www.doubao.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "au.search.yahoo.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "cn.bing.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "www.ecosia.org",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 36
+    },
+    {
+     "url": "https://everykoreans.com/topik-vocabulary-list/",
+     "visitsCount": 15
+    },
+    {
+     "url": "https://everykoreans.com/korean-name/",
+     "visitsCount": 8
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 7
+    },
+    {
+     "url": "https://everykoreans.com/worksheets/",
+     "visitsCount": 6
+    },
+    {
+     "url": "https://everykoreans.com/download/",
+     "visitsCount": 5
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%98%A4%EB%B9%A0.html",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/shopping-prices-clothes-worksheet/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://everykoreans.com/about.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%86%8D%EC%B6%9C%ED%95%98%EB%8B%A4.html",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
