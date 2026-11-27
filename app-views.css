@@ -8081,3 +8081,7 @@ body #learnView.course-mode .pt-body { max-width:1200px !important; padding-left
   .wd-wrap .wd-topics, .wd-wrap .wd-tprog, .wd-wrap .wd-games { grid-template-columns:1fr; }
 }
 @media (max-width:600px) { .wd-wrap .wd-stats { grid-template-columns:1fr 1fr; } .wd-wrap .wd-stats div:nth-child(3) { border-left:0; } .wd-wrap .wd-stats div:nth-child(n+3) { border-top:1px solid var(--line); } }
+
+/* 화면 밀림(CLS) 막기(2026-11-27 Clarity 성능 판 CLS 0.64 — #dictionary 하나가 0.636): 단어 화면은 words.js 를 받은 뒤에 그려서,
+   그동안 빈 칸 바로 아래 꼬리말이 먼저 보였다가 내용이 들어오며 한 화면만큼 밀려 내려갔다 → 비어 있는 동안 자리를 잡아 둔다 */
+#wordsRoot:empty, .wd-loading { min-height:100vh; }

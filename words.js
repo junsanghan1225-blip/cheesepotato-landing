@@ -1600,6 +1600,11 @@ export function wordsInit(D) {
         view = { tab: tab.dataset.tab }; mark(view.tab === 'home' ? '' : view.tab); if (view.tab === 'pod') podNeed(); draw();
       };
       if (view.tab === 'study' && run?.cur) return ask({ title: t('공부를 그만할까요?', 'Stop now?'), msg: t('푼 것은 기록돼요.', 'What you answered is saved.'), ok: t('그만하기', 'Stop'), done: go });
+      /* 누른 탭에 밑줄을 먼저 그리고, 무거운 다시 그리기(외우기 · 기록은 주제마다 진도를 센다)는 한 장면 뒤에 — 누른 뒤 화면이 굳어 보이던 것(INP 0.3~0.45초, 2026-11-27) */
+      if (tab.classList.contains('wd-tab')) {
+        root.querySelectorAll('.wd-tab').forEach((x) => { const on = x === tab; x.classList.toggle('on', on); x.setAttribute('aria-selected', String(on)); });
+        return requestAnimationFrame(() => setTimeout(go, 0));
+      }
       return go();
     }
     const wd = ev.target.closest('[data-word]');
