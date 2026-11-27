@@ -175,7 +175,7 @@ async function publish() {
     if (!res.ok || j.error) {
       const e = j.error || {};
       if (e.code === 190) die('열쇠(토큰)가 끝났거나 틀렸어요 — docs/ops/insta-auto.md 「토큰 새로 넣기」대로 새 토큰을 넣어 주세요.');
-      die(`인스타 API 오류 ${res.status}: ${e.message || JSON.stringify(j).slice(0, 300)}`);
+      throw new Error(`인스타 API 오류 ${res.status}: ${e.message || JSON.stringify(j).slice(0, 300)}`);
     }
     return j;
   };
@@ -189,6 +189,8 @@ async function publish() {
   else {
     const kids = [];
     for (const u of urls) kids.push((await call('POST', `/${uid}/media`, { image_url: u, is_carousel_item: 'true' })).id);
+    /* 묶음 안 장이 다 준비된 뒤에 묶음을 만든다(스레드 쪽과 같게) — 덜 된 장으로 만들면 게시 때 「Media ID is not available」 */
+    for (const k of kids) await waitReady(call, k, 'status_code', '인스타');
     creation = (await call('POST', `/${uid}/media`, { media_type: 'CAROUSEL', children: kids.join(','), caption })).id;
   }
   for (let i = 0; i < 30; i++) {
@@ -197,7 +199,12 @@ async function publish() {
     if (st.status_code === 'ERROR' || st.status_code === 'EXPIRED') die(`인스타가 이미지를 못 받았어요(${st.status_code}). 이미지 주소: ${urls[0]}`);
     await new Promise((r) => setTimeout(r, 5000));
   }
-  const pub = await call('POST', `/${uid}/media_publish`, { creation_id: creation });
+  /* FINISHED 직후에도 메타가 잠깐 「Media ID is not available」을 줄 때가 있다(2026-11-19 #731) — 10초씩 두 번 더 */
+  let pub;
+  for (let i = 0; ; i++) {
+    try { pub = await call('POST', `/${uid}/media_publish`, { creation_id: creation }); break; }
+    catch (e) { if (i >= 2 || !/not available/i.test(e.message)) throw e; await new Promise((r) => setTimeout(r, 10000)); }
+  }
   await writeFile(join(dir, 'posted.json'), JSON.stringify({ id: pub.id, at: new Date().toISOString(), user: me.username }, null, 1));
   console.log(`✓ 올렸어요 — @${me.username} ${meta.day} ${meta.name} (${urls.length}장)`);
 }
