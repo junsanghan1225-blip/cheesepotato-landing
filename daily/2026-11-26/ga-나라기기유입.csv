@@ -1,0 +1,16 @@
+나라,기기,유입,세션,평균참여시간(초),참여율
+China,desktop,Direct,15,36.686881,0.93333333333333335
+Singapore,desktop,Direct,6,3.8091601666666666,1
+China,mobile,Unassigned,5,588.7898416,0.8
+China,mobile,Direct,4,2.88209675,1
+Mongolia,desktop,Unassigned,3,2.6783249999999996,0.66666666666666663
+South Korea,mobile,AI Assistant,3,45.707834,1
+Argentina,desktop,AI Assistant,2,20.0766025,1
+China,desktop,Referral,2,2.6041765,0.5
+China,desktop,Unassigned,2,869.467893,0
+Indonesia,mobile,Direct,2,423.931403,1
+United States,mobile,Organic Search,2,163.924967,1
+France,desktop,Organic Search,1,33.83185,1
+Hong Kong,desktop,Direct,1,5.95036,1
+India,mobile,Unassigned,1,146.364714,1
+Italy,desktop,Direct,1,11.372495,1
