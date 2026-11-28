@@ -1,0 +1,329 @@
+{
+ "overall": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 12.5,
+     "sessionsWithoutMetricPercentage": 87.5,
+     "pagesViews": 2,
+     "subTotal": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 16,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 45.5
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 16,
+     "totalBotSessionCount": 38,
+     "distinctUserCount": 15,
+     "pagesPerSessionPercentage": 1.375
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 64,
+     "activeTime": 18
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Chrome",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Edge",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Other",
+     "sessionsCount": 1
+    },
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Firefox",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "PC",
+     "sessionsCount": 8
+    },
+    {
+     "name": "Mobile",
+     "sessionsCount": 7
+    },
+    {
+     "name": "Tablet",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Windows",
+     "sessionsCount": 7
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 6
+    },
+    {
+     "name": "Android",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Linux",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "Korea, Republic of",
+     "sessionsCount": 8
+    },
+    {
+     "name": "Viet Nam",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Mongolia",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Russian Federation",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Singapore",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Turkey",
+     "sessionsCount": 1
+    },
+    {
+     "name": "China",
+     "sessionsCount": 1
+    },
+    {
+     "name": "France",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "치즈감자 웹사이트 — 무료 한국어 학습과 TOPIK 연습 | Learn Korean Free",
+     "sessionsCount": 4
+    },
+    {
+     "name": "-고 vs -아서/어서: \"and then\" in Korean | CheesePotato Blog",
+     "sessionsCount": 2
+    },
+    {
+     "name": "토픽 쓰기 연습 문제 200개, 모범답안 무료 — TOPIK II 51~54번 | CheesePotato",
+     "sessionsCount": 2
+    },
+    {
+     "name": "\"busan\" in Korean — 부산 (busan) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "\"peel\" in Korean — 깎다 (kkakda) with examples | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Everykoreans — Korean Books & Worksheet Shop | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Học tiếng Hàn miễn phí: luyện thi TOPIK I · II | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "TOPIK 53번 연습 — 직장인의 퇴근 후 자기 계발 | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "TOPIK II 읽기 5번 연습 — 라면 | CheesePotato",
+     "sessionsCount": 1
+    },
+    {
+     "name": "TOPIK Vocabulary List — Free CSV & Anki Download (Levels 1–6) | CheesePotato",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": "everykoreans.com",
+     "sessionsCount": 3
+    },
+    {
+     "name": "www.bing.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "www.google.com",
+     "sessionsCount": 2
+    },
+    {
+     "name": "duckduckgo.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "m.search.naver.com",
+     "sessionsCount": 1
+    },
+    {
+     "name": "search.yahoo.com",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://everykoreans.com/",
+     "visitsCount": 4
+    },
+    {
+     "url": "https://everykoreans.com/blog/go-vs-aseo-english.html",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/topik-writing/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://everykoreans.com/dictionary/%EC%B0%B8%EA%B8%B0%EB%A6%84.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/busan.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/korean-word-for/peel.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/pricing.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/sentence/42-4.html",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/shop/",
+     "visitsCount": 1
+    },
+    {
+     "url": "https://everykoreans.com/topik-reading/t2-215.html",
+     "visitsCount": 1
+    }
+   ]
+  }
+ ],
+ "byUrl": [],
+ "note": ""
+}
